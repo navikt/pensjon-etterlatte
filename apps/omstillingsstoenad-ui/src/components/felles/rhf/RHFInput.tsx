@@ -143,7 +143,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFValutaInput = ({ name, ...rest }: RHFProps) => {
+export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -160,7 +160,7 @@ export const RHFValutaInput = ({ name, ...rest }: RHFProps) => {
             <Controller
                 name={name}
                 control={control}
-                rules={{ required: true, pattern: re }}
+                rules={{ required: !valgfri, pattern: re }}
                 render={({ field: { value, onChange } }) => (
                     <TextField
                         id={name}
