@@ -11,9 +11,10 @@ import { SkjemaElement } from '../../../felles/SkjemaElement'
 
 interface Props {
     opplysningerOmBarn: IOmBarn
+    senderSoeknad: boolean
 }
 
-export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn }: Props) => {
+export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoeknad }: Props) => {
     const { t } = useTranslation()
 
     return (
@@ -21,6 +22,7 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn }: Props) => 
             tittel={t('omBarn.tittel')}
             path={`/skjema/steg/${StegPath.OmBarn}`}
             pathText={StegPath.OmBarn}
+            senderSoeknad={senderSoeknad}
         >
             <Panel>
                 {opplysningerOmBarn.barn?.map((barnet, index) => (

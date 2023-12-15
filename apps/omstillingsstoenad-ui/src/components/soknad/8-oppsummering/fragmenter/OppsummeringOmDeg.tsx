@@ -13,9 +13,10 @@ import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsumme
 interface Props {
     omDeg: ISoeker
     bruker: IBruker
+    senderSoeknad: boolean
 }
 
-export const OppsummeringOmDeg = memo(({ omDeg, bruker }: Props) => {
+export const OppsummeringOmDeg = memo(({ omDeg, bruker, senderSoeknad }: Props) => {
     const { t } = useTranslation()
 
     return (
@@ -23,6 +24,7 @@ export const OppsummeringOmDeg = memo(({ omDeg, bruker }: Props) => {
             tittel={t(StegLabelKey.OmDeg)}
             path={`/skjema/steg/${StegPath.OmDeg}`}
             pathText={StegPath.OmDeg}
+            senderSoeknad={senderSoeknad}
         >
             <Panel>
                 <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>

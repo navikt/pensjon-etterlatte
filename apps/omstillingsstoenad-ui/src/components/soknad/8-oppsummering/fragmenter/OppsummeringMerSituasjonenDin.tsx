@@ -11,9 +11,10 @@ import { Studieform } from '../../../../typer/utdanning'
 
 interface Props {
     merOmSituasjonenDin: IMerOmSituasjonenDin
+    senderSoeknad: boolean
 }
 
-export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin }: Props) => {
+export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, senderSoeknad }: Props) => {
     const { t } = useTranslation()
 
     return (
@@ -21,6 +22,7 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin }: Prop
             tittel={t(StegLabelKey.MerOmSituasjonenDin)}
             path={`/skjema/steg/${StegPath.MerOmSituasjonenDin}`}
             pathText={StegPath.MerOmSituasjonenDin}
+            senderSoeknad={senderSoeknad}
         >
             <Panel>
                 <Heading size={'small'}>{t('merOmSituasjonenDin.jobbStatus.tittel')}</Heading>

@@ -93,13 +93,13 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             </SkjemaElement>
 
             <Accordion>
-                <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} />
-                <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} />
-                <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} />
-                <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} />
-                <OppsummeringMerSituasjonenDin merOmSituasjonenDin={soeknad.merOmSituasjonenDin} />
-                <OppsummeringInntektenDin inntektenDin={soeknad.inntektenDin} />
-                <OppsummeringBarnepensjon opplysningerOmBarn={soeknad.opplysningerOmBarn} />
+                <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad}/>
+                <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} senderSoeknad={senderSoeknad}/>
+                <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} senderSoeknad={senderSoeknad}/>
+                <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} senderSoeknad={senderSoeknad}/>
+                <OppsummeringMerSituasjonenDin merOmSituasjonenDin={soeknad.merOmSituasjonenDin} senderSoeknad={senderSoeknad}/>
+                <OppsummeringInntektenDin inntektenDin={soeknad.inntektenDin} senderSoeknad={senderSoeknad}/>
+                <OppsummeringBarnepensjon opplysningerOmBarn={soeknad.opplysningerOmBarn} senderSoeknad={senderSoeknad}/>
                 {!isEmpty(soeknadOppsummering) && (
                     <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
                 )}

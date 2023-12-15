@@ -15,9 +15,10 @@ import { IValg } from '../../../../typer/Spoersmaal'
 
 interface Props {
     inntektenDin: IInntekt
+    senderSoeknad: boolean
 }
 
-export const OppsummeringInntektenDin = memo(({ inntektenDin }: Props) => {
+export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: Props) => {
     const { t } = useTranslation()
 
     return (
@@ -25,6 +26,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin }: Props) => {
             tittel={t(StegLabelKey.InntektenDin)}
             path={`/skjema/steg/${StegPath.InntektenDin}`}
             pathText={StegPath.InntektenDin}
+            senderSoeknad={senderSoeknad}
         >
             <Panel>
                 <Heading size={'small'}>{t('inntektenDin.undertittel')}</Heading>

@@ -9,9 +9,10 @@ import { IValg } from '../../../../typer/Spoersmaal'
 
 interface Props {
     omDegOgAvdoed: ISoekerOgAvdoed
+    senderSoeknad: boolean
 }
 
-export const OppsummeringOmDegOgAvdoed = memo(({ omDegOgAvdoed }: Props) => {
+export const OppsummeringOmDegOgAvdoed = memo(({ omDegOgAvdoed, senderSoeknad }: Props) => {
     const { t } = useTranslation()
 
     return (
@@ -19,6 +20,7 @@ export const OppsummeringOmDegOgAvdoed = memo(({ omDegOgAvdoed }: Props) => {
             tittel={t(StegLabelKey.OmDegOgAvdoed)}
             path={`/skjema/steg/${StegPath.OmDegOgAvdoed}`}
             pathText={StegPath.OmDegOgAvdoed}
+            senderSoeknad={senderSoeknad}
         >
             <Panel>
                 {omDegOgAvdoed.forholdTilAvdoede?.relasjon && (

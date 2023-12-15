@@ -4,7 +4,7 @@ import { EditFilled } from '@navikt/ds-icons'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pathText }: any) => {
+export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pathText, senderSoeknad }: any) => {
     const { t } = useTranslation()
     const [open, setOpen] = useState(defaultOpen)
 
@@ -21,7 +21,7 @@ export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pat
             </Accordion.Header>
             <Accordion.Content>
                 {children}
-                <Link to={path}>
+                <Link to={path} className={senderSoeknad ? 'disabled' : ''}>
                     <EditFilled />
                     <span style={{ paddingLeft: '0.25rem' }}>{t(`endreSvarOppsummering.${pathText}`)}</span>
                 </Link>
