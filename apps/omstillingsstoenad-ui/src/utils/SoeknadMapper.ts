@@ -1,6 +1,5 @@
 import { TFunction } from 'i18next'
 import { IBruker } from '../context/bruker/bruker'
-import { ISoeknad } from '../context/soknad/soknad'
 import { IArbeidsforhold, ISelvstendigNaeringsdrivende } from '../typer/arbeidsforhold'
 import {
     IAvdoed,
@@ -25,7 +24,7 @@ export default class SoeknadMapper {
         this.otr = new ObjectTreeReader(t)
     }
 
-    lagOppsummering(soeknad: ISoeknad): Gruppe[] {
+    lagOppsummering(): Gruppe[] {
         return [
             // this.mapOmDeg(soeknad.omDeg, bruker),
             // this.mapOmDenAvdoede(soeknad.omDenAvdoede),
@@ -33,7 +32,7 @@ export default class SoeknadMapper {
             // this.mapSituasjonenDin(soeknad.situasjonenDin),
             // this.mapMerOmSituasjonenDin(soeknad.merOmSituasjonenDin),
             // this.mapInntektenDin(soeknad.inntektenDin),
-            this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
+            // this.mapOpplysningerOmBarn(soeknad.opplysningerOmBarn),
         ]
     }
 

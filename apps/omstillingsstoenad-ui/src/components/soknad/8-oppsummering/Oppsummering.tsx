@@ -22,6 +22,7 @@ import { OppsummeringOmDegOgAvdoed } from './fragmenter/OppsummeringOmDegOgAvdoe
 import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonenDin'
 import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
+import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
 
 const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const navigate = useNavigate()
@@ -43,7 +44,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             if (isEmpty(soeknad) || isEmpty(bruker)) {
                 setOppsummering([])
             } else {
-                const soeknadOppsummering = mapper.lagOppsummering(soeknad)
+                const soeknadOppsummering = mapper.lagOppsummering()
                 setOppsummering(soeknadOppsummering)
             }
         })()
@@ -98,6 +99,7 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} />
                 <OppsummeringMerSituasjonenDin merOmSituasjonenDin={soeknad.merOmSituasjonenDin} />
                 <OppsummeringInntektenDin inntektenDin={soeknad.inntektenDin} />
+                <OppsummeringBarnepensjon opplysningerOmBarn={soeknad.opplysningerOmBarn} />
                 {!isEmpty(soeknadOppsummering) && (
                     <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
                 )}
