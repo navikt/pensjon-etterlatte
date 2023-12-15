@@ -486,6 +486,7 @@ export default {
     'omBarn.soeknadOmTilleggsstoenadBarnepass.beskrivelse':
         'Du kan få dekt delar av utgiftene til pass av barn dersom du er attlevande ektefelle som gjennomfører nødvendig og hensiktsmessig utdanning godkjent av NAV, eller er registrert som reell arbeidssøkar hos NAV og sender meldekort.',
     'omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse': 'Eg har utgifter til pass av barn',
+    'omBarn.ikkeSoekt': 'Det er ikkje søkt om barnepensjon',
     'oppsummering.tittel': 'Oppsummering',
     'oppsummering.beskrivelse':
         'Les gjennom oppsummeringa av søknaden din før du sender.\nViss du vil endre noko, kan du gå tilbake og gjere det.',

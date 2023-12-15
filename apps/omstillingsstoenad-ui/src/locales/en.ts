@@ -512,6 +512,7 @@ export default {
     'omBarn.soeknadOmTilleggsstoenadBarnepass.beskrivelse':
         'Some of your child care expenses may be covered if you are a surviving spouse who is completing necessary and appropriate education approved by NAV, or you are registered at NAV as a real job seeker submitting employment status forms.',
     'omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse': 'I have child care expenses',
+    'omBarn.ikkeSoekt': `You have not applied for children's pension`,
     'oppsummering.tittel': 'Summary',
     'oppsummering.beskrivelse':
         'Please read through the summary of your application before submitting it.\nIf you need to make any changes, you can go back and make them.',

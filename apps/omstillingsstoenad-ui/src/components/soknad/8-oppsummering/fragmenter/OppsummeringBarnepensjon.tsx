@@ -1,4 +1,4 @@
-import { Heading, Panel, Tag } from '@navikt/ds-react'
+import { BodyShort, Heading, Panel, Tag } from '@navikt/ds-react'
 import React, { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { IOmBarn } from '../../../../typer/person'
@@ -59,10 +59,12 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                             </Panel>
                         )}
 
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('omBarn.harBarnetVerge.svar')}
-                            innhold={barnet.harBarnetVerge?.svar}
-                        />
+                        {barnet.harBarnetVerge?.svar && (
+                            <TekstGruppeJaNeiVetIkke
+                                tittel={t('omBarn.harBarnetVerge.svar')}
+                                innhold={barnet.harBarnetVerge?.svar}
+                            />
+                        )}
 
                         {barnet.harBarnetVerge?.svar === IValg.JA && (
                             <Panel>
@@ -87,10 +89,12 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                             </Panel>
                         )}
 
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('omBarn.barnepensjon.kontonummer.svar')}
-                            innhold={barnet.barnepensjon?.kontonummer?.svar}
-                        />
+                        {barnet.barnepensjon?.kontonummer?.svar && (
+                            <TekstGruppeJaNeiVetIkke
+                                tittel={t('omBarn.barnepensjon.kontonummer.svar')}
+                                innhold={barnet.barnepensjon?.kontonummer?.svar}
+                            />
+                        )}
 
                         {barnet.barnepensjon?.kontonummer?.svar === IValg.NEI && (
                             <Panel>
@@ -101,10 +105,12 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                             </Panel>
                         )}
 
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('omBarn.barnepensjon.forskuddstrekk.svar')}
-                            innhold={barnet.barnepensjon?.forskuddstrekk?.svar}
-                        />
+                        {barnet.barnepensjon?.forskuddstrekk?.svar && (
+                            <TekstGruppeJaNeiVetIkke
+                                tittel={t('omBarn.barnepensjon.forskuddstrekk.svar')}
+                                innhold={barnet.barnepensjon?.forskuddstrekk?.svar}
+                            />
+                        )}
 
                         {barnet.barnepensjon?.forskuddstrekk?.svar === IValg.JA && (
                             <Panel>
@@ -123,6 +129,8 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                         )}
                     </Panel>
                 ))}
+
+                {!opplysningerOmBarn.barn?.length && <BodyShort>{t('omBarn.ikkeSoekt')}</BodyShort>}
             </Panel>
         </AccordionItem>
     )
