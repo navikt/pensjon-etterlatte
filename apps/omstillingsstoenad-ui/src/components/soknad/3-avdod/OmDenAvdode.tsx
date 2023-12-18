@@ -72,7 +72,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 </Heading>
             </SkjemaElement>
 
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <SkjemaGruppe>
                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                         <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />

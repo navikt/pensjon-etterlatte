@@ -76,7 +76,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <SkjemaElement>
                     <Heading size={'medium'} className={'center'}>
                         {t('merOmSituasjonenDin.tittel')}

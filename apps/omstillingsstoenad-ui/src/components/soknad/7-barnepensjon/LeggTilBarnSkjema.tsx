@@ -150,7 +150,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                 </GuidePanel>
             </SkjemaElement>
             <FormProvider {...methods}>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <EndreBarnKort border>
                         <EndreBarnKortHeader>
                             <img alt="barn" src={ikon} />
