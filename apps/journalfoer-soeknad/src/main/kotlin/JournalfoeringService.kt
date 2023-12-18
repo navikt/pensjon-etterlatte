@@ -39,7 +39,7 @@ class JournalfoeringService(private val klient: Dokarkiv) {
             journalfoerendeEnhet = finnJournalfoerendeEnhet(soeknad, gradering, forsoekFerdigstill),
             avsenderMottaker = AvsenderMottaker(id = fnrSoeker),
             bruker = Bruker(id = fnrSoeker),
-            eksternReferanseId = SOEKNAD_TITTEL + soeknadId,
+            eksternReferanseId = "etterlatte:${soeknad.type.toString().lowercase()}:$soeknadId",
             dokumenter = listOf(dokument),
             sak = if(forsoekFerdigstill) Sak(sakId!!) else null
         )
