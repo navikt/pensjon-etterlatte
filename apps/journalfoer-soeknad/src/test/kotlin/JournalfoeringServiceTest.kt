@@ -73,7 +73,7 @@ internal class JournalfoeringServiceTest {
         assertEquals(fnrSoeker, actualRequest.bruker.id)
         assertEquals("FNR", actualRequest.bruker.idType)
 
-        assertEquals(soeknadId, actualRequest.eksternReferanseId)
+        assertEquals("etterlatte:gjenlevendepensjon:$soeknadId", actualRequest.eksternReferanseId)
 
         // Dokumenter
         assertEquals(1, actualRequest.dokumenter.size)
