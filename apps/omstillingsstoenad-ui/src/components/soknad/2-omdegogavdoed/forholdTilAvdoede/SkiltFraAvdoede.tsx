@@ -12,13 +12,6 @@ import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { HGrid } from '@navikt/ds-react'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 
-const giftMerEnn25aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string): IValg => {
-    const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0
-    if (antallAarPartnerskap >= 25) {
-        return IValg.JA
-    }
-    return IValg.NEI
-}
 const giftMindreEnn15aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string) => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0
     if (antallAarPartnerskap < 15) {
@@ -41,7 +34,6 @@ const SkiltFraAvdoede = () => {
     const mottokBidrag = watch('forholdTilAvdoede.mottokBidrag.svar')
 
     const mindreEnn15aar = giftMindreEnn15aar(datoForInngaattPartnerskap, datoForSkilsmisse)
-    const merEnn25aar = giftMerEnn25aar(datoForInngaattPartnerskap, datoForSkilsmisse)
 
     return (
         <SkjemaGruppe>
@@ -77,15 +69,6 @@ const SkiltFraAvdoede = () => {
                     />
                 </SkjemaElement>
             )}
-
-            {merEnn25aar === IValg.JA || (fellesBarn === IValg.JA && mindreEnn15aar === IValg.NEI) ? (
-                <SkjemaElement>
-                    <RHFSpoersmaalRadio
-                        name={'forholdTilAvdoede.mottokEktefelleBidrag'}
-                        legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokEktefelleBidrag')}
-                    />
-                </SkjemaElement>
-            ) : null}
 
             <SkjemaElement>
                 <RHFSpoersmaalRadio
