@@ -21,18 +21,13 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.jobs.TilstandsProbe
-import no.nav.etterlatte.jobs.TilstandsPusher
+import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
+import no.nav.etterlatte.jobs.PubliserTilstandJobb
 import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.helse.rapids_rivers.RapidApplication
-import no.nav.helse.rapids_rivers.RapidsConnection
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.Logger
@@ -41,6 +36,7 @@ import org.slf4j.event.Level
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi
 import java.util.*
+import java.util.concurrent.atomic.AtomicBoolean
 
 val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
@@ -54,33 +50,14 @@ fun main() {
     val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
         .withKtorModule { apiModule { soeknadApi(SoeknadService(db)) } }
         .build().also { rapidConnection ->
-            rapidConnection.register(object : RapidsConnection.StatusListener {
-                val running = Job()
-                val workers = mutableListOf<Job>()
-                override fun onStartup(rapidsConnection: RapidsConnection) {
-                    datasourceBuilder.migrate()
-                    workers += GlobalScope.launch {
-                        TilstandsPusher(db, SoeknadPubliserer(rapidsConnection, db)).start(running)
-                    }
-                    workers += GlobalScope.launch {
-                        TilstandsProbe(db).start(running)
-                    }
-                }
-
-                override fun onShutdown(rapidsConnection: RapidsConnection) {
-                    running.complete()
-                    runBlocking {
-                        GlobalScope.launch {
-                            workers.forEach {
-                                it.join()
-                            }
-                        }.join()
-                    }
-                }
-            })
-
             JournalpostSkrevet(rapidConnection, db)
             BehandlingOpprettetDoffen(rapidConnection, db)
+
+            PubliserTilstandJobb(db, SoeknadPubliserer(rapidConnection, db))
+                .schedule().addShutdownHook()
+
+            PubliserMetrikkerJobb(db)
+                .schedule().addShutdownHook()
         }
 
     rapidApplication.start()
@@ -116,3 +93,13 @@ fun Application.apiModule(routes: Route.() -> Unit) {
         }
     }
 }
+
+val shuttingDown: AtomicBoolean = AtomicBoolean(false)
+
+private fun Timer.addShutdownHook() =
+    Runtime.getRuntime().addShutdownHook(
+        Thread {
+            shuttingDown.set(true)
+            this.cancel()
+        }
+    )

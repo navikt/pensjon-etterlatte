@@ -1,9 +1,11 @@
 package no.nav.etterlatte
 
-import soeknad.LagretSoeknad
+import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
+import no.nav.etterlatte.libs.common.logging.getCorrelationId
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import org.slf4j.LoggerFactory
+import soeknad.LagretSoeknad
 import soeknad.SoeknadRepository
 import java.time.Clock
 import java.time.OffsetDateTime
@@ -19,7 +21,8 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
             "@lagret_soeknad_id" to soeknad.id,
             "@template" to "soeknad",
             "@fnr_soeker" to soeknad.fnr,
-            "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString()
+            "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString(),
+            CORRELATION_ID to getCorrelationId(),
         ))
 
         rapid.publish(soeknad.id.toString(), message.toJson())
@@ -36,7 +39,8 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
             "@lagret_soeknad_id" to soeknad.id,
             "@template" to "soeknad",
             "@fnr_soeker" to soeknad.fnr,
-            "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString()
+            "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString(),
+            CORRELATION_ID to getCorrelationId()
         ))
         rapid.publish(soeknad.id.toString(), message.toJson())
 
