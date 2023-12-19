@@ -84,7 +84,11 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                     merOmSituasjonenDin={soeknad.merOmSituasjonenDin}
                     senderSoeknad={senderSoeknad}
                 />
-                <OppsummeringInntektenDin inntektenDin={soeknad.inntektenDin} senderSoeknad={senderSoeknad} />
+                <OppsummeringInntektenDin
+                    inntektenDin={soeknad.inntektenDin}
+                    senderSoeknad={senderSoeknad}
+                    datoforDoedsfallet={soeknad.omDenAvdoede.datoForDoedsfallet!!}
+                />
                 <OppsummeringBarnepensjon
                     opplysningerOmBarn={soeknad.opplysningerOmBarn}
                     senderSoeknad={senderSoeknad}

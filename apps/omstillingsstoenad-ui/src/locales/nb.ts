@@ -270,12 +270,12 @@ export default {
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Arbeidsinntekten din året før dødsfallet',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'Hva var brutto årsinntekt i dødsfallsåret?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
         'Fra januar til og med desember',
-    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall': 'Hva hadde du i arbeidsinntekt etter dødsfallet?',
-    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'Hva hadde du i arbeidsinntekt etter dødsfallet?',
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'Fra måneden etter dødsfallet til og med desember det året. Hvis dødsfallmåneden var desember, oppgir du 0 kroner.',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
@@ -292,7 +292,7 @@ export default {
         'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
         'Hva forventer du å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',

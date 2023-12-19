@@ -267,14 +267,13 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Arbeidsinntekta di året før dødsfallet',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'Kva var brutto årsinntekt i dødsfallsåret?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
         'Frå januar til og med desember',
-    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall': 'Kva hadde du i arbeidsinntekt etter dødsfallet?',
-    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'Kva hadde du i arbeidsinntekt etter dødsfallet?',
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'Frå månaden etter dødsfallet til og med desember det året. Hvis dødsfallmånaden var desember, oppgir du 0 kroner.',
-
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom Skatteetaten ikkje har slåt fast inntekta enno, kan du oppgi årsinntekta som står på lønsslippen for desember.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
@@ -289,7 +288,7 @@ export default {
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
         'Kva reknar du med å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Går du ut frå at inntekta di vil endre seg fram i tid?',

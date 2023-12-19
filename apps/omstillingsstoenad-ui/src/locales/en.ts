@@ -277,12 +277,12 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Your income from work before the death',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'What was your gross annual income in the year of the death?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
         'From january and up to and including december',
-    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
-    'inntektenDin.loennsinntekt.norge.inntektEtterDoedsfall.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'From the month after the death and up to and including december that year. If the death was in December, Hvis dødsfallmåneden var desember, state 0 kroner.',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
@@ -300,7 +300,7 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'What do you expect to earn in gross annual income for next year?',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual income this year?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
