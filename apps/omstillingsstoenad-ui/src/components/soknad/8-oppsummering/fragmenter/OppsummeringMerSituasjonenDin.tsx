@@ -53,7 +53,8 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                                     />
                                 )}
 
-                                {arbeid.ansettelsesforhold === StillingType.midlertidig && (
+                                {(arbeid.ansettelsesforhold === StillingType.midlertidig ||
+                                    arbeid.ansettelsesforhold === StillingType.tilkallingsvikar) && (
                                     <>
                                         <TekstGruppe
                                             tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
@@ -200,7 +201,8 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             />
                         )}
 
-                        {merOmSituasjonenDin.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig && (
+                        {(merOmSituasjonenDin.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig ||
+                            merOmSituasjonenDin.tilbudOmJobb?.ansettelsesforhold === StillingType.tilkallingsvikar) && (
                             <>
                                 <TekstGruppe
                                     tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
