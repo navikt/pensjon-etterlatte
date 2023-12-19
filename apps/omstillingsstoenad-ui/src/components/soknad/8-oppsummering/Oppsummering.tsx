@@ -1,7 +1,6 @@
-import { Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
-import { isEmpty } from 'lodash'
+import { Accordion, Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import React, { memo, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { sendSoeknad } from '../../../api/api'
@@ -11,15 +10,19 @@ import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { LogEvents, useAmplitude } from '../../../utils/amplitude'
-import SoeknadMapper from '../../../utils/SoeknadMapper'
 import Navigasjon from '../../felles/Navigasjon'
-import OppsummeringInnhold from './OppsummeringInnhold'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
+import { OppsummeringOmDenAvdoede } from './fragmenter/OppsummeringOmDenAvdoede'
+import { OppsummeringOmDegOgAvdoed } from './fragmenter/OppsummeringOmDegOgAvdoed'
+import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonenDin'
+import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
+import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
+import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
 
-const Oppsummering: SoknadSteg = memo(({ forrige }) => {
+const Oppsummering: SoknadSteg = ({ forrige }) => {
     const navigate = useNavigate()
-    const [soeknadOppsummering, setOppsummering] = useState<any>([])
     const { t } = useTranslation()
 
     const { state: soeknad, dispatch } = useSoknadContext()
@@ -29,19 +32,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
     const [senderSoeknad, setSenderSoeknad] = useState(false)
     const [error, setError] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-
-    const mapper = new SoeknadMapper(t)
-
-    useEffect(() => {
-        (async () => {
-            if (isEmpty(soeknad) || isEmpty(bruker)) {
-                setOppsummering([])
-            } else {
-                const soeknadOppsummering = mapper.lagOppsummering(soeknad, bruker)
-                setOppsummering(soeknadOppsummering)
-            }
-        })()
-    }, [soeknad, bruker])
 
     const send = () => {
         setSenderSoeknad(true)
@@ -85,9 +75,21 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
                 <BodyLong>{t('oppsummering.beskrivelse')}</BodyLong>
             </SkjemaElement>
 
-            {!isEmpty(soeknadOppsummering) && (
-                <OppsummeringInnhold soeknadOppsummering={soeknadOppsummering} senderSoeknad={senderSoeknad} />
-            )}
+            <Accordion>
+                <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad} />
+                <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} senderSoeknad={senderSoeknad} />
+                <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} senderSoeknad={senderSoeknad} />
+                <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} senderSoeknad={senderSoeknad} />
+                <OppsummeringMerSituasjonenDin
+                    merOmSituasjonenDin={soeknad.merOmSituasjonenDin}
+                    senderSoeknad={senderSoeknad}
+                />
+                <OppsummeringInntektenDin inntektenDin={soeknad.inntektenDin} senderSoeknad={senderSoeknad} />
+                <OppsummeringBarnepensjon
+                    opplysningerOmBarn={soeknad.opplysningerOmBarn}
+                    senderSoeknad={senderSoeknad}
+                />
+            </Accordion>
 
             <br />
 
@@ -153,6 +155,6 @@ const Oppsummering: SoknadSteg = memo(({ forrige }) => {
             </Modal>
         </>
     )
-})
+}
 
 export default Oppsummering

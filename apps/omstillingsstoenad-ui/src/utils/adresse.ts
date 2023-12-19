@@ -1,6 +1,6 @@
 import { IBruker } from '../context/bruker/bruker'
 
-export const fullAdresse = (bruker: IBruker): String => {
+export const fullAdresse = (bruker: IBruker): string => {
     if (bruker.adressebeskyttelse || !bruker.adresse) return ''
 
     return (
