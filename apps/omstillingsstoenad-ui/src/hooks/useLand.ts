@@ -31,6 +31,16 @@ const sortByTekst = (a: Land, b: Land) => {
     return -1
 }
 
+export const moveMostUsedCountriesToBeginning = (allCountries: Land[]) => {
+    const frequentlyUsed = ['NORGE']
+
+    const countries = allCountries.filter((country) => frequentlyUsed.includes(country.beskrivelser.nb.tekst))
+
+    if (countries) countries.forEach((country) => allCountries.unshift(country))
+
+    return allCountries
+}
+
 export const useLand = (): UseLand => {
     const [land, setLand] = useState<Land[]>([])
     const [alleLand, setAlleLand] = useState<Land[]>([])
@@ -42,7 +52,7 @@ export const useLand = (): UseLand => {
             try {
                 let landliste: Land[] = await hentLand()
                 landliste = landliste.sort(sortByTekst)
-                setAlleLand(landliste)
+                setAlleLand(moveMostUsedCountriesToBeginning(landliste))
 
                 landliste = landliste.filter((land) => new Date(land.gyldigTil) > new Date())
                 setLand(landliste)
