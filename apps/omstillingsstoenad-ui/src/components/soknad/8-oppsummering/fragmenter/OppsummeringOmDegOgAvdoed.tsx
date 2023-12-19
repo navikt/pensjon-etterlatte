@@ -30,19 +30,19 @@ export const OppsummeringOmDegOgAvdoed = memo(({ omDegOgAvdoed, senderSoeknad }:
                     />
                 )}
 
-                {omDegOgAvdoed.forholdTilAvdoede?.relasjon === ForholdTilAvdoede.gift ||
-                    (omDegOgAvdoed.forholdTilAvdoede?.relasjon === ForholdTilAvdoede.separert && (
+                {(omDegOgAvdoed.forholdTilAvdoede?.relasjon === ForholdTilAvdoede.gift ||
+                        omDegOgAvdoed.forholdTilAvdoede?.relasjon === ForholdTilAvdoede.separert) && (
                         <>
                             <TekstGruppe
-                                tittel={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
-                                innhold={omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap}
+                                    tittel={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
+                                    innhold={omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap}
                             />
                             <TekstGruppeJaNeiVetIkke
-                                tittel={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
-                                innhold={omDegOgAvdoed.forholdTilAvdoede.fellesBarn}
+                                    tittel={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
+                                    innhold={omDegOgAvdoed.forholdTilAvdoede.fellesBarn}
                             />
                         </>
-                    ))}
+                )}
 
                 {omDegOgAvdoed.forholdTilAvdoede?.relasjon === ForholdTilAvdoede.samboer && (
                     <>
