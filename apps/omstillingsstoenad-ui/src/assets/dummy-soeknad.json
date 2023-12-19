@@ -26,7 +26,7 @@
     "etternavn": "Testperson",
     "datoForDoedsfallet": "2021-07-26",
     "foedselsnummer": "24014021406",
-    "statsborgerskap": "Norge",
+    "statsborgerskap": "Danmark",
     "boddEllerJobbetUtland": {
       "svar": "radiobuttons.ja",
       "oppholdUtland": [
@@ -188,7 +188,7 @@
         "fornavn": "Treg",
         "etternavn": "Snøfreser",
         "foedselsnummer": "24014021406",
-        "statsborgerskap": "Norge",
+        "statsborgerskap": "Sverige",
         "bosattUtland": {
           "svar": "radiobuttons.nei"
         },
@@ -200,7 +200,7 @@
         "fornavn": "Lunken",
         "etternavn": "Floskel",
         "foedselsnummer": "07010776133",
-        "statsborgerskap": "Norge",
+        "statsborgerskap": "Finland",
         "bosattUtland": {
           "svar": "radiobuttons.nei"
         },
