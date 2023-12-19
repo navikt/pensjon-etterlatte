@@ -19,11 +19,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Java v17.x
-        uses: actions/setup-java@v3
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17.x
+          java-version: 21
           cache: gradle
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
