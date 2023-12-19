@@ -29,6 +29,10 @@ spec:
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB
+  resources:
+    requests:
+      cpu: 20m
+      memory: 320Mi
   replicas:
     cpuThresholdPercentage: 90
     max: 1
