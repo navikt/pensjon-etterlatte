@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import {
+    EndringAvInntektGrunn,
     IInntekt,
     InntektEllerUtbetaling,
     InntektsTyper,
@@ -87,6 +88,28 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                             )}
                         </Panel>
                     )}
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar')}
+                        innhold={inntektenDin.loennsinntekt?.forventerEndringAvInntekt?.svar}
+                    />
+
+                    {inntektenDin.loennsinntekt?.forventerEndringAvInntekt?.svar === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn')}
+                                innhold={t(inntektenDin.loennsinntekt!!.forventerEndringAvInntekt!!.grunn!!)}
+                            />
+
+                            {inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn ===
+                                EndringAvInntektGrunn.annenGrunn && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn')}
+                                    innhold={inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn}
+                                />
+                            )}
+                        </>
+                    )}
                 </Panel>
             )}
 
@@ -145,6 +168,28 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                             )}
                         </Panel>
                     )}
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar')}
+                        innhold={inntektenDin.naeringsinntekt?.forventerEndringAvInntekt?.svar}
+                    />
+
+                    {inntektenDin.naeringsinntekt?.forventerEndringAvInntekt?.svar === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn')}
+                                innhold={t(inntektenDin.naeringsinntekt!!.forventerEndringAvInntekt!!.grunn!!)}
+                            />
+
+                            {inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn ===
+                                EndringAvInntektGrunn.annenGrunn && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn')}
+                                    innhold={inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn}
+                                />
+                            )}
+                        </>
+                    )}
                 </Panel>
             )}
 
@@ -159,7 +204,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                     {inntektenDin.pensjonEllerUfoere?.pensjonstype?.includes(
                         PensjonEllerTrygd.tjenestepensjonsordning
                     ) && (
-                        <Panel>
+                        <>
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
                                 innhold={t(inntektenDin!!.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type!!)}
@@ -168,7 +213,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
                                 innhold={inntektenDin!!.pensjonEllerUfoere!!.tjenestepensjonsordning!!.utbetaler!!}
                             />
-                        </Panel>
+                        </>
                     )}
                     <TekstGruppeJaNeiVetIkke
                         tittel={t('inntektenDin.pensjonEllerUfoere.utland.svar')}
