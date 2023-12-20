@@ -302,6 +302,7 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual income this year?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi fra januar til og med desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -318,7 +319,7 @@ export default {
         'What was your gross annual income in the year before the death?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'What was your gross annual business income in the year of the death?',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
@@ -337,8 +338,10 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'State your expected business income, from the month of the death until December.',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
+    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual business income this year?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse': 'Gi en kort beskrivelse av arbeidet',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',

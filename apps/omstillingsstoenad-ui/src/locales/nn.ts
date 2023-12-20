@@ -288,8 +288,8 @@ export default {
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
-        'Kva reknar du med å ha i brutto arbeidsinntekt i år?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt': 'Kva reknar du med å ha i brutto arbeidsinntekt i år?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi fra januar til og med desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Går du ut frå at inntekta di vil endre seg fram i tid?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Kva er grunnen til endringane?',
@@ -304,7 +304,7 @@ export default {
         'Dersom inntekta di endrar seg etter at du har sendt inn søknaden, må du melde frå til oss om endringa.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'Kva var brutto årsinntekt i dødsfallsåret?',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'Kva hadde du i næringsinntekt etter dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
@@ -321,8 +321,9 @@ export default {
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'Skriv kva du reknar med å ha i næringsinntekt frå same månad som dødsfallet og fram til desember.',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt':
-        'Kva reknar du å ha i brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt': 'Kva reknar du å ha i brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse': 'Gi en kort beskrivelse av arbeidet',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Går du ut frå at inntekta di vil endre seg fram i tid?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Kva er grunnen til endringane?',

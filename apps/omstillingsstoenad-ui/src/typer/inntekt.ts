@@ -43,6 +43,10 @@ export interface IInntekter {
         etterDoedsfall?: string
         aarsinntekt?: string
     }
+    sesongbasertNaeringsinntekt?: {
+        svar?: IValg
+        beskrivelse?: string
+    }
 }
 
 export interface IPensjonEllerUfoere {

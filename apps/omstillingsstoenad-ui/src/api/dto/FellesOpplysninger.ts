@@ -162,6 +162,10 @@ interface InntektsType {
         etterDoedsfall?: Opplysning<FritekstSvar>
         aarsinntekt?: Opplysning<FritekstSvar>
     }
+    sesongbasertNaeringsinntekt?: {
+        svar: Opplysning<EnumSvar<JaNeiVetIkke>>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
 }
 
 export interface PensjonEllerUfoere {

@@ -185,9 +185,23 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                                 innhold={inntektenDin.naeringsinntekt.norge?.arbeidsinntektAaretFoer}
                             />
                             <TekstGruppe
-                                tittel={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall')}
-                                innhold={inntektenDin.naeringsinntekt.norge?.arbeidsinntektIAar?.tilDoedsfall}
+                                tittel={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt')}
+                                innhold={inntektenDin.naeringsinntekt.norge?.arbeidsinntektIAar?.aarsinntekt}
                             />
+
+                            <TekstGruppeJaNeiVetIkke
+                                tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar')}
+                                innhold={inntektenDin.naeringsinntekt?.norge?.sesongbasertNaeringsinntekt?.svar}
+                            />
+
+                            {inntektenDin.naeringsinntekt?.norge?.sesongbasertNaeringsinntekt?.svar === IValg.JA && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse')}
+                                    innhold={
+                                        inntektenDin.naeringsinntekt?.norge?.sesongbasertNaeringsinntekt?.beskrivelse
+                                    }
+                                />
+                            )}
 
                             {inntektenDin.naeringsinntekt.norge?.arbeidsinntektIAar?.etterDoedsfall && (
                                 <TekstGruppe
@@ -209,9 +223,23 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                                 innhold={inntektenDin.naeringsinntekt.utland?.arbeidsinntektAaretFoer}
                             />
                             <TekstGruppe
-                                tittel={t('inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall')}
-                                innhold={inntektenDin.naeringsinntekt.utland?.arbeidsinntektIAar?.tilDoedsfall}
+                                tittel={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt')}
+                                innhold={inntektenDin.naeringsinntekt.utland?.arbeidsinntektIAar?.aarsinntekt}
                             />
+
+                            <TekstGruppeJaNeiVetIkke
+                                tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar')}
+                                innhold={inntektenDin.naeringsinntekt?.utland?.sesongbasertNaeringsinntekt?.svar}
+                            />
+
+                            {inntektenDin.naeringsinntekt?.utland?.sesongbasertNaeringsinntekt?.svar === IValg.JA && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse')}
+                                    innhold={
+                                        inntektenDin.naeringsinntekt?.utland?.sesongbasertNaeringsinntekt?.beskrivelse
+                                    }
+                                />
+                            )}
 
                             {inntektenDin.naeringsinntekt.utland?.arbeidsinntektIAar?.etterDoedsfall && (
                                 <TekstGruppe

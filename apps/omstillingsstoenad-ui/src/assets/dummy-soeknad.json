@@ -130,9 +130,13 @@
       }
     },
     "naeringsinntekt": {
+      "sesonbasertNaeringsinntekt": {
+        "svar": "radiobuttons.ja",
+        "beskrivelse": "Selger julelys i desember"
+      },
       "arbeidsinntektAaretFoer": "10000",
       "arbeidsinntektIAar": {
-        "tilDoedsfall": "20000",
+        "aarsinntekt": "20000",
         "etterDoedsfall": "30000"
       },
       "forventerEndringAvInntekt": {
