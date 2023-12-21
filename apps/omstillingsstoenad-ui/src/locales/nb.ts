@@ -879,12 +879,16 @@ export default {
     'feil.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.inntektstyper.required': 'Oppgi hvilken inntektstype du har',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får arbeidsinntekt fra',
+    'feil.loennsinntekt.norge.inntektEtterDoedsfall.required':'Oppgi arbeidsinntekten din etter dødsfallet',
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required':'Oppgi forventet arbeidsinntekt i år',
     'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+    'feil.loennsinntekt.utland.inntektEtterDoedsfall.required':'Oppgi arbeidsinntekten din etter dødsfallet',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required':'Oppgi forventet arbeidsinntekt i år',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
@@ -910,6 +914,13 @@ export default {
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':'Du må velge om arbeidet et sesongbasert eller ikke',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required':'Gi en kort beskrivelse av arbeidet',
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required':'Oppgi forventet næringsinntekt i år',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':'Du må velge om arbeidet et sesongbasert eller ikke',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':'Gi en kort beskrivelse av arbeidet',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required':'Oppgi forventet næringsinntekt i år',
+
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi hvilken pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Velg hvilken pensjon du mottar',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
