@@ -21,6 +21,10 @@ spec:
   prometheus:
     enabled: true
     path: internal/metrics
+  resources:
+    requests:
+      cpu: 25m
+      memory: 320Mi
   replicas:
     min: 1
     max: 1
