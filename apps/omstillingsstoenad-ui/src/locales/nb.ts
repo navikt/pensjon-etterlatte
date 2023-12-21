@@ -886,7 +886,7 @@ export default {
     'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
-        'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi forventet næringsinntekt til neste år. Brutto inntekt er inntekten før skatt\n',
     'feil.loennsinntekt.utland.inntektEtterDoedsfall.required':'Oppgi arbeidsinntekten din etter dødsfallet',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required':'Oppgi forventet arbeidsinntekt i år',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
@@ -894,7 +894,7 @@ export default {
     'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
-        'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
+        'Oppgi brutto arbeidsinntekt i dødsfallsåret.',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
