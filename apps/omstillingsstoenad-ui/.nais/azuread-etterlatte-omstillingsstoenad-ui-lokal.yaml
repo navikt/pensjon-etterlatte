@@ -1,0 +1,20 @@
+######################
+# LES README PÅ ROOT #
+######################
+apiVersion: nais.io/v1
+kind: AzureAdApplication
+metadata:
+  name: omstillingsstoenad-ui-lokal
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+spec:
+  logoutUrl: "http://localhost:3000"
+  replyUrls:
+    - url: "http://localhost:3000/oauth2/callback"
+  preAuthorizedApplications:
+    - application: selvbetjening-api
+      cluster: dev-gcp
+      namespace: etterlatte
+  tenant: trygdeetaten.no
+  secretName: azuread-etterlatte-omstillingsstoenad-ui-lokal

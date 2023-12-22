@@ -1,0 +1,11 @@
+FROM node:20-bookworm-slim
+
+WORKDIR /home/node/app
+COPY package.json .
+RUN yarn
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["yarn", "dev"]

@@ -8,6 +8,8 @@ metadata:
 spec:
   image: {{image}}
   port: 8080
+  ingresses:
+    - https://etterlatte-selvbetjening-api.intern.dev.nav.no # Trengs for å kjøre lokalt mot dev
   liveness:
     path: internal/isalive
     initialDelay: 60
@@ -70,3 +72,7 @@ spec:
         - application: gjenlevendepensjon-ui
         - application: barnepensjon-ui
         - application: omstillingsstoenad-ui
+#        *-lokal er KUN for lokal kjøring, må IKKE kopieres til prod.yaml
+        - application: gjenlevendepensjon-ui-lokal
+        - application: barnepensjon-ui-lokal
+        - application: omstillingsstoenad-ui-lokal
