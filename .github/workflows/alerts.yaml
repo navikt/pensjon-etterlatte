@@ -25,22 +25,22 @@ jobs:
         env:
           CLUSTER: dev-gcp
           RESOURCE: alerts-frontend.yaml
-          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/RxEhL
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/fptfa
       - name: deploy backend to dev
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: alerts-backend.yaml
-          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/RxEhL
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/wqY3f
       - name: deploy frontend to prod
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: alerts-frontend.yaml
-          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/awtWK
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/qtDp0
       - name: deploy backend to prod
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: alerts-backend.yaml
-          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/awtWK
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/Ojfw9
