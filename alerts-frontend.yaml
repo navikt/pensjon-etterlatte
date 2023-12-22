@@ -1,29 +1,39 @@
-apiVersion: "nais.io/v1"
-kind: "Alert"
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
 metadata:
   name: brukerdialog-frontend-alerts
   namespace: etterlatte
   labels:
     team: etterlatte
 spec:
-  receivers:
-    slack:
-      channel: '{{SLACK_ALERTS_CHANNEL}}'
-      # <!here> results in a @here message in Slack
-      prependText: "<!here> | "
-  alerts:
-    - alert: Applikasjon nede
-      expr: kube_deployment_status_replicas_available{deployment="\{{ APP_NAME }}"} == 0
-      for: 2m
-      description: "App {{ $labels.app }} er nede i namespace {{ $labels.kubernetes_namespace }}"
-      action: "`kubectl describe pod -l app={{ $labels.app }} -n {{ $labels.namespace }}` for events, og `kubectl logs -l app={{ $labels.app }} -n {{ $labels.namespace }}` for logger"
+  groups:
+    - name: alerts-frontend
+      rules:
+      - alert: Applikasjon nede
+        expr: kube_deployment_status_replicas_available{deployment="\{{ APP_NAME }}"} == 0
+        for: 2m
+        annotations:
+          consequence: "App {{ $labels.app }} er nede i namespace {{ $labels.kubernetes_namespace }}"
+          action: "`kubectl describe pod -l app={{ $labels.app }} -n {{ $labels.namespace }}` for events, og `kubectl logs -l app={{ $labels.app }} -n {{ $labels.namespace }}` for logger"
+        labels:
+          namespace: etterlatte
+          severity: critical
 
-    - alert: Høy feilrate i logger
-      expr: (100 * sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}",log_level=~"Warning|Error"}[3m])) / sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}"}[3m]))) > 10
-      for: 3m
-      action: "Sjekk loggene her: {{LOGS_URL}}"
+      - alert: Høy feilrate i logger
+        expr: (100 * sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}",log_level=~"Warning|Error"}[3m])) / sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}"}[3m]))) > 10
+        for: 3m
+        annotations:
+          consequence: "Høy feilrate i logger"
+          action: "Sjekk loggene her: {{LOGS_URL}}"
+        labels:
+          namespace: etterlatte
 
-    - alert: Feil i selftest # This alert uses a custom metric provided by https://github.com/navikt/common-java-modules
-      expr: selftests_aggregate_result_status{app="\{{ APP_NAME }}"} > 0
-      for: 1m
-      action: "Sjekk app {{ $labels.app }} i namespace {{ $labels.kubernetes_namespace }} sine selftest for å se hva som er galt"
+      - alert: Feil i selftest # This alert uses a custom metric provided by https://github.com/navikt/common-java-modules
+        expr: selftests_aggregate_result_status{app="\{{ APP_NAME }}"} > 0
+        for: 1m
+        annotations:
+          consequence: "Feil i selftest"
+          action: "Sjekk app {{ $labels.app }} i namespace {{ $labels.kubernetes_namespace }} sine selftest for å se hva som er galt"
+        labels:
+          namespace: etterlatte
+          severity: critical
