@@ -7,69 +7,40 @@ on:
     paths:
       - 'alerts-frontend.yaml'
       - 'alerts-backend.yaml'
-#      - 'apps/*/.nais/alerts.yaml'
       - '.github/workflows/alerts.yaml'
+
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
-  frontend-alerts:
-    name: Deploy frontend alerts
+  apply-alerts:
+    name: Apply alerts to cluster
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    strategy:
-      matrix:
-        app: [barnepensjon-ui, gjenlevendepensjon-ui, omstillingsstoenad-ui]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Deploy to dev-gcp
+      - name: deploy frontend to dev
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: alerts-frontend.yaml
-          VAR: >
-            SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
-            APP_NAME=${{ matrix.app }},
-            LOGS_URL=https://logs.adeo.no/goto/412b1dd0-460c-11ed-8607-d590fd125f80
-
-      - name: Deploy to prod-gcp
-        uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: prod-gcp
-          RESOURCE: alerts-frontend.yaml
-          VAR: > 
-            SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
-            APP_NAME=${{ matrix.app }},
-            LOGS_URL=https://logs.adeo.no/goto/4becdec0-460c-11ed-8607-d590fd125f80
-
-  backend-alerts:
-    name: Deploy backend alerts
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    strategy:
-      matrix:
-        app: [selvbetjening-api, innsendt-soeknad, sjekk-adressebeskyttelse, journalfoer-soeknad]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Deploy to dev-gcp
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/fptfa
+      - name: deploy backend to dev
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: alerts-backend.yaml
-          VAR: >
-            SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
-            APP_NAME=${{ matrix.app }},
-            LOGS_URL=https://logs.adeo.no/goto/412b1dd0-460c-11ed-8607-d590fd125f80
-
-      - name: Deploy to prod-gcp
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/wqY3f
+      - name: deploy frontend to prod
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: alerts-frontend.yaml
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/qtDp0
+      - name: deploy backend to prod
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
           RESOURCE: alerts-backend.yaml
-          VAR: >
-            SLACK_ALERTS_CHANNEL=#team-etterlatte-alarm,
-            APP_NAME=${{ matrix.app }},
-            LOGS_URL=https://logs.adeo.no/goto/4becdec0-460c-11ed-8607-d590fd125f80
+          VAR: LOGS_URL=https://logs.adeo.no/app/r/s/Ojfw9

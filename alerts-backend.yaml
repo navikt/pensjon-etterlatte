@@ -1,41 +1,58 @@
-apiVersion: "nais.io/v1"
-kind: "Alert"
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
 metadata:
   name: brukerdialog-backend-alerts
   namespace: etterlatte
   labels:
     team: etterlatte
 spec:
-  receivers:
-    slack:
-      channel: '{{SLACK_ALERTS_CHANNEL}}'
-      # <!here> results in a @here message in Slack
-      prependText: "<!here> | "
-  alerts:
-    - alert: Applikasjon nede
-      expr: kube_deployment_status_replicas_available{deployment="\{{ APP_NAME }}"} == 0
-      for: 2m
-      description: "App {{ $labels.app }} er nede i namespace {{ $labels.kubernetes_namespace }}"
-      action: "`kubectl describe pod -l app={{ $labels.app }} -n {{ $labels.namespace }}` for events, og `kubectl logs -l app={{ $labels.app }} -n {{ $labels.namespace }}` for logger"
+  groups:
+    - name: alerts-backend
+      rules:
+      - alert: Applikasjon nede
+        expr: kube_deployment_status_replicas_available{deployment="\{{ APP_NAME }}"} == 0
+        for: 2m
+        annotations:
+          consequence: "App {{ $labels.app }} er nede i namespace {{ $labels.kubernetes_namespace }}"
+          action: "`kubectl describe pod -l app={{ $labels.app }} -n {{ $labels.namespace }}` for events, og `kubectl logs -l app={{ $labels.app }} -n {{ $labels.namespace }}` for logger"
+        labels:
+          namespace: etterlatte
 
-    - alert: Høy feilrate i logger
-      expr: (100 * sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}",log_level=~"Warning|Error"}[3m])) / sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}"}[3m]))) > 10
-      for: 3m
-      action: "Sjekk loggene her: {{LOGS_URL}}"
+      - alert: Høy feilrate i logger
+        expr: (100 * sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}",log_level=~"Warning|Error"}[3m])) / sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="\{{ APP_NAME }}"}[3m]))) > 10
+        for: 3m
+        annotations:
+          consequence: "Høy feilrate i logger"
+          action: "Sjekk loggene her: {{LOGS_URL}}"
+        labels:
+          namespace: etterlatte
+          severity: warning
 
-    - alert: Feil i selftest # This alert uses a custom metric provided by https://github.com/navikt/common-java-modules
-      expr: selftests_aggregate_result_status{app="\{{ APP_NAME }}"} > 0
-      for: 1m
-      action: "Sjekk app {{ $labels.app }} i namespace {{ $labels.kubernetes_namespace }} sine selftest for å se hva som er galt"
+      - alert: Feil i selftest # This alert uses a custom metric provided by https://github.com/navikt/common-java-modules
+        expr: selftests_aggregate_result_status{app="\{{ APP_NAME }}"} > 0
+        for: 1m
+        annotations:
+          consequence: "Feil i selftest"
+          action: "Sjekk app {{ $labels.app }} i namespace {{ $labels.kubernetes_namespace }} sine selftest for å se hva som er galt"
+        labels:
+          namespace: etterlatte
 
-    - alert: Høy andel HTTP serverfeil (5xx responser)
-      severity: danger
-      expr: (100 * (sum by (backend) (rate(response_total{status_code=~"^5\\d\\d", namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])) / sum by (backend) (rate(response_total{namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])))) > 1
-      for: 3m
-      action: "`kubectl logs \{{ $labels.kubernetes_pod_name }} -n \{{ $labels.kubernetes_namespace }}`"
+      - alert: Høy andel HTTP serverfeil (5xx responser)
+        severity: danger
+        expr: (100 * (sum by (backend) (rate(response_total{status_code=~"^5\\d\\d", namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])) / sum by (backend) (rate(response_total{namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])))) > 1
+        for: 3m
+        labels:
+          namespace: etterlatte
+        annotations:
+          consequence: "Høy andel HTTP-serverfeil"
+          action: "`kubectl logs \{{ $labels.kubernetes_pod_name }} -n \{{ $labels.kubernetes_namespace }}`"
 
-    - alert: Høy andel HTTP klientfeil (4xx responser)
-      severity: warning
-      expr: (100 * (sum by (backend) (rate(response_total{status_code=~"^4\\d\\d", namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])) / sum by (backend) (rate(response_total{namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])))) > 10
-      for: 3m
-      action: "`kubectl logs \{{ $labels.kubernetes_pod_name }} -n \{{ $labels.kubernetes_namespace }}`"
+      - alert: Høy andel HTTP klientfeil (4xx responser)
+        severity: warning
+        expr: (100 * (sum by (backend) (rate(response_total{status_code=~"^4\\d\\d", namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])) / sum by (backend) (rate(response_total{namespace="etterlatte", app="\{{ APP_NAME }}"}[3m])))) > 10
+        for: 3m
+        labels:
+          namespace: etterlatte
+        annotations:
+          consequence: "Høy andel HTTP-klientfeil"
+          action: "`kubectl logs \{{ $labels.kubernetes_pod_name }} -n \{{ $labels.kubernetes_namespace }}`"
