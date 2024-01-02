@@ -15,8 +15,8 @@ navfelles-token-client-core = { module = "no.nav.security:token-client-core", ve
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
 navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.0.1"}
 
-etterlatte-common = { module = "no.nav.etterlatte:common", version = "2023.12.11-14.06.684007480d49"}
-etterlatte-common-test = { module = "no.nav.etterlatte:common-test", version = "2023.12.11-14.06.684007480d49"}
+etterlatte-common = { module = "pensjon-etterlatte-libs:common", version = "2024.01.02-10.19.0e33fefa10eb"}
+etterlatte-common-test = { module = "pensjon-etterlatte-libs:common-test", version = "2024.01.02-10.20.0e33fefa10eb"}
 etterlatte-ktor-client-auth = { module = "no.nav.etterlatte:ktor-client-auth", version = "2023.12.11-14.06.684007480d49"}
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.7.3"}
