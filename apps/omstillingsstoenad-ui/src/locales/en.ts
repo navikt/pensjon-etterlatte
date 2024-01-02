@@ -914,6 +914,12 @@ export default {
     'feil.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.inntektstyper.required': 'State your type of income',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Tick the source of your income',
+    'feil.loennsinntekt.norge.inntektEtterDoedsfall.required': 'State your income from employment after the death',
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required':
+        'State expected income from employment this year',
+    'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'State your income from employment after the death',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required':
+        'State expected income from employment this year',
     'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
         'State gross income from work for year before death. Gross income is income before tax',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
@@ -945,6 +951,16 @@ export default {
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Expectations about income must be answered',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':
+        'You must choose whether the this is seasonal work or not',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':
+        'You must choose whether the this is seasonal work or not',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required':
+        'Please provide a short description of the work',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':
+        'Please provide a short description of the work',
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required': 'State expected business income this year',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required': 'State expected business income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Choose which pension you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':

@@ -533,7 +533,7 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt NAV.',
     'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventa saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
         'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk.',
@@ -872,6 +872,11 @@ export default {
     'feil.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.inntektstyper.required': 'Oppgi kva inntektstype du har',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av for kor du får arbeidsinntekt frå',
+    'feil.loennsinntekt.norge.inntektEtterDoedsfall.required': 'Oppgi arbeidsinntekta din etter dødsfallet',
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi arbeidsinntekta du reknar med å ha i år',
+    'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'Oppgi arbeidsinntekta din etter dødsfallet',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required':
+        'Oppgi arbeidsinntekta du reknar med å ha i år',
     'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekta før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
@@ -900,9 +905,18 @@ export default {
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekta før skatt',
     'feil.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekta før skatt',
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi forventa næringsinntekt i år',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi forventa næringsinntekt i år',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Svar på spørsmålet om forventing rundt inntekt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringane',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Du må beskrive endringane',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':
+        'Du må velje om arbeidet er sesongbasert eller ikkje',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required': 'Gi en kort beskrivelse av arbeidet',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':
+        'Du må velje om arbeidet er sesongbasert eller ikkje',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':
+        'Gi en kort beskrivelse av arbeidet',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi kva pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Vel kva pensjon du får',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
