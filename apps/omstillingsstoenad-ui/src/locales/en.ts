@@ -280,7 +280,7 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'What was your gross annual income in the year of the death?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
-        'From january and up to and including december',
+        'Please state from January to end of December.',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'From the month after the death and up to and including december that year. If the death was in December, Hvis dødsfallmåneden var desember, state 0 kroner.',
@@ -302,7 +302,7 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual income this year?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi fra januar til og med desember.',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Please state from January to end of December.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -323,7 +323,7 @@ export default {
         'What was your gross annual business income in the year of the death?',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
-        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income.',
+        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
         'If you do not know your income for that year, please estimate your business income.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
@@ -340,8 +340,8 @@ export default {
         'State your expected business income, from the month of the death until December.',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual business income this year?',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse': 'Gi en kort beskrivelse av arbeidet',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Is this seasonal work?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse': 'Please provide a short description of the work',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
