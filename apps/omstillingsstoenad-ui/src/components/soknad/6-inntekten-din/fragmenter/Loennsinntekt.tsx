@@ -93,7 +93,7 @@ const Loennsinntekt = () => {
                                         name={'loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt'}
                                         label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                            'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
@@ -172,7 +172,7 @@ const Loennsinntekt = () => {
                                         name={'loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt'}
                                         label={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                            'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />

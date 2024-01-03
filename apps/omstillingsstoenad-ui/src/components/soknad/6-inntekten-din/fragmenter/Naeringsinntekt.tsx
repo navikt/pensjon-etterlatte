@@ -60,7 +60,7 @@ const Naeringsinntekt = () => {
                                 doedsdatoErIAar(datoforDoedsfallet!!)
                                     ? t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')
                                     : t(
-                                          'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                          'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
                                       )
                             }
                             htmlSize={Bredde.S}
@@ -72,9 +72,7 @@ const Naeringsinntekt = () => {
                             <RHFValutaInput
                                 name={'naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt'}
                                 label={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt')}
-                                description={t(
-                                    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse'
-                                )}
+                                description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse')}
                                 htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
@@ -109,13 +107,7 @@ const Naeringsinntekt = () => {
                                     ? t('inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer')
                                     : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')
                             }
-                            description={
-                                doedsdatoErIAar(datoforDoedsfallet!!)
-                                    ? t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')
-                                    : t(
-                                          'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
-                                      )
-                            }
+                            description={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland')}
                             htmlSize={Bredde.S}
                         />
                     </SkjemaElement>
@@ -124,9 +116,7 @@ const Naeringsinntekt = () => {
                             <RHFValutaInput
                                 name={'naeringsinntekt.utland.arbeidsinntektIAar.aarsinntekt'}
                                 label={t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt')}
-                                description={t(
-                                    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse'
-                                )}
+                                description={t('inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse')}
                                 htmlSize={Bredde.S}
                             />
                         </SkjemaElement>

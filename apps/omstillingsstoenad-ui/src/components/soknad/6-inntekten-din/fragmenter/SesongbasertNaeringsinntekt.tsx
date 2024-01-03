@@ -25,6 +25,7 @@ const SesongbasertNaeringsinntekt = ({ type }: Props) => {
                 <RHFSpoersmaalRadio
                     name={`${baseUrl}.svar`}
                     legend={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar')}
+                    description={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar.beskrivelse')}
                 />
             </SkjemaElement>
             {endrerInntekt === IValg.JA && (
