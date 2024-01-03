@@ -322,6 +322,8 @@ export default {
         'What was your gross annual income in the year before the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'What was your gross annual business income in the year of the death?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+        ' If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',

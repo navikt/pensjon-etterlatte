@@ -306,6 +306,8 @@ export default {
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'Kva var brutto årsinntekt det året dødsfallet skjedde?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+        'Dersom Skatteetaten ikkje har slått fast inntekta enno, anslår du næringsinntekta for året.',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'Kva hadde du i næringsinntekt etter dødsfallet?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'Dersom Skatteetaten ikkje har slått fast inntekta enno, anslår du næringsinntekta sjølv.',
