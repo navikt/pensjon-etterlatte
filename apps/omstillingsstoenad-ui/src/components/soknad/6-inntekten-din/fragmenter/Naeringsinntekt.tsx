@@ -49,22 +49,23 @@ const Naeringsinntekt = () => {
                         <SesongbasertNaeringsinntekt type={'norge'} />
                     </SkjemaElement>
                     <SkjemaElement>
-                        <RHFValutaInput
-                            name={'naeringsinntekt.norge.arbeidsinntektAaretFoer'}
-                            label={
-                                doedsdatoErIAar(datoforDoedsfallet!!)
-                                    ? t('inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer')
-                                    : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')
-                            }
-                            description={
-                                doedsdatoErIAar(datoforDoedsfallet!!)
-                                    ? t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')
-                                    : t(
-                                          'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
-                                      )
-                            }
-                            htmlSize={Bredde.S}
-                        />
+                        {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                            <RHFValutaInput
+                                name={'naeringsinntekt.norge.arbeidsinntektAaretFoer'}
+                                label={t('inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer')}
+                                description={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
+                                htmlSize={Bredde.S}
+                            />
+                        ) : (
+                            <RHFValutaInput
+                                name={'naeringsinntekt.norge.arbeidsinntektDoedsfallsaaret'}
+                                label={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')}
+                                description={t(
+                                    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                )}
+                                htmlSize={Bredde.S}
+                            />
+                        )}
                     </SkjemaElement>
 
                     <SkjemaGruppe>
@@ -100,16 +101,25 @@ const Naeringsinntekt = () => {
                         <SesongbasertNaeringsinntekt type={'utland'} />
                     </SkjemaElement>
                     <SkjemaElement>
-                        <RHFValutaInput
-                            name={'naeringsinntekt.utland.arbeidsinntektAaretFoer'}
-                            label={
-                                doedsdatoErIAar(datoforDoedsfallet!!)
-                                    ? t('inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer')
-                                    : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')
-                            }
-                            description={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland')}
-                            htmlSize={Bredde.S}
-                        />
+                        {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                            <RHFValutaInput
+                                name={'naeringsinntekt.utland.arbeidsinntektAaretFoer'}
+                                label={t('inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer')}
+                                description={t(
+                                    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland'
+                                )}
+                                htmlSize={Bredde.S}
+                            />
+                        ) : (
+                            <RHFValutaInput
+                                name={'naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret'}
+                                label={t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')}
+                                description={t(
+                                    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland'
+                                )}
+                                htmlSize={Bredde.S}
+                            />
+                        )}
                     </SkjemaElement>
                     <SkjemaGruppe>
                         <SkjemaElement>

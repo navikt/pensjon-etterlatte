@@ -932,6 +932,10 @@ export default {
         'State gross income from work for year before death. Gross income is income before tax',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
         'State gross income from work for year before death. Gross income is income before tax',
+    'feil.loennsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
+        'State gross income from work in the year of the death. Gross income is income before tax',
+    'feil.loennsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
+        'State gross income from work in the year of the death. Gross income is income before tax',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'State gross income from work prior to the death. Gross income is income before tax',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
@@ -948,6 +952,10 @@ export default {
         'State gross business income for the year before the death. Gross income is income before tax',
     'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required':
         'State gross business income for the year before the death. Gross income is income before tax',
+    'feil.naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
+        'State gross annual income in the year of the death. Gross income is income before tax',
+    'feil.naeringsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
+        'State gross annual income in the year of the death. Gross income is income before tax',
     'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'State gross business income prior to the death. Gross income is income before tax',
     'feil.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':

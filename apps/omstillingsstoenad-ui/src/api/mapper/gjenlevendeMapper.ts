@@ -637,7 +637,9 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                   ? t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')
                                   : t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
                               svar: {
-                                  innhold: inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektAaretFoer!!,
+                                  innhold: doedsfallIAar
+                                      ? inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
+                                      : inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
                               },
                           },
                           inntektEtterDoedsfall: doedsfallIAar
@@ -692,7 +694,9 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                   ? t('inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer')
                                   : t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
                               svar: {
-                                  innhold: inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektAaretFoer!!,
+                                  innhold: doedsfallIAar
+                                      ? inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektAaretFoer!!
+                                      : inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektDoedsfallsaaret!!,
                               },
                           },
                           inntektEtterDoedsfall: doedsfallIAar
@@ -787,7 +791,9 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                   ? t('inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer')
                                   : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
                               svar: {
-                                  innhold: inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektAaretFoer!!,
+                                  innhold: doedsfallIAar
+                                      ? inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
+                                      : inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
                               },
                           },
                           arbeidsinntektIAar: {
@@ -843,7 +849,9 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                   ? t('inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer')
                                   : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
                               svar: {
-                                  innhold: inntektenDin.naeringsinntekt!!.utland!!.arbeidsinntektAaretFoer!!,
+                                  innhold: doedsfallIAar
+                                      ? inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
+                                      : inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
                               },
                           },
                           arbeidsinntektIAar: {

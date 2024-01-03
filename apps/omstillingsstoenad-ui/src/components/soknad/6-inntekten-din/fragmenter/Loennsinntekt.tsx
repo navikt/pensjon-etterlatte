@@ -71,7 +71,7 @@ const Loennsinntekt = () => {
                         <>
                             <SkjemaGruppe>
                                 <RHFValutaInput
-                                    name={'loennsinntekt.norge.arbeidsinntektAaretFoer'}
+                                    name={'loennsinntekt.norge.arbeidsinntektDoedsfallsaaret'}
                                     label={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')}
                                     description={t(
                                         'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
@@ -150,7 +150,7 @@ const Loennsinntekt = () => {
                         <>
                             <SkjemaGruppe>
                                 <RHFValutaInput
-                                    name={'loennsinntekt.utland.arbeidsinntektAaretFoer'}
+                                    name={'loennsinntekt.utland.arbeidsinntektDoedsfallsaaret'}
                                     label={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')}
                                     description={t(
                                         'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland'
