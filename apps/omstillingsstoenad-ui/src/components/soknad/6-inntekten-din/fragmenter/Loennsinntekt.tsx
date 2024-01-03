@@ -153,7 +153,7 @@ const Loennsinntekt = () => {
                                     name={'loennsinntekt.utland.arbeidsinntektAaretFoer'}
                                     label={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer')}
                                     description={t(
-                                        'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse'
+                                        'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland'
                                     )}
                                     htmlSize={Bredde.S}
                                 />

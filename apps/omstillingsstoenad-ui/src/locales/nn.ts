@@ -271,6 +271,8 @@ export default {
         'Kva var brutto årsinntekt det året dødsfallet skjedde?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
         'Dersom Skatteetaten ikkje har slått fast inntekta enno, kan du oppgi årsinntekta som står på lønsslippen for desember.',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland':
+        'Dersom Skatteetaten ikkje har slått fast inntekta enno, anslår du næringsinntekta for året.',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'Kva hadde du i arbeidsinntekt etter dødsfallet?',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'Frå månaden etter dødsfallet til og med desember det året. Hvis dødsfallmånaden var desember, oppgir du 0 kroner.',

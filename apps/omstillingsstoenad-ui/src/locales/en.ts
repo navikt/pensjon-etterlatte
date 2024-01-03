@@ -281,6 +281,8 @@ export default {
         'What was your gross annual income in the year of the death?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income and tax figures for that year, please state the annual income shown on your pay slip for December for that year.',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland':
+        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'From the month after the death and up to and including december that year. If the death was in December, Hvis dødsfallmåneden var desember, state 0 kroner.',
