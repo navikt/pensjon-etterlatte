@@ -239,7 +239,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                           class="navds-sr-only"
                           id="react-day-picker-1"
                         >
-                          desember 2023
+                          januar 2024
                         </span>
                         <button
                           class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only"
@@ -293,61 +293,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                                   value="0"
                                 >
                                   januar
-                                </option>
-                                <option
-                                  value="1"
-                                >
-                                  februar
-                                </option>
-                                <option
-                                  value="2"
-                                >
-                                  mars
-                                </option>
-                                <option
-                                  value="3"
-                                >
-                                  april
-                                </option>
-                                <option
-                                  value="4"
-                                >
-                                  mai
-                                </option>
-                                <option
-                                  value="5"
-                                >
-                                  juni
-                                </option>
-                                <option
-                                  value="6"
-                                >
-                                  juli
-                                </option>
-                                <option
-                                  value="7"
-                                >
-                                  august
-                                </option>
-                                <option
-                                  value="8"
-                                >
-                                  september
-                                </option>
-                                <option
-                                  value="9"
-                                >
-                                  oktober
-                                </option>
-                                <option
-                                  value="10"
-                                >
-                                  november
-                                </option>
-                                <option
-                                  value="11"
-                                >
-                                  desember
                                 </option>
                               </select>
                               <svg
@@ -912,6 +857,11 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                                 >
                                   2023
                                 </option>
+                                <option
+                                  value="2024"
+                                >
+                                  2024
+                                </option>
                               </select>
                               <svg
                                 aria-hidden="true"
@@ -1044,496 +994,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                               class="rdp-cell"
                             >
                               <button
-                                aria-label="27. november (mandag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                27
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="28. november (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                28
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="29. november (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                29
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="30. november (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                30
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="1. desember (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                1
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="2. desember (lørdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                2
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="3. desember (søndag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                3
-                              </button>
-                            </td>
-                          </tr>
-                          <tr
-                            class="rdp-row"
-                          >
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="4. desember (mandag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                4
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="5. desember (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                5
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="6. desember (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                6
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="7. desember (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                7
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="8. desember (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                8
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="9. desember (lørdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                9
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="10. desember (søndag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                10
-                              </button>
-                            </td>
-                          </tr>
-                          <tr
-                            class="rdp-row"
-                          >
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="11. desember (mandag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                11
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="12. desember (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                12
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="13. desember (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                13
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="14. desember (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                14
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="15. desember (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                15
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="16. desember (lørdag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                16
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="17. desember (søndag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                17
-                              </button>
-                            </td>
-                          </tr>
-                          <tr
-                            class="rdp-row"
-                          >
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="18. desember (mandag)"
-                                class="rdp-button_reset rdp-button rdp-day"
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                18
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="19. desember (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_today"
-                                name="day"
-                                tabindex="0"
-                                type="button"
-                              >
-                                19
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="20. desember (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                20
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="21. desember (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                21
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="22. desember (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                22
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="23. desember (lørdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                23
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="24. desember (søndag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                24
-                              </button>
-                            </td>
-                          </tr>
-                          <tr
-                            class="rdp-row"
-                          >
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="25. desember (mandag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                25
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="26. desember (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                26
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="27. desember (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                27
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="28. desember (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                28
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="29. desember (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                29
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="30. desember (lørdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                30
-                              </button>
-                            </td>
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
-                                aria-label="31. desember (søndag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
-                                name="day"
-                                tabindex="-1"
-                                type="button"
-                              >
-                                31
-                              </button>
-                            </td>
-                          </tr>
-                          <tr
-                            class="rdp-row"
-                          >
-                            <td
-                              class="rdp-cell"
-                            >
-                              <button
                                 aria-label="1. januar (mandag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day"
                                 name="day"
                                 tabindex="-1"
                                 type="button"
@@ -1546,8 +1008,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="2. januar (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day"
                                 name="day"
                                 tabindex="-1"
                                 type="button"
@@ -1560,8 +1021,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="3. januar (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day"
                                 name="day"
                                 tabindex="-1"
                                 type="button"
@@ -1574,10 +1034,9 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="4. januar (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                                 name="day"
-                                tabindex="-1"
+                                tabindex="0"
                                 type="button"
                               >
                                 4
@@ -1588,7 +1047,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="5. januar (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                                 disabled=""
                                 name="day"
                                 tabindex="-1"
@@ -1602,7 +1061,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="6. januar (lørdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                                 disabled=""
                                 name="day"
                                 tabindex="-1"
@@ -1616,6 +1075,460 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="7. januar (søndag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                7
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            class="rdp-row"
+                          >
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="8. januar (mandag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                8
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="9. januar (tirsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                9
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="10. januar (onsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                10
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="11. januar (torsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                11
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="12. januar (fredag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                12
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="13. januar (lørdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                13
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="14. januar (søndag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                14
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            class="rdp-row"
+                          >
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="15. januar (mandag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                15
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="16. januar (tirsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                16
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="17. januar (onsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                17
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="18. januar (torsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                18
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="19. januar (fredag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                19
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="20. januar (lørdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                20
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="21. januar (søndag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                21
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            class="rdp-row"
+                          >
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="22. januar (mandag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                22
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="23. januar (tirsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                23
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="24. januar (onsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                24
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="25. januar (torsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                25
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="26. januar (fredag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                26
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="27. januar (lørdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                27
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="28. januar (søndag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                28
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            class="rdp-row"
+                          >
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="29. januar (mandag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                29
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="30. januar (tirsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                30
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="31. januar (onsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                31
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="1. februar (torsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                1
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="2. februar (fredag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                2
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="3. februar (lørdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                3
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="4. februar (søndag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                4
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            class="rdp-row"
+                          >
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="5. februar (mandag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                5
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="6. februar (tirsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                6
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="7. februar (onsdag)"
                                 class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                                 disabled=""
                                 name="day"
@@ -1623,6 +1536,62 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                                 type="button"
                               >
                                 7
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="8. februar (torsdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                8
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="9. februar (fredag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                9
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="10. februar (lørdag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                10
+                              </button>
+                            </td>
+                            <td
+                              class="rdp-cell"
+                            >
+                              <button
+                                aria-label="11. februar (søndag)"
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                disabled=""
+                                name="day"
+                                tabindex="-1"
+                                type="button"
+                              >
+                                11
                               </button>
                             </td>
                           </tr>
