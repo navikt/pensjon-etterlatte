@@ -282,10 +282,10 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income and tax figures for that year, please state the annual income shown on your pay slip for December for that year.',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland':
-        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
+        'If you do not know your income for this year, you can state the annual income shown on your pay slip for December.',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
-        'From the month after the death and up to and including december that year. If the death was in December, Hvis dødsfallmåneden var desember, state 0 kroner.',
+        'Please state from the month after the death until the end of December for that year. If the month of death was December, please enter 0 kroner.',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
@@ -325,7 +325,7 @@ export default {
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
         'What was your gross annual business income in the year of the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
-        ' If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
+        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
