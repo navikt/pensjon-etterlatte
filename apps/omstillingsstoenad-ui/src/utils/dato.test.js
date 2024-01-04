@@ -1,4 +1,10 @@
-import { antallAarMellom, erDato, erMellomOktoberogDesember, ugyldigPeriodeFraSamlivsbruddTilDoedsfall } from './dato'
+import {
+    antallAarMellom,
+    doedsdatoErIAar,
+    erDato,
+    erMellomOktoberogDesember,
+    ugyldigPeriodeFraSamlivsbruddTilDoedsfall,
+} from './dato'
 
 describe('Verifiser gyldighet av periode mellom samlivsbrudd og dødsfall', () => {
     it('Mer enn fem år mellom samlivsbrudd og dødsfall', () => {
@@ -154,5 +160,23 @@ describe('Funksjon erMellomOktoberOgDesember fungerer som forventet', () => {
     it('Skal returnere false hvis idag er 30. september', () => {
         jest.setSystemTime(new Date(2020, 8, 30))
         expect(erMellomOktoberogDesember()).toBeFalsy()
+    })
+})
+
+describe('Funksjon doedsdatoErIAar fungerer som forventet', () => {
+    it('Skal returnere true hvis dato for dødsfall er idag', () => {
+        expect(doedsdatoErIAar(new Date())).toBeTruthy()
+    })
+
+    it('Skal returnere false hvis dato for dødsfall er neste år', () => {
+        const nesteAar = new Date()
+        nesteAar.setFullYear(nesteAar.getFullYear() + 1)
+        expect(doedsdatoErIAar(nesteAar)).toBeFalsy()
+    })
+
+    it('Skal returnere false hvis dato for dødsfall er året før', () => {
+        const aaretFoer = new Date()
+        aaretFoer.setFullYear(aaretFoer.getFullYear() - 1)
+        expect(doedsdatoErIAar(aaretFoer)).toBeFalsy()
     })
 })

@@ -47,7 +47,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         const omDenAvdoede = mockSoeknad.omDenAvdoede
         getById('fornavn').type(omDenAvdoede.fornavn)
         getById('etternavn').type(omDenAvdoede.etternavn)
-        getById('datoForDoedsfallet').type(omDenAvdoede.datoForDoedsfallet)
+        getById('datoForDoedsfallet').type(new Date().toISOString().split('T')[0])
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
         getById('statsborgerskap').find('select').select(omDenAvdoede.statsborgerskap)
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
@@ -167,9 +167,11 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
             inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall
         )
+        /*
         getById('loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
             inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall
         )
+        */
 
         selectValueForId(
             'loennsinntekt.forventerEndringAvInntekt.svar',
@@ -179,13 +181,25 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         // Næringsinntekt
         selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
 
-        getById('naeringsinntekt.norge.arbeidsinntektAaretFoer').type(inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer)
-        getById('naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
-            inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall
+        selectValueForId(
+            'naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar',
+            inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.svar
         )
+        getById('naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse').type(
+            inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.beskrivelse
+        )
+
+        getById('naeringsinntekt.norge.arbeidsinntektAaretFoer').type(
+            inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer
+        )
+        getById('naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt').type(
+            inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt
+        )
+        /*
         getById('naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
             inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall
         )
+        */
 
         selectValueForId(
             'naeringsinntekt.forventerEndringAvInntekt.svar',

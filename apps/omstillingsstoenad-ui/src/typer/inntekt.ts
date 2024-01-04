@@ -37,9 +37,16 @@ export interface ILoennsinntekt {
 
 export interface IInntekter {
     arbeidsinntektAaretFoer?: string
+    arbeidsinntektDoedsfallsaaret?: string
+    inntektEtterDoedsfall?: string
     arbeidsinntektIAar?: {
         tilDoedsfall?: string
         etterDoedsfall?: string
+        aarsinntekt?: string
+    }
+    sesongbasertNaeringsinntekt?: {
+        svar?: IValg
+        beskrivelse?: string
     }
 }
 

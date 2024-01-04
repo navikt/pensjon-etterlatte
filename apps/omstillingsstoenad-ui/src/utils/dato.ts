@@ -43,11 +43,23 @@ export const ugyldigPeriodeFraSamlivsbruddTilDoedsfall = (
     return !!aarMellomSamlivsbruddOgDoed && aarMellomSamlivsbruddOgDoed >= 5
 }
 
-export const erMellomOktoberogDesember = () => {
+export const erMellomOktoberogDesember = (): boolean => {
     const idag = new Date()
     idag.setHours(12, 0, 0, 0)
+
     const sisteDagIDesember = new Date(idag.getFullYear(), 11, 31)
     sisteDagIDesember.setHours(23, 59, 59, 0)
+
     const foersteDagIOktober = new Date(idag.getFullYear(), 9, 1)
+
     return foersteDagIOktober <= idag && idag <= sisteDagIDesember
+}
+
+export const doedsdatoErIAar = (doedsfall: Date): boolean => {
+    const idag = new Date()
+    idag.setHours(0, 0, 0, 0)
+
+    const doedsfallsDato = new Date(doedsfall)
+
+    return idag.getFullYear() === doedsfallsDato.getFullYear()
 }

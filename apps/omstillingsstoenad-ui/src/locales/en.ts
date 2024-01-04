@@ -277,6 +277,15 @@ export default {
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Your income from work before the death',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+        'What was your gross annual income in the year of the death?',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+        'If the Norwegian Tax Administration has not published your income and tax figures for that year, please state the annual income shown on your pay slip for December for that year.',
+    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland':
+        'If you do not know your income for this year, you can state the annual income shown on your pay slip for December.',
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
+    'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
+        'Please state from the month after the death until the end of December for that year. If the month of death was December, please enter 0 kroner.',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
     'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
@@ -293,6 +302,10 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
         'What do you expect to earn in gross annual income for next year?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
+        'What do you expect to earn in gross annual income this year?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse':
+        'Please state from January to end of December.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -309,8 +322,13 @@ export default {
         'What was your gross annual income in the year before the death?',
     'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer':
         'What was your gross annual income in the year before the death?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+        'What was your gross annual business income in the year of the death?',
+    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
+        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
+    'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
-        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income.',
+        'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
         'If you do not know your income for that year, please estimate your business income.',
     'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
@@ -325,6 +343,13 @@ export default {
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
         'State your expected business income, from the month of the death until December.',
+    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt':
+        'What do you expect to earn in gross annual business income this year?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Is this seasonal work?',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar.beskrivelse':
+        'We need to know if your business income was earned evenly throughout the year.',
+    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse':
+        'Please provide a short description of the work',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -421,9 +446,10 @@ export default {
     'omDenAvdoede.statsborgerskap': 'Nationality',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For example: Norwegian',
     'omDenAvdoede.datoForDoedsfallet': 'When did the death occur?',
-    "omDenAvdoede.datoForDoedsfallet.foerDesember": "Because the deceased's time of death was before December 2023 you must apply for a ",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.link": "survivor's pension.",
-    "omDenAvdoede.datoForDoedsfallet.foerDesember.href": "https://www.nav.no/gjenlevendepensjon/en",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember':
+        "Because the deceased's time of death was before December 2023 you must apply for a ",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.link': "survivor's pension.",
+    'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon/en',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Time spent outside Norway',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'We need to know if the deceased has lived or worked outside Norway. This may both affect the size of the survivor’s pension you receive and give you pension rights from other countries.',
@@ -545,7 +571,8 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page',
     'soeknadKvittering.seSaken.informasjon.innhold2':
         'Curious about how long this will take? That information is available here: ',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
+        'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'Expected case processing time.',
     'soeknadKvittering.andreStoenader.tittel': 'You may also be entitled to other benefits',
     'soeknadKvittering.andreStoenader.informasjon':
@@ -555,8 +582,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst': 'Child care benefit for a surviving spouse',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Extended child benefit',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'other benefits for a surviving spouse.',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
-        'https://www.nav.no/omstillingsstonad#andre-stonader',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',
@@ -896,10 +922,20 @@ export default {
     'feil.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.inntektstyper.required': 'State your type of income',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Tick the source of your income',
+    'feil.loennsinntekt.norge.inntektEtterDoedsfall.required': 'State your income from employment after the death',
+    'feil.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required':
+        'State expected income from employment this year',
+    'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'State your income from employment after the death',
+    'feil.loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required':
+        'State expected income from employment this year',
     'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
         'State gross income from work for year before death. Gross income is income before tax',
     'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
         'State gross income from work for year before death. Gross income is income before tax',
+    'feil.loennsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
+        'State gross income from work in the year of the death. Gross income is income before tax',
+    'feil.loennsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
+        'State gross income from work in the year of the death. Gross income is income before tax',
     'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'State gross income from work prior to the death. Gross income is income before tax',
     'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
@@ -916,6 +952,10 @@ export default {
         'State gross business income for the year before the death. Gross income is income before tax',
     'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required':
         'State gross business income for the year before the death. Gross income is income before tax',
+    'feil.naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
+        'State gross annual income in the year of the death. Gross income is income before tax',
+    'feil.naeringsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
+        'State gross annual income in the year of the death. Gross income is income before tax',
     'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
         'State gross business income prior to the death. Gross income is income before tax',
     'feil.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
@@ -927,6 +967,16 @@ export default {
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Expectations about income must be answered',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':
+        'You must choose whether the this is seasonal work or not',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':
+        'You must choose whether the this is seasonal work or not',
+    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required':
+        'Please provide a short description of the work',
+    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':
+        'Please provide a short description of the work',
+    'feil.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required': 'State expected business income this year',
+    'feil.naeringsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required': 'State expected business income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Choose which pension you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
