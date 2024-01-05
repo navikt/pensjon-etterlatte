@@ -9,6 +9,7 @@ on:
 
 jobs:
   test-and-verify:
+    if: github.event_name == 'pull_request'
     name: Test and verify
     runs-on: ubuntu-latest
     steps:

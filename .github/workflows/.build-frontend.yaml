@@ -20,24 +20,6 @@ permissions:
   id-token: write
 
 jobs:
-  test:
-    if: github.event_name == 'pull_request'
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-      - name: Install
-        working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile && yarn build
-      - name: Run tests
-        working-directory: apps/${{ github.workflow }}
-        run: CI=true yarn test
-
   build-and-publish:
     if: github.event_name != 'pull_request'
     name: Build & publish
