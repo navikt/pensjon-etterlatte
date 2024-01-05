@@ -69,7 +69,7 @@ jobs:
         run: yarn build
       - name: Run tests
         working-directory: apps/${{ github.workflow }}
-        run: CI=true yarn test --frozen-lockfile
+        run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
