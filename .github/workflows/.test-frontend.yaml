@@ -20,9 +20,13 @@ jobs:
       - name: Install
         working-directory: apps/${{ github.workflow }}
         run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Build
         working-directory: apps/${{ github.workflow }}
         run: yarn build
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests
