@@ -38,6 +38,7 @@ jobs:
 #        working-directory: apps/${{ github.workflow }}
 #        run: yarn start & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
+        if: github.workflow != 'etterlatte-node-server'
         uses: cypress-io/github-action@v6
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
