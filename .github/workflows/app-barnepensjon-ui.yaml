@@ -38,8 +38,6 @@ jobs:
 
   test:
     uses: ./.github/workflows/.test-frontend.yaml
-    with:
-      yarn-lock-hash: ${{ needs.build.outputs.yarn-lock-hash }}
     secrets: inherit
 
   deploy:

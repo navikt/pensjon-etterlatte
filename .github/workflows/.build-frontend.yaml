@@ -67,6 +67,9 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
         run: yarn build
+      - name: Run tests
+        working-directory: apps/${{ github.workflow }}
+        run: CI=true yarn test --frozen-lockfile
 
       - name: Build and publish docker image
         uses: nais/docker-build-push@v0
