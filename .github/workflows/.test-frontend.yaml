@@ -20,19 +20,28 @@ jobs:
       - name: Install
         working-directory: apps/${{ github.workflow }}
         run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Build
         working-directory: apps/${{ github.workflow }}
         run: yarn build
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests
         working-directory: apps/${{ github.workflow }}
         run: CI=true yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 #      - name: Start application
 #        working-directory: apps/${{ github.workflow }}
 #        run: yarn start & npx wait-on http://localhost:3000
       - name: Run e2e tests (Cypress)
+        if: github.workflow != 'etterlatte-node-server'
         uses: cypress-io/github-action@v6
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
         with:
           start: yarn start
           wait-on: 'http://localhost:3000'
