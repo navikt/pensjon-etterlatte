@@ -1039,9 +1039,9 @@ exports[`Om den avdøde Snapshot 1`] = `
                             >
                               <button
                                 aria-label="4. januar (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                                class="rdp-button_reset rdp-button rdp-day"
                                 name="day"
-                                tabindex="0"
+                                tabindex="-1"
                                 type="button"
                               >
                                 4
@@ -1052,10 +1052,9 @@ exports[`Om den avdøde Snapshot 1`] = `
                             >
                               <button
                                 aria-label="5. januar (fredag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                                 name="day"
-                                tabindex="-1"
+                                tabindex="0"
                                 type="button"
                               >
                                 5
