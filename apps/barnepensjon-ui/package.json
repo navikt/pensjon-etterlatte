@@ -24,7 +24,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.16.0",
-    "styled-components": "^6.1.0",
+    "styled-components": "^6.1.6",
     "typescript": "^5.2.2",
     "uuid": "^9.0.1",
     "web-vitals": "^3.5.0"
