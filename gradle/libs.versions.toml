@@ -2,9 +2,9 @@
 cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
 
 [versions]
-token-version = "3.1.8"
+token-version = "3.2.0"
 ktor-version = "2.3.7"
-jackson-version = "2.15.3"
+jackson-version = "2.16.1"
 jupiter-version = "5.10.1"
 testcontainers-version = "1.19.3"
 flyway-version = "10.0.0"
@@ -13,7 +13,7 @@ flyway-version = "10.0.0"
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2023120410321701682379.55cc1a24d803"}
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
-navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.0.1"}
+navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.1.0"}
 
 etterlatte-common = { module = "pensjon-etterlatte-libs:common", version = "2024.01.05-09.38.6f5ada710f9f"}
 etterlatte-common-test = { module = "pensjon-etterlatte-libs:common-test", version = "2024.01.05-09.38.6f5ada710f9f"}
@@ -41,7 +41,7 @@ ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.1.0"}
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
-database-postgresql = { module = "org.postgresql:postgresql", version = "42.6.0"}
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.1"}
 
 jackson-datatypejsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-version"}
 jackson-datatypejdk8 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8", version.ref = "jackson-version"}
@@ -51,7 +51,7 @@ jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "j
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version"}
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version"}
 
-logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.9"}
+logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.10"}
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.4.14"}
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.4"}
 
