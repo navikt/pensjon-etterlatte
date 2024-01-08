@@ -642,7 +642,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                       : inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
                               },
                           },
-                          inntektEtterDoedsfall: doedsfallIAar
+                          inntektEtterDoedsfall: !doedsfallIAar
                               ? {
                                     spoersmaal: t('inntektenDin.loennsinntekt.inntektEtterDoedsfall'),
                                     svar: {
@@ -699,7 +699,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                       : inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektDoedsfallsaaret!!,
                               },
                           },
-                          inntektEtterDoedsfall: doedsfallIAar
+                          inntektEtterDoedsfall: !doedsfallIAar
                               ? {
                                     spoersmaal: t('inntektenDin.loennsinntekt.inntektEtterDoedsfall'),
                                     svar: {
