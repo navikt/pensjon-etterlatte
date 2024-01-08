@@ -29,7 +29,7 @@ interface DatovelgerProps {
     kol?: boolean
 }
 
-const parseDate = (dato?: Date | string) => {
+const formatDate = (dato?: Date | string) => {
     try {
         if (!dato) return undefined
         else if (typeof dato === 'string') return format(parseISO(dato), 'yyyy-MM-dd')
@@ -44,7 +44,7 @@ const parseDateMaxMin = (dato: Date | string) => {
     else return parseISO(dato.toISOString())
 }
 
-const isValid = (date: any): boolean => !!parseDate(date)
+const isValid = (date: any): boolean => !!formatDate(date)
 
 const Datovelger = ({
     name,
@@ -86,7 +86,7 @@ const Datovelger = ({
                             locale: i18n.language as DatePickerProps['locale'],
                             inputFormat: 'dd.MM.yyyy',
                             defaultSelected: value ? new Date(value) : undefined,
-                            onDateChange: (date) => onChange(date),
+                            onDateChange: (date) => onChange(formatDate(date)),
                         })
                         return (
                             <DatePicker {...datepickerProps} dropdownCaption>
