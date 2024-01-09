@@ -50,7 +50,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
             <InnloggetBruker />
 
             <FormProvider {...methods}>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <SkjemaGruppe>
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
                             <SkjemaGruppe>

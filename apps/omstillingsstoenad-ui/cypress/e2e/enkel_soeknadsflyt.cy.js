@@ -43,11 +43,13 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         cy.url().should('include', 'steg/om-den-avdoede')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
 
+        const foersteDagIAaret = '01.01.' + new Date().getFullYear()
+
         // Verifiser felter og fyll ut skjema.
         const omDenAvdoede = mockSoeknad.omDenAvdoede
         getById('fornavn').type(omDenAvdoede.fornavn)
         getById('etternavn').type(omDenAvdoede.etternavn)
-        getById('datoForDoedsfallet').type(new Date().toISOString().split('T')[0])
+        getById('datoForDoedsfallet').type(foersteDagIAaret)
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
         getById('statsborgerskap').find('select').select(omDenAvdoede.statsborgerskap)
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)

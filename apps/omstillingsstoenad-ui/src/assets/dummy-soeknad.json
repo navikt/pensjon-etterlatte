@@ -17,14 +17,14 @@
   "omDegOgAvdoed": {
     "forholdTilAvdoede": {
       "relasjon": "avdoede.relasjon.separert",
-      "datoForInngaattPartnerskap": "2001-07-26",
+      "datoForInngaattPartnerskap": "26-07-2001",
       "fellesBarn": "radiobuttons.ja"
     }
   },
   "omDenAvdoede": {
     "fornavn": "Død",
     "etternavn": "Testperson",
-    "datoForDoedsfallet": "2021-07-26",
+    "datoForDoedsfallet": "26-07-2021",
     "foedselsnummer": "24014021406",
     "statsborgerskap": "Danmark",
     "boddEllerJobbetUtland": {
@@ -36,8 +36,8 @@
             "oppholdUtlandType.bodd",
             "oppholdUtlandType.arbeidet"
           ],
-          "fraDato": "2002-08-10",
-          "tilDato": "2003-08-10",
+          "fraDato": "08-10-2002",
+          "tilDato": "08-10-2003",
           "medlemFolketrygd": "radiobuttons.ja",
           "mottokPensjon": {
             "beskrivelse": "150.000"
@@ -100,7 +100,7 @@
         },
         "midlertidig": {
           "svar": "radiobuttons.ja",
-          "sluttdatoVelger": "2099-01-01"
+          "sluttdatoVelger": "01-01-2030"
         },
         "forventerEndretArbeidssituasjon": {
           "svar": "radiobuttons.ja",

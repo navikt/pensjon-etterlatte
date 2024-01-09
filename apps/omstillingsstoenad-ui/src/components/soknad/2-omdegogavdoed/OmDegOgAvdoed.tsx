@@ -53,7 +53,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             </SkjemaElement>
 
             <FormProvider {...methods}>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <ForholdTilAvdoedeSkjema />
 
                     <Feilmeldinger errors={errors} />
