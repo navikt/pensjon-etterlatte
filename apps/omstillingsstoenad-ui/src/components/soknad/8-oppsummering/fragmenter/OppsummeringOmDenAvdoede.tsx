@@ -56,16 +56,16 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                             tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse')}
                             innhold={opphold.beskrivelse?.map((item) => ` ${t(item)}`)}
                         />
-                        {opphold.tilDato && (
-                            <TekstGruppe
-                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
-                                innhold={opphold.tilDato}
-                            />
-                        )}
                         {opphold.fraDato && (
                             <TekstGruppe
                                 tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
                                 innhold={opphold.fraDato}
+                            />
+                        )}
+                        {opphold.tilDato && (
+                            <TekstGruppe
+                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
+                                innhold={opphold.tilDato}
                             />
                         )}
                         <TekstGruppeJaNeiVetIkke
