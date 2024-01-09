@@ -58,13 +58,13 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                         />
                         {opphold.tilDato && (
                             <TekstGruppe
-                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
+                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
                                 innhold={opphold.tilDato}
                             />
                         )}
                         {opphold.fraDato && (
                             <TekstGruppe
-                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
+                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
                                 innhold={opphold.fraDato}
                             />
                         )}
