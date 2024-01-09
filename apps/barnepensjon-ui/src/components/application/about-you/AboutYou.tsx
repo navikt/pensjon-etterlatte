@@ -18,7 +18,7 @@ import { ApplicantRole } from '../scenario/ScenarioSelection'
 import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
-import DatePicker from '../../common/DatePicker'
+import Datepicker from '../../common/Datepicker'
 import { Heading, HGrid } from '@navikt/ds-react'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import FormGroup from '../../common/FormGroup'
@@ -84,13 +84,13 @@ export default function AboutYou({ next }: StepProps) {
                                             />
                                         </FormElement>
                                         <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
-                                            <DatePicker
+                                            <Datepicker
                                                 name={'stayedAbroadFromDate'}
                                                 label={t('stayedAbroadFromDate')}
                                                 maxDate={new Date()}
                                                 valgfri={true}
                                             />
-                                            <DatePicker
+                                            <Datepicker
                                                 name={'stayedAbroadToDate'}
                                                 label={t('stayedAbroadToDate')}
                                                 maxDate={new Date()}

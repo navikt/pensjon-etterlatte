@@ -8,7 +8,7 @@ import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { OppholdUtlandType } from '../../../api/dto/FellesOpplysninger'
-import DatePicker from '../../common/DatePicker'
+import Datepicker from '../../common/Datepicker'
 import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
 import styled from 'styled-components'
@@ -65,13 +65,13 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                             </StaysAbroadCheckboxDiv>
                         </FormElement>
                         <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
-                            <DatePicker
+                            <Datepicker
                                 name={`staysAbroad.abroadStays[${index}].fromDate`}
                                 label={t('stayedAbroadFromDate')}
                                 valgfri={true}
                                 maxDate={new Date()}
                             />
-                            <DatePicker
+                            <Datepicker
                                 name={`staysAbroad.abroadStays[${index}].toDate`}
                                 label={t('stayedAbroadToDate')}
                                 valgfri={true}

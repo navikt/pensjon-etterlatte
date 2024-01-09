@@ -4,7 +4,7 @@ import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { IDeceasedParent } from '../../../context/application/application'
 import useCountries from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
-import DatePicker from '../../common/DatePicker'
+import Datepicker from '../../common/Datepicker'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import PersonInfo from '../../common/PersonInfo'
@@ -35,7 +35,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             </FormElement>
             <FormGroup>
                 <FormElement>
-                    <DatePicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
+                    <Datepicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
                 </FormElement>
             </FormGroup>
 
