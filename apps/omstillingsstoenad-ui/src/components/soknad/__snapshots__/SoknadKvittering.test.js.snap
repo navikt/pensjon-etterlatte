@@ -8,7 +8,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     soeknadKvittering.tittel
   </h1>
   <fieldset
-    class="sc-bdfCDU iGBHmN"
+    class="sc-beySPh hBKmDL"
   >
     <div
       class="navds-alert navds-alert--success navds-alert--medium"
@@ -44,7 +44,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </div>
   </fieldset>
   <fieldset
-    class="sc-bdfCDU iGBHmN"
+    class="sc-beySPh hBKmDL"
   >
     <h1
       class="navds-heading navds-heading--small"
@@ -74,7 +74,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </p>
   </fieldset>
   <fieldset
-    class="sc-bdfCDU iGBHmN"
+    class="sc-beySPh hBKmDL"
   >
     <div
       class="navds-alert navds-alert--info navds-alert--medium"
@@ -154,7 +154,7 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     </div>
   </fieldset>
   <fieldset
-    class="sc-bdfCDU iGBHmN"
+    class="sc-beySPh hBKmDL"
   >
     <h1
       class="navds-heading navds-heading--small"
@@ -203,10 +203,10 @@ exports[`SoknadKvittering skal matche snapshot 1`] = `
     <br />
   </fieldset>
   <fieldset
-    class="sc-bdfCDU iGBHmN"
+    class="sc-beySPh hBKmDL"
   >
     <section
-      class="sc-hKgKIp jZdyrG"
+      class="sc-hLQSwg chmygf"
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
