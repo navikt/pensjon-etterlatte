@@ -225,8 +225,6 @@ export interface Arbeidssoeker {
     aktivitetsplan?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
-// TODO: naavaerende utdanning + tidligere
-
 export interface Utdanning {
     studiested: Opplysning<FritekstSvar>
     studie: Opplysning<FritekstSvar>

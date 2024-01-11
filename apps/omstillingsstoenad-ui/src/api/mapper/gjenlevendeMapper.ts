@@ -288,7 +288,7 @@ const hentSivilstatus = (
             },
             fellesBarnEllertidligereGift: {
                 spoersmaal: t('situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
-                svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!), // TODO: Korrigere type
+                svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!),
             },
         }
     }
@@ -360,7 +360,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                                 : undefined,
                         endretArbeidssituasjon: {
                             spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar'),
-                            svar: valgTilSvar(t, arbeid.forventerEndretArbeidssituasjon!!.svar!!), // TODO: fikse type,
+                            svar: valgTilSvar(t, arbeid.forventerEndretArbeidssituasjon!!.svar!!),
                             opplysning:
                                 arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA
                                     ? {
@@ -1146,7 +1146,7 @@ const mapSelvstendigNæringsdrivende = (
         },
         endretArbeidssituasjon: {
             spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar'),
-            svar: valgTilSvar(t, selvstendig.forventerEndretArbeidssituasjon!!.svar!!), // TODO: Fikse type
+            svar: valgTilSvar(t, selvstendig.forventerEndretArbeidssituasjon!!.svar!!),
             opplysning:
                 selvstendig.forventerEndretArbeidssituasjon?.svar === IValg.JA
                     ? {
