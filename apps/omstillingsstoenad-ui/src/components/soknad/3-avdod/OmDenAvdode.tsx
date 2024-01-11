@@ -64,6 +64,8 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         return doedsfallDato < new Date(2023, 11, 1)
     }
 
+    const minsteDatoForDoedsfall = new Date(2015, 0, 1)
+
     return (
         <FormProvider {...methods}>
             <SkjemaElement>
@@ -78,10 +80,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
                         <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
 
-                        <RHFFoedselsnummerInput
-                            name={'foedselsnummer'}
-                            label={t('omDenAvdoede.foedselsnummer')}
-                        />
+                        <RHFFoedselsnummerInput name={'foedselsnummer'} label={t('omDenAvdoede.foedselsnummer')} />
                         <RHFSelect
                             name={`statsborgerskap`}
                             label={t('omDenAvdoede.statsborgerskap')}
@@ -93,12 +92,13 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <Datovelger
                             name={'datoForDoedsfallet'}
                             label={t('omDenAvdoede.datoForDoedsfallet')}
+                            minDate={minsteDatoForDoedsfall}
                             maxDate={new Date()}
                         />
 
-                        <br/>
+                        <br />
                         {doedsfallFoerDesember2023(datoForDoedsfallet) && (
-                            <Alert variant='warning'>
+                            <Alert variant="warning">
                                 {t('omDenAvdoede.datoForDoedsfallet.foerDesember')}
                                 <Link href={t('omDenAvdoede.datoForDoedsfallet.foerDesember.href')}>
                                     {t('omDenAvdoede.datoForDoedsfallet.foerDesember.link')}
