@@ -3,7 +3,7 @@
 exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-gsTDqH kXeStq"
+    class="sc-guDLey gpgjnk"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-dlfmHC UAsZH"
+      class="sc-dmyCSP cHUYTi"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -139,10 +139,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         </fieldset>
       </div>
       <div
-        class="sc-gsTDqH kXeStq"
+        class="sc-guDLey gpgjnk"
       >
         <section
-          class="sc-bdfCDU kPlLYV"
+          class="sc-beySPh gJrjSj"
         >
           <div
             class="datepicker"
@@ -1103,9 +1103,9 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="9. januar (tirsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                                class="rdp-button_reset rdp-button rdp-day"
                                 name="day"
-                                tabindex="0"
+                                tabindex="-1"
                                 type="button"
                               >
                                 9
@@ -1116,8 +1116,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="10. januar (onsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day"
                                 name="day"
                                 tabindex="-1"
                                 type="button"
@@ -1130,10 +1129,9 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             >
                               <button
                                 aria-label="11. januar (torsdag)"
-                                class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                disabled=""
+                                class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                                 name="day"
-                                tabindex="-1"
+                                tabindex="0"
                                 type="button"
                               >
                                 11
@@ -1601,7 +1599,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         </section>
       </div>
       <div
-        class="sc-gsTDqH kXeStq"
+        class="sc-guDLey gpgjnk"
       >
         <div
           id="forholdTilAvdoede.fellesBarn"
@@ -1686,10 +1684,10 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-dlfmHC UAsZH"
+      class="sc-dmyCSP cHUYTi"
     >
       <div
-        class="sc-hKgKIp jZdyrG undefined"
+        class="sc-hLQSwg chmygf undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1714,7 +1712,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hKgKIp sc-eCstZk jZdyrG dKRciV"
+      class="sc-hLQSwg sc-eDLKkx chmygf evGtdx"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1783,7 +1781,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-iqHXzD dUPgBl"
+          class="sc-irLvIq gTjhfn"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1811,7 +1809,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           </button>
         </div>
         <div
-          class="sc-iqHXzD dUPgBl"
+          class="sc-irLvIq gTjhfn"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -1835,7 +1833,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-gsTDqH kXeStq"
+    class="sc-guDLey gpgjnk"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -1845,7 +1843,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
   </div>
   <form>
     <fieldset
-      class="sc-dlfmHC UAsZH"
+      class="sc-dmyCSP cHUYTi"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -1972,10 +1970,10 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-dlfmHC UAsZH"
+      class="sc-dmyCSP cHUYTi"
     >
       <div
-        class="sc-hKgKIp jZdyrG undefined"
+        class="sc-hLQSwg chmygf undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -2000,7 +1998,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hKgKIp sc-eCstZk jZdyrG dKRciV"
+      class="sc-hLQSwg sc-eDLKkx chmygf evGtdx"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -2069,7 +2067,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-iqHXzD dUPgBl"
+          class="sc-irLvIq gTjhfn"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -2097,7 +2095,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
           </button>
         </div>
         <div
-          class="sc-iqHXzD dUPgBl"
+          class="sc-irLvIq gTjhfn"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
