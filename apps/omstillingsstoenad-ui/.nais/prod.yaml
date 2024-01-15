@@ -39,18 +39,12 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    clientUri: https://www.nav.no
-    frontchannelLogoutPath: /omstillingsstonad/soknad/logout
-    postLogoutRedirectURIs:
-      - https://www.nav.no/omstillingsstonad/soknad/logout/callback
-    accessTokenLifetime: 3600
     sessionLifetime: 3600
     sidecar:
       enabled: true
       level: idporten-loa-high
       locale: nb
       autoLogin: true
-      errorPath: ""
   env:
     - name: BASE_PATH
       value: /omstillingsstonad/soknad
