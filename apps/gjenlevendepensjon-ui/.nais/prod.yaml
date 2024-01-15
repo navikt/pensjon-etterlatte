@@ -50,7 +50,6 @@ spec:
       level: idporten-loa-high
       locale: nb
       autoLogin: true
-      errorPath: ""
   env:
     - name: BASE_PATH
       value: /gjenlevendepensjon/soknad
