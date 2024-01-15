@@ -39,7 +39,6 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    frontchannelLogoutPath: /gjenlevendepensjon/soknad/logout
     sessionLifetime: 3600
     sidecar:
       enabled: true
