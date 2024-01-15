@@ -70,38 +70,36 @@ const Datovelger = ({
 
     return (
         <DatovelgerSection $kol={kol}>
-            <div className="datepicker">
-                <Controller
-                    name={name}
-                    control={control}
-                    defaultValue={undefined}
-                    rules={{
-                        required: !valgfri,
-                        validate: (date) => !date || isValid(date),
-                    }}
-                    render={({ field: { onChange, value } }) => {
-                        const { datepickerProps, inputProps } = useDatepicker({
-                            fromDate: minDate ? parseDateMaxMin(minDate) : undefined,
-                            toDate: maxDate ? parseDateMaxMin(maxDate) : undefined,
-                            locale: i18n.language as DatePickerProps['locale'],
-                            inputFormat: 'dd.MM.yyyy',
-                            defaultSelected: value ? new Date(value) : undefined,
-                            onDateChange: (date) => onChange(formatDate(date)),
-                        })
-                        return (
-                            <DatePicker {...datepickerProps} dropdownCaption>
-                                <DatePicker.Input
-                                    id={name}
-                                    {...inputProps}
-                                    label={valgfri ? `${label} (${t('felles.valgfri')})` : label}
-                                    error={feilmelding}
-                                    description={descriptionMedOppgiDato}
-                                />
-                            </DatePicker>
-                        )
-                    }}
-                />
-            </div>
+            <Controller
+                name={name}
+                control={control}
+                defaultValue={undefined}
+                rules={{
+                    required: !valgfri,
+                    validate: (date) => !date || isValid(date),
+                }}
+                render={({ field: { onChange, value } }) => {
+                    const { datepickerProps, inputProps } = useDatepicker({
+                        fromDate: minDate ? parseDateMaxMin(minDate) : undefined,
+                        toDate: maxDate ? parseDateMaxMin(maxDate) : undefined,
+                        locale: i18n.language as DatePickerProps['locale'],
+                        inputFormat: 'dd.MM.yyyy',
+                        defaultSelected: value ? new Date(value) : undefined,
+                        onDateChange: (date) => onChange(formatDate(date)),
+                    })
+                    return (
+                        <DatePicker {...datepickerProps} dropdownCaption>
+                            <DatePicker.Input
+                                id={name}
+                                {...inputProps}
+                                label={valgfri ? `${label} (${t('felles.valgfri')})` : label}
+                                error={feilmelding}
+                                description={descriptionMedOppgiDato}
+                            />
+                        </DatePicker>
+                    )
+                }}
+            />
         </DatovelgerSection>
     )
 }

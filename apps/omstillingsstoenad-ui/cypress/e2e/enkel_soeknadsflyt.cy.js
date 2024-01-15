@@ -158,6 +158,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         cy.url().should('include', 'steg/inntekten-din')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
 
+        const dagensDato = new Date()
+        const oktober = 9
+
         // Verifiser felter og fyll ut skjema.
         const inntektenDin = mockSoeknad.inntektenDin
         inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
@@ -169,11 +172,11 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
             inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall
         )
-        /*
-        getById('loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
-            inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall
-        )
-        */
+
+        if (dagensDato.getMonth() >= oktober)
+            getById('loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
+                inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall
+            )
 
         selectValueForId(
             'loennsinntekt.forventerEndringAvInntekt.svar',
@@ -197,11 +200,11 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt').type(
             inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt
         )
-        /*
-        getById('naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
-            inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall
-        )
-        */
+
+        if (dagensDato.getMonth() >= oktober)
+            getById('naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
+                inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall
+            )
 
         selectValueForId(
             'naeringsinntekt.forventerEndringAvInntekt.svar',

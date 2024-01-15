@@ -77,7 +77,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             },
             naeringsinntektVedDoedsfall: {
                 spoersmaal: t('omDenAvdoede.haddePensjonsgivendeInntekt.svar'),
-                svar: valgTilSvar(t, soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!!.svar!!), // TODO: Fikse type
+                svar: valgTilSvar(t, soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!!.svar!!),
             },
         }
     }
@@ -112,12 +112,12 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
         },
         utenlandsopphold: {
             spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.svar'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.boddEllerJobbetUtland!!.svar!!), // TODO: Fikse type
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.boddEllerJobbetUtland!!.svar!!),
             opplysning: oppholdUtland,
         },
         naeringsInntekt: {
             spoersmaal: t('omDenAvdoede.selvstendigNaeringsdrivende.svar'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!!.svar!!), // TODO: Fikse type
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!!.svar!!),
             opplysning: opplysningNaeringsInntekt,
         },
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
