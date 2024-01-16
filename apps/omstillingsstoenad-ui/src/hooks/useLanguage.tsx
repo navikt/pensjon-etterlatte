@@ -11,7 +11,6 @@ export const useLanguage = () => {
     const [cookies, setCookie] = useCookies([dekoratorLanguageCookieName]);
     const { [dekoratorLanguageCookieName]: dekoratørSpraak } = cookies;
 
-    !dekoratørSpraak && setCookie(dekoratorLanguageCookieName, soeknadState.spraak);
 
     useEffect(() => {
         i18next.changeLanguage(soeknadState.spraak, (err, t) => {
@@ -21,4 +20,8 @@ export const useLanguage = () => {
         setParams({ language: soeknadState.spraak }).then();
         setCookie(dekoratorLanguageCookieName, soeknadState.spraak)
     }, [soeknadState.spraak])
+
+    useEffect(() => {
+        !dekoratørSpraak && setCookie(dekoratorLanguageCookieName, soeknadState.spraak);
+    }, [])
 }
