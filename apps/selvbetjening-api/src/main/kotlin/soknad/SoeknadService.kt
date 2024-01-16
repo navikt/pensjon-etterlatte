@@ -24,6 +24,9 @@ import libs.common.util.retry
 import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.common.logging.getCorrelationId
 
+
+internal fun SoeknadRequest.hentSaktype() = this.soeknader.first().type
+
 class SoeknadService(
     private val innsendtSoeknadKlient: HttpClient,
     private val adressebeskyttelseService: AdressebeskyttelseService
@@ -49,7 +52,7 @@ class SoeknadService(
     }
 
     private suspend fun vurderAdressebeskyttelse(request: SoeknadRequest): SoeknadRequest {
-        val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(request.finnUnikeBarn())
+        val barnMedAdressebeskyttelse = adressebeskyttelseService.hentGradering(request.finnUnikeBarn(), request.hentSaktype())
             .filter { listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND).contains(it.value) }
             .map { it.key }
 

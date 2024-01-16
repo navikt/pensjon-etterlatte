@@ -23,6 +23,7 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.application.environment.log.info("SoeknadRequest mottatt!")
 
                 val request = call.receive<SoeknadRequest>()
+
                 val kilde = call.request.queryParameters["kilde"]!!
 
                 when (val response = service.sendSoeknader(request, kilde)) {
