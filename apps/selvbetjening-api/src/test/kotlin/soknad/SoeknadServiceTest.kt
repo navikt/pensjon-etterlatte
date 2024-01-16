@@ -145,7 +145,7 @@ internal class SoeknadServiceTest {
 
     @Test
     fun sendSoeknader() {
-        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
+        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns
                 AdressebeskyttelseResponse(
                     HentAdressebeskyttelse(
                         listOf(mockAdressebeskyttetPerson("24014021406", Gradering.UGRADERT))

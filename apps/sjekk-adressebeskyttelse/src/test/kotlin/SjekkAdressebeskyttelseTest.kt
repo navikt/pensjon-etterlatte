@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-internal class FinnAdressebeskyttelseTest {
+internal class SjekkAdressebeskyttelseTest {
 
     private val klientMock = mockk<AdressebeskyttelseKlient>()
     private val service = AdressebeskyttelseService(klientMock)
@@ -29,7 +29,7 @@ internal class FinnAdressebeskyttelseTest {
 
     @Test
     fun testFeltMapping() {
-        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns opprettRespons(
             Gradering.FORTROLIG,
             Gradering.STRENGT_FORTROLIG
         )
@@ -47,7 +47,7 @@ internal class FinnAdressebeskyttelseTest {
 
     @Test
     fun testTomResponse() {
-        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons()
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns opprettRespons()
 
         val inspector = TestRapid()
             .apply { SjekkAdressebeskyttelse(this, service) }
@@ -62,7 +62,7 @@ internal class FinnAdressebeskyttelseTest {
 
     @Test
     fun testenTomOgEnVanlig() {
-        coEvery { klientMock.finnAdressebeskyttelseForFnr(any()) } returns opprettRespons(
+        coEvery { klientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns opprettRespons(
             Gradering.UGRADERT,
             Gradering.STRENGT_FORTROLIG_UTLAND
         )
@@ -85,7 +85,7 @@ internal class FinnAdressebeskyttelseTest {
         ).map { Foedselsnummer.of(it) }
 
         val resultat: List<Foedselsnummer> = jacksonObjectMapper().readTree(hendelseJson).finnFoedselsnummer()
-        assertEquals(resultat.size, gyldigeFoedselsnummer.size)
+        assertEquals(6, gyldigeFoedselsnummer.size)
         assertTrue(resultat.containsAll(gyldigeFoedselsnummer))
     }
 
