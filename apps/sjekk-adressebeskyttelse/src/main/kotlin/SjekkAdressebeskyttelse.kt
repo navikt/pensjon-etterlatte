@@ -59,6 +59,8 @@ val mapper: ObjectMapper = jacksonObjectMapper()
     .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
     .registerModule(JavaTimeModule())
 
+fun Any.toJson(): String = mapper.writeValueAsString(this)
+
 
 internal fun JsonNode.finnFoedselsnummer(): List<Foedselsnummer> {
     val regex = """\b(\d{11})\b""".toRegex()
