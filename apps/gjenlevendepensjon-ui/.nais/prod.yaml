@@ -39,7 +39,6 @@ spec:
     enabled: true
   idporten:
     enabled: true
-    sessionLifetime: 3600
     sidecar:
       enabled: true
       level: idporten-loa-high
