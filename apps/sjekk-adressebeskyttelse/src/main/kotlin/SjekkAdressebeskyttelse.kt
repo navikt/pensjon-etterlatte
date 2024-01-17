@@ -1,7 +1,15 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.JsonNode
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.person.FoedselsnummerValidator
 import no.nav.helse.rapids_rivers.JsonMessage
@@ -30,11 +38,13 @@ internal class SjekkAdressebeskyttelse(
     override fun onPacket(packet: JsonMessage, context: MessageContext) {
         val soeknadId = packet["@lagret_soeknad_id"].asText()
         val fnrListe = packet["@skjema_info"].finnFoedselsnummer()
-
+        val skjemaInfo = packet["@skjema_info"]
+        val soeknad: InnsendtSoeknad = mapper.readValue(skjemaInfo.toString())
         logger.info("Sjekker adressebeskyttelse for søknad med ID: $soeknadId")
+        val saktype = soeknad.type
 
         runBlocking {
-            val gradering = adressebeskyttelseService.hentGradering(fnrListe)
+            val gradering = adressebeskyttelseService.hentGradering(fnrListe, saktype)
 
             packet["@adressebeskyttelse"] = gradering.name
             logger.info("vurdert adressebeskyttelse til ${gradering.name}")
@@ -42,6 +52,15 @@ internal class SjekkAdressebeskyttelse(
         }
     }
 }
+
+val mapper: ObjectMapper = jacksonObjectMapper()
+    .enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+    .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+    .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+    .registerModule(JavaTimeModule())
+
+fun Any.toJson(): String = mapper.writeValueAsString(this)
+
 
 internal fun JsonNode.finnFoedselsnummer(): List<Foedselsnummer> {
     val regex = """\b(\d{11})\b""".toRegex()

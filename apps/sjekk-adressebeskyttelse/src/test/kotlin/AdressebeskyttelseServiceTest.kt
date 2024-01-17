@@ -4,6 +4,7 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseBolkPerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
@@ -28,11 +29,11 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Gradering funnet og prioritert korrekt - STRENGT_FORTROLIG_UTLAND`() {
         coEvery {
-            mockKlient.finnAdressebeskyttelseForFnr(any())
+            mockKlient.finnAdressebeskyttelseForFnr(any(), any())
         } returns mockResponse(Gradering.FORTROLIG, null, null, Gradering.STRENGT_FORTROLIG_UTLAND)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf(fnr))
+            val gradering = service.hentGradering(listOf(fnr), SoeknadType.BARNEPENSJON)
 
             assertEquals(Gradering.STRENGT_FORTROLIG_UTLAND, gradering)
         }
@@ -41,11 +42,11 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Gradering funnet og prioritert korrekt - STRENGT_FORTROLIG`() {
         coEvery {
-            mockKlient.finnAdressebeskyttelseForFnr(any())
+            mockKlient.finnAdressebeskyttelseForFnr(any(), any())
         } returns mockResponse(Gradering.FORTROLIG, null, null, Gradering.STRENGT_FORTROLIG, null, Gradering.FORTROLIG)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf(fnr))
+            val gradering = service.hentGradering(listOf(fnr), SoeknadType.BARNEPENSJON)
 
             assertEquals(Gradering.STRENGT_FORTROLIG, gradering)
         }
@@ -54,11 +55,11 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Gradering funnet og prioritert korrekt - FORTROLIG`() {
         coEvery {
-            mockKlient.finnAdressebeskyttelseForFnr(any())
+            mockKlient.finnAdressebeskyttelseForFnr(any(), any())
         } returns mockResponse(Gradering.FORTROLIG, null, null, null, Gradering.FORTROLIG)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf(fnr))
+            val gradering = service.hentGradering(listOf(fnr), SoeknadType.BARNEPENSJON)
 
             assertEquals(Gradering.FORTROLIG, gradering)
         }
@@ -67,11 +68,11 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Gradering funnet og prioritert korrekt - UGRADERT`() {
         coEvery {
-            mockKlient.finnAdressebeskyttelseForFnr(any())
+            mockKlient.finnAdressebeskyttelseForFnr(any(), any())
         } returns mockResponse(null, null, null, null)
 
         runBlocking {
-            val gradering = service.hentGradering(listOf(fnr))
+            val gradering = service.hentGradering(listOf(fnr), SoeknadType.BARNEPENSJON)
 
             assertEquals(Gradering.UGRADERT, gradering)
         }
@@ -80,12 +81,12 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Kaster feil dersom ingen personer funnet`() {
         coEvery {
-            mockKlient.finnAdressebeskyttelseForFnr(any())
+            mockKlient.finnAdressebeskyttelseForFnr(any(), any())
         } returns AdressebeskyttelseResponse(HentAdressebeskyttelse(hentPersonBolk = emptyList()))
 
         assertThrows<Exception> {
             runBlocking {
-                service.hentGradering(listOf(fnr))
+                service.hentGradering(listOf(fnr), SoeknadType.BARNEPENSJON)
             }
         }
     }
@@ -93,12 +94,12 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Kaster feil dersom ingen personer funnet del 2`() {
         coEvery {
-            mockKlient.finnAdressebeskyttelseForFnr(any())
+            mockKlient.finnAdressebeskyttelseForFnr(any(), any())
         } returns AdressebeskyttelseResponse(HentAdressebeskyttelse(listOf(AdressebeskyttelseBolkPerson(ident = "test", person = null))))
 
         assertThrows<Exception> {
             runBlocking {
-                service.hentGradering(listOf(fnr))
+                service.hentGradering(listOf(fnr), SoeknadType.BARNEPENSJON)
             }
         }
     }

@@ -4,6 +4,7 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.pdl.Adressebeskyttelse
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseBolkPerson
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
@@ -23,7 +24,7 @@ internal class AdressebeskyttelseServiceTest {
 
     @Test
     fun `Skal gi gradering per person`() {
-        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
+        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns
                 AdressebeskyttelseResponse(
                     HentAdressebeskyttelse(
                         listOf(
@@ -42,7 +43,7 @@ internal class AdressebeskyttelseServiceTest {
                     Foedselsnummer.of("26117512737"),
                     Foedselsnummer.of("26104500284"),
                     Foedselsnummer.of("24116324268")
-                )
+                ), SoeknadType.BARNEPENSJON
             )
 
             assertEquals(4, graderinger.size)
@@ -56,18 +57,18 @@ internal class AdressebeskyttelseServiceTest {
     @Test
     fun `Skal håndtere tom fnrListe`() {
         runBlocking {
-            assertEquals(emptyMap<String, Gradering>(), adressebeskyttelseService.hentGradering(emptyList()))
+            assertEquals(emptyMap<String, Gradering>(), adressebeskyttelseService.hentGradering(emptyList(), SoeknadType.BARNEPENSJON))
         }
     }
 
     @Test
     fun `Skal kaste exception dersom man ikke får noen person fra PDL`() {
-        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any()) } returns
+        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(),any()) } returns
                 AdressebeskyttelseResponse(HentAdressebeskyttelse())
 
         runBlocking {
             val exception = assertThrows<Exception> {
-                adressebeskyttelseService.hentGradering(listOf(Foedselsnummer.of("11057523044")))
+                adressebeskyttelseService.hentGradering(listOf(Foedselsnummer.of("11057523044")), SoeknadType.BARNEPENSJON)
             }
             assertEquals("Fant ingen personer i PDL", exception.message)
         }

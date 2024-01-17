@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelsePerson
 import no.nav.etterlatte.libs.common.pdl.Gradering
 import no.nav.etterlatte.libs.common.pdl.Pdl
@@ -17,8 +18,8 @@ class AdressebeskyttelseService(private val klient: Pdl) {
      * @return Gyldig gradering av PDL-typen [Gradering].
      *  Gir verdi [Gradering.UGRADERT] dersom ingenting er funnet.
      */
-    suspend fun hentGradering(fnrListe: List<Foedselsnummer>): Gradering {
-        val personer = klient.finnAdressebeskyttelseForFnr(fnrListe).data?.hentPersonBolk?.mapNotNull { it.person }
+    suspend fun hentGradering(fnrListe: List<Foedselsnummer>, type: SoeknadType): Gradering {
+        val personer = klient.finnAdressebeskyttelseForFnr(fnrListe, type).data?.hentPersonBolk?.mapNotNull { it.person }
 
         if (personer.isNullOrEmpty()) {
             throw Exception("Fant ingen personer i PDL")
