@@ -64,7 +64,7 @@ fun main() {
 }
 
 fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() = call.principal<TokenValidationContextPrincipal>()
-    ?.context?.firstValidToken?.get()?.jwtTokenClaims?.get("pid")!!.toString()
+    ?.context?.firstValidToken?.jwtTokenClaims?.get("pid")!!.toString()
     .let { Foedselsnummer.of(it) }
 
 fun Application.apiModule(routes: Route.() -> Unit) {

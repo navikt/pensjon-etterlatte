@@ -2,6 +2,7 @@ package no.nav.etterlatte.oauth
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.github.benmanes.caffeine.cache.AsyncLoadingCache
+import com.nimbusds.oauth2.sdk.GrantType
 import com.nimbusds.oauth2.sdk.auth.ClientAuthenticationMethod
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -16,7 +17,6 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.future.await
 import kotlinx.coroutines.runBlocking
 import no.nav.security.token.support.client.core.ClientAuthenticationProperties
-import no.nav.security.token.support.client.core.OAuth2GrantType
 import no.nav.security.token.support.client.core.OAuth2ParameterNames
 import no.nav.security.token.support.client.core.auth.ClientAssertion
 import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenResponse
@@ -70,13 +70,13 @@ class OAuth2Client(
 }
 
 data class GrantRequest(
-    val grantType: OAuth2GrantType,
+    val grantType: GrantType,
     val params: Map<String, String> = emptyMap()
 ) {
     companion object {
         fun tokenExchange(token: String, audience: String): GrantRequest =
             GrantRequest(
-                grantType = OAuth2GrantType.TOKEN_EXCHANGE,
+                grantType = GrantType.TOKEN_EXCHANGE,
                 params = mapOf(
                     OAuth2ParameterNames.SUBJECT_TOKEN_TYPE to "urn:ietf:params:oauth:token-type:jwt",
                     OAuth2ParameterNames.SUBJECT_TOKEN to token,
@@ -86,7 +86,7 @@ data class GrantRequest(
 
         fun onBehalfOf(token: String, scope: String): GrantRequest =
             GrantRequest(
-                grantType = OAuth2GrantType.JWT_BEARER,
+                grantType = GrantType.JWT_BEARER,
                 params = mapOf(
                     OAuth2ParameterNames.SCOPE to scope,
                     OAuth2ParameterNames.REQUESTED_TOKEN_USE to "on_behalf_of",
@@ -96,7 +96,7 @@ data class GrantRequest(
 
         fun clientCredentials(scope: String): GrantRequest =
             GrantRequest(
-                grantType = OAuth2GrantType.CLIENT_CREDENTIALS,
+                grantType = GrantType.CLIENT_CREDENTIALS,
                 params = mapOf(
                     OAuth2ParameterNames.SCOPE to scope,
                 )
@@ -123,10 +123,12 @@ internal suspend fun HttpClient.tokenRequest(
         }
     ) {
         if (clientAuthProperties.clientAuthMethod == ClientAuthenticationMethod.CLIENT_SECRET_BASIC) {
-            header(
-                "Authorization",
-                "Basic ${basicAuth(clientAuthProperties.clientId, clientAuthProperties.clientSecret)}"
-            )
+            clientAuthProperties.clientSecret?.let {
+                header(
+                    "Authorization",
+                    "Basic ${basicAuth(clientAuthProperties.clientId, it)}"
+                )
+            } ?: throw IllegalArgumentException("Client secret ikke satt")
         }
     }.body()
 
@@ -137,7 +139,10 @@ private fun ParametersBuilder.appendClientAuthParams(
     when (clientAuthProperties.clientAuthMethod) {
         ClientAuthenticationMethod.CLIENT_SECRET_POST -> {
             append(OAuth2ParameterNames.CLIENT_ID, clientAuthProperties.clientId)
-            append(OAuth2ParameterNames.CLIENT_SECRET, clientAuthProperties.clientSecret)
+            append(
+                OAuth2ParameterNames.CLIENT_SECRET,
+                clientAuthProperties.clientSecret ?: throw IllegalArgumentException("Client secret ikke satt")
+            )
         }
         ClientAuthenticationMethod.PRIVATE_KEY_JWT -> {
             val clientAssertion = ClientAssertion(URI.create(tokenEndpointUrl), clientAuthProperties)
