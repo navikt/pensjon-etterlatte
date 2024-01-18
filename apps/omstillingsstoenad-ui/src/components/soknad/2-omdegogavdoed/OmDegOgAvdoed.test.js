@@ -17,12 +17,22 @@ jest.mock('uuid', () => ({
 }))
 
 describe('Om deg og avdød', () => {
+    beforeAll(() => {
+        jest.useFakeTimers('modern')
+    })
+
+    afterAll(() => {
+        jest.useRealTimers()
+    })
+
     it('Snapshot uten samboerskjema', () => {
+        jest.setSystemTime(new Date(2024, 0, 1))
         const { container } = render(<OmDegOgAvdoed />)
         expect(container).toMatchSnapshot()
     })
 
     it('Snapshot med sivilstatus samboer', () => {
+        jest.setSystemTime(new Date(2024, 0, 1))
         const { container, getByText, getByLabelText } = render(<OmDegOgAvdoed />)
 
         act(() => {

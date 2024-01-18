@@ -522,9 +522,9 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="1. januar (mandag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                               name="day"
-                              tabindex="-1"
+                              tabindex="0"
                               type="button"
                             >
                               1
@@ -535,7 +535,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="2. januar (tirsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -548,7 +549,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="3. januar (onsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -561,7 +563,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="4. januar (torsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -574,7 +577,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="5. januar (fredag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -587,7 +591,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="6. januar (lørdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -600,7 +605,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="7. januar (søndag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -617,7 +623,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="8. januar (mandag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -630,7 +637,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="9. januar (tirsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -643,7 +651,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="10. januar (onsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -656,7 +665,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="11. januar (torsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -669,7 +679,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="12. januar (fredag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -682,7 +693,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="13. januar (lørdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -695,7 +707,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="14. januar (søndag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -712,7 +725,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="15. januar (mandag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -725,7 +739,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="16. januar (tirsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -738,7 +753,8 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="17. januar (onsdag)"
-                              class="rdp-button_reset rdp-button rdp-day"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
                               tabindex="-1"
                               type="button"
@@ -751,9 +767,10 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="18. januar (torsdag)"
-                              class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                              disabled=""
                               name="day"
-                              tabindex="0"
+                              tabindex="-1"
                               type="button"
                             >
                               18
