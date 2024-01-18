@@ -109,7 +109,7 @@ export default {
         'Viss du oppheld deg i eit anna land enn Noreg kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
     'situasjonenDin.oppholderSegIUtlandet.oppholdsland': 'Oppgi hvilket land du oppheldt deg i',
     'situasjonenDin.gravidEllerNyligFoedt':
-        'Ventar du barn eller har du barn som framleis ikkje er registrert i folkeregisteret?',
+        'Ventar du barn eller har du barn som framleis ikkje er registrert i Folkeregisteret?',
     'situasjonenDin.bosattINorge': 'Er du busett i Noreg?',
     'situasjonenDin.bosattLand': 'Oppgi kva land du er busett i',
     'merOmSituasjonenDin.tittel': 'Meir om situasjonen din',
@@ -286,10 +286,16 @@ export default {
         'Kva var brutto arbeidsinntekt fram til dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Oppgi inntekt frå januar til og med same månad som dødsfallet. Dersom dødsfallet skjedde i desember, oppgir du heile årsinntekta.',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse.januar':
+        'Oppgi inntekt frå januar til og med same månad som dødsfallet. Dersom dødsfallet skjedde i januar, oppgir du heile inntekta for januar.',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
-        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+        'Kva reknar du med å ha i brutto arbeidsinntekt etter dødsfallet?',
+    //'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
-        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+        'Kva reknar du med å ha i brutto arbeidsinntekt etter dødsfallet?',
+    //'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
+        'Oppgi inntekt fra månaden etter dødsfallet og ut året.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt': 'Kva reknar du med å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi frå januar til og med desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
@@ -818,7 +824,7 @@ export default {
     'feil.bosattUtland.svar.required': 'Oppgi om personen er busett i eit anna land enn Noreg',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',
-    'feil.gravidEllerNyligFoedt.required': 'Oppgi om du ventar eller har barn som ikkje er oppgitt i folkeregisteret',
+    'feil.gravidEllerNyligFoedt.required': 'Oppgi om du ventar eller har barn som ikkje er oppgitt i Folkeregisteret',
     'feil.relasjon.required': 'Oppgi relasjon',
     'feil.yrke.required': 'Yrke må svarast på',
     'feil.stilling.required': 'Stilling må svarast på',

@@ -100,7 +100,7 @@ export default {
     'situasjonenDin.omsorgMinstFemti.dokumentasjon':
         'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
     'situasjonenDin.gravidEllerNyligFoedt':
-        'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
+        'Venter du barn eller har du barn som ikke er registrert i Folkeregisteret?',
     'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphold utenfor Norge',
     'situasjonenDin.oppholderSegIUtlandet.svar': 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     'situasjonenDin.oppholdHvorfor':
@@ -290,10 +290,16 @@ export default {
         'Hva var brutto arbeidsinntekt frem til dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Oppgi inntekt fra januar til og med samme måned som dødsfallet. Hvis dødsfallsmåneden er desember, oppgir du hele årsinntekten.',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse.januar':
+        'Oppgi inntekt fra januar til og med samme måned som dødsfallet. Hvis dødsfallet var i januar oppgir du månedsinntekten for januar.',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
-        'Hva forventer du i brutto årsinntekt til neste år?',
+        'Hva forventer du å ha i brutto arbeidsinntekt etter dødsfallet?',
+    //'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
-        'Hva forventer du i brutto årsinntekt til neste år?',
+        'Hva forventer du å ha i brutto arbeidsinntekt etter dødsfallet?',
+    // 'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
+        'Oppgi inntekten fra måneden etter dødsfallet og ut året.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi fra januar til og med desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
@@ -825,7 +831,7 @@ export default {
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',
-    'feil.gravidEllerNyligFoedt.required': 'Oppgi om du venter/har barn som ikke er oppgitt i folkeregisteret',
+    'feil.gravidEllerNyligFoedt.required': 'Oppgi om du venter/har barn som ikke er oppgitt i Folkeregisteret',
     'feil.relasjon.required': 'Oppgi relasjon',
     'feil.yrke.required': 'Yrke må besvares',
     'feil.stilling.required': 'Stilling må besvares',

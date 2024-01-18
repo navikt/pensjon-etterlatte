@@ -173,6 +173,10 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall
         )
 
+        getById('loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
+                inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall
+        )
+
         if (dagensDato.getMonth() >= oktober)
             getById('loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall').type(
                 inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall
