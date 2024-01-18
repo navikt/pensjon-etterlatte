@@ -307,7 +307,7 @@ export default {
         'What do you expect to earn in gross income from work after the death?',
     // 'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
-        'Please state your income from work from the month after the death fra and until the end of the year.',
+        'Please state your income from work from the month after the death and until the end of the year.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual income this year?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse':

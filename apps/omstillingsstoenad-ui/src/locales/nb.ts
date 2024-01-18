@@ -100,7 +100,7 @@ export default {
     'situasjonenDin.omsorgMinstFemti.dokumentasjon':
         'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
     'situasjonenDin.gravidEllerNyligFoedt':
-        'Venter du barn eller har du barn som ikke er registrert i folkeregisteret?',
+        'Venter du barn eller har du barn som ikke er registrert i Folkeregisteret?',
     'situasjonenDin.oppholdUtenforNorge.tittel': 'Opphold utenfor Norge',
     'situasjonenDin.oppholderSegIUtlandet.svar': 'Har du bodd eller oppholdt deg i utlandet de siste 12 månedene?',
     'situasjonenDin.oppholdHvorfor':
@@ -831,7 +831,7 @@ export default {
     'feil.bosattUtland.svar.required': 'Oppgi om personen er bosatt i et annet land enn Norge',
     'feil.bosattUtland.land.required': 'Oppgi land',
     'feil.bosattUtland.adresse.required': 'Oppgi adresse',
-    'feil.gravidEllerNyligFoedt.required': 'Oppgi om du venter/har barn som ikke er oppgitt i folkeregisteret',
+    'feil.gravidEllerNyligFoedt.required': 'Oppgi om du venter/har barn som ikke er oppgitt i Folkeregisteret',
     'feil.relasjon.required': 'Oppgi relasjon',
     'feil.yrke.required': 'Yrke må besvares',
     'feil.stilling.required': 'Stilling må besvares',
