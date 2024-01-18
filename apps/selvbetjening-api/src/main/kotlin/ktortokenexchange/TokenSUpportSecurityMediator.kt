@@ -31,7 +31,7 @@ class TokenSecurityContext(private val tokens: TokenValidationContext): Security
         return tokens.getJwtToken(issuer)
     }
 
-    override fun user() = tokens.firstValidToken.get().jwtTokenClaims?.get("pid")?.toString()
+    override fun user() = tokens.firstValidToken?.jwtTokenClaims?.get("pid")?.toString()
 }
 
 class TokenSupportSecurityContextMediator(private val configuration: ApplicationConfig): SecurityContextMediator {
@@ -48,7 +48,7 @@ class TokenSupportSecurityContextMediator(private val configuration: Application
     val tokenexchangeIssuer = "tokenx"
     val tokenxKlient = runBlocking {
         configuration.propertyOrNull("no.nav.etterlatte.app.ventmedutgaaendekall")?.getString()?.toLong()?.also {
-            println("Venter ${it} sekunder før kall til token-issuers")
+            println("Venter $it sekunder før kall til token-issuers")
             delay(it * 1000)
         }
         checkNotNull(ClientConfig(configuration, defaultHttpClient).clients[tokenexchangeIssuer])
@@ -74,7 +74,7 @@ class TokenSupportSecurityContextMediator(private val configuration: Application
     ) = suspend {
         (ThreadBoundSecCtx.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
             tokenxKlient.tokenExchange(
-                it.tokenAsString,
+                it.encodedToken,
                 audience
             ).accessToken
         }!!

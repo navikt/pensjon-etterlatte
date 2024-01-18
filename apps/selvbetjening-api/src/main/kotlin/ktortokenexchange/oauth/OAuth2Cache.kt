@@ -30,12 +30,12 @@ data class OAuth2CacheConfig(
         return object : Expiry<GrantRequest, OAuth2AccessTokenResponse> {
 
             override fun expireAfterCreate(
-                key: GrantRequest, response: OAuth2AccessTokenResponse,
+                key: GrantRequest,
+                response: OAuth2AccessTokenResponse,
                 currentTime: Long
             ): Long {
-                val seconds =
-                    if (response.expiresIn > skewInSeconds) response.expiresIn - skewInSeconds else response.expiresIn
-                        .toLong()
+                val expiresIn = response.expiresIn ?: 60
+                val seconds = if (expiresIn > skewInSeconds) expiresIn - skewInSeconds else expiresIn.toLong()
                 return TimeUnit.SECONDS.toNanos(seconds)
             }
 

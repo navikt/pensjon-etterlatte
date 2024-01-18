@@ -253,13 +253,11 @@ class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfigurati
             if (authorization != null) {
                 val headerValues = authorization.split(",".toRegex()).toTypedArray()
                 return extractBearerTokens(*headerValues)
-                    .stream()
-                    .map { encodedToken: String? ->
+                    .map { encodedToken: String ->
                         JwtToken(
                             encodedToken
                         )
                     }
-                    .collect(Collectors.toList())
             }
         } catch (_: Exception) {
         }
