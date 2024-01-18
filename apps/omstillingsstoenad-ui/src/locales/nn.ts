@@ -286,10 +286,16 @@ export default {
         'Kva var brutto arbeidsinntekt fram til dødsfallet?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
         'Oppgi inntekt frå januar til og med same månad som dødsfallet. Dersom dødsfallet skjedde i desember, oppgir du heile årsinntekta.',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse.januar':
+        'Oppgi inntekt frå januar til og med same månad som dødsfallet. Dersom dødsfallet skjedde i januar, oppgir du heile inntekta for januar.',
     'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
-        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+        'Kva reknar du med å ha i brutto arbeidsinntekt etter dødsfallet?',
+    //'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
-        'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+        'Kva reknar du med å ha i brutto arbeidsinntekt etter dødsfallet?',
+    //'Kva reknar du med å ha i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
+        'Oppgi inntekt fra månaden etter dødsfallet og ut året.',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt': 'Kva reknar du med å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi frå januar til og med desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':

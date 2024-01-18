@@ -22,6 +22,8 @@ const Loennsinntekt = () => {
 
     const norgeEllerUtland = watch('loennsinntekt.norgeEllerUtland')
 
+    const erJanuar = new Date(datoforDoedsfallet!!).getMonth() === 0
+
     return (
         <SkjemaGruppe>
             <SkjemaElement>
@@ -59,8 +61,26 @@ const Loennsinntekt = () => {
                                     <RHFValutaInput
                                         name={'loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall'}
                                         label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall')}
+                                        description={
+                                            erJanuar
+                                                ? t(
+                                                      'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse.januar'
+                                                  )
+                                                : t(
+                                                      'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse'
+                                                  )
+                                        }
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaElement>
+                            </SkjemaGruppe>
+                            <SkjemaGruppe>
+                                <SkjemaElement>
+                                    <RHFValutaInput
+                                        name={'loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'}
+                                        label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse'
+                                            'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
@@ -138,8 +158,26 @@ const Loennsinntekt = () => {
                                     <RHFValutaInput
                                         name={'loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall'}
                                         label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall')}
+                                        description={
+                                            erJanuar
+                                                ? t(
+                                                      'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse.januar'
+                                                  )
+                                                : t(
+                                                      'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse'
+                                                  )
+                                        }
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaElement>
+                            </SkjemaGruppe>
+                            <SkjemaGruppe>
+                                <SkjemaElement>
+                                    <RHFValutaInput
+                                        name={'loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'}
+                                        label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse'
+                                            'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />

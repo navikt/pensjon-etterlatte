@@ -662,6 +662,16 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                                     .tilDoedsfall!!,
                                         },
                                     },
+                                    etterDoedsfall: {
+                                        spoersmaal: t(
+                                            'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektIAar!!
+                                                    .etterDoedsfall!!,
+                                        },
+                                    },
                                 }
                               : {
                                     aarsinntekt: {
@@ -717,6 +727,16 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                             innhold:
                                                 inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
                                                     .tilDoedsfall!!,
+                                        },
+                                    },
+                                    etterDoedsfall: {
+                                        spoersmaal: t(
+                                            'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
+                                                    .etterDoedsfall!!,
                                         },
                                     },
                                 }
