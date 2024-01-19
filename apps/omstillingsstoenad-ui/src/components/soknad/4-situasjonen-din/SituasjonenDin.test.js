@@ -15,7 +15,17 @@ jest.mock('react-i18next', () => ({
 }))
 
 describe('Omsorg for barn', () => {
+    beforeAll(() => {
+        jest.useFakeTimers('modern')
+    })
+
+    afterAll(() => {
+        jest.useRealTimers()
+    })
+
     it('Snapshot', () => {
+        jest.setSystemTime(new Date(2024, 0, 1))
+
         const { container } = render(<SituasjonenDin />)
         expect(container).toMatchSnapshot()
     })
