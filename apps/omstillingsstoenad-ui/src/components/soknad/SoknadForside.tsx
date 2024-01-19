@@ -77,66 +77,33 @@ const SoknadForside = () => {
                         <ExpansionCard.Title as={'h2'}>{t('forside.omSoeknaden.personvern')}</ExpansionCard.Title>
                     </ExpansionCard.Header>
                     <ExpansionCard.Content>
+                        <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
+                        <BodyLong spacing>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
+
+                        <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
+                        <List as={'ul'} size={'small'}>
+                            <ListItemWithIndent>{t('forside.innsamlingAvInfo.innholdListe.li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.innsamlingAvInfo.innholdListe.li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.innsamlingAvInfo.innholdListe.li3')}</ListItemWithIndent>
+                        </List>
+
                         <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                         <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
                         <List as={'ul'} size={'small'}>
-                            <ListItemWithIndent>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t('forside.uthentingAvInfo.innholdListe.li1'),
-                                    }}
-                                />
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t('forside.uthentingAvInfo.innholdListe.li2'),
-                                    }}
-                                />
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t('forside.uthentingAvInfo.innholdListe.li3'),
-                                    }}
-                                />
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t('forside.uthentingAvInfo.innholdListe.li4'),
-                                    }}
-                                />
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <span
-                                  dangerouslySetInnerHTML={{
-                                      __html: t('forside.uthentingAvInfo.innholdListe.li5'),
-                                  }}
-                                />
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t('forside.uthentingAvInfo.innholdListe.li6'),
-                                    }}
-                                />
-                            </ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li3')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li4')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li5')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li6')}</ListItemWithIndent>
                             <ListItemWithIndent>
                                 <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
                             </ListItemWithIndent>
-
                         </List>
 
                         <SkjemaElement>
-                            <BodyLong>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t('forside.personvern.aktivitetsplikt'),
-                                    }}
-                                />
-                            </BodyLong>
+                            <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
                         </SkjemaElement>
 
                         <SkjemaElement>
@@ -151,6 +118,49 @@ const SoknadForside = () => {
                         </SkjemaElement>
 
                         <SkjemaElement>
+                            <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
+                            <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
+                        </SkjemaElement>
+
+                        <SkjemaElement>
+                            <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
+                            <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
+                        </SkjemaElement>
+
+                        <SkjemaElement>
+                            <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
+                            <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
+                            <SkjemaElement>
+                                <BodyLong>{t('forside.automatiskbehandling.innhold2')}</BodyLong>
+                            </SkjemaElement>
+                            <SkjemaElement>
+                                <BodyLong>{t('forside.automatiskbehandling.innhold3')}</BodyLong>
+                            </SkjemaElement>
+                            <SkjemaElement>
+                                <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
+                            </SkjemaElement>
+
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>
+                                    {t('forside.automatiskbehandling.innholdListe.li1')}
+                                </ListItemWithIndent>
+                                <ListItemWithIndent>
+                                    {t('forside.automatiskbehandling.innholdListe.li2')}
+                                </ListItemWithIndent>
+                                <ListItemWithIndent>
+                                    {t('forside.automatiskbehandling.innholdListe.li3')}
+                                </ListItemWithIndent>
+                                <ListItemWithIndent>
+                                    {t('forside.automatiskbehandling.innholdListe.li4')}
+                                </ListItemWithIndent>
+                            </List>
+
+                            <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
+                        </SkjemaElement>
+
+                        <SkjemaElement>
+                            <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
+
                             <BodyLong>
                                 {t('forside.personvern.innhold')}
                                 <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
