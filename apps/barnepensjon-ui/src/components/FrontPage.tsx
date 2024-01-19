@@ -8,6 +8,7 @@ import FormGroup from './common/FormGroup'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
+import FormElement from './common/FormElement'
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -70,6 +71,25 @@ export default function FrontPage() {
                         <ExpansionCard.Title as={'h2'}>{t('weWillRetrieveInfoTitle')}</ExpansionCard.Title>
                     </ExpansionCard.Header>
                     <ExpansionCard.Content>
+                        <FormElement>
+                            <Heading size={'small'}>{t('howWeProcessDataTitle')}</Heading>
+                            <BodyLong>{t('howWeProcessDataContent')}</BodyLong>
+                        </FormElement>
+
+                        <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
+
+                        <ul>
+                            <li>
+                                <Trans value={t('collectAndProcess_li1')} />
+                            </li>
+                            <li>
+                                <Trans value={t('collectAndProcess_li2')} />
+                            </li>
+                            <li>
+                                <Trans value={t('collectAndProcess_li3')} />
+                            </li>
+                        </ul>
+
                         <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
 
                         <BodyLong>{t('infoWeRetrieve')}</BodyLong>
@@ -104,14 +124,53 @@ export default function FrontPage() {
                                 <li>
                                     <Trans value={t('survivingParentInfo_li4')} />
                                 </li>
+                                <li>
+                                    <Trans value={t('survivingParentInfo_li5')} />
+                                </li>
                             </ul>
                         </BodyLong>
 
-                        {/*
+                        <FormElement>
+                            <Heading size={'small'}>{t('disclosureOfInformationTitle')}</Heading>
+                            <BodyLong>{t('disclosureOfInformationContent')}</BodyLong>
+                        </FormElement>
+                        <FormElement>
+                            <Heading size={'small'}>{t('durationDataIsStoredTitle')}</Heading>
+                            <BodyLong>{t('durationDataIsStoredContent')}</BodyLong>
+                        </FormElement>
+                        <FormElement>
+                            <Heading size={'small'}>{t('automaticProcessingTitle')}</Heading>
+                            <BodyLong>{t('automaticProcessingContent1')}</BodyLong>
+                            <FormElement>
+                                <BodyLong>{t('automaticProcessingContent2')}</BodyLong>
+                            </FormElement>
+                            <FormElement>
+                                <BodyLong>{t('automaticProcessingContent3')}</BodyLong>
+                            </FormElement>
+                            <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
+
+                            <ul>
+                                <li>
+                                    <Trans value={t('automaticProcessingContent_li1')} />
+                                </li>
+                                <li>
+                                    <Trans value={t('automaticProcessingContent_li2')} />
+                                </li>
+                                <li>
+                                    <Trans value={t('automaticProcessingContent_li3')} />
+                                </li>
+                                <li>
+                                    <Trans value={t('automaticProcessingContent_li4')} />
+                                </li>
+                            </ul>
+                            <BodyLong>{t('automaticProcessingContent5')}</BodyLong>
+                        </FormElement>
+
+                        <Heading size={'small'}>{t('aboutPrivacyTitle')}</Heading>
+
                         <BodyLong>
                             <Trans value={t('aboutPrivacy')} />
                         </BodyLong>
-                        */}
                     </ExpansionCard.Content>
                 </ExpansionCard>
             </FormGroup>

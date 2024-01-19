@@ -92,7 +92,8 @@ const frontPage = {
     ingress:
         'Hei, eg er her for å rettleie deg gjennom søknaden. Svar så godt du kan ut frå korleis situasjonen din ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     startApplication: 'Start søknad',
-    childMayBeApplicableForPension: 'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon.',
+    childMayBeApplicableForPension:
+        'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:
         'Det er foreldra eller verjen til barnet som må søke om barnepensjon for barnet viss det er under 18 år.',
     childMayBeApplicableForPension_li2:
@@ -100,23 +101,51 @@ const frontPage = {
     childMayBeApplicableForPension_li3: 'Barn over 18 år må søkje sjølve.',
     readMoreAboutChildrensPension:
         'Dersom du har spørsmål om pensjonen, til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt, kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
-    weWillRetrieveInfoTitle: 'Personvern og tryggleik',
+    weWillRetrieveInfoTitle: 'Behandling av personopplysningar i søknaden',
+    howWeProcessDataTitle: 'Slik behandlar NAV personopplysningane dine',
+    howWeProcessDataContent:
+        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om den som søkjer om ytinga. Dersom du sender inn ein søknad om yting på vegner av andre, derimellom eigne barn eller barn du er verje for, vil vi hente inn og behandle opplysningar om vedkomande. Dette er nødvendig for at du, eller den du søkjer på vegner for, skal få gode tenester og ytingane du/vedkomande har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
+    collectAndProcessTitle: 'Vi samlar inn og behandlar personopplysningar for å',
+    collectAndProcess_li1: 'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
+    collectAndProcess_li2: 'behandle søknaden din',
+    collectAndProcess_li3: 'betale ut ytinga',
     weWillRetrieveInfo: 'Vi hentar inn informasjonen vi treng',
     infoWeRetrieve:
         'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar vil som oftast vere ein attlevande forelder dersom det er brukaren sjølv, eller ein verje som har rett til å representere brukaren, som søkjer. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
-    infoWeRetrieve_li1:
-        '<strong>Personopplysningar</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap og/eller sivilstand)',
-    infoWeRetrieve_li2: 'Opplysningar om <strong>anna løpande støtte frå NAV</strong> (til dømes uføretrygd)',
-    infoWeRetrieve_li3: 'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
-    infoWeRetrieve_li4: 'Opplysningar om straffegjennomføring og opphald på institusjon',
+    infoWeRetrieve_li1: 'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
+    infoWeRetrieve_li2: 'opplysningar om anna fortløpande støtte frå NAV (periodar med mottak av uføretrygd)',
+    infoWeRetrieve_li3: 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
+    infoWeRetrieve_li4: 'opplysningar om straffegjennomføring og opphald på institusjon',
     survivingParentInfo:
         'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
-    survivingParentInfo_li1: 'Namn',
-    survivingParentInfo_li2: 'Fødselsnummer',
-    survivingParentInfo_li3: 'Adresse',
-    survivingParentInfo_li4: 'Medlemskap i folketrygda (der dette er nødvendig)',
+    survivingParentInfo_li1: 'namn',
+    survivingParentInfo_li2: 'fødselsnummer',
+    survivingParentInfo_li3: 'adresse',
+    survivingParentInfo_li4: 'medlemskap i Folketrygda (der dette er nødvendig)',
+    survivingParentInfo_li5: 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
+    disclosureOfInformationTitle: 'Utlevering av opplysningane dine',
+    disclosureOfInformationContent:
+        'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at NAV har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
+    durationDataIsStoredTitle: 'Kor lenge opplysningane dine blir lagra',
+    durationDataIsStoredContent:
+        'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
+    automaticProcessingTitle: 'Automatisk behandling',
+    automaticProcessingContent1:
+        'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
+    automaticProcessingContent2:
+        'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der grunnbeløpet i folketrygda blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
+    automaticProcessingContent3:
+        'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
+    automaticProcessingContent4: 'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar:',
+    automaticProcessingContent_li1: 'personnummer',
+    automaticProcessingContent_li2: 'saks-ID',
+    automaticProcessingContent_li3: 'type yting',
+    automaticProcessingContent_li4: 'gjeldande vedtak',
+    automaticProcessingContent5:
+        'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
+    aboutPrivacyTitle: 'Personvernerklæringa i NAV',
     aboutPrivacy:
-        'Dersom du ønskjer å vite meir om personvern og tryggleik, kan du lese om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">korleis NAV behandlar personopplysningane dine.</a>',
+        'Her kan du lese meir om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">korleis NAV behandlar personopplysningar.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
@@ -136,8 +165,7 @@ const selectScenario = {
     parentApplicantInformation:
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
     guardianApplicantInformationLabel: 'Eg søker for eitt eller fleire barn eg er verje for',
-    guardianApplicantInformation:
-        'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år.',
+    guardianApplicantInformation: 'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år.',
     guardiansMustSendDocumentation:
         'For at vi skal kunne behandle søknaden om barnepensjon, må du ettersende dokumentasjon på barn du er verje for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon/nn">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
