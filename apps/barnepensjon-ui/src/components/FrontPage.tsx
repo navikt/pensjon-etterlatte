@@ -1,4 +1,4 @@
-import { BodyLong, Button, ConfirmationPanel, ExpansionCard, GuidePanel, Heading } from '@navikt/ds-react'
+import { BodyLong, Button, ConfirmationPanel, ExpansionCard, GuidePanel, Heading, List } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
@@ -9,6 +9,11 @@ import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
 import FormElement from './common/FormElement'
+import styled from 'styled-components'
+
+const ListItemWithIndent = styled(List.Item)`
+    margin-left: 1rem;
+`
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -47,19 +52,13 @@ export default function FrontPage() {
                 <BodyLong>
                     <Trans value={t('childMayBeApplicableForPension')} />
                 </BodyLong>
-                <BodyLong as={'div'}>
-                    <ul>
-                        <li>
-                            <Trans value={t('childMayBeApplicableForPension_li1')} />
-                        </li>
-                        <li>
-                            <Trans value={t('childMayBeApplicableForPension_li2')} />
-                        </li>
-                        <li>
-                            <Trans value={t('childMayBeApplicableForPension_li3')} />
-                        </li>
-                    </ul>
-                </BodyLong>
+
+                <List as={'ul'}>
+                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li1')}</ListItemWithIndent>
+                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li2')}</ListItemWithIndent>
+                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li3')}</ListItemWithIndent>
+                </List>
+
                 <BodyLong>
                     <Trans value={t('readMoreAboutChildrensPension')} />
                 </BodyLong>
@@ -78,56 +77,32 @@ export default function FrontPage() {
 
                         <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
 
-                        <ul>
-                            <li>
-                                <Trans value={t('collectAndProcess_li1')} />
-                            </li>
-                            <li>
-                                <Trans value={t('collectAndProcess_li2')} />
-                            </li>
-                            <li>
-                                <Trans value={t('collectAndProcess_li3')} />
-                            </li>
-                        </ul>
+                        <List as={'ul'}>
+                            <ListItemWithIndent>{t('collectAndProcess_li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
+                        </List>
 
                         <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
 
                         <BodyLong>{t('infoWeRetrieve')}</BodyLong>
 
-                        <ul>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li1')} />
-                            </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li2')} />
-                            </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li3')} />
-                            </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li4')} />
-                            </li>
-                        </ul>
+                        <List as={'ul'}>
+                            <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('infoWeRetrieve_li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('infoWeRetrieve_li3')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
+                        </List>
 
                         <BodyLong>
                             <Trans value={t('survivingParentInfo')} />
-                            <ul>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li1')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li2')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li3')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li4')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li5')} />
-                                </li>
-                            </ul>
+                            <List as={'ul'}>
+                                <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
+                            </List>
                         </BodyLong>
 
                         <FormElement>
@@ -149,20 +124,12 @@ export default function FrontPage() {
                             </FormElement>
                             <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
-                            <ul>
-                                <li>
-                                    <Trans value={t('automaticProcessingContent_li1')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('automaticProcessingContent_li2')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('automaticProcessingContent_li3')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('automaticProcessingContent_li4')} />
-                                </li>
-                            </ul>
+                            <List as={'ul'}>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li4')}</ListItemWithIndent>
+                            </List>
                             <BodyLong>{t('automaticProcessingContent5')}</BodyLong>
                         </FormElement>
 
