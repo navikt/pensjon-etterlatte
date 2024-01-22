@@ -18,6 +18,7 @@ import { useLand } from '../../../hooks/useLand'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import Datovelger from '../../felles/Datovelger'
+import { isDev } from '../../../api/axios'
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -74,7 +75,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 </Heading>
             </SkjemaElement>
 
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                 <SkjemaGruppe>
                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                         <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />

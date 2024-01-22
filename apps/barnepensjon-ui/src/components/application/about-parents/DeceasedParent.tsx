@@ -7,6 +7,7 @@ import Navigation from '../../common/Navigation'
 import { StepProps } from '../Dialogue'
 import DeceasedParentForm from '../the-deceased/DeceasedParentForm'
 import DeceasedParentTitle from '../the-deceased/DeceasedParentTitle'
+import { isDev } from '../../../api/axios'
 
 interface Props extends StepProps {
     fnrRegisteredParent?: string[]
@@ -22,8 +23,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
     }
 
     const methods = useForm<any>({
-        defaultValues:
-            type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent },
+        defaultValues: type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent },
         shouldUnregister: true,
     })
 
@@ -34,7 +34,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
 
     return (
         <FormProvider {...methods}>
-            <form>
+            <form autoComplete={isDev ? 'on' : 'off'}>
                 <DeceasedParentTitle type={type!!} situation={state?.applicant?.applicantSituation} />
 
                 <DeceasedParentForm fnrRegisteredParent={fnrRegisteredParent || ['']} />

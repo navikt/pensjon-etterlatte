@@ -16,6 +16,7 @@ import { deepCopy } from '../../../utils/deepCopy'
 import styled from 'styled-components'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import { isDev } from '../../../api/axios'
 
 const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -95,7 +96,7 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <form>
+            <form autoComplete={isDev ? 'on' : 'off'}>
                 {aktivBarnIndex === undefined && (
                     <>
                         <SkjemaElement>

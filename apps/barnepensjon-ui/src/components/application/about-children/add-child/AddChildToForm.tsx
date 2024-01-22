@@ -21,6 +21,7 @@ import ParentQuestion from './ParentQuestion'
 import { IsGuardianQuestion } from './IsGuardianQuestion'
 import { useUserContext } from '../../../../context/user/UserContext'
 import FormElement from '../../../common/FormElement'
+import { isDev } from '../../../../api/axios'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -136,7 +137,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
     return (
         <FormProvider {...methods}>
-            <form>
+            <form autoComplete={isDev ? 'on' : 'off'}>
                 <ChangeChildPanel>
                     <ChangeChildPanelHeader>
                         <img alt="barn" src={ikon} />
