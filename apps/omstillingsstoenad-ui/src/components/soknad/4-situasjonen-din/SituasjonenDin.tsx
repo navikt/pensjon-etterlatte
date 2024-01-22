@@ -17,6 +17,7 @@ import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
 import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
+import { isDev } from '../../../api/axios'
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -59,7 +60,7 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                 <SkjemaElement>
                     <Heading size={'medium'} className={'center'}>
                         {t('situasjonenDin.tittel')}

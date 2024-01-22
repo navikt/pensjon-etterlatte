@@ -11,7 +11,9 @@ exports[`Om den avdøde Snapshot 1`] = `
       omDenAvdoede.tittel
     </h1>
   </div>
-  <form>
+  <form
+    autocomplete="off"
+  >
     <fieldset
       class="sc-beySPh hBKmDL"
     >

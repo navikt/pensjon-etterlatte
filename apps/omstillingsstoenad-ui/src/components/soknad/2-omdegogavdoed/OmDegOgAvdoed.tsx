@@ -10,6 +10,7 @@ import { Heading } from '@navikt/ds-react'
 import Navigasjon from '../../felles/Navigasjon'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import { isDev } from '../../../api/axios'
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -53,7 +54,7 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             </SkjemaElement>
 
             <FormProvider {...methods}>
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                     <ForholdTilAvdoedeSkjema />
 
                     <Feilmeldinger errors={errors} />

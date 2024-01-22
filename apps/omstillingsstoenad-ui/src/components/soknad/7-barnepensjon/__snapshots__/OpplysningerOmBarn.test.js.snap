@@ -2,7 +2,9 @@
 
 exports[`Opplysninger om barn Snapshot 1`] = `
 <div>
-  <form>
+  <form
+    autocomplete="off"
+  >
     <div
       class="sc-csKJxZ hDAitV"
     >

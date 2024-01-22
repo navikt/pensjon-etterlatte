@@ -11,7 +11,9 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
       omDegOgAvdoed.tittel
     </h1>
   </div>
-  <form>
+  <form
+    autocomplete="off"
+  >
     <fieldset
       class="sc-dmyCSP cHUYTi"
     >
@@ -1847,7 +1849,9 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
       omDegOgAvdoed.tittel
     </h1>
   </div>
-  <form>
+  <form
+    autocomplete="off"
+  >
     <fieldset
       class="sc-dmyCSP cHUYTi"
     >

@@ -21,6 +21,7 @@ import { NavigasjonsRad } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import bredde from '../../../typer/bredde'
+import { isDev } from '../../../api/axios'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -150,7 +151,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                 </GuidePanel>
             </SkjemaElement>
             <FormProvider {...methods}>
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                     <EndreBarnKort border>
                         <EndreBarnKortHeader>
                             <img alt="barn" src={ikon} />
