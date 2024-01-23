@@ -11,18 +11,22 @@ import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
 import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
+import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 
 const Loennsinntekt = () => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext<IInntekt>()
     const { state: soknadState } = useSoknadContext()
+    const { state: bruker } = useBrukerContext()
 
     const datoforDoedsfallet = soknadState.omDenAvdoede.datoForDoedsfallet
 
     const norgeEllerUtland = watch('loennsinntekt.norgeEllerUtland')
 
     const erJanuar = new Date(datoforDoedsfallet!!).getMonth() === 0
+
+    const foedtFoer1964 = bruker.foedselsaar!! < 1964
 
     return (
         <SkjemaGruppe>
@@ -48,14 +52,18 @@ const Loennsinntekt = () => {
                     </SkjemaElement>
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
-                            <SkjemaGruppe>
-                                <RHFValutaInput
-                                    name={'loennsinntekt.norge.arbeidsinntektAaretFoer'}
-                                    label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')}
-                                    description={t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse')}
-                                    htmlSize={Bredde.S}
-                                />
-                            </SkjemaGruppe>
+                            {foedtFoer1964 && (
+                                <SkjemaGruppe>
+                                    <RHFValutaInput
+                                        name={'loennsinntekt.norge.arbeidsinntektAaretFoer'}
+                                        label={t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')}
+                                        description={t(
+                                            'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse'
+                                        )}
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaGruppe>
+                            )}
                             <SkjemaGruppe>
                                 <SkjemaElement>
                                     <RHFValutaInput
