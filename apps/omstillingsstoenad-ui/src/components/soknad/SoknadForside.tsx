@@ -74,20 +74,30 @@ const SoknadForside = () => {
 
                 <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')}>
                     <ExpansionCard.Header>
-                        <ExpansionCard.Title as={'h2'}>{t('forside.omSoeknaden.personvern')}</ExpansionCard.Title>
+                        <ExpansionCard.Title as={'h2'} size={'small'}>
+                            {t('forside.omSoeknaden.personvern')}
+                        </ExpansionCard.Title>
                     </ExpansionCard.Header>
                     <ExpansionCard.Content>
-                        <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
-                        <BodyLong spacing>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
+                        <Heading size={'xsmall'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
+                        <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
 
-                        <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
-                        <List as={'ul'} size={'small'}>
-                            <ListItemWithIndent>{t('forside.innsamlingAvInfo.innholdListe.li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.innsamlingAvInfo.innholdListe.li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.innsamlingAvInfo.innholdListe.li3')}</ListItemWithIndent>
-                        </List>
+                        <SkjemaElement>
+                            <Heading size={'xsmall'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>
+                                    {t('forside.innsamlingAvInfo.innholdListe.li1')}
+                                </ListItemWithIndent>
+                                <ListItemWithIndent>
+                                    {t('forside.innsamlingAvInfo.innholdListe.li2')}
+                                </ListItemWithIndent>
+                                <ListItemWithIndent>
+                                    {t('forside.innsamlingAvInfo.innholdListe.li3')}
+                                </ListItemWithIndent>
+                            </List>
+                        </SkjemaElement>
 
-                        <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
+                        <Heading size={'xsmall'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                         <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
                         <List as={'ul'} size={'small'}>
@@ -118,20 +128,26 @@ const SoknadForside = () => {
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
+                            <Heading size={'xsmall'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
                             <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
+                            <Heading size={'xsmall'}>{t('forside.lagringstid.tittel')}</Heading>
                             <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
+                            <Heading size={'xsmall'}>{t('forside.automatiskbehandling.tittel')}</Heading>
                             <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
                             <SkjemaElement>
-                                <BodyLong>{t('forside.automatiskbehandling.innhold2')}</BodyLong>
+                                <BodyLong>
+                                    {t('forside.automatiskbehandling.innhold2.del1')}
+                                    <Link href={t('forside.automatiskbehandling.innhold2.lenke.href')} inlineText>
+                                        {t('forside.automatiskbehandling.innhold2.lenke.tekst')}
+                                    </Link>
+                                    {t('forside.automatiskbehandling.innhold2.del2')}
+                                </BodyLong>
                             </SkjemaElement>
                             <SkjemaElement>
                                 <BodyLong>{t('forside.automatiskbehandling.innhold3')}</BodyLong>
@@ -159,7 +175,7 @@ const SoknadForside = () => {
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
+                            <Heading size={'xsmall'}>{t('forside.personvern.tittel')}</Heading>
 
                             <BodyLong>
                                 {t('forside.personvern.innhold')}

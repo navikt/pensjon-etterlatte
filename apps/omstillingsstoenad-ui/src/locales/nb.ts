@@ -87,8 +87,12 @@ export default {
     'forside.automatiskbehandling.tittel': 'Automatisk behandling',
     'forside.automatiskbehandling.innhold1':
         'Stort sett all behandling av personopplysninger i forbindelse med omstillingsstønad blir gjort manuelt. Det vil si at det er en saksbehandler som ser på og behandler saken din.',
-    'forside.automatiskbehandling.innhold2':
-        'Ved noen anledninger vil det gjøres en automatisk behandling i saken. Ved en løpende ytelse som bruker grunnbeløpet i folketrygden som beregningsgrunnlag, slik som i omstillingsstønad, vil systemet automatisk endre din utbetaling basert på endringer i grunnbeløpet. Dette er for å sikre at utbetaling av ytelser foregår effektivt.',
+    'forside.automatiskbehandling.innhold2.del1':
+        'Ved noen anledninger vil det gjøres en automatisk behandling i saken. Ved en løpende ytelse som bruker ',
+    'forside.automatiskbehandling.innhold2.del2':
+            ' som beregningsgrunnlag, slik som i omstillingsstønad, vil systemet automatisk endre din utbetaling basert på endringer i grunnbeløpet. Dette er for å sikre at utbetaling av ytelser foregår effektivt.',
+    'forside.automatiskbehandling.innhold2.lenke.tekst': 'grunnbeløpet i folketrygden',
+    'forside.automatiskbehandling.innhold2.lenke.href': 'https://www.nav.no/grunnbelopet',
     'forside.automatiskbehandling.innhold3':
         'For deg vil dette innebære at din stønad automatisk endres i tråd med den årlige justeringen av grunnbeløpet. Når din stønad justeres automatisk, er det ikke en saksbehandler som har behandlet endringen.',
     'forside.automatiskbehandling.innhold4': 'Følgende opplysninger benyttes for å gjennomføre grunnbeløpsregulering:',
@@ -100,7 +104,7 @@ export default {
         'Endringene gjøres i saksbehandlingssystemet og innebærer ikke flytting av opplysninger.',
     'forside.personvern.tittel': 'Personvernerklæringen i NAV',
     'forside.personvern.innhold': 'Her kan du lese mer om ',
-    'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
+    'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
     'forside.personvern.tekst': 'hvordan NAV behandler personopplysningene dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din.',
