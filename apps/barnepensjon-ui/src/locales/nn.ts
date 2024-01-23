@@ -133,7 +133,7 @@ const frontPage = {
     automaticProcessingContent1:
         'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
     automaticProcessingContent2:
-        'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der grunnbeløpet i folketrygda blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
+        'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der <a href="https://www.nav.no/grunnbelopet">grunnbeløpet i folketrygda</a> blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
     automaticProcessingContent3:
         'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
     automaticProcessingContent4: 'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar:',
@@ -145,7 +145,7 @@ const frontPage = {
         'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
     aboutPrivacyTitle: 'Personvernerklæringa i NAV',
     aboutPrivacy:
-        'Her kan du lese meir om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten/personvern-og-sikkerhet-pa-nav.no#chapter-3">korleis NAV behandlar personopplysningar.</a>',
+        'Her kan du lese meir om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">korleis NAV behandlar personopplysningar.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',

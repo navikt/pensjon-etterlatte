@@ -67,64 +67,73 @@ export default function FrontPage() {
             <FormGroup>
                 <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
                     <ExpansionCard.Header>
-                        <ExpansionCard.Title as={'h2'}>{t('weWillRetrieveInfoTitle')}</ExpansionCard.Title>
+                        <ExpansionCard.Title as={'h2'} size={'small'}>
+                            {t('weWillRetrieveInfoTitle')}
+                        </ExpansionCard.Title>
                     </ExpansionCard.Header>
                     <ExpansionCard.Content>
                         <FormElement>
-                            <Heading size={'small'}>{t('howWeProcessDataTitle')}</Heading>
+                            <Heading size={'xsmall'}>{t('howWeProcessDataTitle')}</Heading>
                             <BodyLong>{t('howWeProcessDataContent')}</BodyLong>
                         </FormElement>
 
-                        <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('collectAndProcessTitle')}</Heading>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('collectAndProcess_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
-                        </List>
-
-                        <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
-
-                        <BodyLong>{t('infoWeRetrieve')}</BodyLong>
-
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
-                        </List>
-
-                        <BodyLong>
-                            <Trans value={t('survivingParentInfo')} />
-                            <List as={'ul'}>
-                                <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>{t('collectAndProcess_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
                             </List>
-                        </BodyLong>
+                        </FormElement>
 
                         <FormElement>
-                            <Heading size={'small'}>{t('disclosureOfInformationTitle')}</Heading>
+                            <Heading size={'xsmall'}>{t('weWillRetrieveInfo')}</Heading>
+                            <BodyLong>{t('infoWeRetrieve')}</BodyLong>
+
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
+                            </List>
+
+                            <BodyLong>
+                                <Trans value={t('survivingParentInfo')} />
+                                <List as={'ul'} size={'small'}>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
+                                </List>
+                            </BodyLong>
+                        </FormElement>
+
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('disclosureOfInformationTitle')}</Heading>
                             <BodyLong>{t('disclosureOfInformationContent')}</BodyLong>
                         </FormElement>
+
                         <FormElement>
-                            <Heading size={'small'}>{t('durationDataIsStoredTitle')}</Heading>
+                            <Heading size={'xsmall'}>{t('durationDataIsStoredTitle')}</Heading>
                             <BodyLong>{t('durationDataIsStoredContent')}</BodyLong>
                         </FormElement>
+
                         <FormElement>
-                            <Heading size={'small'}>{t('automaticProcessingTitle')}</Heading>
+                            <Heading size={'xsmall'}>{t('automaticProcessingTitle')}</Heading>
                             <BodyLong>{t('automaticProcessingContent1')}</BodyLong>
                             <FormElement>
-                                <BodyLong>{t('automaticProcessingContent2')}</BodyLong>
+                                <BodyLong>
+                                    <Trans value={t('automaticProcessingContent2')} />
+                                </BodyLong>
                             </FormElement>
                             <FormElement>
                                 <BodyLong>{t('automaticProcessingContent3')}</BodyLong>
                             </FormElement>
                             <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
-                            <List as={'ul'}>
+                            <List as={'ul'} size={'small'}>
                                 <ListItemWithIndent>{t('automaticProcessingContent_li1')}</ListItemWithIndent>
                                 <ListItemWithIndent>{t('automaticProcessingContent_li2')}</ListItemWithIndent>
                                 <ListItemWithIndent>{t('automaticProcessingContent_li3')}</ListItemWithIndent>
@@ -133,8 +142,7 @@ export default function FrontPage() {
                             <BodyLong>{t('automaticProcessingContent5')}</BodyLong>
                         </FormElement>
 
-                        <Heading size={'small'}>{t('aboutPrivacyTitle')}</Heading>
-
+                        <Heading size={'xsmall'}>{t('aboutPrivacyTitle')}</Heading>
                         <BodyLong>
                             <Trans value={t('aboutPrivacy')} />
                         </BodyLong>
