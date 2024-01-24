@@ -105,21 +105,22 @@ const frontPage = {
     weWillRetrieveInfoTitle: 'Processing of personal data in the application',
     howWeProcessDataTitle: 'How NAV processes your personal data',
     howWeProcessDataContent:
-        'When you submit an application for benefits, NAV needs some personal data about you to process your application. If you are sending an application on behalf of someone else, including a child under your care/guardianship, we will also need information about the child. NAV is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian for your or someone under your care – pursuant to Chapter 18 of the National Insurance Act.',
+        "When you submit an application for benefits, NAV will collect and process some personal data about the person applying for benefits. If you are sending an application on behalf of someone else, including a child under your care/guardianship, we will also collect and process some information about the child. This is necessary so that you, or the person you are applying for, will receive good services and correct benefits and to fulfill NAV's obligation to contribute financially security in the event of death – pursuant to Chapter 18 of the National Insurance Act.",
     collectAndProcessTitle: 'We collect and process personal data to:',
     collectAndProcess_li1: 'identify and communicate with you as an applicant or representative of an applicant',
     collectAndProcess_li2: 'process your application',
     collectAndProcess_li3: 'pay your benefits',
     weWillRetrieveInfo: 'We will collect any information we need',
     infoWeRetrieve:
-        'In order to process your application, we need to gather information about you as the applicant and information about others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
+        'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
         'personal data from the National Population Register (national identification number, address, nationality, marital status)',
     infoWeRetrieve_li2:
         'information about other current benefits or support from NAV (periods when you received disability pension)',
     infoWeRetrieve_li3: 'information from foreign national insurance/social security authorities (if applicable)',
     infoWeRetrieve_li4: 'information about imprisonment and stays at institutions',
-    survivingParentInfo: 'With regard to third persons connected with the applicant we may need to collect:',
+    survivingParentInfo:
+        'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
     survivingParentInfo_li1: 'name',
     survivingParentInfo_li2: 'national identity number  ',
     survivingParentInfo_li3: 'address',

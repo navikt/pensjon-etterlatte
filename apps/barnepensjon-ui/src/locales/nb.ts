@@ -111,7 +111,7 @@ const frontPage = {
     collectAndProcess_li3: 'betale ut ytelsen',
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve:
-        'For å behandle søknaden din henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner vil som oftest være en gjenlevende foreldre i tilfeller der bruker søker selv eller dersom en verge som har rett til å representere brukeren søker.\n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
+        'For å behandle søknaden din, henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være gjenlevende forelder eller verge som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
     infoWeRetrieve_li1: 'personopplysninger fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand)',
     infoWeRetrieve_li2: 'opplysninger om annen løpende støtte fra NAV (perioder med mottak av uføretrygd)',
     infoWeRetrieve_li3: 'informasjon fra utenlandske trygdemyndigheter der dette er aktuelt',

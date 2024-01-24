@@ -111,7 +111,7 @@ const frontPage = {
     collectAndProcess_li3: 'betale ut ytinga',
     weWillRetrieveInfo: 'Vi hentar inn informasjonen vi treng',
     infoWeRetrieve:
-        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar vil som oftast vere ein attlevande forelder dersom det er brukaren sjølv, eller ein verje som har rett til å representere brukaren, som søkjer. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og om tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere ein attlevande forelder eller verje som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
     infoWeRetrieve_li1: 'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     infoWeRetrieve_li2: 'opplysningar om anna fortløpande støtte frå NAV (periodar med mottak av uføretrygd)',
     infoWeRetrieve_li3: 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
