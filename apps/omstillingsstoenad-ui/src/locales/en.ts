@@ -47,37 +47,69 @@ export default {
     'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
     'forside.barnepensjon.innhold':
         'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension.',
-    'forside.omSoeknaden.personvern': 'Personal data protection',
-    'forside.uthentingAvInfo.tittel': 'We gather the information we need',
+    'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
+    'forside.slikBehandlerVi.tittel': 'How NAV processes your personal data',
+    'forside.slikBehandlerVi.innhold':
+        'NAV needs some personal information about you in order to process your benefits application. We cannot offer the correct services or benefits without this information. NAV is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian – pursuant to Chapter 17 of the National Insurance Act.',
+    'forside.innsamlingAvInfo.tittel': 'We collect and process personal data to:',
+    'forside.innsamlingAvInfo.innholdListe.li1':
+        'identify and communicate with you as an applicant or representative of an applicant',
+    'forside.innsamlingAvInfo.innholdListe.li2': 'process your application',
+    'forside.innsamlingAvInfo.innholdListe.li3': 'pay your benefits',
+    'forside.uthentingAvInfo.tittel': 'We collect all the information we need',
     'forside.uthentingAvInfo.innhold':
         'In order to process your application, we need to gather information about you as the applicant and information about third others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\n In addition to the information you provide during the application process, NAV is also authorised to collect:',
     'forside.uthentingAvInfo.innholdListe.li1':
-        '<strong>Personal information</strong> from the National Population Register (national identification number, address, nationality, citizenship, marital status)',
+        'personal data from the National Population Register (national identification number, address, nationality, marital status)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        '<strong>Income information</strong> from the Norwegian Tax Administration (taxable income for the current year)',
+        'income information from the Norwegian Tax Administration (information on taxable income for the current year)',
     'forside.uthentingAvInfo.innholdListe.li3':
-        'Information about <strong>employment</strong> from employers and the national register of employees',
+        'information about employment from employers and the National Register of Employees',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Information about <strong>other benefits you may be receiving from NAV</strong> (such as retirement pension or disability pension)',
+        'information about other benefits you may be receiving from NAV (such as retirement pension or disability pension)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Information about <strong>benefits from others than NAV</strong> (such as occupational pension scheme)',
+        'information from foreign national insurance/social security authorities (if applicable)',
     'forside.uthentingAvInfo.innholdListe.li6':
-        'Information from <strong>foreign national insurance/social security authorities</strong> (if applicable)',
-    'forside.uthentingAvInfo.innholdListe.li7':
-        'Information from the Norwegian State Educational Loan Fund to verify education/training (if applicable)',
+        'information from the Norwegian State Educational Loan Fund to verify education/training (if applicable)',
+    'forside.uthentingAvInfo.innholdListe.li7': 'information about imprisonment and stays at institutions',
     'forside.personvern.aktivitetsplikt':
-        "If relevant to assess your activity obligation, we may also collect information from internal systems like <strong>NAV's job seeker register</strong>",
+        'If relevant in connection with the activity obligation, we may also collect information from internal systems such as the Register of Jobseekers.',
     'forside.personvern.tredjeperson':
-        'Information about and from other persons associated with the applicant that we may need:',
-    'forside.personvern.tredjeperson.li1': 'Name',
-    'forside.personvern.tredjeperson.li2': 'National identity number',
+        'With regard to third persons connected with the applicant we may need to collect:',
+    'forside.personvern.tredjeperson.li1': 'name',
+    'forside.personvern.tredjeperson.li2': 'national identity number',
     'forside.personvern.tredjeperson.li3':
-        'If, or the extent of, this person had/has common children with the applicant',
-    'forside.personvern.tredjeperson.li4': 'Marital status',
-    'forside.personvern.innhold':
-        "If you would like to learn more about how we process and safeguard personal data, please read NAV's ",
-    'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
-    'forside.personvern.tekst': 'privacy policy online.',
+        'if, or the extent of, this person had/has common children with the applicant',
+    'forside.personvern.tredjeperson.li4': 'marital status',
+    'forside.utleveringAvOpplysninger.tittel': 'Disclosure of your information',
+    'forside.utleveringAvOpplysninger.innhold':
+        'In connection with processing applications for transitional benefits, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that NAV is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.',
+    'forside.lagringstid.tittel': 'How long is your data stored?',
+    'forside.lagringstid.innhold':
+        'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
+    'forside.automatiskbehandling.tittel': 'Automatic processing',
+    'forside.automatiskbehandling.innhold1':
+        'Virtually all processing of personal data in connection with transitional benefit is done manually. This means that there is a case handler who looks at and processes your case.',
+    'forside.automatiskbehandling.innhold2.del1':
+        'Automatic processing of cases is done in certain situations. In the case of an ongoing benefits that use ',
+    'forside.automatiskbehandling.innhold2.del2':
+            ' as a basis for calculation (such as transitional benefits), the system will automatically change your payment based on changes in the national basic amount. This is done to ensure that the payment of benefits takes place efficiently.',
+    'forside.automatiskbehandling.innhold2.lenke.tekst': 'the basic amount in the National Insurance Scheme (G)',
+    'forside.automatiskbehandling.innhold2.lenke.href': 'https://www.nav.no/grunnbelopet',
+    'forside.automatiskbehandling.innhold3':
+        'For you, this means that your benefits will automatically change in line with the annual adjustment of the basic amount. When your benefits are adjusted automatically, there is no case handler who processed the change.',
+    'forside.automatiskbehandling.innhold4':
+        'The following information is used to implement the basic amount adjustment:',
+    'forside.automatiskbehandling.innholdListe.li1': 'national identification number',
+    'forside.automatiskbehandling.innholdListe.li2': 'case ID',
+    'forside.automatiskbehandling.innholdListe.li3': 'type of benefits',
+    'forside.automatiskbehandling.innholdListe.li4': 'current applicable decision',
+    'forside.automatiskbehandling.innhold5':
+        'The changes are made in the case processing system itself, and do not involve the transfer of information.',
+    'forside.personvern.tittel': "NAV's Privacy Policy",
+    'forside.personvern.innhold': 'Read more about ',
+    'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
+    'forside.personvern.tekst': 'how NAV processes personal data here.',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
         'You must provide us with the correct information so that we can process your application.',

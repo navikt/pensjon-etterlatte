@@ -47,34 +47,67 @@ export default {
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
     'forside.barnepensjon.innhold':
         'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon.',
-    'forside.omSoeknaden.personvern': 'Personvern og tryggleik',
+    'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
+    'forside.slikBehandlerVi.tittel': 'Slik behandlar NAV personopplysningane dine',
+    'forside.slikBehandlerVi.innhold':
+            'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 17 til å bidra til økonomisk tryggleik ved dødsfall.',
+    'forside.innsamlingAvInfo.tittel': 'Vi samlar inn og behandlar personopplysningar for å',
+    'forside.innsamlingAvInfo.innholdListe.li1':
+            'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
+    'forside.innsamlingAvInfo.innholdListe.li2': 'behandle søknaden din',
+    'forside.innsamlingAvInfo.innholdListe.li3': 'betale ut ytinga',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
         'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n',
     'forside.uthentingAvInfo.innholdListe.li1':
-        '<strong>Personinformasjon</strong> frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
+        'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        '<strong>Inntektsinformasjon</strong> frå Skatteetaten (skattepliktig inntekt inneverande år)',
+        'inntektsinformasjon frå Skatteetaten (informasjon om skattepliktig inntekt inneverande år)',
     'forside.uthentingAvInfo.innholdListe.li3':
-        'Opplysningar om <strong>arbeidsforholdet</strong> ditt frå Arbeidsgivar- og arbeidstakarregisteret',
+        'opplysningar frå Arbeidsgivar- og arbeidstakarregisteret om arbeidsforhold',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'Opplysningar om <strong> anna løpande støtte frå NAV</strong> (til dømes alderspensjon eller uføretrygd)',
+        'opplysningar om anna fortløpande støtte frå NAV (t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'Opplysningar om <strong>ytingar frå andre enn NAV</strong> (til dømes tenestepensjonsordning)',
+        'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li6':
-        'Informasjon frå <strong>utanlandske trygdemakter</strong> (der dette er aktuelt)',
+        'informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li7':
-        'Informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
+        'opplysningar om straffegjennomføring og opphald på institusjon',
     'forside.personvern.aktivitetsplikt':
-        'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som mellom anna <strong>Arbeidssøkjarregisteret</strong>',
+        'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som m.a. Arbeidssøkjarregisteret.',
     'forside.personvern.tredjeperson':
-        'Det kan vere aktuelt for oss å hente inn følgjande opplysningar om tredjepersonar som er knytte til søkjar:',
-    'forside.personvern.tredjeperson.li1': 'Namn',
-    'forside.personvern.tredjeperson.li2': 'Fødselsnummer',
-    'forside.personvern.tredjeperson.li3': 'Om vedkomande har hatt/har felles barn med søkjar',
-    'forside.personvern.tredjeperson.li4': 'Sivilstand',
-    'forside.personvern.innhold': 'Viss du vil vite meir om personvern og tryggleik, kan du lese om ',
-    'forside.personvern.href': 'https://www.nav.no/omstillingsstonad#personopplysninger',
+        'Om tredjepersonar som er knytte til søkjaren, kan vi ha behov for å hente inn følgjande opplysningar:',
+    'forside.personvern.tredjeperson.li1': 'namn',
+    'forside.personvern.tredjeperson.li2': 'fødselsnummer',
+    'forside.personvern.tredjeperson.li3': 'om vedkomande har hatt eller har felles barn med søkjar',
+    'forside.personvern.tredjeperson.li4': 'sivilstand',
+    'forside.utleveringAvOpplysninger.tittel': 'Utlevering av opplysningane dine',
+    'forside.utleveringAvOpplysninger.innhold':
+            'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at NAV har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
+    'forside.lagringstid.tittel': 'Kor lenge opplysningane dine blir lagra',
+    'forside.lagringstid.innhold':
+            'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
+    'forside.automatiskbehandling.tittel': 'Automatisk behandling',
+    'forside.automatiskbehandling.innhold1':
+            'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
+    'forside.automatiskbehandling.innhold2.del1':
+            'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der ',
+    'forside.automatiskbehandling.innhold2.del2':
+            ' blir nytta som utrekningsgrunnlag (t.d. omstillingsstønad), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
+    'forside.automatiskbehandling.innhold2.lenke.tekst': 'grunnbeløpet i folketrygda',
+    'forside.automatiskbehandling.innhold2.lenke.href': 'https://www.nav.no/grunnbelopet',
+    'forside.automatiskbehandling.innhold3':
+            'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
+    'forside.automatiskbehandling.innhold4': 'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar:',
+    'forside.automatiskbehandling.innholdListe.li1': 'personnummer',
+    'forside.automatiskbehandling.innholdListe.li2': 'saks-ID',
+    'forside.automatiskbehandling.innholdListe.li3': 'type yting',
+    'forside.automatiskbehandling.innholdListe.li4': 'gjeldande vedtak',
+    'forside.automatiskbehandling.innhold5':
+            'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
+    'forside.personvern.tittel': 'Personvernerklæringa i NAV',
+    'forside.personvern.innhold': 'Her kan du lese meir om ',
+    'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
     'forside.personvern.tekst': 'korleis NAV behandlar personopplysningane dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
