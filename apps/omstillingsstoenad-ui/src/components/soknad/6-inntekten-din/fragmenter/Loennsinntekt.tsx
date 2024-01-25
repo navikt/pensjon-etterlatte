@@ -150,16 +150,18 @@ const Loennsinntekt = () => {
                     </SkjemaElement>
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
-                            <SkjemaGruppe>
-                                <RHFValutaInput
-                                    name={'loennsinntekt.utland.arbeidsinntektAaretFoer'}
-                                    label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer')}
-                                    description={t(
-                                        'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland'
-                                    )}
-                                    htmlSize={Bredde.S}
-                                />
-                            </SkjemaGruppe>
+                            {foedtFoer1964 && (
+                                <SkjemaGruppe>
+                                    <RHFValutaInput
+                                        name={'loennsinntekt.utland.arbeidsinntektAaretFoer'}
+                                        label={t('inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer')}
+                                        description={t(
+                                            'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland'
+                                        )}
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaGruppe>
+                            )}
 
                             <SkjemaGruppe>
                                 <SkjemaElement>

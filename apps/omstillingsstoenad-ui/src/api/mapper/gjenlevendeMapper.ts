@@ -142,7 +142,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             ? hentArbeidOgUtdanning(t, soeknad.merOmSituasjonenDin)
             : undefined,
         fullfoertUtdanning,
-        inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin, soeknad.omDenAvdoede.datoForDoedsfallet!!),
+        inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin, soeknad.omDenAvdoede.datoForDoedsfallet!!, bruker),
         uregistrertEllerVenterBarn: {
             spoersmaal: t('situasjonenDin.gravidEllerNyligFoedt'),
             svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!!),
@@ -615,8 +615,9 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
     }
 }
 
-const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoedsfall: Date): InntektOgPensjon => {
+const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoedsfall: Date, bruker: IBruker): InntektOgPensjon => {
     const doedsfallIAar = doedsdatoErIAar(datoForDoedsfall)
+    const foedtFoer1964 = bruker.foedselsaar!! < 1964
 
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
@@ -632,7 +633,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                 },
                 norge: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.norge)
                     ? {
-                          arbeidsinntektAaretFoer: {
+                          arbeidsinntektAaretFoer:  foedtFoer1964 ? {
                               spoersmaal: doedsfallIAar
                                   ? t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')
                                   : t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
@@ -641,7 +642,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                       ? inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
                                       : inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
                               },
-                          },
+                          } : undefined,
                           inntektEtterDoedsfall: !doedsfallIAar
                               ? {
                                     spoersmaal: t('inntektenDin.loennsinntekt.inntektEtterDoedsfall'),
