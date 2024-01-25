@@ -155,7 +155,7 @@ export interface LoennsOgNaeringsinntekt {
 }
 
 interface InntektsType {
-    arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
+    arbeidsinntektAaretFoer?: Opplysning<FritekstSvar>
     inntektEtterDoedsfall?: Opplysning<FritekstSvar>
     arbeidsinntektIAar: {
         tilDoedsfall?: Opplysning<FritekstSvar>

@@ -53,12 +53,14 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                         <Panel>
                             <Heading size={'xsmall'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.norge')}</Heading>
 
+                            {inntektenDin.loennsinntekt.norge?.arbeidsinntektAaretFoer && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')}
+                                    innhold={inntektenDin.loennsinntekt.norge?.arbeidsinntektAaretFoer}
+                                />
+                            )}
                             {doedsfallIAar ? (
                                 <>
-                                    <TekstGruppe
-                                        tittel={t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')}
-                                        innhold={inntektenDin.loennsinntekt.norge?.arbeidsinntektAaretFoer}
-                                    />
                                     <TekstGruppe
                                         tittel={t('inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall')}
                                         innhold={inntektenDin.loennsinntekt.norge?.arbeidsinntektIAar?.tilDoedsfall}
@@ -78,12 +80,6 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                             ) : (
                                 <>
                                     <TekstGruppe
-                                        tittel={t(
-                                            'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'
-                                        )}
-                                        innhold={inntektenDin.loennsinntekt.norge?.arbeidsinntektDoedsfallsaaret}
-                                    />
-                                    <TekstGruppe
                                         tittel={t('inntektenDin.loennsinntekt.inntektEtterDoedsfall')}
                                         innhold={inntektenDin.loennsinntekt.norge?.inntektEtterDoedsfall}
                                     />
@@ -101,12 +97,15 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                         <Panel>
                             <Heading size={'xsmall'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
 
+                            {inntektenDin.loennsinntekt.utland?.arbeidsinntektAaretFoer && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.arbeidsinntektAaretFoer}
+                                />
+                            )}
+
                             {doedsfallIAar ? (
                                 <>
-                                    <TekstGruppe
-                                        tittel={t('inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer')}
-                                        innhold={inntektenDin.loennsinntekt.utland?.arbeidsinntektAaretFoer}
-                                    />
                                     <TekstGruppe
                                         tittel={t('inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall')}
                                         innhold={inntektenDin.loennsinntekt.utland?.arbeidsinntektIAar?.tilDoedsfall}
@@ -125,12 +124,6 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                                 </>
                             ) : (
                                 <>
-                                    <TekstGruppe
-                                        tittel={t(
-                                            'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'
-                                        )}
-                                        innhold={inntektenDin.loennsinntekt.utland?.arbeidsinntektDoedsfallsaaret}
-                                    />
                                     <TekstGruppe
                                         tittel={t('inntektenDin.loennsinntekt.inntektEtterDoedsfall')}
                                         innhold={inntektenDin.loennsinntekt.utland?.inntektEtterDoedsfall}

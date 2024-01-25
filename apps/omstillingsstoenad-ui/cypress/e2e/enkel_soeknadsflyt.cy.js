@@ -168,7 +168,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         // Lønnsinntekt
         selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
 
-        getById('loennsinntekt.norge.arbeidsinntektAaretFoer').type(inntektenDin.loennsinntekt.arbeidsinntektAaretFoer)
         getById('loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall').type(
             inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall
         )
