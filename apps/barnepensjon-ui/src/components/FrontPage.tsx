@@ -1,4 +1,4 @@
-import { BodyLong, Button, ConfirmationPanel, ExpansionCard, GuidePanel, Heading } from '@navikt/ds-react'
+import { BodyLong, Button, ConfirmationPanel, ExpansionCard, GuidePanel, Heading, List } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes } from '../context/application/application'
@@ -8,6 +8,12 @@ import FormGroup from './common/FormGroup'
 import Trans from './common/Trans'
 import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
+import FormElement from './common/FormElement'
+import styled from 'styled-components'
+
+const ListItemWithIndent = styled(List.Item)`
+    margin-left: 1rem;
+`
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -46,19 +52,13 @@ export default function FrontPage() {
                 <BodyLong>
                     <Trans value={t('childMayBeApplicableForPension')} />
                 </BodyLong>
-                <BodyLong as={'div'}>
-                    <ul>
-                        <li>
-                            <Trans value={t('childMayBeApplicableForPension_li1')} />
-                        </li>
-                        <li>
-                            <Trans value={t('childMayBeApplicableForPension_li2')} />
-                        </li>
-                        <li>
-                            <Trans value={t('childMayBeApplicableForPension_li3')} />
-                        </li>
-                    </ul>
-                </BodyLong>
+
+                <List as={'ul'}>
+                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li1')}</ListItemWithIndent>
+                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li2')}</ListItemWithIndent>
+                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li3')}</ListItemWithIndent>
+                </List>
+
                 <BodyLong>
                     <Trans value={t('readMoreAboutChildrensPension')} />
                 </BodyLong>
@@ -67,51 +67,85 @@ export default function FrontPage() {
             <FormGroup>
                 <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
                     <ExpansionCard.Header>
-                        <ExpansionCard.Title as={'h2'}>{t('weWillRetrieveInfoTitle')}</ExpansionCard.Title>
+                        <ExpansionCard.Title as={'h2'} size={'small'}>
+                            {t('weWillRetrieveInfoTitle')}
+                        </ExpansionCard.Title>
                     </ExpansionCard.Header>
                     <ExpansionCard.Content>
-                        <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('howWeProcessDataTitle')}</Heading>
+                            <BodyLong>{t('howWeProcessDataContent')}</BodyLong>
+                        </FormElement>
 
-                        <BodyLong>{t('infoWeRetrieve')}</BodyLong>
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('collectAndProcessTitle')}</Heading>
 
-                        <ul>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li1')} />
-                            </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li2')} />
-                            </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li3')} />
-                            </li>
-                            <li>
-                                <Trans value={t('infoWeRetrieve_li4')} />
-                            </li>
-                        </ul>
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>{t('collectAndProcess_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
+                            </List>
+                        </FormElement>
 
-                        <BodyLong>
-                            <Trans value={t('survivingParentInfo')} />
-                            <ul>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li1')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li2')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li3')} />
-                                </li>
-                                <li>
-                                    <Trans value={t('survivingParentInfo_li4')} />
-                                </li>
-                            </ul>
-                        </BodyLong>
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('weWillRetrieveInfo')}</Heading>
+                            <BodyLong>{t('infoWeRetrieve')}</BodyLong>
 
-                        {/*
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
+                            </List>
+
+                            <BodyLong>
+                                <Trans value={t('survivingParentInfo')} />
+                                <List as={'ul'} size={'small'}>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
+                                </List>
+                            </BodyLong>
+                        </FormElement>
+
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('disclosureOfInformationTitle')}</Heading>
+                            <BodyLong>{t('disclosureOfInformationContent')}</BodyLong>
+                        </FormElement>
+
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('durationDataIsStoredTitle')}</Heading>
+                            <BodyLong>{t('durationDataIsStoredContent')}</BodyLong>
+                        </FormElement>
+
+                        <FormElement>
+                            <Heading size={'xsmall'}>{t('automaticProcessingTitle')}</Heading>
+                            <BodyLong>{t('automaticProcessingContent1')}</BodyLong>
+                            <FormElement>
+                                <BodyLong>
+                                    <Trans value={t('automaticProcessingContent2')} />
+                                </BodyLong>
+                            </FormElement>
+                            <FormElement>
+                                <BodyLong>{t('automaticProcessingContent3')}</BodyLong>
+                            </FormElement>
+                            <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
+
+                            <List as={'ul'} size={'small'}>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('automaticProcessingContent_li4')}</ListItemWithIndent>
+                            </List>
+                            <BodyLong>{t('automaticProcessingContent5')}</BodyLong>
+                        </FormElement>
+
+                        <Heading size={'xsmall'}>{t('aboutPrivacyTitle')}</Heading>
                         <BodyLong>
                             <Trans value={t('aboutPrivacy')} />
                         </BodyLong>
-                        */}
                     </ExpansionCard.Content>
                 </ExpansionCard>
             </FormGroup>
