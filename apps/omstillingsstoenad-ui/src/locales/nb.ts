@@ -90,7 +90,7 @@ export default {
     'forside.automatiskbehandling.innhold2.del1':
         'Ved noen anledninger vil det gjøres en automatisk behandling i saken. Ved en løpende ytelse som bruker ',
     'forside.automatiskbehandling.innhold2.del2':
-            ' som beregningsgrunnlag, slik som i omstillingsstønad, vil systemet automatisk endre din utbetaling basert på endringer i grunnbeløpet. Dette er for å sikre at utbetaling av ytelser foregår effektivt.',
+        ' som beregningsgrunnlag, slik som i omstillingsstønad, vil systemet automatisk endre din utbetaling basert på endringer i grunnbeløpet. Dette er for å sikre at utbetaling av ytelser foregår effektivt.',
     'forside.automatiskbehandling.innhold2.lenke.tekst': 'grunnbeløpet i folketrygden',
     'forside.automatiskbehandling.innhold2.lenke.href': 'https://www.nav.no/grunnbelopet',
     'forside.automatiskbehandling.innhold3':
@@ -299,40 +299,43 @@ export default {
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',
     'inntektenDin.loennsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.tittel': 'Arbeidsinntekten din året før dødsfallet',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.tittel': 'Arbeidsinntekten din året før dødsfallet',
+    'inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer':
         'Hva var brutto årsinntekt i dødsfallsåret?',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi årsinntekten som vises på lønnsslippen for desember for det året.',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse.utland':
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer.beskrivelse':
+        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, kan du oppgi årsinntekten som vises på lønnsslippen for desember for det året.',
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer.beskrivelse.utland':
         'Dersom du ikke kjenner inntekten dette året, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'Hva hadde du i arbeidsinntekt etter dødsfallet?',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'Oppgi fra måneden etter dødsfallet til og med desember det året. Hvis dødsfallsmåneden var desember, oppgir du 0 kroner.',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
-    'inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+    'inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse':
+        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland':
         'Dersom du ikke kjenner inntekten dette året, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall':
+    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallIFjor.beskrivelse':
+        'Oppgi inntekt fra januar til og med desember.',
+    'inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
+    'inntektenDin.loennsinntekt.norge.inntektFoerIAar.tilDoedsfall':
         'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall':
+    'inntektenDin.loennsinntekt.utland.inntektFoerIAar.tilDoedsfall':
         'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
-        'Oppgi inntekt fra januar til og med samme måned som dødsfallet. Hvis dødsfallsmåneden er desember, oppgir du hele årsinntekten.',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse.januar':
-        'Oppgi inntekt fra januar til og med samme måned som dødsfallet. Hvis dødsfallet var i januar oppgir du månedsinntekten for januar.',
-    'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
-        'Hva forventer du å ha i brutto arbeidsinntekt etter dødsfallet?',
-    //'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
-        'Hva forventer du å ha i brutto arbeidsinntekt etter dødsfallet?',
-    // 'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektFoerIAar.tilDoedsfall.beskrivelse':
+        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet. Hvis måneden for dødsfallet er januar oppgir du inntekten for denne måneden.',
+    'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
+        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
+    'inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt':
+        'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt':
+        'Hva forventer du i brutto årsinntekt til neste år?',
+    'inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
         'Oppgi inntekten fra måneden etter dødsfallet og ut året.',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto arbeidsinntekt i år?',
-    'inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt.beskrivelse': 'Oppgi fra januar til og med desember.',
+    'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto årsinntekt i år?',
+    'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse':
+        'Oppgi forventet inntekt fra januar til og med desember.',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
@@ -345,29 +348,28 @@ export default {
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
     'inntektenDin.naeringsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer': 'Hva var brutto årsinntekt året før dødsfallet?',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer':
+    'inntektenDin.naeringsinntekt.norge.inntektFoerIAar.aarsinntekt': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.utland.inntektFoerIAar.aarsinntekt': 'Hva var brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer':
         'Hva var brutto årsinntekt i dødsfallsåret?',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, må du anslå næringsinntekten det året.',
+    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer.beskrivelse':
+        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, må du anslå næringsinntekten det året.',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'Hva hadde du i næringsinntekt etter dødsfallet?',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig ennå, må du anslå næringsinntekten.',
-    'inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.beskrivelse.utland':
+    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse':
+        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, må du anslå næringsinntekten.',
+    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland':
         'Dersom du ikke kjenner inntekten dette året, må du anslå næringsinntekten.',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.tilDoedsfall.beskrivelse':
+    'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'Hva er brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
         'Anslå brutto næringsinntekt fra januar til måneden før dødsfallet.',
-    'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall':
+    'inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt':
         'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall':
+    'inntektenDin.naeringsinntekt.utland.inntektNesteAar.aarsinntekt':
         'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.etterDoedsfall.beskrivelse':
+    'inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
         'Skriv hva du forventer å ha i næringsinntekt fra samme måned som dødsfallet til desember.',
-    'inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt':
-        'Hva forventer du å ha i brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
     'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar.beskrivelse':
         'Vi trenger å vite om næringsinntekten er jevnt opptjent gjennom året.',
@@ -923,44 +925,43 @@ export default {
     'feil.inntektstyper.required': 'Oppgi hvilken inntektstype du har',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får arbeidsinntekt fra',
     'feil.loennsinntekt.norge.inntektEtterDoedsfall.required': 'Oppgi arbeidsinntekten din etter dødsfallet',
-    'feil.loennsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi forventet arbeidsinntekt i år',
-    'feil.loennsinntekt.norge.arbeidsinntektAaretFoer.required':
+    'feil.loennsinntekt.norge.inntektIAar.aarsinntekt.required': 'Oppgi forventet arbeidsinntekt i år',
+    'feil.loennsinntekt.norge.inntektFoerIAar.aarsinntekt.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
         'Oppgi brutto arbeidsinntekt i dødsfallsåret. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
         'Oppgi brutto arbeidsinntekt i dødsfallsåret. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.loennsinntekt.norge.inntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.loennsinntekt.norge.inntektNesteAar.aarsinntekt.required':
         'Oppgi forventet næringsinntekt til neste år. Brutto inntekt er inntekten før skatt',
     'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'Oppgi arbeidsinntekten din etter dødsfallet',
-    'feil.loennsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi forventet arbeidsinntekt i år',
-    'feil.loennsinntekt.utland.arbeidsinntektAaretFoer.required':
+    'feil.loennsinntekt.utland.inntektIAar.aarsinntekt.required': 'Oppgi forventet arbeidsinntekt i år',
+    'feil.loennsinntekt.utland.inntektFoerIAar.aarsinntekt.required':
         'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.loennsinntekt.utland.inntektIAar.tilDoedsfall.required':
         'Oppgi brutto arbeidsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
-        'Oppgi brutto arbeidsinntekt i dødsfallsåret.',
+    'feil.loennsinntekt.utland.inntektNesteAar.aarsinntekt.required': 'Oppgi brutto arbeidsinntekt i dødsfallsåret.',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Beskrivelse av endringene må besvares',
     'feil.naeringsinntekt.norgeEllerUtland.required': 'Du må krysse av hvor du får næringsinntekt fra',
-    'feil.naeringsinntekt.norge.arbeidsinntektAaretFoer.required':
+    'feil.naeringsinntekt.norge.inntektFoerIAar.aarsinntekt.required':
         'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
         'Oppgi brutto årsinntekt i dødsfallsåret. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
         'Oppgi brutto årsinntekt i dødsfallsåret. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.norge.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.naeringsinntekt.norge.inntektIAar.tilDoedsfall.required':
         'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.naeringsinntekt.norge.inntektNesteAar.aarsinntekt.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.utland.arbeidsinntektAaretFoer.required':
+    'feil.naeringsinntekt.utland.inntektFoerIAar.aarsinntekt.required':
         'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.utland.arbeidsinntektIAar.tilDoedsfall.required':
+    'feil.naeringsinntekt.utland.inntektIAar.tilDoedsfall.required':
         'Oppgi brutto næringsinntekt frem til dødsfallet. Brutto inntekt er inntekten før skatt',
-    'feil.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall.required':
+    'feil.naeringsinntekt.utland.inntektNesteAar.aarsinntekt.required':
         'Oppgi brutto næringsinntekt etter dødsfallet. Brutto inntekt er inntekten før skatt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Forventning rundt inntekt må besvares',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringene',
@@ -968,12 +969,12 @@ export default {
     'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':
         'Du må velge om arbeidet er sesongbasert eller ikke',
     'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required': 'Gi en kort beskrivelse av arbeidet',
-    'feil.naeringsinntekt.norge.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi forventet næringsinntekt i år',
+    'feil.naeringsinntekt.norge.inntektIAar.aarsinntekt.required': 'Oppgi forventet næringsinntekt i år',
     'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':
         'Du må velge om arbeidet et sesongbasert eller ikke',
     'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':
         'Gi en kort beskrivelse av arbeidet',
-    'feil.naeringsinntekt.utland.arbeidsinntektIAar.aarsinntekt.required': 'Oppgi forventet næringsinntekt i år',
+    'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'Oppgi forventet næringsinntekt i år',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi hvilken pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Velg hvilken pensjon du mottar',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':

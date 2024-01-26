@@ -63,7 +63,7 @@ import {
     NorgeOgUtland,
     PensjonEllerTrygd,
 } from '../../typer/inntekt'
-import { doedsdatoErIAar } from '../../utils/dato'
+import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../utils/dato'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -142,7 +142,12 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
             ? hentArbeidOgUtdanning(t, soeknad.merOmSituasjonenDin)
             : undefined,
         fullfoertUtdanning,
-        inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin, soeknad.omDenAvdoede.datoForDoedsfallet!!, bruker),
+        inntektOgPensjon: hentInntektOgPensjon(
+            t,
+            soeknad.inntektenDin,
+            soeknad.omDenAvdoede.datoForDoedsfallet!!,
+            bruker
+        ),
         uregistrertEllerVenterBarn: {
             spoersmaal: t('situasjonenDin.gravidEllerNyligFoedt'),
             svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!!),
@@ -615,7 +620,12 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
     }
 }
 
-const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoedsfall: Date, bruker: IBruker): InntektOgPensjon => {
+const hentInntektOgPensjon = (
+    t: TFunction,
+    inntektenDin: IInntekt,
+    datoForDoedsfall: Date,
+    bruker: IBruker
+): InntektOgPensjon => {
     const doedsfallIAar = doedsdatoErIAar(datoForDoedsfall)
     const foedtFoer1964 = bruker.foedselsaar!! < 1964
 
@@ -633,136 +643,93 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                 },
                 norge: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.norge)
                     ? {
-                          arbeidsinntektAaretFoer:  foedtFoer1964 ? {
-                              spoersmaal: doedsfallIAar
-                                  ? t('inntektenDin.loennsinntekt.norge.arbeidsinntektAaretFoer')
-                                  : t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
-                              svar: {
-                                  innhold: doedsfallIAar
-                                      ? inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
-                                      : inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
-                              },
-                          } : undefined,
-                          inntektEtterDoedsfall: !doedsfallIAar
-                              ? {
-                                    spoersmaal: t('inntektenDin.loennsinntekt.inntektEtterDoedsfall'),
-                                    svar: {
-                                        innhold: inntektenDin.loennsinntekt!!.norge!!.inntektEtterDoedsfall!!,
-                                    },
-                                }
-                              : undefined,
-                          arbeidsinntektIAar: doedsfallIAar
+                          inntektFoerIAar: {
+                              tilDoedsfall: !doedsfallIAar
+                                  ? {
+                                        spoersmaal: t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.tilDoedsfall'),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.loennsinntekt!!.norge!!.inntektFoerIAar!!.tilDoedsfall!!,
+                                        },
+                                    }
+                                  : undefined,
+                              aarsinntekt: foedtFoer1964
+                                  ? {
+                                        spoersmaal: doedsfallIAar
+                                            ? t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt')
+                                            : t(
+                                                  'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer'
+                                              ),
+                                        svar: {
+                                            innhold: doedsfallIAar
+                                                ? inntektenDin.loennsinntekt!!.norge!!.inntektFoerIAar!!.aarsinntekt!!
+                                                : inntektenDin.loennsinntekt!!.norge!!.inntektAaretFoerDoedsfall!!,
+                                        },
+                                    }
+                                  : undefined,
+                          },
+                          inntektIAar: doedsfallIAar
                               ? {
                                     tilDoedsfall: {
-                                        spoersmaal: t(
-                                            'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.tilDoedsfall'
-                                        ),
+                                        spoersmaal: t('inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektIAar!!
-                                                    .tilDoedsfall!!,
-                                        },
-                                    },
-                                    etterDoedsfall: {
-                                        spoersmaal: t(
-                                            'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'
-                                        ),
-                                        svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektIAar!!
-                                                    .etterDoedsfall!!,
+                                            innhold: inntektenDin.loennsinntekt!!.norge!!.inntektIAar!!.tilDoedsfall!!,
                                         },
                                     },
                                 }
                               : {
                                     aarsinntekt: {
-                                        spoersmaal: t('inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt'),
+                                        spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektIAar!!.aarsinntekt!!,
+                                            innhold: inntektenDin.loennsinntekt!!.norge!!.inntektIAar!!.aarsinntekt!!,
                                         },
                                     },
-                                    etterDoedsfall: inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektIAar!!
-                                        .etterDoedsfall
-                                        ? {
-                                              spoersmaal: t(
-                                                  'inntektenDin.loennsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'
-                                              ),
-                                              svar: {
-                                                  innhold:
-                                                      inntektenDin.loennsinntekt!!.norge!!.arbeidsinntektIAar!!
-                                                          .etterDoedsfall!!,
-                                              },
-                                          }
-                                        : undefined,
                                 },
+                          inntektNesteAar:
+                              erMellomOktoberogDesember() && doedsfallIAar
+                                  ? {
+                                        aarsinntekt: {
+                                            spoersmaal: t('inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt'),
+                                            svar: {
+                                                innhold:
+                                                    inntektenDin.loennsinntekt!!.norge!!.inntektNesteAar!!
+                                                        .aarsinntekt!!,
+                                            },
+                                        },
+                                    }
+                                  : undefined,
                       }
                     : undefined,
                 utland: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.utland)
                     ? {
-                          arbeidsinntektAaretFoer: {
-                              spoersmaal: doedsfallIAar
-                                  ? t('inntektenDin.loennsinntekt.utland.arbeidsinntektAaretFoer')
-                                  : t('inntektenDin.loennsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
-                              svar: {
-                                  innhold: doedsfallIAar
-                                      ? inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektAaretFoer!!
-                                      : inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektDoedsfallsaaret!!,
+                          inntektFoerIAar: {
+                              aarsinntekt: {
+                                  spoersmaal: doedsfallIAar
+                                      ? t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt')
+                                      : t('inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer'),
+                                  svar: {
+                                      innhold: doedsfallIAar
+                                          ? inntektenDin.loennsinntekt!!.utland!!.inntektFoerIAar!!.aarsinntekt!!
+                                          : inntektenDin.loennsinntekt!!.utland!!.inntektAaretFoerDoedsfall!!,
+                                  },
                               },
                           },
-                          inntektEtterDoedsfall: !doedsfallIAar
-                              ? {
-                                    spoersmaal: t('inntektenDin.loennsinntekt.inntektEtterDoedsfall'),
-                                    svar: {
-                                        innhold: inntektenDin.loennsinntekt!!.norge!!.inntektEtterDoedsfall!!,
-                                    },
-                                }
-                              : undefined,
-                          arbeidsinntektIAar: doedsfallIAar
+                          inntektIAar: doedsfallIAar
                               ? {
                                     tilDoedsfall: {
-                                        spoersmaal: t(
-                                            'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.tilDoedsfall'
-                                        ),
+                                        spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                                    .tilDoedsfall!!,
-                                        },
-                                    },
-                                    etterDoedsfall: {
-                                        spoersmaal: t(
-                                            'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall'
-                                        ),
-                                        svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                                    .etterDoedsfall!!,
+                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIAar!!.tilDoedsfall!!,
                                         },
                                     },
                                 }
                               : {
                                     aarsinntekt: {
-                                        spoersmaal: t('inntektenDin.loennsinntekt.arbeidsinntektIAar.aarsinntekt'),
+                                        spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                                    .aarsinntekt!!,
+                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIAar!!.aarsinntekt!!,
                                         },
                                     },
-                                    etterDoedsfall: inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                        .etterDoedsfall
-                                        ? {
-                                              spoersmaal: t(
-                                                  'inntektenDin.loennsinntekt.utland.arbeidsinntektIAar.etterDoedsfall'
-                                              ),
-                                              svar: {
-                                                  innhold:
-                                                      inntektenDin.loennsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                                          .etterDoedsfall!!,
-                                              },
-                                          }
-                                        : undefined,
                                 },
                       }
                     : undefined,
@@ -807,36 +774,27 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                         }
                                       : undefined,
                           },
-                          arbeidsinntektAaretFoer: {
-                              spoersmaal: doedsfallIAar
-                                  ? t('inntektenDin.naeringsinntekt.norge.arbeidsinntektAaretFoer')
-                                  : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
-                              svar: {
-                                  innhold: doedsfallIAar
-                                      ? inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
-                                      : inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
-                              },
-                          },
-                          arbeidsinntektIAar: {
+                          inntektFoerIAar: {
                               aarsinntekt: {
-                                  spoersmaal: t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt'),
+                                  spoersmaal: doedsfallIAar
+                                      ? t('inntektenDin.naeringsinntekt.norge.inntektFoerIAar.aarsinntekt')
+                                      : t(
+                                            'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer'
+                                        ),
                                   svar: {
-                                      innhold:
-                                          inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektIAar!!.aarsinntekt!!,
+                                      innhold: doedsfallIAar
+                                          ? inntektenDin.naeringsinntekt!!.norge!!.inntektFoerIAar!!.aarsinntekt!!
+                                          : inntektenDin.naeringsinntekt!!.norge!!.inntektAaretFoerDoedsfall!!,
                                   },
                               },
-                              etterDoedsfall: inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektIAar!!.etterDoedsfall
-                                  ? {
-                                        spoersmaal: t(
-                                            'inntektenDin.naeringsinntekt.norge.arbeidsinntektIAar.etterDoedsfall'
-                                        ),
-                                        svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektIAar!!
-                                                    .etterDoedsfall!!,
-                                        },
-                                    }
-                                  : undefined,
+                          },
+                          inntektIAar: {
+                              aarsinntekt: {
+                                  spoersmaal: t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt'),
+                                  svar: {
+                                      innhold: inntektenDin.naeringsinntekt!!.norge!!.inntektIAar!!.aarsinntekt!!,
+                                  },
+                              },
                           },
                       }
                     : undefined,
@@ -865,37 +823,27 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, datoForDoeds
                                         }
                                       : undefined,
                           },
-                          arbeidsinntektAaretFoer: {
-                              spoersmaal: doedsfallIAar
-                                  ? t('inntektenDin.naeringsinntekt.utland.arbeidsinntektAaretFoer')
-                                  : t('inntektenDin.naeringsinntekt.arbeidsinntektAaretFoer.doedsfallAaretFoer'),
-                              svar: {
-                                  innhold: doedsfallIAar
-                                      ? inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektAaretFoer!!
-                                      : inntektenDin.naeringsinntekt!!.norge!!.arbeidsinntektDoedsfallsaaret!!,
-                              },
-                          },
-                          arbeidsinntektIAar: {
+                          inntektFoerIAar: {
                               aarsinntekt: {
-                                  spoersmaal: t('inntektenDin.naeringsinntekt.arbeidsinntektIAar.aarsinntekt'),
+                                  spoersmaal: doedsfallIAar
+                                      ? t('inntektenDin.naeringsinntekt.utland.inntektFoerIAar.aarsinntekt')
+                                      : t(
+                                            'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer'
+                                        ),
                                   svar: {
-                                      innhold:
-                                          inntektenDin.naeringsinntekt!!.utland!!.arbeidsinntektIAar!!.aarsinntekt!!,
+                                      innhold: doedsfallIAar
+                                          ? inntektenDin.naeringsinntekt!!.norge!!.inntektFoerIAar!!.aarsinntekt!!
+                                          : inntektenDin.naeringsinntekt!!.norge!!.inntektAaretFoerDoedsfall!!,
                                   },
                               },
-                              etterDoedsfall: inntektenDin.naeringsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                  .etterDoedsfall
-                                  ? {
-                                        spoersmaal: t(
-                                            'inntektenDin.naeringsinntekt.utland.arbeidsinntektIAar.etterDoedsfall'
-                                        ),
-                                        svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.utland!!.arbeidsinntektIAar!!
-                                                    .etterDoedsfall!!,
-                                        },
-                                    }
-                                  : undefined,
+                          },
+                          inntektIAar: {
+                              aarsinntekt: {
+                                  spoersmaal: t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt'),
+                                  svar: {
+                                      innhold: inntektenDin.naeringsinntekt!!.utland!!.inntektIAar!!.aarsinntekt!!,
+                                  },
+                              },
                           },
                       }
                     : undefined,

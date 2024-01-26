@@ -36,12 +36,16 @@ export interface ILoennsinntekt {
 }
 
 export interface IInntekter {
-    arbeidsinntektAaretFoer?: string
-    arbeidsinntektDoedsfallsaaret?: string
-    inntektEtterDoedsfall?: string
-    arbeidsinntektIAar?: {
+    inntektAaretFoerDoedsfall?: string
+    inntektFoerIAar?: {
         tilDoedsfall?: string
-        etterDoedsfall?: string
+        aarsinntekt?: string
+    }
+    inntektIAar?: {
+        tilDoedsfall?: string
+        aarsinntekt?: string
+    }
+    inntektNesteAar?: {
         aarsinntekt?: string
     }
     sesongbasertNaeringsinntekt?: {
