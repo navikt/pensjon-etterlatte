@@ -120,10 +120,15 @@
       "inntekt.annen"
     ],
     "loennsinntekt": {
-      "arbeidsinntektAaretFoer": "10000",
-      "arbeidsinntektIAar": {
+      "inntektNesteAar": {
+        "aarsinntekt": "10000"
+      },
+      "inntektFoerIAar": {
+        "aarsinntekt": "10000"
+      },
+      "inntektIAar": {
         "tilDoedsfall": "20000",
-        "etterDoedsfall": "30000"
+        "aarsinntekt": "10000"
       },
       "forventerEndringAvInntekt": {
         "svar": "radiobuttons.nei"
@@ -134,8 +139,10 @@
         "svar": "radiobuttons.ja",
         "beskrivelse": "Selger julelys i desember"
       },
-      "arbeidsinntektAaretFoer": "10000",
-      "arbeidsinntektIAar": {
+      "inntektFoerIAar": {
+        "aarsinntekt": "10000"
+      },
+      "inntektIAar": {
         "aarsinntekt": "20000",
         "etterDoedsfall": "30000"
       },
