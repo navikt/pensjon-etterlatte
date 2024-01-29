@@ -158,7 +158,7 @@ const Loennsinntekt = () => {
                     <SkjemaElement>
                         <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
                     </SkjemaElement>
-                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt')}</Alert>
+                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt.utland')}</Alert>
 
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
