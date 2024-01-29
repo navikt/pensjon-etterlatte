@@ -301,6 +301,8 @@ export default {
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
     'inntektenDin.loennsinntekt.bruttoinntekt':
         'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du finner brutto arbeidsinntekt på lønnsslippen din.',
+    'inntektenDin.loennsinntekt.bruttoinntekt.utland':
+        'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du kan bli bedt om å dokumentere denne inntekten senere.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.tittel': 'Arbeidsinntekten din året før dødsfallet',
     'inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer':

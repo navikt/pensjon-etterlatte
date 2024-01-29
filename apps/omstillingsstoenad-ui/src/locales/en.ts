@@ -308,6 +308,8 @@ export default {
         'If your income changes after you submit your application, you must notify NAV about these changes.',
     'inntektenDin.loennsinntekt.bruttoinntekt':
         'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du finner brutto arbeidsinntekt på lønnsslippen din.',
+    'inntektenDin.loennsinntekt.bruttoinntekt.utland':
+        'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du kan bli bedt om å dokumentere denne inntekten senere.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.tittel': 'Your income from work before the death',
     'inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt':
         'What was your gross annual income in the year before the death?',
