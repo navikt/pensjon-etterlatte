@@ -341,6 +341,9 @@ export default {
         'Går du ut frå at inntekta di vil endre seg fram i tid?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Kva er grunnen til endringane?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': 'Beskriv kort endringane',
+    'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall': 'Kva var brutto årsinntekt i året før dødsfallet?',
+    'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
+        'Dersom du ikke kjenner inntekten dette året, må du anslå arbeidsinntekten for dette året.',
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
         'All næringsinntekt frå Noreg og utlandet skal takast med i næringsinntekta du oppgir. Oppgi næringsinntektene i norske kroner.',

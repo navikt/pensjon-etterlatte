@@ -90,6 +90,20 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                         <Panel>
                             <Heading size={'xsmall'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
 
+                            {inntektenDin.loennsinntekt.utland?.inntektAaretFoerDoedsfall && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektAaretFoerDoedsfall}
+                                />
+                            )}
+
+                            {inntektenDin.loennsinntekt.utland?.inntektFoerIAar?.tilDoedsfall && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.tilDoedsfall')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektFoerIAar.tilDoedsfall}
+                                />
+                            )}
+
                             {inntektenDin.loennsinntekt.utland?.inntektFoerIAar?.aarsinntekt && (
                                 <TekstGruppe
                                     tittel={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt')}
@@ -97,20 +111,25 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                                 />
                             )}
 
-                            {doedsfallIAar ? (
-                                <>
-                                    <TekstGruppe
-                                        tittel={t('inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall')}
-                                        innhold={inntektenDin.loennsinntekt.utland?.inntektIAar?.tilDoedsfall}
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <TekstGruppe
-                                        tittel={t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt')}
-                                        innhold={inntektenDin.loennsinntekt.utland?.inntektIAar?.aarsinntekt}
-                                    />
-                                </>
+                            {inntektenDin.loennsinntekt.utland?.inntektIAar?.tilDoedsfall && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektIAar.tilDoedsfall}
+                                />
+                            )}
+
+                            {inntektenDin.loennsinntekt.utland?.inntektIAar?.aarsinntekt && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektIAar?.aarsinntekt}
+                                />
+                            )}
+
+                            {inntektenDin.loennsinntekt.utland?.inntektNesteAar?.aarsinntekt && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektNesteAar?.aarsinntekt}
+                                />
                             )}
                         </Panel>
                     )}
