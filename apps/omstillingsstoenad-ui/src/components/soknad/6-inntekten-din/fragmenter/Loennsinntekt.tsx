@@ -9,7 +9,7 @@ import EndringInntekt from './EndringInntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
-import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
+import { doedsdatoErIAar, doedsdatoErMellomOktoberogDesember } from '../../../../utils/dato'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 
@@ -26,7 +26,7 @@ const Loennsinntekt = () => {
 
     const foedt1963EllerTidligere = bruker.foedselsaar!! <= 1963
 
-    const erIkkeDesember = new Date().getMonth() !== 11
+    const erIkkeDesember = new Date(datoforDoedsfallet!!).getMonth() !== 11
 
     return (
         <SkjemaGruppe>
@@ -50,7 +50,9 @@ const Loennsinntekt = () => {
                     <SkjemaElement>
                         <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.norge')}</Heading>
                     </SkjemaElement>
-                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt')}</Alert>
+                    <SkjemaGruppe>
+                        <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt')}</Alert>
+                    </SkjemaGruppe>
 
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
@@ -97,7 +99,7 @@ const Loennsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                             )}
-                            {erMellomOktoberogDesember() && (
+                            {doedsdatoErMellomOktoberogDesember(datoforDoedsfallet!!) && (
                                 <SkjemaElement>
                                     <RHFValutaInput
                                         name={'loennsinntekt.norge.inntektNesteAar.aarsinntekt'}
@@ -158,7 +160,9 @@ const Loennsinntekt = () => {
                     <SkjemaElement>
                         <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
                     </SkjemaElement>
-                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt.utland')}</Alert>
+                    <SkjemaGruppe>
+                        <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt.utland')}</Alert>
+                    </SkjemaGruppe>
 
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
@@ -206,7 +210,7 @@ const Loennsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                             )}
-                            {erMellomOktoberogDesember() && (
+                            {doedsdatoErMellomOktoberogDesember(datoforDoedsfallet!!) && (
                                 <SkjemaElement>
                                     <RHFValutaInput
                                         name={'loennsinntekt.utland.inntektNesteAar.aarsinntekt'}
