@@ -356,6 +356,10 @@ export default {
         'Do you expect your income to change in the near future?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': 'Provide a brief description of the changes',
+    'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall':
+        'What was your gross annual income in the year before the death?',
+    'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
+        'Dersom du ikke kjenner inntekten dette året, må du anslå arbeidsinntekten for dette året.',
     'inntektenDin.naeringsinntekt.tittel': 'Business income',
     'inntektenDin.naeringsinntekt.ingress':
         'All business income from Norway and abroad must be included in the income you report. Please state your business income in Norwegian kroner.',
