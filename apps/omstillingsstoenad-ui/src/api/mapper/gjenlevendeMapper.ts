@@ -63,7 +63,7 @@ import {
     NorgeOgUtland,
     PensjonEllerTrygd,
 } from '../../typer/inntekt'
-import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../utils/dato'
+import { doedsdatoErIAar, doedsdatoErMellomOktoberogDesember } from '../../utils/dato'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -686,7 +686,7 @@ const hentInntektOgPensjon = (
                                     },
                                 },
                           inntektNesteAar:
-                              erMellomOktoberogDesember() && doedsfallIAar
+                              doedsdatoErMellomOktoberogDesember(datoForDoedsfall) && doedsfallIAar
                                   ? {
                                         aarsinntekt: {
                                             spoersmaal: t('inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt'),
