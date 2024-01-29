@@ -176,10 +176,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 inntektenDin.loennsinntekt.inntektIAar.aarsinntekt
         )
 
-        getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt
-        )
-
         if (dagensDato.getMonth() >= oktober)
             getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
                 inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt
