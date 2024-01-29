@@ -33,7 +33,7 @@ const HvorforSpoerVi: FC<{ title: string; children: any }> = ({ title, children 
         <div>
             <ToggleButton data-testid="hvorforPanel_toggle" type={'button'} onClick={click} aria-expanded={erApen}>
                 <span>{erApen ? <Collapse /> : <Expand />}</span>
-                <span>{title ? title : t('hvorforSpoerVi')}</span>
+                <span>{t('hvorforSpoerVi')}</span>
             </ToggleButton>
 
             {erApen && <BodyLong>{children}</BodyLong>}
