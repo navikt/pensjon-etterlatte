@@ -318,7 +318,7 @@ export default {
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland':
-        'Dersom du ikke kjenner inntekten dette året, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
+        'Dersom du ikke kjenner inntekten dette året, må du anslå arbeidsinntekten for dette året.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallIFjor.beskrivelse':
         'Oppgi inntekt fra januar til og med desember.',
     'inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
@@ -334,7 +334,7 @@ export default {
     'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
         'Skjedde dødsfallet i januar eller i desember?',
     'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold':
-        'Hvis måneden for dødsfallet er januar oppgir du inntekten for denne måneden. Hvis måneden for dødsfallet er desember, oppgir du hele årsinntekten.',
+        'Hvis måneden for dødsfallet er januar, oppgir du inntekten for denne måneden. Hvis måneden for dødsfallet er desember, oppgir du hele årsinntekten.',
     'inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt':
         'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt':
