@@ -9,7 +9,7 @@ import EndringInntekt from './EndringInntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
-import { doedsdatoErIAar, doedsdatoErMellomOktoberogDesember } from '../../../../utils/dato'
+import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 
@@ -99,7 +99,7 @@ const Loennsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                             )}
-                            {doedsdatoErMellomOktoberogDesember(datoforDoedsfallet!!) && (
+                            {erMellomOktoberogDesember() && (
                                 <SkjemaElement>
                                     <RHFValutaInput
                                         name={'loennsinntekt.norge.inntektNesteAar.aarsinntekt'}
@@ -210,7 +210,7 @@ const Loennsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                             )}
-                            {doedsdatoErMellomOktoberogDesember(datoforDoedsfallet!!) && (
+                            {erMellomOktoberogDesember() && (
                                 <SkjemaElement>
                                     <RHFValutaInput
                                         name={'loennsinntekt.utland.inntektNesteAar.aarsinntekt'}
