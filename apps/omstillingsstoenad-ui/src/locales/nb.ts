@@ -318,7 +318,7 @@ export default {
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse':
         'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland':
-        'Dersom du ikke kjenner inntekten dette året, må du anslå arbeidsinntekten for dette året.',
+        'Dersom du ikke kjenner inntekten, må du anslå arbeidsinntekten for dette året.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallIFjor.beskrivelse':
         'Oppgi inntekt fra januar til og med desember.',
     'inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
@@ -350,7 +350,7 @@ export default {
     'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
     'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall': 'Hva var brutto årsinntekt i året før dødsfallet?',
     'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
-        'Dersom du ikke kjenner inntekten dette året, må du anslå arbeidsinntekten for dette året.',
+        'Dersom du ikke kjenner inntekten, må du anslå arbeidsinntekten for dette året.',
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
         'All næringsinntekt fra Norge og utlandet, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
