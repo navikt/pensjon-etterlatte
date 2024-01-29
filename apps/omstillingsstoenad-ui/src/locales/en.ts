@@ -338,6 +338,10 @@ export default {
         'What was your gross income from work prior to the death?',
     'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
         'Please state your income for January and up to and including the month of the death. If the month of the death was December, please state your entire annual income.',
+    'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
+        'Skjedde dødsfallet i januar eller i desember?',
+    'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold':
+        'Hvis måneden for dødsfallet er januar oppgir du inntekten for denne måneden. Hvis måneden for dødsfallet er desember, oppgir du hele årsinntekten.',
     'inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt':
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt':

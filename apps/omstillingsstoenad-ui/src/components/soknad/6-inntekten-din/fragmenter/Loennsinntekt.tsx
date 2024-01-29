@@ -12,6 +12,7 @@ import { useFormContext } from 'react-hook-form'
 import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
+import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 
 const Loennsinntekt = () => {
     const { t } = useTranslation()
@@ -75,6 +76,13 @@ const Loennsinntekt = () => {
                                         htmlSize={Bredde.S}
                                     />
                                 </SkjemaElement>
+                                <HvorforSpoerVi
+                                    title={t(
+                                        'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel'
+                                    )}
+                                >
+                                    {t('inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold')}
+                                </HvorforSpoerVi>
                             </SkjemaGruppe>
                             {erIkkeDesember && (
                                 <SkjemaGruppe>
@@ -94,7 +102,7 @@ const Loennsinntekt = () => {
                                         name={'loennsinntekt.norge.inntektNesteAar.aarsinntekt'}
                                         label={t('inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt')}
                                         description={t(
-                                                'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
+                                            'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
