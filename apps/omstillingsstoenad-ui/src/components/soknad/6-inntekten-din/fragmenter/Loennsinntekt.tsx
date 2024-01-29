@@ -50,6 +50,8 @@ const Loennsinntekt = () => {
                     <SkjemaElement>
                         <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.norge')}</Heading>
                     </SkjemaElement>
+                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt')}</Alert>
+
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
                             {foedt1963EllerTidligere && (
@@ -156,6 +158,8 @@ const Loennsinntekt = () => {
                     <SkjemaElement>
                         <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
                     </SkjemaElement>
+                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt')}</Alert>
+
                     {doedsdatoErIAar(datoforDoedsfallet!!) ? (
                         <>
                             {foedt1963EllerTidligere && (

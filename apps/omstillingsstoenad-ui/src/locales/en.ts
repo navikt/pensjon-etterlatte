@@ -296,7 +296,7 @@ export default {
     'inntektenDin.tittel': 'Your income',
     'inntektenDin.undertittel': 'Income, pension and other disbursements in Norway and abroad',
     'inntektenDin.ingress':
-        'The amount of transitional benefits that you are entitled to will depend on your income from employment. NAV benefits are considered income from employment. \n\n We need to know your gross income. Gross income means your income before taxes are deducted. You can find information on gross income on your pay slip.',
+        'The amount of transitional benefits that you are entitled to will depend on your income from employment. NAV benefits are considered income from employment. \n\n We need to know your gross income. Gross income means your income before taxes are deducted.',
     'inntektenDin.inntektstyper': 'Which type of income do you receive?',
     'inntektenDin.loennsinntekt.tittel': 'Income from work',
     'inntektenDin.loennsinntekt.ingress':
@@ -306,6 +306,8 @@ export default {
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Income from work earned abroad',
     'inntektenDin.loennsinntekt.info':
         'If your income changes after you submit your application, you must notify NAV about these changes.',
+    'inntektenDin.loennsinntekt.bruttoinntekt':
+        'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du finner brutto arbeidsinntekt på lønnsslippen din.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.tittel': 'Your income from work before the death',
     'inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt':
         'What was your gross annual income in the year before the death?',

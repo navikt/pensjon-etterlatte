@@ -289,7 +289,7 @@ export default {
     'inntektenDin.tittel': 'Inntekten din',
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
-        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Likestilt med arbeidsinntekt regnes også noen ytelser fra NAV. \n\n Det er viktig at du opplyser oss om brutto inntekt. Brutto arbeidsinntekt betyr inntekten din før skattetrekk. Du finner opplysningene om brutto arbeidsinntekt på lønnsslippen din.',
+        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Likestilt med arbeidsinntekt regnes også noen ytelser fra NAV. \n\n Det er viktig at du opplyser oss om brutto inntekt. Brutto arbeidsinntekt betyr inntekten din før skattetrekk.',
     'inntektenDin.inntektstyper': 'Hvilken type inntekt har du?',
     'inntektenDin.loennsinntekt.tittel': 'Arbeidsinntekt',
     'inntektenDin.loennsinntekt.ingress':
@@ -299,6 +299,8 @@ export default {
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',
     'inntektenDin.loennsinntekt.info':
         'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
+    'inntektenDin.loennsinntekt.bruttoinntekt':
+        'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du finner brutto arbeidsinntekt på lønnsslippen din.',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.tittel': 'Arbeidsinntekten din året før dødsfallet',
     'inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
     'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer':
