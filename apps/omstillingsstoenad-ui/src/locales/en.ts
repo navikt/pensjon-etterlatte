@@ -310,31 +310,31 @@ export default {
         'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du finner brutto arbeidsinntekt på lønnsslippen din.',
     'inntektenDin.loennsinntekt.bruttoinntekt.utland':
         'Inntekten du oppgir skal være brutto inntekt, altså inntekt før skatt. Du kan bli bedt om å dokumentere denne inntekten senere.',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.tittel': 'Your income from work before the death',
-    'inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.tittel': 'Your income from work before the death',
+    'inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt':
         'What was your gross annual income in the year before the death?',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer':
         'What was your gross annual income in the year of the death?',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income and tax figures for that year, please state the annual income shown on your pay slip for December for that year.',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer.beskrivelse.utland':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse.utland':
         'If you do not know your income for this year, you can state the annual income shown on your pay slip for December.',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
         'Please state from the month after the death until the end of December for that year. If the month of death was December, please enter 0 kroner.',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallIFjor.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse':
         'Please state the income from January to end of December.',
-    'inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt':
+    'inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt':
         'What was your gross annual income in the year before the death?',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse':
         'If the Norwegian Tax Administration has not published your income and tax figures for that year, please state the annual income shown on your pay slip for December.',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland':
+    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
         'If you do not know your income for this year, you can state the annual income shown on your pay slip for December.',
-    'inntektenDin.loennsinntekt.norge.inntektFoerIAar.tilDoedsfall':
+    'inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall':
         'What was your gross income from work prior to the death?',
-    'inntektenDin.loennsinntekt.utland.inntektFoerIAar.tilDoedsfall':
+    'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall':
         'What was your gross income from work prior to the death?',
-    'inntektenDin.loennsinntekt.inntektFoerIAar.tilDoedsfall.beskrivelse':
+    'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
         'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet. Hvis måneden for dødsfallet er januar oppgir du inntekten for denne måneden.',
     'inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall':
         'What was your gross income from work prior to the death?',
@@ -372,18 +372,18 @@ export default {
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Business income abroad',
     'inntektenDin.naeringsinntekt.info':
         'If your income changes after you submit your application, you must notify NAV about these changes.',
-    'inntektenDin.naeringsinntekt.norge.inntektFoerIAar.aarsinntekt':
+    'inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt':
         'What was your gross annual income in the year before the death?',
-    'inntektenDin.naeringsinntekt.utland.inntektFoerIAar.aarsinntekt':
+    'inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt':
         'What was your gross annual income in the year before the death?',
-    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer':
+    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer':
         'What was your gross annual business income in the year of the death?',
-    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer.beskrivelse':
+    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
-    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse':
+    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
-    'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland':
+    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
         'If you do not know your income for that year, please estimate your business income.',
     'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'What was your gross business income this year?',
     'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'What was your gross business income this year?',
@@ -977,9 +977,9 @@ export default {
     'feil.loennsinntekt.norge.inntektIAar.aarsinntekt.required': 'State expected income from employment this year',
     'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'State your income from employment after the death',
     'feil.loennsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected income from employment this year',
-    'feil.loennsinntekt.norge.inntektFoerIAar.aarsinntekt.required':
+    'feil.loennsinntekt.norge.inntektIFjor.aarsinntekt.required':
         'State gross income from work for year before death. Gross income is income before tax',
-    'feil.loennsinntekt.utland.inntektFoerIAar.aarsinntekt.required':
+    'feil.loennsinntekt.utland.inntektIFjor.aarsinntekt.required':
         'State gross income from work for year before death. Gross income is income before tax',
     'feil.loennsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
         'State gross income from work in the year of the death. Gross income is income before tax',
@@ -997,9 +997,9 @@ export default {
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
     'feil.naeringsinntekt.norgeEllerUtland.required': 'Tick the source of your business income',
-    'feil.naeringsinntekt.norge.inntektFoerIAar.aarsinntekt.required':
+    'feil.naeringsinntekt.norge.inntektIFjor.aarsinntekt.required':
         'State gross business income for the year before the death. Gross income is income before tax',
-    'feil.naeringsinntekt.utland.inntektFoerIAar.aarsinntekt.required':
+    'feil.naeringsinntekt.utland.inntektIFjor.aarsinntekt.required':
         'State gross business income for the year before the death. Gross income is income before tax',
     'feil.naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
         'State gross annual income in the year of the death. Gross income is income before tax',

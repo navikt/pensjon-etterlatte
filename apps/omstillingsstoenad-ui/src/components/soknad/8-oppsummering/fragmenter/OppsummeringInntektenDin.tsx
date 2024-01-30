@@ -53,16 +53,16 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                         <Panel>
                             <Heading size={'xsmall'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.norge')}</Heading>
 
-                            {inntektenDin.loennsinntekt.norge?.inntektFoerIAar?.tilDoedsfall && (
+                            {inntektenDin.loennsinntekt.norge?.inntektIFjor?.tilDoedsfall && (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.tilDoedsfall')}
-                                    innhold={inntektenDin.loennsinntekt.norge?.inntektFoerIAar.tilDoedsfall}
+                                    tittel={t('inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall')}
+                                    innhold={inntektenDin.loennsinntekt.norge?.inntektIFjor.tilDoedsfall}
                                 />
                             )}
-                            {inntektenDin.loennsinntekt.norge?.inntektFoerIAar?.aarsinntekt && (
+                            {inntektenDin.loennsinntekt.norge?.inntektIFjor?.aarsinntekt && (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt')}
-                                    innhold={inntektenDin.loennsinntekt.norge?.inntektFoerIAar.aarsinntekt}
+                                    tittel={t('inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt')}
+                                    innhold={inntektenDin.loennsinntekt.norge?.inntektIFjor.aarsinntekt}
                                 />
                             )}
                             {inntektenDin.loennsinntekt.norge?.inntektIAar?.tilDoedsfall && (
@@ -97,17 +97,17 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                                 />
                             )}
 
-                            {inntektenDin.loennsinntekt.utland?.inntektFoerIAar?.tilDoedsfall && (
+                            {inntektenDin.loennsinntekt.utland?.inntektIFjor?.tilDoedsfall && (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.tilDoedsfall')}
-                                    innhold={inntektenDin.loennsinntekt.utland?.inntektFoerIAar.tilDoedsfall}
+                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektIFjor.tilDoedsfall}
                                 />
                             )}
 
-                            {inntektenDin.loennsinntekt.utland?.inntektFoerIAar?.aarsinntekt && (
+                            {inntektenDin.loennsinntekt.utland?.inntektIFjor?.aarsinntekt && (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt')}
-                                    innhold={inntektenDin.loennsinntekt.utland?.inntektFoerIAar.aarsinntekt}
+                                    tittel={t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt')}
+                                    innhold={inntektenDin.loennsinntekt.utland?.inntektIFjor.aarsinntekt}
                                 />
                             )}
 
@@ -188,13 +188,13 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
 
                             {doedsfallIAar ? (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektFoerIAar.aarsinntekt')}
-                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektFoerIAar?.aarsinntekt}
+                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt')}
+                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektIFjor?.aarsinntekt}
                                 />
                             ) : (
                                 <TekstGruppe
                                     tittel={t(
-                                        'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer'
+                                        'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer'
                                     )}
                                     innhold={inntektenDin.naeringsinntekt.norge?.inntektAaretFoerDoedsfall}
                                 />
@@ -228,13 +228,13 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
 
                             {doedsfallIAar ? (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.naeringsinntekt.utland.inntektFoerIAar.aarsinntekt')}
-                                    innhold={inntektenDin.naeringsinntekt.utland?.inntektFoerIAar?.aarsinntekt}
+                                    tittel={t('inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt')}
+                                    innhold={inntektenDin.naeringsinntekt.utland?.inntektIFjor?.aarsinntekt}
                                 />
                             ) : (
                                 <TekstGruppe
                                     tittel={t(
-                                        'inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt.doedsfallAaretFoer'
+                                        'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer'
                                     )}
                                     innhold={inntektenDin.naeringsinntekt.utland?.inntektAaretFoerDoedsfall}
                                 />
