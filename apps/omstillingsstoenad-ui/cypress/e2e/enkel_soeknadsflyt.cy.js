@@ -197,8 +197,8 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.beskrivelse
         )
 
-        getById('naeringsinntekt.norge.inntektFoerIAar.aarsinntekt').type(
-            inntektenDin.naeringsinntekt.inntektFoerIAar.aarsinntekt
+        getById('naeringsinntekt.norge.inntektIFjor.aarsinntekt').type(
+            inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt
         )
         getById('naeringsinntekt.norge.inntektIAar.aarsinntekt').type(
             inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt

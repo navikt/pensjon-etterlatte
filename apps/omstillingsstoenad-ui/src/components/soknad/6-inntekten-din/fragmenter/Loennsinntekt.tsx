@@ -59,10 +59,10 @@ const Loennsinntekt = () => {
                             {foedt1963EllerTidligere && (
                                 <SkjemaGruppe>
                                     <RHFValutaInput
-                                        name={'loennsinntekt.norge.inntektFoerIAar.aarsinntekt'}
-                                        label={t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt')}
+                                        name={'loennsinntekt.norge.inntektIFjor.aarsinntekt'}
+                                        label={t('inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse'
+                                            'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
@@ -118,10 +118,10 @@ const Loennsinntekt = () => {
                                 {erIkkeDesember && (
                                     <SkjemaGruppe>
                                         <RHFValutaInput
-                                            name={'loennsinntekt.norge.inntektFoerIAar.tilDoedsfall'}
-                                            label={t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.tilDoedsfall')}
+                                            name={'loennsinntekt.norge.inntektIFjor.tilDoedsfall'}
+                                            label={t('inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall')}
                                             description={t(
-                                                'inntektenDin.loennsinntekt.inntektFoerIAar.tilDoedsfall.beskrivelse'
+                                                'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse'
                                             )}
                                             htmlSize={Bredde.S}
                                         />
@@ -129,10 +129,10 @@ const Loennsinntekt = () => {
                                 )}
                                 <SkjemaGruppe>
                                     <RHFValutaInput
-                                        name={'loennsinntekt.norge.inntektFoerIAar.aarsinntekt'}
-                                        label={t('inntektenDin.loennsinntekt.norge.inntektFoerIAar.aarsinntekt')}
+                                        name={'loennsinntekt.norge.inntektIFjor.aarsinntekt'}
+                                        label={t('inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallIFjor.beskrivelse'
+                                            'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
@@ -169,10 +169,10 @@ const Loennsinntekt = () => {
                             {foedt1963EllerTidligere && (
                                 <SkjemaGruppe>
                                     <RHFValutaInput
-                                        name={'loennsinntekt.utland.inntektFoerIAar.aarsinntekt'}
-                                        label={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt')}
+                                        name={'loennsinntekt.utland.inntektIFjor.aarsinntekt'}
+                                        label={t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.beskrivelse.utland'
+                                            'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
@@ -240,10 +240,10 @@ const Loennsinntekt = () => {
                             {erIkkeDesember && (
                                 <SkjemaGruppe>
                                     <RHFValutaInput
-                                        name={'loennsinntekt.utland.inntektFoerIAar.tilDoedsfall'}
-                                        label={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.tilDoedsfall')}
+                                        name={'loennsinntekt.utland.inntektIFjor.tilDoedsfall'}
+                                        label={t('inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.inntektFoerIAar.tilDoedsfall.beskrivelse'
+                                            'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />
@@ -251,10 +251,10 @@ const Loennsinntekt = () => {
                             )}
                             <SkjemaGruppe>
                                 <RHFValutaInput
-                                    name={'loennsinntekt.utland.inntektFoerIAar.aarsinntekt'}
-                                    label={t('inntektenDin.loennsinntekt.utland.inntektFoerIAar.aarsinntekt')}
+                                    name={'loennsinntekt.utland.inntektIFjor.aarsinntekt'}
+                                    label={t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt')}
                                     description={t(
-                                        'inntektenDin.loennsinntekt.inntektFoerIAar.aarsinntekt.doedsfallIFjor.beskrivelse'
+                                        'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse'
                                     )}
                                     htmlSize={Bredde.S}
                                 />

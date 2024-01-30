@@ -37,7 +37,7 @@ export interface ILoennsinntekt {
 
 export interface IInntekter {
     inntektAaretFoerDoedsfall?: string
-    inntektFoerIAar?: {
+    inntektIFjor?: {
         tilDoedsfall?: string
         aarsinntekt?: string
     }
