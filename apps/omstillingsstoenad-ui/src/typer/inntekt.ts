@@ -48,7 +48,7 @@ export interface IInntekter {
     inntektNesteAar?: {
         aarsinntekt?: string
     }
-    sesongbasertNaeringsinntekt?: {
+    jevntOpptjentNaeringsinntekt?: {
         svar?: IValg
         beskrivelse?: string
     }

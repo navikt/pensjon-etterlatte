@@ -372,6 +372,11 @@ export default {
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Business income abroad',
     'inntektenDin.naeringsinntekt.info':
         'If your income changes after you submit your application, you must notify NAV about these changes.',
+    'inntektenDin.naeringsinntekt.bruttoinntekt': ' ',
+    'inntektenDin.naeringsinntekt.bruttoinntekt.utland': ' ',
+    'inntektenDin.naeringsinntekt.norge.inntektIFjor.tilDoedsfall': ' ',
+    'inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall': ' ',
+    'inntektenDin.naeringsinntekt.inntektIFjor.tilDoedsfall.beskrivelse': ' ',
     'inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt':
         'What was your gross annual income in the year before the death?',
     'inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt':
@@ -388,6 +393,8 @@ export default {
     'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'What was your gross business income this year?',
     'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'What was your gross business income this year?',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse': 'From January to the month before the death',
+    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel': ' ',
+    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold': ' ',
     'inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt':
         'What do you expect to earn in gross annual income for next year?',
     'inntektenDin.naeringsinntekt.utland.inntektNesteAar.aarsinntekt':
@@ -396,11 +403,10 @@ export default {
         'State your expected business income, from the month of the death until December.',
     'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual business income this year?',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Is this seasonal work?',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar.beskrivelse':
-        'We need to know if your business income was earned evenly throughout the year.',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse':
+    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar': 'Is this seasonal work?',
+    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse':
         'Please provide a short description of the work',
+    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse': ' ',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Do you expect your income to change in the near future?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
@@ -1016,13 +1022,13 @@ export default {
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Expectations about income must be answered',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
-    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':
+    'feil.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar.required':
         'You must choose whether the this is seasonal work or not',
-    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':
+    'feil.naeringsinntekt.utland.jevntOpptjentNaeringsinntekt.svar.required':
         'You must choose whether the this is seasonal work or not',
-    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required':
+    'feil.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse.required':
         'Please provide a short description of the work',
-    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':
+    'feil.naeringsinntekt.utland.jevntOpptjentNaeringsinntekt.beskrivelse.required':
         'Please provide a short description of the work',
     'feil.naeringsinntekt.norge.inntektIAar.aarsinntekt.required': 'State expected business income this year',
     'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected business income this year',

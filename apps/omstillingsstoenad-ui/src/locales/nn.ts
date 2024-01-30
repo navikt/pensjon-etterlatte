@@ -316,10 +316,8 @@ export default {
         'Dersom Skatteetaten ikkje har slåt fast inntekta enno, kan du oppgi årsinntekta som står på lønsslippen for desember.',
     'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
         'Dersom du ikkje veit inntekta for dette året, kan du oppgi årsinntekta som står på lønsslippen for desember.',
-    'inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall':
-        'Kva var brutto arbeidsinntekt fram til dødsfallet?',
-    'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall':
-        'Kva var brutto arbeidsinntekt fram til dødsfallet?',
+    'inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall': 'Kva var brutto arbeidsinntekt fram til dødsfallet?',
+    'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall': 'Kva var brutto arbeidsinntekt fram til dødsfallet?',
     'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse':
         'Oppgi inntekt frå januar til og med desember.',
     'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
@@ -356,6 +354,13 @@ export default {
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
     'inntektenDin.naeringsinntekt.info':
         'Dersom inntekta di endrar seg etter at du har sendt inn søknaden, må du melde frå til oss om endringa.',
+    'inntektenDin.naeringsinntekt.bruttoinntekt': ' ',
+    'inntektenDin.naeringsinntekt.bruttoinntekt.utland': ' ',
+    'inntektenDin.naeringsinntekt.norge.inntektIFjor.tilDoedsfall':
+        'Kva var brutto næringsinntekt fram til dødsfallet?',
+    'inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall':
+        'Kva var brutto næringsinntekt fram til dødsfallet?',
+    'inntektenDin.naeringsinntekt.inntektIFjor.tilDoedsfall.beskrivelse': ' ',
     'inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt': 'Kva var brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer':
@@ -371,6 +376,8 @@ export default {
     'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'Kva er brutto næringsinntekt i år?',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
         'Frå januar og fram til måneden før dødsfallet.',
+    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel': ' ',
+    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold': ' ',
     'inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt':
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.utland.inntektNesteAar.aarsinntekt':
@@ -378,10 +385,9 @@ export default {
     'inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
         'Skriv kva du reknar med å ha i næringsinntekt frå same månad som dødsfallet og fram til desember.',
     'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt': 'Kva brutto næringsinntekt reknar du med å ha i år?',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar.beskrivelse':
-        'Vi treng å vite om næringsinntekta blir tent opp jamt utover året.',
-    'inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse': 'Beskriv kort arbeidet',
+    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
+    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse': 'Beskriv kort arbeidet',
+    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse': ' ',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Går du ut frå at inntekta di vil endre seg fram i tid?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Kva er grunnen til endringane?',
@@ -975,12 +981,13 @@ export default {
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Svar på spørsmålet om forventing rundt inntekt',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringane',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Du må beskrive endringane',
-    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar.required':
+    'feil.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar.required':
         'Du må velje om arbeidet er sesongbasert eller ikkje',
-    'feil.naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse.required': 'Gi en kort beskrivelse av arbeidet',
-    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.svar.required':
+    'feil.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse.required':
+        'Gi en kort beskrivelse av arbeidet',
+    'feil.naeringsinntekt.utland.jevntOpptjentNaeringsinntekt.svar.required':
         'Du må velje om arbeidet er sesongbasert eller ikkje',
-    'feil.naeringsinntekt.utland.sesongbasertNaeringsinntekt.beskrivelse.required':
+    'feil.naeringsinntekt.utland.jevntOpptjentNaeringsinntekt.beskrivelse.required':
         'Gi en kort beskrivelse av arbeidet',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi kva pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Vel kva pensjon du får',

@@ -172,9 +172,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall
         )
 
-        getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(
-                inntektenDin.loennsinntekt.inntektIAar.aarsinntekt
-        )
+        getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(inntektenDin.loennsinntekt.inntektIAar.aarsinntekt)
 
         if (dagensDato.getMonth() >= oktober)
             getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
@@ -190,15 +188,15 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
 
         selectValueForId(
-            'naeringsinntekt.norge.sesongbasertNaeringsinntekt.svar',
+            'naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar',
             inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.svar
         )
-        getById('naeringsinntekt.norge.sesongbasertNaeringsinntekt.beskrivelse').type(
+        getById('naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse').type(
             inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.beskrivelse
         )
 
-        getById('naeringsinntekt.norge.inntektIFjor.aarsinntekt').type(
-            inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt
+        getById('naeringsinntekt.norge.inntektIAar.tilDoedsfall').type(
+            inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall
         )
         getById('naeringsinntekt.norge.inntektIAar.aarsinntekt').type(
             inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt

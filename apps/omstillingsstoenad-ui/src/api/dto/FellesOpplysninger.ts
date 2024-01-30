@@ -168,7 +168,7 @@ interface InntektsType {
     inntektNesteAar?: {
         aarsinntekt: Opplysning<FritekstSvar>
     }
-    sesongbasertNaeringsinntekt?: {
+    jevntOpptjentNaeringsinntekt?: {
         svar: Opplysning<EnumSvar<JaNeiVetIkke>>
         beskrivelse?: Opplysning<FritekstSvar>
     }
