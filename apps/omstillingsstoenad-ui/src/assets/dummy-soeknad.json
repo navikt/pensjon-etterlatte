@@ -146,6 +146,9 @@
         "aarsinntekt": "20000",
         "tilDoedsfall": "30000"
       },
+      "inntektNesteAar": {
+        "aarsinntekt": "10000"
+      },
       "forventerEndringAvInntekt": {
         "svar": "radiobuttons.nei"
       }

@@ -202,7 +202,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt
         )
 
-        if (dagensDato.getMonth() >= oktober)
+        if (dagensDato.getMonth() <= oktober)
             getById('naeringsinntekt.norge.inntektNesteAar.aarsinntekt').type(
                 inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt
             )
