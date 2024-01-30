@@ -3,6 +3,7 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.client.plugins.ResponseException
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.dokarkiv.JournalpostHelper
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.pdl.Gradering
@@ -70,8 +71,9 @@ internal class JournalfoerGjenlevendepensjonSoeknad(
         val gradering = Gradering.fra(packet["@adressebeskyttelse"].textValue())
         val skjemaInfo = packet["@skjema_info"]
         val soeknad: InnsendtSoeknad = mapper.readValue(skjemaInfo.toString())
+        val tittel = JournalpostHelper.opprettTittel(soeknad.type)
 
-        val dokument = dokumentService.opprettJournalpostDokument(soeknadId, skjemaInfo, soeknad.template())
+        val dokument = dokumentService.opprettJournalpostDokument(soeknadId, tittel, skjemaInfo, soeknad.template())
 
         val (tema, behandlingstema) = hentTemakoder(soeknad.type)
 
@@ -84,7 +86,8 @@ internal class JournalfoerGjenlevendepensjonSoeknad(
             tema = tema,
             behandlingstema = behandlingstema,
             forsoekFerdigstill = false,
-            sakId = null
+            sakId = null,
+            tittel = tittel
         )
     }
 

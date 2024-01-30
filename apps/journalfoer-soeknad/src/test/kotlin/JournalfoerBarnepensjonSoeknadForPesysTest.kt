@@ -27,14 +27,14 @@ internal class JournalfoerBarnepensjonSoeknadForPesysTest{
     @Test
     fun `Skal lese søknader som er fordelt til Pesys`(){
 
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any()) } returns
+        every { dokumentservice.opprettJournalpostDokument("13", any(), any(), any()) } returns
                 JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
         every { journalfoeringService.journalfoer(
             "13",
             "5555555555",
             any(),any(),any(),any(), any(),
             false,
-            null) } returns
+            null, any()) } returns
                 DokarkivResponse(
             journalpostId = "123",
             journalpostferdigstilt = true,

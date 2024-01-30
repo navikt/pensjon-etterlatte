@@ -9,7 +9,6 @@ import io.ktor.client.plugins.ResponseException
 import kotlinx.coroutines.runBlocking
 import libs.common.util.RetryResult
 import libs.common.util.retry
-import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import org.slf4j.LoggerFactory
 import pdf.PdfGenerator
 import java.util.*
@@ -19,13 +18,18 @@ class DokumentService(private val klient: PdfGenerator) {
 
     private val encoder = Base64.getEncoder()
 
-    fun opprettJournalpostDokument(soeknadId: String, skjemaInfo: JsonNode, template: String): JournalpostDokument =
+    fun opprettJournalpostDokument(
+        soeknadId: String,
+        tittel: String,
+        skjemaInfo: JsonNode,
+        template: String
+    ): JournalpostDokument =
         try {
             val arkivPdf = opprettArkivPdf(soeknadId, skjemaInfo, template)
             val originalJson = opprettOriginalJson(soeknadId, skjemaInfo)
 
             JournalpostDokument(
-                tittel = SOEKNAD_TITTEL,
+                tittel = tittel,
                 dokumentKategori = DokumentKategori.SOK,
                 dokumentvarianter = listOf(arkivPdf, originalJson)
             )
