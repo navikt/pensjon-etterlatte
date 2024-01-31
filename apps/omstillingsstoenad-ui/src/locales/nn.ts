@@ -394,6 +394,8 @@ export default {
         'Går du ut frå at inntekta di vil endre seg fram i tid?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Kva er grunnen til endringane?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn': 'Beskriv kort endringane',
+    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall': ' ',
+    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall.beskrivelse': ' ',
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pensjon eller uføretrygd',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Kva pensjon eller trygd har du?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Kva slags pensjon får du?',
