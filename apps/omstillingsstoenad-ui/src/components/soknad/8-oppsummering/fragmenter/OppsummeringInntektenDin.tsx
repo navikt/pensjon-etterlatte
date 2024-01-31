@@ -17,7 +17,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 interface Props {
     inntektenDin: IInntekt
     senderSoeknad: boolean
-    datoforDoedsfallet: Date
 }
 
 export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: Props) => {
