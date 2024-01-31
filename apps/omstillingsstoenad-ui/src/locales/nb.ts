@@ -392,7 +392,9 @@ export default {
         'Hva forventer du i brutto årsinntekt til neste år?',
     'inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
         'Skriv hva du forventer å ha i næringsinntekt fra samme måned som dødsfallet til desember.',
-    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto næringsinntekt i år?',
+    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto årsinntekt i år?',
+    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse':
+        'Oppgi forventet næringsinntekt fra januar til og med desember.',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse':

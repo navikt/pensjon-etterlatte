@@ -99,7 +99,7 @@ const Naeringsinntekt = () => {
                                             name={'naeringsinntekt.norge.inntektIAar.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
                                             description={t(
-                                                'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
+                                                'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                             )}
                                             htmlSize={Bredde.S}
                                         />
@@ -110,6 +110,9 @@ const Naeringsinntekt = () => {
                                         <RHFValutaInput
                                             name={'naeringsinntekt.norge.inntektNesteAar.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt')}
+                                            description={t(
+                                                'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
+                                            )}
                                             htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
@@ -144,7 +147,7 @@ const Naeringsinntekt = () => {
                                         name={'naeringsinntekt.norge.inntektIAar.aarsinntekt'}
                                         label={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
                                         description={t(
-                                            'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
+                                            'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
                                         htmlSize={Bredde.S}
                                     />

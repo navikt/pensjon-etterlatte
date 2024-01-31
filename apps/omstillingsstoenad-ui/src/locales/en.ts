@@ -403,6 +403,8 @@ export default {
         'State your expected business income, from the month of the death until December.',
     'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt':
         'What do you expect to earn in gross annual business income this year?',
+    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse':
+        'Oppgi forventet næringsinntekt fra januar til og med desember.',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar': 'Is this seasonal work?',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse':
         'Please provide a short description of the work',

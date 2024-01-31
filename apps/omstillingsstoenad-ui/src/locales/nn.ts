@@ -385,6 +385,8 @@ export default {
     'inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
         'Skriv kva du reknar med å ha i næringsinntekt frå same månad som dødsfallet og fram til desember.',
     'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt': 'Kva brutto næringsinntekt reknar du med å ha i år?',
+    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse':
+        'Oppgi forventet næringsinntekt fra januar til og med desember.',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar': 'Er arbeidet sesongbasert?',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse': 'Beskriv kort arbeidet',
     'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse': ' ',
