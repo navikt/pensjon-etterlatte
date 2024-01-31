@@ -10,12 +10,12 @@ interface Props {
     type: 'norge' | 'utland'
 }
 
-const SesongbasertNaeringsinntekt = ({ type }: Props) => {
+const JevntOpptjentNaeringsinntekt = ({ type }: Props) => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext()
 
-    const baseUrl = `naeringsinntekt.${type}.sesongbasertNaeringsinntekt`
+    const baseUrl = `naeringsinntekt.${type}.jevntOpptjentNaeringsinntekt`
 
     const endrerInntekt = watch(`${baseUrl}.svar`)
 
@@ -24,16 +24,16 @@ const SesongbasertNaeringsinntekt = ({ type }: Props) => {
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={`${baseUrl}.svar`}
-                    legend={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar')}
-                    description={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar.beskrivelse')}
+                    legend={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar')}
                 />
             </SkjemaElement>
-            {endrerInntekt === IValg.JA && (
+            {endrerInntekt === IValg.NEI && (
                 <SkjemaElement>
                     <RHFInputArea
                         name={`${baseUrl}.beskrivelse`}
-                        label={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse')}
-                        maxLength={200}
+                        label={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse')}
+                        description={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse')}
+                        maxLength={1000}
                         className={'width-50'}
                     />
                 </SkjemaElement>
@@ -42,4 +42,4 @@ const SesongbasertNaeringsinntekt = ({ type }: Props) => {
     )
 }
 
-export default SesongbasertNaeringsinntekt
+export default JevntOpptjentNaeringsinntekt

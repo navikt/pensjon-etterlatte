@@ -173,36 +173,53 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                             </Heading>
 
                             <TekstGruppeJaNeiVetIkke
-                                tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar')}
-                                innhold={inntektenDin.naeringsinntekt?.norge?.sesongbasertNaeringsinntekt?.svar}
+                                tittel={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar')}
+                                innhold={inntektenDin.naeringsinntekt?.norge?.jevntOpptjentNaeringsinntekt?.svar}
                             />
 
-                            {inntektenDin.naeringsinntekt?.norge?.sesongbasertNaeringsinntekt?.svar === IValg.JA && (
+                            {inntektenDin.naeringsinntekt?.norge?.jevntOpptjentNaeringsinntekt?.svar === IValg.NEI && (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse')}
+                                    tittel={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse')}
                                     innhold={
-                                        inntektenDin.naeringsinntekt?.norge?.sesongbasertNaeringsinntekt?.beskrivelse
+                                        inntektenDin.naeringsinntekt?.norge?.jevntOpptjentNaeringsinntekt?.beskrivelse
                                     }
                                 />
                             )}
 
-                            {doedsfallIAar ? (
+                            {inntektenDin.naeringsinntekt.norge?.inntektIFjor?.tilDoedsfall && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektIFjor.tilDoedsfall')}
+                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektIFjor?.tilDoedsfall}
+                                />
+                            )}
+
+                            {inntektenDin.naeringsinntekt.norge?.inntektIFjor?.aarsinntekt && (
                                 <TekstGruppe
                                     tittel={t('inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt')}
                                     innhold={inntektenDin.naeringsinntekt.norge?.inntektIFjor?.aarsinntekt}
                                 />
-                            ) : (
+                            )}
+
+                            {inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt && (
                                 <TekstGruppe
-                                    tittel={t(
-                                        'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer'
-                                    )}
-                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektAaretFoerDoedsfall}
+                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektIAar.aarsinntekt')}
+                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt}
                                 />
                             )}
-                            <TekstGruppe
-                                tittel={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
-                                innhold={inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt}
-                            />
+
+                            {inntektenDin.naeringsinntekt.norge?.inntektIAar?.tilDoedsfall && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall')}
+                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektIAar?.tilDoedsfall}
+                                />
+                            )}
+
+                            {inntektenDin.naeringsinntekt.norge?.inntektNesteAar?.aarsinntekt && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt')}
+                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektNesteAar?.aarsinntekt}
+                                />
+                            )}
                         </Panel>
                     )}
 
@@ -213,15 +230,15 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad, dat
                             </Heading>
 
                             <TekstGruppeJaNeiVetIkke
-                                tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.svar')}
-                                innhold={inntektenDin.naeringsinntekt?.utland?.sesongbasertNaeringsinntekt?.svar}
+                                tittel={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar')}
+                                innhold={inntektenDin.naeringsinntekt?.utland?.jevntOpptjentNaeringsinntekt?.svar}
                             />
 
-                            {inntektenDin.naeringsinntekt?.utland?.sesongbasertNaeringsinntekt?.svar === IValg.JA && (
+                            {inntektenDin.naeringsinntekt?.utland?.jevntOpptjentNaeringsinntekt?.svar === IValg.NEI && (
                                 <TekstGruppe
-                                    tittel={t('inntektenDin.naeringsinntekt.sesongbasertNaeringsinntekt.beskrivelse')}
+                                    tittel={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse')}
                                     innhold={
-                                        inntektenDin.naeringsinntekt?.utland?.sesongbasertNaeringsinntekt?.beskrivelse
+                                        inntektenDin.naeringsinntekt?.utland?.jevntOpptjentNaeringsinntekt?.beskrivelse
                                     }
                                 />
                             )}
