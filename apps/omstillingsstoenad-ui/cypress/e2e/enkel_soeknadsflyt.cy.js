@@ -189,10 +189,10 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         selectValueForId(
             'naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar',
-            inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.svar
+            inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar
         )
         getById('naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse').type(
-            inntektenDin.naeringsinntekt.sesonbasertNaeringsinntekt.beskrivelse
+            inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse
         )
 
         getById('naeringsinntekt.norge.inntektIAar.tilDoedsfall').type(

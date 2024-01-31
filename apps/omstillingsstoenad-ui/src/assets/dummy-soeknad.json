@@ -135,7 +135,7 @@
       }
     },
     "naeringsinntekt": {
-      "sesonbasertNaeringsinntekt": {
+      "jevntOpptjentNaeringsinntekt": {
         "svar": "radiobuttons.nei",
         "beskrivelse": "Selger julelys i desember"
       },
