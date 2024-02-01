@@ -941,21 +941,15 @@ export default {
     'feil.inntektstyper.required': 'Oppgi kva inntektstype du har',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Du må krysse av for kor du får arbeidsinntekt frå',
     'feil.loennsinntekt.norge.inntektEtterDoedsfall.required': 'Oppgi arbeidsinntekta din etter dødsfallet',
-    'feil.loennsinntekt.norge.inntektIAar.aarsinntekt.required': 'Oppgi arbeidsinntekta du reknar med å ha i år',
+    'feil.loennsinntekt.norge.inntektIAar.aarsinntekt.required': 'Oppgi brutto årsinntekt du reknar med å ha i år',
     'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'Oppgi arbeidsinntekta din etter dødsfallet',
-    'feil.loennsinntekt.utland.inntektIAar.aarsinntekt.required': 'Oppgi arbeidsinntekta du reknar med å ha i år',
-    'feil.loennsinntekt.norge.inntektIFjor.aarsinntekt.required':
-        'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekta før skatt',
-    'feil.loennsinntekt.utland.inntektIFjor.aarsinntekt.required':
-        'Oppgi brutto arbeidsinntekt året før dødsfallet. Brutto inntekt er inntekta før skatt',
-    'feil.loennsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
-        'Oppgi brutto arbeidsinntekt i året dødsfallet skjedde. Brutto inntekt er inntekta før skatt',
-    'feil.loennsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
-        'Oppgi brutto arbeidsinntekt i året dødsfallet skjedde. Brutto inntekt er inntekta før skatt',
-    'feil.loennsinntekt.norge.inntektIAar.tilDoedsfall.required':
-        'Oppgi brutto arbeidsinntekt fram til dødsfallet. Brutto inntekt er inntekta før skatt',
-    'feil.loennsinntekt.utland.inntektIAar.tilDoedsfall.required':
-        'Oppgi brutto arbeidsinntekt fram til dødsfallet. Brutto inntekt er inntekta før skatt',
+    'feil.loennsinntekt.utland.inntektIAar.aarsinntekt.required': 'Oppgi brutto årsinntekt du reknar med å ha i år',
+    'feil.loennsinntekt.norge.inntektIFjor.tilDoedsfall.required': 'Oppgi brutto arbeidsinntekt frem til dødsfallet',
+    'feil.loennsinntekt.norge.inntektIFjor.aarsinntekt.required': 'Oppgi brutto arbeidsinntekt året før dødsfallet.',
+    'feil.loennsinntekt.utland.inntektIFjor.aarsinntekt.required': 'Oppgi brutto arbeidsinntekt året før dødsfallet.',
+    'feil.loennsinntekt.utland.inntektIFjor.tilDoedsfall.required': 'Oppgi brutto arbeidsinntekt frem til dødsfallet',
+    'feil.loennsinntekt.norge.inntektIAar.tilDoedsfall.required': 'Oppgi brutto arbeidsinntekt fram til dødsfallet.',
+    'feil.loennsinntekt.utland.inntektIAar.tilDoedsfall.required': 'Oppgi brutto arbeidsinntekt fram til dødsfallet.',
     'feil.loennsinntekt.norge.inntektNesteAar.aarsinntekt.required':
         'Oppgi brutto arbeidsinntekt etter dødsfallet. Brutto inntekt er inntekta før skatt',
     'feil.loennsinntekt.utland.inntektNesteAar.aarsinntekt.required':
@@ -963,6 +957,7 @@ export default {
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Svar på spørsmålet om forventing rundt inntekt',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'Oppgi grunnen til endringane',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Du må beskrive endringane',
+    'feil.loennsinntekt.utland.inntektAaretFoerDoedsfall.required': 'Oppgi brutto årsinntekt i året før dødsfallet',
     'feil.naeringsinntekt.norgeEllerUtland.required': 'Du må krysse av for kor du får næringsinntekt frå',
     'feil.naeringsinntekt.norge.inntektIFjor.aarsinntekt.required':
         'Oppgi brutto næringsinntekt året før dødsfallet. Brutto inntekt er inntekta før skatt',
