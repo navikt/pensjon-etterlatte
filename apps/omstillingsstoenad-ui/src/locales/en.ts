@@ -413,6 +413,8 @@ export default {
         'Do you expect your income to change in the near future?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn': 'Provide a brief description of the changes',
+    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall': ' ',
+    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall.beskrivelse': ' ',
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pension or disability pension',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Which type of pension or benefits are you receiving?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Which type of pension are you receiving?',
