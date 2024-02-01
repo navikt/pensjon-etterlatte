@@ -48,7 +48,7 @@ jobs:
       # Client cache
       - name: Cache node modules (client)
         id: yarn-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             apps/${{ github.workflow }}/node_modules
