@@ -221,7 +221,7 @@ const Naeringsinntekt = () => {
                                         </SkjemaElement>
                                     </SkjemaGruppe>
                                 )}
-                                {erMellomOktoberogDesember() && (
+                                {!erMellomOktoberogDesember() && (
                                     <SkjemaGruppe>
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektNesteAar.aarsinntekt'}
