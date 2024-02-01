@@ -377,12 +377,12 @@ export default {
     'inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall':
         'Hva var brutto næringsinntekt frem til dødsfallet?',
     'inntektenDin.naeringsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
-        'Oppgi næringsinntekt du har hatt fra januar til og med samme måned som dødsfallet.',
+        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
     'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva var brutto næringsinntekt frem til dødsfallet?',
     'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall':
         'Hva var brutto næringsinntekt frem til dødsfallet?',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
-        'Oppgi næringsinntekt du har hatt fra januar til og med samme måned som dødsfallet.',
+        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
         'Skjedde dødsfallet i januar eller i desember?',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold':
@@ -404,7 +404,7 @@ export default {
         'For eksempel når på året det er lav og høy inntekt.',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
         'Regner du med at inntekten din endrer seg fremover i tid?',
-    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall': 'Hva var brutto næringsinntekt i året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall': 'Hva var brutto årsinntekt i året før dødsfallet?',
     'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
         'Dersom du ikke kjenner inntekten, må du anslå næringsinntekten for dette året.',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
