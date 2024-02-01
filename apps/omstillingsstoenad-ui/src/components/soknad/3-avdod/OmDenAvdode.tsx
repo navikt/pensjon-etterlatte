@@ -94,7 +94,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             name={'datoForDoedsfallet'}
                             label={t('omDenAvdoede.datoForDoedsfallet')}
                             minDate={minsteDatoForDoedsfall}
-                            maxDate={new Date()}
+                            maxDate={new Date(2025,1,1)}
                         />
 
                         <br />
