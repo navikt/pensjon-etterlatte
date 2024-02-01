@@ -1734,39 +1734,39 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@navikt/aksel-icons@^5.12.4":
-  version "5.12.4"
-  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-5.12.4.tgz#334dece9ff367bc6285b0781a075fa4f4221e3bc"
-  integrity sha512-fl7obYaXzCELY1NUy66Wl4uS94xROC+aZ/1s8uSy1U0bhfL49tIevkigE1n/sL8ELsrH3DnzBJi6DktdtnE9tg==
+"@navikt/aksel-icons@^5.17.2":
+  version "5.17.2"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-5.17.2.tgz#bc399e715014ee7130e6c822b4c9daf399783279"
+  integrity sha512-GJwYltpDSkysK0EnTr8D9HJxssKUYi6BHpIFMmomYw4LpFcYDx35dqcWjEtO8bDizcB57eyZuehNIXr1Dv8Elw==
 
-"@navikt/ds-css@^5.12.4":
-  version "5.12.4"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-5.12.4.tgz#d3e0fd76e595088d6d6fc9abb0e85200c0ca0f10"
-  integrity sha512-bPoqt/8/DF3zz6yGXrKeHeqUnJeMelkBZTC+uHY4wipkpv+yb4SgwQpcc6apQ6LDuhlI2iji/BCWXz9pZdRdWg==
+"@navikt/ds-css@^5.17.2":
+  version "5.17.2"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-5.17.2.tgz#f76f5693fbd5eaed31f4190e1662ceb6253b1b30"
+  integrity sha512-d/N/FICbqXKe4XVA+2z6cyfDAe48YlkA8tmg5381J7z1NsVuU7YDX7kATbmwCoGqGKQz0kv4je6kFwu1x4d4FQ==
 
 "@navikt/ds-icons@^3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-3.4.3.tgz#eaa8fc38f6d184806d3405a5efbc9d137c2b8d27"
   integrity sha512-Ys25tnDUzS+AtagMMW4/154OCZy+pTxCv9uiV4YcZUeXMfjnMiRWx1dueyCODb7FF7Jd6TwELd3G6ieQt/rf+w==
 
-"@navikt/ds-react@^5.12.4":
-  version "5.12.4"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-5.12.4.tgz#342f7f81229e8b82fd304d26ed09a0185c7430dd"
-  integrity sha512-BkgYQB2CIHCavOzMKjwF7KR1FxtswwzBVzOcUi/ejGR95pqeHTgxBdJ6uCgpYyn32D3Xw834Bj0ABv61/uOnAA==
+"@navikt/ds-react@^5.17.2":
+  version "5.17.2"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-5.17.2.tgz#e2330e961f0d6ead562d9b83aab36b2200551b93"
+  integrity sha512-Rzsj9yWCph3Aq7l0RMr6Bjm6L9sXSN1zTy/1O+6+7/bn5550lvWQYI563bR419D4YSrYXeDzIhWebKjHqfxLmA==
   dependencies:
     "@floating-ui/react" "0.25.4"
-    "@navikt/aksel-icons" "^5.12.4"
-    "@navikt/ds-tokens" "^5.12.4"
+    "@navikt/aksel-icons" "^5.17.2"
+    "@navikt/ds-tokens" "^5.17.2"
     "@radix-ui/react-tabs" "1.0.0"
     "@radix-ui/react-toggle-group" "1.0.0"
     clsx "^1.2.1"
     date-fns "^2.30.0"
     react-day-picker "8.3.4"
 
-"@navikt/ds-tokens@^5.12.4":
-  version "5.12.4"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-5.12.4.tgz#b92a797ba1af3c318f7f0817357da4a239a990df"
-  integrity sha512-OmNnJ6Co0Ji+RQQVtkgtgYsF6bjtLXZU+nQtVdwBcyX1jrGgoqrkiZxxjEvPX5jmZAPNNp2DIkYMvHc2WHwlCw==
+"@navikt/ds-tokens@^5.17.2":
+  version "5.17.2"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-5.17.2.tgz#e1d64cf5d94ba102f814296baf217486b67d33db"
+  integrity sha512-5ULNkSkuohFYAvvagnxDYqDNZl2mLaKeoH0OMtofFZLhykvRkQBdP6Onoy3nKEB6ZXC+kuOVWMPGKu4M2ITrtA==
 
 "@navikt/fnrvalidator@^1.3.0":
   version "1.3.0"
