@@ -1000,22 +1000,20 @@ export default {
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
     'feil.loennsinntekt.utland.inntektAaretFoerDoedsfall.required': 'Oppgi brutto årsinntekt i året før dødsfallet',
     'feil.naeringsinntekt.norgeEllerUtland.required': 'Tick the source of your business income',
+    'feil.naeringsinntekt.norge.inntektIFjor.tilDoedsfall.required': ' ',
+    'feil.naeringsinntekt.utland.inntektIFjor.tilDoedsfall.required': ' ',
     'feil.naeringsinntekt.norge.inntektIFjor.aarsinntekt.required':
-        'State gross business income for the year before the death. Gross income is income before tax',
+        'State gross business income for the year before the death',
     'feil.naeringsinntekt.utland.inntektIFjor.aarsinntekt.required':
-        'State gross business income for the year before the death. Gross income is income before tax',
+        'State gross business income for the year before the death',
     'feil.naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
-        'State gross annual income in the year of the death. Gross income is income before tax',
+        'State gross annual income in the year of the death',
     'feil.naeringsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
-        'State gross annual income in the year of the death. Gross income is income before tax',
-    'feil.naeringsinntekt.norge.inntektIAar.tilDoedsfall.required':
-        'State gross business income prior to the death. Gross income is income before tax',
-    'feil.naeringsinntekt.utland.inntektIAar.tilDoedsfall.required':
-        'State gross business income prior to the death. Gross income is income before tax',
-    'feil.naeringsinntekt.norge.inntektNesteAar.aarsinntekt.required':
-        'State gross business income after the death. Gross income is income before tax',
-    'feil.naeringsinntekt.utland.inntektNesteAar.aarsinntekt.required':
-        'State gross business income after the death. Gross income is income before tax',
+        'State gross annual income in the year of the death',
+    'feil.naeringsinntekt.norge.inntektIAar.tilDoedsfall.required': 'State gross business income prior to the death',
+    'feil.naeringsinntekt.utland.inntektIAar.tilDoedsfall.required': 'State gross business income prior to the death',
+    'feil.naeringsinntekt.norge.inntektNesteAar.aarsinntekt.required': 'State gross business income after the death',
+    'feil.naeringsinntekt.utland.inntektNesteAar.aarsinntekt.required': 'State gross business income after the death',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Expectations about income must be answered',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
@@ -1027,6 +1025,7 @@ export default {
         'Please provide a short description of the work',
     'feil.naeringsinntekt.utland.jevntOpptjentNaeringsinntekt.beskrivelse.required':
         'Please provide a short description of the work',
+    'feil.naeringsinntekt.utland.inntektAaretFoerDoedsfall.required': ' ',
     'feil.naeringsinntekt.norge.inntektIAar.aarsinntekt.required': 'State expected business income this year',
     'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected business income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
