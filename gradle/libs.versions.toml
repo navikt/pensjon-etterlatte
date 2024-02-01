@@ -7,7 +7,7 @@ ktor-version = "2.3.7"
 jackson-version = "2.16.1"
 jupiter-version = "5.10.1"
 testcontainers-version = "1.19.3"
-flyway-version = "10.4.1"
+flyway-version = "10.7.1"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2023120410321701682379.55cc1a24d803"}
