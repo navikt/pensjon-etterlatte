@@ -627,10 +627,11 @@ const hentInntektOgPensjon = (
     bruker: IBruker
 ): InntektOgPensjon => {
     const doedsfallIAar = doedsdatoErIAar(datoForDoedsfall)
-    const foedtFoer1964 = bruker.foedselsaar!! < 1964
+    const foedt1963EllerTidligere = bruker.foedselsaar!! <= 1963
     const erIkkeDesember = new Date(datoForDoedsfall).getMonth() !== 11
 
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
+    console.log(inntektenDin.loennsinntekt!!, datoForDoedsfall)
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
         loennsinntekt = {
             spoersmaal: t('inntektenDin.loennsinntekt.tittel'),
@@ -653,7 +654,7 @@ const hentInntektOgPensjon = (
                                         },
                                     }
                                   : undefined,
-                              aarsinntekt: foedtFoer1964
+                              aarsinntekt: foedt1963EllerTidligere
                                   ? {
                                         spoersmaal: doedsfallIAar
                                             ? t('inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt')
@@ -703,7 +704,7 @@ const hentInntektOgPensjon = (
                 utland: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.utland)
                     ? {
                           inntektAaretFoerDoedsfall:
-                              !doedsfallIAar && foedtFoer1964
+                              !doedsfallIAar && foedt1963EllerTidligere
                                   ? {
                                         spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektAaretFoerDoedsfall'),
                                         svar: {
@@ -721,12 +722,14 @@ const hentInntektOgPensjon = (
                                         },
                                     }
                                   : undefined,
-                              aarsinntekt: {
-                                  spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt'),
-                                  svar: {
-                                      innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!.aarsinntekt!!,
-                                  },
-                              },
+                              aarsinntekt: foedt1963EllerTidligere
+                                  ? {
+                                        spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt'),
+                                        svar: {
+                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!.aarsinntekt!!,
+                                        },
+                                    }
+                                  : undefined,
                           },
                           inntektIAar: {
                               tilDoedsfall: doedsfallIAar
@@ -744,7 +747,7 @@ const hentInntektOgPensjon = (
                                   },
                               },
                           },
-                          inntektNesteAar: doedsfallIAar
+                          inntektNesteAar: doedsfallIAar && erMellomOktoberogDesember()
                               ? {
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt'),
@@ -801,7 +804,7 @@ const hentInntektOgPensjon = (
                           },
                           inntektIFjor: doedsfallIAar
                               ? {
-                                    aarsinntekt: foedtFoer1964
+                                    aarsinntekt: foedt1963EllerTidligere
                                         ? {
                                               spoersmaal: t(
                                                   'inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt'
@@ -906,7 +909,7 @@ const hentInntektOgPensjon = (
                                       : undefined,
                           },
                           inntektAaretFoerDoedsfall:
-                              !doedsfallIAar && foedtFoer1964
+                              !doedsfallIAar && foedt1963EllerTidligere
                                   ? {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.utland.inntektAaretFoerDoedsfall'),
                                         svar: {
@@ -917,7 +920,7 @@ const hentInntektOgPensjon = (
                                   : undefined,
                           inntektIFjor: doedsfallIAar
                               ? {
-                                    aarsinntekt: foedtFoer1964
+                                    aarsinntekt: foedt1963EllerTidligere
                                         ? {
                                               spoersmaal: t(
                                                   'inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt'
