@@ -695,7 +695,7 @@ const hentInntektOgPensjon = (
                                     },
                                 },
                           inntektNesteAar:
-                              erMellomOktoberogDesember() && doedsfallIAar
+                              !erMellomOktoberogDesember() && doedsfallIAar
                                   ? {
                                         aarsinntekt: {
                                             spoersmaal: t('inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt'),
@@ -766,7 +766,7 @@ const hentInntektOgPensjon = (
                                     },
                                 },
                           inntektNesteAar:
-                              doedsfallIAar && erMellomOktoberogDesember()
+                              doedsfallIAar && !erMellomOktoberogDesember()
                                   ? {
                                         aarsinntekt: {
                                             spoersmaal: t(
@@ -889,7 +889,7 @@ const hentInntektOgPensjon = (
                                     },
                                 },
                           inntektNesteAar:
-                              doedsfallIAar && erMellomOktoberogDesember()
+                              doedsfallIAar && !erMellomOktoberogDesember()
                                   ? {
                                         aarsinntekt: {
                                             spoersmaal: t(
@@ -1001,7 +1001,7 @@ const hentInntektOgPensjon = (
                                     },
                                 },
                           inntektNesteAar:
-                              doedsfallIAar && erMellomOktoberogDesember()
+                              doedsfallIAar && !erMellomOktoberogDesember()
                                   ? {
                                         aarsinntekt: {
                                             spoersmaal: t(
