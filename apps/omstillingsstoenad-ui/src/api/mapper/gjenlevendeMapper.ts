@@ -631,7 +631,6 @@ const hentInntektOgPensjon = (
     const erIkkeDesember = new Date(datoForDoedsfall).getMonth() !== 11
 
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
-    console.log(inntektenDin.loennsinntekt!!, datoForDoedsfall)
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
         loennsinntekt = {
             spoersmaal: t('inntektenDin.loennsinntekt.tittel'),
