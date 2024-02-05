@@ -714,25 +714,41 @@ const hentInntektOgPensjon = (
                                         },
                                     }
                                   : undefined,
-                          inntektIFjor: {
-                              tilDoedsfall: !doedsfallIAar
-                                  ? {
-                                        spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall'),
-                                        svar: {
-                                            innhold:
-                                                inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!.tilDoedsfall!!,
-                                        },
-                                    }
-                                  : undefined,
-                              aarsinntekt: foedt1963EllerTidligere
-                                  ? {
+                          inntektIFjor: doedsfallIAar
+                              ? {
+                                    aarsinntekt: foedt1963EllerTidligere
+                                        ? {
+                                              spoersmaal: t(
+                                                  'inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt'
+                                              ),
+                                              svar: {
+                                                  innhold:
+                                                      inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!
+                                                          .aarsinntekt!!,
+                                              },
+                                          }
+                                        : undefined,
+                                }
+                              : {
+                                    tilDoedsfall: erIkkeDesember
+                                        ? {
+                                              spoersmaal: t(
+                                                  'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall'
+                                              ),
+                                              svar: {
+                                                  innhold:
+                                                      inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!
+                                                          .tilDoedsfall!!,
+                                              },
+                                          }
+                                        : undefined,
+                                    aarsinntekt: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt'),
                                         svar: {
                                             innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!.aarsinntekt!!,
                                         },
-                                    }
-                                  : undefined,
-                          },
+                                    },
+                                },
                           inntektIAar: doedsfallIAar
                               ? {
                                     tilDoedsfall: {
