@@ -319,9 +319,6 @@ export default {
         'If the Norwegian Tax Administration has not published your income and tax figures for that year, please state the annual income shown on your pay slip for December for that year.',
     'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse.utland':
         'If you do not know your income for this year, you can state the annual income shown on your pay slip for December.',
-    'inntektenDin.loennsinntekt.inntektEtterDoedsfall': 'What was your income after the death?',
-    'inntektenDin.loennsinntekt.inntektEtterDoedsfall.beskrivelse':
-        'Please state from the month after the death until the end of December for that year. If the month of death was December, please enter 0 kroner.',
     'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse':
         'Please state the income from January to end of December.',
     'inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt':
@@ -385,7 +382,6 @@ export default {
         'What was your gross annual business income in the year of the death?',
     'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
-    'inntektenDin.naeringsinntekt.norge.inntektEtterDoedsfall': 'What was your income after the death?',
     'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse':
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
@@ -983,9 +979,7 @@ export default {
     'feil.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.inntektstyper.required': 'State your type of income',
     'feil.loennsinntekt.norgeEllerUtland.required': 'Tick the source of your income',
-    'feil.loennsinntekt.norge.inntektEtterDoedsfall.required': 'State your income from employment after the death',
     'feil.loennsinntekt.norge.inntektIAar.aarsinntekt.required': 'State expected income from employment this year',
-    'feil.loennsinntekt.utland.inntektEtterDoedsfall.required': 'State your income from employment after the death',
     'feil.loennsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected income from employment this year',
     'feil.loennsinntekt.norge.inntektIFjor.tilDoedsfall.required': 'State gross income from work prior to the death',
     'feil.loennsinntekt.norge.inntektIFjor.aarsinntekt.required': 'State gross income from work for last year',
