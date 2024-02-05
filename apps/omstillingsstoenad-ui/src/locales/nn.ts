@@ -331,8 +331,6 @@ export default {
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
     'inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt':
         'Kva reknar du med å ha i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
-        'Oppgi inntekt fra månaden etter dødsfallet og ut året.',
     'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt': 'Kva reknar du med å ha i brutto arbeidsinntekt i år?',
     'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse':
         'Oppgi forventa inntekt frå januar til og med desember.',
