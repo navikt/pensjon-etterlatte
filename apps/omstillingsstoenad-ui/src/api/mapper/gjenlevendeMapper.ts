@@ -982,13 +982,18 @@ const hentInntektOgPensjon = (
                                         : undefined,
                                 }
                               : {
-                                    tilDoedsfall: {
-                                        spoersmaal: t('inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall'),
-                                        svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!.tilDoedsfall!!,
-                                        },
-                                    },
+                                    tilDoedsfall: erIkkeDesember
+                                        ? {
+                                              spoersmaal: t(
+                                                  'inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall'
+                                              ),
+                                              svar: {
+                                                  innhold:
+                                                      inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!
+                                                          .tilDoedsfall!!,
+                                              },
+                                          }
+                                        : undefined,
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt'),
                                         svar: {
