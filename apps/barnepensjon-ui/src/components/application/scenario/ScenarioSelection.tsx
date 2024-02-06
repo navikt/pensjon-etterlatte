@@ -122,6 +122,12 @@ export default function ScenarioSelection() {
             {ApplicantRole.CHILD === selectedRole && (
                 <>
                     <FormGroup>
+                        <Label spacing>{t('CHILD')}</Label>
+                        <BodyLong size={'small'}>
+                            <Trans value={t('over18WithoutFnr')} />
+                        </BodyLong>
+                    </FormGroup>
+                    <FormGroup>
                         <RHFRadio
                             legend={t('additionalSituationDetailsOver18')}
                             name={'applicantSituation'}

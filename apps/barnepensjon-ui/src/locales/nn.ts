@@ -179,6 +179,8 @@ const selectScenario = {
     aboutSurvivorsPensionTitle: 'Har du mista ektefellen, sambuaren eller partnaren din?',
     aboutSurvivorsPensionDescription:
         'Då kan du søkje om omstillingsstønad. Dersom du ønskjer å samstundes søkje om barnepensjon, kan du gjere begge delar i <a href="https://www.nav.no/omstillingsstonad/soknad/">søknad om omstillingsstønad.</a>',
+    over18WithoutFnr:
+        'Du må oppgi fødselsnummer på alle i søknaden. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon/nn">andre søknader om barnepensjon.</a>',
     BOTH_PARENTS_DECEASED: 'Begge foreldra',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Eg er foreldrelaus',
     ONE_PARENT_DECEASED: 'Ein forelder',
