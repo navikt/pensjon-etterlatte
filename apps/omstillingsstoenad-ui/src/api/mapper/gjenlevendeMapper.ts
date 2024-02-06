@@ -780,7 +780,7 @@ const hentInntektOgPensjon = (
                                               spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.loennsinntekt!!.norge!!.inntektIAar!!.aarsinntekt!!,
+                                                      inntektenDin.loennsinntekt!!.utland!!.inntektIAar!!.aarsinntekt!!,
                                               },
                                           }
                                         : undefined,
