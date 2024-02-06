@@ -977,7 +977,7 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!
+                                                      inntektenDin.naeringsinntekt!!.utland!!.inntektIFjor!!
                                                           .aarsinntekt!!,
                                               },
                                           }
@@ -991,7 +991,7 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!
+                                                      inntektenDin.naeringsinntekt!!.utland!!.inntektIFjor!!
                                                           .tilDoedsfall!!,
                                               },
                                           }
@@ -1000,7 +1000,7 @@ const hentInntektOgPensjon = (
                                         spoersmaal: t('inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt'),
                                         svar: {
                                             innhold:
-                                                inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!.aarsinntekt!!,
+                                                inntektenDin.naeringsinntekt!!.utland!!.inntektIFjor!!.aarsinntekt!!,
                                         },
                                     },
                                 },
