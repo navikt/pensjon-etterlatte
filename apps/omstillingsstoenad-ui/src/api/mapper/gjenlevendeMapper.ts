@@ -708,7 +708,9 @@ const hentInntektOgPensjon = (
                               !erMellomOktoberogDesember() && doedsfallIAar
                                   ? {
                                         aarsinntekt: {
-                                            spoersmaal: t('inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt'),
+                                            spoersmaal: t(
+                                                'inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt'
+                                            ),
                                             svar: {
                                                 innhold:
                                                     inntektenDin.loennsinntekt!!.norge!!.inntektNesteAar!!
