@@ -96,7 +96,7 @@ const frontPage = {
     childMayBeApplicableForPension_li1:
         'Det er forelderen eller vergen til barnet som må søke om barnepensjon for barnet hvis det er under 18 år.',
     childMayBeApplicableForPension_li2:
-        'Som verge kan du kun sende søknad for barn du er verge for. Du vil bli bedt om å dokumentere omsorgsforholdet etter søknaden er sendt inn.  Du kan også søke for de over 18 år.',
+        'Som verge kan du kun sende søknad for barn du er verge for. Du kan også søke for de over 18 år.',
     childMayBeApplicableForPension_li3: 'Barn over 18 år må søke selv.',
     readMoreAboutChildrensPension:
         'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen, kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
