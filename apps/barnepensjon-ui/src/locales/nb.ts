@@ -16,7 +16,6 @@ const common = {
     phoneNumber: 'Telefonnummer',
     phoneNumberOptional: 'Telefonnummer (valgfri)',
     phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
-    whyWeAsk: 'Hvorfor spør vi om dette',
     dateFormat: '(dd.mm.åååå)',
     dateExample: 'eks. 01.11.2020',
     dateSRLabel: 'Oppgi dato',
