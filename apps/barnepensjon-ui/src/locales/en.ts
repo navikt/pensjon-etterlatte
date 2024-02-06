@@ -16,7 +16,6 @@ const common = {
     phoneNumber: 'Telephone number',
     phoneNumberOptional: 'Telephone number (optional)',
     phoneNumberHelpText: 'The telephone number has been obtained from the Contact and Reservation Register.',
-    whyWeAsk: 'Why are we asking you about this?',
     dateFormat: '(dd.mm.yyyy)',
     dateExample: 'For example, 01.11.2020',
     dateSRLabel: 'Enter date',
