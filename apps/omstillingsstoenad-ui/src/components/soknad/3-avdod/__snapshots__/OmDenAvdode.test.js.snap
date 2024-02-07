@@ -298,6 +298,11 @@ exports[`Om den avdøde Snapshot 1`] = `
                               >
                                 januar
                               </option>
+                              <option
+                                value="1"
+                              >
+                                februar
+                              </option>
                             </select>
                             <svg
                               aria-hidden="true"
@@ -345,46 +350,6 @@ exports[`Om den avdøde Snapshot 1`] = `
                                 value="2015"
                               >
                                 2015
-                              </option>
-                              <option
-                                value="2016"
-                              >
-                                2016
-                              </option>
-                              <option
-                                value="2017"
-                              >
-                                2017
-                              </option>
-                              <option
-                                value="2018"
-                              >
-                                2018
-                              </option>
-                              <option
-                                value="2019"
-                              >
-                                2019
-                              </option>
-                              <option
-                                value="2020"
-                              >
-                                2020
-                              </option>
-                              <option
-                                value="2021"
-                              >
-                                2021
-                              </option>
-                              <option
-                                value="2022"
-                              >
-                                2022
-                              </option>
-                              <option
-                                value="2023"
-                              >
-                                2023
                               </option>
                               <option
                                 value="2024"
@@ -524,9 +489,10 @@ exports[`Om den avdøde Snapshot 1`] = `
                           >
                             <button
                               aria-label="1. januar (mandag)"
-                              class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                              class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_today"
+                              disabled=""
                               name="day"
-                              tabindex="0"
+                              tabindex="-1"
                               type="button"
                             >
                               1

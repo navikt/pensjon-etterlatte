@@ -385,8 +385,8 @@ export default {
         'If the Norwegian Tax Administration has not published your income for that year, please estimate your business income for that year.',
     'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
         'If you do not know your income for that year, please estimate your business income.',
-    'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'What was your gross business income this year?',
-    'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'What was your gross business income this year?',
+    'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'What was your gross business income prior to the death?',
+    'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'What was your gross business income prior to the death?',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse': 'From January to the month before the death',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
         'Did the death occur in January or in December?',
@@ -993,8 +993,8 @@ export default {
         'State gross income from employment up to the death',
     'feil.loennsinntekt.norge.inntektIAar.tilDoedsfall.required': 'State gross income from employment up to the death',
     'feil.loennsinntekt.utland.inntektIAar.tilDoedsfall.required': 'State gross income from employment up to the death',
-    'feil.loennsinntekt.norge.inntektNesteAar.aarsinntekt.required': 'State gross income from work after the death',
-    'feil.loennsinntekt.utland.inntektNesteAar.aarsinntekt.required': 'State gross income from work after the death',
+    'feil.loennsinntekt.norge.inntektNesteAar.aarsinntekt.required': 'State the expected gross annual income for next year',
+    'feil.loennsinntekt.utland.inntektNesteAar.aarsinntekt.required': 'State the expected gross annual income for next year',
     'feil.loennsinntekt.forventerEndringAvInntekt.svar.required': 'Expectations about income must be answered',
     'feil.loennsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.loennsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
@@ -1004,17 +1004,17 @@ export default {
     'feil.naeringsinntekt.norge.inntektIFjor.tilDoedsfall.required': 'State gross business income up to the death',
     'feil.naeringsinntekt.utland.inntektIFjor.tilDoedsfall.required': 'State gross business income up to the death',
     'feil.naeringsinntekt.norge.inntektIFjor.aarsinntekt.required':
-        'State gross business income for the year before the death',
+        'State gross annual income for last year',
     'feil.naeringsinntekt.utland.inntektIFjor.aarsinntekt.required':
-        'State gross business income for the year before the death',
+        'State gross annual income for last year',
     'feil.naeringsinntekt.utland.arbeidsinntektDoedsfallsaaret.required':
         'State gross annual income in the year of the death',
     'feil.naeringsinntekt.norge.arbeidsinntektDoedsfallsaaret.required':
         'State gross annual income in the year of the death',
     'feil.naeringsinntekt.norge.inntektIAar.tilDoedsfall.required': 'State gross business income prior to the death',
     'feil.naeringsinntekt.utland.inntektIAar.tilDoedsfall.required': 'State gross business income prior to the death',
-    'feil.naeringsinntekt.norge.inntektNesteAar.aarsinntekt.required': 'State gross business income after the death',
-    'feil.naeringsinntekt.utland.inntektNesteAar.aarsinntekt.required': 'State gross business income after the death',
+    'feil.naeringsinntekt.norge.inntektNesteAar.aarsinntekt.required': 'State expected gross annual business income for next year',
+    'feil.naeringsinntekt.utland.inntektNesteAar.aarsinntekt.required': 'State expected gross annual business income for next year',
     'feil.naeringsinntekt.forventerEndringAvInntekt.svar.required': 'Expectations about income must be answered',
     'feil.naeringsinntekt.forventerEndringAvInntekt.grunn.required': 'State the reason for the change',
     'feil.naeringsinntekt.forventerEndringAvInntekt.annenGrunn.required': 'Describe the changes must be answered',
@@ -1028,8 +1028,8 @@ export default {
         'Give a brief description of the variations in the income',
     'feil.naeringsinntekt.utland.inntektAaretFoerDoedsfall.required':
         'State your gross annual income in the year before the death',
-    'feil.naeringsinntekt.norge.inntektIAar.aarsinntekt.required': 'State expected business income this year',
-    'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected business income this year',
+    'feil.naeringsinntekt.norge.inntektIAar.aarsinntekt.required': 'State expected gross annual business income this year',
+    'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected gross annual business income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Choose which pension you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
