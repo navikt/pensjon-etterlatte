@@ -99,7 +99,7 @@ const Loennsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                             )}
-                            {!erMellomOktoberogDesember() && (
+                            {erMellomOktoberogDesember() && (
                                 <SkjemaElement>
                                     <RHFValutaInput
                                         name={'loennsinntekt.norge.inntektNesteAar.aarsinntekt'}
@@ -210,7 +210,7 @@ const Loennsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                             )}
-                            {!erMellomOktoberogDesember() && (
+                            {erMellomOktoberogDesember() && (
                                 <SkjemaElement>
                                     <RHFValutaInput
                                         name={'loennsinntekt.utland.inntektNesteAar.aarsinntekt'}
