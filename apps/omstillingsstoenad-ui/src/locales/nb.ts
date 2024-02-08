@@ -33,6 +33,7 @@ export default {
         'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.\n\n' +
         'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     'forside.startSoeknad': 'Start søknad',
+    'forside.infoOmUtvikling': 'Søknaden kan være ustabil fra 9. februar til og med 12. februar.',
     'forside.omYtelsene.innhold':
         'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. I noen tilfeller kan du få støtte hvis dere tidligere var gift.\n ',
     'forside.omYtelsene.innhold.li1':

@@ -33,6 +33,7 @@ export default {
         'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how you should answer some questions about the coming months. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.\n\n' +
         'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
     'forside.startSoeknad': 'Start the application',
+    'forside.infoOmUtvikling': 'The application may be unstable from February 9th to February 12th.',
     'forside.omYtelsene.innhold':
         'If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors.',
     'forside.omYtelsene.innhold.li1':
