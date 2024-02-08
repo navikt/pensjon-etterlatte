@@ -97,7 +97,7 @@ const frontPage = {
     childMayBeApplicableForPension_li1:
         'It is the parent or guardian of the child who must apply for the children’s pension for the child if he/she is under the age of 18.',
     childMayBeApplicableForPension_li2:
-        "As the child's guardian, you can only send an application for the child you are guardian for. You will be asked to document your childcare obligations after submitting the application.  You can also apply for those who have turned 18.",
+        "As the child's guardian, you can only send an application for the child you are guardian for. You can also apply for those who have turned 18.",
     childMayBeApplicableForPension_li3: 'Children who have turned 18 must apply themselves.',
     readMoreAboutChildrensPension:
         'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
