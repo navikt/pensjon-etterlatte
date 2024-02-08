@@ -196,17 +196,17 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 />
                             )}
 
-                            {inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt && (
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.naeringsinntekt.norge.inntektIAar.aarsinntekt')}
-                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt}
-                                />
-                            )}
-
                             {inntektenDin.naeringsinntekt.norge?.inntektIAar?.tilDoedsfall && (
                                 <TekstGruppe
                                     tittel={t('inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall')}
                                     innhold={inntektenDin.naeringsinntekt.norge?.inntektIAar?.tilDoedsfall}
+                                />
+                            )}
+
+                            {inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
+                                    innhold={inntektenDin.naeringsinntekt.norge?.inntektIAar?.aarsinntekt}
                                 />
                             )}
 
@@ -260,17 +260,17 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 />
                             )}
 
-                            {inntektenDin.naeringsinntekt.utland?.inntektIAar?.aarsinntekt && (
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
-                                    innhold={inntektenDin.naeringsinntekt.utland?.inntektIAar?.aarsinntekt}
-                                />
-                            )}
-
                             {inntektenDin.naeringsinntekt.utland?.inntektIAar?.tilDoedsfall && (
                                 <TekstGruppe
                                     tittel={t('inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall')}
                                     innhold={inntektenDin.naeringsinntekt.utland?.inntektIAar?.tilDoedsfall}
+                                />
+                            )}
+
+                            {inntektenDin.naeringsinntekt.utland?.inntektIAar?.aarsinntekt && (
+                                <TekstGruppe
+                                    tittel={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
+                                    innhold={inntektenDin.naeringsinntekt.utland?.inntektIAar?.aarsinntekt}
                                 />
                             )}
 
