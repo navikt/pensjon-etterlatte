@@ -35,21 +35,24 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="rk"
                 class="navds-radio__input"
-                id="radio-rb"
+                id="radio-rj"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.gift"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rb"
+                for="radio-rj"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="rk"
                   >
                     avdoede.relasjon.gift
                   </span>
@@ -60,21 +63,24 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="rn"
                 class="navds-radio__input"
-                id="radio-rc"
+                id="radio-rm"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rc"
+                for="radio-rm"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="rn"
                   >
                     avdoede.relasjon.separert
                   </span>
@@ -85,21 +91,24 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="rq"
                 class="navds-radio__input"
-                id="radio-rd"
+                id="radio-rp"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-rd"
+                for="radio-rp"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="rq"
                   >
                     avdoede.relasjon.samboer
                   </span>
@@ -110,21 +119,24 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="rt"
                 class="navds-radio__input"
-                id="radio-re"
+                id="radio-rs"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-re"
+                for="radio-rs"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="rt"
                   >
                     avdoede.relasjon.skilt
                   </span>
@@ -136,7 +148,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-ra"
+            id="fieldset-error-ri"
           />
         </fieldset>
       </div>
@@ -160,7 +172,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               </label>
               <div
                 class="navds-form-field__description navds-body-short navds-body-short--medium"
-                id="datepicker-input-description-rj"
+                id="datepicker-input-description-r13"
               >
                 felles.oppgiDato felles.datoformat
               </div>
@@ -168,7 +180,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 class="navds-date__field-wrapper"
               >
                 <input
-                  aria-describedby="datepicker-input-description-rj"
+                  aria-describedby="datepicker-input-description-r13"
                   autocomplete="off"
                   class="navds-date__field-input navds-text-field__input navds-body-short navds-body-short--medium"
                   id="forholdTilAvdoede.datoForInngaattSamboerskap"
@@ -181,7 +193,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-rk"
+                    aria-labelledby="title-r14"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -192,7 +204,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-rk"
+                      id="title-r14"
                     >
                       Åpne datovelger
                     </title>
@@ -209,14 +221,14 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="datepicker-input-error-rj"
+                id="datepicker-input-error-r13"
               />
             </div>
             <div
               aria-hidden="true"
               class="navds-popover navds-date__popover navds-popover--hidden"
               data-placement="bottom-start"
-              id="ri"
+              id="r12"
               role="dialog"
               style="position: absolute; top: 0px; left: 0px;"
             >
@@ -248,7 +260,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                           class="navds-button__icon"
                         >
                           <svg
-                            aria-labelledby="title-rm"
+                            aria-labelledby="title-r16"
                             fill="none"
                             focusable="false"
                             height="1em"
@@ -258,7 +270,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title
-                              id="title-rm"
+                              id="title-r16"
                             >
                               Gå til forrige måned
                             </title>
@@ -277,7 +289,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                         >
                           <label
                             class="navds-form-field__label navds-sr-only navds-label"
-                            for="select-rn"
+                            for="select-r17"
                           >
                             Måned
                           </label>
@@ -286,7 +298,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                           >
                             <select
                               class="navds-select__input navds-body-short navds-body-short--medium"
-                              id="select-rn"
+                              id="select-r17"
                             >
                               <option
                                 value="0"
@@ -317,7 +329,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             aria-live="polite"
                             aria-relevant="additions removals"
                             class="navds-form-field__error"
-                            id="select-error-rn"
+                            id="select-error-r17"
                           />
                         </div>
                         <div
@@ -325,7 +337,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                         >
                           <label
                             class="navds-form-field__label navds-sr-only navds-label"
-                            for="select-rp"
+                            for="select-r19"
                           >
                             År
                           </label>
@@ -334,7 +346,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                           >
                             <select
                               class="navds-select__input navds-body-short navds-body-short--medium"
-                              id="select-rp"
+                              id="select-r19"
                             >
                               <option
                                 value="1920"
@@ -885,7 +897,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             aria-live="polite"
                             aria-relevant="additions removals"
                             class="navds-form-field__error"
-                            id="select-error-rp"
+                            id="select-error-r19"
                           />
                         </div>
                       </div>
@@ -898,7 +910,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                           class="navds-button__icon"
                         >
                           <svg
-                            aria-labelledby="title-rr"
+                            aria-labelledby="title-r1b"
                             fill="none"
                             focusable="false"
                             height="1em"
@@ -908,7 +920,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <title
-                              id="title-rr"
+                              id="title-r1b"
                             >
                               Gå til neste måned
                             </title>
@@ -993,7 +1005,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="1. januar (mandag)"
+                              aria-label="mandag 1"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                               name="day"
                               tabindex="0"
@@ -1006,7 +1018,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="2. januar (tirsdag)"
+                              aria-label="tirsdag 2"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1020,7 +1032,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="3. januar (onsdag)"
+                              aria-label="onsdag 3"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1034,7 +1046,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="4. januar (torsdag)"
+                              aria-label="torsdag 4"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1048,7 +1060,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="5. januar (fredag)"
+                              aria-label="fredag 5"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1062,7 +1074,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="6. januar (lørdag)"
+                              aria-label="lørdag 6"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1076,7 +1088,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="7. januar (søndag)"
+                              aria-label="søndag 7"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1094,7 +1106,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="8. januar (mandag)"
+                              aria-label="mandag 8"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1108,7 +1120,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="9. januar (tirsdag)"
+                              aria-label="tirsdag 9"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1122,7 +1134,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="10. januar (onsdag)"
+                              aria-label="onsdag 10"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1136,7 +1148,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="11. januar (torsdag)"
+                              aria-label="torsdag 11"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1150,7 +1162,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="12. januar (fredag)"
+                              aria-label="fredag 12"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1164,7 +1176,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="13. januar (lørdag)"
+                              aria-label="lørdag 13"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1178,7 +1190,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="14. januar (søndag)"
+                              aria-label="søndag 14"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1196,7 +1208,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="15. januar (mandag)"
+                              aria-label="mandag 15"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1210,7 +1222,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="16. januar (tirsdag)"
+                              aria-label="tirsdag 16"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1224,7 +1236,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="17. januar (onsdag)"
+                              aria-label="onsdag 17"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1238,7 +1250,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="18. januar (torsdag)"
+                              aria-label="torsdag 18"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1252,7 +1264,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="19. januar (fredag)"
+                              aria-label="fredag 19"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1266,7 +1278,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="20. januar (lørdag)"
+                              aria-label="lørdag 20"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1280,7 +1292,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="21. januar (søndag)"
+                              aria-label="søndag 21"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1298,7 +1310,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="22. januar (mandag)"
+                              aria-label="mandag 22"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1312,7 +1324,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="23. januar (tirsdag)"
+                              aria-label="tirsdag 23"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1326,7 +1338,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="24. januar (onsdag)"
+                              aria-label="onsdag 24"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1340,7 +1352,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="25. januar (torsdag)"
+                              aria-label="torsdag 25"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1354,7 +1366,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="26. januar (fredag)"
+                              aria-label="fredag 26"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1368,7 +1380,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="27. januar (lørdag)"
+                              aria-label="lørdag 27"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1382,7 +1394,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="28. januar (søndag)"
+                              aria-label="søndag 28"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1400,7 +1412,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="29. januar (mandag)"
+                              aria-label="mandag 29"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1414,7 +1426,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="30. januar (tirsdag)"
+                              aria-label="tirsdag 30"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1428,7 +1440,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="31. januar (onsdag)"
+                              aria-label="onsdag 31"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
                               disabled=""
                               name="day"
@@ -1442,7 +1454,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="1. februar (torsdag)"
+                              aria-hidden="true"
+                              aria-label="torsdag 1"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1456,7 +1469,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="2. februar (fredag)"
+                              aria-hidden="true"
+                              aria-label="fredag 2"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1470,7 +1484,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="3. februar (lørdag)"
+                              aria-hidden="true"
+                              aria-label="lørdag 3"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1484,7 +1499,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="4. februar (søndag)"
+                              aria-hidden="true"
+                              aria-label="søndag 4"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1502,7 +1518,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="5. februar (mandag)"
+                              aria-hidden="true"
+                              aria-label="mandag 5"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1516,7 +1533,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="6. februar (tirsdag)"
+                              aria-hidden="true"
+                              aria-label="tirsdag 6"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1530,7 +1548,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="7. februar (onsdag)"
+                              aria-hidden="true"
+                              aria-label="onsdag 7"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1544,7 +1563,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="8. februar (torsdag)"
+                              aria-hidden="true"
+                              aria-label="torsdag 8"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1558,7 +1578,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="9. februar (fredag)"
+                              aria-hidden="true"
+                              aria-label="fredag 9"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1572,7 +1593,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="10. februar (lørdag)"
+                              aria-hidden="true"
+                              aria-label="lørdag 10"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1586,7 +1608,8 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                             class="rdp-cell"
                           >
                             <button
-                              aria-label="11. februar (søndag)"
+                              aria-hidden="true"
+                              aria-label="søndag 11"
                               class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
                               disabled=""
                               name="day"
@@ -1613,7 +1636,6 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
           id="forholdTilAvdoede.fellesBarn"
         >
           <fieldset
-            aria-describedby="fieldset-description-ru"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
@@ -1623,7 +1645,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-ru"
+              id="fieldset-description-r1e"
             >
               omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse
             </div>
@@ -1634,21 +1656,24 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
+                  aria-labelledby="r1g"
                   class="navds-radio__input"
-                  id="radio-rv"
+                  id="radio-r1f"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rv"
+                  for="radio-r1f"
                 >
                   <span
                     class="navds-radio__content"
                   >
                     <span
+                      aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
+                      id="r1g"
                     >
                       radiobuttons.ja
                     </span>
@@ -1659,21 +1684,24 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
+                  aria-labelledby="r1j"
                   class="navds-radio__input"
-                  id="radio-r10"
+                  id="radio-r1i"
                   name="forholdTilAvdoede.fellesBarn"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-r10"
+                  for="radio-r1i"
                 >
                   <span
                     class="navds-radio__content"
                   >
                     <span
+                      aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
+                      id="r1j"
                     >
                       radiobuttons.nei
                     </span>
@@ -1685,7 +1713,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-ru"
+              id="fieldset-error-r1e"
             />
           </fieldset>
         </div>
@@ -1749,7 +1777,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-rh"
+              aria-labelledby="title-r11"
               fill="none"
               focusable="false"
               height="1em"
@@ -1759,7 +1787,7 @@ exports[`Om deg og avdød Snapshot med sivilstatus samboer 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-rh"
+                id="title-r11"
               >
                 Lukk modalvindu
               </title>
@@ -1873,6 +1901,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="r3"
                 class="navds-radio__input"
                 id="radio-r2"
                 name="forholdTilAvdoede.relasjon"
@@ -1887,7 +1916,9 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="r3"
                   >
                     avdoede.relasjon.gift
                   </span>
@@ -1898,21 +1929,24 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="r6"
                 class="navds-radio__input"
-                id="radio-r3"
+                id="radio-r5"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.separert"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r3"
+                for="radio-r5"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="r6"
                   >
                     avdoede.relasjon.separert
                   </span>
@@ -1923,21 +1957,24 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="r9"
                 class="navds-radio__input"
-                id="radio-r4"
+                id="radio-r8"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.samboer"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r4"
+                for="radio-r8"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="r9"
                   >
                     avdoede.relasjon.samboer
                   </span>
@@ -1948,21 +1985,24 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               class="radioBorder navds-radio navds-radio--medium"
             >
               <input
+                aria-labelledby="rc"
                 class="navds-radio__input"
-                id="radio-r5"
+                id="radio-rb"
                 name="forholdTilAvdoede.relasjon"
                 type="radio"
                 value="avdoede.relasjon.skilt"
               />
               <label
                 class="navds-radio__label"
-                for="radio-r5"
+                for="radio-rb"
               >
                 <span
                   class="navds-radio__content"
                 >
                   <span
+                    aria-hidden="true"
                     class="navds-body-short navds-body-short--medium"
+                    id="rc"
                   >
                     avdoede.relasjon.skilt
                   </span>
@@ -2037,7 +2077,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r8"
+              aria-labelledby="title-rg"
               fill="none"
               focusable="false"
               height="1em"
@@ -2047,7 +2087,7 @@ exports[`Om deg og avdød Snapshot uten samboerskjema 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r8"
+                id="title-rg"
               >
                 Lukk modalvindu
               </title>
