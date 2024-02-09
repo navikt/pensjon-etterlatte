@@ -155,14 +155,20 @@ export interface LoennsOgNaeringsinntekt {
 }
 
 interface InntektsType {
-    arbeidsinntektAaretFoer: Opplysning<FritekstSvar>
-    inntektEtterDoedsfall?: Opplysning<FritekstSvar>
-    arbeidsinntektIAar: {
+    inntektAaretFoerDoedsfall?: Opplysning<FritekstSvar>
+    inntektIFjor?: {
+        tilDoedsfall?: Opplysning<FritekstSvar>
+        aarsinntekt?: Opplysning<FritekstSvar>
+    }
+    inntektIAar: {
         tilDoedsfall?: Opplysning<FritekstSvar>
         etterDoedsfall?: Opplysning<FritekstSvar>
         aarsinntekt?: Opplysning<FritekstSvar>
     }
-    sesongbasertNaeringsinntekt?: {
+    inntektNesteAar?: {
+        aarsinntekt: Opplysning<FritekstSvar>
+    }
+    jevntOpptjentNaeringsinntekt?: {
         svar: Opplysning<EnumSvar<JaNeiVetIkke>>
         beskrivelse?: Opplysning<FritekstSvar>
     }

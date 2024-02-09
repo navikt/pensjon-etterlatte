@@ -216,20 +216,34 @@
               ]
             },
             "norge": {
-              "arbeidsinntektAaretFoer": {
+              "inntektAaretFoerDoedsfall": {
                 "spoersmaal": "Hva var brutto årsinntekt året før dødsfallet?",
                 "svar": {
                   "innhold": "500000"
                 }
               },
-              "arbeidsinntektIAar": {
+              "inntektIFjor": {
+                "tilDoedsfall": {
+                  "spoersmaal": "Hva var brutto arbeidsinntekt frem til dødsfallet?",
+                  "svar": {
+                    "innhold": "14"
+                  }
+                },
+                "aarsinntekt": {
+                  "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
+                  "svar": {
+                    "innhold": "15"
+                  }
+                }
+              },
+              "inntektIAar": {
                 "tilDoedsfall": {
                   "spoersmaal": "Hva var brutto arbeidsinntekt frem til dødsfallet?",
                   "svar": {
                     "innhold": "500000"
                   }
                 },
-                "etterDoedsfall": {
+                "aarsinntekt": {
                   "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
                   "svar": {
                     "innhold": "140 000"
@@ -238,20 +252,34 @@
               }
             },
             "utland": {
-              "arbeidsinntektAaretFoer": {
+              "inntektAaretFoerDoedsfall": {
                 "spoersmaal": "Hva var brutto årsinntekt året før dødsfallet?",
                 "svar": {
                   "innhold": "13"
                 }
               },
-              "arbeidsinntektIAar": {
+              "inntektIFjor": {
                 "tilDoedsfall": {
                   "spoersmaal": "Hva var brutto arbeidsinntekt frem til dødsfallet?",
                   "svar": {
                     "innhold": "14"
                   }
                 },
-                "etterDoedsfall": {
+                "aarsinntekt": {
+                  "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
+                  "svar": {
+                    "innhold": "15"
+                  }
+                }
+              },
+              "inntektIAar": {
+                "tilDoedsfall": {
+                  "spoersmaal": "Hva var brutto arbeidsinntekt frem til dødsfallet?",
+                  "svar": {
+                    "innhold": "14"
+                  }
+                },
+                "aarsinntekt": {
                   "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
                   "svar": {
                     "innhold": "15"
@@ -287,20 +315,34 @@
               ]
             },
             "norge": {
-              "arbeidsinntektAaretFoer": {
+              "inntektAaretFoerDoedsfall": {
                 "spoersmaal": "Hva var brutto årsinntekt året før dødsfallet?",
                 "svar": {
                   "innhold": "23"
                 }
               },
-              "arbeidsinntektIAar": {
+              "inntektIFjor": {
+                "tilDoedsfall": {
+                  "spoersmaal": "Hva var brutto arbeidsinntekt frem til dødsfallet?",
+                  "svar": {
+                    "innhold": "14"
+                  }
+                },
+                "aarsinntekt": {
+                  "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
+                  "svar": {
+                    "innhold": "15"
+                  }
+                }
+              },
+              "inntektIAar": {
                 "tilDoedsfall": {
                   "spoersmaal": "Hva er brutto næringsinntekt i år?",
                   "svar": {
                     "innhold": "24"
                   }
                 },
-                "etterDoedsfall": {
+                "aarsinntekt": {
                   "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
                   "svar": {
                     "innhold": "25"
@@ -309,20 +351,34 @@
               }
             },
             "utland": {
-              "arbeidsinntektAaretFoer": {
+              "inntektAaretFoerDoedsfall": {
                 "spoersmaal": "Hva var brutto årsinntekt året før dødsfallet?",
                 "svar": {
                   "innhold": "34"
                 }
               },
-              "arbeidsinntektIAar": {
+              "inntektIFjor": {
+                "tilDoedsfall": {
+                  "spoersmaal": "Hva var brutto arbeidsinntekt frem til dødsfallet?",
+                  "svar": {
+                    "innhold": "14"
+                  }
+                },
+                "aarsinntekt": {
+                  "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
+                  "svar": {
+                    "innhold": "15"
+                  }
+                }
+              },
+              "inntektIAar": {
                 "tilDoedsfall": {
                   "spoersmaal": "Hva er brutto næringsinntekt i år?",
                   "svar": {
                     "innhold": "35"
                   }
                 },
-                "etterDoedsfall": {
+                "aarsinntekt": {
                   "spoersmaal": "Hva forventer du i brutto årsinntekt til neste år?",
                   "svar": {
                     "innhold": "36"

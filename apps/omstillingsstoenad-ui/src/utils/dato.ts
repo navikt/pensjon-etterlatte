@@ -55,6 +55,18 @@ export const erMellomOktoberogDesember = (): boolean => {
     return foersteDagIOktober <= idag && idag <= sisteDagIDesember
 }
 
+export const doedsdatoErMellomOktoberogDesember = (doedsfall: Date): boolean => {
+    const doedsfallsDato = new Date(doedsfall)
+    doedsfallsDato.setHours(12, 0, 0, 0)
+
+    const sisteDagIDesember = new Date(doedsfallsDato.getFullYear(), 11, 31)
+    sisteDagIDesember.setHours(23, 59, 59, 0)
+
+    const foersteDagIOktober = new Date(doedsfallsDato.getFullYear(), 9, 1)
+
+    return foersteDagIOktober <= doedsfallsDato && doedsfallsDato <= sisteDagIDesember
+}
+
 export const doedsdatoErIAar = (doedsfall: Date): boolean => {
     const idag = new Date()
     idag.setHours(0, 0, 0, 0)
