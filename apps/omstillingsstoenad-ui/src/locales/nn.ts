@@ -640,7 +640,7 @@ export default {
     'avbrytModal.svarSlett': 'Ja, avbryt og slett søknaden',
     'avbrytModal.informasjon': 'Du kan halde fram nå eller seinare. Søknaden din vert lagra i 72 timar.',
     hvorforSpoerVi: 'Kvifor spør vi om dette',
-    'avdoede.relasjon.gift': 'Gift eller registrert partnar',
+    'avdoede.relasjon.gift': 'Gift eller partnar',
     'avdoede.relasjon.separert': 'Separert',
     'avdoede.relasjon.samboer': 'Sambuar',
     'avdoede.relasjon.skilt': 'Skilt',

@@ -670,7 +670,7 @@ export default {
     'avbrytModal.svarSlett': 'Yes, I want to quit now and clear the application form',
     'avbrytModal.informasjon': 'You can continue now or later. Your application will be saved for 72 hours.',
     hvorforSpoerVi: 'Why are we asking you about this?',
-    'avdoede.relasjon.gift': 'Married or registered partner',
+    'avdoede.relasjon.gift': 'Married or partner',
     'avdoede.relasjon.separert': 'Separated',
     'avdoede.relasjon.samboer': 'Cohabiting partner',
     'avdoede.relasjon.skilt': 'Divorced',
