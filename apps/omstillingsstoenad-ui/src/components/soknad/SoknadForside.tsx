@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
 import {
-    Alert,
     BodyLong,
     BodyShort,
     Button,
@@ -41,10 +40,6 @@ const SoknadForside = () => {
 
     return (
         <>
-            <SkjemaGruppe>
-                <Alert variant={'info'}>{t('forside.infoOmUtvikling')}</Alert>
-            </SkjemaGruppe>
-
             <SkjemaGruppe>
                 <GuidePanel poster>{t('forside.ingress')}</GuidePanel>
             </SkjemaGruppe>
