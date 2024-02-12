@@ -7,7 +7,6 @@ import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import {
     EndringAvInntektGrunn,
     IInntekt,
-    InntektEllerUtbetaling,
     InntektsTyper,
     NorgeOgUtland,
     PensjonEllerTrygd,
@@ -361,18 +360,36 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                 </Panel>
             )}
 
+            {inntektenDin.inntektstyper?.includes(InntektsTyper.ytelser) && (
+                <Panel>
+                    <Heading size={'small'}>{t('inntektenDin.inntektViaYtelserFraNAV.tittel')}</Heading>
+                    <TekstGruppe
+                        tittel={t('inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling')}
+                        innhold={inntektenDin.inntektViaYtelserFraNAV?.inntektEllerUtbetaling?.map(
+                            (item) => ` ${t(item)}`
+                        )}
+                    />
+                </Panel>
+            )}
+
             {inntektenDin.inntektstyper?.includes(InntektsTyper.annen) && (
                 <Panel>
                     <Heading size={'small'}>{t('inntektenDin.annenInntekt.tittel')}</Heading>
-                    <TekstGruppe
-                        tittel={t('inntektenDin.annenInntekt.inntektEllerUtbetaling')}
-                        innhold={inntektenDin.annenInntekt?.inntektEllerUtbetaling?.map((item) => ` ${t(item)}`)}
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.annenInntekt.svar')}
+                        innhold={inntektenDin.annenInntekt?.svar}
                     />
-                    {inntektenDin.annenInntekt?.inntektEllerUtbetaling.includes(InntektEllerUtbetaling.annen) && (
-                        <TekstGruppe
-                            tittel={t('inntektenDin.annenInntekt.beloep')}
-                            innhold={inntektenDin.annenInntekt?.beloep}
-                        />
+                    {inntektenDin.annenInntekt?.svar === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.annenInntekt.beloep')}
+                                innhold={inntektenDin.annenInntekt?.beloep}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.annenInntekt.beskrivelse')}
+                                innhold={inntektenDin.annenInntekt?.beskrivelse}
+                            />
+                        </>
                     )}
                 </Panel>
             )}

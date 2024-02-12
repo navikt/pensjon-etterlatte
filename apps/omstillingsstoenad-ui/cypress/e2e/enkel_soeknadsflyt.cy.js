@@ -230,10 +230,13 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
         getById('pensjonEllerUfoere.utland.valuta').type(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
-        // Annen inntekt
-        selectValue(inntektenDin.annenInntekt.inntektEllerUtbetaling)
+        // Ytelser fra NAV
+        selectValue(inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling)
 
+        // Ingen eller annen inntekt
+        selectValueForId('annenInntekt.svar', inntektenDin.annenInntekt.svar)
         getById('annenInntekt.beloep').type(inntektenDin.annenInntekt.beloep)
+        getById('annenInntekt.beskrivelse').type(inntektenDin.annenInntekt.beskrivelse)
 
         // Andre ytelser
         selectValueForId('ytelserNAV.svar', inntektenDin.ytelserNAV.svar)

@@ -5,6 +5,7 @@ export interface IInntekt {
     loennsinntekt?: ILoennsinntekt
     naeringsinntekt?: ILoennsinntekt
     pensjonEllerUfoere?: IPensjonEllerUfoere
+    inntektViaYtelserFraNAV?: IInntektViaYtelserFraNAV
     annenInntekt?: IAnnenInntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
@@ -26,6 +27,12 @@ export interface IForventerEndringAvInntekt {
     svar?: IValg
     grunn?: EndringAvInntektGrunn
     annenGrunn?: string
+}
+
+export interface IAnnenInntekt {
+    svar?: IValg
+    beloep?: string
+    beskrivelse?: string
 }
 
 export interface ILoennsinntekt {
@@ -69,7 +76,7 @@ export interface IPensjonEllerUfoere {
     }
 }
 
-export interface IAnnenInntekt {
+export interface IInntektViaYtelserFraNAV {
     inntektEllerUtbetaling: InntektEllerUtbetaling[]
     beloep?: string
 }
@@ -78,6 +85,7 @@ export enum InntektsTyper {
     loenn = 'inntekt.loenn',
     naering = 'inntekt.naering',
     pensjonEllerUfoere = 'inntekt.pensjonEllerUfoere',
+    ytelser = 'inntekt.ytelser',
     annen = 'inntekt.annen',
 }
 
@@ -99,7 +107,6 @@ export enum InntektEllerUtbetaling {
     omsorgspenger = 'soekbarYtelse.omsorgspenger',
     opplaeringspenger = 'soekbarYtelse.opplaeringspenger',
     alderspensjon = 'soekbarYtelse.alderspensjon',
-    annen = 'soekbarYtelse.annen',
 }
 
 export enum SoekbareYtelserNAV {
