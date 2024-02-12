@@ -143,7 +143,7 @@ export interface InntektOgPensjon {
     naeringsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     pensjonEllerUfoere?: PensjonEllerUfoere
     inntektViaYtelserFraNAV?: InntektViaYtelserFraNAV
-    annenInntekt?: AnnenInntekt
+    ingenInntekt?: IngenInntekt
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
 }
@@ -193,7 +193,7 @@ export interface InntektViaYtelserFraNAV {
     annenInntektEllerUtbetaling: Opplysning<any>
 }
 
-export interface AnnenInntekt {
+export interface IngenInntekt {
     svar: Opplysning<FritekstSvar>
     beloep?: Opplysning<FritekstSvar>
     beskrivelse?: Opplysning<FritekstSvar>

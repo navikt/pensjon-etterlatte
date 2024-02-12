@@ -6,7 +6,7 @@ export interface IInntekt {
     naeringsinntekt?: ILoennsinntekt
     pensjonEllerUfoere?: IPensjonEllerUfoere
     inntektViaYtelserFraNAV?: IInntektViaYtelserFraNAV
-    annenInntekt?: IAnnenInntekt
+    ingenInntekt?: IIngenInntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     erValidert?: boolean
@@ -29,7 +29,7 @@ export interface IForventerEndringAvInntekt {
     annenGrunn?: string
 }
 
-export interface IAnnenInntekt {
+export interface IIngenInntekt {
     svar?: IValg
     beloep?: string
     beskrivelse?: string

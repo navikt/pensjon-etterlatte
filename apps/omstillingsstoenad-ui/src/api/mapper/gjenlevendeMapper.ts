@@ -2,7 +2,7 @@ import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
 import {
-    AnnenInntekt,
+    IngenInntekt,
     AnnenSituasjon,
     ArbeidOgUtdanning,
     Arbeidssoeker,
@@ -1135,28 +1135,28 @@ const hentInntektOgPensjon = (
         }
     }
 
-    let annenInntekt: AnnenInntekt | undefined
+    let ingenInntekt: IngenInntekt | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.annen)) {
-        annenInntekt = {
+        ingenInntekt = {
             svar: {
-                spoersmaal: t('inntektenDin.annenInntekt.svar'),
-                svar: valgTilSvar(t, inntektenDin.annenInntekt!!.svar!!),
+                spoersmaal: t('inntektenDin.ingenInntekt.svar'),
+                svar: valgTilSvar(t, inntektenDin.ingenInntekt!!.svar!!),
             },
             beloep:
-                inntektenDin.annenInntekt!!.svar!! === IValg.JA
+                inntektenDin.ingenInntekt!!.svar!! === IValg.JA
                     ? {
-                          spoersmaal: t('inntektenDin.annenInntekt.beloep'),
+                          spoersmaal: t('inntektenDin.ingenInntekt.beloep'),
                           svar: {
-                              innhold: inntektenDin.annenInntekt!!.beloep!!,
+                              innhold: inntektenDin.ingenInntekt!!.beloep!!,
                           },
                       }
                     : undefined,
             beskrivelse:
-                inntektenDin.annenInntekt!!.svar!! === IValg.JA
+                inntektenDin.ingenInntekt!!.svar!! === IValg.JA
                     ? {
-                          spoersmaal: t('inntektenDin.annenInntekt.beskrivelse'),
+                          spoersmaal: t('inntektenDin.ingenInntekt.beskrivelse'),
                           svar: {
-                              innhold: inntektenDin.annenInntekt!!.beskrivelse!!,
+                              innhold: inntektenDin.ingenInntekt!!.beskrivelse!!,
                           },
                       }
                     : undefined,
@@ -1211,7 +1211,7 @@ const hentInntektOgPensjon = (
         naeringsinntekt,
         pensjonEllerUfoere,
         inntektViaYtelserFraNAV,
-        annenInntekt,
+        ingenInntekt,
         ytelserNAV,
         ytelserAndre,
     }

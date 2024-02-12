@@ -374,20 +374,20 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
             {inntektenDin.inntektstyper?.includes(InntektsTyper.annen) && (
                 <Panel>
-                    <Heading size={'small'}>{t('inntektenDin.annenInntekt.tittel')}</Heading>
+                    <Heading size={'small'}>{t('inntektenDin.ingenInntekt.tittel')}</Heading>
                     <TekstGruppeJaNeiVetIkke
-                        tittel={t('inntektenDin.annenInntekt.svar')}
-                        innhold={inntektenDin.annenInntekt?.svar}
+                        tittel={t('inntektenDin.ingenInntekt.svar')}
+                        innhold={inntektenDin.ingenInntekt?.svar}
                     />
-                    {inntektenDin.annenInntekt?.svar === IValg.JA && (
+                    {inntektenDin.ingenInntekt?.svar === IValg.JA && (
                         <>
                             <TekstGruppe
-                                tittel={t('inntektenDin.annenInntekt.beloep')}
-                                innhold={inntektenDin.annenInntekt?.beloep}
+                                tittel={t('inntektenDin.ingenInntekt.beloep')}
+                                innhold={inntektenDin.ingenInntekt?.beloep}
                             />
                             <TekstGruppe
-                                tittel={t('inntektenDin.annenInntekt.beskrivelse')}
-                                innhold={inntektenDin.annenInntekt?.beskrivelse}
+                                tittel={t('inntektenDin.ingenInntekt.beskrivelse')}
+                                innhold={inntektenDin.ingenInntekt?.beskrivelse}
                             />
                         </>
                     )}

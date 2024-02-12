@@ -175,7 +175,7 @@
         "soekbarYtelse.omsorgspenger"
       ]
     },
-    "annenInntekt": {
+    "ingenInntekt": {
       "svar": "radiobuttons.ja",
       "beloep": "320 000",
       "beskrivelse": "Får inn litt inntekt fra siden"

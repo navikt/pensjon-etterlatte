@@ -15,33 +15,33 @@ const IngenInntekt = () => {
 
     const { watch } = useFormContext<IInntekt>()
 
-    const harInntekt = watch('annenInntekt.svar')
+    const harInntekt = watch('ingenInntekt.svar')
 
     return (
         <>
             <SkjemaGruppe>
                 <SkjemaElement>
-                    <Heading size={'medium'}>{t('inntektenDin.annenInntekt.tittel')}</Heading>
+                    <Heading size={'medium'}>{t('inntektenDin.ingenInntekt.tittel')}</Heading>
                 </SkjemaElement>
 
                 <>
                     <SkjemaElement>
-                        <RHFSpoersmaalRadio name={`annenInntekt.svar`} legend={t('inntektenDin.annenInntekt.svar')} />
+                        <RHFSpoersmaalRadio name={`ingenInntekt.svar`} legend={t('inntektenDin.ingenInntekt.svar')} />
                     </SkjemaElement>
                     {harInntekt === IValg.JA && (
                         <>
                             <SkjemaElement>
                                 <RHFValutaInput
-                                    name={'annenInntekt.beloep'}
-                                    label={t('inntektenDin.annenInntekt.beloep')}
+                                    name={'ingenInntekt.beloep'}
+                                    label={t('inntektenDin.ingenInntekt.beloep')}
                                     htmlSize={Bredde.S}
                                 />
                             </SkjemaElement>
 
                             <SkjemaElement>
                                 <RHFInputArea
-                                    name={`annenInntekt.beskrivelse`}
-                                    label={t('inntektenDin.annenInntekt.beskrivelse')}
+                                    name={`ingenInntekt.beskrivelse`}
+                                    label={t('inntektenDin.ingenInntekt.beskrivelse')}
                                     maxLength={100}
                                     className={'width-50'}
                                 />
