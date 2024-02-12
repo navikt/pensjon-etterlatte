@@ -1,9 +1,10 @@
 import { ActionTypes as SoknadActionTypes } from '../../context/soknad/soknad'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { useState } from 'react'
-import { Alert, Button, Panel } from '@navikt/ds-react'
+import { Alert, Button } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
 import { NavigasjonsRad } from '../felles/StyledComponents'
+import { Panel } from '../felles/Panel'
 
 const Admin = () => {
     const navigate = useNavigate()

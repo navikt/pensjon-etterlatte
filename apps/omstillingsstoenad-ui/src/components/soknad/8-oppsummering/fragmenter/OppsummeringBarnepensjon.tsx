@@ -1,4 +1,4 @@
-import { BodyShort, Heading, Panel, Tag } from '@navikt/ds-react'
+import { BodyShort, Heading, Tag } from '@navikt/ds-react'
 import React, { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { IOmBarn } from '../../../../typer/person'
@@ -8,6 +8,7 @@ import PersonInfoOppsummering from './PersonInfoOppsummering'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { Panel } from '../../../felles/Panel'
 
 interface Props {
     opplysningerOmBarn: IOmBarn

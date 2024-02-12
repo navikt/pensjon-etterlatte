@@ -1,4 +1,4 @@
-import { Heading, Panel } from '@navikt/ds-react'
+import { Heading } from '@navikt/ds-react'
 import React, { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { useTranslation } from 'react-i18next'
@@ -13,6 +13,7 @@ import {
     PensjonEllerTrygd,
 } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { Panel } from '../../../felles/Panel'
 
 interface Props {
     inntektenDin: IInntekt
