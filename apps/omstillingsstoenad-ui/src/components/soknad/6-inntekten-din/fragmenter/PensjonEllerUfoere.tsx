@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { Heading } from '@navikt/ds-react'
+import { Heading, ReadMore } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
@@ -12,7 +12,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import Bredde from '../../../../typer/bredde'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 
 const PensjonEllerUfoere = () => {
@@ -70,9 +69,9 @@ const PensjonEllerUfoere = () => {
                                 htmlSize={Bredde.M}
                             />
                         </SkjemaElement>
-                        <HvorforSpoerVi title={'pensjonEllerUfoere.pensjonsUtbetaler'}>
+                        <ReadMore header={t('hvorforSpoerVi')}>
                             {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
-                        </HvorforSpoerVi>
+                        </ReadMore>
                     </>
                 )}
             </>

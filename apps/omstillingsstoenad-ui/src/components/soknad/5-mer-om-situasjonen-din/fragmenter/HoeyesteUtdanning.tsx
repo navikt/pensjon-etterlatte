@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
 import { Utdanning } from '../../../../typer/situasjon'
-import { Heading } from '@navikt/ds-react'
+import { Heading, ReadMore } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 
 const HoeyesteUtdanning = () => {
@@ -25,9 +24,9 @@ const HoeyesteUtdanning = () => {
                     })}
             />
 
-            <HvorforSpoerVi title="dinSituasjon.utdanning.tittelFullfoert">
+            <ReadMore header={t('hvorforSpoerVi')}>
                 {t('merOmSituasjonenDin.utdanning.hvorfor')}
-            </HvorforSpoerVi>
+            </ReadMore>
         </SkjemaGruppe>
     )
 }
