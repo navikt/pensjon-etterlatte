@@ -106,7 +106,6 @@ export enum InntektEllerUtbetaling {
     fosterhjemsgodtgjoering = 'soekbarYtelse.fosterhjemsgodtgjoering',
     omsorgspenger = 'soekbarYtelse.omsorgspenger',
     opplaeringspenger = 'soekbarYtelse.opplaeringspenger',
-    alderspensjon = 'soekbarYtelse.alderspensjon',
 }
 
 export enum SoekbareYtelserNAV {

@@ -426,7 +426,6 @@ export default {
     'inntektenDin.ingenInntekt.beskrivelse': 'Beskriv hvilken type utbetaling du har',
     'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Ytelser fra NAV',
     'inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling': 'Hvilke andre inntekter eller utbetalinger har du?',
-    'inntektenDin.inntektViaYtelserFraNAV.beloep': 'Oppgi brutto inntekt eller ytelser',
     'inntektenDin.ytelserNAV.tittel': 'Ytelser fra NAV',
     'inntektenDin.ytelserNAV.svar': 'Har du søkt om ytelser fra NAV som du ikke har fått svar på?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Hvilke ytelser har du søkt om?',
