@@ -18,8 +18,8 @@ const InntektViaYtelserFraNAV = () => {
 
                 <SkjemaElement>
                     <RHFCheckboksGruppe
-                        name={'inntektViaYtelserFraNAV.inntektEllerUtbetaling'}
-                        legend={t('inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling')}
+                        name={'inntektViaYtelserFraNAV.ytelser'}
+                        legend={t('inntektenDin.inntektViaYtelserFraNAV.ytelser')}
                         checkboxes={Object.values(InntektEllerUtbetaling).map((value) => {
                             return { children: t(value), value, required: true }
                         })}

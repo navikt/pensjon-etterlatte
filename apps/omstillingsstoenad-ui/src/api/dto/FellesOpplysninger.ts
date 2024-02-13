@@ -190,7 +190,7 @@ export interface PensjonEllerUfoere {
 }
 
 export interface InntektViaYtelserFraNAV {
-    annenInntektEllerUtbetaling: Opplysning<any>
+    ytelser: Opplysning<any>
 }
 
 export interface IngenInntekt {

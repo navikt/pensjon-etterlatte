@@ -364,8 +364,8 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                 <Panel>
                     <Heading size={'small'}>{t('inntektenDin.inntektViaYtelserFraNAV.tittel')}</Heading>
                     <TekstGruppe
-                        tittel={t('inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling')}
-                        innhold={inntektenDin.inntektViaYtelserFraNAV?.inntektEllerUtbetaling?.map(
+                        tittel={t('inntektenDin.inntektViaYtelserFraNAV.ytelser')}
+                        innhold={inntektenDin.inntektViaYtelserFraNAV?.ytelser?.map(
                             (item) => ` ${t(item)}`
                         )}
                     />

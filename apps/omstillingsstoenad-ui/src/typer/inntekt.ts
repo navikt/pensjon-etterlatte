@@ -77,8 +77,7 @@ export interface IPensjonEllerUfoere {
 }
 
 export interface IInntektViaYtelserFraNAV {
-    inntektEllerUtbetaling: InntektEllerUtbetaling[]
-    beloep?: string
+    ytelser: InntektEllerUtbetaling[]
 }
 
 export enum InntektsTyper {

@@ -231,7 +231,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('pensjonEllerUfoere.utland.valuta').type(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
         // Ytelser fra NAV
-        selectValue(inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling)
+        selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)
 
         // Ingen eller annen inntekt
         selectValueForId('ingenInntekt.svar', inntektenDin.ingenInntekt.svar)

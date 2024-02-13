@@ -1123,11 +1123,11 @@ const hentInntektOgPensjon = (
     }
 
     let inntektViaYtelserFraNAV: InntektViaYtelserFraNAV | undefined
-    if (inntektenDin.inntektstyper?.includes(InntektsTyper.annen)) {
+    if (inntektenDin.inntektstyper?.includes(InntektsTyper.ytelser)) {
         inntektViaYtelserFraNAV = {
-            annenInntektEllerUtbetaling: {
-                spoersmaal: t('inntektenDin.inntektViaYtelserFraNAV.inntektEllerUtbetaling'),
-                svar: inntektenDin.inntektViaYtelserFraNAV!!.inntektEllerUtbetaling!!.map((ytelse) => ({
+            ytelser: {
+                spoersmaal: t('inntektenDin.inntektViaYtelserFraNAV.ytelser'),
+                svar: inntektenDin.inntektViaYtelserFraNAV!!.ytelser!!.map((ytelse) => ({
                     verdi: konverterInntektEllerUtbetaling(ytelse),
                     innhold: t(ytelse),
                 })),
