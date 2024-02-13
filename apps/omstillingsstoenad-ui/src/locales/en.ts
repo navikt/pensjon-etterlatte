@@ -443,11 +443,11 @@ export default {
     'inntektenDin.ingenInntekt.beskrivelse': 'Describe which types of payments you are receiving',
     'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Benefits from NAV',
     'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Which incomes or disbursements are you receiving?',
-    'inntektenDin.ytelserNAV.tittel': 'Benefits from the Norwegian Labour and Welfare Administration (NAV)',
+    'inntektenDin.ytelserNAV.tittel': 'Application for benefits from the Norwegian Labour and Welfare Administration (NAV)',
     'inntektenDin.ytelserNAV.svar': 'Have you applied for benefits from NAV but not yet received a reply?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Which benefits did you apply for?',
     'inntektenDin.ytelserNAV.hvorfor': 'We need this information because some benefits from NAV are considered income.',
-    'inntektenDin.ytelserAndre.tittel': 'Benefits from others',
+    'inntektenDin.ytelserAndre.tittel': 'Application for benefits from others',
     'inntektenDin.ytelserAndre.svar':
         'Have you applied for benefits from others than NAV but not yet received a reply?',
     'inntektenDin.ytelserAndre.soekteYtelser': 'What did you apply for?',
