@@ -39,6 +39,11 @@ const FlexSpaceBetween = styled.div`
     }
 `
 
+const StegviserHeader = styled(Heading)`
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+`
+
 const Stegviser = ({ aktivtSteg, settSteg, muligeSteg, besoekteSteg }: Props) => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -47,33 +52,37 @@ const Stegviser = ({ aktivtSteg, settSteg, muligeSteg, besoekteSteg }: Props) =>
     const aktivSide = aktivtSteg + 1
     const prosess = `${(100 / muligeSteg.length) * aktivSide}%`
     const stegNavn = t(muligeSteg[aktivtSteg].label)
-    const stegOversikt = t('steg', {aktivSide, muligeSteg: muligeSteg.length})
+    const stegOversikt = t('steg', { aktivSide, muligeSteg: muligeSteg.length })
 
     return (
         <>
-            <FlexSpaceBetween>
-                <Button
-                    variant={'tertiary-neutral'}
-                    icon={isOpen ? <Collapse fontSize={24} aria-hidden /> : <Expand fontSize={24} aria-hidden />}
-                    onClick={() => setIsOpen(!isOpen)}
-                    iconPosition={'right'}
-                    aria-label={`${stegNavn} - ${stegOversikt} - Klikk for å ${
-                        isOpen ? 'lukke' : 'åpne'
-                    } oversikt over stegene`}
-                >
-                    <Heading size={'small'}>{stegNavn}</Heading>
-                </Button>
-            </FlexSpaceBetween>
+            {isDev ? (
+                <FlexSpaceBetween>
+                    <Button
+                        variant={'tertiary-neutral'}
+                        icon={isOpen ? <Collapse fontSize={24} aria-hidden /> : <Expand fontSize={24} aria-hidden />}
+                        onClick={() => setIsOpen(!isOpen)}
+                        iconPosition={'right'}
+                        aria-label={`${stegNavn} - ${stegOversikt} - Klikk for å ${
+                            isOpen ? 'lukke' : 'åpne'
+                        } oversikt over stegene`}
+                    >
+                        <Heading size={'small'}>{stegNavn}</Heading>
+                    </Button>
+                </FlexSpaceBetween>
+            ) : (
+                <StegviserHeader size={'small'}>{stegNavn}</StegviserHeader>
+            )}
             <ProgressBar $prosess={prosess} $lastStep={muligeSteg.length === aktivSide}>
                 <span />
             </ProgressBar>
             <BodyShort>{stegOversikt}</BodyShort>
-            {isOpen && (
+            {isOpen && isDev && (
                 <Stepper
                     activeStep={aktivSide}
-                    onStepChange={(step) => isDev && settSteg(step - 1)}
+                    onStepChange={(step) => settSteg(step - 1)}
                     orientation={'vertical'}
-                    interactive={isDev}
+                    interactive={true}
                 >
                     {muligeSteg.map((steg, index) => (
                         <Stepper.Step
