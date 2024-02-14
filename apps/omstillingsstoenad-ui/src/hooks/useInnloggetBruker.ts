@@ -5,15 +5,7 @@ import { hentAlder } from '../utils/dato'
 import { gyldigAlder } from '../utils/alder'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { useNavigate } from 'react-router-dom'
-
-export const capitalize = (str: string): string => {
-    const strList = str.split(' ')
-    return strList
-        .map((str) => {
-            return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1)
-        })
-        .join(' ')
-}
+import { capitalizeName } from '../utils/capitalize'
 
 const useInnloggetBruker = () => {
     const navigate = useNavigate()
@@ -29,8 +21,8 @@ const useInnloggetBruker = () => {
                 const alder = hentAlder(person.foedselsdato!!)
                 const kanSoeke = gyldigAlder(alder)
 
-                const fornavn = capitalize(person.fornavn!!)
-                const etternavn = capitalize(person.etternavn!!)
+                const fornavn = capitalizeName(person.fornavn!!)
+                const etternavn = capitalizeName(person.etternavn!!)
 
                 dispatch({
                     type: BrukerActionTypes.HENT_INNLOGGET_BRUKER,
