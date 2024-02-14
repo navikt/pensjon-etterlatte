@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import useInnloggetBruker, { captalize } from './useInnloggetBruker'
+import useInnloggetBruker, { capitalize } from './useInnloggetBruker'
 
 const mock = jest.fn(async () => {
     return 'Ok'
@@ -36,27 +36,27 @@ describe('Test av capitalize', () => {
         const testString = 'TEST'
         const fasitString = 'Test'
 
-        expect(captalize(testString)).toStrictEqual(fasitString)
+        expect(capitalize(testString)).toStrictEqual(fasitString)
     })
 
     it('Tester at dobbelt navn i uppercase får stor forbokstav', () => {
         const testString = 'TEST TESTESEN'
         const fasitString = 'Test Testesen'
 
-        expect(captalize(testString)).toStrictEqual(fasitString)
+        expect(capitalize(testString)).toStrictEqual(fasitString)
     })
 
     it('Tester at enkelt navn i lowercase får stor forbokstav', () => {
         const testString = 'test'
         const fasitString = 'Test'
 
-        expect(captalize(testString)).toStrictEqual(fasitString)
+        expect(capitalize(testString)).toStrictEqual(fasitString)
     })
 
     it('Tester at dobbelt navn i lowercase får stor forbokstav', () => {
         const testString = 'test testesen'
         const fasitString = 'Test Testesen'
 
-        expect(captalize(testString)).toStrictEqual(fasitString)
+        expect(capitalize(testString)).toStrictEqual(fasitString)
     })
 })

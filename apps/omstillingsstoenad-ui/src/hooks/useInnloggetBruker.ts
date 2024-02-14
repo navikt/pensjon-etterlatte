@@ -6,7 +6,7 @@ import { gyldigAlder } from '../utils/alder'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { useNavigate } from 'react-router-dom'
 
-export const captalize = (str: string): string => {
+export const capitalize = (str: string): string => {
     const strList = str.split(' ')
     return strList
         .map((str) => {
@@ -29,8 +29,8 @@ const useInnloggetBruker = () => {
                 const alder = hentAlder(person.foedselsdato!!)
                 const kanSoeke = gyldigAlder(alder)
 
-                const fornavn = captalize(person.fornavn!!)
-                const etternavn = captalize(person.etternavn!!)
+                const fornavn = capitalize(person.fornavn!!)
+                const etternavn = capitalize(person.etternavn!!)
 
                 dispatch({
                     type: BrukerActionTypes.HENT_INNLOGGET_BRUKER,
