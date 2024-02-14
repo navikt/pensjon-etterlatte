@@ -6,6 +6,15 @@ import { gyldigAlder } from '../utils/alder'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { useNavigate } from 'react-router-dom'
 
+export const captalize = (str: string): string => {
+    const strList = str.split(' ')
+    return strList
+        .map((str) => {
+            return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1)
+        })
+        .join(' ')
+}
+
 const useInnloggetBruker = () => {
     const navigate = useNavigate()
 
@@ -20,9 +29,12 @@ const useInnloggetBruker = () => {
                 const alder = hentAlder(person.foedselsdato!!)
                 const kanSoeke = gyldigAlder(alder)
 
+                const fornavn = captalize(person.fornavn!!)
+                const etternavn = captalize(person.etternavn!!)
+
                 dispatch({
                     type: BrukerActionTypes.HENT_INNLOGGET_BRUKER,
-                    payload: { ...person, alder, kanSoeke },
+                    payload: { ...person, fornavn, etternavn, alder, kanSoeke },
                 })
 
                 if (!kanSoeke) {
