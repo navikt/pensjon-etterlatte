@@ -70,7 +70,8 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -117,7 +118,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         />
         <a
           class=""
@@ -194,7 +196,8 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -275,7 +278,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -296,7 +300,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -391,7 +396,8 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         />
         <a
           class=""
@@ -468,10 +474,12 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         />
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -504,7 +512,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -599,7 +608,8 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -620,7 +630,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -715,7 +726,8 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -736,7 +748,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -757,7 +770,8 @@ exports[`Oppsummering Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -852,7 +866,8 @@ exports[`Oppsummering Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-panel"
+          class="navds-box"
+          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
         >
           <p
             class="navds-body-short navds-body-short--medium"

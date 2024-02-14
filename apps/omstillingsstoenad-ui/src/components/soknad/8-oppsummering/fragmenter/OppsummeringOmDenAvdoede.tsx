@@ -1,4 +1,4 @@
-import { Heading, Panel, Tag } from '@navikt/ds-react'
+import { Heading, Tag } from '@navikt/ds-react'
 import { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { IAvdoed } from '../../../../typer/person'
@@ -7,6 +7,7 @@ import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import PersonInfoOppsummering from './PersonInfoOppsummering'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { Panel } from '../../../felles/Panel'
 
 interface Props {
     omDenAvdoede: IAvdoed

@@ -9,7 +9,7 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Panel } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label } from '@navikt/ds-react'
 import { RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -22,6 +22,7 @@ import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import bredde from '../../../typer/bredde'
 import { isDev } from '../../../api/axios'
+import { Panel } from '../../felles/Panel'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -152,7 +153,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
             </SkjemaElement>
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                    <EndreBarnKort border>
+                    <EndreBarnKort border padding={'0'}>
                         <EndreBarnKortHeader>
                             <img alt="barn" src={ikon} />
                             <Heading size={'small'} className={'overskrift'}>

@@ -1,4 +1,4 @@
-import { Heading, Panel, Tag } from '@navikt/ds-react'
+import { Heading, Tag } from '@navikt/ds-react'
 import { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { useTranslation } from 'react-i18next'
@@ -8,6 +8,7 @@ import { IMerOmSituasjonenDin, JobbStatus } from '../../../../typer/situasjon'
 import { IngenJobb, StillingType } from '../../../../typer/arbeidsforhold'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { Studieform } from '../../../../typer/utdanning'
+import { Panel } from '../../../felles/Panel'
 
 interface Props {
     merOmSituasjonenDin: IMerOmSituasjonenDin

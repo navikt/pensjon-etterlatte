@@ -1,5 +1,6 @@
-import { Alert, Panel, Heading } from '@navikt/ds-react'
+import { Alert, Heading } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
+import { Panel } from './felles/Panel'
 
 const SideIkkeFunnet = () => {
     const { t } = useTranslation()

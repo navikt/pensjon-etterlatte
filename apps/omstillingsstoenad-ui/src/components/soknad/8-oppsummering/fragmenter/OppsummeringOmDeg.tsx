@@ -1,4 +1,4 @@
-import { Heading, Panel } from '@navikt/ds-react'
+import { Heading } from '@navikt/ds-react'
 import { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { IBruker } from '../../../../context/bruker/bruker'
@@ -9,6 +9,7 @@ import { TekstGruppe } from './TekstGruppe'
 import PersonInfoOppsummering from './PersonInfoOppsummering'
 import { fullAdresse } from '../../../../utils/adresse'
 import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
+import { Panel } from '../../../felles/Panel'
 
 interface Props {
     omDeg: ISoeker

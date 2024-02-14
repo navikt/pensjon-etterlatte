@@ -1,4 +1,4 @@
-import { Heading, Panel } from '@navikt/ds-react'
+import { Heading } from '@navikt/ds-react'
 import { memo } from 'react'
 import { AccordionItem } from '../AccordionItem'
 import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { Panel } from '../../../felles/Panel'
 
 interface Props {
     situasjonenDin: ISituasjonenDin
