@@ -180,28 +180,29 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     </HGrid>
                                 </SkjemaElement>
                                 <SkjemaElement>
-                                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                                        <RHFFoedselsnummerInput
-                                            name={'foedselsnummer'}
-                                            label={t('omBarn.foedselsnummer')}
-                                            rules={{
-                                                validate: {
-                                                    validate: (value) => {
-                                                        return fnr(value).status === 'valid'
-                                                    },
-                                                    duplicate: (value) => {
-                                                        return !fnrRegistrerteBarn.includes(value)
-                                                    },
+                                    <RHFFoedselsnummerInput
+                                        name={'foedselsnummer'}
+                                        label={t('omBarn.foedselsnummer')}
+                                        rules={{
+                                            validate: {
+                                                validate: (value) => {
+                                                    return fnr(value).status === 'valid'
                                                 },
-                                            }}
-                                        />
-                                        <RHFSelect
-                                            name={`statsborgerskap`}
-                                            label={t('omBarn.statsborgerskap')}
-                                            value={'Norge'}
-                                            selectOptions={land}
-                                        />
-                                    </HGrid>
+                                                duplicate: (value) => {
+                                                    return !fnrRegistrerteBarn.includes(value)
+                                                },
+                                            },
+                                        }}
+                                        htmlSize={Bredde.S}
+                                    />
+                                </SkjemaElement>
+                                <SkjemaElement>
+                                    <RHFSelect
+                                        name={`statsborgerskap`}
+                                        label={t('omBarn.statsborgerskap')}
+                                        value={'Norge'}
+                                        selectOptions={land}
+                                    />
                                 </SkjemaElement>
 
                                 {visDuplikatFeilmelding() && (

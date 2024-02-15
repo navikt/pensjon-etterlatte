@@ -80,14 +80,21 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                         <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
                         <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
-
-                        <RHFFoedselsnummerInput name={'foedselsnummer'} label={t('omDenAvdoede.foedselsnummer')} />
+                    </HGrid>
+                    <SkjemaElement>
+                        <RHFFoedselsnummerInput
+                            name={'foedselsnummer'}
+                            label={t('omDenAvdoede.foedselsnummer')}
+                            htmlSize={Bredde.S}
+                        />
+                    </SkjemaElement>
+                    <SkjemaElement>
                         <RHFSelect
                             name={`statsborgerskap`}
                             label={t('omDenAvdoede.statsborgerskap')}
                             selectOptions={land}
                         />
-                    </HGrid>
+                    </SkjemaElement>
 
                     <SkjemaElement>
                         <Datovelger

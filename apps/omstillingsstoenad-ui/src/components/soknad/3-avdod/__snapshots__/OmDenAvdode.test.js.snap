@@ -69,6 +69,10 @@ exports[`Om den avdøde Snapshot 1`] = `
             />
           </div>
         </div>
+      </div>
+      <div
+        class="sc-ktwOfi jNsszC"
+      >
         <div
           class="navds-form-field navds-form-field--medium"
         >
@@ -81,6 +85,7 @@ exports[`Om den avdøde Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="foedselsnummer"
+            size="25"
             type="tel"
             value=""
           />
@@ -91,6 +96,10 @@ exports[`Om den avdøde Snapshot 1`] = `
             id="textField-error-r2"
           />
         </div>
+      </div>
+      <div
+        class="sc-ktwOfi jNsszC"
+      >
         <div
           class="sc-brSamD lmjuMH"
           id="statsborgerskap"

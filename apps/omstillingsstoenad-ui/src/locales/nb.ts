@@ -31,7 +31,7 @@ export default {
     'forside.tittel': 'Søknad om omstillingsstønad',
     'forside.ingress':
         'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.\n\n' +
-        'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
+        'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake for å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
     'forside.startSoeknad': 'Start søknad',
     'forside.infoOmUtvikling': 'Søknaden kan være ustabil fra 9. februar til og med 12. februar.',
     'forside.omYtelsene.innhold':
@@ -114,7 +114,7 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
-    'situasjonenDin.ingress': 'Retten din til omstillingsstønad kan påvirkes av:',
+    'situasjonenDin.ingress': 'Retten din til omstillingsstønad kan påvirkes av',
     'situasjonenDin.ingress.li1': 'Sivilstanden din i dag',
     'situasjonenDin.ingress.li2': 'Omsorg for barn',
     'situasjonenDin.ingress.li3': 'Opphold utenfor Norge',
@@ -128,7 +128,7 @@ export default {
     'situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn': 'Etternavn',
     'situasjonenDin.nySivilstatus.samboerskap.samboer.foedselsnummer': 'Fødselsnummer',
     'situasjonenDin.omsorgForBarn.tittel': 'Omsorg for barn',
-    'situasjonenDin.omsorgMinstFemti': 'Har du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
+    'situasjonenDin.omsorgMinstFemti': 'Hadde du minst 50 prosent omsorg for barn under 18 år på dødsfallstidspunktet?',
     'situasjonenDin.omsorgMinstFemti.dokumentasjon':
         'Du kan i noen tilfeller bli bedt om å dokumentere omsorgsforholdet.',
     'situasjonenDin.gravidEllerNyligFoedt':
@@ -496,7 +496,7 @@ export default {
     'omDenAvdoede.statsborgerskapPlaceholder': 'For eksempel norsk',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphold utenfor Norge',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
-        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i omstillingsstønad og gi deg pensjonsrettigheter fra andre land.',
+        'Vi trenger å vite om avdøde har bodd eller arbeidet utenfor Norge. Dette kan både påvirke hvor mye du kan få i omstillingsstønad og om det gir deg pensjonsrettigheter fra andre land.',
     'omDenAvdoede.boddEllerJobbetUtland.svar':
         'Har han eller hun bodd og/eller arbeidet i et annet land enn Norge etter fylte 16 år?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Land',
@@ -584,7 +584,7 @@ export default {
         'Les gjennom oppsummeringen av din søknad før du sender.\nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
     'oppsummering.sendSoeknad.tittel': 'Ønsker du å sende inn søknaden nå?',
     'oppsummering.sendSoeknad.innhold':
-        'Når du har sendt inn søknaden kan du ikke endre på opplysningene som du har lagt inn.',
+        'Når du har sendt inn søknaden kan du ikke endre på opplysningene du har lagt inn.',
     'oppsummering.senderSoeknad.tittel': 'Sender inn søknad',
     'oppsummering.feilVedSending':
         'En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du melde feil ',
@@ -610,7 +610,8 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt NAV.',
     'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på hvor lang tid behandlingen vil ta? Her kan du se',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
+        'https://www.nav.no/saksbehandlingstider#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventet saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
@@ -621,8 +622,7 @@ export default {
         'Stønad til barnetilsyn for gjenlevende ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvidet barnetrygd',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for gjenlevende.',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
-        'https://www.nav.no/gjenlevendepensjon#andre-stonader',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finner mer informasjon om støtteordninger på ',
     'soeknadKvittering.spoersmaal.knapp': 'Les mer om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',

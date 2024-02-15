@@ -271,9 +271,13 @@ const Loennsinntekt = () => {
                     )}
                 </>
             )}
-            <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.info')}</Alert>
 
-            <EndringInntekt type={'loennsinntekt'} />
+            {norgeEllerUtland?.length > 0 && (
+                <>
+                    <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.info')}</Alert>
+                    <EndringInntekt type={'loennsinntekt'} />
+                </>
+            )}
         </SkjemaGruppe>
     )
 }

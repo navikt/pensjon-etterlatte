@@ -51,7 +51,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <SkjemaGruppe>
+                    <SkjemaElement>
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
                             <SkjemaGruppe>
                                 <RHFInput name={'alternativAdresse'} label={t('omDeg.alternativAdresse')} />
@@ -59,16 +59,16 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         )}
 
                         {!brukerState.telefonnummer && (
-                            <SkjemaGruppe>
+                            <SkjemaElement>
                                 <RHFTelefonInput
                                     htmlSize={Bredde.S}
                                     name={'kontaktinfo.telefonnummer'}
                                     label={t('omDeg.kontaktinfo.telefonnummer')}
                                     valgfri={true}
                                 />
-                            </SkjemaGruppe>
+                            </SkjemaElement>
                         )}
-                    </SkjemaGruppe>
+                    </SkjemaElement>
 
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (

@@ -33,7 +33,9 @@ export default function PersonInfoOppsummering({
 
             <TekstGruppe tittel={t('felles.fnrDnr')} innhold={fnrDnr} />
             <TekstGruppe tittel={t('felles.statsborgerskap')} innhold={statsborgerskap} />
-            {sivilstatus && <TekstGruppe tittel={t('felles.sivilstatus')} innhold={sivilstatus} />}
+            {sivilstatus && (
+                <TekstGruppe tittel={t('felles.sivilstatus')} innhold={t(`pdl.sivilstatus.${sivilstatus}`)} />
+            )}
             {adresse && <TekstGruppe tittel={t('felles.adresse')} innhold={adresse} />}
         </>
     )

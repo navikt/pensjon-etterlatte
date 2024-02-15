@@ -288,9 +288,12 @@ const Naeringsinntekt = () => {
                 </>
             )}
 
-            <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.info')}</Alert>
-
-            <EndringInntekt type={'naeringsinntekt'} />
+            {norgeEllerUtland?.length > 0 && (
+                <>
+                    <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.info')}</Alert>
+                    <EndringInntekt type={'naeringsinntekt'} />
+                </>
+            )}
         </SkjemaGruppe>
     )
 }
