@@ -15,6 +15,7 @@ import java.util.UUID
 interface Kodeverk {
     suspend fun hentPostnummer(): KodeverkResponse
     suspend fun hentLandkoder(): KodeverkResponse
+    suspend fun hentValutaer(): KodeverkResponse
 }
 
 /**
@@ -45,6 +46,20 @@ class KodeverkKlient(
             logger.info("Henter alle landkoder fra Kodeverk")
 
             httpClient.get("$url/Landkoder/koder/betydninger?ekskluderUgyldige=false&spraak=nb") {
+                accept(ContentType.Application.Json)
+                header(HttpHeaders.NavConsumerId, "etterlatte-selvbetjening-api")
+                header(HttpHeaders.NavCallId, UUID.randomUUID())
+            }.body()
+        } catch (e: Exception) {
+            logger.error("Henting av landkoder feilet", e)
+            throw e
+        }
+
+    override suspend fun hentValutaer(): KodeverkResponse =
+        try {
+            logger.info("Henter alle valutaer fra Kodeverk")
+
+            httpClient.get("$url/Valutaer/koder/betydninger?ekskluderUgyldige=true&spraak=nb") {
                 accept(ContentType.Application.Json)
                 header(HttpHeaders.NavConsumerId, "etterlatte-selvbetjening-api")
                 header(HttpHeaders.NavCallId, UUID.randomUUID())

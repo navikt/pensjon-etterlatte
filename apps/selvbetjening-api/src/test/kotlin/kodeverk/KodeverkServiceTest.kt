@@ -123,8 +123,43 @@ internal class KodeverkServiceTest {
         }
     }
 
+    @Nested
+    inner class Valutaer {
+        @Test
+        fun `Hent alle valutaer`() {
+            coEvery { mockKlient.hentValutaer() } returns opprettValutaerResponse()
+
+            runBlocking {
+                val valutaer = service.hentValutaer()
+
+                assertEquals(3, valutaer.size)
+
+                val forventedeValutaer = "[{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dobras S\u00d2o Tomeand Principe\",\"tekst\":\"Dobras S\u00d2o Tomeand Principe\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}}]"
+                assertEquals(forventedeValutaer, valutaer.toJson())
+            }
+        }
+
+        @Test
+        fun `Cache for valutaer fungerer`() {
+            coEvery { mockKlient.hentValutaer() } returns opprettValutaerResponse()
+            val forventedeValutaer = "[{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dobras S\u00d2o Tomeand Principe\",\"tekst\":\"Dobras S\u00d2o Tomeand Principe\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}}]"
+
+            runBlocking {
+                val alleValutaer = service.hentValutaer()
+                assertEquals(forventedeValutaer, alleValutaer.toJson())
+
+                val alleValutaer2 = service.hentValutaer()
+                assertEquals(forventedeValutaer, alleValutaer2.toJson())
+            }
+
+            coVerify(exactly = 1) { mockKlient.hentValutaer() }
+        }
+
+
+    }
+
     @Test
-    fun `Cache er separat for postnummer og landkoder`() {
+    fun `Cache er separat for postnummer, landkoder og valutaer`() {
         coEvery { mockKlient.hentPostnummer() } returns opprettPostnummerResponse()
         coEvery { mockKlient.hentLandkoder() } returns opprettLandkoderResponse()
 
@@ -158,6 +193,12 @@ internal class KodeverkServiceTest {
 
     private fun opprettLandkoderResponse(): KodeverkResponse {
         val json = javaClass.getResource("/kodeverk/landkoder.json")!!.readText()
+
+        return mapJsonToAny(json)
+    }
+
+    private fun opprettValutaerResponse(): KodeverkResponse {
+        val json = javaClass.getResource("/kodeverk/valutaer.json")!!.readText()
 
         return mapJsonToAny(json)
     }

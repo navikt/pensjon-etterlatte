@@ -13,5 +13,10 @@ fun Route.kodeverkApi(service: KodeverkService) {
             val landListe = service.hentAlleLand()
             call.respondText(landListe.toJson())
         }
+
+        get("valutaer") {
+            val valutaer = service.hentValutaer()
+            call.respondText(valutaer.toJson())
+        }
     }
 }
