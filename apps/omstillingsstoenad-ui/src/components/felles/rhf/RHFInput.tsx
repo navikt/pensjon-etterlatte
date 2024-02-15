@@ -356,7 +356,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, valgfri = false, ..
         <Controller
             name={name}
             control={control}
-            rules={{ required: valgfri, minLength, maxLength }}
+            rules={{ required: !valgfri, minLength, maxLength }}
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
