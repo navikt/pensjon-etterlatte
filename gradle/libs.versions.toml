@@ -1,19 +1,19 @@
 [plugins]
-cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.1" }
+cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.2" }
 
 [versions]
 token-version = "4.1.0"
-ktor-version = "2.3.7"
+ktor-version = "2.3.8"
 jackson-version = "2.16.1"
 jupiter-version = "5.10.1"
-testcontainers-version = "1.19.3"
+testcontainers-version = "1.19.4"
 flyway-version = "10.4.1"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2023120410321701682379.55cc1a24d803"}
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version"}
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version"}
-navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.1.0"}
+navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.1.1"}
 
 etterlatte-common = { module = "pensjon-etterlatte-libs:common", version = "2024.02.08-12.12.2ed2b049ebb9"}
 etterlatte-common-test = { module = "pensjon-etterlatte-libs:common-test", version = "2024.02.08-12.12.2ed2b049ebb9"}
@@ -51,13 +51,13 @@ jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "j
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version"}
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version"}
 
-logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.10"}
+logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.11"}
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.4.14"}
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.4"}
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.12.1"}
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.12.2"}
 
-mockk = { module = "io.mockk:mockk", version = "1.13.8"}
+mockk = { module = "io.mockk:mockk", version = "1.13.9"}
 
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.8.0"}
 
