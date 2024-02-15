@@ -24,6 +24,14 @@ const Rad = styled.div`
     column-gap: 1rem;
     column-gap: 1rem;
 `
+const ArbeidIUtlandPanel = styled(Panel)`
+    @media screen and (max-width: 450px) {
+        padding-left: 0;
+        padding-right: 0;
+        border-left: none;
+        border-right: none;
+    }
+`
 
 interface Props {
     datoForDoedsfallet?: Date
@@ -65,7 +73,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             {boddEllerArbeidetUtland === IValg.JA && (
                 <>
                     {fields.map((field: FieldArrayWithId, index: number) => (
-                        <Panel border key={field.id} className={'luft-under'}>
+                        <ArbeidIUtlandPanel border key={field.id} className={'luft-under'}>
                             <SkjemaElement>
                                 <RHFSelect
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
@@ -145,7 +153,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     </Button>
                                 </div>
                             )}
-                        </Panel>
+                        </ArbeidIUtlandPanel>
                     ))}
 
                     <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
