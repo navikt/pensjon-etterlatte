@@ -30,7 +30,8 @@ Frontend appen sin NAIS config må også inneholde følgende verdier under `env`
 
 Vi bruker personal access token til autentisering for å hente intern pakker til prosjektet.
 Du må derfor sette `export NPM_TOKEN='DITT_TOKEN'` som miljøvariabel.
-Dette tokenet må autoriseres mot navikt.
+Dette tokenet må autoriseres mot navikt. Ettersom at de interne pakkene ligger på GitHub sitt
+NPM-registry, vil `NPM_TOKEN` mest sannsynlig være lik din `GITHUB_TOKEN`. [Se her for å generere GitHub token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens) 
 
 
 Installere prosjektet:\
