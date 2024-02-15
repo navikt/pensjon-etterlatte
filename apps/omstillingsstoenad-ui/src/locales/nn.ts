@@ -418,7 +418,7 @@ export default {
     'inntektenDin.pensjonEllerUfoere.utland.valuta': 'Valutaen til landet',
     'inntektenDin.pensjonEllerUfoere.utland.hvorfor':
         'Vi må vite dette for å kunne vurdere medlemskapet ditt i Folketrygda.',
-    'inntektenDin.ingenInntekt.tittel': 'Inga inntekt eller anna utbetaling ',
+    'inntektenDin.ingenInntekt.tittel': 'Inga inntekt eller anna utbetaling',
     'inntektenDin.ingenInntekt.svar': 'Har du inntekt eller andre utbetalingar? ',
     'inntektenDin.ingenInntekt.beloep': 'Oppgi beløp',
     'inntektenDin.ingenInntekt.beskrivelse': 'Beskriv kva type utbetaling du får',
@@ -681,7 +681,7 @@ export default {
     'inntekt.naering': 'Næringsinntekt',
     'inntekt.pensjonEllerUfoere': 'Pensjon eller uføretrygd',
     'inntekt.ytelser': 'Ytingar frå NAV',
-    'inntekt.annen': 'Anna inntekt eller utbetaling',
+    'inntekt.annen': 'Inga inntekt eller anna utbetaling',
     'inntekt.norge': 'Noreg',
     'inntekt.utland': 'Utland',
     'soekbarYtelse.dagspenger': 'Dagpengar',
