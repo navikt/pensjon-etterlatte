@@ -12,8 +12,8 @@ exports[`Om deg og avdød Snapshot 1`] = `
     </h1>
   </div>
   <form>
-    <fieldset
-      class="sc-beySPh hBKmDL"
+    <div
+      class="sc-eTNRI cTBPfi"
     >
       <fieldset
         class="sc-beySPh hBKmDL"
@@ -43,8 +43,8 @@ exports[`Om deg og avdød Snapshot 1`] = `
           </div>
         </div>
       </fieldset>
-      <fieldset
-        class="sc-beySPh hBKmDL"
+      <div
+        class="sc-eTNRI cTBPfi"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -69,8 +69,8 @@ exports[`Om deg og avdød Snapshot 1`] = `
             id="textField-error-r1"
           />
         </div>
-      </fieldset>
-    </fieldset>
+      </div>
+    </div>
     <fieldset
       class="sc-beySPh hBKmDL"
     >

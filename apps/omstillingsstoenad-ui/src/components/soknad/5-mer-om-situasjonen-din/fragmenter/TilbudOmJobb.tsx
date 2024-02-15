@@ -4,7 +4,7 @@ import React from 'react'
 import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
-import { Detail, Heading, RadioProps } from '@navikt/ds-react'
+import { Detail, Heading, HGrid, RadioProps } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
@@ -12,7 +12,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import Datovelger from '../../../felles/Datovelger'
 import Bredde from '../../../../typer/bredde'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 const TilbudOmJobb = () => {
     const { t } = useTranslation()
@@ -62,7 +61,9 @@ const TilbudOmJobb = () => {
             {ansettelsesforhold === StillingType.fast && (
                 <SkjemaElement>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
+                        <Heading size={'xsmall'}>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
+                        </Heading>
                         <Detail>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}</Detail>
                     </SkjemaElement>
                     <RHFProsentInput
@@ -77,15 +78,22 @@ const TilbudOmJobb = () => {
                 ansettelsesforhold === StillingType.tilkallingsvikar) && (
                 <SkjemaElement>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}</Heading>
-                        <Detail>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}</Detail>
+                        <Heading size={'xsmall'}>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
+                        </Heading>
+                        <Detail>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}
+                        </Detail>
                     </SkjemaElement>
                     <SkjemaElement>
-                        <NumberSelectRad>
+                        <HGrid
+                            columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(8rem, 10rem))' }}
+                            gap={'4'}
+                            align={'start'}
+                        >
                             <RHFNumberInput
                                 name={`tilbudOmJobb.arbeidsmengde.svar` as const}
                                 label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar')}
-                                htmlSize={Bredde.S}
                             />
                             <RHFSelect
                                 name={`tilbudOmJobb.arbeidsmengde.type` as const}
@@ -97,7 +105,7 @@ const TilbudOmJobb = () => {
                                 ].concat(arbeidsmengdeValg)}
                                 label={t('felles.velg.tittel')}
                             />
-                        </NumberSelectRad>
+                        </HGrid>
                     </SkjemaElement>
                     <SkjemaElement>
                         <RHFSpoersmaalRadio

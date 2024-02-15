@@ -47,7 +47,7 @@ export default {
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
     'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
     'forside.barnepensjon.innhold':
-        'Har du felles barn under 18 år med avdøde, kan barnet/barna ha rett til barnepensjon.',
+        'Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
     'forside.slikBehandlerVi.tittel': 'Slik behandlar NAV personopplysningane dine',
     'forside.slikBehandlerVi.innhold':
@@ -116,7 +116,7 @@ export default {
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
     'situasjonenDin.tittel': 'Situasjonen din',
-    'situasjonenDin.ingress': 'Følgjande kan påverke retten din til omstillingsstønad:',
+    'situasjonenDin.ingress': 'Følgjande kan påverke retten din til omstillingsstønad',
     'situasjonenDin.ingress.li1': 'Sivilstanden din i dag',
     'situasjonenDin.ingress.li2': 'Omsorg for barn',
     'situasjonenDin.ingress.li3': 'Opphald utanfor Noreg',
@@ -370,8 +370,10 @@ export default {
         'Dersom Skatteetaten ikkje har stadfesta inntekta enno, anslår du næringsinntekta.',
     'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
         'Viss du ikkje veit kva som var inntekta det året, anslår du næringsinntekta.',
-    'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'Kva hadde du i brutto næringsinntekt fram til dødsfallet?',
-    'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall': 'Kva hadde du i brutto næringsinntekt fram til dødsfallet?',
+    'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall':
+        'Kva hadde du i brutto næringsinntekt fram til dødsfallet?',
+    'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall':
+        'Kva hadde du i brutto næringsinntekt fram til dødsfallet?',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
         'Oppgi inntekta du hadde frå januar fram til og med månaden for dødsfallet.',
     'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
@@ -396,8 +398,7 @@ export default {
         'Går du ut frå at inntekta di vil endre seg fram i tid?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Kva er grunnen til endringane?',
     'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn': 'Beskriv kort endringane',
-    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall':
-        'Kva hadde du i brutto årsinntekt året før dødsfallet?',
+    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall': 'Kva hadde du i brutto årsinntekt året før dødsfallet?',
     'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
         'Dersom du ikkje veit inntekta, anslår du næringsinntekta for dette året.',
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pensjon eller uføretrygd',
@@ -491,7 +492,7 @@ export default {
     'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
-        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og gi deg pensjonsrettar frå andre land.',
+        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og om det gir deg pensjonsrettar frå andre land.',
     'omDenAvdoede.boddEllerJobbetUtland.svar':
         'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land': 'Land',
@@ -579,7 +580,7 @@ export default {
         'Les gjennom oppsummeringa av søknaden din før du sender.\nViss du vil endre noko, kan du gå tilbake og gjere det.',
     'oppsummering.sendSoeknad.tittel': 'Ønsker du å sende inn søknaden no?',
     'oppsummering.sendSoeknad.innhold':
-        'Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.',
+        'Når du har sendt inn søknaden kan du ikkje endre på opplysingane du har lagt inn.',
     'oppsummering.senderSoeknad.tittel': 'Sender inn søknad',
     'oppsummering.feilVedSending':
         'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil ',
@@ -604,7 +605,8 @@ export default {
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt NAV.',
     'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå',
-    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href': 'https://www.nav.no/saksbehandlingstider',
+    'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
+        'https://www.nav.no/saksbehandlingstider/nn#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventa saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
@@ -615,8 +617,7 @@ export default {
         'Stønad til barnetilsyn for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvida barnetrygd',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for attlevande.',
-    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href':
-        'https://www.nav.no/gjenlevendepensjon#andre-stonader',
+    'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finn meir informasjon om støtteordningar på ',
     'soeknadKvittering.spoersmaal.knapp': 'Les meir om omstillingsstønad',
     'sideIkkeFunnet.tittel': 'Oi, her var det noe rusk',
