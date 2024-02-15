@@ -4,6 +4,7 @@ import { getLoggedInUser } from '../api/api'
 import { ActionTypes, User } from '../context/user/user'
 import { useUserContext } from '../context/user/UserContext'
 import { getAgeFromDate, isLegalAge } from '../utils/age'
+import { capitalizeName } from '../utils/capitalize'
 
 export default function useLoggedInUser() {
     const navigate = useNavigate()
@@ -20,9 +21,12 @@ export default function useLoggedInUser() {
                 const alder = getAgeFromDate(user.foedselsdato!!)
                 const kanSoeke = isLegalAge(alder)
 
+                const fornavn = capitalizeName(user.fornavn!!)
+                const etternavn = capitalizeName(user.etternavn!!)
+
                 dispatch({
                     type: ActionTypes.SET_USER,
-                    payload: { ...user, alder, kanSoeke },
+                    payload: { ...user, fornavn, etternavn, alder, kanSoeke },
                 })
 
                 if (!kanSoeke) navigate('/ugyldig-soeker')
