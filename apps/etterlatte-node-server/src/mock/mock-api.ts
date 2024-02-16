@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from 'express'
 import NodeCache from 'node-cache'
 import config from '../config'
 import mockLand from './landMock'
+import mockValutaer from './valutaMock'
 import { STOR_SNERK } from './mock-user'
 
 const cache = new NodeCache()
@@ -61,6 +62,10 @@ export const mockApi = (app: any) => {
 
     app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req: Request, res: Response) => {
         return res.json(mockLand)
+    })
+
+    app.get(`${config.app.basePath}/api/kodeverk/valutaer`, (req: Request, res: Response) => {
+        return res.json(mockValutaer)
     })
 
     app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
