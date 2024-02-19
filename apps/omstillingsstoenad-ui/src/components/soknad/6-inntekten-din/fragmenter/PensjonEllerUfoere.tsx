@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next'
 import React from 'react'
 import { Heading, ReadMore } from '@navikt/ds-react'
+import { useTranslation } from 'react-i18next'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'

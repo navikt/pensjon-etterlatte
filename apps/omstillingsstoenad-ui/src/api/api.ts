@@ -87,6 +87,15 @@ export const hentLand = async () => {
     }
 }
 
+export const hentValutaer = async () => {
+    try {
+        const response = await api.get('/api/kodeverk/valutaer')
+        return response.data
+    } catch (e) {
+        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
+    }
+}
+
 export const loggFunc = async (message: string) => {
     if (isDev) {
         console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${message}`)
