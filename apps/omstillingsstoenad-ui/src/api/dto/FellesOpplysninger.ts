@@ -194,7 +194,7 @@ export interface InntektViaYtelserFraNAV {
 }
 
 export interface IngenInntekt {
-    svar: Opplysning<FritekstSvar>
+    svar: Opplysning<EnumSvar<JaNeiVetIkke>>
     beloep?: Opplysning<FritekstSvar>
     beskrivelse?: Opplysning<FritekstSvar>
 }
