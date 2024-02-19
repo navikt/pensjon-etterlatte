@@ -228,7 +228,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
-        getById('pensjonEllerUfoere.utland.valuta').type(inntektenDin.pensjonEllerUfoere.utland.valuta)
+        getById('pensjonEllerUfoere.utland.valuta')
+                .find('select')
+                .select(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
         // Ytelser fra NAV
         selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)

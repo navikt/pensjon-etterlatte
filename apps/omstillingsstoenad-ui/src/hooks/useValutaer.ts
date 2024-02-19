@@ -3,7 +3,7 @@ import { hentValutaer } from '../api/api'
 import { useError } from './useError'
 import { useTranslation } from 'react-i18next'
 
-interface UseLand {
+interface UseValutaer {
     valutaer: Options[]
 }
 
@@ -12,81 +12,69 @@ interface Options {
     value: string
 }
 
-interface Land {
-    gyldigFra: string
-    gyldigTil: string
-    beskrivelser: {
-        nb: {
-            term: string
-            tekst: string
+interface Valuta {
+    label: {
+        gyldigFra: string
+        gyldigTil: string
+        beskrivelser: {
+            nb: {
+                term: string
+                tekst: string
+            }
         }
     }
 }
 
-const sortByTekst = (a: Land, b: Land) => {
-    if (a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst) {
+const sortByTekst = (a: Valuta, b: Valuta) => {
+    if (Object.values(a)[0].beskrivelser.nb.tekst > Object.values(b)[0].beskrivelser.nb.tekst) {
         return 1
     }
     return -1
 }
 
-export const moveMostUsedCountriesToBeginning = (allCountries: Land[]) => {
-    const frequentlyUsed = ['NORGE']
+export const moveMostUsedCurrenciesToBeginning = (currencies: Valuta[]) => {
+    const frequentlyUsed = ['SEK', 'NOK', 'EUR']
 
-    const countries = allCountries.filter((country) => frequentlyUsed.includes(country.beskrivelser.nb.tekst))
+    const frequentlyUsedCurrencies = currencies.filter((valuta) => frequentlyUsed.includes(Object.keys(valuta)[0]))
 
-    if (countries) countries.forEach((country) => allCountries.unshift(country))
+    if (frequentlyUsedCurrencies) frequentlyUsedCurrencies.forEach((country) => currencies.unshift(country))
 
-    return allCountries
+    return currencies
 }
 
-export const useValutaer = (): UseLand => {
-    const [valutaer, setValutaer] = useState<Land[]>([])
+export const useValutaer = (): UseValutaer => {
+    const [valutaer, setValutaer] = useState<Valuta[]>([])
     const { setError } = useError()
     const { t } = useTranslation()
 
     useEffect(() => {
         ;(async () => {
             try {
-                let landliste: Land[] = await hentValutaer()
-                landliste = landliste.sort(sortByTekst)
-                setValutaer(moveMostUsedCountriesToBeginning(landliste))
-
-                landliste = landliste.filter((land) => new Date(land.gyldigTil) > new Date())
-                setValutaer(landliste)
+                let valutaListe: Valuta[] = await hentValutaer()
+                valutaListe = valutaListe.sort(sortByTekst)
+                setValutaer(moveMostUsedCurrenciesToBeginning(valutaListe))
             } catch (e) {
                 console.log(e)
-                setError('Klarte ikke å hente landene')
+                setError('Klarte ikke å hente valuta')
             }
         })()
     }, [])
 
-    const optionsListe = (land: Land[]): Options[] => {
-        const landliste = land.map((l) => {
-            const str = l.beskrivelser['nb'].tekst.toLowerCase()
-            const tekst = str.charAt(0).toUpperCase() + str.slice(1)
+    const optionsListe = (valuta: Valuta[]): Options[] => {
+        const valutaListe = valuta.map((valutaKey) => {
+            const tekst = Object.values(valutaKey)[0].beskrivelser.nb.tekst + ' (' + Object.keys(valutaKey)[0] + ')'
             return {
                 label: tekst,
                 value: tekst,
             }
         })
 
-        landliste.unshift({
-            label: t('felles.velgLand'),
+        valutaListe.unshift({
+            label: t('felles.velgValuta'),
             value: t(''),
         })
-        return landliste
+        return valutaListe
     }
+
     return { valutaer: optionsListe(valutaer) }
 }
-
-useEffect(() => {
-    ;(async () => {
-        try {
-            const valutaer = await hentValutaer()
-            console.log(valutaer)
-        } catch (e) {
-            console.log(e)
-        }
-    })()
-}, [])

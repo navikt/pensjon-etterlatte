@@ -46,11 +46,13 @@ class KodeverkService(private val klient: Kodeverk) {
         return landkoder.hentTekst(landkode, spraak)
     }
 
-    suspend fun hentValutaer(): Map<String, List<Betydning>> {
+    suspend fun hentValutaer(): List<Map<String, Betydning>> {
         val valutaer = cache.getIfPresent(VALUTAER)
             ?: klient.hentValutaer().also { cache.put(VALUTAER, it) }
 
-        return valutaer.betydninger
+        val betydninger = valutaer.betydninger
+
+        return betydninger.flatMap { (key, values) -> values.map { value -> mapOf(key to value) } }
     }
 
     private fun KodeverkResponse.hentTekst(kode: String, spraak: String): String {

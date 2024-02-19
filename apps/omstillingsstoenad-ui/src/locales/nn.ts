@@ -757,6 +757,7 @@ export default {
     'felles.sistLagret': 'Sist lagra',
     'felles.spraakValg': 'Vel språk',
     'felles.velgLand': 'Vel land',
+    'felles.velgValuta': 'Vel valuta',
     'felles.elleveSiffer': '11 siffer',
     'felles.datoEksempel': 'eks: 01.12.2020',
     'felles.velg': 'Vel ...',

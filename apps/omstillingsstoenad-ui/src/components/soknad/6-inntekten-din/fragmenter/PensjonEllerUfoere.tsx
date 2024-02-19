@@ -13,11 +13,13 @@ import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import Bredde from '../../../../typer/bredde'
 import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
+import { useValutaer } from '../../../../hooks/useValutaer'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
 
     const { alleLand }: { alleLand: any } = useLand()
+    const { valutaer }: { valutaer: any } = useValutaer()
 
     const { watch } = useFormContext<IInntekt>()
 
@@ -111,10 +113,10 @@ const PensjonEllerUfoere = () => {
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <RHFInput
+                            <RHFSelect
                                 name={'pensjonEllerUfoere.utland.valuta'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.valuta')}
-                                htmlSize={Bredde.S}
+                                selectOptions={valutaer}
                             />
                         </SkjemaElement>
                     </SkjemaGruppeRad>

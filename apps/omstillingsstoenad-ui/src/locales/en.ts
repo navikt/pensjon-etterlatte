@@ -788,6 +788,7 @@ export default {
     'felles.sistLagret': 'Last saved',
     'felles.spraakValg': 'Select language',
     'felles.velgLand': 'Select country',
+    'felles.velgValuta': 'Select currency',
     'felles.elleveSiffer': '11 digits',
     'felles.datoEksempel': 'Example given 01.12.2020',
     'felles.velg': 'Select ...',
