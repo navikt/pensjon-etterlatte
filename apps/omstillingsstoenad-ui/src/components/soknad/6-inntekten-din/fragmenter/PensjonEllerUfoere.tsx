@@ -102,12 +102,11 @@ const PensjonEllerUfoere = () => {
                         />
                     </SkjemaElement>
 
-                    <HGrid gap={'4'} columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }} align={'start'}>
+                    <HGrid gap={'2'} columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }} align={'start'}>
                         <SkjemaElement>
                             <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
-                                htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
 
@@ -116,7 +115,6 @@ const PensjonEllerUfoere = () => {
                                 name={'pensjonEllerUfoere.utland.valuta'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.valuta')}
                                 selectOptions={valutaer}
-                                bredde={Bredde.S}
                             />
                         </SkjemaElement>
                     </HGrid>
