@@ -182,7 +182,8 @@ internal class SjekkAdressebeskyttelseTest {
                     loennsinntekt = null,
                     naeringsinntekt = null,
                     pensjonEllerUfoere = null,
-                    annenInntekt = null,
+                    inntektViaYtelserFraNAV = null,
+                    ingenInntekt = null,
                     ytelserNAV = YtelserNav(
                         soektOmYtelse = Opplysning(
                             svar = EnumSvar(

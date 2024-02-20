@@ -2,7 +2,7 @@ import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
 import {
-    AnnenInntekt,
+    IngenInntekt,
     AnnenSituasjon,
     ArbeidOgUtdanning,
     Arbeidssoeker,
@@ -17,6 +17,7 @@ import {
     FritekstSvar,
     HoeyesteUtdanning,
     InntektOgPensjon,
+    InntektViaYtelserFraNAV,
     JaNeiVetIkke,
     Kontaktinfo,
     LoennsOgNaeringsinntekt,
@@ -58,7 +59,6 @@ import {
     EndringAvInntektGrunn,
     IForventerEndringAvInntekt,
     IInntekt,
-    InntektEllerUtbetaling,
     InntektsTyper,
     NorgeOgUtland,
     PensjonEllerTrygd,
@@ -1122,24 +1122,44 @@ const hentInntektOgPensjon = (
         }
     }
 
-    let annenInntekt: AnnenInntekt | undefined
-    if (inntektenDin.inntektstyper?.includes(InntektsTyper.annen)) {
-        annenInntekt = {
-            annenInntektEllerUtbetaling: {
-                spoersmaal: t('inntektenDin.annenInntekt.inntektEllerUtbetaling'),
-                svar: inntektenDin.annenInntekt!!.inntektEllerUtbetaling!!.map((ytelse) => ({
+    let inntektViaYtelserFraNAV: InntektViaYtelserFraNAV | undefined
+    if (inntektenDin.inntektstyper?.includes(InntektsTyper.ytelser)) {
+        inntektViaYtelserFraNAV = {
+            ytelser: {
+                spoersmaal: t('inntektenDin.inntektViaYtelserFraNAV.ytelser'),
+                svar: inntektenDin.inntektViaYtelserFraNAV!!.ytelser!!.map((ytelse) => ({
                     verdi: konverterInntektEllerUtbetaling(ytelse),
                     innhold: t(ytelse),
                 })),
             },
-            beloep: inntektenDin.annenInntekt!!.inntektEllerUtbetaling!!.includes(InntektEllerUtbetaling.annen)
-                ? {
-                      spoersmaal: t('inntektenDin.annenInntekt.beloep'),
-                      svar: {
-                          innhold: inntektenDin.annenInntekt!!.beloep!!,
-                      },
-                  }
-                : undefined,
+        }
+    }
+
+    let ingenInntekt: IngenInntekt | undefined
+    if (inntektenDin.inntektstyper?.includes(InntektsTyper.annen)) {
+        ingenInntekt = {
+            svar: {
+                spoersmaal: t('inntektenDin.ingenInntekt.svar'),
+                svar: valgTilSvar(t, inntektenDin.ingenInntekt!!.svar!!),
+            },
+            beloep:
+                inntektenDin.ingenInntekt!!.svar!! === IValg.JA
+                    ? {
+                          spoersmaal: t('inntektenDin.ingenInntekt.beloep'),
+                          svar: {
+                              innhold: inntektenDin.ingenInntekt!!.beloep!!,
+                          },
+                      }
+                    : undefined,
+            beskrivelse:
+                inntektenDin.ingenInntekt!!.svar!! === IValg.JA
+                    ? {
+                          spoersmaal: t('inntektenDin.ingenInntekt.beskrivelse'),
+                          svar: {
+                              innhold: inntektenDin.ingenInntekt!!.beskrivelse!!,
+                          },
+                      }
+                    : undefined,
         }
     }
 
@@ -1190,7 +1210,8 @@ const hentInntektOgPensjon = (
         loennsinntekt,
         naeringsinntekt,
         pensjonEllerUfoere,
-        annenInntekt,
+        inntektViaYtelserFraNAV,
+        ingenInntekt,
         ytelserNAV,
         ytelserAndre,
     }

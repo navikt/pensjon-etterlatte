@@ -255,10 +255,6 @@ export const konverterInntektEllerUtbetaling = (type: InntektEllerUtbetaling): I
             return InntektEllerUtbetalingType.OMSORGSPENGER
         case InntektEllerUtbetaling.opplaeringspenger:
             return InntektEllerUtbetalingType.OPPLAERINGSPENGER
-        case InntektEllerUtbetaling.alderspensjon:
-            return InntektEllerUtbetalingType.ALDERSPENSJON
-        case InntektEllerUtbetaling.annen:
-            return InntektEllerUtbetalingType.ANNEN
     }
 }
 

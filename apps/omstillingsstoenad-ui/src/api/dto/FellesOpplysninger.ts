@@ -142,7 +142,8 @@ export interface InntektOgPensjon {
     loennsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     naeringsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     pensjonEllerUfoere?: PensjonEllerUfoere
-    annenInntekt?: AnnenInntekt
+    inntektViaYtelserFraNAV?: InntektViaYtelserFraNAV
+    ingenInntekt?: IngenInntekt
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
 }
@@ -188,9 +189,14 @@ export interface PensjonEllerUfoere {
     }
 }
 
-export interface AnnenInntekt {
-    annenInntektEllerUtbetaling: Opplysning<any>
+export interface InntektViaYtelserFraNAV {
+    ytelser: Opplysning<any>
+}
+
+export interface IngenInntekt {
+    svar: Opplysning<EnumSvar<JaNeiVetIkke>>
     beloep?: Opplysning<FritekstSvar>
+    beskrivelse?: Opplysning<FritekstSvar>
 }
 
 export interface YtelserNav {
@@ -364,8 +370,6 @@ export enum InntektEllerUtbetalingType {
     FOSTERHJEMSGODTGJOERING = 'FOSTERHJEMSGODTGJOERING',
     OMSORGSPENGER = 'OMSORGSPENGER',
     OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
-    ALDERSPENSJON = 'ALDERSPENSJON',
-    ANNEN = 'ANNEN',
 }
 
 export enum SoekbareYtelserAndreType {

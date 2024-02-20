@@ -8,7 +8,8 @@ import { IInntekt, InntektsTyper } from '../../../../typer/inntekt'
 import Loennsinntekt from './Loennsinntekt'
 import Naeringsinntekt from './Naeringsinntekt'
 import PensjonEllerUfoere from './PensjonEllerUfoere'
-import AnnenInntekt from './AnnenInntekt'
+import InntektViaYtelserFraNAV from './InntektViaYtelserFraNAV'
+import IngenInntekt from './IngenInntekt'
 import styled from 'styled-components'
 
 const MarginBottom = styled.div<{ $margin: boolean }>`
@@ -38,7 +39,8 @@ const Inntekt = () => {
             {inntektstype?.includes(InntektsTyper.loenn) && <Loennsinntekt />}
             {inntektstype?.includes(InntektsTyper.naering) && <Naeringsinntekt />}
             {inntektstype?.includes(InntektsTyper.pensjonEllerUfoere) && <PensjonEllerUfoere />}
-            {inntektstype?.includes(InntektsTyper.annen) && <AnnenInntekt />}
+            {inntektstype?.includes(InntektsTyper.ytelser) && <InntektViaYtelserFraNAV />}
+            {inntektstype?.includes(InntektsTyper.annen) && <IngenInntekt />}
         </MarginBottom>
     )
 }

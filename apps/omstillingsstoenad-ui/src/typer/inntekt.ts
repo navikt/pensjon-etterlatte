@@ -5,7 +5,8 @@ export interface IInntekt {
     loennsinntekt?: ILoennsinntekt
     naeringsinntekt?: ILoennsinntekt
     pensjonEllerUfoere?: IPensjonEllerUfoere
-    annenInntekt?: IAnnenInntekt
+    inntektViaYtelserFraNAV?: IInntektViaYtelserFraNAV
+    ingenInntekt?: IIngenInntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     erValidert?: boolean
@@ -26,6 +27,12 @@ export interface IForventerEndringAvInntekt {
     svar?: IValg
     grunn?: EndringAvInntektGrunn
     annenGrunn?: string
+}
+
+export interface IIngenInntekt {
+    svar?: IValg
+    beloep?: string
+    beskrivelse?: string
 }
 
 export interface ILoennsinntekt {
@@ -69,15 +76,15 @@ export interface IPensjonEllerUfoere {
     }
 }
 
-export interface IAnnenInntekt {
-    inntektEllerUtbetaling: InntektEllerUtbetaling[]
-    beloep?: string
+export interface IInntektViaYtelserFraNAV {
+    ytelser: InntektEllerUtbetaling[]
 }
 
 export enum InntektsTyper {
     loenn = 'inntekt.loenn',
     naering = 'inntekt.naering',
     pensjonEllerUfoere = 'inntekt.pensjonEllerUfoere',
+    ytelser = 'inntekt.ytelser',
     annen = 'inntekt.annen',
 }
 
@@ -98,8 +105,6 @@ export enum InntektEllerUtbetaling {
     fosterhjemsgodtgjoering = 'soekbarYtelse.fosterhjemsgodtgjoering',
     omsorgspenger = 'soekbarYtelse.omsorgspenger',
     opplaeringspenger = 'soekbarYtelse.opplaeringspenger',
-    alderspensjon = 'soekbarYtelse.alderspensjon',
-    annen = 'soekbarYtelse.annen',
 }
 
 export enum SoekbareYtelserNAV {

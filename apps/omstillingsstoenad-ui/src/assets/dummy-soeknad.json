@@ -117,6 +117,7 @@
       "inntekt.loenn",
       "inntekt.naering",
       "inntekt.pensjonEllerUfoere",
+      "inntekt.ytelser",
       "inntekt.annen"
     ],
     "loennsinntekt": {
@@ -169,16 +170,15 @@
         "valuta": "Euro"
       }
     },
-    "annenInntekt": {
-      "inntektEllerUtbetaling": [
-        "soekbarYtelse.annen"
-      ],
+    "inntektViaYtelserFraNAV": {
+      "ytelser": [
+        "soekbarYtelse.omsorgspenger"
+      ]
+    },
+    "ingenInntekt": {
+      "svar": "radiobuttons.ja",
       "beloep": "320 000",
-      "forventerEndringAvInntekt": {
-        "svar": "radiobuttons.ja",
-        "grunn": "endringAvInntekt.annenGrunn",
-        "annenGrunn": "Arver masse penger og jobb"
-      }
+      "beskrivelse": "Får inn litt inntekt fra siden"
     },
     "ytelserNAV": {
       "svar": "radiobuttons.ja",
