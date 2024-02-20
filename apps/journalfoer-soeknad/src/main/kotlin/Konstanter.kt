@@ -1,7 +1,6 @@
 package no.nav.etterlatte
 
 object Konstanter {
-    const val SOEKNAD_TITTEL = "Søknad om etterlatteytelser"
     const val ENHET_VIKAFOSSEN = "2103"
     const val ENHET_UTLAND = "4862" // NFP UTLAND ÅLESUND
     const val ENHET_AUTOMATISK_JOURNALFOERING = "9999"

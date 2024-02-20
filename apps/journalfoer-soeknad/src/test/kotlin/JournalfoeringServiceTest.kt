@@ -9,9 +9,9 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.slot
 import no.nav.etterlatte.JournalfoeringService
-import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
+import no.nav.etterlatte.dokarkiv.JournalpostHelper
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.pdl.Gradering
@@ -33,23 +33,25 @@ internal class JournalfoeringServiceTest {
 
         val soeknadId = "123"
         val fnrSoeker = "24014021406"
+        val soeknadType = SoeknadType.GJENLEVENDEPENSJON
+        val tittel = JournalpostHelper.opprettTittel(soeknadType)
 
         val response = journalfoeringService.journalfoer(
             soeknadId,
             fnrSoeker,
             Gradering.UGRADERT,
-
             JournalpostDokument(
-                SOEKNAD_TITTEL,
+                tittel,
                 DokumentKategori.SOK,
                 "",
                 listOf(DokumentVariant.ArkivPDF(""), DokumentVariant.OriginalJson(""))
             ),
             soeknad,
             "PEN",
-            SoeknadType.GJENLEVENDEPENSJON.behandlingstema,
+            soeknadType.behandlingstema,
             false,
-            null
+            null,
+            tittel
             )
 
         assertNotNull(response)
@@ -60,7 +62,7 @@ internal class JournalfoeringServiceTest {
 
         val actualRequest = requestSlot.captured
 
-        assertEquals(SOEKNAD_TITTEL, actualRequest.tittel)
+        assertEquals(tittel, actualRequest.tittel)
         assertEquals(JournalPostType.INNGAAENDE, actualRequest.journalpostType)
 
         assertEquals("PEN", actualRequest.tema)
@@ -79,7 +81,7 @@ internal class JournalfoeringServiceTest {
         assertEquals(1, actualRequest.dokumenter.size)
 
         val actualDokument = actualRequest.dokumenter.first()
-        assertEquals(SOEKNAD_TITTEL, actualDokument.tittel)
+        assertEquals(tittel, actualDokument.tittel)
         assertEquals(DokumentKategori.SOK, actualDokument.dokumentKategori)
         assertEquals(2, actualDokument.dokumentvarianter.size)
         assertTrue(actualDokument.dokumentvarianter.any { it is DokumentVariant.ArkivPDF })

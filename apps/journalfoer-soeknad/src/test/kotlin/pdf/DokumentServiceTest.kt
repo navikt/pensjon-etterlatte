@@ -9,14 +9,13 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.slot
-import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.pdf.PdfGeneratorException
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import java.util.Base64
+import java.util.*
 
 internal class DokumentServiceTest {
 
@@ -33,9 +32,10 @@ internal class DokumentServiceTest {
     @Test
     fun `Opprettelse av dokumenter fungerer som forventet`() {
         coEvery { mockKlient.genererPdf(any(), any()) } returns "et lite pdf-dokument".toByteArray()
-        val dokument = service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
+        val tittel = "Ny tittel"
+        val dokument = service.opprettJournalpostDokument(soeknadId, tittel, skjemaInfo, template)
 
-        assertEquals(SOEKNAD_TITTEL, dokument.tittel)
+        assertEquals(tittel, dokument.tittel)
         assertEquals(DokumentKategori.SOK, dokument.dokumentKategori)
 
         val dokumentvarianter = dokument.dokumentvarianter
@@ -53,7 +53,7 @@ internal class DokumentServiceTest {
     @Test
     fun `PDF genereres med korrekt data`() {
         coEvery { mockKlient.genererPdf(any(), any()) } returns "et lite pdf-dokument".toByteArray()
-        service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
+        service.opprettJournalpostDokument(soeknadId, "tittel", skjemaInfo, template)
 
         val skjemaInfoSlot = slot<JsonNode>()
         val templateSlot = slot<String>()
@@ -71,7 +71,7 @@ internal class DokumentServiceTest {
                 ResponseException(mockk(), "Test") andThen
                 "et lite pdf-dokument".toByteArray()
 
-        val dokument = service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
+        val dokument = service.opprettJournalpostDokument(soeknadId, "tittel", skjemaInfo, template)
 
         coVerify(exactly = 3) { mockKlient.genererPdf(any(), any()) }
         val arkivPdf = dokument.dokumentvarianter.find { it is DokumentVariant.ArkivPDF }
@@ -82,7 +82,7 @@ internal class DokumentServiceTest {
     fun `Feil mot generering av PDF skal forsøke tre ganger og kaste egen exception`() {
         coEvery { mockKlient.genererPdf(any(), any()) } throws ResponseException(mockk(), "")
         assertThrows<PdfGeneratorException> {
-            service.opprettJournalpostDokument(soeknadId, skjemaInfo, template)
+            service.opprettJournalpostDokument(soeknadId, "tittel", skjemaInfo, template)
         }
 
         coVerify(exactly = 3) { mockKlient.genererPdf(any(), any()) }

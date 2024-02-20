@@ -9,7 +9,6 @@ import dokarkiv.JournalpostRequest
 import dokarkiv.Sak
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
-import no.nav.etterlatte.Konstanter.SOEKNAD_TITTEL
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.pdl.Gradering
@@ -27,12 +26,13 @@ class JournalfoeringService(private val klient: Dokarkiv) {
         tema: String,
         behandlingstema: String?,
         forsoekFerdigstill: Boolean,
-        sakId: String?
+        sakId: String?,
+        tittel: String
     ): DokarkivResponse {
         logger.info("Oppretter journalpost for søknad ID $soeknadId")
 
         val request = JournalpostRequest(
-            tittel = SOEKNAD_TITTEL,
+            tittel = tittel,
             tema = tema,
             journalpostType = JournalPostType.INNGAAENDE,
             behandlingstema = behandlingstema,

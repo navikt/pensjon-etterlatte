@@ -29,10 +29,10 @@ internal class JournalfoerSoeknadForDoffenTest{
     @Test
     fun `Skal lese søknader som er fordelt til Doffen`(){
 
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any()) } returns
+        every { dokumentservice.opprettJournalpostDokument("13", any(), any(), any()) } returns
                 JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
         every { journalfoeringService.journalfoer(
-            any(), any(), any(), any(), any(), any(), any(), any(), any()
+            any(), any(), any(), any(), any(), any(), any(), any(), any(), any()
         )
         } returns DokarkivResponse(
             journalpostId = "123",
@@ -59,6 +59,7 @@ internal class JournalfoerSoeknadForDoffenTest{
                 "EYB",
                 null,
                 true,
+                any(),
                 any()
             )
         }
@@ -66,11 +67,11 @@ internal class JournalfoerSoeknadForDoffenTest{
 
     @Test
     fun `Skal journalføre uten ferdigstilling hvis søknad er fordelt til Doffen med trengerManuellJournalfoering`() {
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any()) } returns
+        every { dokumentservice.opprettJournalpostDokument("13", any(), any(), any()) } returns
                 JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
         every { journalfoeringService.journalfoer(
             any(), any(), any(), any(), any(),
-            any(), any(), any(), any()
+            any(), any(), any(), any(), any()
         )
         } returns DokarkivResponse(
             journalpostId = "543",
@@ -97,7 +98,8 @@ internal class JournalfoerSoeknadForDoffenTest{
                 "EYB",
                 null,
                 false,
-                any()
+                any(),
+                any(),
             )
         }
     }
@@ -105,10 +107,10 @@ internal class JournalfoerSoeknadForDoffenTest{
     @Test
     fun `Skal lese OMS søknader som er fordelt til Doffen`(){
 
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any()) } returns
+        every { dokumentservice.opprettJournalpostDokument("13",any(), any(), any()) } returns
                 JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
         every { journalfoeringService.journalfoer(
-            any(), any(), any(), any(), any(), any(), any(), any(), any()
+            any(), any(), any(), any(), any(), any(), any(), any(), any(), any()
         )
         } returns DokarkivResponse(
             journalpostId = "123",
@@ -135,18 +137,19 @@ internal class JournalfoerSoeknadForDoffenTest{
                 "EYO",
                 null,
                 true,
-                any()
+                any(),
+                any(),
             )
         }
     }
 
     @Test
     fun `Ikke ferdigstille OMS hvis søknad trengerManuellJournalfoering`() {
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any()) } returns
+        every { dokumentservice.opprettJournalpostDokument("13", any(), any(), any()) } returns
                 JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
         every { journalfoeringService.journalfoer(
             any(), any(), any(), any(), any(),
-            any(), any(), any(), any()
+            any(), any(), any(), any(), any()
         )
         } returns DokarkivResponse(
             journalpostId = "543",
@@ -173,7 +176,8 @@ internal class JournalfoerSoeknadForDoffenTest{
                 "EYO",
                 null,
                 false,
-                any()
+                any(),
+                any(),
             )
         }
     }
