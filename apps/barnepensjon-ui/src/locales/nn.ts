@@ -187,6 +187,7 @@ const selectScenario = {
 
 const aboutYou = {
     title: 'Om deg',
+    titleGuardian: 'Om deg som verje',
     stayWhy:
         'Dersom du oppheld deg i eit anna land enn Noreg, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     addressOfResidenceConfirmed: 'Bur du på denne adressa?',
@@ -495,6 +496,7 @@ const continueApplicationModal = {
 
 const steps = {
     AboutYou: 'Om deg',
+    AboutYouGuardian: 'Om deg som verje',
     AboutTheParents: 'Om foreldra',
     AboutTheDeceased: 'Om den avdøde',
     YourSituation: 'Din situasjon',

@@ -52,7 +52,7 @@ export default function AboutYou({ next }: StepProps) {
 
     return (
         <>
-            <StepHeading>{t('title')}</StepHeading>
+            <StepHeading>{isGuardian ? t('titleGuardian') : t('title')}</StepHeading>
 
             <LoggedInUserInfo user={user} />
 
