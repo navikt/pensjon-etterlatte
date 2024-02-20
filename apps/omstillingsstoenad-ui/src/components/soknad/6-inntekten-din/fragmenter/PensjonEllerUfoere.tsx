@@ -91,7 +91,7 @@ const PensjonEllerUfoere = () => {
                             name={'pensjonEllerUfoere.utland.type'}
                             label={t('inntektenDin.pensjonEllerUfoere.utland.type')}
                             description={t('inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse')}
-                            htmlSize={Bredde.M}
+                            htmlSize={Bredde.S}
                         />
                     </SkjemaElement>
                     <SkjemaElement>
@@ -107,7 +107,7 @@ const PensjonEllerUfoere = () => {
                             <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
-                                htmlSize={Bredde.M}
+                                htmlSize={Bredde.S}
                             />
                         </SkjemaElement>
 

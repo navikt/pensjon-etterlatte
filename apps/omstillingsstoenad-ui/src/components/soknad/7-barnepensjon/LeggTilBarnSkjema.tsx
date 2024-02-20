@@ -223,7 +223,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                 label={t('omBarn.bosattUtland.land')}
                                                 value={'Norge'}
                                                 selectOptions={land}
-                                                bredde={bredde.M}
+                                                bredde={bredde.S}
                                             />
                                         </SkjemaElement>
                                         <RHFInput
@@ -289,7 +289,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                     <SkjemaElement>
                                                         <RHFKontonummerInput
                                                             name={'barnepensjon.kontonummer.kontonummer'}
-                                                            htmlSize={Bredde.M}
+                                                            htmlSize={Bredde.S}
                                                             label={t('omBarn.barnepensjon.kontonummer.kontonummer')}
                                                             description={t(
                                                                 'omBarn.barnepensjon.kontonummer.placeholder'
@@ -310,7 +310,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                     <>
                                                         <SkjemaElement>
                                                             <RHFProsentInput
-                                                                htmlSize={Bredde.M}
+                                                                htmlSize={Bredde.S}
                                                                 name={'barnepensjon.forskuddstrekk.trekkprosent'}
                                                                 label={t(
                                                                     'omBarn.barnepensjon.forskuddstrekk.trekkprosent'

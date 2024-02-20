@@ -92,7 +92,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                             <RHFNumberInput
                                 name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
                                 label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
-                                htmlSize={Bredde.M}
+                                htmlSize={Bredde.S}
                             />
                             <RHFSelect
                                 name={`arbeidsforhold[${index}].arbeidsmengde.type` as const}

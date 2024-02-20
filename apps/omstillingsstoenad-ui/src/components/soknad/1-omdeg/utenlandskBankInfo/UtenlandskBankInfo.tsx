@@ -47,7 +47,7 @@ const UtenlandskBankInfo = () => {
             <SkjemaElement>
                 <RHFBicInput
                     name={'utbetalingsInformasjon.swift'}
-                    htmlSize={Bredde.M}
+                    htmlSize={Bredde.S}
                     label={
                         <HelpTextLabel>
                             {t('omDeg.utbetalingsInformasjon.swift')}

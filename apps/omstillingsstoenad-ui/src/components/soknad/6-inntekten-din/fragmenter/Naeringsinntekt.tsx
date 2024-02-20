@@ -68,7 +68,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -79,7 +79,7 @@ const Naeringsinntekt = () => {
                                         description={t(
                                             'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                     <SkjemaElement>
                                         <ReadMore
@@ -101,7 +101,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -113,7 +113,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -128,7 +128,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIFjor.tilDoedsfall.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -139,7 +139,7 @@ const Naeringsinntekt = () => {
                                         description={t(
                                             'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                                 <SkjemaGruppe>
@@ -149,7 +149,7 @@ const Naeringsinntekt = () => {
                                         description={t(
                                             'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             </>
@@ -182,7 +182,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -193,7 +193,7 @@ const Naeringsinntekt = () => {
                                         description={t(
                                             'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                     <SkjemaElement>
                                         <ReadMore
@@ -216,7 +216,7 @@ const Naeringsinntekt = () => {
                                                 description={t(
                                                     'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                                 )}
-                                                htmlSize={Bredde.M}
+                                                htmlSize={Bredde.S}
                                             />
                                         </SkjemaElement>
                                     </SkjemaGruppe>
@@ -229,7 +229,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -244,7 +244,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -256,7 +256,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIFjor.tilDoedsfall.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -267,7 +267,7 @@ const Naeringsinntekt = () => {
                                         description={t(
                                             'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                                 <SkjemaGruppe>
@@ -278,7 +278,7 @@ const Naeringsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaElement>
                                 </SkjemaGruppe>

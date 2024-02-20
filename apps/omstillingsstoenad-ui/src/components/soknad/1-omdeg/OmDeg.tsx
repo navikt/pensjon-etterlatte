@@ -61,7 +61,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
                         {!brukerState.telefonnummer && (
                             <SkjemaElement>
                                 <RHFTelefonInput
-                                    htmlSize={Bredde.M}
+                                    htmlSize={Bredde.S}
                                     name={'kontaktinfo.telefonnummer'}
                                     label={t('omDeg.kontaktinfo.telefonnummer')}
                                     valgfri={true}
@@ -86,7 +86,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                             {bankkontoType === BankkontoType.norsk && (
                                 <RHFKontonummerInput
-                                    htmlSize={Bredde.M}
+                                    htmlSize={Bredde.S}
                                     name={'utbetalingsInformasjon.kontonummer'}
                                     label={t('omDeg.utbetalingsInformasjon.kontonummer')}
                                     description={t('omDeg.utbetalingsInformasjon.informasjon')}

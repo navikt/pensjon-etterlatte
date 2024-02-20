@@ -48,7 +48,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                         label={t('merOmSituasjonenDin.selvstendig.orgnr')}
                         maxLength={9}
                         minLength={9}
-                        htmlSize={Bredde.M}
+                        htmlSize={Bredde.S}
                     />
                 </SkjemaElement>
             </SkjemaGruppe>
@@ -61,7 +61,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                         <RHFNumberInput
                             name={`${selvstendigName}.arbeidsmengde.svar` as const}
                             label={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
-                            htmlSize={Bredde.M}
+                            htmlSize={Bredde.S}
                             maxLength={3}
                         />
                         <RHFSelect

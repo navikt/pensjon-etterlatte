@@ -64,7 +64,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             )}
@@ -76,7 +76,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaElement>
                                 <ReadMore
@@ -95,7 +95,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             )}
@@ -107,7 +107,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaElement>
                             )}
@@ -123,7 +123,7 @@ const Loennsinntekt = () => {
                                             description={t(
                                                 'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse'
                                             )}
-                                            htmlSize={Bredde.M}
+                                            htmlSize={Bredde.S}
                                         />
                                     </SkjemaGruppe>
                                 )}
@@ -134,7 +134,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                                 <SkjemaElement>
@@ -144,7 +144,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaElement>
                             </SkjemaGruppe>
@@ -174,7 +174,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             )}
@@ -187,7 +187,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaElement>
                                 <ReadMore
@@ -206,7 +206,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             )}
@@ -218,7 +218,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaElement>
                             )}
@@ -233,7 +233,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             )}
@@ -245,7 +245,7 @@ const Loennsinntekt = () => {
                                         description={t(
                                             'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse'
                                         )}
-                                        htmlSize={Bredde.M}
+                                        htmlSize={Bredde.S}
                                     />
                                 </SkjemaGruppe>
                             )}
@@ -256,7 +256,7 @@ const Loennsinntekt = () => {
                                     description={t(
                                         'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse'
                                     )}
-                                    htmlSize={Bredde.M}
+                                    htmlSize={Bredde.S}
                                 />
                             </SkjemaGruppe>
                             <SkjemaGruppe>
@@ -264,7 +264,7 @@ const Loennsinntekt = () => {
                                     name={'loennsinntekt.utland.inntektIAar.aarsinntekt'}
                                     label={t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt')}
                                     description={t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse')}
-                                    htmlSize={Bredde.M}
+                                    htmlSize={Bredde.S}
                                 />
                             </SkjemaGruppe>
                         </>

@@ -57,7 +57,7 @@ const UnderUtdanning = () => {
                         name={'utdanning.naavaerendeUtdanning.studieprosent'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent')}
                         description={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse')}
-                        htmlSize={Bredde.M}
+                        htmlSize={Bredde.S}
                     />
                 </SkjemaElement>
             )}

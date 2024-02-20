@@ -33,7 +33,7 @@ const SamboerSkjema = () => {
                 <SkjemaElement>
                     <RHFFoedselsnummerInput
                         name={'nySivilstatus.samboerskap.samboer.foedselsnummer'}
-                        htmlSize={Bredde.M}
+                        htmlSize={Bredde.S}
                         label={t('felles.fnr')}
                         rules={{ validate: (value) => fnr(value).status === 'valid' }}
                     />

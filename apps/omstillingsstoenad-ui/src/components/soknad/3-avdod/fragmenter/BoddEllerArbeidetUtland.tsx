@@ -135,7 +135,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     name={
                                         `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
                                     }
-                                    htmlSize={Bredde.M}
+                                    htmlSize={Bredde.S}
                                     valgfri
                                     label={t(
                                         'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse'
