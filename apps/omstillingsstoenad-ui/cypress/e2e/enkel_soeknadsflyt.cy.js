@@ -157,6 +157,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal fylle ut siden "Inntekten din" og gå til neste', () => {
         cy.url().should('include', 'steg/inntekten-din')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
+        cy.intercept('GET', `${basePath}/api/kodeverk/valutaer`, { fixture: 'valuta.json' }).as('valutaer')
 
         const dagensDato = new Date()
         const oktober = 9
