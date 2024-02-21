@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Detail, Label } from '@navikt/ds-react'
+import { Button, Detail, Label, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { DeleteFilled } from '@navikt/ds-icons'
@@ -9,7 +9,6 @@ import { SkjemaElement } from '../../../felles/SkjemaElement'
 import Bredde from '../../../../typer/bredde'
 import { Arbeidsmengde } from '../../../../typer/arbeidsforhold'
 import { IValg } from '../../../../typer/Spoersmaal'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
@@ -97,9 +96,9 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 </SkjemaElement>
             )}
             <SkjemaElement>
-                <HvorforSpoerVi title="dinSituasjon.selvstendig.grunnTilSpoersmål">
+                <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor')}
-                </HvorforSpoerVi>
+                </ReadMore>
             </SkjemaElement>
 
             {lengde > 1 && (

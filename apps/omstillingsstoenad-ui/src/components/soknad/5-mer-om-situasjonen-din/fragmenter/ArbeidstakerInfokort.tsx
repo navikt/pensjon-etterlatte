@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
 import { useTranslation } from 'react-i18next'
-import { Button, Detail, Heading, RadioProps } from '@navikt/ds-react'
+import { Button, Detail, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
@@ -13,7 +13,6 @@ import Bredde from '../../../../typer/bredde'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
-import HvorforSpoerVi from '../../../felles/HvorforSpoerVi'
 
 interface Props {
     lengde: number
@@ -138,9 +137,9 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         />
                     </SkjemaElement>
                 )}
-                <HvorforSpoerVi title={'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar'}>
+                <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
-                </HvorforSpoerVi>
+                </ReadMore>
             </SkjemaGruppe>
 
             {/* VENTER PÅ AVKLARING OM DEN KAN BRUKES
