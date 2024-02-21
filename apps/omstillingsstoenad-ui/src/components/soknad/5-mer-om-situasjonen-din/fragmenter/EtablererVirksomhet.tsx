@@ -38,7 +38,7 @@ const EtablererVirksomhet = () => {
                     description={t('merOmSituasjonenDin.selvstendig.orgnrplaceholder')}
                     maxLength={9}
                     minLength={9}
-                    htmlSize={Bredde.S}
+                    htmlSize={Bredde.M}
                     valgfri={!!!manglerOrgnr?.length}
                 />
             </SkjemaElement>

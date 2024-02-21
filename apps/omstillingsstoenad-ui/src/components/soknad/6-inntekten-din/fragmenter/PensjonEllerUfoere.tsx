@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading, ReadMore } from '@navikt/ds-react'
+import { Heading, ReadMore, HGrid } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
@@ -12,7 +12,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import Bredde from '../../../../typer/bredde'
-import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 import { useValutaer } from '../../../../hooks/useValutaer'
 
 const PensjonEllerUfoere = () => {
@@ -103,12 +102,12 @@ const PensjonEllerUfoere = () => {
                         />
                     </SkjemaElement>
 
-                    <SkjemaGruppeRad>
+                    <HGrid gap={'4'} columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }} align={'start'}>
                         <SkjemaElement>
                             <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
-                                htmlSize={Bredde.S}
+                                htmlSize={Bredde.M}
                             />
                         </SkjemaElement>
 
@@ -117,9 +116,10 @@ const PensjonEllerUfoere = () => {
                                 name={'pensjonEllerUfoere.utland.valuta'}
                                 label={t('inntektenDin.pensjonEllerUfoere.utland.valuta')}
                                 selectOptions={valutaer}
+                                bredde={Bredde.S}
                             />
                         </SkjemaElement>
-                    </SkjemaGruppeRad>
+                    </HGrid>
                 </>
             )}
         </SkjemaGruppe>

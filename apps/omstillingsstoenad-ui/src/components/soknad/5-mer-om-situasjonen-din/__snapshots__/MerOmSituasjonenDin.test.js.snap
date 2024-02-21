@@ -492,7 +492,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="arbeidsforhold[0].arbeidsgiver"
-                size="35"
+                size="25"
                 type="text"
                 value="Potetskreller AS"
               />
@@ -979,7 +979,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
                 aria-describedby="textField-description-r52"
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="selvstendig.[0].beskrivelse"
-                size="35"
+                size="25"
                 type="text"
                 value=""
               />
@@ -2312,7 +2312,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
               <input
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="arbeidsforhold[0].arbeidsgiver"
-                size="35"
+                size="25"
                 type="text"
                 value="Potetskreller AS"
               />
