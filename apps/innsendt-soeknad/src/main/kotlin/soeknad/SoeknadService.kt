@@ -1,6 +1,7 @@
 package no.nav.etterlatte.soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
+import no.nav.etterlatte.SoeknadPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.sikkerLogg
@@ -12,7 +13,7 @@ import soeknad.SoeknadRepository
 import soeknad.Status
 import soeknad.UlagretSoeknad
 
-class SoeknadService(private val db: SoeknadRepository) {
+class SoeknadService(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     fun sendSoeknad(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest, kilde: String): Boolean {
@@ -68,6 +69,7 @@ class SoeknadService(private val db: SoeknadRepository) {
         return soeknader.map {
             db.ferdigstillSoeknad(it).also { ferdigstiltID ->
                 logger.info("Ferdigstilt søknad $ferdigstiltID (type=${it.type})")
+                publiserSoeknad.publiserDeleteUtkastFraMinSide(it.fnr, ferdigstiltID)
             }
         }
     }
@@ -81,12 +83,17 @@ class SoeknadService(private val db: SoeknadRepository) {
         val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson(), kilde))
             .also { logger.info("Lagret kladd (id=${it.id})") }
 
+        publiserSoeknad.publiserCreateUtkastTilMinSide(lagretkladd, kilde)
+
         return lagretkladd.id
     }
 
     fun slettKladd(innloggetBruker: Foedselsnummer, kilde: String) {
         db.slettKladd(innloggetBruker.value, kilde)
-            ?.also { logger.info("Slettet kladd (id=${it})") }
+            ?.also {
+                logger.info("Slettet kladd (id=${it})")
+                publiserSoeknad.publiserDeleteUtkastFraMinSide(innloggetBruker.value, it)
+            }
     }
 }
 

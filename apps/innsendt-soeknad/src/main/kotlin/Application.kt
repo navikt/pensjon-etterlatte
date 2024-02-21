@@ -48,7 +48,7 @@ fun main() {
         put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
     }
     val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
-        .withKtorModule { apiModule { soeknadApi(SoeknadService(db)) } }
+        .withKtorModule { apiModule { soeknadApi(SoeknadService(db) } }
         .build().also { rapidConnection ->
             JournalpostSkrevet(rapidConnection, db)
             BehandlingOpprettetDoffen(rapidConnection, db)

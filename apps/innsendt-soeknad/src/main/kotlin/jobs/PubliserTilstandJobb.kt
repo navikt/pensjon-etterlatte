@@ -43,7 +43,12 @@ class PubliserTilstandJobb(private val db: SoeknadRepository, private val publis
                 }
 
                 db.slettUtgaatteKladder().also {
-                    if (it > 0) logger.info("Slettet $it kladd(er) som var utgått")
+                    if (it.isNotEmpty()) {
+                        logger.info("Slettet ${it.size} kladd(er) som var utgått")
+                        it.forEach { soeknad ->
+                            publiserSoeknad.publiserDeleteUtkastFraMinSide(soeknad.fnr, soeknad.id)
+                        }
+                    }
                 }
 
                 db.usendteSoeknader().also {

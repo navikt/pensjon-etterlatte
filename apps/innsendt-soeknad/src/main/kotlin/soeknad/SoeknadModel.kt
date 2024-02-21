@@ -33,6 +33,11 @@ data class RapportLinje(
     val count: String
 )
 
+data class SlettetSoeknad(
+    val id: Long,
+    val fnr: String
+)
+
 enum class Status {
     LAGRETKLADD,
     FERDIGSTILT,

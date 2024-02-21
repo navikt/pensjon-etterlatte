@@ -48,7 +48,7 @@ interface SoeknadRepository {
     fun finnKladd(fnr: String, kilde: String): LagretSoeknad?
     fun slettKladd(fnr: String, kilde: String): SoeknadID?
     fun slettOgKonverterKladd(fnr: String, kilde: String): SoeknadID?
-    fun slettUtgaatteKladder(): Int
+    fun slettUtgaatteKladder(): List<SlettetSoeknad>
     fun arkiverteUtenBehandlingIDoffen(): List<LagretSoeknad>
 }
 
@@ -175,16 +175,16 @@ class PostgresSoeknadRepository private constructor(
         it.prepareStatement(SLETT_ARKIVERTE_SOEKNADER).executeUpdate()
     }
 
-    override fun slettUtgaatteKladder(): Int {
+    override fun slettUtgaatteKladder(): List<SlettetSoeknad> {
         val slettedeKladder = connection.use {
             it.prepareStatement(SLETT_UTGAATTE_KLADDER)
                 .executeQuery()
-                .toList { getLong(1) }
+                .toList { SlettetSoeknad( getLong(1), getString(2)) }
         }
 
-        slettedeKladder.forEach { nyStatus(soeknadId = it, status = UTGAATT) }
+        slettedeKladder.forEach { nyStatus(soeknadId = it.id, status = UTGAATT) }
 
-        return slettedeKladder.size
+        return slettedeKladder
     }
 
 
@@ -431,6 +431,6 @@ private object Queries {
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id NOT IN (${Status.innsendt.toSqlString()}))
         AND NOT EXISTS (
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.opprettet >= (now() - interval '72 hours'))
-        RETURNING i.soeknad_id
+        RETURNING i.soeknad_id, i.fnr
     """.trimIndent()
 }
