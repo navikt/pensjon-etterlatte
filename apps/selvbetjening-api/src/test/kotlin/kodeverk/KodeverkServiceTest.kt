@@ -134,7 +134,7 @@ internal class KodeverkServiceTest {
 
                 assertEquals(3, valutaer.size)
 
-                val forventedeValutaer = "[{\"FJD\":{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}}}},{\"STD\":{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dobras S\u00d2o Tomeand Principe\",\"tekst\":\"Dobras S\u00d2o Tomeand Principe\"}}}},{\"SCR\":{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}}}]"
+                val forventedeValutaer = "[{\"isoKode\":\"FJD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}},{\"isoKode\":\"STD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dobras SÒo Tomeand Principe\",\"tekst\":\"Dobras SÒo Tomeand Principe\"}},{\"isoKode\":\"SCR\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}]"
                 assertEquals(forventedeValutaer, valutaer.toJson())
             }
         }
@@ -142,7 +142,7 @@ internal class KodeverkServiceTest {
         @Test
         fun `Cache for valutaer fungerer`() {
             coEvery { mockKlient.hentValutaer() } returns opprettValutaerResponse()
-            val forventedeValutaer = "[{\"FJD\":{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}}}},{\"STD\":{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Dobras S\u00d2o Tomeand Principe\",\"tekst\":\"Dobras S\u00d2o Tomeand Principe\"}}}},{\"SCR\":{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nb\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}}}]"
+            val forventedeValutaer = "[{\"isoKode\":\"FJD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}},{\"isoKode\":\"STD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dobras SÒo Tomeand Principe\",\"tekst\":\"Dobras SÒo Tomeand Principe\"}},{\"isoKode\":\"SCR\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}]"
 
             runBlocking {
                 val alleValutaer = service.hentValutaer()

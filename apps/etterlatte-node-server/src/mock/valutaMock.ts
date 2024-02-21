@@ -1,1970 +1,1478 @@
 export default [
     {
-        FJD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Fiji',
-                    tekst: 'Dollars Fiji',
-                },
-            },
-        },
-    },
-    {
-        STD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dobras SÒo Tomeand Principe',
-                    tekst: 'Dobras SÒo Tomeand Principe',
-                },
-            },
-        },
-    },
-    {
-        MXN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Mexico',
-                    tekst: 'Mexico',
-                },
-            },
-        },
-    },
-    {
-        SCR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rupees Seychelles',
-                    tekst: 'Rupees Seychelles',
-                },
-            },
-        },
-    },
-    {
-        LVL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Latvia',
-                    tekst: 'Latvia',
-                },
-            },
-        },
-    },
-    {
-        TVD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tuvalu Dollars Tuvalu',
-                    tekst: 'Tuvalu Dollars Tuvalu',
-                },
-            },
-        },
-    },
-    {
-        CDF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Congolese Francsá Congo/Kinshas',
-                    tekst: 'Congolese Francsá Congo/Kinshas',
-                },
-            },
-        },
-    },
-    {
-        BBD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Barbados',
-                    tekst: 'Dollars Barbados',
-                },
-            },
-        },
-    },
-    {
-        GTQ: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Quetzales Guatemala',
-                    tekst: 'Quetzales Guatemala',
-                },
-            },
+        isoKode: 'FJD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Fiji',
+            tekst: 'Dollars Fiji',
         },
     },
     {
-        CLP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pesos Chile',
-                    tekst: 'Pesos Chile',
-                },
-            },
+        isoKode: 'STD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dobras SÒo Tomeand Principe',
+            tekst: 'Dobras SÒo Tomeand Principe',
         },
     },
     {
-        UGX: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Shillings Uganda',
-                    tekst: 'Shillings Uganda',
-                },
-            },
+        isoKode: 'MXN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Mexico',
+            tekst: 'Mexico',
         },
     },
     {
-        HNL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Lempiras Honduras',
-                    tekst: 'Lempiras Honduras',
-                },
-            },
+        isoKode: 'SCR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rupees Seychelles',
+            tekst: 'Rupees Seychelles',
         },
     },
     {
-        ZAR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Sør-Afrikanse rand',
-                    tekst: 'Sør-Afrikanse rand',
-                },
-            },
+        isoKode: 'LVL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Latvia',
+            tekst: 'Latvia',
         },
     },
     {
-        TND: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tunis',
-                    tekst: 'Tunis',
-                },
-            },
+        isoKode: 'TVD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tuvalu Dollars Tuvalu',
+            tekst: 'Tuvalu Dollars Tuvalu',
         },
     },
     {
-        SLL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Leones SierraLeone',
-                    tekst: 'Leones SierraLeone',
-                },
-            },
+        isoKode: 'CDF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Congolese Francsá Congo/Kinshas',
+            tekst: 'Congolese Francsá Congo/Kinshas',
         },
     },
     {
-        BSD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Bahamas',
-                    tekst: 'Dollars Bahamas',
-                },
-            },
+        isoKode: 'BBD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Barbados',
+            tekst: 'Dollars Barbados',
         },
     },
     {
-        SDD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Sudan dinar',
-                    tekst: 'Sudan dinar',
-                },
-            },
+        isoKode: 'GTQ',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Quetzales Guatemala',
+            tekst: 'Quetzales Guatemala',
         },
     },
     {
-        IQD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dinars Iraq',
-                    tekst: 'Dinars Iraq',
-                },
-            },
+        isoKode: 'CLP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pesos Chile',
+            tekst: 'Pesos Chile',
         },
     },
     {
-        CUP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pesos Cuba',
-                    tekst: 'Pesos Cuba',
-                },
-            },
+        isoKode: 'UGX',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Shillings Uganda',
+            tekst: 'Shillings Uganda',
         },
     },
     {
-        GMD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dalasi Gambia',
-                    tekst: 'Dalasi Gambia',
-                },
-            },
+        isoKode: 'HNL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Lempiras Honduras',
+            tekst: 'Lempiras Honduras',
         },
     },
     {
-        TWD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Taiwan',
-                    tekst: 'Taiwan',
-                },
-            },
+        isoKode: 'ZAR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Sør-Afrikanse rand',
+            tekst: 'Sør-Afrikanse rand',
         },
     },
     {
-        DOP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pesos Dominican Republic',
-                    tekst: 'Pesos Dominican Republic',
-                },
-            },
+        isoKode: 'TND',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tunis',
+            tekst: 'Tunis',
         },
     },
     {
-        KMF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Francs Comoros',
-                    tekst: 'Francs Comoros',
-                },
-            },
+        isoKode: 'SLL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Leones SierraLeone',
+            tekst: 'Leones SierraLeone',
         },
     },
     {
-        MYR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Malaysia Ringgit',
-                    tekst: 'Malaysia Ringgit',
-                },
-            },
+        isoKode: 'BSD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Bahamas',
+            tekst: 'Dollars Bahamas',
         },
     },
     {
-        FKP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Falkland Islands (Malvin',
-                    tekst: 'Pounds Falkland Islands (Malvin',
-                },
-            },
+        isoKode: 'SDD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Sudan dinar',
+            tekst: 'Sudan dinar',
         },
     },
     {
-        XOF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Benin,BurkinaFaso,IvoryCoast,Mali,Niger,Senega',
-                    tekst: 'Benin,BurkinaFaso,IvoryCoast,Mali,Niger,Senega',
-                },
-            },
+        isoKode: 'IQD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dinars Iraq',
+            tekst: 'Dinars Iraq',
         },
     },
     {
-        GEL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Lari Georgia',
-                    tekst: 'Lari Georgia',
-                },
-            },
+        isoKode: 'CUP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pesos Cuba',
+            tekst: 'Pesos Cuba',
         },
     },
     {
-        UYU: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pesos Uruguay',
-                    tekst: 'Pesos Uruguay',
-                },
-            },
+        isoKode: 'GMD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dalasi Gambia',
+            tekst: 'Dalasi Gambia',
         },
     },
     {
-        MAD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Marokko',
-                    tekst: 'Marokko',
-                },
-            },
+        isoKode: 'TWD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Taiwan',
+            tekst: 'Taiwan',
         },
     },
     {
-        CVE: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Escudos Cape Verde',
-                    tekst: 'Escudos Cape Verde',
-                },
-            },
+        isoKode: 'DOP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pesos Dominican Republic',
+            tekst: 'Pesos Dominican Republic',
         },
     },
     {
-        TOP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: "Pa'anga Tonga",
-                    tekst: "Pa'anga Tonga",
-                },
-            },
+        isoKode: 'KMF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Francs Comoros',
+            tekst: 'Francs Comoros',
         },
     },
     {
-        AZM: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Manats Azerbaijan',
-                    tekst: 'Manats Azerbaijan',
-                },
-            },
+        isoKode: 'MYR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Malaysia Ringgit',
+            tekst: 'Malaysia Ringgit',
         },
     },
     {
-        OMR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rials Oman',
-                    tekst: 'Rials Oman',
-                },
-            },
+        isoKode: 'FKP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Falkland Islands (Malvin',
+            tekst: 'Pounds Falkland Islands (Malvin',
         },
     },
     {
-        PGK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kina Papua New Guinea',
-                    tekst: 'Kina Papua New Guinea',
-                },
-            },
+        isoKode: 'XOF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Benin,BurkinaFaso,IvoryCoast,Mali,Niger,Senega',
+            tekst: 'Benin,BurkinaFaso,IvoryCoast,Mali,Niger,Senega',
         },
     },
     {
-        SEK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Svenske kroner',
-                    tekst: 'Svenske kroner',
-                },
-            },
+        isoKode: 'GEL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Lari Georgia',
+            tekst: 'Lari Georgia',
         },
     },
     {
-        KES: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kenya',
-                    tekst: 'Kenya',
-                },
-            },
+        isoKode: 'UYU',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pesos Uruguay',
+            tekst: 'Pesos Uruguay',
         },
     },
     {
-        UAH: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Hryvnia Ukraine',
-                    tekst: 'Hryvnia Ukraine',
-                },
-            },
+        isoKode: 'MAD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Marokko',
+            tekst: 'Marokko',
         },
     },
     {
-        BTN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Ngultrum Bhutan',
-                    tekst: 'Ngultrum Bhutan',
-                },
-            },
+        isoKode: 'CVE',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Escudos Cape Verde',
+            tekst: 'Escudos Cape Verde',
         },
     },
     {
-        GNF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Francs Guinea',
-                    tekst: 'Francs Guinea',
-                },
-            },
+        isoKode: 'TOP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: "Pa'anga Tonga",
+            tekst: "Pa'anga Tonga",
         },
     },
     {
-        ERN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Nakfa Eritrea',
-                    tekst: 'Nakfa Eritrea',
-                },
-            },
+        isoKode: 'AZM',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Manats Azerbaijan',
+            tekst: 'Manats Azerbaijan',
         },
     },
     {
-        SVC: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Colones El Salvador',
-                    tekst: 'Colones El Salvador',
-                },
-            },
+        isoKode: 'OMR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rials Oman',
+            tekst: 'Rials Oman',
         },
     },
     {
-        MZM: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Meticais Mozambique',
-                    tekst: 'Meticais Mozambique',
-                },
-            },
+        isoKode: 'PGK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kina Papua New Guinea',
+            tekst: 'Kina Papua New Guinea',
         },
     },
     {
-        ARS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pesos Argentina',
-                    tekst: 'Pesos Argentina',
-                },
-            },
+        isoKode: 'SEK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Svenske kroner',
+            tekst: 'Svenske kroner',
         },
     },
     {
-        QAR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Qatar',
-                    tekst: 'Qatar',
-                },
-            },
+        isoKode: 'KES',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kenya',
+            tekst: 'Kenya',
         },
     },
     {
-        IRR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rials Iran',
-                    tekst: 'Rials Iran',
-                },
-            },
+        isoKode: 'UAH',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Hryvnia Ukraine',
+            tekst: 'Hryvnia Ukraine',
         },
     },
     {
-        MRO: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Ouguiyas Mauritania',
-                    tekst: 'Ouguiyas Mauritania',
-                },
-            },
+        isoKode: 'BTN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Ngultrum Bhutan',
+            tekst: 'Ngultrum Bhutan',
         },
     },
     {
-        UZS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Sums Uzbekistan',
-                    tekst: 'Sums Uzbekistan',
-                },
-            },
+        isoKode: 'GNF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Francs Guinea',
+            tekst: 'Francs Guinea',
         },
     },
     {
-        CNY: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kina',
-                    tekst: 'Kina',
-                },
-            },
+        isoKode: 'ERN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Nakfa Eritrea',
+            tekst: 'Nakfa Eritrea',
         },
     },
     {
-        THB: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Thailandske baht',
-                    tekst: 'Thailandske baht',
-                },
-            },
+        isoKode: 'SVC',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Colones El Salvador',
+            tekst: 'Colones El Salvador',
         },
     },
     {
-        BDT: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Taka Bangladesh',
-                    tekst: 'Taka Bangladesh',
-                },
-            },
+        isoKode: 'MZM',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Meticais Mozambique',
+            tekst: 'Meticais Mozambique',
         },
     },
     {
-        LYD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dinars Libya',
-                    tekst: 'Dinars Libya',
-                },
-            },
+        isoKode: 'ARS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pesos Argentina',
+            tekst: 'Pesos Argentina',
         },
     },
     {
-        BMD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Bermuda',
-                    tekst: 'Dollars Bermuda',
-                },
-            },
+        isoKode: 'QAR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Qatar',
+            tekst: 'Qatar',
         },
     },
     {
-        PHP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Filippinene',
-                    tekst: 'Filippinene',
-                },
-            },
+        isoKode: 'IRR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rials Iran',
+            tekst: 'Rials Iran',
         },
     },
     {
-        KWD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kuwait',
-                    tekst: 'Kuwait',
-                },
-            },
+        isoKode: 'MRO',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Ouguiyas Mauritania',
+            tekst: 'Ouguiyas Mauritania',
         },
     },
     {
-        RUB: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Russland',
-                    tekst: 'Russland',
-                },
-            },
+        isoKode: 'UZS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Sums Uzbekistan',
+            tekst: 'Sums Uzbekistan',
         },
     },
     {
-        PYG: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Guarani Paraguay',
-                    tekst: 'Guarani Paraguay',
-                },
-            },
+        isoKode: 'CNY',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kina',
+            tekst: 'Kina',
         },
     },
     {
-        JMD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Jamaica',
-                    tekst: 'Dollars Jamaica',
-                },
-            },
+        isoKode: 'THB',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Thailandske baht',
+            tekst: 'Thailandske baht',
         },
     },
     {
-        ISK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Islandske kroner',
-                    tekst: 'Islandske kroner',
-                },
-            },
+        isoKode: 'BDT',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Taka Bangladesh',
+            tekst: 'Taka Bangladesh',
         },
     },
     {
-        COP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pesos Colombia',
-                    tekst: 'Pesos Colombia',
-                },
-            },
+        isoKode: 'LYD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dinars Libya',
+            tekst: 'Dinars Libya',
         },
     },
     {
-        MKD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Denars Macedonia',
-                    tekst: 'Denars Macedonia',
-                },
-            },
+        isoKode: 'BMD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Bermuda',
+            tekst: 'Dollars Bermuda',
         },
     },
     {
-        USD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Amerikanske dollar',
-                    tekst: 'Amerikanske dollar',
-                },
-            },
+        isoKode: 'PHP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Filippinene',
+            tekst: 'Filippinene',
         },
     },
     {
-        DZD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Algerie Dinarer',
-                    tekst: 'Algerie Dinarer',
-                },
-            },
+        isoKode: 'KWD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kuwait',
+            tekst: 'Kuwait',
         },
     },
     {
-        PAB: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Balboa Panama',
-                    tekst: 'Balboa Panama',
-                },
-            },
+        isoKode: 'RUB',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Russland',
+            tekst: 'Russland',
         },
     },
     {
-        SGD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Singapore dollar',
-                    tekst: 'Singapore dollar',
-                },
-            },
+        isoKode: 'PYG',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Guarani Paraguay',
+            tekst: 'Guarani Paraguay',
         },
     },
     {
-        GGP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Guernsey',
-                    tekst: 'Pounds Guernsey',
-                },
-            },
+        isoKode: 'JMD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Jamaica',
+            tekst: 'Dollars Jamaica',
         },
     },
     {
-        VEB: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Bolivares Venezuela',
-                    tekst: 'Bolivares Venezuela',
-                },
-            },
+        isoKode: 'ISK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Islandske kroner',
+            tekst: 'Islandske kroner',
         },
     },
     {
-        ETB: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Birr Ethiopia',
-                    tekst: 'Birr Ethiopia',
-                },
-            },
+        isoKode: 'COP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pesos Colombia',
+            tekst: 'Pesos Colombia',
         },
     },
     {
-        JEP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Jersey',
-                    tekst: 'Pounds Jersey',
-                },
-            },
+        isoKode: 'MKD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Denars Macedonia',
+            tekst: 'Denars Macedonia',
         },
     },
     {
-        VUV: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Vatu Vanuatu',
-                    tekst: 'Vatu Vanuatu',
-                },
-            },
+        isoKode: 'USD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Amerikanske dollar',
+            tekst: 'Amerikanske dollar',
         },
     },
     {
-        KGS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Soms Kyrgyzstan',
-                    tekst: 'Soms Kyrgyzstan',
-                },
-            },
+        isoKode: 'DZD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Algerie Dinarer',
+            tekst: 'Algerie Dinarer',
         },
     },
     {
-        SOS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Shillings Somalia',
-                    tekst: 'Shillings Somalia',
-                },
-            },
+        isoKode: 'PAB',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Balboa Panama',
+            tekst: 'Balboa Panama',
         },
     },
     {
-        LAK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kips Laos',
-                    tekst: 'Kips Laos',
-                },
-            },
+        isoKode: 'SGD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Singapore dollar',
+            tekst: 'Singapore dollar',
         },
     },
     {
-        ZMK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kwacha Zambia',
-                    tekst: 'Kwacha Zambia',
-                },
-            },
+        isoKode: 'GGP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Guernsey',
+            tekst: 'Pounds Guernsey',
         },
     },
     {
-        BND: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Brunei Darussalam',
-                    tekst: 'Dollars Brunei Darussalam',
-                },
-            },
+        isoKode: 'VEB',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Bolivares Venezuela',
+            tekst: 'Bolivares Venezuela',
         },
     },
     {
-        XAF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Francs CommunautÚ FinanciÞre Af',
-                    tekst: 'Francs CommunautÚ FinanciÞre Af',
-                },
-            },
+        isoKode: 'ETB',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Birr Ethiopia',
+            tekst: 'Birr Ethiopia',
         },
     },
     {
-        LRD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Liberia',
-                    tekst: 'Dollars Liberia',
-                },
-            },
+        isoKode: 'JEP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Jersey',
+            tekst: 'Pounds Jersey',
         },
     },
     {
-        CHF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Sveitsiske franc',
-                    tekst: 'Sveitsiske franc',
-                },
-            },
+        isoKode: 'VUV',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Vatu Vanuatu',
+            tekst: 'Vatu Vanuatu',
         },
     },
     {
-        HRK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kuna Croatia',
-                    tekst: 'Kuna Croatia',
-                },
-            },
+        isoKode: 'KGS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Soms Kyrgyzstan',
+            tekst: 'Soms Kyrgyzstan',
         },
     },
     {
-        ALL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Leke Albania',
-                    tekst: 'Leke Albania',
-                },
-            },
+        isoKode: 'SOS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Shillings Somalia',
+            tekst: 'Shillings Somalia',
         },
     },
     {
-        DJF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Francs Djibouti',
-                    tekst: 'Francs Djibouti',
-                },
-            },
+        isoKode: 'LAK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kips Laos',
+            tekst: 'Kips Laos',
         },
     },
     {
-        GHC: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Cedis Ghana',
-                    tekst: 'Cedis Ghana',
-                },
-            },
+        isoKode: 'ZMK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kwacha Zambia',
+            tekst: 'Kwacha Zambia',
         },
     },
     {
-        MTL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Malta',
-                    tekst: 'Malta',
-                },
-            },
+        isoKode: 'BND',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Brunei Darussalam',
+            tekst: 'Dollars Brunei Darussalam',
         },
     },
     {
-        TZS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tanzania',
-                    tekst: 'Tanzania',
-                },
-            },
+        isoKode: 'XAF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Francs CommunautÚ FinanciÞre Af',
+            tekst: 'Francs CommunautÚ FinanciÞre Af',
         },
     },
     {
-        VND: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dong Vietnam',
-                    tekst: 'Dong Vietnam',
-                },
-            },
+        isoKode: 'LRD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Liberia',
+            tekst: 'Dollars Liberia',
         },
     },
     {
-        SPL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Luigini Seborga',
-                    tekst: 'Luigini Seborga',
-                },
-            },
+        isoKode: 'CHF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Sveitsiske franc',
+            tekst: 'Sveitsiske franc',
         },
     },
     {
-        AUD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Australske dollar',
-                    tekst: 'Australske dollar',
-                },
-            },
+        isoKode: 'HRK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kuna Croatia',
+            tekst: 'Kuna Croatia',
         },
     },
     {
-        ILS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Israel',
-                    tekst: 'Israel',
-                },
-            },
+        isoKode: 'ALL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Leke Albania',
+            tekst: 'Leke Albania',
         },
     },
     {
-        KPW: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Won Korea (North)',
-                    tekst: 'Won Korea (North)',
-                },
-            },
+        isoKode: 'DJF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Francs Djibouti',
+            tekst: 'Francs Djibouti',
         },
     },
     {
-        GYD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Guyana',
-                    tekst: 'Guyana',
-                },
-            },
+        isoKode: 'GHC',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Cedis Ghana',
+            tekst: 'Cedis Ghana',
         },
     },
     {
-        MDL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Lei Moldova',
-                    tekst: 'Lei Moldova',
-                },
-            },
+        isoKode: 'MTL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Malta',
+            tekst: 'Malta',
         },
     },
     {
-        BOB: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Bolivianos Bolivia',
-                    tekst: 'Bolivianos Bolivia',
-                },
-            },
+        isoKode: 'TZS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tanzania',
+            tekst: 'Tanzania',
         },
     },
     {
-        KHR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Riels Cambodia',
-                    tekst: 'Riels Cambodia',
-                },
-            },
+        isoKode: 'VND',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dong Vietnam',
+            tekst: 'Dong Vietnam',
         },
     },
     {
-        IDR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Indonesia',
-                    tekst: 'Indonesia',
-                },
-            },
+        isoKode: 'SPL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Luigini Seborga',
+            tekst: 'Luigini Seborga',
         },
     },
     {
-        KYD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Cayman Islands',
-                    tekst: 'Dollars Cayman Islands',
-                },
-            },
+        isoKode: 'AUD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Australske dollar',
+            tekst: 'Australske dollar',
         },
     },
     {
-        AMD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Drams Armenia',
-                    tekst: 'Drams Armenia',
-                },
-            },
+        isoKode: 'ILS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Israel',
+            tekst: 'Israel',
         },
     },
     {
-        SHP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Saint Helena',
-                    tekst: 'Pounds Saint Helena',
-                },
-            },
+        isoKode: 'KPW',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Won Korea (North)',
+            tekst: 'Won Korea (North)',
         },
     },
     {
-        TRY: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tyrkia',
-                    tekst: 'Tyrkia',
-                },
-            },
+        isoKode: 'GYD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Guyana',
+            tekst: 'Guyana',
         },
     },
     {
-        BWP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pulas Botswana',
-                    tekst: 'Pulas Botswana',
-                },
-            },
+        isoKode: 'MDL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Lei Moldova',
+            tekst: 'Lei Moldova',
         },
     },
     {
-        CYP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kypros',
-                    tekst: 'Kypros',
-                },
-            },
+        isoKode: 'BOB',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Bolivianos Bolivia',
+            tekst: 'Bolivianos Bolivia',
         },
     },
     {
-        LBP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Lebanon',
-                    tekst: 'Pounds Lebanon',
-                },
-            },
+        isoKode: 'KHR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Riels Cambodia',
+            tekst: 'Riels Cambodia',
         },
     },
     {
-        TJS: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Somoni Tajikistan',
-                    tekst: 'Somoni Tajikistan',
-                },
-            },
+        isoKode: 'IDR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Indonesia',
+            tekst: 'Indonesia',
         },
     },
     {
-        JOD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dinars Jordan',
-                    tekst: 'Dinars Jordan',
-                },
-            },
+        isoKode: 'KYD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Cayman Islands',
+            tekst: 'Dollars Cayman Islands',
         },
     },
     {
-        RWF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rwanda Francs Rwanda',
-                    tekst: 'Rwanda Francs Rwanda',
-                },
-            },
+        isoKode: 'AMD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Drams Armenia',
+            tekst: 'Drams Armenia',
         },
     },
     {
-        HKD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Hong Kong Dollar',
-                    tekst: 'Hong Kong Dollar',
-                },
-            },
+        isoKode: 'SHP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Saint Helena',
+            tekst: 'Pounds Saint Helena',
         },
     },
     {
-        AED: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Emiratene',
-                    tekst: 'Emiratene',
-                },
-            },
+        isoKode: 'TRY',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tyrkia',
+            tekst: 'Tyrkia',
         },
     },
     {
-        EUR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Euro',
-                    tekst: 'Euro',
-                },
-            },
+        isoKode: 'BWP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pulas Botswana',
+            tekst: 'Pulas Botswana',
         },
     },
     {
-        LSL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Maloti Lesotho',
-                    tekst: 'Maloti Lesotho',
-                },
-            },
+        isoKode: 'CYP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kypros',
+            tekst: 'Kypros',
         },
     },
     {
-        DKK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Danske kroner',
-                    tekst: 'Danske kroner',
-                },
-            },
+        isoKode: 'LBP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Lebanon',
+            tekst: 'Pounds Lebanon',
         },
     },
     {
-        ZWD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Zimbabwe',
-                    tekst: 'Zimbabwe',
-                },
-            },
+        isoKode: 'TJS',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Somoni Tajikistan',
+            tekst: 'Somoni Tajikistan',
         },
     },
     {
-        CAD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kanadiske dollar',
-                    tekst: 'Kanadiske dollar',
-                },
-            },
+        isoKode: 'JOD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dinars Jordan',
+            tekst: 'Dinars Jordan',
         },
     },
     {
-        BGN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Leva Bulgaria',
-                    tekst: 'Leva Bulgaria',
-                },
-            },
+        isoKode: 'RWF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rwanda Francs Rwanda',
+            tekst: 'Rwanda Francs Rwanda',
         },
     },
     {
-        MMK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kyats Myanmar (Burma)',
-                    tekst: 'Kyats Myanmar (Burma)',
-                },
-            },
+        isoKode: 'HKD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Hong Kong Dollar',
+            tekst: 'Hong Kong Dollar',
         },
     },
     {
-        NOK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Norske kroner',
-                    tekst: 'Norske kroner',
-                },
-            },
+        isoKode: 'AED',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Emiratene',
+            tekst: 'Emiratene',
         },
     },
     {
-        SYP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Syria',
-                    tekst: 'Pounds Syria',
-                },
-            },
+        isoKode: 'EUR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Euro',
+            tekst: 'Euro',
         },
     },
     {
-        MUR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rupees Mauritius',
-                    tekst: 'Rupees Mauritius',
-                },
-            },
+        isoKode: 'LSL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Maloti Lesotho',
+            tekst: 'Maloti Lesotho',
         },
     },
     {
-        IMP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Isle of Man',
-                    tekst: 'Pounds Isle of Man',
-                },
-            },
+        isoKode: 'DKK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Danske kroner',
+            tekst: 'Danske kroner',
         },
     },
     {
-        ROL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Lei Romania',
-                    tekst: 'Lei Romania',
-                },
-            },
+        isoKode: 'ZWD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Zimbabwe',
+            tekst: 'Zimbabwe',
         },
     },
     {
-        GIP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Gibraltar',
-                    tekst: 'Pounds Gibraltar',
-                },
-            },
+        isoKode: 'CAD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kanadiske dollar',
+            tekst: 'Kanadiske dollar',
         },
     },
     {
-        LKR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Sri Lanka',
-                    tekst: 'Sri Lanka',
-                },
-            },
+        isoKode: 'BGN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Leva Bulgaria',
+            tekst: 'Leva Bulgaria',
         },
     },
     {
-        NGN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Nairas Nigeria',
-                    tekst: 'Nairas Nigeria',
-                },
-            },
+        isoKode: 'MMK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kyats Myanmar (Burma)',
+            tekst: 'Kyats Myanmar (Burma)',
         },
     },
     {
-        CZK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tjekkia',
-                    tekst: 'Tjekkia',
-                },
-            },
+        isoKode: 'NOK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Norske kroner',
+            tekst: 'Norske kroner',
         },
     },
     {
-        CRC: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Colones CostaRica',
-                    tekst: 'Colones CostaRica',
-                },
-            },
+        isoKode: 'SYP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Syria',
+            tekst: 'Pounds Syria',
         },
     },
     {
-        PKR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pakistanske Roupies',
-                    tekst: 'Pakistanske Roupies',
-                },
-            },
+        isoKode: 'MUR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rupees Mauritius',
+            tekst: 'Rupees Mauritius',
         },
     },
     {
-        ANG: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Guilders Netherlands Antilles',
-                    tekst: 'Guilders Netherlands Antilles',
-                },
-            },
+        isoKode: 'IMP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Isle of Man',
+            tekst: 'Pounds Isle of Man',
         },
     },
     {
-        HTG: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Gourdes Haiti',
-                    tekst: 'Gourdes Haiti',
-                },
-            },
+        isoKode: 'ROL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Lei Romania',
+            tekst: 'Lei Romania',
         },
     },
     {
-        AFA: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Afghanis Afghanistan',
-                    tekst: 'Afghanis Afghanistan',
-                },
-            },
+        isoKode: 'GIP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Gibraltar',
+            tekst: 'Pounds Gibraltar',
         },
     },
     {
-        SIT: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tolars Slovenia',
-                    tekst: 'Tolars Slovenia',
-                },
-            },
+        isoKode: 'LKR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Sri Lanka',
+            tekst: 'Sri Lanka',
         },
     },
     {
-        BHD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Bahrain dinarer',
-                    tekst: 'Bahrain dinarer',
-                },
-            },
+        isoKode: 'NGN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Nairas Nigeria',
+            tekst: 'Nairas Nigeria',
         },
     },
     {
-        KZT: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tenge Kazakstan',
-                    tekst: 'Tenge Kazakstan',
-                },
-            },
+        isoKode: 'CZK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tjekkia',
+            tekst: 'Tjekkia',
         },
     },
     {
-        SRD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Suriname',
-                    tekst: 'Dollars Suriname',
-                },
-            },
+        isoKode: 'CRC',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Colones CostaRica',
+            tekst: 'Colones CostaRica',
         },
     },
     {
-        SZL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Emalangeni Swaziland',
-                    tekst: 'Emalangeni Swaziland',
-                },
-            },
+        isoKode: 'PKR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pakistanske Roupies',
+            tekst: 'Pakistanske Roupies',
         },
     },
     {
-        LTL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Litauen',
-                    tekst: 'Litauen',
-                },
-            },
+        isoKode: 'ANG',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Guilders Netherlands Antilles',
+            tekst: 'Guilders Netherlands Antilles',
         },
     },
     {
-        SAR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Saudi Arabia',
-                    tekst: 'Saudi Arabia',
-                },
-            },
+        isoKode: 'HTG',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Gourdes Haiti',
+            tekst: 'Gourdes Haiti',
         },
     },
     {
-        TTD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Trinidadand Tobago',
-                    tekst: 'Dollars Trinidadand Tobago',
-                },
-            },
+        isoKode: 'AFA',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Afghanis Afghanistan',
+            tekst: 'Afghanis Afghanistan',
         },
     },
     {
-        YER: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rials Yemen',
-                    tekst: 'Rials Yemen',
-                },
-            },
+        isoKode: 'SIT',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tolars Slovenia',
+            tekst: 'Tolars Slovenia',
         },
     },
     {
-        MVR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rufiyaa Maldives (Maldive Islan',
-                    tekst: 'Rufiyaa Maldives (Maldive Islan',
-                },
-            },
+        isoKode: 'BHD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Bahrain dinarer',
+            tekst: 'Bahrain dinarer',
         },
     },
     {
-        INR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Indiske Rupi',
-                    tekst: 'Indiske Rupi',
-                },
-            },
+        isoKode: 'KZT',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tenge Kazakstan',
+            tekst: 'Tenge Kazakstan',
         },
     },
     {
-        KRW: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Sør-Korea',
-                    tekst: 'Sør-Korea',
-                },
-            },
+        isoKode: 'SRD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Suriname',
+            tekst: 'Dollars Suriname',
         },
     },
     {
-        AWG: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Guilders Aruba',
-                    tekst: 'Guilders Aruba',
-                },
-            },
+        isoKode: 'SZL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Emalangeni Swaziland',
+            tekst: 'Emalangeni Swaziland',
         },
     },
     {
-        NPR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Nepal Rupees Nepal',
-                    tekst: 'Nepal Rupees Nepal',
-                },
-            },
+        isoKode: 'LTL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Litauen',
+            tekst: 'Litauen',
         },
     },
     {
-        JPY: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Japanske Yen',
-                    tekst: 'Japanske Yen',
-                },
-            },
+        isoKode: 'SAR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Saudi Arabia',
+            tekst: 'Saudi Arabia',
         },
     },
     {
-        MNT: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tugriks Mongolia',
-                    tekst: 'Tugriks Mongolia',
-                },
-            },
+        isoKode: 'TTD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Trinidadand Tobago',
+            tekst: 'Dollars Trinidadand Tobago',
         },
     },
     {
-        PLN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Polen',
-                    tekst: 'Polen',
-                },
-            },
+        isoKode: 'YER',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rials Yemen',
+            tekst: 'Rials Yemen',
         },
     },
     {
-        AOA: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kwanza Angola',
-                    tekst: 'Kwanza Angola',
-                },
-            },
+        isoKode: 'MVR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rufiyaa Maldives (Maldive Islan',
+            tekst: 'Rufiyaa Maldives (Maldive Islan',
         },
     },
     {
-        GBP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Britiske pund',
-                    tekst: 'Britiske pund',
-                },
-            },
+        isoKode: 'INR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Indiske Rupi',
+            tekst: 'Indiske Rupi',
         },
     },
     {
-        SBD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Solomon Islands',
-                    tekst: 'Dollars Solomon Islands',
-                },
-            },
+        isoKode: 'KRW',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Sør-Korea',
+            tekst: 'Sør-Korea',
         },
     },
     {
-        CSD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dinars Serbia',
-                    tekst: 'Dinars Serbia',
-                },
-            },
+        isoKode: 'AWG',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Guilders Aruba',
+            tekst: 'Guilders Aruba',
         },
     },
     {
-        HUF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Ungarn',
-                    tekst: 'Ungarn',
-                },
-            },
+        isoKode: 'NPR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Nepal Rupees Nepal',
+            tekst: 'Nepal Rupees Nepal',
         },
     },
     {
-        BYR: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Rubles Belarus',
-                    tekst: 'Rubles Belarus',
-                },
-            },
+        isoKode: 'JPY',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Japanske Yen',
+            tekst: 'Japanske Yen',
         },
     },
     {
-        BIF: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Francs Burundi',
-                    tekst: 'Francs Burundi',
-                },
-            },
+        isoKode: 'MNT',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tugriks Mongolia',
+            tekst: 'Tugriks Mongolia',
         },
     },
     {
-        MWK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Kwachas Malawi',
-                    tekst: 'Kwachas Malawi',
-                },
-            },
+        isoKode: 'PLN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Polen',
+            tekst: 'Polen',
         },
     },
     {
-        MGA: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Ariary Madagascar',
-                    tekst: 'Ariary Madagascar',
-                },
-            },
+        isoKode: 'AOA',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kwanza Angola',
+            tekst: 'Kwanza Angola',
         },
     },
     {
-        BZD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Belize',
-                    tekst: 'Dollars Belize',
-                },
-            },
+        isoKode: 'GBP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Britiske pund',
+            tekst: 'Britiske pund',
         },
     },
     {
-        BAM: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Convertible Marka Bosniaand Her',
-                    tekst: 'Convertible Marka Bosniaand Her',
-                },
-            },
+        isoKode: 'SBD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Solomon Islands',
+            tekst: 'Dollars Solomon Islands',
         },
     },
     {
-        EGP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Pounds Egypt',
-                    tekst: 'Pounds Egypt',
-                },
-            },
+        isoKode: 'CSD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dinars Serbia',
+            tekst: 'Dinars Serbia',
         },
     },
     {
-        MOP: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Patacas Macau',
-                    tekst: 'Patacas Macau',
-                },
-            },
-        },
-    },
-    {
-        NAD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Dollars Namibia',
-                    tekst: 'Dollars Namibia',
-                },
-            },
-        },
-    },
-    {
-        SKK: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Slovakia',
-                    tekst: 'Slovakia',
-                },
-            },
-        },
-    },
-    {
-        NIO: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Gold Cordobas Nicaragua',
-                    tekst: 'Gold Cordobas Nicaragua',
-                },
-            },
-        },
-    },
-    {
-        TMM: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Manats Turkmenistan',
-                    tekst: 'Manats Turkmenistan',
-                },
-            },
-        },
-    },
-    {
-        PEN: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Nuevos Soles Peru',
-                    tekst: 'Nuevos Soles Peru',
-                },
-            },
-        },
-    },
-    {
-        WST: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Tala Samoa',
-                    tekst: 'Tala Samoa',
-                },
-            },
-        },
-    },
-    {
-        NZD: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'New Zealand dollar',
-                    tekst: 'New Zealand dollar',
-                },
-            },
-        },
-    },
-    {
-        BRL: {
-            gyldigFra: '1900-01-01',
-            gyldigTil: '9999-12-31',
-            beskrivelser: {
-                nb: {
-                    term: 'Brazil Real Brazil',
-                    tekst: 'Brazil Real Brazil',
-                },
-            },
+        isoKode: 'HUF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Ungarn',
+            tekst: 'Ungarn',
+        },
+    },
+    {
+        isoKode: 'BYR',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Rubles Belarus',
+            tekst: 'Rubles Belarus',
+        },
+    },
+    {
+        isoKode: 'BIF',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Francs Burundi',
+            tekst: 'Francs Burundi',
+        },
+    },
+    {
+        isoKode: 'MWK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Kwachas Malawi',
+            tekst: 'Kwachas Malawi',
+        },
+    },
+    {
+        isoKode: 'MGA',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Ariary Madagascar',
+            tekst: 'Ariary Madagascar',
+        },
+    },
+    {
+        isoKode: 'BZD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Belize',
+            tekst: 'Dollars Belize',
+        },
+    },
+    {
+        isoKode: 'BAM',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Convertible Marka Bosniaand Her',
+            tekst: 'Convertible Marka Bosniaand Her',
+        },
+    },
+    {
+        isoKode: 'EGP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Pounds Egypt',
+            tekst: 'Pounds Egypt',
+        },
+    },
+    {
+        isoKode: 'MOP',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Patacas Macau',
+            tekst: 'Patacas Macau',
+        },
+    },
+    {
+        isoKode: 'NAD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Dollars Namibia',
+            tekst: 'Dollars Namibia',
+        },
+    },
+    {
+        isoKode: 'SKK',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Slovakia',
+            tekst: 'Slovakia',
+        },
+    },
+    {
+        isoKode: 'NIO',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Gold Cordobas Nicaragua',
+            tekst: 'Gold Cordobas Nicaragua',
+        },
+    },
+    {
+        isoKode: 'TMM',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Manats Turkmenistan',
+            tekst: 'Manats Turkmenistan',
+        },
+    },
+    {
+        isoKode: 'PEN',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Nuevos Soles Peru',
+            tekst: 'Nuevos Soles Peru',
+        },
+    },
+    {
+        isoKode: 'WST',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Tala Samoa',
+            tekst: 'Tala Samoa',
+        },
+    },
+    {
+        isoKode: 'NZD',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'New Zealand dollar',
+            tekst: 'New Zealand dollar',
+        },
+    },
+    {
+        isoKode: 'BRL',
+        gyldigFra: '1900-01-01',
+        gyldigTil: '9999-12-31',
+        beskrivelse: {
+            term: 'Brazil Real Brazil',
+            tekst: 'Brazil Real Brazil',
         },
     },
 ]

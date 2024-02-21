@@ -13,20 +13,17 @@ interface Options {
 }
 
 interface Valuta {
-    label: {
-        gyldigFra: string
-        gyldigTil: string
-        beskrivelser: {
-            nb: {
-                term: string
-                tekst: string
-            }
-        }
+    isoKode: string
+    gyldigFra: string
+    gyldigTil: string
+    beskrivelse: {
+        term: string
+        tekst: string
     }
 }
 
 const sortByTekst = (a: Valuta, b: Valuta) => {
-    if (Object.values(a)[0].beskrivelser.nb.tekst > Object.values(b)[0].beskrivelser.nb.tekst) {
+    if (a.beskrivelse.tekst > b.beskrivelse.tekst) {
         return 1
     }
     return -1
@@ -35,7 +32,7 @@ const sortByTekst = (a: Valuta, b: Valuta) => {
 export const moveMostUsedCurrenciesToBeginning = (currencies: Valuta[]) => {
     const frequentlyUsed = ['SEK', 'NOK', 'EUR']
 
-    const frequentlyUsedCurrencies = currencies.filter((valuta) => frequentlyUsed.includes(Object.keys(valuta)[0]))
+    const frequentlyUsedCurrencies = currencies.filter((valuta) => frequentlyUsed.includes(valuta.isoKode))
 
     if (frequentlyUsedCurrencies) frequentlyUsedCurrencies.forEach((country) => currencies.unshift(country))
 
@@ -61,8 +58,8 @@ export const useValutaer = (): UseValutaer => {
     }, [])
 
     const optionsListe = (valuta: Valuta[]): Options[] => {
-        const valutaListe = valuta.map((valutaKey) => {
-            const tekst = Object.values(valutaKey)[0].beskrivelser.nb.tekst + ' (' + Object.keys(valutaKey)[0] + ')'
+        const valutaListe = valuta.map((valuta) => {
+            const tekst = valuta.beskrivelse.tekst + ' (' + valuta.isoKode + ')'
             return {
                 label: tekst,
                 value: tekst,
