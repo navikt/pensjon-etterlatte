@@ -433,8 +433,9 @@ export default {
     'inntektenDin.pensjonEllerUfoere.utland.type': 'What kind of pension?',
     'inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse': 'Examples: retirement pension, disability pension',
     'inntektenDin.pensjonEllerUfoere.utland.land': 'Which country pays this to you? ',
-    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Annual amount, in the currency of that country',
+    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Annual amount',
     'inntektenDin.pensjonEllerUfoere.utland.valuta': "Country's currency",
+    'inntektenDin.pensjonEllerUfoere.utland.beloepMedValuta': 'Annual amount, in the currency of that country',
     'inntektenDin.pensjonEllerUfoere.utland.hvorfor':
         'We need this information to assess your membership in the Norwegian National Insurance Scheme.',
     'inntektenDin.ingenInntekt.tittel': 'No income or other payments',

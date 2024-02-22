@@ -1111,7 +1111,7 @@ const hentInntektOgPensjon = (
                     : undefined,
                 beloepMedValuta: pensjonFraUtland
                     ? {
-                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.beloep'),
+                          spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.beloepMedValuta'),
                           svar: {
                               innhold: `${inntektenDin.pensjonEllerUfoere!!.utland!!
                                   .beloep!!} ${inntektenDin.pensjonEllerUfoere!!.utland!!.valuta!!}`,

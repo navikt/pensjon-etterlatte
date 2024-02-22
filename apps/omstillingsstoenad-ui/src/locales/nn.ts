@@ -414,8 +414,9 @@ export default {
     'inntektenDin.pensjonEllerUfoere.utland.type': 'Kva slags pensjon?',
     'inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse': 'Døme: alderspensjon, uføretrygd',
     'inntektenDin.pensjonEllerUfoere.utland.land': 'Kva land får du dette frå? ',
-    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årleg beløp i valutaen til landet',
+    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årleg beløp',
     'inntektenDin.pensjonEllerUfoere.utland.valuta': 'Valutaen til landet',
+    'inntektenDin.pensjonEllerUfoere.utland.beloepMedValuta': 'Årleg beløp i valutaen til landet',
     'inntektenDin.pensjonEllerUfoere.utland.hvorfor':
         'Vi må vite dette for å kunne vurdere medlemskapet ditt i Folketrygda.',
     'inntektenDin.ingenInntekt.tittel': 'Inga inntekt eller anna utbetaling',
