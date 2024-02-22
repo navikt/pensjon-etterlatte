@@ -532,7 +532,7 @@ export default {
         'We need to know if the deceased was a member of the Norwegian National Insurance Scheme in order to be able to determine whether you are entitled to a survivor’s pension.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label': 'Pension from abroad (optional)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
-        'Enter any pension the deceased received from this country',
+        'Enter any pension the deceased received from this country.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
         'Annual amount, in the currency of that country',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar':

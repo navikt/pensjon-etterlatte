@@ -509,7 +509,7 @@ export default {
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til omstillingsstønad.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label': 'Pensjon fra utlandet (valgfri)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
-        'Oppgi eventuell pensjon han eller hun mottok fra dette landet',
+        'Oppgi eventuell pensjon han eller hun mottok fra dette landet.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
         'Årlig beløp i landets valuta',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
