@@ -106,14 +106,14 @@ const PensjonEllerUfoere = () => {
                         <SkjemaElement>
                             <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
-                                label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
+                                label={t('felles.aarligBeloep')}
                             />
                         </SkjemaElement>
 
                         <SkjemaElement>
                             <RHFSelect
                                 name={'pensjonEllerUfoere.utland.valuta'}
-                                label={t('inntektenDin.pensjonEllerUfoere.utland.valuta')}
+                                label={t('felles.velgValuta')}
                                 selectOptions={valutaer}
                             />
                         </SkjemaElement>
