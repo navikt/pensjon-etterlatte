@@ -52,9 +52,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                     pensjonsutbetaling:
                         info.mottokPensjon!!.beloep || info.mottokPensjon!!.valuta
                             ? {
-                                  spoersmaal: t(
-                                      'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta'
-                                  ),
+                                  spoersmaal: t('felles.aarligBeloep'),
                                   svar: {
                                       innhold: `${info.mottokPensjon!!.beloep || ''} ${
                                           info.mottokPensjon!!.valuta || ''
