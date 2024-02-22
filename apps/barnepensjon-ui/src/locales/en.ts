@@ -191,6 +191,7 @@ const selectScenario = {
 
 const aboutYou = {
     title: 'About you',
+    titleGuardian: 'About you as the guardian',
     stayWhy:
         'If you have been living in a country other than Norway, this may determine whether you are eligible for a children’s pension and how much you can receive.',
     addressOfResidenceConfirmed: 'Do you live at this address?',
@@ -509,6 +510,7 @@ const continueApplicationModal = {
 
 const steps = {
     AboutYou: 'About you',
+    AboutYouGuardian: 'About you as the guardian',
     AboutTheParents: 'About the parents',
     AboutTheDeceased: 'About the deceased',
     YourSituation: 'Your situation',

@@ -20,9 +20,11 @@ interface Props {
 export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
     const { t } = useTranslation('aboutYou')
 
+    const isGuardian = pathPrefix === 'verge'
+
     return (
         <AccordionItem
-            title={t('title')}
+            title={isGuardian ? t('titleGuardian') : t('title')}
             path={`/skjema/${pathPrefix}/${StepPath.AboutYou}`}
             pathText={t(StepLabelKey.AboutYou, { ns: 'summary' })}
         >

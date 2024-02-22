@@ -6,6 +6,7 @@ import AboutTheDeceasedParentStep from '../components/application/the-deceased/A
 
 export enum StepLabelKey {
     AboutYou = 'AboutYou',
+    AboutYouGuardian = 'AboutYouGuardian',
     AboutTheParents = 'AboutTheParents',
     AboutTheDeceased = 'AboutTheDeceased',
     YourSituation = 'YourSituation',
@@ -69,7 +70,7 @@ export const ParentApplicantSteps: StepType[] = [
  */
 export const GuardianApplicantSteps: StepType[] = [
     {
-        label: StepLabelKey.AboutYou,
+        label: StepLabelKey.AboutYouGuardian,
         path: StepPath.AboutYou,
         element: AboutYou,
     },

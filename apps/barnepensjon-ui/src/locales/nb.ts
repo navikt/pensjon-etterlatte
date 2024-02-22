@@ -187,6 +187,7 @@ const selectScenario = {
 
 const aboutYou = {
     title: 'Om deg',
+    titleGuardian: 'Om deg som verge',
     stayWhy:
         'Hvis du oppholder deg i et annet land enn Norge kan det avgjøre om du får gjenlevendepensjon og hvor mye du kan få.',
     addressOfResidenceConfirmed: 'Bor du på denne adressen?',
@@ -498,6 +499,7 @@ const continueApplicationModal = {
 
 const steps = {
     AboutYou: 'Om deg',
+    AboutYouGuardian: 'Om deg som verge',
     AboutTheParents: 'Om foreldrene',
     AboutTheDeceased: 'Om den avdøde',
     YourSituation: 'Din situasjon',
