@@ -324,7 +324,7 @@ export default {
     'inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
     'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
     'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
-        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet. Hvis måneden for dødsfallet er januar oppgir du inntekten for denne måneden.',
+        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
     'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
         'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
     'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':

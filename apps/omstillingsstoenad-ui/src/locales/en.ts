@@ -331,7 +331,7 @@ export default {
     'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall':
         'What was your gross income from work prior to the death?',
     'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
-        'Please state your income for January and up to and including the month of the death. If the month of the death is January, declare your income for that month.',
+        'Please state your income for January and up to and including the month of the death.',
     'inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall':
         'What was your gross income from work prior to the death?',
     'inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall':
