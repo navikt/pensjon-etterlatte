@@ -42,6 +42,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal fylle ut siden "Om den avdøde" og gå til neste', () => {
         cy.url().should('include', 'steg/om-den-avdoede')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
+        cy.intercept('GET', `${basePath}/api/kodeverk/valutaer`, { fixture: 'valuta.json' }).as('valutaer')
 
         const foersteDagIAaret = '01.01.' + new Date().getFullYear()
 
