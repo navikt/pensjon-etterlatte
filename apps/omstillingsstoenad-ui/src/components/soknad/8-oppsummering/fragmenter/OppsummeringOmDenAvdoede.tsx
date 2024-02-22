@@ -74,11 +74,12 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                             innhold={opphold.medlemFolketrygd}
                         />
 
-                        {opphold.mottokPensjon?.beskrivelse && (
-                            <TekstGruppe
-                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse')}
-                                innhold={opphold.mottokPensjon.beskrivelse}
-                            />
+                        {opphold.mottokPensjon?.beloep && (
+                            <TekstGruppe tittel={t('felles.aarligBeloep')} innhold={opphold.mottokPensjon.beloep} />
+                        )}
+
+                        {opphold.mottokPensjon?.valuta && (
+                            <TekstGruppe tittel={t('felles.velgValuta')} innhold={opphold.mottokPensjon.valuta} />
                         )}
                     </Panel>
                 ))}

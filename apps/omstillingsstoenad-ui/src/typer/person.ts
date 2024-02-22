@@ -12,7 +12,7 @@ export enum ForholdTilAvdoede {
     gift = 'avdoede.relasjon.gift',
     separert = 'avdoede.relasjon.separert',
     samboer = 'avdoede.relasjon.samboer',
-    skilt = 'avdoede.relasjon.skilt'
+    skilt = 'avdoede.relasjon.skilt',
 }
 
 export enum BarnRelasjon {
@@ -86,8 +86,8 @@ export interface IOppholdUtland {
     beskrivelse?: OppholdUtlandType[]
     medlemFolketrygd?: IValg
     mottokPensjon?: {
-        svar?: IValg
-        beskrivelse?: string
+        beloep?: string
+        valuta?: string
     }
 }
 

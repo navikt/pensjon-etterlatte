@@ -444,7 +444,8 @@ export default {
     'inntektenDin.ingenInntekt.beskrivelse': 'Describe which types of payments you are receiving',
     'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Benefits from NAV',
     'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Which incomes or disbursements are you receiving?',
-    'inntektenDin.ytelserNAV.tittel': 'Application for benefits from the Norwegian Labour and Welfare Administration (NAV)',
+    'inntektenDin.ytelserNAV.tittel':
+        'Application for benefits from the Norwegian Labour and Welfare Administration (NAV)',
     'inntektenDin.ytelserNAV.svar': 'Have you applied for benefits from NAV but not yet received a reply?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Which benefits did you apply for?',
     'inntektenDin.ytelserNAV.hvorfor': 'We need this information because some benefits from NAV are considered income.',
@@ -529,10 +530,11 @@ export default {
         'Was the deceased a member of the Norwegian National Insurance Scheme during this period?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':
         'We need to know if the deceased was a member of the Norwegian National Insurance Scheme in order to be able to determine whether you are entitled to a survivor’s pension.',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label': 'Pension from abroad (optional)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
-        'Enter any pension the deceased received from this country (optional)',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder':
-        'Per year, in the country’s currency',
+        'Enter any pension the deceased received from this country',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
+        'Annual amount, in the currency of that country',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar':
         'Did the deceased have any income from self-employment at the time of their death?',
     'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Income from self-employment',
@@ -799,6 +801,7 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Percent',
     'felles.valgfri': 'optional',
+    'felles.aarligBeloep': 'Annual amount',
     counterLeft: 'characters remaining',
     counterTooMuch: 'characters to many',
     'endreSvarOppsummering.om-deg': 'Change answers about you',

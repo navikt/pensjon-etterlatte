@@ -65,7 +65,10 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById(baseId + 'fraDato').type(oppholdUtland.fraDato)
             getById(baseId + 'tilDato').type(oppholdUtland.tilDato)
             selectValueForId(baseId + 'medlemFolketrygd', oppholdUtland.medlemFolketrygd)
-            getById(baseId + 'mottokPensjon.beskrivelse').type(oppholdUtland.mottokPensjon.beskrivelse)
+            getById(baseId + 'mottokPensjon.beloep').type(oppholdUtland.mottokPensjon.beloep)
+            getById(baseId + 'mottokPensjon.valuta')
+                .find('select')
+                .select(oppholdUtland.mottokPensjon.valuta)
         })
 
         selectValueForId('selvstendigNaeringsdrivende.svar', omDenAvdoede.selvstendigNaeringsdrivende.svar)
@@ -229,9 +232,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
-        getById('pensjonEllerUfoere.utland.valuta')
-                .find('select')
-                .select(inntektenDin.pensjonEllerUfoere.utland.valuta)
+        getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
         // Ytelser fra NAV
         selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)

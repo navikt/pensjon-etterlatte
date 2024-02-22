@@ -40,7 +40,8 @@
           "tilDato": "08-10-2003",
           "medlemFolketrygd": "radiobuttons.ja",
           "mottokPensjon": {
-            "beskrivelse": "150.000"
+            "beloep": "150000",
+            "valuta": "Islandske kroner (ISK)"
           }
         }
       ]

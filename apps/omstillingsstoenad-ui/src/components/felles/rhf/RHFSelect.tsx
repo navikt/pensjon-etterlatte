@@ -23,9 +23,10 @@ interface RHFProps extends Omit<SelectProps, 'name' | 'children'> {
     selectOptions: SelectOption[]
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
     bredde?: number
+    valgfri?: boolean
 }
 
-export const RHFSelect = ({ name, label, selectOptions, rules, bredde, ...rest }: RHFProps) => {
+export const RHFSelect = ({ name, label, selectOptions, rules, bredde, valgfri = false, ...rest }: RHFProps) => {
     const { t } = useTranslation()
 
     const {
@@ -41,14 +42,14 @@ export const RHFSelect = ({ name, label, selectOptions, rules, bredde, ...rest }
             <Controller
                 name={name}
                 control={control}
-                rules={{ required: true, ...rules }}
+                rules={{ required: !valgfri, ...rules }}
                 render={({ field: { value, onChange, onBlur } }) => (
                     <Select
                         {...rest}
                         value={value || ''}
                         onChange={(e) => onChange((e.target as HTMLSelectElement).value)}
                         onBlur={onBlur}
-                        label={label}
+                        label={valgfri ? `${label} (${t('felles.valgfri')})` : label}
                         error={feilmelding}
                     >
                         {selectOptions.map((option) => (

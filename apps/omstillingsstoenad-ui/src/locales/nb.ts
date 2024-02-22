@@ -507,9 +507,11 @@ export default {
         'Var han eller hun medlem av folketrygden under oppholdet?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre om du har rett til omstillingsstønad.',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label': 'Pensjon fra utlandet (valgfri)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
-        'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder': 'Per år i landets valuta',
+        'Oppgi eventuell pensjon han eller hun mottok fra dette landet',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
+        'Årlig beløp i landets valuta',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
     'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Næringsinntekt',
     'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
@@ -773,6 +775,7 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valgfri',
+    'felles.aarligBeloep': 'Årlig beløp',
     counterLeft: 'tegn igjen',
     counterTooMuch: 'tegn for mye',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
