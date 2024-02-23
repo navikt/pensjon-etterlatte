@@ -627,7 +627,7 @@ export default {
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon': 'Du finner mer informasjon om støtteordninger på ',
     'soeknadKvittering.spoersmaal.knapp': 'Les mer om omstillingsstønad',
-    'sideIkkeFunnet.tittel': 'Beklager vi fant ikke siden',
+    'sideIkkeFunnet.tittel': 'Beklager, vi fant ikke siden',
     'sideIkkeFunnet.beskrivelse': 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
     'sideIkkeFunnet.tittel.engelsk': 'Page not found',
     'sideIkkeFunnet.beskrivelse.engelsk.del1': 'The page you requested cannot be found. \n Go to the ',

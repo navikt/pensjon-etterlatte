@@ -654,7 +654,7 @@ export default {
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',
-    'sideIkkeFunnet.tittel': 'Beklager vi fant ikke siden',
+    'sideIkkeFunnet.tittel': 'Beklager, vi fant ikke siden',
     'sideIkkeFunnet.beskrivelse': 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
     'sideIkkeFunnet.tittel.engelsk': 'Page not found',
     'sideIkkeFunnet.beskrivelse.engelsk.del1': 'The page you requested cannot be found. \n Go to the ',
