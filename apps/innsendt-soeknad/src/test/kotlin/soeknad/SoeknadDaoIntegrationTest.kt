@@ -433,22 +433,22 @@ internal class SoeknadDaoIntegrationTest {
 
         // Skal ikke slette soeknader med hendelse "arkivert"
         db.soeknadArkivert(soeknad.id)
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkiveringsfeil"
         slettHendelserForSoeknad(soeknad.id)
         db.soeknadFeiletArkivering(soeknad.id, """{}""")
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "ferdigstillt"
         slettHendelserForSoeknad(soeknad.id)
         db.ferdigstillSoeknad(UlagretSoeknad(soeknad.fnr, soeknad.data, kildeBarnepensjon))
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "sendt"
         slettHendelserForSoeknad(soeknad.id)
         db.soeknadSendt(soeknad.id)
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
     }
 
     @Test
