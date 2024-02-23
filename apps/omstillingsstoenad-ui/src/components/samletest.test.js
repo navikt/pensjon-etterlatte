@@ -20,7 +20,7 @@ describe('Enkel test av feilsider', () => {
         const { findByText } = render(<SideIkkeFunnet />)
 
         expect(await findByText('sideIkkeFunnet.tittel')).toBeDefined()
-        expect(await findByText('sideIkkeFunnet.alert')).toBeDefined()
+        expect(await findByText('sideIkkeFunnet.beskrivelse')).toBeDefined()
     })
 
     it('Ugyldig søker', async () => {
