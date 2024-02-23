@@ -2,6 +2,7 @@ package no.nav.etterlatte.jobs
 
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.SoeknadPubliserer
+import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.common.logging.getCorrelationId
 import no.nav.etterlatte.shuttingDown
@@ -14,7 +15,7 @@ import java.time.temporal.ChronoUnit
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
-class PubliserTilstandJobb(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer) {
+class PubliserTilstandJobb(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer, private val publiserUtkast: UtkastPubliserer) {
     private val logger = LoggerFactory.getLogger(PubliserTilstandJobb::class.java)
 
     fun schedule(): Timer {
@@ -46,7 +47,7 @@ class PubliserTilstandJobb(private val db: SoeknadRepository, private val publis
                     if (it.isNotEmpty()) {
                         logger.info("Slettet ${it.size} kladd(er) som var utgått")
                         it.forEach { soeknad ->
-                            publiserSoeknad.publiserDeleteUtkastFraMinSide(soeknad.fnr, soeknad.id)
+                            publiserUtkast.publiserDeleteUtkastFraMinSide(soeknad.fnr, soeknad.id)
                         }
                     }
                 }

@@ -26,7 +26,9 @@ import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.mockk
 import no.nav.etterlatte.DataSourceBuilder
+import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
@@ -71,12 +73,13 @@ internal class SoeknadApiIntegrationTest {
     private val kilde = "barnepensjon-ui"
     private val dummyKladd = """{"harSamtykket":"true"}"""
     private val mapper = jacksonObjectMapper()
+    private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
     @BeforeAll
     fun beforeAll() {
         setupDatabase()
 
-        service = SoeknadService(db)
+        service = SoeknadService(db, mockUtkastPubliserer)
     }
 
     @AfterAll

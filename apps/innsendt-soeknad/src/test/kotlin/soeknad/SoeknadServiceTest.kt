@@ -7,6 +7,7 @@ import io.kotest.matchers.types.beInstanceOf
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
@@ -20,8 +21,9 @@ import kotlin.random.Random
 internal class SoeknadServiceTest {
 
     private val mockRepository = mockk<SoeknadRepository>()
+    private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
-    private val service = SoeknadService(mockRepository)
+    private val service = SoeknadService(mockRepository, mockUtkastPubliserer)
     private val kilde = "barnepensjon-ui"
 
     @Test

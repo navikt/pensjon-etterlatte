@@ -1,7 +1,7 @@
 package no.nav.etterlatte.soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
-import no.nav.etterlatte.SoeknadPubliserer
+import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.sikkerLogg
@@ -13,7 +13,7 @@ import soeknad.SoeknadRepository
 import soeknad.Status
 import soeknad.UlagretSoeknad
 
-class SoeknadService(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer) {
+class SoeknadService(private val db: SoeknadRepository, private val publiserUtkast: UtkastPubliserer) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     fun sendSoeknad(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest, kilde: String): Boolean {
@@ -69,7 +69,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserSoek
         return soeknader.map {
             db.ferdigstillSoeknad(it).also { ferdigstiltID ->
                 logger.info("Ferdigstilt søknad $ferdigstiltID (type=${it.type})")
-                publiserSoeknad.publiserDeleteUtkastFraMinSide(it.fnr, ferdigstiltID)
+                publiserUtkast.publiserDeleteUtkastFraMinSide(it.fnr, ferdigstiltID)
             }
         }
     }
@@ -83,7 +83,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserSoek
         val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson(), kilde))
             .also { logger.info("Lagret kladd (id=${it.id})") }
 
-        publiserSoeknad.publiserCreateUtkastTilMinSide(lagretkladd, kilde)
+        publiserUtkast.publiserCreateUtkastTilMinSide(lagretkladd, kilde)
 
         return lagretkladd.id
     }
@@ -92,7 +92,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserSoek
         db.slettKladd(innloggetBruker.value, kilde)
             ?.also {
                 logger.info("Slettet kladd (id=${it})")
-                publiserSoeknad.publiserDeleteUtkastFraMinSide(innloggetBruker.value, it)
+                publiserUtkast.publiserDeleteUtkastFraMinSide(innloggetBruker.value, it)
             }
     }
 }

@@ -2,6 +2,7 @@ import no.nav.etterlatte.mapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
 import soeknad.LagretSoeknad
+import soeknad.SlettetSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.UlagretSoeknad
@@ -80,7 +81,7 @@ class TestRepo: SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun slettUtgaatteKladder(): Int {
+    override fun slettUtgaatteKladder(): List<SlettetSoeknad> {
         TODO("Not yet implemented")
     }
 

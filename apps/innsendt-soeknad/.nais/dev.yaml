@@ -40,6 +40,8 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
+    - name: KAFKA_UTKAST_TOPIC
+      value: min-side.aapen-utkast-v1
   accessPolicy:
     inbound:
       rules:
