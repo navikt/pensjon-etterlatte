@@ -429,7 +429,7 @@ internal class SoeknadDaoIntegrationTest {
         assertNotNull(db.finnKladd(soeknad.fnr, kildeBarnepensjon))
 
         // Skal ikke slette ukategoriserte søknader
-        assertEquals(emptyList(), db.slettUtgaatteKladder())
+        assertEquals(listOf(SlettetSoeknad(1001, fnr)), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkivert"
         db.soeknadArkivert(soeknad.id)
