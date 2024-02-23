@@ -396,7 +396,7 @@ internal class SoeknadDaoIntegrationTest {
         )
         lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
 
-        assertEquals(2, db.slettUtgaatteKladder())
+        assertEquals(listOf(SlettetSoeknad(1000, fnr1), SlettetSoeknad(1111, fnr2)), db.slettUtgaatteKladder())
 
         assertNull(db.finnKladd(fnr1, kildeBarnepensjon))
         assertNull(db.finnKladd(fnr2, kildeBarnepensjon))
@@ -429,7 +429,7 @@ internal class SoeknadDaoIntegrationTest {
         assertNotNull(db.finnKladd(soeknad.fnr, kildeBarnepensjon))
 
         // Skal ikke slette ukategoriserte søknader
-        assertEquals(listOf(SlettetSoeknad(1001, fnr)), db.slettUtgaatteKladder())
+        assertEquals(emptyList(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkivert"
         db.soeknadArkivert(soeknad.id)
