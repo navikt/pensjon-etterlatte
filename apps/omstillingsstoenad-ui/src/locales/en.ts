@@ -1048,7 +1048,7 @@ export default {
     'feil.pensjonEllerUfoere.utland.type.required': 'State what kind of pension you receive from abroad',
     'feil.pensjonEllerUfoere.utland.land.required': 'Choose which country you receive this from',
     'feil.pensjonEllerUfoere.utland.beloep.required': 'State annual amount',
-    'feil.pensjonEllerUfoere.utland.valuta.required': "State the country's currency",
+    'feil.pensjonEllerUfoere.utland.valuta.required': 'Select currency',
     'feil.inntektViaYtelserFraNAV.ytelser.required': 'Tick which incomes or disbursements you receive',
     'feil.ingenInntekt.svar.required': 'State if you have an income or other type of benefits',
     'feil.ingenInntekt.beloep.required': 'State the amount',

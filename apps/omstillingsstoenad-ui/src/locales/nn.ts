@@ -1005,7 +1005,7 @@ export default {
     'feil.pensjonEllerUfoere.utland.type.required': 'Oppgi kva slags pensjon du får frå utlandet',
     'feil.pensjonEllerUfoere.utland.land.required': 'Vel kva land du får frå',
     'feil.pensjonEllerUfoere.utland.beloep.required': 'Oppgi årleg beløp',
-    'feil.pensjonEllerUfoere.utland.valuta.required': 'Oppgi valutaen til landet',
+    'feil.pensjonEllerUfoere.utland.valuta.required': 'Vel valuta',
     'feil.inntektViaYtelserFraNAV.ytelser.required': 'Kryss av for kva inntekter og utbetalingar du har',
     'feil.ingenInntekt.svar.required': 'Oppgi om du har inntekt eller noen andre utbetalinger',
     'feil.ingenInntekt.beloep.required': 'Oppgi beløp',
