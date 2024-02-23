@@ -10,6 +10,7 @@ import java.util.*
 class UtkastPubliserer(private val producer: KafkaProdusent<String, String>) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
+
     fun publiserCreateUtkastTilMinSide(soeknad: LagretSoeknad, kilde: String) {
         logger.info("Publiserer ny søknad som utkast med id=${soeknad.id}")
 
