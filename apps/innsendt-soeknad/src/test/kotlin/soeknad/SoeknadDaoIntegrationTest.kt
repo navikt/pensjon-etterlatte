@@ -413,7 +413,7 @@ internal class SoeknadDaoIntegrationTest {
         lagreSoeknaderMedOpprettetTidspunkt(listOf(utgaattSoeknad), true)
         nyKladdHendelse(utgaattSoeknad.copy(opprettet = now.minusHours(12)), utgaattSoeknad.id + 1)
 
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(listOf(SlettetSoeknad(soeknadID, fnr)), db.slettUtgaatteKladder())
         assertNotNull(db.finnKladd(fnr, kildeBarnepensjon))
 
         // Hendelser tilknyttet slettet søknad skal ikke slettes.
@@ -423,12 +423,13 @@ internal class SoeknadDaoIntegrationTest {
     @Test
     fun `Kun kladder skal slettes etter 72 timer`() {
         val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(4)
-        val soeknad = SoeknadTest(1001, randomFakeFnr(), """{}""", utgaatt, kildeBarnepensjon)
+        val fnr = randomFakeFnr()
+        val soeknad = SoeknadTest(1001, fnr, """{}""", utgaatt, kildeBarnepensjon)
         lagreSoeknaderMedOpprettetTidspunkt(listOf(soeknad))
         assertNotNull(db.finnKladd(soeknad.fnr, kildeBarnepensjon))
 
         // Skal ikke slette ukategoriserte søknader
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(listOf(SlettetSoeknad(1001, fnr)), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkivert"
         db.soeknadArkivert(soeknad.id)
