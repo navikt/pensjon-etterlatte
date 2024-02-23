@@ -3,6 +3,7 @@ package no.nav.etterlatte.kodeverk
 import com.github.benmanes.caffeine.cache.Caffeine
 import no.nav.etterlatte.kodeverk.CacheKey.LANDKODER
 import no.nav.etterlatte.kodeverk.CacheKey.POSTSTEDER
+import no.nav.etterlatte.kodeverk.CacheKey.VALUTAER
 import org.slf4j.LoggerFactory
 import java.time.LocalDate
 import java.util.concurrent.TimeUnit
@@ -45,6 +46,34 @@ class KodeverkService(private val klient: Kodeverk) {
         return landkoder.hentTekst(landkode, spraak)
     }
 
+    suspend fun hentValutaer(): List<Valuta> {
+        val valutaer = cache.getIfPresent(VALUTAER)
+            ?: klient.hentValutaer().also { cache.put(VALUTAER, it) }
+
+        return valutaer
+            .betydninger
+            .flatMap { (isoKode, betydninger) ->
+                betydninger.map {
+                    BetydningMedIsoKode(
+                        gyldigFra = it.gyldigFra,
+                        gyldigTil = it.gyldigTil,
+                        beskrivelser = it.beskrivelser,
+                        isoKode = isoKode,
+                    )
+                }
+            }
+            .mapNotNull { betydningMedIsoKode ->
+                betydningMedIsoKode.beskrivelser["nb"]?.let { beskrivelse ->
+                    Valuta(
+                        isoKode = betydningMedIsoKode.isoKode,
+                        gyldigFra = betydningMedIsoKode.gyldigFra,
+                        gyldigTil = betydningMedIsoKode.gyldigTil,
+                        beskrivelse = beskrivelse,
+                    )
+                }
+            }
+    }
+
     private fun KodeverkResponse.hentTekst(kode: String, spraak: String): String {
         val gyldigBetydning = this.betydninger[kode]
             ?.find { it -> it.gyldigTil > LocalDate.now().toString() }
@@ -61,5 +90,6 @@ class KodeverkService(private val klient: Kodeverk) {
 
 private enum class CacheKey {
     LANDKODER,
-    POSTSTEDER
+    POSTSTEDER,
+    VALUTAER
 }

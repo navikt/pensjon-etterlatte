@@ -1,11 +1,6 @@
 import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
-import {
-    EnumSvar,
-    NaeringsinntektAvdoed,
-    OppholdUtlandType,
-    Utenlandsopphold,
-} from '../dto/FellesOpplysninger'
+import { EnumSvar, NaeringsinntektAvdoed, OppholdUtlandType, Utenlandsopphold } from '../dto/FellesOpplysninger'
 import { Avdoed, PersonType } from '../dto/Person'
 import { IValg } from '../../typer/Spoersmaal'
 import { valgTilSvar } from './fellesMapper'
@@ -54,12 +49,17 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                         spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd'),
                         svar: valgTilSvar(t, info.medlemFolketrygd!!),
                     },
-                    pensjonsutbetaling: {
-                        spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse'),
-                        svar: {
-                            innhold: info.mottokPensjon?.beskrivelse || '-',
-                        },
-                    },
+                    pensjonsutbetaling:
+                        info.mottokPensjon!!.beloep || info.mottokPensjon!!.valuta
+                            ? {
+                                  spoersmaal: t('felles.aarligBeloep'),
+                                  svar: {
+                                      innhold: `${info.mottokPensjon!!.beloep || ''} ${
+                                          info.mottokPensjon!!.valuta || ''
+                                      }`,
+                                  },
+                              }
+                            : undefined,
                 }
 
                 return utenlandsopphold

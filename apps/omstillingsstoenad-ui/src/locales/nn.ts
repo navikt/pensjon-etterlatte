@@ -414,8 +414,9 @@ export default {
     'inntektenDin.pensjonEllerUfoere.utland.type': 'Kva slags pensjon?',
     'inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse': 'Døme: alderspensjon, uføretrygd',
     'inntektenDin.pensjonEllerUfoere.utland.land': 'Kva land får du dette frå? ',
-    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årleg beløp i valutaen til landet',
+    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årleg beløp',
     'inntektenDin.pensjonEllerUfoere.utland.valuta': 'Valutaen til landet',
+    'inntektenDin.pensjonEllerUfoere.utland.beloepMedValuta': 'Årleg beløp i valutaen til landet',
     'inntektenDin.pensjonEllerUfoere.utland.hvorfor':
         'Vi må vite dette for å kunne vurdere medlemskapet ditt i Folketrygda.',
     'inntektenDin.ingenInntekt.tittel': 'Inga inntekt eller anna utbetaling',
@@ -502,9 +503,11 @@ export default {
         'Var han eller ho medlem av folketrygda under opphaldet?',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst':
         'Vi må vite om avdøde var medlem av folketrygda for å avgjere om du har rett til omstillingsstønad.',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label': 'Pensjon frå utlandet (valfri)',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse':
-        'Oppgi eventuell pensjon han eller ho fekk frå dette landet (valfri)',
-    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder': 'Per år i landets valuta',
+        'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
+    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
+        'Årleg beløp i valutaen til landet',
     'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller ho næringsinntekt då dødsfallet skjedde?',
     'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Næringsinntekt',
     'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
@@ -757,6 +760,7 @@ export default {
     'felles.sistLagret': 'Sist lagra',
     'felles.spraakValg': 'Vel språk',
     'felles.velgLand': 'Vel land',
+    'felles.velgValuta': 'Vel valuta',
     'felles.elleveSiffer': '11 siffer',
     'felles.datoEksempel': 'eks: 01.12.2020',
     'felles.velg': 'Vel ...',
@@ -766,6 +770,7 @@ export default {
     'felles.kroner': 'Kroner',
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valfri',
+    'felles.aarligBeloep': 'Årleg beløp',
     counterLeft: 'teikn igjen',
     counterTooMuch: 'teikn for mykje',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',
@@ -1000,7 +1005,7 @@ export default {
     'feil.pensjonEllerUfoere.utland.type.required': 'Oppgi kva slags pensjon du får frå utlandet',
     'feil.pensjonEllerUfoere.utland.land.required': 'Vel kva land du får frå',
     'feil.pensjonEllerUfoere.utland.beloep.required': 'Oppgi årleg beløp',
-    'feil.pensjonEllerUfoere.utland.valuta.required': 'Oppgi valutaen til landet',
+    'feil.pensjonEllerUfoere.utland.valuta.required': 'Vel valuta',
     'feil.inntektViaYtelserFraNAV.ytelser.required': 'Kryss av for kva inntekter og utbetalingar du har',
     'feil.ingenInntekt.svar.required': 'Oppgi om du har inntekt eller noen andre utbetalinger',
     'feil.ingenInntekt.beloep.required': 'Oppgi beløp',

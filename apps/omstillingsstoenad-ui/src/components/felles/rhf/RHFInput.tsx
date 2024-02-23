@@ -340,7 +340,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFNumberInput = ({ name, minLength, maxLength, valgfri = false, ...rest }: RHFProps) => {
+export const RHFNumberInput = ({ name, minLength, maxLength, label, valgfri = false, ...rest }: RHFProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -365,6 +365,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, valgfri = false, ..
                         if (isValid(e, re, maxLength)) onChange(e)
                     }}
                     error={feilmelding}
+                    label={valgfri ? `${label} (${t('felles.valgfri')})` : label}
                     {...rest}
                 />
             )}

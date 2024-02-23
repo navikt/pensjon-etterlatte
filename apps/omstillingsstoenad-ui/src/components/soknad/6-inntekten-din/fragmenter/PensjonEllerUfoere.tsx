@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { Heading, ReadMore } from '@navikt/ds-react'
+import { Heading, ReadMore, HGrid } from '@navikt/ds-react'
+import { useTranslation } from 'react-i18next'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
@@ -12,12 +12,13 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import Bredde from '../../../../typer/bredde'
-import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
+import { useValutaer } from '../../../../hooks/useValutaer'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
 
     const { alleLand }: { alleLand: any } = useLand()
+    const { valutaer }: { valutaer: any } = useValutaer()
 
     const { watch } = useFormContext<IInntekt>()
 
@@ -90,7 +91,7 @@ const PensjonEllerUfoere = () => {
                             name={'pensjonEllerUfoere.utland.type'}
                             label={t('inntektenDin.pensjonEllerUfoere.utland.type')}
                             description={t('inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse')}
-                            htmlSize={Bredde.M}
+                            htmlSize={Bredde.S}
                         />
                     </SkjemaElement>
                     <SkjemaElement>
@@ -101,23 +102,22 @@ const PensjonEllerUfoere = () => {
                         />
                     </SkjemaElement>
 
-                    <SkjemaGruppeRad>
+                    <HGrid gap={'2'} columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }} align={'start'}>
                         <SkjemaElement>
                             <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
-                                label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
-                                htmlSize={Bredde.S}
+                                label={t('felles.aarligBeloep')}
                             />
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <RHFInput
+                            <RHFSelect
                                 name={'pensjonEllerUfoere.utland.valuta'}
-                                label={t('inntektenDin.pensjonEllerUfoere.utland.valuta')}
-                                htmlSize={Bredde.S}
+                                label={t('felles.velgValuta')}
+                                selectOptions={valutaer}
                             />
                         </SkjemaElement>
-                    </SkjemaGruppeRad>
+                    </HGrid>
                 </>
             )}
         </SkjemaGruppe>

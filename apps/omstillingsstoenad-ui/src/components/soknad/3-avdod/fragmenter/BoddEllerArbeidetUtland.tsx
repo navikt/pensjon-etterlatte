@@ -2,20 +2,20 @@ import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { IAvdoed, OppholdUtlandType } from '../../../../typer/person'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
+import { RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import Datovelger from '../../../felles/Datovelger'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyLong, Button, Heading } from '@navikt/ds-react'
+import { BodyLong, Button, Detail, Heading, HGrid, Label } from '@navikt/ds-react'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import Bredde from '../../../../typer/bredde'
 import styled from 'styled-components'
 import { Panel } from '../../../felles/Panel'
+import { useValutaer } from '../../../../hooks/useValutaer'
 
 const Rad = styled.div`
     width: 100%;
@@ -40,6 +40,7 @@ interface Props {
 const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation()
     const { alleLand }: { land: any; alleLand: any } = useLand()
+    const { valutaer }: { valutaer: any } = useValutaer()
 
     const { control, watch } = useFormContext<IAvdoed>()
 
@@ -131,19 +132,35 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                             />
 
                             <SkjemaElement>
-                                <RHFInput
-                                    name={
-                                        `boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beskrivelse` as const
-                                    }
-                                    htmlSize={Bredde.S}
-                                    valgfri
-                                    label={t(
-                                        'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse'
-                                    )}
-                                    description={t(
-                                        'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelsePlaceholder'
-                                    )}
-                                />
+                                <Label>
+                                    {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label')}
+                                </Label>
+                                <Detail textColor={'subtle'}>
+                                    {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse')}
+                                </Detail>
+
+                                <HGrid
+                                    gap={'2'}
+                                    columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}
+                                    align={'start'}
+                                >
+                                    <SkjemaElement>
+                                        <RHFNumberInput
+                                            name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beloep`}
+                                            label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
+                                            valgfri
+                                        />
+                                    </SkjemaElement>
+
+                                    <SkjemaElement>
+                                        <RHFSelect
+                                            name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.valuta`}
+                                            label={t('felles.velgValuta')}
+                                            selectOptions={valutaer}
+                                            valgfri
+                                        />
+                                    </SkjemaElement>
+                                </HGrid>
                             </SkjemaElement>
 
                             {fields.length > 1 && (

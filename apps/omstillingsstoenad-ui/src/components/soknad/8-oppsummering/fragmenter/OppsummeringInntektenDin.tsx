@@ -347,12 +347,12 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                             />
 
                             <TekstGruppe
-                                tittel={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
+                                tittel={t('felles.aarligBeloep')}
                                 innhold={inntektenDin!!.pensjonEllerUfoere!!.utland.beloep}
                             />
 
                             <TekstGruppe
-                                tittel={t('inntektenDin.pensjonEllerUfoere.utland.valuta')}
+                                tittel={t('felles.velgValuta')}
                                 innhold={inntektenDin!!.pensjonEllerUfoere!!.utland.valuta}
                             />
                         </>

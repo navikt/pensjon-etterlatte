@@ -42,6 +42,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal fylle ut siden "Om den avdøde" og gå til neste', () => {
         cy.url().should('include', 'steg/om-den-avdoede')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
+        cy.intercept('GET', `${basePath}/api/kodeverk/valutaer`, { fixture: 'valuta.json' }).as('valutaer')
 
         const foersteDagIAaret = '01.01.' + new Date().getFullYear()
 
@@ -65,7 +66,10 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById(baseId + 'fraDato').type(oppholdUtland.fraDato)
             getById(baseId + 'tilDato').type(oppholdUtland.tilDato)
             selectValueForId(baseId + 'medlemFolketrygd', oppholdUtland.medlemFolketrygd)
-            getById(baseId + 'mottokPensjon.beskrivelse').type(oppholdUtland.mottokPensjon.beskrivelse)
+            getById(baseId + 'mottokPensjon.beloep').type(oppholdUtland.mottokPensjon.beloep)
+            getById(baseId + 'mottokPensjon.valuta')
+                .find('select')
+                .select(oppholdUtland.mottokPensjon.valuta)
         })
 
         selectValueForId('selvstendigNaeringsdrivende.svar', omDenAvdoede.selvstendigNaeringsdrivende.svar)
@@ -157,6 +161,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal fylle ut siden "Inntekten din" og gå til neste', () => {
         cy.url().should('include', 'steg/inntekten-din')
         cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'land.json' }).as('alleland')
+        cy.intercept('GET', `${basePath}/api/kodeverk/valutaer`, { fixture: 'valuta.json' }).as('valutaer')
 
         const dagensDato = new Date()
         const oktober = 9
@@ -228,7 +233,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
-        getById('pensjonEllerUfoere.utland.valuta').type(inntektenDin.pensjonEllerUfoere.utland.valuta)
+        getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
         // Ytelser fra NAV
         selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)
