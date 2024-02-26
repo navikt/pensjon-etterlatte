@@ -437,17 +437,21 @@ const pageNotFound = {
 }
 
 const systemUnavailable = {
-    applicationNotWorking: 'Oh no, the application has failed...',
-    somethingIsWrongWithTheApplication:
-        'The application contains an error that has unfortunately caused it to not be processed as intended.',
-    weAreWorkingOnTheError:
-        'We apologize for this and are working to resolve the situation as quickly as possible. In the meantime, it would probably be a good idea to take a break and try again later.',
-    reportError: 'If the error persists, you can report this at ',
-    reportErrorLink:
-        '<a href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler</a>',
-    moreAboutBenefits: 'You can read more about survivors’ benefits at',
-    moreAboutBenefitsLink: '<a href="https://www.nav.no/mistet-noen">www.nav.no/mistet-noen</a>',
-    retryButton: 'Please try again',
+    title: 'Å nei, søknaden fungerer ikke...',
+    description:
+        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+    'feedback.title': 'Opplever du fortsatt feil?',
+    'feedback.report': 'Meld fra om feil og mangler',
+    'feedback.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    moreAboutBenefits: 'Les mer om rettighetene dine',
+    moreAboutBenefitsLink: 'Har mistet noen i nær familie',
+    moreAboutBenefitsHref: 'https://www.nav.no/mistet-noen',
+    tryAgainButton: 'Prøv igjen',
+    'title.english': 'The application form is not currently working',
+    'description.english.del1':
+        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+    'description.english.tryAgain': 'try again',
+    'description.english.del2': ' later.',
 }
 
 const invalidApplicant = {
