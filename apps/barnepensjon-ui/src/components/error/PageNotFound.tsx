@@ -1,19 +1,13 @@
 import FormGroup from '../common/FormGroup'
-import NavGuide from '../common/NavGuide'
-import { BodyShort, Button, Heading } from '@navikt/ds-react'
+import { BodyShort, Button, Heading, Link } from '@navikt/ds-react'
 import useTranslation from '../../hooks/useTranslation'
-import { useLocation, useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import Trans from '../common/Trans'
+import { useLocation } from 'react-router-dom'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 import { useEffect } from 'react'
-
-const CenterDiv = styled.div`
-    text-align: center;
-`
+import FormElement from '../common/FormElement'
+import { BugIcon } from '@navikt/aksel-icons'
 
 export default function PageNotFound() {
-    const navigate = useNavigate()
     const location = useLocation()
 
     const { t } = useTranslation('pageNotFound')
@@ -24,25 +18,36 @@ export default function PageNotFound() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <CenterDiv>
+        <div>
             <FormGroup>
-                <NavGuide>{t('notFoundTitle')}</NavGuide>
+                <FormElement>
+                    <Heading size={'medium'}>{t('title')}</Heading>
+                </FormElement>
+                <FormElement>
+                    <BodyShort>{t('description')}</BodyShort>
+                </FormElement>
+                <FormGroup>
+                    <Button as={'a'} href={t('backToFrontpage.href')}>
+                        {t('backToFrontpage')}
+                    </Button>
+                </FormGroup>
+                <Link href={t('errorInLink.href')}>
+                    <BugIcon fontSize={20} aria-hidden={true} />
+                    {t('errorInLink')}
+                </Link>
             </FormGroup>
-
-            <FormGroup>
-                <Heading spacing size={'small'}>
-                    {t('pageDoesNotExist')}
-                </Heading>
-            </FormGroup>
-
-            <FormGroup>
-                <BodyShort>{t('pageDoesNotExistInfo')}</BodyShort>
-                <Trans value={t('reportErrorLink')} />
-            </FormGroup>
-
-            <FormGroup>
-                <Button onClick={() => navigate(-1)}>{t('backButton', { ns: 'btn' })}</Button>
-            </FormGroup>
-        </CenterDiv>
+            <FormElement>
+                <Heading size={'medium'}>{t('title.english')}</Heading>
+            </FormElement>
+            <FormElement>
+                <BodyShort>
+                    {t('description.english.part1')}
+                    <Link href={t('backToFrontpage.href')} inlineText>
+                        {t('backToFrontpage.english')}
+                    </Link>
+                    {t('description.english.part2')}
+                </BodyShort>
+            </FormElement>
+        </div>
     )
 }
