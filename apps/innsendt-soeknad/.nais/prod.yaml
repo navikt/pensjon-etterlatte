@@ -42,6 +42,8 @@ spec:
       value: etterlatte.etterlatteytelser
     - name: KAFKA_UTKAST_TOPIC
       value: min-side.aapen-utkast-v1
+    - name: SOEKNAD_DOMAIN_URL
+      value: https://nav.no
   accessPolicy:
     inbound:
       rules:

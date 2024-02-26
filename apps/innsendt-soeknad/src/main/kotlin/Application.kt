@@ -68,7 +68,7 @@ fun main() {
         } else {
             TestProdusent()
         }
-    val utkastPubliserer = UtkastPubliserer(minsideProducer)
+    val utkastPubliserer = UtkastPubliserer(minsideProducer, env.getValue("SOEKNAD_DOMAIN_URL"))
     val rapidApplication = RapidApplication.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
         .withKtorModule { apiModule { soeknadApi(SoeknadService(db, utkastPubliserer))} }
         .build().also { rapidConnection ->

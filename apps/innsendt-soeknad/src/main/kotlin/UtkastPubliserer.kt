@@ -7,7 +7,7 @@ import soeknad.LagretSoeknad
 import soeknad.SoeknadID
 import java.util.*
 
-class UtkastPubliserer(private val producer: KafkaProdusent<String, String>) {
+class UtkastPubliserer(private val producer: KafkaProdusent<String, String>, private val url: String) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -17,9 +17,9 @@ class UtkastPubliserer(private val producer: KafkaProdusent<String, String>) {
         val uuidFraFnrOgSoeknadId = UUID.nameUUIDFromBytes("${soeknad.fnr}${soeknad.id}".toByteArray())
 
         val soeknadsLenke = when(kilde){
-            "barnepensjon-ui" -> "https://nav.no/barnepensjon/soknad"
-            "gjenlevendepensjon-ui" -> "https://nav.no/gjenlevendepensjon/soknad"
-            "omstillingsstoenad-ui" -> "https://nav.no/omstillingsstoenad/soknad"
+            "barnepensjon-ui" -> "$url/barnepensjon/soknad"
+            "gjenlevendepensjon-ui" -> "$url/gjenlevendepensjon/soknad"
+            "omstillingsstoenad-ui" -> "$url/omstillingsstonad/soknad"
             else -> throw Exception("Søknad mangler kilde")
         }
 
