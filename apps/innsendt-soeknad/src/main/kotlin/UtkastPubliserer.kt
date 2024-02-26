@@ -31,7 +31,7 @@ class UtkastPubliserer(private val producer: KafkaProdusent<String, String>) {
         }
 
         val message = JsonMessage.newMessage(mapOf(
-            "@event_name" to "create",
+            "@event_name" to "created",
             "utkastId" to uuidFraFnrOgSoeknadId,
             "ident" to soeknad.fnr,
             "link" to soeknadsLenke,
@@ -55,7 +55,7 @@ class UtkastPubliserer(private val producer: KafkaProdusent<String, String>) {
         val uuidFraFnrOgSoeknadId = UUID.nameUUIDFromBytes("${fnr}${id}".toByteArray())
 
         val message = JsonMessage.newMessage(mapOf(
-            "@event_name" to "delete",
+            "@event_name" to "deleted",
             "utkastId" to uuidFraFnrOgSoeknadId,
         ))
 
