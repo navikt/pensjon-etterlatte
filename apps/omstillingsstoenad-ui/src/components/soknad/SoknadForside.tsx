@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
 import {
+    Alert,
     BodyLong,
     BodyShort,
     Button,
@@ -20,6 +21,8 @@ import { MuligeSteg } from '../../typer/steg'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
 import { SkjemaElement } from '../felles/SkjemaElement'
 import styled from 'styled-components'
+import { erForGammel } from '../../utils/alder'
+import { useBrukerContext } from '../../context/bruker/BrukerContext'
 
 const ListItemWithIndent = styled(List.Item)`
     margin-left: 1rem;
@@ -30,6 +33,7 @@ const SoknadForside = () => {
     const { logEvent } = useAmplitude()
     const { t } = useTranslation()
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext()
+    const { state: brukerState } = useBrukerContext()
     useLanguage()
 
     const startSoeknad = () => {
@@ -40,6 +44,30 @@ const SoknadForside = () => {
 
     return (
         <>
+            {erForGammel(brukerState.alder!!) && (
+                <SkjemaElement>
+                    <Alert variant={'info'}>
+                        <Heading size={'xsmall'} spacing>
+                            {t('forside.over67.tittel')}
+                        </Heading>
+                        <BodyShort spacing>{t('forside.over67.avsnitt1')}</BodyShort>
+                        <BodyShort spacing>
+                            {t('forside.over67.avsnitt2')}
+                            <Link href={t('forside.over67.avsnitt2.lenke.href')} inlineText>
+                                {t('forside.over67.avsnitt2.lenke.tekst')}
+                            </Link>
+                        </BodyShort>
+                        <BodyShort>
+                            {t('forside.over67.avsnitt3.del1')}
+                            <Link href={t('forside.over67.avsnitt3.lenke.href')} inlineText>
+                                {t('forside.over67.avsnitt3.lenke.tekst')}
+                            </Link>
+                            {t('forside.over67.avsnitt3.del2')}
+                        </BodyShort>
+                    </Alert>
+                </SkjemaElement>
+            )}
+
             <SkjemaGruppe>
                 <GuidePanel poster>{t('forside.ingress')}</GuidePanel>
             </SkjemaGruppe>

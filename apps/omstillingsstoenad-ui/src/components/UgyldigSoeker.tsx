@@ -2,7 +2,6 @@ import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { Veileder } from './felles/Veileder'
 import { SkjemaGruppe } from './felles/SkjemaGruppe'
 import { ActionTypes } from '../context/bruker/bruker'
-import { erForUng } from '../utils/alder'
 import { useNavigate } from 'react-router-dom'
 import { BodyLong, Button, Link } from '@navikt/ds-react'
 import { useEffect } from 'react'
@@ -21,12 +20,6 @@ const UgyldigSoeker = () => {
         }
     }, [state.kanSoeke])
 
-    const brukerErForUng = erForUng(state.alder!!)
-
-    const heiTekst = brukerErForUng
-        ? t('ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon')
-        : t('ugyldigSoeker.kanIkkeSoeke.gjenlevende')
-
     const tilbake = () => {
         dispatch({ type: ActionTypes.TILBAKESTILL })
 
@@ -37,29 +30,18 @@ const UgyldigSoeker = () => {
     return (
         <>
             <SkjemaGruppe>
-                <Veileder>{heiTekst}</Veileder>
+                <Veileder>{t('ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon')}</Veileder>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
-                {brukerErForUng ? (
-                    <BodyLong>{t('ugyldigSoeker.info.gjenlevendeEllerBarnepensjon')}</BodyLong>
-                ) : (
-                    <BodyLong>{t('ugyldigSoeker.info.gjenlevende')}</BodyLong>
-                )}
+                <BodyLong>{t('ugyldigSoeker.info.gjenlevendeEllerBarnepensjon')}</BodyLong>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
                 <BodyLong>
-                    {brukerErForUng ? (
-                        <Link href={t('ugyldigSoeker.infolenker.barnepensjon.href')}>
-                            {t('ugyldigSoeker.infolenker.barnepensjon.tekst')}
-                        </Link>
-                    ) : (
-                        <Link href={t('ugyldigSoeker.infolenker.alderspensjon.href')}>
-                            {t('ugyldigSoeker.infolenker.alderspensjon.tekst')}
-                        </Link>
-                    )}
-                    ﬂ
+                    <Link href={t('ugyldigSoeker.infolenker.barnepensjon.href')}>
+                        {t('ugyldigSoeker.infolenker.barnepensjon.tekst')}
+                    </Link>
                 </BodyLong>
             </SkjemaGruppe>
 
