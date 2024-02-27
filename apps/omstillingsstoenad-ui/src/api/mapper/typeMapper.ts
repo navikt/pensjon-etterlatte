@@ -228,6 +228,8 @@ export const konverterPensjonEllerTrygd = (type: PensjonEllerTrygd): PensjonElle
             return PensjonEllerTrygdType.UFOEREPENSJON_FRA_NAV
         case PensjonEllerTrygd.alderspensjonFraNAV:
             return PensjonEllerTrygdType.ALDERSPENSJON_FRA_NAV
+        case PensjonEllerTrygd.pensjonFraUtlandet:
+            return PensjonEllerTrygdType.PENSJON_FRA_UTLANDET
     }
 }
 

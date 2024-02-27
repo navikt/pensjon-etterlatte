@@ -218,8 +218,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         )
 
         // Pensjon eller uføre
-        selectValue(inntektenDin.pensjonEllerUfoere.pensjonstype)
+        inntektenDin.pensjonEllerUfoere.pensjonstype.forEach((pensjon) => selectValue(pensjon))
 
+        // Tjenestepensjonsordning
         getById('pensjonEllerUfoere.tjenestepensjonsordning.type')
             .find('select')
             .select(inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type)
@@ -227,10 +228,8 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler
         )
 
-        selectValueForId('pensjonEllerUfoere.utland.svar', inntektenDin.pensjonEllerUfoere.utland.svar)
-
+        // Pensjon fra utlandet
         getById('pensjonEllerUfoere.utland.land').find('select').select(inntektenDin.pensjonEllerUfoere.utland.land)
-
         getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
         getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)

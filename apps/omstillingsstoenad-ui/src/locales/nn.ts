@@ -726,6 +726,7 @@ export default {
     'soekbarYtelse.avtalefestetPensjonPrivat': 'Avtalefesta pensjon i privat sektor',
     'soekbarYtelse.saeralderpensjon': 'Særalderspensjon',
     'soekbarYtelse.tjenestepensjonsordning': 'Pensjon frå tenestepensjonsordning',
+    'soekbarYtelse.pensjonFraUtlandet': 'Pensjon frå utlandet',
     'soekbarYtelse.annen': 'Andre inntekter eller ytingar',
     'endringAvInntekt.oektStillingsprosent': 'Auka stillingsprosent',
     'endringAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',

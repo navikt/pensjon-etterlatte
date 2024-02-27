@@ -67,8 +67,7 @@ export interface IPensjonEllerUfoere {
         type: PensjonsYtelse
         utbetaler: string
     }
-    utland: {
-        svar: IValg
+    utland?: {
         type?: string
         land?: string
         beloep?: string
@@ -143,6 +142,7 @@ export enum PensjonEllerTrygd {
     ufoeretrygdFraNAV = 'soekbarYtelse.ufoeretrygdFraNAV',
     alderspensjonFraNAV = 'soekbarYtelse.alderspensjonFraNAV',
     tjenestepensjonsordning = 'soekbarYtelse.tjenestepensjonsordning',
+    pensjonFraUtlandet = 'soekbarYtelse.pensjonFraUtlandet',
 }
 
 export enum EndringAvInntektGrunn {

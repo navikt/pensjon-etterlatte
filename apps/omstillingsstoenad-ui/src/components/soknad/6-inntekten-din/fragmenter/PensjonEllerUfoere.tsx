@@ -7,8 +7,6 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/inntekt'
 import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import Bredde from '../../../../typer/bredde'
@@ -23,7 +21,6 @@ const PensjonEllerUfoere = () => {
     const { watch } = useFormContext<IInntekt>()
 
     const pensjonstype = watch('pensjonEllerUfoere.pensjonstype')
-    const utland = watch('pensjonEllerUfoere.utland.svar')
 
     const pensjonsytelseValg = Object.values(PensjonsYtelse).map((value) => {
         return { label: t(value), value }
@@ -47,7 +44,7 @@ const PensjonEllerUfoere = () => {
                 </SkjemaElement>
 
                 {pensjonstype?.includes(PensjonEllerTrygd.tjenestepensjonsordning) && (
-                    <>
+                    <SkjemaGruppe>
                         <SkjemaElement>
                             <RHFSelect
                                 name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
@@ -73,19 +70,14 @@ const PensjonEllerUfoere = () => {
                         <ReadMore header={t('hvorforSpoerVi')}>
                             {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
                         </ReadMore>
-                    </>
+                    </SkjemaGruppe>
                 )}
             </>
 
-            <SkjemaElement>
-                <RHFSpoersmaalRadio
-                    name={'pensjonEllerUfoere.utland.svar'}
-                    legend={t('inntektenDin.pensjonEllerUfoere.utland.svar')}
-                    description={t('inntektenDin.pensjonEllerUfoere.utland.hvorfor')}
-                />
-            </SkjemaElement>
-            {utland === IValg.JA && (
+            {pensjonstype?.includes(PensjonEllerTrygd.pensjonFraUtlandet) && (
                 <>
+                    <Heading size={'xsmall'}>{t('soekbarYtelse.pensjonFraUtlandet')}</Heading>
+
                     <SkjemaElement>
                         <RHFInput
                             name={'pensjonEllerUfoere.utland.type'}
