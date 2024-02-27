@@ -5,6 +5,8 @@ import { isEmpty } from 'lodash'
 import React, { memo } from 'react'
 import { fullAdresse } from '../../../utils/adresse'
 import { ExternalLink } from '@navikt/ds-icons'
+import { erForGammel } from '../../../utils/alder'
+import { SkjemaElement } from '../../felles/SkjemaElement'
 
 const InnloggetBruker = memo(() => {
     const { t } = useTranslation()
@@ -61,6 +63,14 @@ const InnloggetBruker = memo(() => {
                         <ExternalLink />
                     </Link>
                 </Alert>
+            )}
+
+            {erForGammel(state.alder!!) && (
+                <SkjemaElement>
+                    <Alert variant={'warning'}>
+                        <BodyShort>{t('omDeg.over67')}</BodyShort>
+                    </Alert>
+                </SkjemaElement>
             )}
         </>
     )

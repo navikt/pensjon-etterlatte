@@ -13,11 +13,6 @@ describe('Test at funksjoner for alder fungerer', () => {
         expect(gyldigAlder(49)).toBeTruthy()
         expect(gyldigAlder(53)).toBeTruthy()
         expect(gyldigAlder(67)).toBeTruthy()
-
-        // Alder over 67
-        expect(gyldigAlder(68)).toBeFalsy()
-        expect(gyldigAlder(80)).toBeFalsy()
-        expect(gyldigAlder(95)).toBeFalsy()
     })
 
     it('Sjekk om bruker erForUng', () => {

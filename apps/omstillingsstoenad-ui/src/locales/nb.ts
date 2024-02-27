@@ -112,6 +112,16 @@ export default {
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'forside.over67.tittel': 'Rettighet for deg som har fylt 67 år',
+    'forside.over67.avsnitt1':
+        'For å få omstillingsstønad må du være mellom 18 og 67 år. Hvis dødsfallet skjedde før du fylte 67 år, kan du ha rett til omstillingsstønad.',
+    'forside.over67.avsnitt2': 'Siden du har fylt 67 år, kan du ha ',
+    'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
+    'forside.over67.avsnitt2.lenke.tekst': 'rett til høyere alderspensjon.',
+    'forside.over67.avsnitt3.del1': 'Du kan ',
+    'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss',
+    'forside.over67.avsnitt3.lenke.tekst': 'ta kontakt',
+    'forside.over67.avsnitt3.del2': ' med oss for å få veiledning.',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
     'situasjonenDin.ingress': 'Retten din til omstillingsstønad kan påvirkes av',
@@ -465,6 +475,8 @@ export default {
     'omDeg.utbetalingsInformasjon.swift': 'Bankens S.W.I.F.T (BIC) adresse',
     'omDeg.utbetalingsInformasjon.swiftHjelpetekst':
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
+    'omDeg.over67':
+        'Vær oppmerksom på at du må være mellom 18 og 67 år for å få omstillingsstønad. Du kan ha rett på stønaden hvis dødsfallet skjedde før du fylte 67 år.',
     'omDegOgAvdoed.tittel': 'Om deg og avdøde',
     'omDegOgAvdoed.avdoed.hvem': 'Hvem er det som er død?',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Relasjonen din til avdøde da dødsfallet skjedde',

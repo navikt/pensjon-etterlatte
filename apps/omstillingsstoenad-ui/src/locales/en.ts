@@ -118,6 +118,16 @@ export default {
     'forside.samtykke.lenke.href':
         'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
     'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
+    'forside.over67.tittel': 'Legal rights after turning 67',
+    'forside.over67.avsnitt1':
+        'The right to receive the adjustment allowance is reserved for persons aged 18 to 67. If the death occurred before you turned 67, you may be eligible for the adjustment allowance.',
+    'forside.over67.avsnitt2': 'Once you turn 67, you may be ',
+    'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
+    'forside.over67.avsnitt2.lenke.tekst': 'entitled to a higher old-age pension.',
+    'forside.over67.avsnitt3.del1': 'Please ',
+    'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss/en',
+    'forside.over67.avsnitt3.lenke.tekst': 'contact NAV',
+    'forside.over67.avsnitt3.del2': ' for further guidance on this matter.',
     'situasjonenDin.tittel': 'Your situation',
     'situasjonenDin.ingress': 'Your right to transitional benefits may be influenced by',
     'situasjonenDin.ingress.li1': 'Your current marital status',
@@ -486,6 +496,8 @@ export default {
     'omDeg.utbetalingsInformasjon.swift': 'The bank’s SWIFT code or BIC',
     'omDeg.utbetalingsInformasjon.swiftHjelpetekst':
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
+    'omDeg.over67':
+        'Be aware that the right to receive the adjustment allowance is reserved for persons aged 18 to 67. If the death occurred before you turned 67, you may be eligible to receive the adjustment allowance.',
     'omDegOgAvdoed.tittel': 'About you and the deceased',
     'omDegOgAvdoed.avdoed.hvem': 'The deceased’s personal details',
     'omDegOgAvdoed.forholdTilAvdoede.relasjon': 'Your relationship with the deceased at the time of their death',
