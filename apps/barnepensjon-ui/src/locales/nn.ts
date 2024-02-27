@@ -413,13 +413,16 @@ const error = {
 }
 
 const pageNotFound = {
-    notFoundTitle: 'Oi, har du gått deg vill?',
-    pageDoesNotExist: 'Denne sida finst ikkje.',
-    pageDoesNotExistInfo:
-        'Dersom du har klikka på ei lenke på sidene våre og enda opp her, kan du rapportera feilen her:',
-    reportErrorLink:
-        '<a href="https://www.nav.no/tilbakemelding-feilogmangler">www.nav.no/tilbakemelding-feilogmangler</a>',
-    backButton: 'Klikk her for å gå tilbake',
+    title: 'Beklager vi fant ikke siden',
+    description: 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
+    'title.english': 'Page not found',
+    'description.english.part1': 'The page you requested cannot be found. \n Go to the ',
+    'description.english.part2': ', or use one of the links in the menu.',
+    'backToFrontpage.english': 'front page',
+    backToFrontpage: 'Gå til forsiden',
+    'backToFrontpage.href': 'https://nav.no',
+    errorInLink: 'Meld gjerne i fra om at lenken ikke virker',
+    'errorInLink.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
 }
 
 const systemUnavailable = {
