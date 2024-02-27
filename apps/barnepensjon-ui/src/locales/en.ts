@@ -21,6 +21,7 @@ const common = {
     dateSRLabel: 'Enter date',
     chooseCountry: 'Select country',
     chooseLanguage: 'Select language',
+    chooseCurrency: 'Select currency',
     norway: 'Norway',
     optional: 'optional',
 }
@@ -262,7 +263,8 @@ const aboutTheDeceased = {
         'Was the deceased a member of the Norwegian National Insurance Scheme during this period?',
     whyWeAskAboutFolketrygden:
         'We need to know if the deceased was a member of the Norwegian National Insurance Scheme in order to determine the right to the children’s pension.',
-    pensionReceivedFromAbroad: 'Enter any pension the deceased received from this country (optional)',
+    pensionReceivedFromAbroadTitle: 'Pension from abroad (optional)',
+    pensionReceivedFromAbroadDescription: 'Enter any pension the deceased received from this country.',
     selfEmploymentTitle: 'Income from self-employment',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'We need to know if the deceased had any income as a self-employed person. This can influence the calculation of the children’s pension. We obtain information about other income directly.',
@@ -278,6 +280,7 @@ const aboutTheDeceased = {
         "If the death is due to an occupational injury or occupational illness approved by NAV, this can determine whether you are eligible for a children's pension and how much you can receive.",
     BODD: 'Lived',
     ARBEIDET: 'Worked',
+    amountAbroad: 'Annual amount',
     addCountryButton: '+ Add more countries',
 }
 

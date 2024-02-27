@@ -278,7 +278,7 @@ export const RHFBicInput = ({ name, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps) => {
+export const RHFNumberInput = ({ name, minLength, maxLength, required = true, label, ...rest }: RHFProps) => {
     const { t } = useTranslation('error')
     const {
         control,
@@ -293,15 +293,18 @@ export const RHFNumberInput = ({ name, minLength, maxLength, ...rest }: RHFProps
         return e.target.value === '' || (re.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength))
     }
 
+    const labelWithOptional = `${label} ${required ? '' : `(${t('optional', { ns: 'common' })})`}`
+
     return (
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, minLength, maxLength }}
+            rules={{ required, minLength, maxLength }}
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
                     value={value || ''}
+                    label={labelWithOptional}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                         if (isValid(e)) onChange(e)
                     }}

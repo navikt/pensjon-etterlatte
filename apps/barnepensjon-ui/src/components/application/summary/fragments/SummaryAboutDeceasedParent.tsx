@@ -53,8 +53,10 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                             content={stay.medlemFolketrygd}
                         />
 
-                        {stay.pensionAmount && (
-                            <TextGroup title={t('pensionReceivedFromAbroad')} content={stay.pensionAmount} />
+                        {stay.pension.amount && <TextGroup title={t('amountAbroad')} content={stay.pension.amount} />}
+
+                        {stay.pension.currency && (
+                            <TextGroup title={t('chooseCurrency', { ns: 'common' })} content={stay.pension.currency} />
                         )}
                     </Panel>
                 ))}

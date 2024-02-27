@@ -6,6 +6,8 @@ export const getLoggedInUser = async () => api.get('/api/person/innlogget').then
 
 export const getAllCountries = async () => api.get('/api/kodeverk/alleland').then((res) => res.data)
 
+export const getCurrencies = async () => api.get('/api/kodeverk/valutaer').then((res) => res.data)
+
 export const getDraft = async () =>
     api
         .get('/api/api/kladd')

@@ -21,6 +21,7 @@ const common = {
     dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Velg land',
     chooseLanguage: 'Velg språk',
+    chooseCurrency: 'Velg valuta',
     norway: 'Norge',
     optional: 'valgfri',
 }
@@ -257,7 +258,8 @@ const aboutTheDeceased = {
     deceasedWasMemberOfFolketrygdenAbroad: 'Var han eller hun medlem av folketrygden under oppholdet?',
     whyWeAskAboutFolketrygden:
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
-    pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet (valgfri)',
+    pensionReceivedFromAbroadTitle: 'Pensjon fra utlandet (valgfri)',
+    pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet.',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfallet.',
@@ -272,6 +274,7 @@ const aboutTheDeceased = {
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     BODD: 'Bodd',
     ARBEIDET: 'Arbeidet',
+    amountAbroad: 'Årlig beløp',
     addCountryButton: '+ Legg til flere land',
 }
 

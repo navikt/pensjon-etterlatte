@@ -13,6 +13,7 @@ import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { ApplicantRole } from '../scenario/ScenarioSelection'
+import { useCurrencies } from '../../../hooks/useCurrencies'
 
 interface Props {
     fnrRegisteredParent: string[]
@@ -21,6 +22,7 @@ interface Props {
 export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { t } = useTranslation('aboutTheDeceased')
     const { countries }: { countries: any } = useCountries()
+    const { currencies }: { currencies: any } = useCurrencies()
     const { state } = useApplicationContext()
 
     const { watch } = useFormContext<IDeceasedParent>()
@@ -64,7 +66,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                         vetIkke={true}
                     />
                 </FormElement>
-                {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} />}
+                {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} currencies={currencies} />}
             </FormGroup>
 
             <SelfEmploymentDetails />

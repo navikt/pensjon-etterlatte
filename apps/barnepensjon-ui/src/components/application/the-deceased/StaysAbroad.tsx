@@ -1,10 +1,10 @@
 import useTranslation from '../../../hooks/useTranslation'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import { RHFInput } from '../../common/rhf/RHFInput'
+import { RHFNumberInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { IParent } from '../../../context/application/application'
-import { Button, HGrid, Panel } from '@navikt/ds-react'
-import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
+import { Button, Detail, HGrid, Label, Panel } from '@navikt/ds-react'
+import { RHFSelect, StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { OppholdUtlandType } from '../../../api/dto/FellesOpplysninger'
@@ -24,7 +24,7 @@ const StaysAbroadCheckboxDiv = styled.div`
     }
 `
 
-export default function StaysAbroad({ countries }: { countries: any }) {
+export default function StaysAbroad({ countries, currencies }: { countries: any; currencies: any }) {
     const { t } = useTranslation('aboutTheDeceased')
     const { control } = useFormContext<IParent>()
 
@@ -86,12 +86,34 @@ export default function StaysAbroad({ countries }: { countries: any }) {
                                 description={t('whyWeAskAboutFolketrygden')}
                             />
                         </FormElement>
+
                         <FormElement>
-                            <RHFInput
-                                name={`staysAbroad.abroadStays[${index}].pensionAmount`}
-                                label={t('pensionReceivedFromAbroad')}
-                                valgfri={true}
-                            />
+                            <Label>{t('pensionReceivedFromAbroadTitle')}</Label>
+                            <Detail textColor={'subtle'}>
+                                {t('pensionReceivedFromAbroadDescription')}
+                            </Detail>
+                            <HGrid
+                                gap={'2'}
+                                columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}
+                                align={'start'}
+                            >
+                                <FormElement>
+                                    <RHFNumberInput
+                                        name={`staysAbroad.abroadStays[${index}].pension.amount`}
+                                        label={t('amountAbroad')}
+                                        required={false}
+                                    />
+                                </FormElement>
+
+                                <FormElement>
+                                    <RHFSelect
+                                        name={`staysAbroad.abroadStays[${index}].pension.valuta`}
+                                        label={t('chooseCurrency', { ns: 'common' })}
+                                        children={currencies}
+                                        required={false}
+                                    />
+                                </FormElement>
+                            </HGrid>
                         </FormElement>
 
                         {fields.length > 1 && (

@@ -92,7 +92,10 @@ export interface IAbroadStay {
     toDate?: Date
     type: OppholdUtlandType[]
     medlemFolketrygd: JaNeiVetIkke
-    pensionAmount?: string
+    pension: {
+        amount?: string
+        currency?: string
+    }
 }
 
 export interface ISelfEmployment {

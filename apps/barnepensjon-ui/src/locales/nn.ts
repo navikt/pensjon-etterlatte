@@ -21,6 +21,7 @@ const common = {
     dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Vel land',
     chooseLanguage: 'Vel språk',
+    chooseCurrency: 'Vel valuta',
     norway: 'Noreg',
     optional: 'valfri',
 }
@@ -255,7 +256,8 @@ const aboutTheDeceased = {
     stayedAbroadToDate: 'Til dato',
     deceasedWasMemberOfFolketrygdenAbroad: 'Var han eller ho medlem av folketrygda under opphaldet?',
     whyWeAskAboutFolketrygden: 'Vi må vite om avdøde var medlem av folketrygda for å avgjere retten til barnepensjon.',
-    pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller ho mottok frå dette landet (valfri)',
+    pensionReceivedFromAbroadTitle: 'Pensjon frå utlandet (valfri)',
+    pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivende. Dette kan påvirke berekninga av barnepensjon. Vi hentar informasjon om andre inntekter.',
@@ -270,6 +272,7 @@ const aboutTheDeceased = {
         'Dersom dødsfallet skuldast yrkesskade eller yrkessjukdom som NAV har godkjent, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     BODD: 'Budd',
     ARBEIDET: 'Arbeidd',
+    amountAbroad: 'Årleg beløp',
     addCountryButton: '+ Legg til fleire land',
 }
 
