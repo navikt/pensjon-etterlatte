@@ -1,32 +1,24 @@
-import veileder from '../../assets/veileder.svg'
+import navguide from '../../assets/navguide.svg'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-/**
- * Skamløst stjålet fra gamle nav-frontend.
- * Gjort siden dagens "SpeechBubble" i ds-react er noe mangelfull sammenlignet med den gamle.
- * Burde konvertere til ds-react sin variant når den blir brukbar.
- */
-
 const NavGuideWrapper = styled.div`
-    align-items: center;
+    align-items: start;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     position: relative;
     flex-direction: row-reverse;
 `
 
 const NavGuideIcon = styled.div`
-    align-items: flex-end;
-    background: #c9c9c9;
-    border-radius: 50%;
+    align-items: flex-start;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
     order: 3;
     overflow: hidden;
-    height: 6.25rem;
-    width: 6.25rem;
+    height: 5rem;
+    width: 5rem;
 `
 
 const Icon = styled.img`
@@ -35,37 +27,21 @@ const Icon = styled.img`
 `
 
 const SpeechBubble = styled.div`
-    background: #efefef;
-    border-radius: 0.5rem;
+    background: #e6f0ff;
+    border-radius: 0 1rem 1rem 1rem;
     order: 1;
     padding: 1.25rem;
     text-align: left;
-`
-
-const SpeechBubbleArrow = styled.div`
-    border-bottom: 1.25rem solid transparent;
-    border-right: 1.25rem solid #efefef;
-    display: block;
-    height: 1.25rem;
-    order: 2;
-    margin-left: 0.75rem;
-    border-top: 1.25rem solid transparent;
 `
 
 export default function NavGuide({ children }: { children?: ReactNode }) {
     return (
         <NavGuideWrapper>
             <NavGuideIcon>
-                <Icon alt="veileder" src={veileder} />
+                <Icon alt="navguide" src={navguide} />
             </NavGuideIcon>
 
-            {children && (
-                <>
-                    <SpeechBubbleArrow />
-
-                    <SpeechBubble>{children}</SpeechBubble>
-                </>
-            )}
+            {children && <SpeechBubble>{children}</SpeechBubble>}
         </NavGuideWrapper>
     )
 }

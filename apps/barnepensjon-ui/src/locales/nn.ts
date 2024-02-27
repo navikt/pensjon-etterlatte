@@ -426,17 +426,21 @@ const pageNotFound = {
 }
 
 const systemUnavailable = {
-    applicationNotWorking: 'Ã… nei, søknaden fungerer ikkje...',
-    somethingIsWrongWithTheApplication:
-        'Det er ein feil i søknaden som gjer at den dessverre ikkje fungerer som den skal.',
-    weAreWorkingOnTheError:
-        'Vi beklager dette og jobbar med å finna ut av det så raskt som mogleg. I mellomtida er det nok lurt å ta ein pause og prøve igjen seinare.',
-    reportError: 'Er det fortsatt feil, kan du melde frå om det på ',
-    reportErrorLink:
-        '<a href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler</a>',
-    moreAboutBenefits: 'Du kan lesa meir om ytingar til attlevande på',
-    moreAboutBenefitsLink: '<a href="https://www.nav.no/mistet-noen">www.nav.no/mistet-noen</a>',
-    retryButton: 'Prøv igjen',
+    title: 'Å nei, søknaden fungerer ikke...',
+    description:
+        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+    'feedback.title': 'Opplever du fortsatt feil?',
+    'feedback.report': 'Meld fra om feil og mangler',
+    'feedback.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    moreAboutBenefits: 'Les mer om rettighetene dine',
+    moreAboutBenefitsLink: 'Har mistet noen i nær familie',
+    moreAboutBenefitsHref: 'https://www.nav.no/mistet-noen',
+    tryAgainButton: 'Prøv igjen',
+    'title.english': 'The application form is not currently working',
+    'description.english.del1':
+        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+    'description.english.tryAgain': 'try again',
+    'description.english.del2': ' later.',
 }
 
 const invalidApplicant = {
