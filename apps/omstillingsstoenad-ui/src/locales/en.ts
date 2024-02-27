@@ -666,7 +666,7 @@ export default {
     'soeknadKvittering.andreStoenader.andreInformasjon':
         'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',
-    'sideIkkeFunnet.tittel': 'Beklager vi fant ikke siden',
+    'sideIkkeFunnet.tittel': 'Beklager, vi fant ikke siden',
     'sideIkkeFunnet.beskrivelse': 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
     'sideIkkeFunnet.tittel.engelsk': 'Page not found',
     'sideIkkeFunnet.beskrivelse.engelsk.del1': 'The page you requested cannot be found. \n Go to the ',
@@ -1092,16 +1092,20 @@ export default {
     'feil.harBarnetVerge.fornavn.pattern': 'Invalid first name',
     'feil.harBarnetVerge.etternavn.pattern': 'Invalid family name',
     'feil.harBarnetVerge.foedselsnummer.validate': 'Invalid national identity number',
-    'systemUtilgjengelig.veileder': "Oh no, the application isn't working...",
-    'systemUtilgjengelig.intro': 'There seems to be an error in the application.',
-    'systemUtilgjengelig.beskrivelse':
-        'We apologize for the inconvenience and are working on solving the problem. We recommend you take a short break and try again later.',
-    'systemUtilgjengelig.tilbakemelding': 'If the error persists, you can report it here: ',
-    'systemUtilgjengelig.tilbakemeldingLenke': 'www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler',
-    'systemUtilgjengelig.tilbakemeldingHref':
-        'https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler',
-    'systemUtilgjengelig.merOmYtelsene': 'You can read more about survivors benefits here: ',
-    'systemUtilgjengelig.merOmYtelseneLenke': 'www.nav.no/mistet-noen',
+    'systemUtilgjengelig.veileder.tittel': 'Å nei, søknaden fungerer ikke...',
+    'systemUtilgjengelig.veileder.beskrivelse':
+            'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+    'systemUtilgjengelig.tilbakemelding.tittel': 'Opplever du fortsatt feil?',
+    'systemUtilgjengelig.tilbakemelding.meldFra': 'Meld fra om feil og mangler',
+    'systemUtilgjengelig.tilbakemelding.href':
+            'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    'systemUtilgjengelig.merOmYtelsene': 'Les mer om rettighetene dine',
+    'systemUtilgjengelig.merOmYtelseneLenke': 'Har mistet noen i nær familie',
     'systemUtilgjengelig.merOmYtelseneHref': 'https://www.nav.no/mistet-noen',
-    'systemUtilgjengelig.knappProevIgjen': 'Try again',
+    'systemUtilgjengelig.knappProevIgjen': 'Prøv igjen',
+    'systemUtilgjengelig.tittel.engelsk': 'The application form is not currently working',
+    'systemUtilgjengelig.beskrivelse.engelsk.del1':
+            'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+    'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
+    'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
 }

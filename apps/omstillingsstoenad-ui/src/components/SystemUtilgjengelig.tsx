@@ -1,61 +1,83 @@
 import { SkjemaGruppe } from './felles/SkjemaGruppe'
-import { Alert, BodyLong, Button, Link } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
-import { Spraakvalg } from './felles/Spraakvalg'
-import { useLanguage } from '../hooks/useLanguage'
-import { NavigasjonsRadSection } from './felles/StyledComponents'
 import { Veileder } from './felles/Veileder'
+import { SkjemaElement } from './felles/SkjemaElement'
+import blomstHjerteHus from '../assets/ikoner/blomstHjerteHus.svg'
+import styled from 'styled-components'
+
+const Icon = styled.img`
+    height: 4rem;
+    width: 4rem;
+    margin-bottom: -1.5rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+`
 
 export default function SystemUtilgjengelig() {
-    useLanguage()
-
     const { t } = useTranslation()
 
     const omstart = () => {
-        window.location.href = '/gjenlevendepensjon/soknad'
+        window.location.href = '/omstillingsstonad/soknad'
     }
 
     return (
-        <>
+        <div style={{ maxWidth: '500px', margin: 'auto' }}>
             <SkjemaGruppe>
-                <Veileder>{t('systemUtilgjengelig.veileder')}</Veileder>
-            </SkjemaGruppe>
-
-            <Spraakvalg />
-
-            <SkjemaGruppe>
-                <Alert variant={'error'}>
-                    <BodyLong>{t('systemUtilgjengelig.intro')}</BodyLong>
-                </Alert>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <BodyLong>{t('systemUtilgjengelig.beskrivelse')}</BodyLong>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <BodyLong>{t('systemUtilgjengelig.tilbakemelding')}</BodyLong>
-
-                <Link href={t('systemUtilgjengelig.tilbakemeldingHref')}>
-                    {t('systemUtilgjengelig.tilbakemeldingLenke')}
-                </Link>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <BodyLong>{t('systemUtilgjengelig.merOmYtelsene')}</BodyLong>
-
-                <Link href={t('systemUtilgjengelig.merOmYtelseneHref')}>
-                    {t('systemUtilgjengelig.merOmYtelseneLenke')}
-                </Link>
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
-                <NavigasjonsRadSection>
+                <Veileder>
+                    <Heading size={'xsmall'} spacing>
+                        {t('systemUtilgjengelig.veileder.tittel')}
+                    </Heading>
+                    <BodyShort spacing>{t('systemUtilgjengelig.veileder.beskrivelse')}</BodyShort>
                     <Button variant={'primary'} onClick={omstart}>
                         {t('systemUtilgjengelig.knappProevIgjen')}
                     </Button>
-                </NavigasjonsRadSection>
+                </Veileder>
             </SkjemaGruppe>
-        </>
+
+            <SkjemaElement>
+                <Heading size={'small'} spacing>
+                    {t('systemUtilgjengelig.tilbakemelding.tittel')}
+                </Heading>
+                <Button as={'a'} variant={'secondary'} href={t('systemUtilgjengelig.tilbakemelding.href')}>
+                    {t('systemUtilgjengelig.tilbakemelding.meldFra')}
+                </Button>
+            </SkjemaElement>
+
+            <SkjemaGruppe>
+                <SkjemaElement>
+                    <Heading size={'small'} spacing>
+                        {t('systemUtilgjengelig.merOmYtelsene')}
+                    </Heading>
+                </SkjemaElement>
+                <SkjemaElement>
+                    <Box
+                        as={'a'}
+                        href={t('systemUtilgjengelig.merOmYtelseneHref')}
+                        borderRadius="large"
+                        shadow="xsmall"
+                        paddingBlock={'8'}
+                        paddingInline={'6 32'}
+                        style={{ color: 'var(--a-text-default)', fontSize: '20px' }}
+                    >
+                        <Icon alt="blomstHjerteHus" src={blomstHjerteHus} />
+                        {t('systemUtilgjengelig.merOmYtelseneLenke')}
+                    </Box>
+                </SkjemaElement>
+            </SkjemaGruppe>
+
+            <SkjemaElement>
+                <Heading size={'xsmall'} spacing>
+                    {t('systemUtilgjengelig.tittel.engelsk')}
+                </Heading>
+                <BodyShort>
+                    {t('systemUtilgjengelig.beskrivelse.engelsk.del1')}
+                    <Link href={'/omstillingsstonad/soknad'} inlineText>
+                        {t('systemUtilgjengelig.beskrivelse.engelsk.tryAgain')}
+                    </Link>
+                    {t('systemUtilgjengelig.beskrivelse.engelsk.del2')}
+                </BodyShort>
+            </SkjemaElement>
+        </div>
     )
 }
