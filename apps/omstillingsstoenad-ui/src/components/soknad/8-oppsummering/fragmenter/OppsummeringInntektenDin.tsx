@@ -318,7 +318,11 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                     {inntektenDin.pensjonEllerUfoere?.pensjonstype?.includes(
                         PensjonEllerTrygd.tjenestepensjonsordning
                     ) && (
-                        <>
+                        <Panel>
+                            <Heading size={'xsmall'} spacing>
+                                {t('soekbarYtelse.tjenestepensjonsordning')}
+                            </Heading>
+
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
                                 innhold={t(inntektenDin!!.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type!!)}
@@ -327,35 +331,35 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
                                 innhold={inntektenDin!!.pensjonEllerUfoere!!.tjenestepensjonsordning!!.utbetaler!!}
                             />
-                        </>
+                        </Panel>
                     )}
-                    <TekstGruppeJaNeiVetIkke
-                        tittel={t('inntektenDin.pensjonEllerUfoere.utland.svar')}
-                        innhold={inntektenDin.pensjonEllerUfoere?.utland.svar}
-                    />
 
-                    {inntektenDin.pensjonEllerUfoere?.utland.svar === IValg.JA && (
-                        <>
+                    {inntektenDin.pensjonEllerUfoere?.pensjonstype?.includes(PensjonEllerTrygd.pensjonFraUtlandet) && (
+                        <Panel>
+                            <Heading size={'xsmall'} spacing>
+                                {t('soekbarYtelse.pensjonFraUtlandet')}
+                            </Heading>
+
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.utland.type')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland.type}
+                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.type}
                             />
 
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.utland.land')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland.land}
+                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.land}
                             />
 
                             <TekstGruppe
                                 tittel={t('felles.aarligBeloep')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland.beloep}
+                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.beloep}
                             />
 
                             <TekstGruppe
                                 tittel={t('felles.velgValuta')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland.valuta}
+                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.valuta}
                             />
-                        </>
+                        </Panel>
                     )}
                 </Panel>
             )}
@@ -365,9 +369,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                     <Heading size={'small'}>{t('inntektenDin.inntektViaYtelserFraNAV.tittel')}</Heading>
                     <TekstGruppe
                         tittel={t('inntektenDin.inntektViaYtelserFraNAV.ytelser')}
-                        innhold={inntektenDin.inntektViaYtelserFraNAV?.ytelser?.map(
-                            (item) => ` ${t(item)}`
-                        )}
+                        innhold={inntektenDin.inntektViaYtelserFraNAV?.ytelser?.map((item) => ` ${t(item)}`)}
                     />
                 </Panel>
             )}

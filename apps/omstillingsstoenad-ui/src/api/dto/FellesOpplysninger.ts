@@ -181,11 +181,10 @@ export interface PensjonEllerUfoere {
         type: Opplysning<EnumSvar<PensjonsYtelseType>>
         utbetaler: Opplysning<FritekstSvar>
     }
-    utland: {
-        svar: Opplysning<EnumSvar<JaNeiVetIkke>>
-        type?: Opplysning<FritekstSvar>
-        land?: Opplysning<FritekstSvar>
-        beloepMedValuta?: Opplysning<FritekstSvar>
+    utland?: {
+        type: Opplysning<FritekstSvar>
+        land: Opplysning<FritekstSvar>
+        beloepMedValuta: Opplysning<FritekstSvar>
     }
 }
 
@@ -356,6 +355,7 @@ export enum PensjonEllerTrygdType {
     TJENESTEPENSJONSORDNING = 'TJENESTEPENSJONSORDNING',
     UFOEREPENSJON_FRA_NAV = 'UFOEREPENSJON_FRA_NAV',
     ALDERSPENSJON_FRA_NAV = 'ALDERSPENSJON_FRA_NAV',
+    PENSJON_FRA_UTLANDET = 'PENSJON_FRA_UTLANDET',
 }
 
 export enum InntektEllerUtbetalingType {

@@ -157,14 +157,14 @@
     },
     "pensjonEllerUfoere": {
       "pensjonstype": [
-        "soekbarYtelse.tjenestepensjonsordning"
+        "soekbarYtelse.tjenestepensjonsordning",
+        "soekbarYtelse.pensjonFraUtlandet"
       ],
       "tjenestepensjonsordning": {
         "type": "soekbarYtelse.alderspensjon",
         "utbetaler": "Staten"
       },
       "utland": {
-        "svar": "radiobuttons.ja",
         "type": "Alderspensjon",
         "land": "Island",
         "beloep": "30 000",

@@ -1057,8 +1057,6 @@ const hentInntektOgPensjon = (
 
     let pensjonEllerUfoere: PensjonEllerUfoere | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.pensjonEllerUfoere)) {
-        const pensjonFraUtland = inntektenDin.pensjonEllerUfoere!!.utland!!.svar === IValg.JA
-
         pensjonEllerUfoere = {
             pensjonstype: {
                 spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonstype'),
@@ -1088,37 +1086,29 @@ const hentInntektOgPensjon = (
                       },
                   }
                 : undefined,
-            utland: {
-                svar: {
-                    spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.svar'),
-                    svar: valgTilSvar(t, inntektenDin.pensjonEllerUfoere!!.utland!!.svar),
-                },
-                type: pensjonFraUtland
-                    ? {
+            utland: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(PensjonEllerTrygd.pensjonFraUtlandet)
+                ? {
+                      type: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.type'),
                           svar: {
                               innhold: inntektenDin.pensjonEllerUfoere!!.utland!!.type!!,
                           },
-                      }
-                    : undefined,
-                land: pensjonFraUtland
-                    ? {
+                      },
+                      land: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.land'),
                           svar: {
                               innhold: inntektenDin.pensjonEllerUfoere!!.utland!!.land!!,
                           },
-                      }
-                    : undefined,
-                beloepMedValuta: pensjonFraUtland
-                    ? {
+                      },
+                      beloepMedValuta: {
                           spoersmaal: t('felles.aarligBeloep'),
                           svar: {
                               innhold: `${inntektenDin.pensjonEllerUfoere!!.utland!!
                                   .beloep!!} ${inntektenDin.pensjonEllerUfoere!!.utland!!.valuta!!}`,
                           },
-                      }
-                    : undefined,
-            },
+                      },
+                  }
+                : undefined,
         }
     }
 

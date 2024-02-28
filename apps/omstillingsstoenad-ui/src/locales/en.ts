@@ -757,6 +757,7 @@ export default {
     'soekbarYtelse.avtalefestetPensjonPrivat': 'AFP contractual pension in the private sector',
     'soekbarYtelse.saeralderpensjon': 'Job-specific retirement pension',
     'soekbarYtelse.tjenestepensjonsordning': 'Pension from occupational pension scheme',
+    'soekbarYtelse.pensjonFraUtlandet': 'Pension from a foreign country',
     'soekbarYtelse.annen': 'Other incomes or benefits',
     'endringAvInntekt.oektStillingsprosent': 'Increased position percentage',
     'endringAvInntekt.redusertStillingsprosent': 'Reduced position percentage',
