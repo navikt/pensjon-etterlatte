@@ -107,7 +107,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: any;
 
                                 <FormElement>
                                     <RHFSelect
-                                        name={`staysAbroad.abroadStays[${index}].pension.valuta`}
+                                        name={`staysAbroad.abroadStays[${index}].pension.currency`}
                                         label={t('chooseCurrency', { ns: 'common' })}
                                         children={currencies}
                                         required={false}
