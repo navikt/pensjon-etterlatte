@@ -39,7 +39,7 @@ const EtablererVirksomhet = () => {
                     maxLength={9}
                     minLength={9}
                     htmlSize={Bredde.S}
-                    valgfri={!!!manglerOrgnr?.length}
+                    valgfri={!!manglerOrgnr?.length}
                 />
             </SkjemaElement>
 
