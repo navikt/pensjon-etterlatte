@@ -46,7 +46,7 @@ class UtkastPubliserer(private val producer: KafkaProdusent<String, String>, pri
             )
         ))
 
-        producer.publiser("test",message.toJson())
+        producer.publiser("test", message.toJson())
     }
 
     fun publiserDeleteUtkastFraMinSide(fnr: String, id: SoeknadID) {
@@ -59,7 +59,7 @@ class UtkastPubliserer(private val producer: KafkaProdusent<String, String>, pri
             "utkastId" to uuidFraFnrOgSoeknadId,
         ))
 
-        producer.publiser("test",message.toJson())
+        producer.publiser("test", message.toJson())
     }
 }
 

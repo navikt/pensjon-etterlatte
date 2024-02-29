@@ -220,6 +220,7 @@ internal class SoeknadApiIntegrationTest {
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
+        postgreSQLContainer.awaitHealthy()
 
         dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()

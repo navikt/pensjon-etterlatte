@@ -1,5 +1,6 @@
 package soeknad
 
+import awaitHealthy
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
@@ -44,6 +45,7 @@ internal class SoeknadDaoIntegrationTest {
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
+        postgreSQLContainer.awaitHealthy()
 
         val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dataSource = dsb.dataSource
