@@ -46,7 +46,10 @@ internal class SoeknadServiceTest {
         lagretOK shouldBe true
 
         verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
-        verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
+        verify(exactly = 2) {
+            mockRepository.ferdigstillSoeknad(any())
+            mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any())
+        }
     }
 
     @Test
@@ -73,7 +76,10 @@ internal class SoeknadServiceTest {
         val soeknadJsonNode = mapper.valueToTree<JsonNode>("""{}""")
         val id = service.lagreKladd(Foedselsnummer.of(fnr), soeknadJsonNode, kilde)
 
-        verify(exactly = 1) { mockRepository.lagreKladd(any()) }
+        verify(exactly = 1) {
+            mockRepository.lagreKladd(any())
+            mockUtkastPubliserer.publiserCreateUtkastTilMinSide(any(), any())
+        }
 
         id shouldBe 1
     }
@@ -97,7 +103,10 @@ internal class SoeknadServiceTest {
 
         verify(exactly = 1) { mockRepository.finnKladd("24014021406", any()) }
         verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
-        verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
+        verify(exactly = 2) {
+            mockRepository.ferdigstillSoeknad(any())
+            mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any())
+        }
         verify(exactly = 0) { mockRepository.slettOgKonverterKladd(any(), any()) }
 
         isSuccess shouldBe true
@@ -124,7 +133,10 @@ internal class SoeknadServiceTest {
 
         verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
         verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
-        verify(exactly = 2) { mockRepository.ferdigstillSoeknad(any()) }
+        verify(exactly = 2) {
+            mockRepository.ferdigstillSoeknad(any())
+            mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any())
+        }
         verify(exactly = 1) { mockRepository.slettOgKonverterKladd(fnr.value, kilde) }
 
         isSuccess shouldBe true

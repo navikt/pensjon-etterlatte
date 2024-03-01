@@ -15,17 +15,18 @@ class UtkastPublisererTest {
     private val kafkaProduser: KafkaProdusent<String, String> = mockk()
     private val soeknadSomSkalPubliseres = LagretSoeknad(123, "fnr", "{}")
     private val publiserer = UtkastPubliserer(kafkaProduser, "test")
+    private val testNoekkel = UUID.nameUUIDFromBytes("fnr123".toByteArray()).toString()
 
     @Test
     fun `Created utkast for barnepensjon skal sendes på kafka`() {
         val slot = slot<String>()
 
-        every { kafkaProduser.publiser("test", capture(slot)) } returns mockk(relaxed = true)
+        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
         publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "barnepensjon-ui")
 
         verify {
-            kafkaProduser.publiser("test", capture(slot))
+            kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
         val message = jacksonObjectMapper().readTree(slot.captured)
@@ -38,12 +39,12 @@ class UtkastPublisererTest {
     fun `Created utkast for gjenlevendepensjon skal publisere på kafka`() {
         val slot = slot<String>()
 
-        every { kafkaProduser.publiser("test", capture(slot)) } returns mockk(relaxed = true)
+        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
         publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "gjenlevendepensjon-ui")
 
         verify {
-            kafkaProduser.publiser("test", capture(slot))
+            kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
         val message = jacksonObjectMapper().readTree(slot.captured)
@@ -56,12 +57,12 @@ class UtkastPublisererTest {
     fun `Created utkast for omstillingsstønad skal publisere på kafka`() {
         val slot = slot<String>()
 
-        every { kafkaProduser.publiser("test", capture(slot)) } returns mockk(relaxed = true)
+        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
         publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "omstillingsstoenad-ui")
 
         verify {
-            kafkaProduser.publiser("test", capture(slot))
+            kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
         val message = jacksonObjectMapper().readTree(slot.captured)
@@ -90,12 +91,12 @@ class UtkastPublisererTest {
             )
         )
 
-        every { kafkaProduser.publiser("test", capture(slot)) } returns mockk(relaxed = true)
+        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
         publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "barnepensjon-ui")
 
         verify {
-            kafkaProduser.publiser("test", capture(slot))
+            kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
         val message = jacksonObjectMapper().readTree(slot.captured)
@@ -113,12 +114,12 @@ class UtkastPublisererTest {
     fun `Deleted utkast for barnepensjon skal publisere på kafka`() {
         val slot = slot<String>()
 
-        every { kafkaProduser.publiser("test", capture(slot)) } returns mockk(relaxed = true)
+        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
         publiserer.publiserDeleteUtkastFraMinSide("fnr", 123)
 
         verify {
-            kafkaProduser.publiser("test", capture(slot))
+            kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
         val message = jacksonObjectMapper().readTree(slot.captured)
