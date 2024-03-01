@@ -6230,17 +6230,17 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-i18next@23.8.2:
-  version "23.8.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.8.2.tgz#f3ff6ea929e0927d9717f0ed195ae46d05919900"
-  integrity sha512-Z84zyEangrlERm0ZugVy4bIt485e/H8VecGUZkZWrH7BDePG6jT73QdL9EA1tRTTVVMpry/MgWIP1FjEn0DRXA==
+i18next@23.10.0:
+  version "23.10.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.10.0.tgz#fb328794ae692e6fdde0564259e421f4203c4a2c"
+  integrity sha512-/TgHOqsa7/9abUKJjdPeydoyDc0oTi/7u9F8lMSj6ufg4cbC1Oj3f/Jja7zj7WRIhEQKB7Q4eN6y68I9RDxxGQ==
   dependencies:
     "@babel/runtime" "^7.23.2"
 
-ibantools@^4.3.9:
-  version "4.3.9"
-  resolved "https://registry.yarnpkg.com/ibantools/-/ibantools-4.3.9.tgz#1b3f48c4930bb1fb6516b438bc00186411321690"
-  integrity sha512-PxQuxv1vq1CgOtfBZIMThZBZEi/hFMmPiAzq4QPx2rmbrUVF/p4dFqvk9e9Z+hVXZxUmdW1cgJh21lpt1UYZzg==
+ibantools@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/ibantools/-/ibantools-4.5.0.tgz#b008423d72024e35f34c78ad882802d256fdc20a"
+  integrity sha512-Ab5DeSYzGiCmKm7Qx1FW+B6WCXQ18mfBposz4Kgx0cz6VZ9xTATdYIfjwtismovXu8vPo6aOB2fexYl6jFWwKQ==
 
 iconv-lite@0.4.24:
   version "0.4.24"
