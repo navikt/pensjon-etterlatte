@@ -65,7 +65,7 @@ internal class SoeknadApiIntegrationTest {
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
     private lateinit var db: PostgresSoeknadRepository
-    private lateinit var dsb: DataSourceBuilder
+    private lateinit var dsbHolder: DataSourceBuilder
     private lateinit var service: SoeknadService
 
     private val kilde = "barnepensjon-ui"
@@ -74,7 +74,9 @@ internal class SoeknadApiIntegrationTest {
 
     @BeforeAll
     fun beforeAll() {
-        setupDatabase()
+        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
+        dsbHolder = dsb
+        db = PostgresSoeknadRepository.using(dsb.dataSource)
 
         service = SoeknadService(db)
     }
@@ -121,7 +123,7 @@ internal class SoeknadApiIntegrationTest {
                 response.status() shouldBe HttpStatusCode.OK
 
                 // Verifiser søknad for gjenlevendepensjon
-                val gjenlevendeRow = dsb.dataSource.connection.createStatement()
+                val gjenlevendeRow = dsbHolder.dataSource.connection.createStatement()
                     .executeQuery("SELECT * FROM innhold WHERE fnr = '$LUR_KOPP'")
                 gjenlevendeRow.next()
 
@@ -129,7 +131,7 @@ internal class SoeknadApiIntegrationTest {
                 gjenlevendeRow.getString("payload") shouldBe request.soeknader.first().toJson()
 
                 // Verifiser egen søknad for barnepensjon
-                val barnepensjonRow = dsb.dataSource.connection.createStatement()
+                val barnepensjonRow = dsbHolder.dataSource.connection.createStatement()
                     .executeQuery("SELECT * FROM innhold WHERE fnr = '$BLÅØYD_SAKS'")
                 barnepensjonRow.next()
 
@@ -204,17 +206,6 @@ internal class SoeknadApiIntegrationTest {
                 db.finnKladd(STOR_SNERK, kilde) shouldBe null
             }
         }
-    }
-
-    private fun setupDatabase() {
-        postgreSQLContainer.start()
-        postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
-        postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
-
-        dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
-        dsb.migrate()
-
-        db = PostgresSoeknadRepository.using(dsb.dataSource)
     }
 }
 

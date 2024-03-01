@@ -16,11 +16,7 @@ class DatasourceBuilderTest {
 
     @BeforeAll
     fun beforeAll() {
-        postgreSQLContainer.start()
-        postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
-        postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
-
-        val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl, "NAIS_CLUSTER_NAME" to "integrasjonstest"))
+        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer, mapOf("NAIS_CLUSTER_NAME" to "integrationtest"), shouldMigrate = false)
 
         dsb.dataSource.createGcpPersonalRole()
         dsb.migrate()

@@ -3,8 +3,8 @@ package soeknad
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
-import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
+import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -26,32 +26,29 @@ import java.util.*
 import javax.sql.DataSource
 import kotlin.random.Random
 
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class SoeknadDaoIntegrationTest {
+
     @Container
-    private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
+    private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12-alpine")
+
 
     private lateinit var db: PostgresSoeknadRepository
     private lateinit var dataSource: DataSource
 
-    private val connection get() = dataSource.connection
+    
     private val kildeBarnepensjon = "barnepensjon-ui"
     private val kildeGjenlevende = "gjenlevendepensjon-ui"
 
 
     @BeforeAll
     fun beforeAll() {
-        postgreSQLContainer.start()
-        postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
-        postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
-
-        val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
+        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
         dataSource = dsb.dataSource
-
         dsb.migrate()
         db = PostgresSoeknadRepository.using(dataSource)
     }
-
     @AfterAll
     fun afterAll() {
         postgreSQLContainer.stop()
@@ -59,7 +56,7 @@ internal class SoeknadDaoIntegrationTest {
 
     @AfterEach
     fun resetTablesAfterEachTest() {
-        connection.use {
+        dataSource.connection.use {
             it.prepareStatement("TRUNCATE soeknad RESTART IDENTITY CASCADE;").execute()
         }
     }
@@ -645,7 +642,7 @@ internal class SoeknadDaoIntegrationTest {
 
     @Test
     fun `Sjekk at alle statuser finnes i databasen`() {
-        val statusListe: List<Status> = connection.use {
+        val statusListe: List<Status> = dataSource.connection.use {
             it.prepareStatement("SELECT id FROM status")
                 .executeQuery()
                 .let {
@@ -705,7 +702,7 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
-        connection.use { conn ->
+        dataSource.connection.use { conn ->
             val rs = conn.prepareStatement("SELECT id, type, kilde FROM soeknad WHERE id = ?")
                 .apply { setLong(1, id) }
                 .executeQuery()
@@ -724,7 +721,7 @@ internal class SoeknadDaoIntegrationTest {
         opprettKladdHendelse: Boolean = false
     ) {
         soeknader.forEachIndexed { index, soeknad ->
-            connection.use {
+            dataSource.connection.use {
                 it.prepareStatement(
                     """
                     WITH soeknad_id AS (
@@ -746,7 +743,7 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     private fun nyKladdHendelse(soeknad: SoeknadTest, hendelseId: Long) {
-        connection.use {
+        dataSource.connection.use {
             it.prepareStatement("INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)")
                 .apply {
                     setLong(1, hendelseId)
@@ -760,7 +757,7 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     private fun slettHendelserForSoeknad(soeknadId: Long) {
-        connection.use {
+        dataSource.connection.use {
             it.prepareStatement("DELETE FROM hendelse WHERE soeknad_id = ?")
                 .apply { setLong(1, soeknadId) }
                 .execute()
@@ -775,7 +772,7 @@ internal class SoeknadDaoIntegrationTest {
             ORDER BY status.rang
         """.trimIndent()
 
-        return connection.use {
+        return dataSource.connection.use {
             val rs = it.prepareStatement(sql)
                 .apply { setLong(1, soeknadId) }
                 .executeQuery()
@@ -788,7 +785,7 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     private fun finnSoeknad(fnr: String, kilde: String): LagretSoeknad? {
-        return connection.use {
+        return dataSource.connection.use {
             val pstmt = it.prepareStatement(
                 """
                 SELECT * FROM innhold i 
@@ -807,7 +804,7 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     private fun finnSisteStatus(id: SoeknadID): Status? {
-        return connection.use {
+        return dataSource.connection.use {
             val rs = it.prepareStatement("""
                     SELECT h.status_id FROM hendelse h
                     WHERE h.soeknad_id = ?
@@ -823,7 +820,7 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad>? {
-        return connection.use {
+        return dataSource.connection.use {
             val pstmt = it.prepareStatement("SELECT * FROM innhold i WHERE i.fnr = ?")
             pstmt.setString(1, fnr)
 
