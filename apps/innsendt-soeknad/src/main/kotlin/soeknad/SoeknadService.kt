@@ -69,7 +69,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
         return soeknader.map {
             db.ferdigstillSoeknad(it).also { ferdigstiltID ->
                 logger.info("Ferdigstilt søknad $ferdigstiltID (type=${it.type})")
-                publiserUtkast.publiserDeleteUtkastFraMinSide(it.fnr, ferdigstiltID)
+                publiserUtkast.publiserSlettUtkastFraMinSide(it.fnr, ferdigstiltID)
             }
         }
     }
@@ -83,7 +83,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
         val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson(), kilde))
             .also {
                 logger.info("Lagret kladd (id=${it.id})")
-                publiserUtkast.publiserCreateUtkastTilMinSide(it, kilde)
+                publiserUtkast.publiserOpprettUtkastTilMinSide(it, kilde)
             }
 
         return lagretkladd.id
@@ -93,7 +93,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
         db.slettKladd(innloggetBruker.value, kilde)
             ?.also {
                 logger.info("Slettet kladd (id=${it})")
-                publiserUtkast.publiserDeleteUtkastFraMinSide(innloggetBruker.value, it)
+                publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBruker.value, it)
             }
     }
 }

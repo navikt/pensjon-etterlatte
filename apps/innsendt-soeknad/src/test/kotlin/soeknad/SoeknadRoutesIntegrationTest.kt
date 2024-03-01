@@ -91,7 +91,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende`() {
-        every { mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             val request = SoeknadRequest(
@@ -111,7 +111,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
-        every { mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             val request = SoeknadRequest(
@@ -163,7 +163,7 @@ internal class SoeknadApiIntegrationTest {
     @Order(2)
     fun `Skal lagre kladd ned i databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldBe null
-        every { mockUtkastPubliserer.publiserCreateUtkastTilMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
@@ -204,7 +204,7 @@ internal class SoeknadApiIntegrationTest {
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
-        every { mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {

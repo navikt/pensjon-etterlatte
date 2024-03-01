@@ -4,9 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.beInstanceOf
-import io.mockk.Runs
 import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.UtkastPubliserer
@@ -31,7 +29,7 @@ internal class SoeknadServiceTest {
     @Test
     fun `Gyldige søknader lagres OK som forventet`() {
         every { mockRepository.finnKladd(any(), any()) } returns LagretSoeknad(Random.nextLong(), "", """{}""")
-        every { mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
         every { mockRepository.ferdigstillSoeknad(any()) } returns 1
 
         val request = SoeknadRequest(
@@ -48,7 +46,7 @@ internal class SoeknadServiceTest {
         verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
         verify(exactly = 2) {
             mockRepository.ferdigstillSoeknad(any())
-            mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any())
+            mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())
         }
     }
 
@@ -71,14 +69,14 @@ internal class SoeknadServiceTest {
         val fnr = "24014021406"
 
         every { mockRepository.lagreKladd(any()) } returns LagretSoeknad(1, fnr, """{}""")
-        every { mockUtkastPubliserer.publiserCreateUtkastTilMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
         val soeknadJsonNode = mapper.valueToTree<JsonNode>("""{}""")
         val id = service.lagreKladd(Foedselsnummer.of(fnr), soeknadJsonNode, kilde)
 
         verify(exactly = 1) {
             mockRepository.lagreKladd(any())
-            mockUtkastPubliserer.publiserCreateUtkastTilMinSide(any(), any())
+            mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any())
         }
 
         id shouldBe 1
@@ -90,7 +88,7 @@ internal class SoeknadServiceTest {
 
         every { mockRepository.finnKladd(any(), any()) } returns LagretSoeknad(Random.nextLong(), "", """{}""")
         every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
-        every { mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         val request = SoeknadRequest(
             listOf(
@@ -105,7 +103,7 @@ internal class SoeknadServiceTest {
         verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) {
             mockRepository.ferdigstillSoeknad(any())
-            mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any())
+            mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())
         }
         verify(exactly = 0) { mockRepository.slettOgKonverterKladd(any(), any()) }
 
@@ -120,7 +118,7 @@ internal class SoeknadServiceTest {
         every { mockRepository.finnKladd("05111850870", any()) } returns LagretSoeknad(2, "05111850870", """{}""")
         every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
         every { mockRepository.slettOgKonverterKladd(any(), any()) } returns Random.nextLong(0, 100)
-        every { mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any()) } returns Unit
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         val request = SoeknadRequest(
             listOf(
@@ -135,7 +133,7 @@ internal class SoeknadServiceTest {
         verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) {
             mockRepository.ferdigstillSoeknad(any())
-            mockUtkastPubliserer.publiserDeleteUtkastFraMinSide(any(), any())
+            mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())
         }
         verify(exactly = 1) { mockRepository.slettOgKonverterKladd(fnr.value, kilde) }
 

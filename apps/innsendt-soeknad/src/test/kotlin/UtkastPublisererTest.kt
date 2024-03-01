@@ -23,7 +23,7 @@ class UtkastPublisererTest {
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
-        publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "barnepensjon-ui")
+        publiserer.publiserOpprettUtkastTilMinSide(soeknadSomSkalPubliseres, "barnepensjon-ui")
 
         verify {
             kafkaProduser.publiser(testNoekkel, capture(slot))
@@ -41,7 +41,7 @@ class UtkastPublisererTest {
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
-        publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "gjenlevendepensjon-ui")
+        publiserer.publiserOpprettUtkastTilMinSide(soeknadSomSkalPubliseres, "gjenlevendepensjon-ui")
 
         verify {
             kafkaProduser.publiser(testNoekkel, capture(slot))
@@ -59,7 +59,7 @@ class UtkastPublisererTest {
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
-        publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "omstillingsstoenad-ui")
+        publiserer.publiserOpprettUtkastTilMinSide(soeknadSomSkalPubliseres, "omstillingsstoenad-ui")
 
         verify {
             kafkaProduser.publiser(testNoekkel, capture(slot))
@@ -93,7 +93,7 @@ class UtkastPublisererTest {
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
-        publiserer.publiserCreateUtkastTilMinSide(soeknadSomSkalPubliseres, "barnepensjon-ui")
+        publiserer.publiserOpprettUtkastTilMinSide(soeknadSomSkalPubliseres, "barnepensjon-ui")
 
         verify {
             kafkaProduser.publiser(testNoekkel, capture(slot))
@@ -116,7 +116,7 @@ class UtkastPublisererTest {
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
-        publiserer.publiserDeleteUtkastFraMinSide("fnr", 123)
+        publiserer.publiserSlettUtkastFraMinSide("fnr", 123)
 
         verify {
             kafkaProduser.publiser(testNoekkel, capture(slot))
