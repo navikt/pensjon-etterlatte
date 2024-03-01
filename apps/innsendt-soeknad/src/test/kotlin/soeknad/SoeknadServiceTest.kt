@@ -68,6 +68,7 @@ internal class SoeknadServiceTest {
     fun `Lagre kladd fungerer som forventet`() {
         val fnr = "24014021406"
 
+        every { mockRepository.finnKladd(any(), any()) } returns LagretSoeknad(Random.nextLong(), "", """{}""")
         every { mockRepository.lagreKladd(any()) } returns LagretSoeknad(1, fnr, """{}""")
         every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
@@ -76,7 +77,6 @@ internal class SoeknadServiceTest {
 
         verify(exactly = 1) {
             mockRepository.lagreKladd(any())
-            mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any())
         }
 
         id shouldBe 1

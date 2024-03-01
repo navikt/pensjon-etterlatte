@@ -80,10 +80,12 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
     }
 
     fun lagreKladd(innloggetBruker: Foedselsnummer, soeknad: JsonNode, kilde: String): SoeknadID {
+        val harKladd = db.finnKladd(innloggetBruker.value, kilde)
+
         val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson(), kilde))
             .also {
                 logger.info("Lagret kladd (id=${it.id})")
-                publiserUtkast.publiserOpprettUtkastTilMinSide(it, kilde)
+                if (harKladd == null) publiserUtkast.publiserOpprettUtkastTilMinSide(it, kilde)
             }
 
         return lagretkladd.id
