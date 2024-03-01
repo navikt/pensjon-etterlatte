@@ -66,10 +66,15 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
 
         if (finnesKonlflikter) throw SoeknadConflictException()
 
+        soeknader.forEach {
+            db.finnKladd(it.fnr, kilde)?.let { soeknad ->
+                publiserUtkast.publiserSlettUtkastFraMinSide(soeknad.fnr, soeknad.id)
+            }
+        }
+
         return soeknader.map {
             db.ferdigstillSoeknad(it).also { ferdigstiltID ->
                 logger.info("Ferdigstilt søknad $ferdigstiltID (type=${it.type})")
-                publiserUtkast.publiserSlettUtkastFraMinSide(it.fnr, ferdigstiltID)
             }
         }
     }
