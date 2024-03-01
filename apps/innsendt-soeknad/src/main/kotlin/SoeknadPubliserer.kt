@@ -46,5 +46,4 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
 
         db.soeknadSendt(soeknad.id)
     }
-
 }
