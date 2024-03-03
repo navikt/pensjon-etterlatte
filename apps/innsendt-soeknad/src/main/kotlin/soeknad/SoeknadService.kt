@@ -1,6 +1,7 @@
 package no.nav.etterlatte.soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
+import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.sikkerLogg
@@ -12,7 +13,7 @@ import soeknad.SoeknadRepository
 import soeknad.Status
 import soeknad.UlagretSoeknad
 
-class SoeknadService(private val db: SoeknadRepository) {
+class SoeknadService(private val db: SoeknadRepository, private val publiserUtkast: UtkastPubliserer) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     fun sendSoeknad(innloggetBrukerFnr: Foedselsnummer, request: SoeknadRequest, kilde: String): Boolean {
@@ -28,7 +29,9 @@ class SoeknadService(private val db: SoeknadRepository) {
 
             val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer.svar == innloggetBrukerFnr }
             if (innsenderSoekerIkke) {
-                db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)
+                db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)?.also {
+                    publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBrukerFnr.value, it)
+                }
             }
 
             true
@@ -59,11 +62,17 @@ class SoeknadService(private val db: SoeknadRepository) {
         val soeknader = request.soeknader
             .map { UlagretSoeknad(it.soeker.foedselsnummer.svar.value, it.toJson(), kilde, it.type) }
 
-        val finnesKonlflikter = soeknader
+        val finnesKonflikter = soeknader
             .mapNotNull { db.finnKladd(it.fnr, it.kilde)?.status }
             .any { it != Status.LAGRETKLADD }
 
-        if (finnesKonlflikter) throw SoeknadConflictException()
+        if (finnesKonflikter) throw SoeknadConflictException()
+
+        soeknader.forEach {
+            db.finnKladd(it.fnr, it.kilde)?.also { soeknad ->
+                publiserUtkast.publiserSlettUtkastFraMinSide(soeknad.fnr, soeknad.id)
+            }
+        }
 
         return soeknader.map {
             db.ferdigstillSoeknad(it).also { ferdigstiltID ->
@@ -78,15 +87,23 @@ class SoeknadService(private val db: SoeknadRepository) {
     }
 
     fun lagreKladd(innloggetBruker: Foedselsnummer, soeknad: JsonNode, kilde: String): SoeknadID {
+        val harKladd = db.finnKladd(innloggetBruker.value, kilde)
+
         val lagretkladd = db.lagreKladd(UlagretSoeknad(innloggetBruker.value, soeknad.toJson(), kilde))
-            .also { logger.info("Lagret kladd (id=${it.id})") }
+            .also {
+                logger.info("Lagret kladd (id=${it.id})")
+                if (harKladd == null) publiserUtkast.publiserOpprettUtkastTilMinSide(it, kilde)
+            }
 
         return lagretkladd.id
     }
 
     fun slettKladd(innloggetBruker: Foedselsnummer, kilde: String) {
         db.slettKladd(innloggetBruker.value, kilde)
-            ?.also { logger.info("Slettet kladd (id=${it})") }
+            ?.also {
+                logger.info("Slettet kladd (id=${it})")
+                publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBruker.value, it)
+            }
     }
 }
 

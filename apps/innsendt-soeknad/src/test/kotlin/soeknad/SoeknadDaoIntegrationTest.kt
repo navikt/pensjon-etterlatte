@@ -1,5 +1,6 @@
 package soeknad
 
+import awaitHealthy
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
@@ -44,6 +45,7 @@ internal class SoeknadDaoIntegrationTest {
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
+        postgreSQLContainer.awaitHealthy()
 
         val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dataSource = dsb.dataSource
@@ -396,7 +398,7 @@ internal class SoeknadDaoIntegrationTest {
         )
         lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
 
-        assertEquals(2, db.slettUtgaatteKladder())
+        assertEquals(listOf(SlettetSoeknad(1000, fnr1), SlettetSoeknad(1111, fnr2)), db.slettUtgaatteKladder())
 
         assertNull(db.finnKladd(fnr1, kildeBarnepensjon))
         assertNull(db.finnKladd(fnr2, kildeBarnepensjon))
@@ -413,7 +415,7 @@ internal class SoeknadDaoIntegrationTest {
         lagreSoeknaderMedOpprettetTidspunkt(listOf(utgaattSoeknad), true)
         nyKladdHendelse(utgaattSoeknad.copy(opprettet = now.minusHours(12)), utgaattSoeknad.id + 1)
 
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
         assertNotNull(db.finnKladd(fnr, kildeBarnepensjon))
 
         // Hendelser tilknyttet slettet søknad skal ikke slettes.
@@ -423,31 +425,32 @@ internal class SoeknadDaoIntegrationTest {
     @Test
     fun `Kun kladder skal slettes etter 72 timer`() {
         val utgaatt = ZonedDateTime.now(ZoneOffset.UTC).minusDays(4)
-        val soeknad = SoeknadTest(1001, randomFakeFnr(), """{}""", utgaatt, kildeBarnepensjon)
+        val fnr = randomFakeFnr()
+        val soeknad = SoeknadTest(1001, fnr, """{}""", utgaatt, kildeBarnepensjon)
         lagreSoeknaderMedOpprettetTidspunkt(listOf(soeknad))
         assertNotNull(db.finnKladd(soeknad.fnr, kildeBarnepensjon))
 
         // Skal ikke slette ukategoriserte søknader
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkivert"
         db.soeknadArkivert(soeknad.id)
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "arkiveringsfeil"
         slettHendelserForSoeknad(soeknad.id)
         db.soeknadFeiletArkivering(soeknad.id, """{}""")
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "ferdigstillt"
         slettHendelserForSoeknad(soeknad.id)
         db.ferdigstillSoeknad(UlagretSoeknad(soeknad.fnr, soeknad.data, kildeBarnepensjon))
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
 
         // Skal ikke slette soeknader med hendelse "sendt"
         slettHendelserForSoeknad(soeknad.id)
         db.soeknadSendt(soeknad.id)
-        assertEquals(0, db.slettUtgaatteKladder())
+        assertEquals(emptyList<SlettetSoeknad>(), db.slettUtgaatteKladder())
     }
 
     @Test

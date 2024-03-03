@@ -26,7 +26,10 @@ import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.every
+import io.mockk.mockk
 import no.nav.etterlatte.DataSourceBuilder
+import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
@@ -71,12 +74,13 @@ internal class SoeknadApiIntegrationTest {
     private val kilde = "barnepensjon-ui"
     private val dummyKladd = """{"harSamtykket":"true"}"""
     private val mapper = jacksonObjectMapper()
+    private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
     @BeforeAll
     fun beforeAll() {
         setupDatabase()
 
-        service = SoeknadService(db)
+        service = SoeknadService(db, mockUtkastPubliserer)
     }
 
     @AfterAll
@@ -87,6 +91,8 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende`() {
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             val request = SoeknadRequest(
                 listOf(
@@ -105,6 +111,8 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             val request = SoeknadRequest(
                 soeknader = listOf(
@@ -155,6 +163,7 @@ internal class SoeknadApiIntegrationTest {
     @Order(2)
     fun `Skal lagre kladd ned i databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldBe null
+        every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
@@ -195,6 +204,7 @@ internal class SoeknadApiIntegrationTest {
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
+        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
@@ -210,6 +220,7 @@ internal class SoeknadApiIntegrationTest {
         postgreSQLContainer.start()
         postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
         postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
+        postgreSQLContainer.awaitHealthy()
 
         dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl))
         dsb.migrate()
