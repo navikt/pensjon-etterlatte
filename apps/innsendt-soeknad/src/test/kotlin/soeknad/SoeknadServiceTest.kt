@@ -43,8 +43,8 @@ internal class SoeknadServiceTest {
 
         lagretOK shouldBe true
 
-        verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
         verify(exactly = 2) {
+            mockRepository.finnKladd("11057523044", any())
             mockRepository.ferdigstillSoeknad(any())
             mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())
         }
@@ -99,9 +99,9 @@ internal class SoeknadServiceTest {
 
         val isSuccess = service.sendSoeknad(gjenlevFnr, request, kilde)
 
-        verify(exactly = 1) { mockRepository.finnKladd("24014021406", any()) }
-        verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) {
+            mockRepository.finnKladd("24014021406", any())
+            mockRepository.finnKladd("05111850870", any())
             mockRepository.ferdigstillSoeknad(any())
             mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())
         }
@@ -129,8 +129,8 @@ internal class SoeknadServiceTest {
 
         val isSuccess = service.sendSoeknad(fnr, request, kilde)
 
-        verify(exactly = 1) { mockRepository.finnKladd("11057523044", any()) }
-        verify(exactly = 1) { mockRepository.finnKladd("05111850870", any()) }
+        verify(exactly = 2) { mockRepository.finnKladd("11057523044", any()) }
+        verify(exactly = 2) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) {
             mockRepository.ferdigstillSoeknad(any())
             mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())

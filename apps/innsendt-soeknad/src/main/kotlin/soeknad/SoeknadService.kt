@@ -60,11 +60,11 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
         val soeknader = request.soeknader
             .map { UlagretSoeknad(it.soeker.foedselsnummer.svar.value, it.toJson(), kilde, it.type) }
 
-        val finnesKonlflikter = soeknader
+        val finnesKonflikter = soeknader
             .mapNotNull { db.finnKladd(it.fnr, it.kilde)?.status }
             .any { it != Status.LAGRETKLADD }
 
-        if (finnesKonlflikter) throw SoeknadConflictException()
+        if (finnesKonflikter) throw SoeknadConflictException()
 
         soeknader.forEach {
             db.finnKladd(it.fnr, kilde)?.let { soeknad ->
