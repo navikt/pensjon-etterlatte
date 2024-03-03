@@ -68,7 +68,7 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
 
         soeknader.forEach {
             logger.info("Finner søknad for fnr: ${it.fnr.toString()} og kilde: ${it.kilde}")
-            db.finnKladd(it.fnr, it.kilde)?.let { soeknad ->
+            db.finnKladd(it.fnr, it.kilde)?.also { soeknad ->
                 publiserUtkast.publiserSlettUtkastFraMinSide(soeknad.fnr, soeknad.id)
             }
         }
