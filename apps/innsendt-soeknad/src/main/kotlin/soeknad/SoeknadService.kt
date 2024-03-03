@@ -67,7 +67,8 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
         if (finnesKonflikter) throw SoeknadConflictException()
 
         soeknader.forEach {
-            db.finnKladd(it.fnr, kilde)?.let { soeknad ->
+            logger.info("Finner søknad for fnr: ${it.fnr.toString()} og kilde: ${it.kilde}")
+            db.finnKladd(it.fnr, it.kilde)?.let { soeknad ->
                 publiserUtkast.publiserSlettUtkastFraMinSide(soeknad.fnr, soeknad.id)
             }
         }
