@@ -29,7 +29,9 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
 
             val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer.svar == innloggetBrukerFnr }
             if (innsenderSoekerIkke) {
-                db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)
+                db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)?.also {
+                    publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBrukerFnr.value, it)
+                }
             }
 
             true
@@ -67,8 +69,9 @@ class SoeknadService(private val db: SoeknadRepository, private val publiserUtka
         if (finnesKonflikter) throw SoeknadConflictException()
 
         soeknader.forEach {
-            logger.info("Finner søknad for fnr: ${it.fnr.toString()} og kilde: ${it.kilde}")
+            logger.info("Finner søknad for fnr: ${it.fnr.substring(0,5)} og kilde: ${it.kilde}")
             db.finnKladd(it.fnr, it.kilde)?.also { soeknad ->
+                logger.info("Fant søknad ${soeknad.id}")
                 publiserUtkast.publiserSlettUtkastFraMinSide(soeknad.fnr, soeknad.id)
             }
         }

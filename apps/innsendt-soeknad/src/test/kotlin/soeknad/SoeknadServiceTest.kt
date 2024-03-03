@@ -133,9 +133,9 @@ internal class SoeknadServiceTest {
         verify(exactly = 2) { mockRepository.finnKladd("05111850870", any()) }
         verify(exactly = 2) {
             mockRepository.ferdigstillSoeknad(any())
-            mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any())
         }
         verify(exactly = 1) { mockRepository.slettOgKonverterKladd(fnr.value, kilde) }
+        verify(exactly = 3) { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) }
 
         isSuccess shouldBe true
     }
