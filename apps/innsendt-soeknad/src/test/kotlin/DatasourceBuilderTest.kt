@@ -1,6 +1,4 @@
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.DataSourceBuilder
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -18,13 +16,7 @@ class DatasourceBuilderTest {
 
     @BeforeAll
     fun beforeAll() {
-        postgreSQLContainer.start()
-        postgreSQLContainer.withUrlParam("user", postgreSQLContainer.username)
-        postgreSQLContainer.withUrlParam("password", postgreSQLContainer.password)
-        postgreSQLContainer.awaitHealthy()
-
-
-        val dsb = DataSourceBuilder(mapOf("DB_JDBC_URL" to postgreSQLContainer.jdbcUrl, "NAIS_CLUSTER_NAME" to "integrasjonstest"))
+        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer, mapOf("NAIS_CLUSTER_NAME" to "integrationtest"), shouldMigrate = false)
 
         dsb.dataSource.createGcpPersonalRole()
         dsb.migrate()
@@ -72,16 +64,4 @@ class DatasourceBuilderTest {
         )).dataSource.let (PostgresSoeknadRepository::using).eldsteUarkiverte()
     }
 
-}
-
-fun PostgreSQLContainer<Nothing>.awaitHealthy() {
-    var isHealthy: Boolean
-    do {
-        val res = execInContainer("pg_isready", "-U", username, "-d", databaseName)
-        isHealthy = res.exitCode == 0
-        continue
-    } while (!isHealthy)
-    runBlocking {
-        delay(2000L)
-    }
 }
