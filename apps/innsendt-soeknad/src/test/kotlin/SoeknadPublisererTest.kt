@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import soeknad.LagretSoeknad
+import soeknad.SlettetSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.UlagretSoeknad
@@ -121,7 +122,7 @@ class SoeknadRepositoryNoOp(private val op: ()->Unit = {}): SoeknadRepository {
         TODO("Not yet implemented")
     }
 
-    override fun slettUtgaatteKladder(): Int {
+    override fun slettUtgaatteKladder(): List<SlettetSoeknad> {
         TODO("Not yet implemented")
     }
 
