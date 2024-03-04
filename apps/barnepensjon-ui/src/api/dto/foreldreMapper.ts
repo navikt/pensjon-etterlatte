@@ -264,11 +264,11 @@ const mapUtenlandsopphold = (t: TFunction, staysAbroad: IStaysAbroad) => {
                     pensjonsutbetaling:
                         info.pension!!.amount || info.pension!!.currency
                             ? {
-                                  spoersmaal: t('pensionReceivedFromAbroad', {
+                                  spoersmaal: t('pensionWithCurrency', {
                                       ns: 'aboutTheDeceased',
                                   }),
                                   svar: {
-                                      innhold: `${info.pension.amount} ${info.pension.currency}`,
+                                      innhold: `${info.pension.amount || ''} ${info.pension.currency || ''}`,
                                   },
                               }
                             : undefined,

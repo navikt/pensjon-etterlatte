@@ -265,6 +265,7 @@ const aboutTheDeceased = {
         'We need to know if the deceased was a member of the Norwegian National Insurance Scheme in order to determine the right to the children’s pension.',
     pensionReceivedFromAbroadTitle: 'Pension from abroad (optional)',
     pensionReceivedFromAbroadDescription: 'Enter any pension the deceased received from this country.',
+    pensionWithCurrency: 'Annual pension, in the currency of that country',
     selfEmploymentTitle: 'Income from self-employment',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'We need to know if the deceased had any income as a self-employed person. This can influence the calculation of the children’s pension. We obtain information about other income directly.',

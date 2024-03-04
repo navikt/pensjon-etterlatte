@@ -260,6 +260,7 @@ const aboutTheDeceased = {
         'Vi må vite om avdøde var medlem av folketrygden for å avgjøre rettigheten til barnepensjon.',
     pensionReceivedFromAbroadTitle: 'Pensjon fra utlandet (valgfri)',
     pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet.',
+    pensionWithCurrency: 'Årlig pensjon i landets valuta',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfallet.',
