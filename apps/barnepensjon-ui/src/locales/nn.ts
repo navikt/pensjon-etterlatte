@@ -399,6 +399,8 @@ const error = {
     'staysAbroad.abroadStays.type.required': 'Huk av for type opphald',
     'staysAbroad.abroadStays.country.required': 'Oppgi land for opphald',
     'staysAbroad.abroadStays.medlemFolketrygd.required': 'Oppgi om avdøde var medlem av folketrygda under opphaldet',
+    'staysAbroad.abroadStays.pension.amount.required': 'Oppgi årleg beløp',
+    'staysAbroad.abroadStays.pension.currency.required': 'Vel valuta',
     'parents.required': 'Oppgi kven som er barnets foreldre',
     'loggedInUserIsGuardian.required': 'Oppgi om du er verje for barnet',
     'staysAbroad.country.required': 'Oppgi kva land barnet bur i',

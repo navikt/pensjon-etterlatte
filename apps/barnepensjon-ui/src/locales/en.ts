@@ -414,6 +414,8 @@ const error = {
     'staysAbroad.abroadStays.country.required': 'State the country in which time was spent',
     'staysAbroad.abroadStays.medlemFolketrygd.required':
         'State whether the deceased was a member of the Norwegian National Insurance Scheme during his/her stay',
+    'staysAbroad.abroadStays.pension.amount.required': 'State annual amount',
+    'staysAbroad.abroadStays.pension.currency.required': 'Select currency',
     'parents.required': 'State the child’s parents',
     'loggedInUserIsGuardian.required': 'State whether you are the child’s guardian',
     'staysAbroad.country.required': 'State the child’s country of residence',
