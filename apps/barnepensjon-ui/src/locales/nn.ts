@@ -21,6 +21,7 @@ const common = {
     dateSRLabel: 'Oppgi dato',
     chooseCountry: 'Vel land',
     chooseLanguage: 'Vel språk',
+    chooseCurrency: 'Vel valuta',
     norway: 'Noreg',
     optional: 'valfri',
 }
@@ -255,7 +256,9 @@ const aboutTheDeceased = {
     stayedAbroadToDate: 'Til dato',
     deceasedWasMemberOfFolketrygdenAbroad: 'Var han eller ho medlem av folketrygda under opphaldet?',
     whyWeAskAboutFolketrygden: 'Vi må vite om avdøde var medlem av folketrygda for å avgjere retten til barnepensjon.',
-    pensionReceivedFromAbroad: 'Oppgi eventuell pensjon han eller ho mottok frå dette landet (valfri)',
+    pensionReceivedFromAbroadTitle: 'Pensjon frå utlandet (valfri)',
+    pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
+    pensionWithCurrency: 'Årleg pensjon i valutaen til landet',
     selfEmploymentTitle: 'Næringsinntekt',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivende. Dette kan påvirke berekninga av barnepensjon. Vi hentar informasjon om andre inntekter.',
@@ -270,6 +273,7 @@ const aboutTheDeceased = {
         'Dersom dødsfallet skuldast yrkesskade eller yrkessjukdom som NAV har godkjent, kan det avgjere om og eventuelt kor mykje du kan få i barnepensjon.',
     BODD: 'Budd',
     ARBEIDET: 'Arbeidd',
+    amountAbroad: 'Årleg beløp',
     addCountryButton: '+ Legg til fleire land',
 }
 
@@ -395,6 +399,8 @@ const error = {
     'staysAbroad.abroadStays.type.required': 'Huk av for type opphald',
     'staysAbroad.abroadStays.country.required': 'Oppgi land for opphald',
     'staysAbroad.abroadStays.medlemFolketrygd.required': 'Oppgi om avdøde var medlem av folketrygda under opphaldet',
+    'staysAbroad.abroadStays.pension.amount.required': 'Oppgi årleg beløp',
+    'staysAbroad.abroadStays.pension.currency.required': 'Vel valuta',
     'parents.required': 'Oppgi kven som er barnets foreldre',
     'loggedInUserIsGuardian.required': 'Oppgi om du er verje for barnet',
     'staysAbroad.country.required': 'Oppgi kva land barnet bur i',

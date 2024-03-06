@@ -236,7 +236,7 @@ describe('Utenlandsopphold mappes korrekt', () => {
     it('Utenlandsopphold - JA - med landliste', () => {
         const stayWithValues: IAbroadStay = {
             type: [OppholdUtlandType.ARBEIDET, OppholdUtlandType.BODD],
-            pensionAmount: 'ukjent',
+            pension: { amount: 'ukjent', currency: 'ISK' },
             toDate: new Date(1984, 1, 1),
             fromDate: new Date(1994, 1, 1),
             country: 'Sverige',
@@ -246,6 +246,7 @@ describe('Utenlandsopphold mappes korrekt', () => {
             type: [],
             country: 'Danmark',
             medlemFolketrygd: JaNeiVetIkke.NEI,
+            pension: { amount: undefined, currency: undefined },
         }
 
         const staysAbroad: IStaysAbroad = {
@@ -260,7 +261,9 @@ describe('Utenlandsopphold mappes korrekt', () => {
         const opphold1 = result.opplysning!![0]
         expect(opphold1.oppholdsType.svar[0].verdi).toEqual(OppholdUtlandType.ARBEIDET)
         expect(opphold1.oppholdsType.svar[1].verdi).toEqual(OppholdUtlandType.BODD)
-        expect(opphold1.pensjonsutbetaling?.svar.innhold).toEqual(stayWithValues.pensionAmount)
+        expect(opphold1.pensjonsutbetaling?.svar.innhold).toEqual(
+            `${stayWithValues.pension?.amount} ${stayWithValues.pension?.currency}`
+        )
         expect(opphold1.fraDato?.svar.innhold).toEqual(stayWithValues.fromDate)
         expect(opphold1.tilDato?.svar.innhold).toEqual(stayWithValues.toDate)
         expect(opphold1.land?.svar.innhold).toEqual(stayWithValues.country)
@@ -268,7 +271,7 @@ describe('Utenlandsopphold mappes korrekt', () => {
 
         const opphold2 = result.opplysning!![1]
         expect(opphold2.oppholdsType.svar?.length).toEqual(0)
-        expect(opphold2.pensjonsutbetaling?.svar.innhold).toEqual(EMPTY_VALUE)
+        expect(opphold2.pensjonsutbetaling?.svar.innhold).toEqual(undefined)
         expect(opphold2.fraDato?.svar.innhold).toBeUndefined()
         expect(opphold2.tilDato?.svar.innhold).toBeUndefined()
         expect(opphold2.land?.svar.innhold).toEqual(stayUndefinedValues.country)
