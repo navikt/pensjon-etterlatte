@@ -205,6 +205,7 @@ export default {
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
         'As a surviving spouse you can apply for supplemental benefits if you are completing education which has been approved by NAV. You can receive benefits to cover necessary expenses in your education, for example for learning materials, travel, moving and extra expenses for housing.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'I have school expenses',
+    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Have you been issued an Activities Plan in cooperation with NAV?',
     'merOmSituasjonenDin.selvstendig.tittel': 'Type of business',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen': 'What is the name of the company?',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse': 'Enter the name of the enterprise or company.',
@@ -272,6 +273,7 @@ export default {
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.type': 'Type of working hours',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar': 'Do you have a termination date?',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger': 'Termination date',
+    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Have you been issued an Activities Plan in cooperation with NAV?',
     'merOmSituasjonenDin.arbeidssoeker.tittel': 'About job seeking',
     'merOmSituasjonenDin.arbeidssoeker.svar': 'Are you registered as a job seeker with NAV?',
     'merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar': 'Have you been issued an Activities Plan?',
@@ -454,6 +456,7 @@ export default {
     'inntektenDin.ingenInntekt.beskrivelse': 'Describe which types of payments you are receiving',
     'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Benefits from NAV',
     'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Which incomes or disbursements are you receiving?',
+    'inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar': 'Have you been issued an Activities Plan?',
     'inntektenDin.ytelserNAV.tittel':
         'Application for benefits from the Norwegian Labour and Welfare Administration (NAV)',
     'inntektenDin.ytelserNAV.svar': 'Have you applied for benefits from NAV but not yet received a reply?',
@@ -920,6 +923,7 @@ export default {
     'feil.utdanning.naavaerendeUtdanning.studieprosent.required': 'State percent of study',
     'feil.utdanning.naavaerendeUtdanning.godkjentUtdanning.required':
         'State whether your studies are approved by the Norwegian State Educational Loan Fund',
+    'feil.utdanning.aktivitetsplan.svar.required': 'State whether you have an activities plan in cooperation with NAV',
     'feil.ingenJobbBeskrivelse.required': 'Describe your situation in more detail',
     'feil.andreYtelser.kravOmAnnenStonad.svar.required':
         'State whether you are waiting for a response to applications for other benefits',
@@ -998,6 +1002,7 @@ export default {
     'feil.tilbudOmJobb.arbeidsmengde.type.required': 'Choose between percent or hours',
     'feil.tilbudOmJobb.midlertidig.svar.required': 'State whether you have an end date',
     'feil.tilbudOmJobb.midlertidig.sluttdatoVelger.required': 'State end date',
+    'feil.tilbudOmJobb.aktivitetsplan.svar.required': 'State whether you have an activities plan in cooperation with NAV',
     'feil.arbeidssoeker.svar.required': 'State whether you are registered as a job seeker with NAV',
     'feil.arbeidssoeker.aktivitetsplan.svar.required': 'State whether you have an activities plan',
     'feil.annenSituasjon.beskrivelse.required': 'Choose what describes your situation',
@@ -1071,6 +1076,7 @@ export default {
     'feil.pensjonEllerUfoere.utland.beloep.required': 'State annual amount',
     'feil.pensjonEllerUfoere.utland.valuta.required': 'Select currency',
     'feil.inntektViaYtelserFraNAV.ytelser.required': 'Tick which incomes or disbursements you receive',
+    'feil.inntektViaYtelserFraNAV.aktivitetsplan.svar.required': 'State whether you have an activities plan',
     'feil.ingenInntekt.svar.required': 'State if you have an income or other type of benefits',
     'feil.ingenInntekt.beloep.required': 'State the amount',
     'feil.ingenInntekt.beskrivelse.required': 'Describe which types of payments you are receiving',

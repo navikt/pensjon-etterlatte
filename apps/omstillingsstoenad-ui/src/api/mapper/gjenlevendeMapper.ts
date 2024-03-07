@@ -59,6 +59,7 @@ import {
     EndringAvInntektGrunn,
     IForventerEndringAvInntekt,
     IInntekt,
+    InntektEllerUtbetaling,
     InntektsTyper,
     NorgeOgUtland,
     PensjonEllerTrygd,
@@ -503,6 +504,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                               },
                           }
                         : undefined,
+                aktivitetsplan: {
+                    spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar'),
+                    svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!!.aktivitetsplan.svar!!),
+                },
             },
         }
     }
@@ -575,6 +580,10 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 godkjentUtdanning: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning'),
                     svar: valgTilSvar(t, dinSituasjon.utdanning!!.naavaerendeUtdanning!!.godkjentUtdanning!!),
+                },
+                aktivitetsplan: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar'),
+                    svar: valgTilSvar(t, dinSituasjon.utdanning!!.aktivitetsplan!!.svar!!),
                 },
             },
         }
@@ -1126,6 +1135,14 @@ const hentInntektOgPensjon = (
                     innhold: t(ytelse),
                 })),
             },
+            aktivitetsplan: inntektenDin.inntektViaYtelserFraNAV!!.ytelser!!.includes(
+                InntektEllerUtbetaling.arbeidsavklaringspenger
+            )
+                ? {
+                      spoersmaal: t('inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar'),
+                      svar: valgTilSvar(t, inntektenDin.inntektViaYtelserFraNAV!!.aktivitetsplan!!.svar!!),
+                  }
+                : undefined,
         }
     }
 

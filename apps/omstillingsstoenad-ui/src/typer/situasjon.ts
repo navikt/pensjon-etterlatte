@@ -5,6 +5,7 @@ import {
     IArbeidssoeker,
     IAnnenSituasjon,
     ISelvstendigNaeringsdrivende,
+    IValgfrittSvar,
 } from './arbeidsforhold'
 import { IAndreYtelser } from './ytelser'
 import { IValg } from './Spoersmaal'
@@ -24,6 +25,7 @@ export interface IUtdanning {
     soeknadOmSkolepenger?: IValg.JA | undefined
     soeknadOmTilleggsstoenadUtdanning?: IValg.JA | undefined
     hoyesteFullfoerteUtdanning?: HoeyesteUtdanning[]
+    aktivitetsplan: IValgfrittSvar
 }
 
 export enum Utdanning {

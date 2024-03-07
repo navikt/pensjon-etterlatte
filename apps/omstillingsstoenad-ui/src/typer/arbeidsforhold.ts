@@ -45,9 +45,7 @@ export interface IEtablererVirksomhet {
     manglerOrgnr?: string[]
     forretningsplan?: {
         svar?: IValg
-        samarbeidMedNAV?: {
-            svar?: IValg
-        }
+        samarbeidMedNAV?: IValgfrittSvar
     }
 }
 
@@ -60,13 +58,12 @@ export interface ITilbudOmJobb {
         svar?: IValg
         sluttdatoVelger?: Date
     }
+    aktivitetsplan: IValgfrittSvar
 }
 
 export interface IArbeidssoeker {
     svar?: IValg
-    aktivitetsplan: {
-        svar?: IValg
-    }
+    aktivitetsplan: IValgfrittSvar
 }
 
 export interface IAnnenSituasjon {
@@ -74,6 +71,10 @@ export interface IAnnenSituasjon {
     annet?: {
         beskrivelse?: string
     }
+}
+
+export interface IValgfrittSvar {
+    svar?: IValg
 }
 
 export enum IngenJobb {
