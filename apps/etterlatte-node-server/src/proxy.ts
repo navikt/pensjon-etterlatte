@@ -1,7 +1,7 @@
 import { Request, RequestHandler, Response } from 'express'
 import fetch from 'node-fetch'
 import logger from './monitoring/logger'
-import { requestOboToken, validateToken } from '@navikt/oasis'
+import { requestTokenxOboToken, validateIdportenToken } from '@navikt/oasis'
 import config from './config'
 
 const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
@@ -9,13 +9,13 @@ const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 const isOK = (status: any) => [200, 404, 409].includes(status)
 
 const prepareSecuredRequest = async (req: Request, token: any) => {
-    const validation = await validateToken(token)
+    const validation = await validateIdportenToken(token)
     if (!validation.ok) {
         // TODO: handle validation error
         throw validation.error
     }
 
-    const obo = await requestOboToken(token, config.app.targetAudience!)
+    const obo = await requestTokenxOboToken(token, config.app.targetAudience!)
     if (!obo.ok) {
         // TODO: handle obo error
         throw obo.error
