@@ -205,7 +205,7 @@ export default {
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
         'As a surviving spouse you can apply for supplemental benefits if you are completing education which has been approved by NAV. You can receive benefits to cover necessary expenses in your education, for example for learning materials, travel, moving and extra expenses for housing.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'I have school expenses',
-    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Have you been issued an Activities Plan in cooperation with NAV?',
+    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Do you have an activity plan in collaboration with NAV?',
     'merOmSituasjonenDin.selvstendig.tittel': 'Type of business',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen': 'What is the name of the company?',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse': 'Enter the name of the enterprise or company.',
@@ -273,7 +273,7 @@ export default {
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.type': 'Type of working hours',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar': 'Do you have a termination date?',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger': 'Termination date',
-    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Have you been issued an Activities Plan in cooperation with NAV?',
+    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Do you have an activity plan in collaboration with NAV?',
     'merOmSituasjonenDin.arbeidssoeker.tittel': 'About job seeking',
     'merOmSituasjonenDin.arbeidssoeker.svar': 'Are you registered as a job seeker with NAV?',
     'merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar': 'Have you been issued an Activities Plan?',
