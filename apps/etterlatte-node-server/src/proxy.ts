@@ -1,20 +1,29 @@
 import { Request, RequestHandler, Response } from 'express'
 import fetch from 'node-fetch'
 import logger from './monitoring/logger'
-import TokenXClient from './auth/tokenx'
-
-const { exchangeToken } = new TokenXClient()
+import { requestOboToken, validateToken } from '@navikt/oasis'
+import config from './config'
 
 const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
 const isOK = (status: any) => [200, 404, 409].includes(status)
 
 const prepareSecuredRequest = async (req: Request, token: any) => {
-    const accessToken = await exchangeToken(token).then((accessToken) => accessToken)
+    const validation = await validateToken(token)
+    if (!validation.ok) {
+        // TODO: handle validation error
+        throw validation.error
+    }
+
+    const obo = await requestOboToken(token, config.app.targetAudience!)
+    if (!obo.ok) {
+        // TODO: handle obo error
+        throw obo.error
+    }
 
     const headers: any = {
         ...req.headers,
-        authorization: `Bearer ${accessToken}`,
+        authorization: `Bearer ${obo.token}`,
         x_correlation_id: logger.defaultMeta.x_correlation_id,
     }
 
