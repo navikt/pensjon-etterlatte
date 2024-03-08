@@ -2,7 +2,6 @@ import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
 import {
-    IngenInntekt,
     AnnenSituasjon,
     ArbeidOgUtdanning,
     Arbeidssoeker,
@@ -16,6 +15,7 @@ import {
     ForholdTilAvdoedeType,
     FritekstSvar,
     HoeyesteUtdanning,
+    IngenInntekt,
     InntektOgPensjon,
     InntektViaYtelserFraNAV,
     JaNeiVetIkke,
@@ -64,6 +64,7 @@ import {
     PensjonEllerTrygd,
 } from '../../typer/inntekt'
 import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../utils/dato'
+import { Studieform } from '../../typer/utdanning'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -550,12 +551,15 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                         verdi: konverterStudieform(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!),
                     },
                 },
-                studieprosent: {
-                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent'),
-                    svar: {
-                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieprosent!!,
-                    },
-                },
+                studieprosent:
+                    dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform === Studieform.deltid
+                        ? {
+                              spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent'),
+                              svar: {
+                                  innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieprosent!!,
+                              },
+                          }
+                        : undefined,
                 startDato: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato'),
                     svar: {
