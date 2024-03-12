@@ -62,13 +62,6 @@ const IngenInntekt = () => {
                                     </List>
                                 </ReadMore>
                             </SkjemaElement>
-                            <SkjemaElement>
-                                <RHFValutaInput
-                                    name={'ingenInntekt.beloep'}
-                                    label={t('inntektenDin.ingenInntekt.beloep')}
-                                    htmlSize={Bredde.S}
-                                />
-                            </SkjemaElement>
 
                             <SkjemaElement>
                                 <RHFInputArea
@@ -76,6 +69,13 @@ const IngenInntekt = () => {
                                     label={t('inntektenDin.ingenInntekt.beskrivelse')}
                                     maxLength={100}
                                     className={'width-50'}
+                                />
+                            </SkjemaElement>
+                            <SkjemaElement>
+                                <RHFValutaInput
+                                    name={'ingenInntekt.beloep'}
+                                    label={t('inntektenDin.ingenInntekt.beloep')}
+                                    htmlSize={Bredde.S}
                                 />
                             </SkjemaElement>
                         </>
