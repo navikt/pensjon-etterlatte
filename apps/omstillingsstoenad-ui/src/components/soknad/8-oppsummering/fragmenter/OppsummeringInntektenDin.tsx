@@ -1,5 +1,5 @@
-import { Heading } from '@navikt/ds-react'
 import React, { memo } from 'react'
+import { Heading } from '@navikt/ds-react'
 import { AccordionItem } from '../AccordionItem'
 import { useTranslation } from 'react-i18next'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
@@ -7,6 +7,7 @@ import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import {
     EndringAvInntektGrunn,
     IInntekt,
+    InntektEllerUtbetaling,
     InntektsTyper,
     NorgeOgUtland,
     PensjonEllerTrygd,
@@ -371,6 +372,14 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         tittel={t('inntektenDin.inntektViaYtelserFraNAV.ytelser')}
                         innhold={inntektenDin.inntektViaYtelserFraNAV?.ytelser?.map((item) => ` ${t(item)}`)}
                     />
+                    {inntektenDin.inntektViaYtelserFraNAV?.ytelser.includes(
+                        InntektEllerUtbetaling.arbeidsavklaringspenger
+                    ) && (
+                        <TekstGruppeJaNeiVetIkke
+                            tittel={t('inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar')}
+                            innhold={inntektenDin.inntektViaYtelserFraNAV?.aktivitetsplan.svar}
+                        />
+                    )}
                 </Panel>
             )}
 

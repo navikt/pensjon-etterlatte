@@ -1,5 +1,5 @@
-import { Heading, Tag } from '@navikt/ds-react'
 import { memo } from 'react'
+import { Heading, Tag } from '@navikt/ds-react'
 import { AccordionItem } from '../AccordionItem'
 import { useTranslation } from 'react-i18next'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
@@ -225,6 +225,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                                 )}
                             </>
                         )}
+
+                        <TekstGruppeJaNeiVetIkke
+                            tittel={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
+                            innhold={merOmSituasjonenDin.tilbudOmJobb?.aktivitetsplan.svar}
+                        />
                     </Panel>
                 )}
 
@@ -301,6 +306,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                                 )}
                             />
                         )}
+
+                        <TekstGruppeJaNeiVetIkke
+                            tittel={t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar')}
+                            innhold={merOmSituasjonenDin.utdanning?.aktivitetsplan.svar}
+                        />
                     </Panel>
                 )}
 

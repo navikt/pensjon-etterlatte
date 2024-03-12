@@ -1,3 +1,4 @@
+import React from 'react'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import Datovelger from '../../../felles/Datovelger'
@@ -63,7 +64,9 @@ const UnderUtdanning = () => {
             )}
             <SkjemaElement>
                 <SkjemaElement>
-                    <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}</Heading>
+                    <Heading size={'small'}>
+                        {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}
+                    </Heading>
                     <Detail textColor={'subtle'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
                     </Detail>
@@ -90,8 +93,15 @@ const UnderUtdanning = () => {
                     legend={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning')}
                     vetIkke
                 />
-
             </SkjemaElement>
+
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={'utdanning.aktivitetsplan.svar'}
+                    legend={t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar')}
+                />
+            </SkjemaElement>
+
             <SkjemaElement>
                 <br />
                 <RHFCheckboksGruppe

@@ -1,6 +1,6 @@
+import React from 'react'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { useTranslation } from 'react-i18next'
-import React from 'react'
 import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
@@ -122,6 +122,13 @@ const TilbudOmJobb = () => {
                     )}
                 </SkjemaElement>
             )}
+
+            <SkjemaElement>
+                <RHFSpoersmaalRadio
+                    name={'tilbudOmJobb.aktivitetsplan.svar'}
+                    legend={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
+                />
+            </SkjemaElement>
         </SkjemaGruppe>
     )
 }

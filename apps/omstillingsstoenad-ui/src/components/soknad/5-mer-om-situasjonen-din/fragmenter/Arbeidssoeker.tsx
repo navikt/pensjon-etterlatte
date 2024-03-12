@@ -21,11 +21,11 @@ const Arbeidssoeker = () => {
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidssoeker.tittel')}</Heading>
             </SkjemaElement>
 
-            <RHFSpoersmaalRadio name={`arbeidssoeker.svar` as const} legend={t('merOmSituasjonenDin.arbeidssoeker.svar')} />
+            <RHFSpoersmaalRadio name={'arbeidssoeker.svar'} legend={t('merOmSituasjonenDin.arbeidssoeker.svar')} />
             {registrertArbeidssoeker === IValg.JA && (
                 <SkjemaElement>
                     <RHFSpoersmaalRadio
-                        name={`arbeidssoeker.aktivitetsplan.svar` as const}
+                        name={'arbeidssoeker.aktivitetsplan.svar'}
                         legend={t('merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar')}
                     />
                 </SkjemaElement>

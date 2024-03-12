@@ -190,6 +190,7 @@ export interface PensjonEllerUfoere {
 
 export interface InntektViaYtelserFraNAV {
     ytelser: Opplysning<any>
+    aktivitetsplan?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export interface IngenInntekt {
@@ -229,6 +230,7 @@ export interface TilbudOmJobb {
     arbeidsmengde: Opplysning<FritekstSvar>
     harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
     sluttdato?: Opplysning<DatoSvar>
+    aktivitetsplan: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export interface Arbeidssoeker {
@@ -244,6 +246,7 @@ export interface Utdanning {
     startDato: Opplysning<DatoSvar>
     sluttDato: Opplysning<DatoSvar>
     godkjentUtdanning: Opplysning<EnumSvar<JaNeiVetIkke>>
+    aktivitetsplan: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export enum HoeyesteUtdanning {

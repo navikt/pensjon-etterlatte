@@ -1,4 +1,5 @@
 import { IValg } from './Spoersmaal'
+import { IValgfrittSvar } from './arbeidsforhold'
 
 export interface IInntekt {
     inntektstyper?: InntektsTyper[]
@@ -77,6 +78,7 @@ export interface IPensjonEllerUfoere {
 
 export interface IInntektViaYtelserFraNAV {
     ytelser: InntektEllerUtbetaling[]
+    aktivitetsplan: IValgfrittSvar
 }
 
 export enum InntektsTyper {
