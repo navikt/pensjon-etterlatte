@@ -473,6 +473,7 @@ export default {
     'inntektenDin.ytelserAndre.soekteYtelser': 'Kva har du søkt om?',
     'inntektenDin.ytelserAndre.pensjonsordning': 'Oppgi kva pensjonsordning det dreier seg om',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse': 'Døme: Statens pensjonskasse, Oslo pensjonsforsikring',
+    'inntektenDin.ytelserAndre.pensjonsordning.info': '<MANGLER OVERSETTELSE>',
     'inntektenDin.ytelserAndre.hvorfor':
         'Enkelte ytingar blir rekna som inntekt, medan andre ytingar ikkje lèt seg kombinere med omstillingsstønad.',
     'inntektenDin.forventerEndringAvInntekt.svar': 'Går du ut frå at inntekta di vil endre seg fram i tid?',
