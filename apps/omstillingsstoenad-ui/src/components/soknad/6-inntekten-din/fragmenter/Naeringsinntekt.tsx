@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { Alert, BodyShort, Heading, ReadMore } from '@navikt/ds-react'
+import { Alert, BodyShort, Heading, List, ReadMore } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
@@ -13,6 +13,7 @@ import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/da
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import JevntOpptjentNaeringsinntekt from './JevntOpptjentNaeringsinntekt'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
+import { ListItemWithIndent } from '../../../felles/StyledComponents'
 
 const Naeringsinntekt = () => {
     const { t } = useTranslation()
@@ -34,6 +35,26 @@ const Naeringsinntekt = () => {
             <SkjemaElement>
                 <Heading size={'medium'}>{t('inntektenDin.naeringsinntekt.tittel')}</Heading>
                 <BodyShort>{t('inntektenDin.naeringsinntekt.ingress')}</BodyShort>
+            </SkjemaElement>
+
+            <SkjemaElement>
+                <ReadMore header={t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel')}>
+                    {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold')}
+                    <List size={'small'}>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4')}
+                        </ListItemWithIndent>
+                    </List>
+                </ReadMore>
             </SkjemaElement>
 
             <SkjemaElement>

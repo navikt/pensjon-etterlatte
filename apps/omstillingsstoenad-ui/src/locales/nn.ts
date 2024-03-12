@@ -365,6 +365,13 @@ export default {
     'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
     'inntektenDin.naeringsinntekt.ingress':
         'All næringsinntekt frå Noreg og utlandet skal takast med i næringsinntekta du oppgir. Oppgi næringsinntektene i norske kroner.',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel': 'Kva blir rekna som inntekt?',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivande inntekt reknar ein mellom anna',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1': 'næringsinntekt',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2': 'sal av næringsverksemd',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3': 'skattepliktig del av forsikringar',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4':
+        'bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjersle for deltaking i styre, utval, representantskap eller liknande, kvalifiseringsstønad, omsorgsløn og fosterheimsgodtgjersle.',
     'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Kor får du næringsinntekt frå?',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Næringsinntekt i Noreg',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',

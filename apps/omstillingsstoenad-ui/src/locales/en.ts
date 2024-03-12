@@ -382,6 +382,14 @@ export default {
     'inntektenDin.naeringsinntekt.tittel': 'Business income',
     'inntektenDin.naeringsinntekt.ingress':
         'All business income from Norway and abroad must be included in the income you report. Please state your business income in Norwegian kroner.',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel': 'What is considered income?',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold':
+        'Among other things, the term pensionable income includes',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1': 'self-employment income',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2': 'sale of business enterprise',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3': 'taxable insurance payments',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4':
+        'bonuses and other pensionable premiums and remunerations. This also includes compensation in the form of commissions, fees, royalties or other remuneration for participation in boards, committees, assemblies, etc., as well as qualification benefit, care pay and foster home allowance.',
     'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Where do you earn this income?',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Business income in Norway',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Business income abroad',
