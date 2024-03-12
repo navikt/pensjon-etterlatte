@@ -45,6 +45,8 @@ const PensjonEllerUfoere = () => {
 
                 {pensjonstype?.includes(PensjonEllerTrygd.tjenestepensjonsordning) && (
                     <SkjemaGruppe>
+                        <Heading size={'xsmall'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
+
                         <SkjemaElement>
                             <RHFSelect
                                 name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
