@@ -302,11 +302,19 @@ export default {
     'inntektenDin.tittel': 'Inntekten din',
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
-        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Likestilt med arbeidsinntekt regnes også noen ytelser fra NAV. \n\n Det er viktig at du opplyser oss om brutto inntekt. Brutto arbeidsinntekt betyr inntekten din før skattetrekk.',
-    'inntektenDin.inntektstyper': 'Hvilken type inntekt har du?',
+        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Alle pengene du tjener skal tas med når den forventede inntekten beregnes.\n\n Det er viktig at du opplyser oss om brutto inntekt. Det vil si inntekten din før skattetrekk.',
+    'inntektenDin.inntektstyper': 'Velg alle typer inntekter du har',
     'inntektenDin.loennsinntekt.tittel': 'Arbeidsinntekt',
     'inntektenDin.loennsinntekt.ingress':
-        'Har du flere arbeidsforhold eller inntekt fra utlandet, skal du ta med dette i arbeidsinntekten du oppgir. Arbeidsinntekten oppgir du i norske kroner.',
+        'Har du flere arbeidsforhold eller inntekt fra utlandet, skal du ta med dette i arbeidsinntekten du oppgir. Uføretrygd skal ikke oppgis som arbeidsinntekt. Arbeidsinntekten oppgir du i norske kroner.',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.tittel': 'Hva regnes som inntekt?',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivende inntekt regnes blant annet',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li1': 'fastlønn',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li2': 'ekstra timer og overtid',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li3': 'feriepenger',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li4': 'skattepliktig del av forsikringer',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li5':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjørelse for deltakelse i styrer, utvalg, representantskap eller lignende, samt kvalifiseringsstønad, omsorgslønn og fosterhjemsgodtgjørelse.',
     'inntektenDin.loennsinntekt.norgeEllerUtland': 'Hvor har du arbeidsinntekt fra?',
     'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Arbeidsinntekt i Norge',
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',

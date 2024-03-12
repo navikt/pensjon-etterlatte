@@ -299,11 +299,19 @@ export default {
     'inntektenDin.tittel': 'Inntekten din',
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalingar i Noreg og i utlandet',
     'inntektenDin.ingress':
-        'Det avheng av arbeidsinntekta di kor mykje du kan få i omstillingsstønad. Også enkelte ytingar frå NAV blir rekna som likestilte med arbeidsinntekt. \n\n Det er viktig at du opplyser oss om bruttoinntekt. Brutto arbeidsinntekt er inntekta di før skattetrekk.',
-    'inntektenDin.inntektstyper': 'Kva type inntekt har du?',
+        'Det avheng av arbeidsinntekta di kor mykje du kan få i omstillingsstønad. Alt du tener av pengar, skal takast med når den forventa inntekta blir rekna ut.\n\n Det er viktig at du opplyser oss om bruttoinntekt. Dette er inntekta di før skattetrekk.',
+    'inntektenDin.inntektstyper': 'Vel alle typane inntekter du har',
     'inntektenDin.loennsinntekt.tittel': 'Arbeidsinntekt',
     'inntektenDin.loennsinntekt.ingress':
-        'Dersom du har fleire arbeidsforhold eller inntekt frå utlandet, tek du med dette i arbeidsinntekta du oppgir. Oppgi arbeidsinntekta di i norske kroner.',
+        'Dersom du har fleire arbeidsforhold eller inntekt frå utlandet, tek du med dette i arbeidsinntekta du oppgir. Uføretrygd skal ikkje takast med som arbeidsinntekt. Oppgi arbeidsinntekta di i norske kroner.',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.tittel': 'Kva blir rekna som inntekt?',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivande inntekt reknar ein mellom anna\n',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li1': 'fastløn',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li2': 'ekstratimar og overtid',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li3': 'feriepengar',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li4': 'skattepliktig del av forsikringar',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li5':
+        'bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjersle for deltaking i styre, utval, representantskap eller liknande, kvalifiseringsstønad, omsorgsløn og fosterheimsgodtgjersle.',
     'inntektenDin.loennsinntekt.norgeEllerUtland': 'Kor får du arbeidsinntekt frå?',
     'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Arbeidsinntekt i Noreg',
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',
@@ -1056,18 +1064,18 @@ export default {
     'feil.harBarnetVerge.foedselsnummer.validate': 'Ugyldig fødselsnummer',
     'systemUtilgjengelig.veileder.tittel': 'Å nei, søknaden fungerer ikke...',
     'systemUtilgjengelig.veileder.beskrivelse':
-            'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
     'systemUtilgjengelig.tilbakemelding.tittel': 'Opplever du fortsatt feil?',
     'systemUtilgjengelig.tilbakemelding.meldFra': 'Meld fra om feil og mangler',
     'systemUtilgjengelig.tilbakemelding.href':
-            'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+        'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'systemUtilgjengelig.merOmYtelsene': 'Les mer om rettighetene dine',
     'systemUtilgjengelig.merOmYtelseneLenke': 'Har mistet noen i nær familie',
     'systemUtilgjengelig.merOmYtelseneHref': 'https://www.nav.no/mistet-noen',
     'systemUtilgjengelig.knappProevIgjen': 'Prøv igjen',
     'systemUtilgjengelig.tittel.engelsk': 'The application form is not currently working',
     'systemUtilgjengelig.beskrivelse.engelsk.del1':
-            'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
 }

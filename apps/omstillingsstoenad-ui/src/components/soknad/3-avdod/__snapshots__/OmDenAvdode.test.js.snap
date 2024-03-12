@@ -3,7 +3,7 @@
 exports[`Om den avdøde Snapshot 1`] = `
 <div>
   <div
-    class="sc-ktwOfi jNsszC"
+    class="sc-hABBmJ bRZgJA"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -71,7 +71,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-ktwOfi jNsszC"
+        class="sc-hABBmJ bRZgJA"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -98,10 +98,10 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-ktwOfi jNsszC"
+        class="sc-hABBmJ bRZgJA"
       >
         <div
-          class="sc-brSamD lmjuMH"
+          class="sc-ktwOfi huDixo"
           id="statsborgerskap"
         >
           <div
@@ -155,10 +155,10 @@ exports[`Om den avdøde Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-ktwOfi jNsszC"
+        class="sc-hABBmJ bRZgJA"
       >
         <section
-          class="sc-csKJxZ dSMkTl"
+          class="sc-eTNRI iuKkei"
         >
           <div
             class="navds-date__wrapper"
@@ -1158,7 +1158,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         <br />
       </div>
       <div
-        class="sc-ktwOfi jNsszC"
+        class="sc-hABBmJ bRZgJA"
       >
         <div
           id="doedsfallAarsak"
@@ -1289,7 +1289,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         omDenAvdoede.boddEllerJobbetUtland.ingress
       </p>
       <div
-        class="sc-ktwOfi jNsszC"
+        class="sc-hABBmJ bRZgJA"
       >
         <div
           id="boddEllerJobbetUtland.svar"
@@ -1414,7 +1414,7 @@ exports[`Om den avdøde Snapshot 1`] = `
         omDenAvdoede.selvstendigNaeringsdrivende.ingress
       </p>
       <div
-        class="sc-ktwOfi jNsszC"
+        class="sc-hABBmJ bRZgJA"
       >
         <div
           id="selvstendigNaeringsdrivende.svar"

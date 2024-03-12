@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import React from 'react'
-import { Alert, BodyShort, Heading, ReadMore } from '@navikt/ds-react'
+import { Alert, BodyShort, Heading, List, ReadMore } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
@@ -12,6 +12,7 @@ import { useFormContext } from 'react-hook-form'
 import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
+import { ListItemWithIndent } from '../../../felles/StyledComponents'
 
 const Loennsinntekt = () => {
     const { t } = useTranslation()
@@ -33,6 +34,29 @@ const Loennsinntekt = () => {
             <SkjemaElement>
                 <Heading size={'medium'}>{t('inntektenDin.loennsinntekt.tittel')}</Heading>
                 <BodyShort>{t('inntektenDin.loennsinntekt.ingress')}</BodyShort>
+            </SkjemaElement>
+
+            <SkjemaElement>
+                <ReadMore header={t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.tittel')}>
+                    {t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold')}
+                    <List size={'small'}>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li1')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li2')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li3')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li4')}
+                        </ListItemWithIndent>
+                        <ListItemWithIndent>
+                            {t('inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li5')}
+                        </ListItemWithIndent>
+                    </List>
+                </ReadMore>
             </SkjemaElement>
 
             <SkjemaElement>

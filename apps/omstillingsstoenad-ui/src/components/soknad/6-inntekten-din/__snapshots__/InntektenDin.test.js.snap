@@ -4,7 +4,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-eTNRI cTBPfi"
+      class="sc-brSamD fXEhKZ"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -103,10 +103,10 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hABBmJ bjCmEu"
+      class="sc-fmKFGs ioBIbC"
     >
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-brSamD fXEhKZ"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -115,7 +115,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-brSamD iKPmat"
+        class="sc-ktwOfi eGKjyG"
         id="inntektstyper"
       >
         <fieldset
@@ -378,7 +378,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-brSamD fXEhKZ"
       >
         <div
           id="ytelserNAV.svar"
@@ -476,7 +476,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-brSamD fXEhKZ"
       >
         <div
           id="ytelserAndre.svar"
@@ -716,7 +716,7 @@ exports[`Inntekten din Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-eTNRI cTBPfi"
+      class="sc-brSamD fXEhKZ"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -815,10 +815,10 @@ exports[`Inntekten din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hABBmJ bjCmEu"
+      class="sc-fmKFGs ioBIbC"
     >
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-brSamD fXEhKZ"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -827,7 +827,7 @@ exports[`Inntekten din Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-brSamD iKPmat"
+        class="sc-ktwOfi eGKjyG"
         id="inntektstyper"
       >
         <fieldset
@@ -1090,7 +1090,7 @@ exports[`Inntekten din Snapshot 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-brSamD fXEhKZ"
       >
         <div
           id="ytelserNAV.svar"
@@ -1188,7 +1188,7 @@ exports[`Inntekten din Snapshot 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-brSamD fXEhKZ"
       >
         <div
           id="ytelserAndre.svar"

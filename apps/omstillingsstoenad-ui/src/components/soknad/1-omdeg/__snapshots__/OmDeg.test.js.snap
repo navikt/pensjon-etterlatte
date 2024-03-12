@@ -233,7 +233,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-brSamD dpbKKW"
+              class="sc-ktwOfi bnyRKJ"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -353,7 +353,7 @@ exports[`Om deg og avdød Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-brSamD dpbKKW"
+              class="sc-ktwOfi bnyRKJ"
             >
               omDeg.utbetalingsInformasjon.swift
                
