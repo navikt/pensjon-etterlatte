@@ -29,3 +29,4 @@ jobs:
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
           echo ::set-output name=yarnlockhash::$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }} >> $GITHUB_OUTPUT
+          echo $GITHUB_OUTPUT
