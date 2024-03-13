@@ -11,9 +11,9 @@ on:
       image:
         description: "Docker image url"
         value: ${{ jobs.build-and-publish.outputs.image }}
-      yarn-lock-hash:
+      yarnlockhash:
         description: "Docker image url"
-        value: ${{ jobs.build-and-publish.outputs.yarn-lock-hash }}
+        value: ${{ jobs.build-and-publish.outputs.yarnlockhash }}
 
 permissions:
   contents: read
@@ -25,7 +25,7 @@ jobs:
     name: Build & publish
     runs-on: ubuntu-latest
     outputs:
-      yarn-lock-hash: ${{ steps.keys.outputs.yarn-lock-hash }}
+      yarnlockhash: ${{ steps.keys.outputs.yarnlockhash }}
       image: ${{ steps.docker-build-push.outputs.image }}
     steps:
       - name: Checkout code
@@ -43,7 +43,8 @@ jobs:
         id: keys
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
-          echo "yarn-lock-hash=$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}" >> "$GITHUB_OUTPUT"
+          HASH=$(echo ${{ hashFiles('apps/$WORKFLOW/yarn.lock') }})
+          echo "yarnlockhash=$WORKFLOW-$HASH" >> "$GITHUB_OUTPUT"
 
       # Client cache
       - name: Cache node modules (client)
@@ -53,7 +54,7 @@ jobs:
           path: |
             apps/${{ github.workflow }}/node_modules
             ~/.cache/Cypress
-          key: ${{ steps.keys.outputs.yarn-lock-hash }}
+          key: ${{ steps.keys.outputs.yarnlockhash }}
 
       # Install and build client
       - name: Install node modules
