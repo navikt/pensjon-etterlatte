@@ -26,3 +26,12 @@ jobs:
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
           echo "yarnlockhash=$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}" >> "$GITHUB_OUTPUT"
+      # Client cache
+      - name: Cache node modules (client)
+        id: yarn-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            apps/${{ github.workflow }}/node_modules
+            ~/.cache/Cypress
+          key: ${{ steps.keys.outputs.yarnlockhash }}
