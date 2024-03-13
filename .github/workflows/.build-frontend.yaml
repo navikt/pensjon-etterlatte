@@ -1,9 +1,6 @@
 name: .build-frontend.yaml
 
 on:
-  push:
-    branches:
-      - syntaks
   workflow_call:
     inputs:
       dockerfile:
