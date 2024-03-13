@@ -1,0 +1,29 @@
+name: test-lock-hash.yaml
+
+on:
+  workflow_dispatch:
+    outputs:
+      yarnlockhash:
+        description: "Hash"
+        value: ${{ jobs.hash.outputs.yarnlockhash }}
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  hash:
+    name: Create hash
+    runs-on: ubuntu-latest
+    outputs:
+      yarnlockhash: ${{ steps.keys.outputs.yarnlockhash }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Hash yarn.lock file to see if it has changed
+      - name: Create hash from yarn.lock
+        id: keys
+        run: |
+          WORKFLOW=$(echo ${{ github.workflow }})
+          echo ::set-output name=yarnlockhash::$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}
