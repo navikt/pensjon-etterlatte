@@ -1,6 +1,9 @@
 name: test-lock-hash.yaml
 
 on:
+  push:
+    branches:
+      - lock-hash
   workflow_dispatch:
     outputs:
       yarnlockhash:
