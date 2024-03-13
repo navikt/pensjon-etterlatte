@@ -55,35 +55,3 @@ jobs:
             apps/${{ github.workflow }}/node_modules
             ~/.cache/Cypress
           key: ${{ steps.keys.outputs.yarnlockhash }}
-
-      # Install and build client
-      - name: Install node modules
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        working-directory: apps/${{ github.workflow }}
-        env:
-          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn install --frozen-lockfile
-      - name: Build
-        working-directory: apps/${{ github.workflow }}
-        env:
-          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn build
-      - name: Run tests
-        working-directory: apps/${{ github.workflow }}
-        run: CI=true yarn test
-        env:
-          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-
-      - name: Build and publish docker image
-        uses: nais/docker-build-push@v0
-        id: docker-build-push
-        with:
-          team: etterlatte
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          dockerfile: ${{ inputs.dockerfile }}
-          docker_context: apps/${{ github.workflow }}/
-          image_suffix: ${{ github.workflow }}
-          tag: ${{ env.GITHUB_REF_SLUG }}
-      - name: Print docker tag
-        run: echo 'Docker-tag er ${{ steps.docker-build-push.outputs.image }} ' >> $GITHUB_STEP_SUMMARY
