@@ -42,9 +42,8 @@ jobs:
       - name: Create hash from yarn.lock
         id: keys
         run: |
-          STI='apps/${{ github.workflow }}/yarn.lock'
-          echo $STI
-          echo "yarnlockhash=${{ hashFiles(format('apps/{0}/yarn.lock','${{ github.workflow }}')) }}" >> "$GITHUB_OUTPUT"
+          HASH=${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
+          echo "yarnlockhash=${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}" >> "$GITHUB_OUTPUT"
 #          HASHED=${{ hashFiles('$STI') }}
 #          echo $HASHED
 #          echo "yarnlockhash=${{ github.workflow }}-$HASHED" >> "$GITHUB_OUTPUT"
