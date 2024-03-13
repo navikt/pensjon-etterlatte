@@ -43,7 +43,7 @@ jobs:
         id: keys
         run: |
           STI='apps/${{ github.workflow }}/yarn.lock'
-          echo $STI
+          echo "$STI"
           echo "yarnlockhash=${{ github.workflow }}-${{ hashFiles($STI) }}" >> "$GITHUB_OUTPUT"
 
       # Client cache
