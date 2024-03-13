@@ -35,4 +35,4 @@ jobs:
           path: |
             apps/${{ github.workflow }}/node_modules
             ~/.cache/Cypress
-          key: ${{ steps.keys.outputs.ylh }}
+          key: ${{ steps.keys.outputs.yarn-lock-hash }}
