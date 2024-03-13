@@ -25,6 +25,7 @@ jobs:
         id: keys
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
+          echo "apps/$WORKFLOW/yarn.lock"
           YLH=${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}
           echo "$YLH"
           echo "$WORKFLOW-$YLH"
