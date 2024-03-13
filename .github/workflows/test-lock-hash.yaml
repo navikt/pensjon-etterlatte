@@ -15,7 +15,7 @@ jobs:
     name: Create hash
     runs-on: ubuntu-latest
     outputs:
-      ylh: ${{ steps.keys.outputs.ylh }}
+      yarn-lock-hash: ${{ steps.keys.outputs.yarn-lock-hash }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
         id: keys
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
-          echo "ylh=$WORKFLOW-${{ hashFiles('apps/etterlatte-node-server/yarn.lock') }}" >> "$GITHUB_OUTPUT"
+          echo "yarn-lock-hash=$WORKFLOW-${{ hashFiles('apps/etterlatte-node-server/yarn.lock') }}" >> "$GITHUB_OUTPUT"
 
       # Client cache
       - name: Cache node modules (client)
@@ -35,4 +35,4 @@ jobs:
           path: |
             apps/${{ github.workflow }}/node_modules
             ~/.cache/Cypress
-          key: ${{ steps.keys.outputs.ylh }}
+          key: ${{ steps.keys.outputs.yarn-lock-hash }}
