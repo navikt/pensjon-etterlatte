@@ -42,9 +42,8 @@ jobs:
       - name: Create hash from yarn.lock
         id: keys
         run: |
-          WORKFLOW=$(echo ${{ github.workflow }})
-          HASH=$(echo ${{ hashFiles('apps/$WORKFLOW/yarn.lock') }})
-          echo "yarnlockhash=$WORKFLOW-$HASH" >> "$GITHUB_OUTPUT"
+          HASH=${{ hashFiles('apps/${{ github.workflow }}/yarn.lock') }}
+          echo "yarnlockhash=${{ github.workflow }}-$HASH" >> "$GITHUB_OUTPUT"
 
       # Client cache
       - name: Cache node modules (client)
