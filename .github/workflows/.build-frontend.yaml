@@ -42,7 +42,7 @@ jobs:
       - name: Create hash from yarn.lock
         id: keys
         run: |
-          HASHED="${{ hashFiles(apps/${{ github.workflow }}/yarn.lock) }}"
+          HASHED=${{ hashFiles('apps/github.workflow/yarn.lock') }}
           echo $HASHED
           echo "yarnlockhash=${{ github.workflow }}-${{ hashFiles('apps/${{ github.workflow }}/yarn.lock') }}" >> "$GITHUB_OUTPUT"
 
