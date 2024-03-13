@@ -24,8 +24,8 @@ jobs:
       - name: Create hash from yarn.lock
         id: keys
         run: |
-          WORKFLOW=etterlatte-node-server
-          echo "yarn-lock-hash=$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}" >> "$GITHUB_OUTPUT"
+          WORKFLOW=$(echo ${{ github.workflow }})
+          echo "ylh=$WORKFLOW-${{ hashFiles('apps/etterlatte-node-server/yarn.lock') }}" >> "$GITHUB_OUTPUT"
 
       # Client cache
       - name: Cache node modules (client)
@@ -35,4 +35,4 @@ jobs:
           path: |
             apps/${{ github.workflow }}/node_modules
             ~/.cache/Cypress
-          key: ${{ steps.keys.outputs.yarn-lock-hash }}
+          key: ${{ steps.keys.outputs.ylh }}
