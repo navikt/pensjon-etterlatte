@@ -25,8 +25,7 @@ jobs:
         id: keys
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
-          YLH2=${{ hashFiles('apps/etterlatte-node-server/yarn.lock') }}
-          echo "ylh=$WORKFLOW-$YLH2" >> "$GITHUB_OUTPUT"
+          echo "yarn-lock-hash=$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}" >> "$GITHUB_OUTPUT
 
       # Client cache
       - name: Cache node modules (client)
