@@ -24,7 +24,7 @@ jobs:
       - name: Create hash from yarn.lock
         id: keys
         run: |
-          WORKFLOW=$(echo ${{ github.workflow }})
+          WORKFLOW=etterlatte-node-server
           echo "yarn-lock-hash=$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}" >> "$GITHUB_OUTPUT
 
       # Client cache
