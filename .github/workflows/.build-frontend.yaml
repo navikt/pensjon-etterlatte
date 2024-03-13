@@ -44,7 +44,7 @@ jobs:
         run: |
           STI='apps/${{ github.workflow }}/yarn.lock'
           echo "$STI"
-          echo "yarnlockhash=${{ github.workflow }}-${{ hashFiles("$STI") }}" >> "$GITHUB_OUTPUT"
+          echo "yarnlockhash=${{ github.workflow }}-${{ hashFiles('apps/${{ github.workflow }}/yarn.lock') }}" >> "$GITHUB_OUTPUT"
 
       # Client cache
       - name: Cache node modules (client)
