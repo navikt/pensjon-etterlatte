@@ -2,6 +2,9 @@ name: test-lock-hash.yaml
 
 on:
   push:
+    yarnlockhash:
+      description: "Docker image url"
+      value: ${{ jobs.hash.outputs.yarnlockhash }}
     branches:
       - lock-hash
   workflow_dispatch:
