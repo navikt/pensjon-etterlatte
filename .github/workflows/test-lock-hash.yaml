@@ -25,7 +25,13 @@ jobs:
         id: keys
         run: |
           WORKFLOW=$(echo ${{ github.workflow }})
-          echo "yarnlockhash=$WORKFLOW-${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}" >> "$GITHUB_OUTPUT"
+          YLH=${{ hashFiles('apps/$WORKFLOW/yarn.lock') }}
+          echo "$YLH"
+          echo "$WORKFLOW-$YLH"
+          JOINED=$WORKFLOW-$YLH
+          echo "$JOINED"
+          echo "yarnlockhash=$JOINED" >> "$GITHUB_OUTPUT"
+
       # Client cache
       - name: Cache node modules (client)
         id: yarn-cache
