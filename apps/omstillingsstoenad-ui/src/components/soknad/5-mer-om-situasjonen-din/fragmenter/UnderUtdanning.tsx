@@ -9,7 +9,7 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { addYears } from 'date-fns'
+import { addYears, isBefore } from 'date-fns'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { Studieform } from '../../../../typer/utdanning'
 import { useFormContext } from 'react-hook-form'
@@ -22,6 +22,12 @@ const UnderUtdanning = () => {
     const { watch } = useFormContext<IMerOmSituasjonenDin>()
 
     const studieform = watch('utdanning.naavaerendeUtdanning.studieform')
+    const startDatoUtdanning = watch('utdanning.naavaerendeUtdanning.startDato')
+
+    const minSluttDato = (startDato: Date | undefined): Date => {
+        if (startDato && isBefore(new Date(), startDato)) return startDato
+        return new Date()
+    }
 
     return (
         <SkjemaGruppe>
@@ -76,13 +82,13 @@ const UnderUtdanning = () => {
                         name={'utdanning.naavaerendeUtdanning.startDato'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato')}
                         minDate={state.foedselsdato}
-                        maxDate={new Date()}
+                        maxDate={addYears(new Date(), 1)}
                     />
 
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.sluttDato'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato')}
-                        minDate={new Date()}
+                        minDate={minSluttDato(startDatoUtdanning)}
                         maxDate={addYears(new Date(), 10)}
                     />
                 </SkjemaGruppeRad>
