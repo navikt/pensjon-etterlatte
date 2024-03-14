@@ -20,13 +20,9 @@ import { Spraakvalg } from '../felles/Spraakvalg'
 import { MuligeSteg } from '../../typer/steg'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
 import { SkjemaElement } from '../felles/SkjemaElement'
-import styled from 'styled-components'
 import { erForGammel } from '../../utils/alder'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
-
-const ListItemWithIndent = styled(List.Item)`
-    margin-left: 1rem;
-`
+import { ListItemWithIndent } from '../felles/StyledComponents'
 
 const SoknadForside = () => {
     const navigate = useNavigate()

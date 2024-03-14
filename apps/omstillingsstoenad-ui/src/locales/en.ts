@@ -309,11 +309,20 @@ export default {
     'inntektenDin.tittel': 'Your income',
     'inntektenDin.undertittel': 'Income, pension and other disbursements in Norway and abroad',
     'inntektenDin.ingress':
-        'The amount of transitional benefits that you are entitled to will depend on your income from employment. NAV benefits are considered income from employment. \n\n We need to know your gross income. Gross income means your income before taxes are deducted.',
-    'inntektenDin.inntektstyper': 'Which type of income do you receive?',
+        'The transitional benefit amount you can receive will depend on your earned income. All of the money you earn will be included when your expected income is calculated.\n\n It is important that you report your gross income to us. Gross income means your income before tax.',
+    'inntektenDin.inntektstyper': 'Please select all types of income you have',
     'inntektenDin.loennsinntekt.tittel': 'Income from work',
     'inntektenDin.loennsinntekt.ingress':
-        'If you have several jobs or income from abroad, this must be included in the income from work that you report. Please state income from work in Norwegian kroner.',
+        'If you have several jobs or income from abroad, this must be included in the income from work that you report. Disability benefit should not be specified as earned income. Please state income from work in Norwegian kroner.',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.tittel': 'What is considered income?',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold':
+        'Among other things, the term pensionable income includes',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li1': 'fixed salary',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li2': 'additional hours and overtime',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li3': 'holiday pay',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li4': 'taxable insurance payments',
+    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li5':
+        'bonuses and other pensionable premiums and remunerations. This also includes compensation in the form of commissions, fees, royalties or other remuneration for participation in boards, committees, assemblies, etc., as well as qualification benefit, care pay and foster home allowance.',
     'inntektenDin.loennsinntekt.norgeEllerUtland': 'Where do you earn this income?',
     'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Income earned from working in Norway',
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Income from work earned abroad',
@@ -373,6 +382,14 @@ export default {
     'inntektenDin.naeringsinntekt.tittel': 'Business income',
     'inntektenDin.naeringsinntekt.ingress':
         'All business income from Norway and abroad must be included in the income you report. Please state your business income in Norwegian kroner.',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel': 'What is considered income?',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold':
+        'Among other things, the term pensionable income includes',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1': 'self-employment income',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2': 'sale of business enterprise',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3': 'taxable insurance payments',
+    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4':
+        'bonuses and other pensionable premiums and remunerations. This also includes compensation in the form of commissions, fees, royalties or other remuneration for participation in boards, committees, assemblies, etc., as well as qualification benefit, care pay and foster home allowance.',
     'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Where do you earn this income?',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Business income in Norway',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Business income abroad',
@@ -452,8 +469,19 @@ export default {
         'We need this information to assess your membership in the Norwegian National Insurance Scheme.',
     'inntektenDin.ingenInntekt.tittel': 'No income or other payments',
     'inntektenDin.ingenInntekt.svar': 'Do you have an income or other type of benefits?',
-    'inntektenDin.ingenInntekt.beloep': 'State the amount',
+    'inntektenDin.ingenInntekt.beloep': 'Estimate the annual amount for this year',
     'inntektenDin.ingenInntekt.beskrivelse': 'Describe which types of payments you are receiving',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.tittel': 'What is considered income?',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold': 'Among other things, the term pensionable income includes',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1': 'some benefits paid by NAV',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li2': 'fixed salary',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li3': 'additional hours and overtime',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li4': 'self-employment income',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li5': 'sale of business enterprise',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li6': 'taxable insurance payments',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li7': 'holiday pay',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li8':
+        'bonuses and other pensionable premiums and remunerations. This also includes compensation in the form of commissions, fees, royalties or other remuneration for participation in boards, committees, assemblies, etc., as well as qualification benefit, care pay and foster home allowance.',
     'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Benefits from NAV',
     'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Which incomes or disbursements are you receiving?',
     'inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar': 'Have you been issued an Activities Plan?',
@@ -1002,7 +1030,8 @@ export default {
     'feil.tilbudOmJobb.arbeidsmengde.type.required': 'Choose between percent or hours',
     'feil.tilbudOmJobb.midlertidig.svar.required': 'State whether you have an end date',
     'feil.tilbudOmJobb.midlertidig.sluttdatoVelger.required': 'State end date',
-    'feil.tilbudOmJobb.aktivitetsplan.svar.required': 'State whether you have an activities plan in cooperation with NAV',
+    'feil.tilbudOmJobb.aktivitetsplan.svar.required':
+        'State whether you have an activities plan in cooperation with NAV',
     'feil.arbeidssoeker.svar.required': 'State whether you are registered as a job seeker with NAV',
     'feil.arbeidssoeker.aktivitetsplan.svar.required': 'State whether you have an activities plan',
     'feil.annenSituasjon.beskrivelse.required': 'Choose what describes your situation',
@@ -1101,18 +1130,18 @@ export default {
     'feil.harBarnetVerge.foedselsnummer.validate': 'Invalid national identity number',
     'systemUtilgjengelig.veileder.tittel': 'Å nei, søknaden fungerer ikke...',
     'systemUtilgjengelig.veileder.beskrivelse':
-            'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
     'systemUtilgjengelig.tilbakemelding.tittel': 'Opplever du fortsatt feil?',
     'systemUtilgjengelig.tilbakemelding.meldFra': 'Meld fra om feil og mangler',
     'systemUtilgjengelig.tilbakemelding.href':
-            'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+        'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'systemUtilgjengelig.merOmYtelsene': 'Les mer om rettighetene dine',
     'systemUtilgjengelig.merOmYtelseneLenke': 'Har mistet noen i nær familie',
     'systemUtilgjengelig.merOmYtelseneHref': 'https://www.nav.no/mistet-noen',
     'systemUtilgjengelig.knappProevIgjen': 'Prøv igjen',
     'systemUtilgjengelig.tittel.engelsk': 'The application form is not currently working',
     'systemUtilgjengelig.beskrivelse.engelsk.del1':
-            'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
 }

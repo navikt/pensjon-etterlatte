@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Modal } from '@navikt/ds-react'
+import { List, Modal } from '@navikt/ds-react'
 import { SkjemaGruppe } from './SkjemaGruppe'
 
 const navigasjonsRad = `
@@ -120,7 +120,7 @@ export const InputWithCurrency = styled.div<{ $hasError?: boolean }>`
         left: 10rem;
         bottom: ${(props) => (props.$hasError ? '2rem' : 0)};
     }
-    
+
     input {
         max-width: 9rem;
     }
@@ -133,4 +133,8 @@ export const NumberSelectRad = styled.div`
     @media screen and (max-width: 650px) {
         flex-direction: column;
     }
+`
+
+export const ListItemWithIndent = styled(List.Item)`
+    margin-left: 1rem;
 `
