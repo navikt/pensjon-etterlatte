@@ -17,7 +17,7 @@ const SoeknadUgyldig = () => {
                 </SkjemaElement>
                 <SkjemaElement>
                     <Button as={'a'} href={'/omstillingsstonad/soknad'}>
-                        Gå til søknad om omstillingsstønad
+                        Søk om omstillingsstønad
                     </Button>
                 </SkjemaElement>
             </SkjemaGruppe>
