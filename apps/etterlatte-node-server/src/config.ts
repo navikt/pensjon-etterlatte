@@ -9,14 +9,7 @@ const app = {
     targetAudience: process.env.AUDIENCE,
 }
 
-const tokenx = {
-    discoveryUrl: process.env.TOKEN_X_WELL_KNOWN_URL,
-    clientID: process.env.TOKEN_X_CLIENT_ID,
-    privateJwk: process.env.TOKEN_X_PRIVATE_JWK,
-}
-
 export default {
     app,
     env,
-    tokenx,
 }

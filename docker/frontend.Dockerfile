@@ -1,2 +1,2 @@
-FROM europe-north1-docker.pkg.dev/nais-management-233d/etterlatte/pensjon-etterlatte-etterlatte-node-server:main
+FROM europe-north1-docker.pkg.dev/nais-management-233d/etterlatte/pensjon-etterlatte-etterlatte-node-server:2024.03.15-10.44-70c4f98@sha256:29dd4b7bc114ec254b601689b042c3c6fed5d4417711b8050cfc3a8d6761a4c7
 COPY build ./build
