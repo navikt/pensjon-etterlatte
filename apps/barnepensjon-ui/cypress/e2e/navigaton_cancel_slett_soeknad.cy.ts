@@ -2,7 +2,7 @@ import { basePath, Button } from '../util/constants'
 
 describe('Navigation: "Cancel" button functionality', () => {
     beforeEach(() => {
-        cy.startApplication('user').agreeToTerms().useScenario('PARENT')
+        cy.startApplication('user').useScenario('PARENT').agreeToTerms()
 
         cy.clickBtn(Button.Cancel)
 

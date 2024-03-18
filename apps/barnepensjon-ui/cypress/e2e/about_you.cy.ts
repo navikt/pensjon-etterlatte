@@ -2,7 +2,7 @@ import { Button } from '../util/constants'
 
 describe('About You', () => {
     it('Should only display information about the user', function () {
-        cy.startApplication('user').agreeToTerms().useScenario('PARENT')
+        cy.startApplication('user').useScenario('PARENT').agreeToTerms()
 
         cy.url().should('include', 'skjema/forelder/steg/om-deg')
 
@@ -11,7 +11,7 @@ describe('About You', () => {
     })
 
     it('should ask for and validate phone number if not present on user object', function () {
-        cy.startApplication('user-without-phonenumber').agreeToTerms().useScenario('PARENT')
+        cy.startApplication('user-without-phonenumber').useScenario('PARENT').agreeToTerms()
 
         cy.url().should('include', 'skjema/forelder/steg/om-deg')
 

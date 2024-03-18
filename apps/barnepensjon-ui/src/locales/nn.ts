@@ -149,9 +149,6 @@ const frontPage = {
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
-}
-
-const selectScenario = {
     whoIsApplying: 'Kven søker du barnepensjon for?',
     additionalSituationDetails: 'Barnet har mista',
     additionalSituationDetailsDescription:
@@ -363,6 +360,7 @@ const error = {
     'addressOfResidenceConfirmed.required': 'Bustadadresse må bekreftast/avkreftast',
     'alternativeAddress.required': 'Du må oppgi noverande bustadsadresse',
     'citizenship.required': 'Oppgi statsborgarskap',
+    'consent.required': 'Du må bekrefta at du vil gi riktige og fullstendige opplysingar.',
     'dateOfDeath.required': 'Oppgi når dødsfallet skjedde',
     'firstName.required': 'Oppgi førenamn',
     'firstName.pattern': 'Ugyldig førenamn',
@@ -533,7 +531,6 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     btn,
     steps,
     radiobuttons,
-    selectScenario,
     pageNotFound,
     systemUnavailable,
     invalidApplicant,

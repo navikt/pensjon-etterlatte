@@ -152,9 +152,6 @@ const frontPage = {
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
     consentToNav: 'I hereby confirm that the information I provide is correct and complete.',
-}
-
-const selectScenario = {
     whoIsApplying: 'For whom are you submitting an application for the children’s pension?',
     additionalSituationDetails: 'The child have lost',
     additionalSituationDetailsDescription:
@@ -373,6 +370,7 @@ const error = {
     'addressOfResidenceConfirmed.required': 'You must confirm whether or not this is your current residential address',
     'alternativeAddress.required': 'You must enter your current residential address',
     'citizenship.required': 'Enter nationality',
+    'consent.required': 'You must confirm that the information you provide is correct and complete.',
     'dateOfDeath.required': 'State when the death occurred',
     'firstName.required': 'Enter first name(s)',
     'firstName.pattern': 'Invalid first name(s)',
@@ -547,7 +545,6 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     btn,
     steps,
     radiobuttons,
-    selectScenario,
     pageNotFound,
     systemUnavailable,
     invalidApplicant,

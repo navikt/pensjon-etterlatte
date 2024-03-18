@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, ExpansionCard, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
+import { BodyLong, Button, ExpansionCard, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
 import { ActionTypes, IApplicant } from '../context/application/application'
 import { useApplicationContext } from '../context/application/ApplicationContext'
@@ -115,14 +115,12 @@ export default function FrontPage() {
                         </FormElement>
                     </FormGroup>
                     <FormGroup>
-                        <Alert variant={'info'}>
-                            <Heading size={'small'} spacing>
-                                {t('aboutSurvivorsPensionTitle')}
-                            </Heading>
-                            <BodyLong>
-                                <Trans value={t('aboutSurvivorsPensionDescription')} />
-                            </BodyLong>
-                        </Alert>
+                        <Heading size={'small'} spacing>
+                            {t('aboutSurvivorsPensionTitle')}
+                        </Heading>
+                        <BodyLong>
+                            <Trans value={t('aboutSurvivorsPensionDescription')} />
+                        </BodyLong>
                     </FormGroup>
                     <ProcessingDataParentAndGuardian t={t} />
                 </>

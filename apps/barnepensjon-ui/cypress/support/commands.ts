@@ -23,14 +23,12 @@ Cypress.Commands.add('acceptInformationAboutYou', () => {
     cy.clickBtn(Button.Next)
 })
 
-Cypress.Commands.add('useScenario', (role: string, situation: string = null, gotoNext: boolean = true) => {
+Cypress.Commands.add('useScenario', (role: string, situation: string = null) => {
     cy.get('[id="applicantRole"]').find(`[value="${role}"]`).check({ force: true })
 
     if (situation) {
         cy.get('[id="applicantSituation"]').find(`[value="${situation}"]`).check({ force: true })
     }
-
-    if (gotoNext) cy.clickBtn(Button.Continue)
 })
 
 Cypress.Commands.add('useSimpleLiving', (gotoNext: boolean = true) => {
@@ -70,7 +68,6 @@ Cypress.Commands.add('useAdvancedDeceased', (gotoNext: boolean = true) => {
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
     cy.get('#staysAbroad\\.hasStaysAbroad').find(`[value="NEI"]`).check({ force: true })
     cy.get('div[id="selfEmplyment.wasSelfEmployed"]').find('[value="NEI"]').check({ force: true })
-
 
     if (gotoNext) cy.clickBtn(Button.Next)
 })

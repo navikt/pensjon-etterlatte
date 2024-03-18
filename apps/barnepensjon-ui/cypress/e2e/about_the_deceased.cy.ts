@@ -2,7 +2,7 @@ import { basePath, Button } from '../util/constants'
 
 describe('About The Deceased - PARENT', () => {
     before(() => {
-        cy.startApplication('user').agreeToTerms().useScenario('PARENT').acceptInformationAboutYou()
+        cy.startApplication('user').useScenario('PARENT').agreeToTerms().acceptInformationAboutYou()
 
         cy.url().should('include', 'skjema/forelder/steg/om-avdoede')
     })
@@ -21,8 +21,8 @@ describe('About The Deceased - PARENT', () => {
 describe('About The Deceased - GUARDIAN - ONE PARENT', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
-            .agreeToTerms()
             .useScenario('GUARDIAN', 'ONE_PARENT_DECEASED')
+            .agreeToTerms()
             .acceptInformationAboutYou()
 
         cy.url().should('include', 'skjema/verge/steg/om-foreldrene')
@@ -44,8 +44,8 @@ describe('About The Deceased - GUARDIAN - ONE PARENT', { testIsolation: false },
 describe('About The Deceased - GUARDIAN - BOTH PARENTS', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
-            .agreeToTerms()
             .useScenario('GUARDIAN', 'BOTH_PARENTS_DECEASED')
+            .agreeToTerms()
             .acceptInformationAboutYou()
 
         cy.url().should('include', 'skjema/verge/steg/om-foreldrene')
