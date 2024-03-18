@@ -149,6 +149,38 @@ const frontPage = {
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Jeg bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
+    whoIsApplying: 'Hvem søker du barnepensjon for?',
+    additionalSituationDetails: 'Barnet har mistet',
+    additionalSituationDetailsDescription:
+        'Hvis barnet har mistet en forelder og den andre forelderen er ukjent, må du velge "Begge foreldrene".',
+    additionalSituationDetailsOver18: 'Jeg har mistet',
+    additionalSituationDetailsOver18Description: 'Hvis en av foreldrene dine er ukjent, velger du "Begge foreldrene".',
+    PARENT: 'Jeg søker for mitt eller mine barn under 18 år',
+    GUARDIAN: 'Jeg søker for ett eller flere barn jeg er verge for',
+    CHILD: 'Jeg har fylt 18 år og søker på vegne av meg selv',
+    parentApplicantInformationLabel: 'Jeg søker for mitt eller mine barn under 18 år',
+    parentApplicantInformation:
+        'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde.',
+    guardianApplicantInformationLabel: 'Jeg søker for ett eller flere barn jeg er verge for',
+    guardianApplicantInformation: 'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn under 20 år.',
+    guardiansMustSendDocumentation:
+        'For at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verge for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Hvis du ikke har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon">andre søknader om barnepensjon</a>.',
+    childApplicantInformation1:
+        '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
+    childApplicantInformation2:
+        '<b>Hvis du har mistet begge foreldrene dine eller farskapet ikke er fastsatt</b>\nDu kan få barnepensjon inntil du blir 20 år hvis du er under utdanning, eller er lærling eller praktikant. Du kan få barnepensjon inntil du blir 21 år hvis dødsfallet i tillegg skyldes en yrkesskade eller yrkessykdom.',
+    childApplicantInformationOver18:
+        'Har du mistet en eller begge foreldrene dine må du bruke <a href="https://www.nav.no/fyllut/nav180405">denne søknaden</a>.',
+    youNeedFnrForEveryoneInThisApplicationSurvivingParent:
+        'Du må oppgi hele fødselsnummeret til barnet/barna og avdøde. Hvis ikke du har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon?stegvalg=1">andre søknader om barnepensjon</a>.',
+    aboutSurvivorsPensionTitle: 'Har du mistet ektefellen, samboeren eller partneren din?',
+    aboutSurvivorsPensionDescription:
+        'Da kan du søke om omstillingsstønad. Hvis du ønsker å søke om barnepensjon samtidig kan du gjøre begge deler i <a href="https://www.nav.no/omstillingsstonad/soknad/">søknad om omstillingsstønad.</a>',
+    over18WithoutFnr:
+        'Du må oppgi fødselsnummer på alle i søknaden. Hvis du ikke har det, må du bruke en av våre <a href="https://www.nav.no/start/soknad-barnepensjon">andre søknader om barnepensjon.</a>',
+    BOTH_PARENTS_DECEASED: 'Begge foreldrene',
+    BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'Jeg er foreldreløs',
+    ONE_PARENT_DECEASED: 'En forelder',
 }
 
 const selectScenario = {
@@ -365,6 +397,7 @@ const error = {
     'abroadStays.hasStaysAbroad.required': 'Oppgi om den avdøde har bodd eller jobbet i et annet land enn Norge',
     'addressOfResidenceConfirmed.required': 'Bostedsadresse må bekreftes/avkreftes',
     'alternativeAddress.required': 'Du må oppgi nåværende bostedsadresse',
+    'consent.required': 'Du må bekrefte at du vil gi riktige og fullstendige opplysninger.',
     'citizenship.required': 'Oppgi statsborgerskap',
     'dateOfDeath.required': 'Oppgi når dødsfallet skjedde',
     'firstName.required': 'Oppgi fornavn',
