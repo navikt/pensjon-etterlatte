@@ -10,12 +10,12 @@ import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
 import { FormProvider, useForm } from 'react-hook-form'
 import FormElement from '../../common/FormElement'
+import { ApplicantRole, ApplicantSituation } from '../../FrontPage'
 
 enum EditParent {
     NONE,

@@ -11,11 +11,11 @@ import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { ApplicantRole } from '../scenario/ScenarioSelection'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
+import { ApplicantRole } from '../../FrontPage'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)

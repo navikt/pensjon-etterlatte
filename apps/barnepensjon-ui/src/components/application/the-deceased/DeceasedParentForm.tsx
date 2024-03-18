@@ -12,7 +12,7 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { ApplicantRole } from '../scenario/ScenarioSelection'
+import { ApplicantRole } from '../../FrontPage'
 import { useCurrencies } from '../../../hooks/useCurrencies'
 
 interface Props {

@@ -1,7 +1,6 @@
 import { mapTilBarnepensjonSoeknadListe } from './soeknadMapper'
 import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from './FellesOpplysninger'
 import { IChild, ParentRelationType } from '../../types/person'
-import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
 import {
     IAbroadStay,
     IApplicant,
@@ -16,6 +15,7 @@ import { User } from '../../context/user/user'
 import { Avdoed, Forelder, GjenlevendeForelder, PersonType } from './Person'
 import { _test, hentForeldre } from './foreldreMapper'
 import { fullAdresse } from '../../utils/personalia'
+import { ApplicantRole } from '../../components/FrontPage'
 
 const EMPTY_VALUE = '-'
 

@@ -18,7 +18,7 @@ import { IAboutYou, IChild } from '../../types/person'
 import { Language } from '../../context/language/language'
 import { hentForeldre, hentForeldreOver18, mapForeldreMedUtvidetInfo } from './foreldreMapper'
 import { mapVerge } from './mapVerge'
-import { ApplicantRole } from '../../components/application/scenario/ScenarioSelection'
+import { ApplicantRole } from '../../components/FrontPage'
 
 export const mapTilBarnepensjonSoeknadListe = (
     t: TFunction,

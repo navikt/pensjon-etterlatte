@@ -1,5 +1,5 @@
 import { ActionTypes } from '../../../context/application/application'
-import { ApplicantSituation } from '../scenario/ScenarioSelection'
+import { ApplicantSituation } from '../../FrontPage'
 import StepHeading from '../../common/StepHeading'
 import useTranslation from '../../../hooks/useTranslation'
 

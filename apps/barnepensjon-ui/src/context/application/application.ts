@@ -1,8 +1,8 @@
 import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
-import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 import { IAboutChildren, IAboutYou } from '../../types/person'
 import { ISituationChild } from '../../types/situation'
 import { Language } from '../language/language'
+import { ApplicantRole, ApplicantSituation } from '../../components/FrontPage'
 
 export const emptyApplication: IApplication = {
     aboutYou: { paymentDetails: { accountType: BankkontoType.NORSK } },
