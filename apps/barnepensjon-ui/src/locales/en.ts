@@ -134,7 +134,7 @@ const frontPage = {
         'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
     automaticProcessingTitle: 'Automatic processing',
     automaticProcessingContent1:
-        'Virtually all processing of personal data in connection with transitional benefit is done manually. This means that there is a case handler who looks at and processes your case.',
+        'Virtually all processing of personal data in connection with children’s pension is done manually. This means that there is a case handler who looks at and processes your case.',
     automaticProcessingContent2:
         'Automatic processing of cases is done in certain situations. In the case of an ongoing benefits that use <a href="https://www.nav.no/grunnbelopet">the basic amount in the National Insurance Scheme (G)</a> as a basis for calculation (such as transitional benefits), the system will automatically change your payment based on changes in the national basic amount. This is done to ensure that the payment of benefits takes place efficiently.',
     automaticProcessingContent3:
