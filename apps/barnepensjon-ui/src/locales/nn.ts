@@ -131,7 +131,7 @@ const frontPage = {
         'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
     automaticProcessingTitle: 'Automatisk behandling',
     automaticProcessingContent1:
-        'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
+        'Stort sett all behandling av personopplysningar i samband med barnepensjon blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
     automaticProcessingContent2:
         'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der <a href="https://www.nav.no/grunnbelopet">grunnbeløpet i folketrygda</a> blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
     automaticProcessingContent3:
