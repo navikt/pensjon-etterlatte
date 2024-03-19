@@ -5,7 +5,7 @@ import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import { ParentRelationType } from '../../../../types/person'
 import { nameAndFnr } from '../../../../utils/personalia'
-import { ApplicantRole, ApplicantSituation } from '../../../FrontPage'
+import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
 
 interface Props {
     parents?: ParentRelationType

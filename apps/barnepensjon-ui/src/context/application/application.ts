@@ -2,7 +2,7 @@ import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/Fe
 import { IAboutChildren, IAboutYou } from '../../types/person'
 import { ISituationChild } from '../../types/situation'
 import { Language } from '../language/language'
-import { ApplicantRole, ApplicantSituation } from '../../components/FrontPage'
+import { ApplicantRole, ApplicantSituation } from '../../types/applicant'
 
 export const emptyApplication: IApplication = {
     aboutYou: { paymentDetails: { accountType: BankkontoType.NORSK } },

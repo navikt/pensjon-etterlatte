@@ -6,12 +6,12 @@ import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutChildren, IChild, ParentRelationType } from '../../../../types/person'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import { ApplicantRole, ApplicantSituation } from '../../../FrontPage'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import PaymentDetailsSummary from './PaymentDetailsSummary'
 import PersonInfoSummary from './PersonInfoSummary'
 import { nameAndFnr } from '../../../../utils/personalia'
+import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
 
 interface Props {
     aboutChildren?: IAboutChildren

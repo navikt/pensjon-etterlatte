@@ -17,7 +17,14 @@ interface RHFConfirmationPanelProps extends Omit<ConfirmationPanelProps, 'onChan
 }
 
 export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmationPanelProps) {
-    const { control } = useFormContext()
+    const { t } = useTranslation('error')
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -31,6 +38,7 @@ export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmation
                         checked={value || false}
                         onChange={(e) => onChange(!!e.target.checked)}
                         defaultValue={value || false}
+                        error={feilmelding}
                     />
                 )}
             />

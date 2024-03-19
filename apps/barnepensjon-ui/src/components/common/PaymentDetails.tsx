@@ -10,7 +10,7 @@ import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
 import { Bredde } from '../../utils/bredde'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
-import { ApplicantRole } from '../FrontPage'
+import { ApplicantRole } from '../../types/applicant'
 
 const HelpTextLabel = styled.div`
     display: flex;

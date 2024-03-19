@@ -15,7 +15,7 @@ import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
 import { FormProvider, useForm } from 'react-hook-form'
 import FormElement from '../../common/FormElement'
-import { ApplicantRole, ApplicantSituation } from '../../FrontPage'
+import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 
 enum EditParent {
     NONE,

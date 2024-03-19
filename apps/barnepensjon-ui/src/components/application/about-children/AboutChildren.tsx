@@ -15,7 +15,7 @@ import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../..
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
-import { ApplicantRole } from '../../FrontPage'
+import { ApplicantRole } from '../../../types/applicant'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)

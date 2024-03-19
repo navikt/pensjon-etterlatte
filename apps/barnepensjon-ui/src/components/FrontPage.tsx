@@ -13,20 +13,11 @@ import ErrorSummaryWrapper from './common/ErrorSummaryWrapper'
 import { FormProvider, useForm } from 'react-hook-form'
 import { RHFRadio } from './common/rhf/RHFRadio'
 import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
+import { ApplicantRole, ApplicantSituation } from '../types/applicant'
 
 const ListItemWithIndent = styled(List.Item)`
     margin-left: 1rem;
 `
-export enum ApplicantRole {
-    PARENT = 'PARENT',
-    GUARDIAN = 'GUARDIAN',
-    CHILD = 'CHILD',
-}
-
-export enum ApplicantSituation {
-    ONE_PARENT_DECEASED = 'ONE_PARENT_DECEASED',
-    BOTH_PARENTS_DECEASED = 'BOTH_PARENTS_DECEASED',
-}
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -121,7 +112,7 @@ export default function FrontPage() {
                             <Trans value={t('aboutSurvivorsPensionDescription')} />
                         </BodyLong>
                     </FormGroup>
-                    <ProcessingDataParentAndGuardian t={t} />
+                    <ProcessingDataParentAndGuardian t={t} isParent={true} />
                 </>
             )}
 
@@ -155,7 +146,7 @@ export default function FrontPage() {
                             ]}
                         />
                     </FormGroup>
-                    <ProcessingDataParentAndGuardian t={t} />
+                    <ProcessingDataParentAndGuardian t={t} isParent={false} />
                 </>
             )}
 
@@ -209,7 +200,7 @@ export default function FrontPage() {
     )
 }
 
-function ProcessingDataParentAndGuardian({ t }: { t: TFunction }) {
+function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction; isParent: boolean }) {
     return (
         <FormGroup>
             <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
@@ -221,14 +212,18 @@ function ProcessingDataParentAndGuardian({ t }: { t: TFunction }) {
                 <ExpansionCard.Content>
                     <FormElement>
                         <Heading size={'xsmall'}>{t('howWeProcessDataTitle')}</Heading>
-                        <BodyLong>{t('howWeProcessDataContent')}</BodyLong>
+                        <BodyLong>
+                            {t(isParent ? 'howWeProcessDataContentParent' : 'howWeProcessDataContentGuardian')}
+                        </BodyLong>
                     </FormElement>
 
                     <FormElement>
                         <Heading size={'xsmall'}>{t('collectAndProcessTitle')}</Heading>
 
                         <List as={'ul'} size={'small'}>
-                            <ListItemWithIndent>{t('collectAndProcess_li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>
+                                {t(isParent ? 'collectAndProcess_li1_parent' : 'collectAndProcess_li1_guardian')}
+                            </ListItemWithIndent>
                             <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
                             <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
                         </List>
@@ -236,7 +231,7 @@ function ProcessingDataParentAndGuardian({ t }: { t: TFunction }) {
 
                     <FormElement>
                         <Heading size={'xsmall'}>{t('weWillRetrieveInfo')}</Heading>
-                        <BodyLong>{t('infoWeRetrieve')}</BodyLong>
+                        <BodyLong>{t(isParent ? 'infoWeRetrieve_parent' : 'infoWeRetrieve_guardian')}</BodyLong>
 
                         <List as={'ul'} size={'small'}>
                             <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
@@ -246,7 +241,7 @@ function ProcessingDataParentAndGuardian({ t }: { t: TFunction }) {
                         </List>
 
                         <BodyLong>
-                            <Trans value={t('survivingParentInfo')} />
+                            {t(isParent ? 'survivingParentInfo_parent' : 'survivingParentInfo_guardian')}
                         </BodyLong>
                         <List as={'ul'} size={'small'}>
                             <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
@@ -311,22 +306,22 @@ function ProcessingDataChild({ t }: { t: TFunction }) {
                 <ExpansionCard.Content>
                     <FormElement>
                         <Heading size={'xsmall'}>{t('howWeProcessDataTitle')}</Heading>
-                        <BodyLong>{t('howWeProcessDataContent')}</BodyLong>
+                        <BodyLong>{t('howWeProcessDataContentChild')}</BodyLong>
                     </FormElement>
 
                     <FormElement>
                         <Heading size={'xsmall'}>{t('collectAndProcessTitle')}</Heading>
 
                         <List as={'ul'} size={'small'}>
-                            <ListItemWithIndent>{t('collectAndProcess_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('collectAndProcess_li1_child')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('collectAndProcess_li2_child')}</ListItemWithIndent>
                             <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
                         </List>
                     </FormElement>
 
                     <FormElement>
                         <Heading size={'xsmall'}>{t('weWillRetrieveInfo')}</Heading>
-                        <BodyLong>{t('infoWeRetrieve')}</BodyLong>
+                        <BodyLong>{t('infoWeRetrieve_child')}</BodyLong>
 
                         <List as={'ul'} size={'small'}>
                             <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
@@ -335,9 +330,7 @@ function ProcessingDataChild({ t }: { t: TFunction }) {
                             <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
                         </List>
 
-                        <BodyLong>
-                            <Trans value={t('survivingParentInfo')} />
-                        </BodyLong>
+                        <BodyLong>{t('survivingParentInfo_child')}</BodyLong>
                         <List as={'ul'} size={'small'}>
                             <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
                             <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
@@ -348,7 +341,7 @@ function ProcessingDataChild({ t }: { t: TFunction }) {
                     </FormElement>
 
                     <FormElement>
-                        <Heading size={'xsmall'}>{t('disclosureOfInformationTitle')}</Heading>
+                        <Heading size={'xsmall'}>{t('disclosureOfInformationTitle_child')}</Heading>
                         <BodyLong>{t('disclosureOfInformationContent')}</BodyLong>
                     </FormElement>
 
@@ -359,14 +352,14 @@ function ProcessingDataChild({ t }: { t: TFunction }) {
 
                     <FormElement>
                         <Heading size={'xsmall'}>{t('automaticProcessingTitle')}</Heading>
-                        <BodyLong>{t('automaticProcessingContent1')}</BodyLong>
+                        <BodyLong>{t('automaticProcessingContent1_child')}</BodyLong>
                         <FormElement>
                             <BodyLong>
-                                <Trans value={t('automaticProcessingContent2')} />
+                                <Trans value={t('automaticProcessingContent2_child')} />
                             </BodyLong>
                         </FormElement>
                         <FormElement>
-                            <BodyLong>{t('automaticProcessingContent3')}</BodyLong>
+                            <BodyLong>{t('automaticProcessingContent3_child')}</BodyLong>
                         </FormElement>
                         <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
@@ -381,7 +374,7 @@ function ProcessingDataChild({ t }: { t: TFunction }) {
 
                     <Heading size={'xsmall'}>{t('aboutPrivacyTitle')}</Heading>
                     <BodyLong>
-                        <Trans value={t('aboutPrivacy')} />
+                        <Trans value={t('aboutPrivacy_child')} />
                     </BodyLong>
                 </ExpansionCard.Content>
             </ExpansionCard>

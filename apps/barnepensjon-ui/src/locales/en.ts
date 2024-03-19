@@ -104,14 +104,26 @@ const frontPage = {
         'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Processing of personal data in the application',
     howWeProcessDataTitle: 'How NAV processes your personal data',
-    howWeProcessDataContent:
+    howWeProcessDataContentParent:
+        "When you submit an application for benefits, NAV will collect and process some personal data about the person applying for benefits. If you are sending an application on behalf of someone else, including a child under your care/guardianship, we will also collect and process some information about the child. This is necessary so that you, or the person you are applying for, will receive good services and correct benefits and to fulfill NAV's obligation to contribute financially security in the event of death – pursuant to Chapter 18 of the National Insurance Act.",
+    howWeProcessDataContentGuardian:
+        "When you submit an application for benefits, NAV will collect and process some personal data about the person applying for benefits. If you are sending an application on behalf of someone else, including a child under your care/guardianship, we will also collect and process some information about the child. This is necessary so that you, or the person you are applying for, will receive good services and correct benefits and to fulfill NAV's obligation to contribute financially security in the event of death – pursuant to Chapter 18 of the National Insurance Act.",
+    howWeProcessDataContentChild:
         "When you submit an application for benefits, NAV will collect and process some personal data about the person applying for benefits. If you are sending an application on behalf of someone else, including a child under your care/guardianship, we will also collect and process some information about the child. This is necessary so that you, or the person you are applying for, will receive good services and correct benefits and to fulfill NAV's obligation to contribute financially security in the event of death – pursuant to Chapter 18 of the National Insurance Act.",
     collectAndProcessTitle: 'We collect and process personal data to:',
-    collectAndProcess_li1: 'identify and communicate with you as an applicant or representative of an applicant',
+    collectAndProcess_li1_parent: 'identify and communicate with you as an applicant or representative of an applicant',
+    collectAndProcess_li1_guardian:
+        'identify and communicate with you as an applicant or representative of an applicant',
+    collectAndProcess_li1_child: 'identify and communicate with you as an applicant or representative of an applicant',
     collectAndProcess_li2: 'process your application',
+    collectAndProcess_li2_child: 'process your application',
     collectAndProcess_li3: 'pay your benefits',
     weWillRetrieveInfo: 'We will collect any information we need',
-    infoWeRetrieve:
+    infoWeRetrieve_parent:
+        'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
+    infoWeRetrieve_guardian:
+        'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
+    infoWeRetrieve_child:
         'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
         'personal data from the National Population Register (national identification number, address, nationality, marital status)',
@@ -119,7 +131,11 @@ const frontPage = {
         'information about other current benefits or support from NAV (periods when you received disability pension)',
     infoWeRetrieve_li3: 'information from foreign national insurance/social security authorities (if applicable)',
     infoWeRetrieve_li4: 'information about imprisonment and stays at institutions',
-    survivingParentInfo:
+    survivingParentInfo_parent:
+        'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
+    survivingParentInfo_guardian:
+        'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
+    survivingParentInfo_child:
         'If the user is applying on behalf of himself, or as a guardian applying for the user, NAV will collect information about any surviving parents. If so, we will need to collect:',
     survivingParentInfo_li1: 'name',
     survivingParentInfo_li2: 'national identity number  ',
@@ -127,6 +143,7 @@ const frontPage = {
     survivingParentInfo_li4: 'membership of the National Insurance Scheme (when necessary)',
     survivingParentInfo_li5: 'information from foreign national insurance/social security authorities (if applicable)',
     disclosureOfInformationTitle: 'Disclosure of your information',
+    disclosureOfInformationTitle_child: 'Disclosure of your information',
     disclosureOfInformationContent:
         "In connection with processing applications for children's pensions, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that NAV is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.",
     durationDataIsStoredTitle: 'How long is your data stored?',
@@ -135,9 +152,15 @@ const frontPage = {
     automaticProcessingTitle: 'Automatic processing',
     automaticProcessingContent1:
         'Virtually all processing of personal data in connection with children’s pension is done manually. This means that there is a case handler who looks at and processes your case.',
+    automaticProcessingContent1_child:
+        'Virtually all processing of personal data in connection with children’s pension is done manually. This means that there is a case handler who looks at and processes your case.',
     automaticProcessingContent2:
         'Automatic processing of cases is done in certain situations. In the case of an ongoing benefits that use <a href="https://www.nav.no/grunnbelopet">the basic amount in the National Insurance Scheme (G)</a> as a basis for calculation (such as transitional benefits), the system will automatically change your payment based on changes in the national basic amount. This is done to ensure that the payment of benefits takes place efficiently.',
+    automaticProcessingContent2_child:
+        'Automatic processing of cases is done in certain situations. In the case of an ongoing benefits that use <a href="https://www.nav.no/grunnbelopet">the basic amount in the National Insurance Scheme (G)</a> as a basis for calculation (such as transitional benefits), the system will automatically change your payment based on changes in the national basic amount. This is done to ensure that the payment of benefits takes place efficiently.',
     automaticProcessingContent3:
+        'For you, this means that your benefits will automatically change in line with the annual adjustment of the basic amount. When your benefits are adjusted automatically, there is no case handler who processed the change.',
+    automaticProcessingContent3_child:
         'For you, this means that your benefits will automatically change in line with the annual adjustment of the basic amount. When your benefits are adjusted automatically, there is no case handler who processed the change.',
     automaticProcessingContent4: 'The following information is used to implement the basic amount adjustment:',
     automaticProcessingContent_li1: 'national identification number',
@@ -148,6 +171,8 @@ const frontPage = {
         'The changes are made in the case processing system itself, and do not involve the transfer of information.',
     aboutPrivacyTitle: "NAV's Privacy Policy",
     aboutPrivacy:
+        'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how NAV processes personal data here.</a>',
+    aboutPrivacy_child:
         'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how NAV processes personal data here.</a>',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',

@@ -1,5 +1,4 @@
 import { JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
-import { IArbeidsforhold, IngenJobb, ISelvstendigNaeringsdrivende } from './workingConditions'
 
 export interface IUtdanning {
     naavaerendeUtdanning?: {
@@ -40,16 +39,6 @@ export enum ApplicationReasonType {
     EDUCATION = 'EDUCATION',
     APPRENTICE = 'APPRENTICE',
     INTERNSHIP = 'INTERNSHIP',
-}
-
-export interface ISituasjon {
-    jobbStatus?: JobbStatus[]
-    ingenJobbBeskrivelse?: IngenJobb
-    utdanning?: IUtdanning
-    selvstendig?: ISelvstendigNaeringsdrivende[]
-    arbeidsforhold?: IArbeidsforhold[]
-    andreYtelser?: any
-    erValidert?: boolean
 }
 
 export interface ISituationChild {

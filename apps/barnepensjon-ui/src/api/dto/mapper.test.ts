@@ -15,7 +15,7 @@ import { User } from '../../context/user/user'
 import { Avdoed, Forelder, GjenlevendeForelder, PersonType } from './Person'
 import { _test, hentForeldre } from './foreldreMapper'
 import { fullAdresse } from '../../utils/personalia'
-import { ApplicantRole } from '../../components/FrontPage'
+import { ApplicantRole } from '../../types/applicant'
 
 const EMPTY_VALUE = '-'
 
