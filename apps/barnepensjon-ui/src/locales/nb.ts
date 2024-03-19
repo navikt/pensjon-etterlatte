@@ -129,7 +129,7 @@ const frontPage = {
     durationDataIsStoredTitle: 'Hvor lenge lagres dine opplysninger',
     durationDataIsStoredContent:
         'Personopplysningene lagres i 10 år etter siste utbetaling etter økonomiregelverkets bestemmelser.',
-    automaticProcessingTitle: 'Automatisk behandling',
+    automaticProcessingTitle: 'Automatisk saksbehandling',
     automaticProcessingContent1:
         'Stort sett all behandling av personopplysninger i forbindelse med barnepensjon blir gjort manuelt. Det vil si at det er en saksbehandler som ser på og behandler saken din.',
     automaticProcessingContent2:

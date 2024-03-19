@@ -17,7 +17,6 @@ import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
 const ListItemWithIndent = styled(List.Item)`
     margin-left: 1rem;
 `
-
 export enum ApplicantRole {
     PARENT = 'PARENT',
     GUARDIAN = 'GUARDIAN',
@@ -248,14 +247,14 @@ function ProcessingDataParentAndGuardian({ t }: { t: TFunction }) {
 
                         <BodyLong>
                             <Trans value={t('survivingParentInfo')} />
-                            <List as={'ul'} size={'small'}>
-                                <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
-                            </List>
                         </BodyLong>
+                        <List as={'ul'} size={'small'}>
+                            <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
+                        </List>
                     </FormElement>
 
                     <FormElement>
@@ -338,14 +337,14 @@ function ProcessingDataChild({ t }: { t: TFunction }) {
 
                         <BodyLong>
                             <Trans value={t('survivingParentInfo')} />
-                            <List as={'ul'} size={'small'}>
-                                <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
-                            </List>
                         </BodyLong>
+                        <List as={'ul'} size={'small'}>
+                            <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
+                            <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
+                        </List>
                     </FormElement>
 
                     <FormElement>
