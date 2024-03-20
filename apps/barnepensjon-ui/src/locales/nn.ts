@@ -104,67 +104,66 @@ const frontPage = {
     weWillRetrieveInfoTitle: 'Behandling av personopplysningar i søknaden',
     howWeProcessDataTitle: 'Slik behandlar NAV personopplysningane dine',
     howWeProcessDataContentParent:
-        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om den som søkjer om ytinga. Dersom du sender inn ein søknad om yting på vegner av andre, derimellom eigne barn eller barn du er verje for, vil vi hente inn og behandle opplysningar om vedkomande. Dette er nødvendig for at du, eller den du søkjer på vegner for, skal få gode tenester og ytingane du/vedkomande har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
+        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om den som søkjer om ytinga. Når du sender inn ein søknad om yting på vegner av barnet ditt, vil vi hente inn og behandle opplysningar om barnet. Dette er nødvendig for at den du søkjer på vegner av, skal få gode tenester og ytingane som vedkomande har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
     howWeProcessDataContentGuardian:
-        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om den som søkjer om ytinga. Dersom du sender inn ein søknad om yting på vegner av andre, derimellom eigne barn eller barn du er verje for, vil vi hente inn og behandle opplysningar om vedkomande. Dette er nødvendig for at du, eller den du søkjer på vegner for, skal få gode tenester og ytingane du/vedkomande har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
+        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om den som søkjer om ytinga. Når du sender inn ein søknad om yting på vegner av eit barn du er verje for, vil vi hente inn og behandle opplysningar om barnet. Dette er nødvendig for at den du søkjer på vegner av, skal få gode tenester og ytingane som vedkomande har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
     howWeProcessDataContentChild:
-        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om den som søkjer om ytinga. Dersom du sender inn ein søknad om yting på vegner av andre, derimellom eigne barn eller barn du er verje for, vil vi hente inn og behandle opplysningar om vedkomande. Dette er nødvendig for at du, eller den du søkjer på vegner for, skal få gode tenester og ytingane du/vedkomande har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
+        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
     collectAndProcessTitle: 'Vi samlar inn og behandlar personopplysningar for å',
-    collectAndProcess_li1_parent: 'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
-    collectAndProcess_li1_guardian: 'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
-    collectAndProcess_li1_child: 'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
+    collectAndProcess_li1_parent: 'identifisere og kommunisere med deg som søkjer på vegner av barnet',
+    collectAndProcess_li1_guardian: 'identifisere og kommunisere med deg som er representant for søkjar',
+    collectAndProcess_li1_child: 'identifisere og kommunisere med deg som søkjer',
     collectAndProcess_li2: 'behandle søknaden',
     collectAndProcess_li2_child: 'behandle søknaden din',
     collectAndProcess_li3: 'betale ut ytinga',
     weWillRetrieveInfo: 'Vi hentar inn informasjonen vi treng',
     infoWeRetrieve_parent:
-        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og om tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere ein attlevande forelder eller verje som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
+        'For å behandle søknaden om barnepensjon hentar vi inn opplysningar om deg som søkjer på vegner av barnet/barna, og tredjepersonar som er relevante for søknaden. Relevante tredjepersonar kan vere ei verje som har rett til å representere barnet/barna overfor NAV. \n\nI tillegg til informasjonen du gir oss om barnet/barna via søknadsdialogen, kan vi hente inn',
     infoWeRetrieve_guardian:
-        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og om tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere ein attlevande forelder eller verje som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere attlevande forelder. \n\nI tillegg til informasjonen du gir oss om barnet/barna via søknadsdialogen, kan vi hente inn',
     infoWeRetrieve_child:
-        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og om tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere ein attlevande forelder eller verje som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande: ',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og om tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere ein attlevande forelder eller verje som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande',
     infoWeRetrieve_li1: 'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     infoWeRetrieve_li2: 'opplysningar om anna fortløpande støtte frå NAV (periodar med mottak av uføretrygd)',
     infoWeRetrieve_li3: 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
     infoWeRetrieve_li4: 'opplysningar om straffegjennomføring og opphald på institusjon',
     survivingParentInfo_parent:
-        'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
+        'Når du sender inn ein søknad om yting på vegner av barnet ditt, hentar vi inn følgjande informasjon om deg',
     survivingParentInfo_guardian:
-        'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
+        'Når du sender inn ein søknad om yting på vegner av eit barn du er verje for, hentar vi inn følgjande informasjon om attlevande forelder',
     survivingParentInfo_child:
-        'Dersom brukaren søkjer på eiga hand, eller ein verje søkjer på vegner av brukaren, vil NAV hente inn informasjon om ein eventuell attlevande forelder. Vi hentar då inn følgjande:',
+        'Når du søkjer om barnepensjon, hentar NAV inn informasjon om eventuell attlevande forelder. Vi hentar då inn',
     survivingParentInfo_li1: 'namn',
     survivingParentInfo_li2: 'fødselsnummer',
     survivingParentInfo_li3: 'adresse',
     survivingParentInfo_li4: 'medlemskap i Folketrygda (der dette er nødvendig)',
     survivingParentInfo_li5: 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
-    disclosureOfInformationTitle: 'Utlevering av opplysningane dine',
+    disclosureOfInformationTitle: 'Utlevering av opplysningar',
     disclosureOfInformationTitle_child: 'Utlevering av opplysningane dine',
     disclosureOfInformationContent:
         'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at NAV har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
     durationDataIsStoredTitle: 'Kor lenge opplysningane dine blir lagra',
     durationDataIsStoredContent:
         'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
-    automaticProcessingTitle: 'Automatisk behandling',
+    automaticProcessingTitle: 'Automatisk saksbehandling',
     automaticProcessingContent1:
-        'Stort sett all behandling av personopplysningar i samband med barnepensjon blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
+        'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka.',
     automaticProcessingContent1_child:
         'Stort sett all behandling av personopplysningar i samband med barnepensjon blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
     automaticProcessingContent2:
-        'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der <a href="https://www.nav.no/grunnbelopet">grunnbeløpet i folketrygda</a> blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
+        'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der <a href="https://www.nav.no/grunnbelopet">grunnbeløpet i folketrygda</a> blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
     automaticProcessingContent2_child:
         'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der <a href="https://www.nav.no/grunnbelopet">grunnbeløpet i folketrygda</a> blir nytta som utrekningsgrunnlag (t.d. barnepensjon), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
     automaticProcessingContent3:
-        'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
+        'Dette inneber at stønaden blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
     automaticProcessingContent3_child:
         'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
-    automaticProcessingContent4: 'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar:',
+    automaticProcessingContent4: 'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar',
     automaticProcessingContent_li1: 'personnummer',
     automaticProcessingContent_li2: 'saks-ID',
     automaticProcessingContent_li3: 'type yting',
     automaticProcessingContent_li4: 'gjeldande vedtak',
-    automaticProcessingContent5:
-        'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
+    automaticProcessingContent5: 'Endringane blir gjort i saksbehandlingssystemet.',
     aboutPrivacyTitle: 'Personvernerklæringa i NAV',
     aboutPrivacy:
         'Her kan du lese meir om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">korleis NAV behandlar personopplysningar.</a>',

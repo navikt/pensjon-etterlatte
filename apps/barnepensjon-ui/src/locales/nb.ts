@@ -156,15 +156,14 @@ const frontPage = {
         'Ved noen anledninger vil det gjøres en automatisk behandling i saken. Ved en løpende ytelse som bruker <a href="https://www.nav.no/grunnbelopet">grunnbeløpet i folketrygden</a> som beregningsgrunnlag, slik som i barnepensjon, vil systemet automatisk endre din utbetaling basert på endringer i grunnbeløpet. Dette er for å sikre at utbetaling av ytelser foregår effektivt.',
     automaticProcessingContent3:
         'Dette innebærer at stønaden endres automatisk i tråd med den årlige justeringen av grunnbeløpet. Når stønaden justeres automatisk, er det ikke en saksbehandler som har behandlet endringen.',
-     automaticProcessingContent3_child:
+    automaticProcessingContent3_child:
         'For deg vil dette innebære at din stønad automatisk endres i tråd med den årlige justeringen av grunnbeløpet. Når din stønad justeres automatisk, er det ikke en saksbehandler som har behandlet endringen.',
     automaticProcessingContent4: 'Følgende opplysninger benyttes for å gjennomføre grunnbeløpsregulering:',
     automaticProcessingContent_li1: 'personnummer',
     automaticProcessingContent_li2: 'saks-ID',
     automaticProcessingContent_li3: 'type ytelse',
     automaticProcessingContent_li4: 'gjeldende vedtak',
-    automaticProcessingContent5:
-        'Endringene gjøres i saksbehandlingssystemet og innebærer ikke flytting av opplysninger.',
+    automaticProcessingContent5: 'Endringene gjøres i saksbehandlingssystemet.',
     aboutPrivacyTitle: 'Personvernerklæringen i NAV',
     aboutPrivacy:
         'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan NAV behandler personopplysninger.</a>',
