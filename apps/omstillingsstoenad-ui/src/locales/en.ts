@@ -855,6 +855,7 @@ export default {
     'felles.prosent': 'Percent',
     'felles.valgfri': 'optional',
     'felles.aarligBeloep': 'Annual amount',
+    'felles.ikkeSensitiveOpplysninger': 'Please do not write sensitive personal data.',
     counterLeft: 'characters remaining',
     counterTooMuch: 'characters to many',
     'endreSvarOppsummering.om-deg': 'Change answers about you',

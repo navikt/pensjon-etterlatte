@@ -53,7 +53,7 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
     )
 }
 
-export const RHFInputArea = ({ name, rules, className, valgfri, ...rest }: RHFInputAreaProps) => {
+export const RHFInputArea = ({ name, rules, className, valgfri, description, ...rest }: RHFInputAreaProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -82,6 +82,11 @@ export const RHFInputArea = ({ name, rules, className, valgfri, ...rest }: RHFIn
                         error={feilmelding}
                         {...rest}
                         i18n={i18nLocale}
+                        description={
+                            description
+                                ? `${description}\n\n${t('felles.ikkeSensitiveOpplysninger')}`
+                                : t('felles.ikkeSensitiveOpplysninger')
+                        }
                     />
                 </div>
             )}

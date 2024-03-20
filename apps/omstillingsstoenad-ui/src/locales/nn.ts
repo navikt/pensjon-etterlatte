@@ -822,6 +822,7 @@ export default {
     'felles.prosent': 'Prosent',
     'felles.valgfri': 'valfri',
     'felles.aarligBeloep': 'Årleg beløp',
+    'felles.ikkeSensitiveOpplysninger': 'Ikkje oppgi sensitive personopplysningar.',
     counterLeft: 'teikn igjen',
     counterTooMuch: 'teikn for mykje',
     'endreSvarOppsummering.om-deg': 'Endre svar om deg',

@@ -8,7 +8,7 @@ import { IInntekt, SoekbareYtelserAndre } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
-import { Alert, Heading } from '@navikt/ds-react'
+import { Heading } from '@navikt/ds-react'
 
 const YtelserAndre = () => {
     const { t } = useTranslation()
@@ -50,11 +50,6 @@ const YtelserAndre = () => {
                             className={'width-50'}
                             resize={'vertical'}
                         />
-                    </SkjemaElement>
-                    <SkjemaElement>
-                        <Alert variant={'info'} className={'width-50'}>
-                            {t('inntektenDin.ytelserAndre.pensjonsordning.info')}
-                        </Alert>
                     </SkjemaElement>
                 </>
             )}
