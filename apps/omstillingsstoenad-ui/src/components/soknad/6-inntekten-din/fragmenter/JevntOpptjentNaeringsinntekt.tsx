@@ -32,9 +32,12 @@ const JevntOpptjentNaeringsinntekt = ({ type }: Props) => {
                     <RHFInputArea
                         name={`${baseUrl}.beskrivelse`}
                         label={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse')}
-                        description={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse')}
+                        description={t(
+                            'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse'
+                        )}
                         maxLength={1000}
                         className={'width-50'}
+                        resize={'vertical'}
                     />
                 </SkjemaElement>
             )}

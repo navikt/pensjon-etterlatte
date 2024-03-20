@@ -7,8 +7,7 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IInntekt, SoekbareYtelserAndre } from '../../../../typer/inntekt'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
-import { RHFInput } from '../../../felles/rhf/RHFInput'
-import Bredde from '../../../../typer/bredde'
+import { RHFInputArea } from '../../../felles/rhf/RHFInput'
 import { Heading } from '@navikt/ds-react'
 
 const YtelserAndre = () => {
@@ -41,14 +40,18 @@ const YtelserAndre = () => {
                 </SkjemaElement>
             )}
             {soekteYtelser && !!soekteYtelser.length && (
-                <SkjemaElement>
-                    <RHFInput
-                        name={'ytelserAndre.pensjonsordning'}
-                        label={t('inntektenDin.ytelserAndre.pensjonsordning')}
-                        description={t('inntektenDin.ytelserAndre.pensjonsordning.beskrivelse')}
-                        htmlSize={Bredde.M}
-                    />
-                </SkjemaElement>
+                <>
+                    <SkjemaElement>
+                        <RHFInputArea
+                            name={'ytelserAndre.pensjonsordning'}
+                            label={t('inntektenDin.ytelserAndre.pensjonsordning')}
+                            description={t('inntektenDin.ytelserAndre.pensjonsordning.beskrivelse')}
+                            maxLength={200}
+                            className={'width-50'}
+                            resize={'vertical'}
+                        />
+                    </SkjemaElement>
+                </>
             )}
         </SkjemaGruppe>
     )
