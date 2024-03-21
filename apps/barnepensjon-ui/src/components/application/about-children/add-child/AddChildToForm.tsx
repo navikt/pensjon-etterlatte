@@ -3,7 +3,6 @@ import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import styled from 'styled-components'
-import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import ikon from '../../../../assets/barn1.svg'
 import useCountries from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
@@ -121,7 +120,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     const canApplyForChildrensPension = (): boolean => {
         if (parents === ParentRelationType.BOTH && fnr && fnrValidator(fnr).status === 'valid') {
             const alder = getAgeFromFoedselsnummer(fnr)
-            if (!isGuardian || loggedInUserIsGuardian === JaNeiVetIkke.JA) return !isLegalAge(alder)
+            return !isLegalAge(alder)
         }
 
         return false
