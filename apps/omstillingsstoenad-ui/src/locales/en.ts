@@ -1122,6 +1122,19 @@ export default {
     'feil.barnepensjon.kontonummer.kontonummer.required':
         'Norwegian bank account number is a required field (11 digits)',
     'feil.barnepensjon.kontonummer.kontonummer.pattern': 'Account number not valid. It must have 11 digits.',
+    'feil.barnepensjon.utbetalingsInformasjon.bankkontoType.required':
+        'You must choose whether you want the money to be paid into a Norwegian bank account or a foreign bank account',
+    'feil.barnepensjon.utbetalingsInformasjon.kontonummer.required':
+        'Norwegian bank account number is a required field (11 digits)',
+    'feil.barnepensjon.utbetalingsInformasjon.kontonummer.pattern': 'Account number not valid. It must have 11 digits.',
+    'feil.barnepensjon.utbetalingsInformasjon.utenlandskBankNavn.required':
+        'The name of the foreign bank is a required field',
+    'feil.barnepensjon.utbetalingsInformasjon.utenlandskBankAdresse.required':
+        'The address of the foreign bank is a required field',
+    'feil.barnepensjon.utbetalingsInformasjon.iban.required': 'IBAN number is a required field',
+    'feil.barnepensjon.utbetalingsInformasjon.iban.validate': 'Invalid IBAN',
+    'feil.barnepensjon.utbetalingsInformasjon.swift.required': 'The bank’s SWIFT code or BIC is a required field',
+    'feil.barnepensjon.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.barnepensjon.forskuddstrekk.svar.required':
         'State whether you want tax to be deducted from the children’s pension',
     'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Enter a valid percentage',

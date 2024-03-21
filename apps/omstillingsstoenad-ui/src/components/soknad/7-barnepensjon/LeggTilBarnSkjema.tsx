@@ -2,14 +2,14 @@ import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { BarnRelasjon, IBarn } from '../../../typer/person'
-import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput, RHFProsentInput } from '../../felles/rhf/RHFInput'
 import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, RadioProps } from '@navikt/ds-react'
 import { RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -23,6 +23,9 @@ import Bredde from '../../../typer/bredde'
 import bredde from '../../../typer/bredde'
 import { isDev } from '../../../api/axios'
 import { Panel } from '../../felles/Panel'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { BankkontoType } from '../../../typer/utbetaling'
+import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -86,6 +89,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const { t } = useTranslation()
     const { land }: { land: any } = useLand()
     const { state: bruker } = useBrukerContext()
+    const { state: soeknad } = useSoknadContext()
 
     const methods = useForm<IBarn>({
         defaultValues: {
@@ -123,6 +127,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const foedselsnummer: any = watch('foedselsnummer')
     const annetKontonummerBarnepensjon = watch('barnepensjon.kontonummer.svar')
     const forskuddstrekkBarnepensjon = watch('barnepensjon.forskuddstrekk.svar')
+    const bankkontoType = watch('barnepensjon.utbetalingsInformasjon.bankkontoType')
 
     const kanSoekeOmBarnepensjon = (): boolean => {
         if (foedselsnummer && fnr(foedselsnummer).status === 'valid') {
@@ -142,6 +147,12 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    const bankkontoErNorsk = (): boolean => {
+        if (annetKontonummerBarnepensjon === IValg.JA)
+            return soeknad.omDeg.utbetalingsInformasjon?.bankkontoType === BankkontoType.norsk
+        return bankkontoType === BankkontoType.norsk
+    }
 
     return (
         <>
@@ -276,60 +287,89 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     </SkjemaGruppe>
                                     {!bruker.adressebeskyttelse && (
                                         <>
-                                            <SkjemaGruppe>
-                                                <SkjemaElement>
-                                                    <RHFSpoersmaalRadio
-                                                        name={'barnepensjon.kontonummer.svar'}
-                                                        legend={t('omBarn.barnepensjon.kontonummer.svar')}
-                                                        description={t('omBarn.barnepensjon.kontonummer.informasjon')}
-                                                    />
-                                                </SkjemaElement>
-
-                                                {annetKontonummerBarnepensjon === IValg.NEI && (
-                                                    <SkjemaElement>
-                                                        <RHFKontonummerInput
-                                                            name={'barnepensjon.kontonummer.kontonummer'}
-                                                            htmlSize={Bredde.S}
-                                                            label={t('omBarn.barnepensjon.kontonummer.kontonummer')}
-                                                            description={t(
-                                                                'omBarn.barnepensjon.kontonummer.placeholder'
-                                                            )}
-                                                        />
-                                                    </SkjemaElement>
-                                                )}
-                                            </SkjemaGruppe>
-
-                                            <SkjemaGruppe>
+                                            <SkjemaElement>
                                                 <RHFSpoersmaalRadio
-                                                    name={'barnepensjon.forskuddstrekk.svar'}
-                                                    legend={t('omBarn.barnepensjon.forskuddstrekk.svar')}
-                                                    description={t('omBarn.barnepensjon.forskuddstrekk.hjelpetekst')}
+                                                    name={'barnepensjon.kontonummer.svar'}
+                                                    legend={t('omBarn.barnepensjon.kontonummer.svar')}
+                                                    description={t('omBarn.barnepensjon.kontonummer.informasjon')}
                                                 />
+                                            </SkjemaElement>
 
-                                                {forskuddstrekkBarnepensjon === IValg.JA && (
-                                                    <>
+                                            {annetKontonummerBarnepensjon === IValg.NEI && (
+                                                <SkjemaElement>
+                                                    <SkjemaGruppe>
                                                         <SkjemaElement>
-                                                            <RHFProsentInput
+                                                            <RHFRadio
+                                                                name={
+                                                                    'barnepensjon.utbetalingsInformasjon.bankkontoType'
+                                                                }
+                                                                legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}
+                                                            >
+                                                                {Object.values(BankkontoType).map((value) => {
+                                                                    return {
+                                                                        children: t(value),
+                                                                        value,
+                                                                    } as RadioProps
+                                                                })}
+                                                            </RHFRadio>
+                                                        </SkjemaElement>
+
+                                                        {bankkontoType === BankkontoType.norsk && (
+                                                            <RHFKontonummerInput
                                                                 htmlSize={Bredde.S}
-                                                                name={'barnepensjon.forskuddstrekk.trekkprosent'}
-                                                                label={t(
-                                                                    'omBarn.barnepensjon.forskuddstrekk.trekkprosent'
-                                                                )}
+                                                                name={'barnepensjon.utbetalingsInformasjon.kontonummer'}
+                                                                label={t('omDeg.utbetalingsInformasjon.kontonummer')}
                                                                 description={t(
-                                                                    'omBarn.barnepensjon.forskuddstrekk.placeholder'
+                                                                    'omDeg.utbetalingsInformasjon.informasjon'
                                                                 )}
                                                             />
-                                                        </SkjemaElement>
-                                                        <Panel border>
-                                                            <Alert variant={'info'} className={'navds-alert--inline'}>
-                                                                <BodyShort size={'small'}>
-                                                                    {t('omBarn.barnepensjon.forskuddstrekk.info')}
-                                                                </BodyShort>
-                                                            </Alert>
-                                                        </Panel>
-                                                    </>
-                                                )}
-                                            </SkjemaGruppe>
+                                                        )}
+
+                                                        {bankkontoType === BankkontoType.utenlandsk && (
+                                                            <UtenlandskBankInfo kontonummerTilhoererBarn />
+                                                        )}
+                                                    </SkjemaGruppe>
+                                                </SkjemaElement>
+                                            )}
+
+                                            {bankkontoErNorsk() && (
+                                                <SkjemaGruppe>
+                                                    <RHFSpoersmaalRadio
+                                                        name={'barnepensjon.forskuddstrekk.svar'}
+                                                        legend={t('omBarn.barnepensjon.forskuddstrekk.svar')}
+                                                        description={t(
+                                                            'omBarn.barnepensjon.forskuddstrekk.hjelpetekst'
+                                                        )}
+                                                    />
+
+                                                    {forskuddstrekkBarnepensjon === IValg.JA && (
+                                                        <>
+                                                            <SkjemaElement>
+                                                                <RHFProsentInput
+                                                                    htmlSize={Bredde.S}
+                                                                    name={'barnepensjon.forskuddstrekk.trekkprosent'}
+                                                                    label={t(
+                                                                        'omBarn.barnepensjon.forskuddstrekk.trekkprosent'
+                                                                    )}
+                                                                    description={t(
+                                                                        'omBarn.barnepensjon.forskuddstrekk.placeholder'
+                                                                    )}
+                                                                />
+                                                            </SkjemaElement>
+                                                            <Panel border>
+                                                                <Alert
+                                                                    variant={'info'}
+                                                                    className={'navds-alert--inline'}
+                                                                >
+                                                                    <BodyShort size={'small'}>
+                                                                        {t('omBarn.barnepensjon.forskuddstrekk.info')}
+                                                                    </BodyShort>
+                                                                </Alert>
+                                                            </Panel>
+                                                        </>
+                                                    )}
+                                                </SkjemaGruppe>
+                                            )}
                                         </>
                                     )}
 

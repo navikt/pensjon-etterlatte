@@ -10,9 +10,10 @@ const HelpTextLabel = styled.div`
     display: flex;
 `
 
-const UtenlandskBankInfo = () => {
+const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerTilhoererBarn?: boolean }) => {
     const { t } = useTranslation()
 
+    const prefix = kontonummerTilhoererBarn ? 'barnepensjon.' : ''
     return (
         <>
             <SkjemaElement>
@@ -21,20 +22,20 @@ const UtenlandskBankInfo = () => {
 
             <SkjemaElement>
                 <RHFInput
-                    name={'utbetalingsInformasjon.utenlandskBankNavn'}
+                    name={`${prefix}utbetalingsInformasjon.utenlandskBankNavn`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankNavn')}
                 />
             </SkjemaElement>
 
             <SkjemaElement>
                 <RHFInput
-                    name={'utbetalingsInformasjon.utenlandskBankAdresse'}
+                    name={`${prefix}utbetalingsInformasjon.utenlandskBankAdresse`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankAdresse')}
                 />
             </SkjemaElement>
             <SkjemaElement>
                 <RHFIbanInput
-                    name={'utbetalingsInformasjon.iban'}
+                    name={`${prefix}utbetalingsInformasjon.iban`}
                     htmlSize={Bredde.M}
                     label={
                         <HelpTextLabel>
@@ -46,7 +47,7 @@ const UtenlandskBankInfo = () => {
             </SkjemaElement>
             <SkjemaElement>
                 <RHFBicInput
-                    name={'utbetalingsInformasjon.swift'}
+                    name={`${prefix}utbetalingsInformasjon.swift`}
                     htmlSize={Bredde.S}
                     label={
                         <HelpTextLabel>

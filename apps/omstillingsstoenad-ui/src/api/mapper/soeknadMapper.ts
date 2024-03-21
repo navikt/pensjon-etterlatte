@@ -46,7 +46,7 @@ export const mapTilOmstillingsstoenadSoeknad = (
                 svar: bruker.foedselsnummer!!,
             },
         },
-        utbetalingsInformasjon: hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg),
+        utbetalingsInformasjon: hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg.utbetalingsInformasjon!!),
         soeker: mapGjenlevende(t, soeknad, bruker),
         avdoed: mapAvdoed(t, soeknad),
         barn,
