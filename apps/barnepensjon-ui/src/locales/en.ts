@@ -125,7 +125,7 @@ const frontPage = {
     infoWeRetrieve_child:
         'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
     infoWeRetrieve_li1:
-        'personal data from the National Population Register (national identification number, address, nationality, marital status)',
+        'personal data from the National Population Register (national identification number, address and nationality)',
     infoWeRetrieve_li2:
         'information about other current benefits or support from NAV (periods when you received disability pension)',
     infoWeRetrieve_li3: 'information from foreign national insurance/social security authorities (if applicable)',

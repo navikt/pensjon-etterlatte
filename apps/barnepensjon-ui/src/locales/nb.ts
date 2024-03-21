@@ -118,12 +118,12 @@ const frontPage = {
     collectAndProcess_li3: 'betale ut ytelsen',
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve_parent:
-        'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være verge som har rett til å representere barnet/barna overfor NAV. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente:',
+        'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være verge som har rett til å representere barnet/barna overfor NAV. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente',
     infoWeRetrieve_guardian:
-        'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være gjenlevende forelder. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente:',
+        'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være gjenlevende forelder. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente',
     infoWeRetrieve_child:
-        'For å behandle søknaden din, henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være gjenlevende forelder eller verge som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente:',
-    infoWeRetrieve_li1: 'personopplysninger fra Folkeregisteret (personnummer, adresse, statsborgerskap, sivilstand)',
+        'For å behandle søknaden din, henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være gjenlevende forelder eller verge som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente',
+    infoWeRetrieve_li1: 'personopplysninger fra Folkeregisteret (personnummer, adresse og statsborgerskap)',
     infoWeRetrieve_li2: 'opplysninger om annen løpende støtte fra NAV (perioder med mottak av uføretrygd)',
     infoWeRetrieve_li3: 'informasjon fra utenlandske trygdemyndigheter der dette er aktuelt',
     infoWeRetrieve_li4: 'opplysninger om straffegjennomføring og opphold på institusjon',
@@ -158,7 +158,7 @@ const frontPage = {
         'Dette innebærer at stønaden endres automatisk i tråd med den årlige justeringen av grunnbeløpet. Når stønaden justeres automatisk, er det ikke en saksbehandler som har behandlet endringen.',
     automaticProcessingContent3_child:
         'For deg vil dette innebære at din stønad automatisk endres i tråd med den årlige justeringen av grunnbeløpet. Når din stønad justeres automatisk, er det ikke en saksbehandler som har behandlet endringen.',
-    automaticProcessingContent4: 'Følgende opplysninger benyttes for å gjennomføre grunnbeløpsregulering:',
+    automaticProcessingContent4: 'Følgende opplysninger benyttes for å gjennomføre grunnbeløpsregulering',
     automaticProcessingContent_li1: 'personnummer',
     automaticProcessingContent_li2: 'saks-ID',
     automaticProcessingContent_li3: 'type ytelse',
