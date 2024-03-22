@@ -1,5 +1,6 @@
 import mockSoeknad from '../../src/assets/dummy-soeknad.json'
 import { a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValueForId } from '../util/cy-functions'
+import { format } from 'date-fns'
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal åpne startsiden og starte en søknad', () => {
@@ -63,8 +64,8 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 .find('select')
                 .select(oppholdUtland.land)
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)) // Bodd/Arbeidet checkbox
-            getById(baseId + 'fraDato').type(oppholdUtland.fraDato)
-            getById(baseId + 'tilDato').type(oppholdUtland.tilDato)
+            getById(baseId + 'fraDato').type(format(oppholdUtland.fraDato, 'dd.MM.yyyy'))
+            getById(baseId + 'tilDato').type(format(oppholdUtland.tilDato, 'dd.MM.yyyy'))
             selectValueForId(baseId + 'medlemFolketrygd', oppholdUtland.medlemFolketrygd)
             getById(baseId + 'mottokPensjon.beloep').type(oppholdUtland.mottokPensjon.beloep)
             getById(baseId + 'mottokPensjon.valuta')
@@ -88,7 +89,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         const omDegOgAvdoed = mockSoeknad.omDegOgAvdoed
         selectValue(omDegOgAvdoed.forholdTilAvdoede.relasjon)
         getById('forholdTilAvdoede.datoForInngaattPartnerskap').type(
-            omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap
+            format(omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap, 'dd.MM.yyyy')
         )
         selectValueForId('forholdTilAvdoede.fellesBarn', omDegOgAvdoed.forholdTilAvdoede.fellesBarn)
 
@@ -138,7 +139,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 .select(arbeid.arbeidsmengde.type)
 
             selectValueForId(baseId + 'midlertidig.svar', arbeid.midlertidig.svar)
-            getById(baseId + 'midlertidig.sluttdatoVelger').type(arbeid.midlertidig.sluttdatoVelger)
+            getById(baseId + 'midlertidig.sluttdatoVelger').type(
+                format(arbeid.midlertidig.sluttdatoVelger, 'dd.MM.yyyy')
+            )
 
             selectValueForId(
                 baseId + 'forventerEndretArbeidssituasjon.svar',
@@ -174,14 +177,16 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
 
         getById('loennsinntekt.norge.inntektIAar.tilDoedsfall').type(
-            inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall
+            inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall
         )
 
-        getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(inntektenDin.loennsinntekt.inntektIAar.aarsinntekt)
+        getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(
+            inntektenDin.loennsinntekt.norge.inntektIAar.aarsinntekt
+        )
 
         if (dagensDato.getMonth() >= oktober)
             getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.loennsinntekt.inntektNesteAar.aarsinntekt
+                inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt
             )
 
         selectValueForId(
@@ -194,22 +199,22 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         selectValueForId(
             'naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar',
-            inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar
+            inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar
         )
         getById('naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse').type(
-            inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse
+            inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse
         )
 
         getById('naeringsinntekt.norge.inntektIAar.tilDoedsfall').type(
-            inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall
+            inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall
         )
         getById('naeringsinntekt.norge.inntektIAar.aarsinntekt').type(
-            inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt
+            inntektenDin.naeringsinntekt.norge.inntektIAar.aarsinntekt
         )
 
         if (dagensDato.getMonth() >= oktober)
             getById('naeringsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt
+                inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt
             )
 
         selectValueForId(
