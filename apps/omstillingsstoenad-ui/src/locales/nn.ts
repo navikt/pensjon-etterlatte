@@ -1075,6 +1075,18 @@ export default {
         'Oppgi om du ønsker eit anna kontonummer for utbetaling av barnepensjon',
     'feil.barnepensjon.kontonummer.kontonummer.required': 'Norsk kontonummer må fyllast ut (11 siffer)',
     'feil.barnepensjon.kontonummer.kontonummer.pattern': 'Kontonummer ikkje gyldig. Må ha 11 siffer.',
+    'feil.barnepensjon.utbetalingsInformasjon.bankkontoType.required':
+        'Du må velje mellom norsk eller utanlandsk bankkonto for utbetaling',
+    'feil.barnepensjon.utbetalingsInformasjon.kontonummer.required': 'Norsk kontonummer må fyllast ut (11 siffer)',
+    'feil.barnepensjon.utbetalingsInformasjon.kontonummer.pattern': 'Kontonummeret ikkje gyldig. Må ha 11 siffer.',
+    'feil.barnepensjon.utbetalingsInformasjon.utenlandskBankNavn.required':
+        'Namnet på den utanlandske banken må fyllast ut',
+    'feil.barnepensjon.utbetalingsInformasjon.utenlandskBankAdresse.required':
+        'Adressa til den utanlandske banken må fyllast ut',
+    'feil.barnepensjon.utbetalingsInformasjon.iban.required': 'IBAN-nummer må fyllast ut',
+    'feil.barnepensjon.utbetalingsInformasjon.iban.validate': 'Ugyldig IBAN-nummer',
+    'feil.barnepensjon.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fyllast ut',
+    'feil.barnepensjon.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.barnepensjon.forskuddstrekk.svar.required': 'Oppgi om du ønsker skattetrekk for barnepensjonen',
     'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Oppgi ein gyldig prosent',
     'feil.dagligOmsorg.required': 'Oppgi om du har dagleg omsorg for barnet',

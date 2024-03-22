@@ -1,5 +1,5 @@
 import { TFunction } from 'i18next'
-import { BarnRelasjon, IBarn, ISoeker } from '../../typer/person'
+import { BarnRelasjon, IBarn } from '../../typer/person'
 import {
     BankkontoType,
     BetingetOpplysning,
@@ -21,7 +21,7 @@ import {
     PersonType,
     Verge,
 } from '../dto/Person'
-import { BankkontoType as GammelBankkontoType } from '../../typer/utbetaling'
+import { BankkontoType as GammelBankkontoType, IUtbetalingsInformasjon } from '../../typer/utbetaling'
 import { IValg } from '../../typer/Spoersmaal'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
@@ -152,9 +152,9 @@ const hentDagligOmsorg = (t: TFunction, barn: IBarn): Opplysning<EnumSvar<Omsorg
 
 export const hentUtbetalingsInformasjonSoeker = (
     t: TFunction,
-    omDeg: ISoeker
+    utbetalingsInformasjon: IUtbetalingsInformasjon
 ): BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon> | undefined => {
-    if (omDeg.utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.utenlandsk) {
+    if (utbetalingsInformasjon?.bankkontoType === GammelBankkontoType.utenlandsk) {
         return {
             spoersmaal: t('omDeg.utbetalingsInformasjon.bankkontoType'),
             svar: {
@@ -165,30 +165,30 @@ export const hentUtbetalingsInformasjonSoeker = (
                 utenlandskBankNavn: {
                     spoersmaal: t('omDeg.utbetalingsInformasjon.utenlandskBankNavn'),
                     svar: {
-                        innhold: omDeg.utbetalingsInformasjon.utenlandskBankNavn!!,
+                        innhold: utbetalingsInformasjon.utenlandskBankNavn!!,
                     },
                 },
                 utenlandskBankAdresse: {
                     spoersmaal: t('omDeg.utbetalingsInformasjon.utenlandskBankAdresse'),
                     svar: {
-                        innhold: omDeg.utbetalingsInformasjon.utenlandskBankAdresse!!,
+                        innhold: utbetalingsInformasjon.utenlandskBankAdresse!!,
                     },
                 },
                 iban: {
                     spoersmaal: t('omDeg.utbetalingsInformasjon.iban'),
                     svar: {
-                        innhold: omDeg.utbetalingsInformasjon.iban!!,
+                        innhold: utbetalingsInformasjon.iban!!,
                     },
                 },
                 swift: {
                     spoersmaal: t('omDeg.utbetalingsInformasjon.swift'),
                     svar: {
-                        innhold: omDeg.utbetalingsInformasjon.swift!!,
+                        innhold: utbetalingsInformasjon.swift!!,
                     },
                 },
             },
         }
-    } else if (!!omDeg.utbetalingsInformasjon?.kontonummer) {
+    } else if (!!utbetalingsInformasjon?.kontonummer) {
         return {
             spoersmaal: t('omDeg.utbetalingsInformasjon.bankkontoType'),
             svar: {
@@ -199,7 +199,7 @@ export const hentUtbetalingsInformasjonSoeker = (
                 kontonummer: {
                     spoersmaal: t('omDeg.utbetalingsInformasjon.kontonummer'),
                     svar: {
-                        innhold: omDeg.utbetalingsInformasjon!!.kontonummer!!,
+                        innhold: utbetalingsInformasjon!!.kontonummer!!,
                     },
                 },
             },
@@ -213,7 +213,7 @@ export const hentUtbetalingsInformasjonBarn = (
     soeknad: ISoeknad
 ): BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon> | undefined => {
     if (soeker.barnepensjon?.kontonummer?.svar === IValg.JA) {
-        const gjenlevendeSinKonto = hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg)
+        const gjenlevendeSinKonto = hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg.utbetalingsInformasjon!!)
 
         if (gjenlevendeSinKonto === undefined) return undefined
 
@@ -225,19 +225,14 @@ export const hentUtbetalingsInformasjonBarn = (
             },
         }
     } else if (soeker.barnepensjon?.kontonummer?.svar === IValg.NEI) {
+        const barnetSinKonto = hentUtbetalingsInformasjonSoeker(t, soeker.barnepensjon.utbetalingsInformasjon!!)
+
+        if (barnetSinKonto === undefined) return undefined
+
         return {
-            spoersmaal: t('omDeg.utbetalingsInformasjon.bankkontoType'), // Dette mapper ikke opp i dagens modell.
-            svar: {
-                verdi: BankkontoType.NORSK,
-                innhold: t(GammelBankkontoType.norsk),
-            }, // Kun støtte for norsk konto
+            ...barnetSinKonto,
             opplysning: {
-                kontonummer: {
-                    spoersmaal: t('omBarn.barnepensjon.kontonummer.kontonummer'),
-                    svar: {
-                        innhold: soeker.barnepensjon!!.kontonummer!!.kontonummer!!,
-                    },
-                },
+                ...barnetSinKonto?.opplysning,
                 skattetrekk: hentSkattetrekk(t, soeker),
             },
         }

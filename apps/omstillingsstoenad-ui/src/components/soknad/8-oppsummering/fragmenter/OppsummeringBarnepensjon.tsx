@@ -9,6 +9,7 @@ import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { Panel } from '../../../felles/Panel'
+import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
 
 interface Props {
     opplysningerOmBarn: IOmBarn
@@ -99,9 +100,8 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
 
                         {barnet.barnepensjon?.kontonummer?.svar === IValg.NEI && (
                             <Panel>
-                                <TekstGruppe
-                                    tittel={t('omBarn.barnepensjon.kontonummer.kontonummer')}
-                                    innhold={barnet.barnepensjon.kontonummer.kontonummer}
+                                <UtbetalingsInformasjonOppsummering
+                                    utbetalingsInformasjon={barnet.barnepensjon.utbetalingsInformasjon!!}
                                 />
                             </Panel>
                         )}

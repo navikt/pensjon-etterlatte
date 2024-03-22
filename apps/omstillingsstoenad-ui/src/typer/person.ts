@@ -70,8 +70,8 @@ export interface IBarn {
         soeker?: IValg.JA | undefined
         kontonummer?: {
             svar?: IValg
-            kontonummer?: string
         }
+        utbetalingsInformasjon?: IUtbetalingsInformasjon
         forskuddstrekk?: {
             svar?: IValg
             trekkprosent?: string
