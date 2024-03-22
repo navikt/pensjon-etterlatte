@@ -4,7 +4,6 @@ import { Outlet, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
-import ScenarioSelection from './components/application/scenario/ScenarioSelection'
 import Banner from './components/common/Banner'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
 import Admin from './components/dev/Admin'
@@ -64,8 +63,6 @@ export default function App() {
             <SoeknadWrapper>
                 <Routes>
                     <Route index element={<FrontPage />} />
-
-                    <Route path="velg-scenarie" element={<ScenarioSelection />} />
 
                     <Route path="/skjema" element={<Outlet />}>
                         <Route

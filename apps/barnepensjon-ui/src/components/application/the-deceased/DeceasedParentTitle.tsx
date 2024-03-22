@@ -1,7 +1,7 @@
 import { ActionTypes } from '../../../context/application/application'
-import { ApplicantSituation } from '../scenario/ScenarioSelection'
 import StepHeading from '../../common/StepHeading'
 import useTranslation from '../../../hooks/useTranslation'
+import { ApplicantSituation } from '../../../types/applicant'
 
 interface Props {
     type: ActionTypes

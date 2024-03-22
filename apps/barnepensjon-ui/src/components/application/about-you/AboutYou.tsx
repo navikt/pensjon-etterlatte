@@ -14,7 +14,6 @@ import LoggedInUserInfo from './LoggedInUserInfo'
 import FormElement from '../../common/FormElement'
 import { IAboutYou } from '../../../types/person'
 import PaymentDetails from '../../common/PaymentDetails'
-import { ApplicantRole } from '../scenario/ScenarioSelection'
 import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
@@ -22,6 +21,7 @@ import Datepicker from '../../common/Datepicker'
 import { Heading, HGrid } from '@navikt/ds-react'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import FormGroup from '../../common/FormGroup'
+import { ApplicantRole } from '../../../types/applicant'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')

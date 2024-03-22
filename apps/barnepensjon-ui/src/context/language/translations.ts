@@ -1,7 +1,6 @@
 export type Namespace =
     | 'app'
     | 'frontPage'
-    | 'selectScenario'
     | 'aboutYou'
     | 'aboutParents'
     | 'livingParent'

@@ -4,8 +4,8 @@ import { Alert, BodyLong, Panel } from '@navikt/ds-react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import { ParentRelationType } from '../../../../types/person'
-import { ApplicantRole, ApplicantSituation } from '../../scenario/ScenarioSelection'
 import { nameAndFnr } from '../../../../utils/personalia'
+import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
 
 interface Props {
     parents?: ParentRelationType

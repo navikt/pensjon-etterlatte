@@ -18,9 +18,9 @@ import {
 } from '../../context/application/application'
 import { TFunction } from '../../hooks/useTranslation'
 import { IAboutYou, IChild, ParentRelationType } from '../../types/person'
-import { ApplicantRole, ApplicantSituation } from '../../components/application/scenario/ScenarioSelection'
 import { User } from '../../context/user/user'
 import { fullAdresse } from '../../utils/personalia'
+import { ApplicantRole, ApplicantSituation } from '../../types/applicant'
 
 export const hentForeldre = (t: TFunction, child: IChild, application: IApplication, user: User): Forelder[] => {
     const oneParentDead = application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED

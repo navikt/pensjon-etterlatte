@@ -9,7 +9,6 @@ import FormGroup from '../../common/FormGroup'
 import Navigation, { NavRow } from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { ApplicantRole, ApplicantSituation } from '../scenario/ScenarioSelection'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
 import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedParent'
 import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
@@ -24,6 +23,7 @@ import Trans from '../../common/Trans'
 import { Translation } from '../../../context/language/translations'
 import { BodyShortMuted } from '../../common/StyledTypography'
 import { SummaryAboutUnknownParent } from './fragments/SummaryAboutUknownParent'
+import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {

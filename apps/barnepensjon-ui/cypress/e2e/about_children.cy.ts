@@ -3,8 +3,8 @@ import { basePath, Button } from '../util/constants'
 describe('About Children', { testIsolation: false }, () => {
     before(() => {
         cy.startApplication('user')
-            .agreeToTerms()
             .useScenario('PARENT')
+            .agreeToTerms()
             .acceptInformationAboutYou()
             .useSimpleDeceased(true)
 
@@ -61,8 +61,8 @@ describe('About Children', { testIsolation: false }, () => {
 
     it('should not ask for address or payment details when logged in user has code 6', function () {
         cy.startApplication('user-with-protected-address')
-            .agreeToTerms()
             .useScenario('PARENT')
+            .agreeToTerms()
             .acceptInformationAboutYou()
             .useSimpleDeceased(true)
 
