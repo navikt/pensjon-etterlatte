@@ -202,7 +202,7 @@ const frontPage = {
         'You must enter the entire national identity number of the child/children and the deceased. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions</a>.',
     aboutSurvivorsPensionTitle: 'Have you lost your spouse, cohabiting partner or partner?',
     aboutSurvivorsPensionDescription:
-        'You may be eligible for transitional benefits. If you want to apply for a children’s pension at the same time, you can do both on the same <a href="https://www.nav.no/omstillingsstonad/soknad/">transitional benefits application form.</a>',
+        'You may be eligible for transitional benefits. If you want to apply for a children’s pension at the same time, you can do both on the same <a href="https://www.nav.no/omstillingsstonad/soknad/">adjustment allowance application form.</a>',
     over18WithoutFnr:
         'Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
