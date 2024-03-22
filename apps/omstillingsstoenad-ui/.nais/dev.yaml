@@ -35,6 +35,10 @@ spec:
   prometheus:
     enabled: true
     path: /omstillingsstonad/soknad/metrics
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
   tokenx:
     enabled: true
   idporten:
