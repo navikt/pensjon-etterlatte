@@ -9,7 +9,7 @@
     "@navikt/nav-dekoratoren-moduler": "2.1.6",
     "@navikt/oasis": "^3.2.2",
     "cls-rtracer": "^2.6.0",
-    "express": "4.18.3",
+    "express": "4.19.2",
     "jsdom": ">=24.x",
     "jsonwebtoken": "9.0.2",
     "node-cache": "5.1.2",
