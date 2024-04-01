@@ -1734,39 +1734,39 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@navikt/aksel-icons@^5.17.2":
-  version "5.17.2"
-  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-5.17.2.tgz#bc399e715014ee7130e6c822b4c9daf399783279"
-  integrity sha512-GJwYltpDSkysK0EnTr8D9HJxssKUYi6BHpIFMmomYw4LpFcYDx35dqcWjEtO8bDizcB57eyZuehNIXr1Dv8Elw==
+"@navikt/aksel-icons@^6.3.3":
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.3.3.tgz#251b544c7aea1904c7d11341fbc999e6b7e6e3e1"
+  integrity sha512-DRWDvqJCPc1kYTjJwzv6sw5Bxf6DfHortkYDUtFSriwvXRaL1DM1/LxPtpu+fkMlCIBBioGps8CHZzRpg7Q8UQ==
 
-"@navikt/ds-css@^5.17.2":
-  version "5.17.2"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-5.17.2.tgz#f76f5693fbd5eaed31f4190e1662ceb6253b1b30"
-  integrity sha512-d/N/FICbqXKe4XVA+2z6cyfDAe48YlkA8tmg5381J7z1NsVuU7YDX7kATbmwCoGqGKQz0kv4je6kFwu1x4d4FQ==
+"@navikt/ds-css@^6.3.3":
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-6.3.3.tgz#86285e2560cc1c06a9fdac1baf34415dcf7808dd"
+  integrity sha512-Rpm71ivCpJ5CQuItrIKCe7h/tSnjqnZh9+DS1Mq3LUXaAEdBa1wIg1wF8Eqximy3QcObcO/tRwEkMcFxKe4xLQ==
 
 "@navikt/ds-icons@^3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@navikt/ds-icons/-/ds-icons-3.4.3.tgz#eaa8fc38f6d184806d3405a5efbc9d137c2b8d27"
   integrity sha512-Ys25tnDUzS+AtagMMW4/154OCZy+pTxCv9uiV4YcZUeXMfjnMiRWx1dueyCODb7FF7Jd6TwELd3G6ieQt/rf+w==
 
-"@navikt/ds-react@^5.17.2":
-  version "5.17.2"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-5.17.2.tgz#e2330e961f0d6ead562d9b83aab36b2200551b93"
-  integrity sha512-Rzsj9yWCph3Aq7l0RMr6Bjm6L9sXSN1zTy/1O+6+7/bn5550lvWQYI563bR419D4YSrYXeDzIhWebKjHqfxLmA==
+"@navikt/ds-react@^6.3.3":
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-6.3.3.tgz#b432ae6ff3940ea88951a467923d96ff53b16b96"
+  integrity sha512-iOCX4zO/CB6yM5GxTBDd8yl/sFe7QP2aNMxgA2uqH6l4S+tX1T7CKnMyUhxWrYTgGYFbjAaEppj77q2Gjokvkg==
   dependencies:
     "@floating-ui/react" "0.25.4"
-    "@navikt/aksel-icons" "^5.17.2"
-    "@navikt/ds-tokens" "^5.17.2"
+    "@navikt/aksel-icons" "^6.3.3"
+    "@navikt/ds-tokens" "^6.3.3"
     "@radix-ui/react-tabs" "1.0.0"
     "@radix-ui/react-toggle-group" "1.0.0"
-    clsx "^1.2.1"
-    date-fns "^2.30.0"
-    react-day-picker "8.3.4"
+    clsx "^2.1.0"
+    date-fns "^3.0.0"
+    react-day-picker "8.10.0"
 
-"@navikt/ds-tokens@^5.17.2":
-  version "5.17.2"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-5.17.2.tgz#e1d64cf5d94ba102f814296baf217486b67d33db"
-  integrity sha512-5ULNkSkuohFYAvvagnxDYqDNZl2mLaKeoH0OMtofFZLhykvRkQBdP6Onoy3nKEB6ZXC+kuOVWMPGKu4M2ITrtA==
+"@navikt/ds-tokens@^6.3.3":
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-6.3.3.tgz#d6403f08c3aa389e917b6fbb962ded0c5ce6f603"
+  integrity sha512-EArixE4zSCbkqAYh2iQarsWtTl80yhcKrkAyPlQHrUr19EeRLJIRBQW+lnSiGFMXe+jh7ZUqsHeY1mDOr693Eg==
 
 "@navikt/fnrvalidator@^1.3.0":
   version "1.3.0"
@@ -3926,10 +3926,10 @@ clone@2.x:
   resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==
 
-clsx@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
-  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
+clsx@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.1.0.tgz#e851283bcb5c80ee7608db18487433f7b23f77cb"
+  integrity sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==
 
 co@^4.6.0:
   version "4.6.0"
@@ -4444,17 +4444,10 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-date-fns@^2.30.0:
-  version "2.30.0"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.30.0.tgz#f367e644839ff57894ec6ac480de40cae4b0f4d0"
-  integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
-  dependencies:
-    "@babel/runtime" "^7.21.0"
-
-date-fns@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.3.1.tgz#7581daca0892d139736697717a168afbb908cfed"
-  integrity sha512-y8e109LYGgoQDveiEBD3DYXKba1jWf5BA8YU1FL5Tvm0BTdEfy54WLCwnuYWZNnzzvALy/QQ4Hov+Q9RVRv+Zw==
+date-fns@^3.0.0, date-fns@^3.3.1:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.6.0.tgz#f20ca4fe94f8b754951b24240676e8618c0206bf"
+  integrity sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==
 
 dayjs@^1.10.4:
   version "1.11.10"
@@ -9141,10 +9134,10 @@ react-cookie@^7.1.0:
     hoist-non-react-statics "^3.3.2"
     universal-cookie "^7.0.0"
 
-react-day-picker@8.3.4:
-  version "8.3.4"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.3.4.tgz#0942d66266c58cd815d393ec0d142372b0d42f4f"
-  integrity sha512-UuCbfZ69DhQmd+UhEv8nCPp5PxMk7ioNTuOLMlU0X7q3wd7o8TKDdsjduQoeBYTPTMS3LFdbA1qqbrIpRHo/Vg==
+react-day-picker@8.10.0:
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.10.0.tgz#729c5b9564967a924213978fb9c0751884a60595"
+  integrity sha512-mz+qeyrOM7++1NCb1ARXmkjMkzWVh2GL9YiPbRjKe0zHccvekk4HE+0MPOZOrosn8r8zTHIIeOUXTmXRqmkRmg==
 
 react-dev-utils@^12.0.1:
   version "12.0.1"
