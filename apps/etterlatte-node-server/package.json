@@ -14,11 +14,11 @@
     "jsonwebtoken": "9.0.2",
     "node-cache": "5.1.2",
     "node-fetch": "2.7.0",
-    "prom-client": "^15.1.0",
+    "prom-client": "^15.1.1",
     "react": "^18.2.0",
-    "typescript": "5.3.3",
+    "typescript": "5.4.3",
     "uuid": "^9.0.1",
-    "winston": "3.11.0",
+    "winston": "3.13.0",
     "winston-transport": "^4.7.0"
   },
   "devDependencies": {
