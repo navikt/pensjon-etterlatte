@@ -51,7 +51,7 @@ spec:
     - name: ROOT_LOGLEVEL
       value: "INFO"
     - name: KODEVERK_URL
-      value: "https://kodeverk.dev-fss-pub.nais.io/api/v1/kodeverk"
+      value: "https://kodeverk-api.nav.no/api/v1/kodeverk"
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
     - name: KRR_ENDPOINT_URL
@@ -67,7 +67,7 @@ spec:
         - application: digdir-krr-proxy
           namespace: team-rocket
       external:
-        - host: kodeverk.dev-fss-pub.nais.io
+        - host: kodeverk-api.nav.no
         - host: pdl-api.dev-fss-pub.nais.io
     inbound:
       rules:
