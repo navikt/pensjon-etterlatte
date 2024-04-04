@@ -71,6 +71,5 @@ spec:
         - host: pdl-api.prod-fss-pub.nais.io
     inbound:
       rules:
-        - application: gjenlevendepensjon-ui
         - application: barnepensjon-ui
         - application: omstillingsstoenad-ui
