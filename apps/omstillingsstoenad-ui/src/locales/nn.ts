@@ -529,9 +529,6 @@ export default {
     'omDenAvdoede.statsborgerskap': 'Statsborgarskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'Til dømes norsk',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
-    'omDenAvdoede.datoForDoedsfallet.foerDesember': 'Sia dødsfallet skjedde før desember 2023, må du søkje ',
-    'omDenAvdoede.datoForDoedsfallet.foerDesember.link': 'attlevandepensjon.',
-    'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og om det gir deg pensjonsrettar frå andre land.',

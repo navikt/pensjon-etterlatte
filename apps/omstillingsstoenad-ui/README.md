@@ -3,7 +3,7 @@
 ## Kom i gang
 
 For å kjøre prosjektet må du installere Node/NPM. Dette kan forenkles ved å [installere nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).\
-_Må bruke en stabil versjon av node (f.eks 14 eller 16)._
+_Må bruke en stabil versjon av node (f.eks 20)._
 
 Dersom du ikke har installert Yarn kan du kjøre:\
 `npm install --global yarn`
@@ -22,7 +22,7 @@ Installere prosjektet:\
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start` 
 
-Åpne [http://localhost:3000/gjenlevendepensjon/soknad](http://localhost:3000/gjenlevendepensjon/soknad) i nettleseren.
+Åpne [http://localhost:3000/omstillingsstonad/soknad](http://localhost:3000/omstillingsstonad/soknad) i nettleseren.
 
 ### Testing
 
@@ -44,7 +44,7 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
-[https://etterlatte.intern.dev.nav.no/gjenlevendepensjon/soknad](https://etterlatte.intern.dev.nav.no/gjenlevendepensjon/soknad)
+[https://etterlatte.intern.dev.nav.no/omstillingsstonad/soknad](https://etterlatte.intern.dev.nav.no/omstillingsstonad/soknad)
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 
