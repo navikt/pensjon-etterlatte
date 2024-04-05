@@ -557,10 +557,6 @@ export default {
     'omDenAvdoede.statsborgerskap': 'Nationality',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For example: Norwegian',
     'omDenAvdoede.datoForDoedsfallet': 'When did the death occur?',
-    'omDenAvdoede.datoForDoedsfallet.foerDesember':
-        "Because the deceased's time of death was before December 2023 you must apply for a ",
-    'omDenAvdoede.datoForDoedsfallet.foerDesember.link': "survivor's pension.",
-    'omDenAvdoede.datoForDoedsfallet.foerDesember.href': 'https://www.nav.no/gjenlevendepensjon/en',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Time spent outside Norway',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'We need to know if the deceased has lived or worked outside Norway. This may both affect the size of the survivor’s pension you receive and determine if you are entitled to pension rights from other countries.',
