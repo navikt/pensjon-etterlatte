@@ -17,14 +17,14 @@
   "omDegOgAvdoed": {
     "forholdTilAvdoede": {
       "relasjon": "avdoede.relasjon.separert",
-      "datoForInngaattPartnerskap": "26-07-2001",
+      "datoForInngaattPartnerskap": "2001-07-26",
       "fellesBarn": "radiobuttons.ja"
     }
   },
   "omDenAvdoede": {
     "fornavn": "Død",
     "etternavn": "Testperson",
-    "datoForDoedsfallet": "26-07-2021",
+    "datoForDoedsfallet": "2021-07-26",
     "foedselsnummer": "24014021406",
     "statsborgerskap": "Danmark",
     "boddEllerJobbetUtland": {
@@ -36,8 +36,8 @@
             "oppholdUtlandType.bodd",
             "oppholdUtlandType.arbeidet"
           ],
-          "fraDato": "08-10-2002",
-          "tilDato": "08-10-2003",
+          "fraDato": "2002-10-08",
+          "tilDato": "2003-10-08",
           "medlemFolketrygd": "radiobuttons.ja",
           "mottokPensjon": {
             "beloep": "150000",
@@ -101,7 +101,7 @@
         },
         "midlertidig": {
           "svar": "radiobuttons.ja",
-          "sluttdatoVelger": "01-01-2030"
+          "sluttdatoVelger": "2030-01-01"
         },
         "forventerEndretArbeidssituasjon": {
           "svar": "radiobuttons.ja",
@@ -122,34 +122,46 @@
       "inntekt.annen"
     ],
     "loennsinntekt": {
-      "inntektNesteAar": {
-        "aarsinntekt": "10000"
-      },
-      "inntektIFjor": {
-        "aarsinntekt": "10000"
-      },
-      "inntektIAar": {
-        "tilDoedsfall": "20000",
-        "aarsinntekt": "10000"
+      "norgeEllerUtland": [
+        "inntekt.norge"
+      ],
+      "norge": {
+        "inntektNesteAar": {
+          "aarsinntekt": "10000"
+        },
+        "inntektIFjor": {
+          "tilDoedsfall": "20000",
+          "aarsinntekt": "10000"
+        },
+        "inntektIAar": {
+          "tilDoedsfall": "20000",
+          "aarsinntekt": "10000"
+        }
       },
       "forventerEndringAvInntekt": {
         "svar": "radiobuttons.nei"
       }
     },
     "naeringsinntekt": {
-      "jevntOpptjentNaeringsinntekt": {
-        "svar": "radiobuttons.nei",
-        "beskrivelse": "Selger julelys i desember"
-      },
-      "inntektIFjor": {
-        "aarsinntekt": "10000"
-      },
-      "inntektIAar": {
-        "aarsinntekt": "20000",
-        "tilDoedsfall": "30000"
-      },
-      "inntektNesteAar": {
-        "aarsinntekt": "10000"
+      "norgeEllerUtland": [
+        "inntekt.norge"
+      ],
+      "norge": {
+        "inntektIFjor": {
+          "tilDoedsfall": "20000",
+          "aarsinntekt": "10000"
+        },
+        "inntektIAar": {
+          "aarsinntekt": "20000",
+          "tilDoedsfall": "30000"
+        },
+        "inntektNesteAar": {
+          "aarsinntekt": "10000"
+        },
+        "jevntOpptjentNaeringsinntekt": {
+          "svar": "radiobuttons.nei",
+          "beskrivelse": "Selger julelys i desember"
+        }
       },
       "forventerEndringAvInntekt": {
         "svar": "radiobuttons.nei"
