@@ -42,10 +42,8 @@ class DokarkivKlient(private val client: HttpClient, private val baseUrl: String
 
             if (response.status.isSuccess()) response.body()
             else if (response.status == HttpStatusCode.Conflict) {
-                throw ResponseException(
-                    response,
-                    "Duplikat journalpost - søknaden med tittel '${request.tittel}' har allerede blitt journalført"
-                )
+                response.body<DokarkivResponse>()
+                    .also { logger.error("Duplikat journalpost (journalpostId=${it.journalpostId})") }
             } else {
                 val errorResponse = response.body<DokarkivErrorResponse>()
                     .also { logger.error("${it.message}: ${response.status} ${it.error}") }
