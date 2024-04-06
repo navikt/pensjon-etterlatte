@@ -70,13 +70,11 @@ internal class DokarkivKlientTest {
 
         val klient = opprettKlient(duplikatResponse, HttpStatusCode.Conflict)
 
-        try {
-            runBlocking { klient.journalfoerDok(dummyRequest(), false) }
+        val response = runBlocking { klient.journalfoerDok(dummyRequest(), false) }
 
-            fail("Skal kaste feil ved HttpStatusCode.Conflict (409)")
-        } catch (re: ResponseException) {
-            assertEquals(HttpStatusCode.Conflict, re.response.status)
-        }
+        assertEquals("467010363", response.journalpostId)
+        assertEquals(true, response.journalpostferdigstilt)
+        assertEquals(1, response.dokumenter.size)
     }
 
     @Test
