@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
-import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.pdl.Gradering
 import org.slf4j.LoggerFactory
 
 class JournalfoeringService(private val klient: Dokarkiv) {

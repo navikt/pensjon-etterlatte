@@ -5,7 +5,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Avdoed
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
-import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.pdl.Gradering
 
 fun finnJournalfoerendeEnhet(soeknad: InnsendtSoeknad, gradering: Gradering, forsoekFerdigstill: Boolean = false): String? =
     when (gradering) {

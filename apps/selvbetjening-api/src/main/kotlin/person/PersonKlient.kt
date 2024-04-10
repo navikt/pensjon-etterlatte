@@ -11,14 +11,14 @@ import io.ktor.content.TextContent
 import io.ktor.http.ContentType.Application.Json
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
-import no.nav.etterlatte.libs.common.pdl.GraphqlRequest
-import no.nav.etterlatte.libs.common.pdl.Variables
+import no.nav.etterlatte.libs.pdl.GraphqlRequest
+import no.nav.etterlatte.libs.pdl.Variables
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.pdl.PersonResponse
 import org.slf4j.LoggerFactory
 import libs.common.util.unsafeRetry
-import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
-import no.nav.etterlatte.libs.common.logging.getCorrelationId
+import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 
 interface Pdl {
     suspend fun hentPerson(fnr: Foedselsnummer): PersonResponse

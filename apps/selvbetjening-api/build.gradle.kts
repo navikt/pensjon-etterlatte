@@ -4,7 +4,9 @@ plugins {
 
 dependencies {
     implementation(libs.etterlatte.common)
-    implementation(libs.etterlatte.ktor.client.auth)
+    implementation(project(":libs:utils"))
+    implementation(project(":libs:pdl"))
+    implementation(project(":libs:ktor-client-auth"))
 
     implementation(libs.ktor.okhttp)
     implementation(libs.ktor.server.core)
@@ -33,5 +35,5 @@ dependencies {
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlinx.coroutines.core)
     testImplementation(libs.navfelles.mock.oauth2.server)
-    testImplementation(libs.etterlatte.common.test)
+    testImplementation(project(":libs:common-test"))
 }

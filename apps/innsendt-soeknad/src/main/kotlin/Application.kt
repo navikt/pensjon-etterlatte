@@ -26,8 +26,8 @@ import no.nav.etterlatte.jobs.PubliserTilstandJobb
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
-import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
-import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.helse.rapids_rivers.RapidApplication

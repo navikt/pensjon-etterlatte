@@ -27,8 +27,8 @@ import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
-import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
-import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
 import org.slf4j.event.Level

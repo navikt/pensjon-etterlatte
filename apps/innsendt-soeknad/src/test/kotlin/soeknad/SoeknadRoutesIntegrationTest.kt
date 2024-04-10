@@ -32,7 +32,7 @@ import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
