@@ -27,9 +27,9 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Innsender
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
-import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseKlient
-import no.nav.etterlatte.libs.common.pdl.AdressebeskyttelseResponse
-import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.pdl.AdressebeskyttelseKlient
+import no.nav.etterlatte.libs.pdl.AdressebeskyttelseResponse
+import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.AfterEach

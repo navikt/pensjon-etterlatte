@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(libs.etterlatte.common)
+    implementation(project(":libs:utils"))
 
     implementation(libs.database.hikari.cp)
     implementation(libs.database.flyway.core)
@@ -19,7 +20,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.cio.jvm)
 
-    testImplementation(libs.etterlatte.common.test)
+    testImplementation(project(":libs:common-test"))
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(libs.testcontainers.postgresql)
 

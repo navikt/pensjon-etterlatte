@@ -8,7 +8,7 @@ import no.nav.etterlatte.JournalfoerSoeknadForDoffen
 import no.nav.etterlatte.JournalfoeringService
 import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
-import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.*

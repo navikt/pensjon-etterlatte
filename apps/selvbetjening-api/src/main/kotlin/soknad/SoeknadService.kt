@@ -17,12 +17,12 @@ import io.ktor.http.isSuccess
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
-import no.nav.etterlatte.libs.common.pdl.Gradering
+import no.nav.etterlatte.libs.pdl.Gradering
 import org.slf4j.LoggerFactory
 import libs.common.util.RetryResult
 import libs.common.util.retry
-import no.nav.etterlatte.libs.common.logging.X_CORRELATION_ID
-import no.nav.etterlatte.libs.common.logging.getCorrelationId
+import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 
 
 internal fun SoeknadRequest.hentSaktype() = this.soeknader.first().type

@@ -9,12 +9,14 @@ dependencies {
     implementation(libs.ktor.serialization.jackson)
 
     implementation(libs.etterlatte.common)
-    implementation(libs.etterlatte.ktor.client.auth)
+    implementation(project(":libs:utils"))
+    implementation(project(":libs:pdl"))
+    implementation(project(":libs:ktor-client-auth"))
 
     testImplementation(libs.ktor.client.mock)
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.core)
     testImplementation(libs.kotest.assertions.core)
 
-    testImplementation(libs.etterlatte.common.test)
+    testImplementation(project(":libs:common-test"))
 }

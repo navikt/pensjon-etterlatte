@@ -3,8 +3,8 @@ package no.nav.etterlatte.jobs
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.SoeknadPubliserer
 import no.nav.etterlatte.UtkastPubliserer
-import no.nav.etterlatte.libs.common.logging.CORRELATION_ID
-import no.nav.etterlatte.libs.common.logging.getCorrelationId
+import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
+import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 import no.nav.etterlatte.shuttingDown
 import org.slf4j.LoggerFactory
 import org.slf4j.MDC

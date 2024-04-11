@@ -8,5 +8,9 @@ include(
     "apps:selvbetjening-api",
     "apps:journalfoer-soeknad",
     "apps:innsendt-soeknad",
-    "apps:sjekk-adressebeskyttelse"
+    "apps:sjekk-adressebeskyttelse",
+    "libs:utils",
+    "libs:pdl",
+    "libs:common-test",
+    "libs:ktor-client-auth",
 )

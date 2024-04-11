@@ -8,11 +8,11 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.EnumSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
-import no.nav.etterlatte.libs.common.pdl.Gradering.FORTROLIG
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG
-import no.nav.etterlatte.libs.common.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
-import no.nav.etterlatte.libs.common.pdl.Gradering.UGRADERT
-import no.nav.etterlatte.libs.common.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.libs.pdl.Gradering.FORTROLIG
+import no.nav.etterlatte.libs.pdl.Gradering.STRENGT_FORTROLIG
+import no.nav.etterlatte.libs.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
+import no.nav.etterlatte.libs.pdl.Gradering.UGRADERT
+import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import org.junit.jupiter.api.Test
 
 
