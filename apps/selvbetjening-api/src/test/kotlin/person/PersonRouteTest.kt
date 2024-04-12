@@ -13,15 +13,17 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import no.nav.etterlatte.common.Auth
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.Person
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.personApi
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.fail
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.EnumSource
 import soknad.testModule
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -38,32 +40,34 @@ internal class PersonRouteTest {
         clearMocks(service)
     }
 
-    @Test
-    fun `Enkel test av endepunkt`() {
+    @ParameterizedTest
+    @EnumSource(SoeknadType::class)
+    fun `Enkel test av endepunkt`(type: SoeknadType) {
         withTestApplication({ testModule { personApi(service) } }) {
-            coEvery { service.hentPerson(any()) } returns Person(
+            coEvery { service.hentPerson(any(), any()) } returns Person(
                 fornavn = "STOR",
                 etternavn = "SNERK",
                 foedselsnummer = Foedselsnummer.of(STOR_SNERK),
                 adressebeskyttelse = false
             )
 
-            handleRequest(HttpMethod.Get, "/person/innlogget") {
+            handleRequest(HttpMethod.Get, "/person/innlogget?soeknadType=$type") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
             }.apply {
                 Assertions.assertEquals(HttpStatusCode.OK, response.status())
-                coVerify(exactly = 1) { service.hentPerson(any()) }
+                coVerify(exactly = 1) { service.hentPerson(any(), type) }
             }
         }
     }
 
-    @Test
-    fun `Feil i kodeverk kaster riktig feilkode`() {
+    @ParameterizedTest
+    @EnumSource(SoeknadType::class)
+    fun `Feil i kodeverk kaster riktig feilkode`(type: SoeknadType) {
         withTestApplication({ testModule { personApi(service) } }) {
-            coEvery { service.hentPerson(any()) } throws Exception("Ukjent feil")
+            coEvery { service.hentPerson(any(), any()) } throws Exception("Ukjent feil")
 
             runCatching {
-                handleRequest(HttpMethod.Get, "/person/innlogget") {
+                handleRequest(HttpMethod.Get, "/person/innlogget?soeknadType=$type") {
                     addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 }
             }.fold(
@@ -73,7 +77,7 @@ internal class PersonRouteTest {
                 }
             )
 
-            coVerify(exactly = 1) { service.hentPerson(any()) }
+            coVerify(exactly = 1) { service.hentPerson(any(), type) }
         }
     }
 

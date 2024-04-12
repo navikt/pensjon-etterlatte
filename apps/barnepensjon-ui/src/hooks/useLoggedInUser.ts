@@ -5,6 +5,7 @@ import { ActionTypes, User } from '../context/user/user'
 import { useUserContext } from '../context/user/UserContext'
 import { getAgeFromDate, isLegalAge } from '../utils/age'
 import { capitalizeName } from '../utils/capitalize'
+import { SoeknadType } from "../api/dto/InnsendtSoeknad";
 
 export default function useLoggedInUser() {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ export default function useLoggedInUser() {
 
         setLoading(true)
 
-        getLoggedInUser()
+        getLoggedInUser(SoeknadType.BARNEPENSJON)
             .then((user: User) => {
                 const alder = getAgeFromDate(user.foedselsdato!!)
                 const kanSoeke = isLegalAge(alder)

@@ -11,6 +11,7 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.kodeverk.KodeverkService
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
@@ -50,17 +51,16 @@ internal class PersonServiceTest {
 
     @AfterEach
     fun afterEach() {
-        coVerify(exactly = 1) { personKlient.hentPerson(any()) }
         clearAllMocks()
     }
 
     @Test
     fun `Komplett person mappes korrekt`() {
-        coEvery { personKlient.hentPerson(any()) } returns opprettResponse("/pdl/personResponse.json")
+        coEvery { personKlient.hentPerson(any(), any()) } returns opprettResponse("/pdl/personResponse.json")
         coEvery { krrKlient.hentDigitalKontaktinformasjon(any()) } returns opprettDigitalKontaktInfo()
 
         val person = runBlocking {
-            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT))
+            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
         }
 
         assertEquals("TRIVIELL", person.fornavn)
@@ -79,25 +79,29 @@ internal class PersonServiceTest {
         assertEquals("11111111", person.telefonnummer)
         assertEquals("nb", person.spraak)
         assertNull(person.sivilstatus)
+
+        coVerify(exactly = 1) { personKlient.hentPerson(any(), SoeknadType.BARNEPENSJON) }
     }
 
     @Test
     fun `Person med sivilstand-historikk mappes korrekt`() {
-        coEvery { personKlient.hentPerson(any()) } returns opprettResponse("/pdl/endretSivilstand.json")
+        coEvery { personKlient.hentPerson(any(), any()) } returns opprettResponse("/pdl/endretSivilstand.json")
 
         val person = runBlocking {
-            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT))
+            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
         }
 
         assertEquals(Sivilstandstype.ENKE_ELLER_ENKEMANN.name, person.sivilstatus)
+
+        coVerify(exactly = 1) { personKlient.hentPerson(any(), SoeknadType.BARNEPENSJON) }
     }
 
     @Test
     fun `Person med adressebeskyttelse mappes korrekt`() {
-        coEvery { personKlient.hentPerson(any()) } returns opprettResponse("/pdl/adressebeskyttetPerson.json")
+        coEvery { personKlient.hentPerson(any(), any()) } returns opprettResponse("/pdl/adressebeskyttetPerson.json")
 
         val person = runBlocking {
-            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT))
+            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
         }
 
         assertEquals(true, person.adressebeskyttelse)
@@ -110,11 +114,11 @@ internal class PersonServiceTest {
 
     @Test
     fun `Person ikke finnes kaster exception`() {
-        coEvery { personKlient.hentPerson(any()) } returns PersonResponse(data = null, errors = emptyList())
+        coEvery { personKlient.hentPerson(any(), any()) } returns PersonResponse(data = null, errors = emptyList())
 
         assertThrows<NotFoundException> {
             runBlocking {
-                service.hentPerson(Foedselsnummer.of(TREIG_FLOSKEL))
+                service.hentPerson(Foedselsnummer.of(TREIG_FLOSKEL), SoeknadType.OMSTILLINGSSTOENAD)
             }
         }
     }

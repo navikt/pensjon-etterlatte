@@ -7,6 +7,7 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.route
 import no.nav.etterlatte.common.Auth.Companion.innloggetBrukerFnr
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 
 /**
  * Endepunkter for uthenting av person
@@ -14,9 +15,11 @@ import no.nav.etterlatte.common.toJson
 fun Route.personApi(service: PersonService) {
     route("person") {
         get("innlogget") {
+            val soeknadType = SoeknadType.valueOf(call.request.queryParameters["soeknadType"]!!)
+
             val fnr = innloggetBrukerFnr()
 
-            val person = service.hentPerson(fnr)
+            val person = service.hentPerson(fnr, soeknadType)
 
             call.respondText(person.toJson())
         }

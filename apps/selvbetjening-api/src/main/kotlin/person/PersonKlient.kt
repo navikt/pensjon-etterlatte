@@ -17,11 +17,13 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.pdl.PersonResponse
 import org.slf4j.LoggerFactory
 import libs.common.util.unsafeRetry
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.finnBehandlingsnummerFromSaktype
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 
 interface Pdl {
-    suspend fun hentPerson(fnr: Foedselsnummer): PersonResponse
+    suspend fun hentPerson(fnr: Foedselsnummer, soeknadType: SoeknadType): PersonResponse
 }
 
 class PersonKlient(private val httpClient: HttpClient) : Pdl {
@@ -29,9 +31,10 @@ class PersonKlient(private val httpClient: HttpClient) : Pdl {
 
     companion object {
         private const val TEMA = "PEN"
+        private const val BEHANDLINGSNUMMER = "behandlingsnummer"
     }
 
-    override suspend fun hentPerson(fnr: Foedselsnummer): PersonResponse {
+    override suspend fun hentPerson(fnr: Foedselsnummer, soeknadType: SoeknadType): PersonResponse {
         val query = javaClass.getResource("/pdl/hentPerson.graphql")!!
             .readText()
             .replace(Regex("[\n\t]"), "")
@@ -42,6 +45,7 @@ class PersonKlient(private val httpClient: HttpClient) : Pdl {
             httpClient.post {
                 header("Tema", TEMA)
                 header(X_CORRELATION_ID, getCorrelationId())
+                header(BEHANDLINGSNUMMER, finnBehandlingsnummerFromSaktype(soeknadType))
                 accept(Json)
                 setBody(TextContent(request, Json))
             }.body<ObjectNode>()
