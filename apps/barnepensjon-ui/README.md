@@ -1,4 +1,4 @@
-y# barnepensjon-ui
+# barnepensjon-ui
 
 ## Kom i gang
 

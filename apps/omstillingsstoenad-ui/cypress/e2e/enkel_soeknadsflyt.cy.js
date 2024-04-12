@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal åpne startsiden og starte en søknad', () => {
-        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: 'testbruker' }).as('hentInnloggetPerson')
+        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, { fixture: 'testbruker' }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, {}).as('hentSoeknad') // Ingen kladd eksisterer
         cy.intercept('POST', `${basePath}/api/api/kladd`, {})
         cy.visit('localhost:3000/omstillingsstonad/soknad', {

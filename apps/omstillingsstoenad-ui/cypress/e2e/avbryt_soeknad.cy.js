@@ -3,7 +3,7 @@ import { basePath, getById } from "../util/cy-functions";
 describe("Skal avbryte en soeknad",() => {
     const startSoeknad = () => {
         // Gå til søknad med eksisterende kladd
-        cy.intercept("GET", `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, {fixture: "testbruker"}).as("hentInnloggetPerson");
+        cy.intercept("GET", `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {fixture: "testbruker"}).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
 
         cy.visit("localhost:3000/omstillingsstonad/soknad", {
