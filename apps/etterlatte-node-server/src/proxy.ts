@@ -62,6 +62,8 @@ export default function proxy(host: string): RequestHandler {
                 kilde: process.env.NAIS_APP_NAME!!,
             })
 
+            logger.info(`${host}${req.path}?${params}`)
+
             const response = await fetch(`${host}${req.path}?${params}`, request)
 
             if (isOK(response.status)) {
