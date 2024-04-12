@@ -11,10 +11,7 @@ Hvordan appene henger sammen kan du se her: [Arkitekturskisse - Confluence](http
 Brukergrensesnittet for "Søknad om barnepensjon".
 
 [etterlatte-node-server](apps/etterlatte-node-server) \
-Felles node backend for søknadsdialogene (gjenlevendepensjon og barnepensjon).
-
-[gjenlevendepensjon-ui](apps/gjenlevendepensjon-ui) \
-Brukergrensesnittet for "Søknad om gjenlevendepensjon".
+Felles node backend for søknadsdialogene (omstillingsstønad og barnepensjon).
 
 [innsendt-soeknad](apps/innsendt-soeknad) \
 Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
@@ -42,12 +39,10 @@ classDef db fill:#ccc,color:#000,stroke:#777
 classDef text fill:none,color:#ddd
 
 barnepensjon-ui:::app --> selvbetjening-api
-gjenlevendepensjon-ui:::app --> selvbetjening-api
 omstillingsstonad-ui:::app --> selvbetjening-api
 
 subgraph frontend["Soeknad frontend"]
     barnepensjon-ui
-    gjenlevendepensjon-ui
     omstillingsstonad-ui
 end
 

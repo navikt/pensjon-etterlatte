@@ -77,53 +77,6 @@ updates:
 
 
   # ===========================
-  # FRONTEND GJENLEVENDEPENSJON
-  # ===========================
-
-  - package-ecosystem: "npm"
-    directory: "/apps/gjenlevendepensjon-ui"
-    schedule:
-      interval: "monthly"
-      day: "sunday"
-    open-pull-requests-limit: 10
-    groups:
-      ds:
-        patterns:
-          - "@navikt/ds-*"
-      eslint-og-test:
-        patterns:
-          - "@typescript-eslint/*"
-          - "eslint"
-          - "eslint-plugin*"
-          - "prettier"
-          - "axe-core"
-          - "cypress"
-          - "cypress-axe"
-          - "@testing-library/*"
-          - "@types/jest"
-      react:
-        patterns:
-          - "react*"
-          - "@types/react*"
-      prod:
-        patterns:
-          - "lodash"
-          - "@types/lodash"
-          - "axios"
-          - "axios-retry"
-          - "uuid"
-          - "@types/uuid"
-          - "typescript"
-          - "ibantools"
-          - "i18next"
-          - "@types/amplitude-js"
-          - "amplitude-js"
-      styledcomponents:
-        patterns:
-          - "styled-components"
-          - "@types/styled-components"
-
-  # ===========================
   # FRONTEND OMSTILLINGSSTØNAD
   # ===========================
 
