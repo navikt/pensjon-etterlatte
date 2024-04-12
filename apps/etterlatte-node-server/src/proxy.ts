@@ -56,7 +56,13 @@ export default function proxy(host: string): RequestHandler {
                 return res.sendStatus(401)
             }
             const request = await prepareSecuredRequest(req, token)
-            const response = await fetch(`${host}${req.path}?kilde=${process.env.NAIS_APP_NAME}`, request)
+
+            const params = new URLSearchParams({
+                ...req.query,
+                kilde: process.env.NAIS_APP_NAME!!,
+            })
+
+            const response = await fetch(`${host}${req.path}?${params}`, request)
 
             if (isOK(response.status)) {
                 logger.info(sanitize(`${response.status} ${response.statusText}: ${req.method} ${req.path}`))
