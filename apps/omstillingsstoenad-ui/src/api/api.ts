@@ -1,13 +1,13 @@
 import {axiosInstance as api, isDev} from './axios'
 import { ISoeknad } from '../context/soknad/soknad'
-import { SoeknadRequest } from './dto/InnsendtSoeknad'
+import { SoeknadRequest, SoeknadType } from './dto/InnsendtSoeknad'
 
 /**
  * Henter personalia for innlogget person
  */
-export const hentInnloggetPerson = async () => {
+export const hentInnloggetPerson = async (type: SoeknadType) => {
     try {
-        const response = await api.get('/api/person/innlogget')
+        const response = await api.get(`/api/person/innlogget?soeknadType=${type}`)
         return response.data
     } catch (e) {
         throw new Error('Det skjedde en feil')

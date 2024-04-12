@@ -2,6 +2,7 @@ package no.nav.etterlatte.person
 
 import io.ktor.server.plugins.NotFoundException
 import no.nav.etterlatte.kodeverk.KodeverkService
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.pdl.ResponseError
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
@@ -18,10 +19,10 @@ class PersonService(
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
     private val adressebeskyttet = listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND)
 
-    suspend fun hentPerson(fnr: Foedselsnummer): Person {
+    suspend fun hentPerson(fnr: Foedselsnummer, soeknadType: SoeknadType): Person {
         logger.info("Henter person fra PDL")
 
-        val response = klient.hentPerson(fnr)
+        val response = klient.hentPerson(fnr, soeknadType)
 
         val hentPerson = response.data?.hentPerson
 

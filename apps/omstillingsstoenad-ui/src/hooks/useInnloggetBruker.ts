@@ -6,6 +6,7 @@ import { gyldigAlder } from '../utils/alder'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { useNavigate } from 'react-router-dom'
 import { capitalizeName } from '../utils/capitalize'
+import { SoeknadType } from "../api/dto/InnsendtSoeknad";
 
 const useInnloggetBruker = () => {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ const useInnloggetBruker = () => {
     useEffect(() => {
         setLoading(true)
 
-        hentInnloggetPerson()
+        hentInnloggetPerson(SoeknadType.OMSTILLINGSSTOENAD)
             .then((person: IBruker) => {
                 const alder = hentAlder(person.foedselsdato!!)
                 const kanSoeke = gyldigAlder(alder)
