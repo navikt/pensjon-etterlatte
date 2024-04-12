@@ -1,7 +1,7 @@
 import { basePath, Button } from '../util/constants'
 
 Cypress.Commands.add('startApplication', (userFixture: string) => {
-    cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: userFixture }).as('loggedInUser')
+    cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: userFixture }).as('loggedInUser')
     cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
     cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
 

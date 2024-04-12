@@ -2,7 +2,7 @@ import { basePath } from '../util/constants'
 
 describe('Invalid Applicant', () => {
     beforeEach(() => {
-        cy.intercept('GET', `${basePath}/api/person/innlogget`, { fixture: 'user-too-young' }).as('loggedInUser')
+        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: 'user-too-young' }).as('loggedInUser')
 
         cy.visit('http://localhost:3000/barnepensjon/soknad')
 
