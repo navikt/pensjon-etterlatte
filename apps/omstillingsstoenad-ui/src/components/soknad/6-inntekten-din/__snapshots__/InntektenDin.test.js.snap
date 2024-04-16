@@ -609,6 +609,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
       </button>
     </div>
     <dialog
+      aria-label="avbrytModal.spoersmaal"
       class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
       role="dialog"
     >
@@ -635,7 +636,7 @@ exports[`Inntekten din Skal rendre selvstendig 1`] = `
               <title
                 id="title-r27"
               >
-                Lukk modalvindu
+                Lukk
               </title>
               <path
                 d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
@@ -1321,6 +1322,7 @@ exports[`Inntekten din Snapshot 1`] = `
       </button>
     </div>
     <dialog
+      aria-label="avbrytModal.spoersmaal"
       class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
       role="dialog"
     >
@@ -1347,7 +1349,7 @@ exports[`Inntekten din Snapshot 1`] = `
               <title
                 id="title-r13"
               >
-                Lukk modalvindu
+                Lukk
               </title>
               <path
                 d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
