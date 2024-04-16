@@ -13,7 +13,7 @@ describe('Summary and Receipt', { testIsolation: false }, () => {
     })
 
     it('should present summary of application', function () {
-        cy.get('.navds-content-container')
+        cy.get('.navds-pageblock')
             .should('include.text', 'Om deg')
             .should('include.text', 'Om den avdøde')
             .should('include.text', 'Om barn')

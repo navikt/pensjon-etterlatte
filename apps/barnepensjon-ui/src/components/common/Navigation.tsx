@@ -132,7 +132,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                 )}
             </NavFooter>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('cancelApplicationTitle')}>
                 <Modal.Header>
                     <Heading size={'medium'}>{t('cancelApplicationTitle')}</Heading>
                 </Modal.Header>

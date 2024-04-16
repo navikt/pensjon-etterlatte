@@ -147,6 +147,7 @@ export default function Summary({ prev }: StepProps) {
                 onClose={() => {
                     if (!loading) setIsOpen(false)
                 }}
+                aria-label={t(loading ? 'sendingApplicationTitle' : 'sendApplicationTitle')}
             >
                 <Modal.Header>
                     <Heading size={'medium'}>{t(loading ? 'sendingApplicationTitle' : 'sendApplicationTitle')}</Heading>
