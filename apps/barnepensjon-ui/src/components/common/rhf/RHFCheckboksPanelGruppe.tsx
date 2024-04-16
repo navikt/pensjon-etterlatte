@@ -2,8 +2,14 @@ import { Controller, FieldError, FieldPath, FieldValues, useFormContext } from '
 import { get } from 'lodash'
 import useTranslation from '../../../hooks/useTranslation'
 import { getErrorKey } from '../../../utils/errors'
-import { ConfirmationPanel, CheckboxGroup, Checkbox, CheckboxProps, CheckboxGroupProps } from '@navikt/ds-react'
-import { ConfirmationPanelProps } from '@navikt/ds-react/esm/form/ConfirmationPanel'
+import {
+    ConfirmationPanel,
+    CheckboxGroup,
+    Checkbox,
+    CheckboxProps,
+    CheckboxGroupProps,
+    ConfirmationPanelProps
+} from '@navikt/ds-react'
 
 const handleSelect = (array: any[], addOrRemove: any) => {
     return array?.includes(addOrRemove)
