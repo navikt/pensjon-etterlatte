@@ -39,9 +39,6 @@ Installere prosjektet:\
 Kjøre prosjektet (uten BASE_PATH):\
 `yarn start`
 
-Kjøre prosjektet (BASE_PATH=/gjenlevendepensjon/soknad):\
-`yarn start:gjenlevendepensjon`
-
 Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
 `yarn start:barnepensjon`
 

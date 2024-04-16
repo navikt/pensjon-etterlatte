@@ -7,7 +7,6 @@ class SoeknadFixturesTest {
 
     @Test
     fun `Skal laste innsendt soeknad fixtures`() {
-        InnsendtSoeknadFixtures.gjenlevendepensjon()
         InnsendtSoeknadFixtures.barnepensjon()
         InnsendtSoeknadFixtures.omstillingsSoeknad()
     }

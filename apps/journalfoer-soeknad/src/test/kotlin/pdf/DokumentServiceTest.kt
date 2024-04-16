@@ -26,7 +26,7 @@ internal class DokumentServiceTest {
     private val mapper = jacksonObjectMapper()
 
     private val soeknadId = "12"
-    private val template = "gjenlevendepensjon"
+    private val template = "omstillingsstoenad"
     private val skjemaInfo = mapper.readTree("""{"søknadInnhold":{"forNav":{"saksnummer":123,"søknadsId":321,"søknadOpprettet":"Enellerannengang"},"personopplysninger":{"navn":{"fornavn":"Dolly","mellomnavn":"D.","etternavn":"Duck"}}}}""")
 
     @Test

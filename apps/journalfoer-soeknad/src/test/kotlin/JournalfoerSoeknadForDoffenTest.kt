@@ -20,7 +20,7 @@ import java.time.ZoneId
 import java.time.ZoneOffset
 
 internal class JournalfoerSoeknadForDoffenTest{
-    val clock: Clock = Clock
+    private val clock: Clock = Clock
         .fixed(LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2)
             .toInstant(ZoneOffset.UTC), ZoneId.of("UTC"))
     private val journalfoeringService = mockk<JournalfoeringService>()
@@ -180,26 +180,6 @@ internal class JournalfoerSoeknadForDoffenTest{
                 any(),
             )
         }
-    }
-
-    @Test
-    fun `Skal ikke lese søknader som er fordelt til Pesys`(){
-        val rapid = TestRapid()
-        JournalfoerSoeknadForDoffen(rapid, dokumentservice, journalfoeringService, clock)
-        rapid.sendTestMessage(getResource("barnepensjonTilPesys.json"))
-        assertEquals(0, rapid.inspektør.size)
-        verify { dokumentservice wasNot called }
-        verify { journalfoeringService wasNot called }
-    }
-
-    @Test
-    fun `Skal ikke lese søknader som ikke er fordelt`(){
-        val rapid = TestRapid()
-        JournalfoerSoeknadForDoffen(rapid, dokumentservice, journalfoeringService, clock)
-        rapid.sendTestMessage(getResource("fullMessage.json"))
-        assertEquals(0, rapid.inspektør.size)
-        verify { dokumentservice wasNot called }
-        verify { journalfoeringService wasNot called }
     }
 
     private fun getResource(file: String): String =

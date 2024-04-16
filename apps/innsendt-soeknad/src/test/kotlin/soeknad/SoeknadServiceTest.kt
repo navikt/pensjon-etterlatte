@@ -34,7 +34,7 @@ internal class SoeknadServiceTest {
 
         val request = SoeknadRequest(
             listOf(
-                InnsendtSoeknadFixtures.gjenlevendepensjon(),
+                InnsendtSoeknadFixtures.omstillingsSoeknad(),
                 InnsendtSoeknadFixtures.barnepensjon()
             )
         )
@@ -92,7 +92,7 @@ internal class SoeknadServiceTest {
 
         val request = SoeknadRequest(
             listOf(
-                InnsendtSoeknadFixtures.gjenlevendepensjon(gjenlevFnr),
+                InnsendtSoeknadFixtures.omstillingsSoeknad(gjenlevFnr),
                 InnsendtSoeknadFixtures.barnepensjon(gjenlevFnr, Foedselsnummer.of("05111850870"))
             )
         )

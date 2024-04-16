@@ -33,7 +33,7 @@ import no.nav.etterlatte.libs.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.pdl.HentAdressebeskyttelse
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures.barnepensjon
-import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures.gjenlevendepensjon
+import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures.omstillingsSoeknad
 import no.nav.etterlatte.soknad.SoeknadService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -153,7 +153,7 @@ internal class SoeknadServiceTest {
                 )
 
         runBlocking {
-            val request = SoeknadRequest(listOf(gjenlevendepensjon(), barnepensjon()))
+            val request = SoeknadRequest(listOf(omstillingsSoeknad(), barnepensjon()))
             val result = service.sendSoeknader(request, kilde) as RetryResult.Success
 
             assertEquals("OK", result.content)

@@ -13,11 +13,13 @@ import no.nav.etterlatte.dokarkiv.DokarkivDokument
 import no.nav.etterlatte.dokarkiv.DokarkivResponse
 import no.nav.etterlatte.dokarkiv.JournalpostHelper
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
+import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
 import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.libs.utils.test.avdoedMedUtenlandsopphold
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
@@ -25,7 +27,9 @@ internal class JournalfoeringServiceTest {
 
     private val mockKlient = mockk<DokarkivKlient>()
     private val journalfoeringService = JournalfoeringService(mockKlient)
-    private val soeknad: Gjenlevendepensjon = InnsendtSoeknadFixtures.gjenlevendepensjon()
+    private val soeknad: Omstillingsstoenad = InnsendtSoeknadFixtures.omstillingsSoeknad(
+        avdoed = avdoedMedUtenlandsopphold()
+    )
 
     @Test
     fun `Verifiser at request blir opprettet korrekt`() {
@@ -33,7 +37,7 @@ internal class JournalfoeringServiceTest {
 
         val soeknadId = "123"
         val fnrSoeker = "24014021406"
-        val soeknadType = SoeknadType.GJENLEVENDEPENSJON
+        val soeknadType = SoeknadType.BARNEPENSJON
         val tittel = JournalpostHelper.opprettTittel(soeknadType)
 
         val response = journalfoeringService.journalfoer(
@@ -48,7 +52,7 @@ internal class JournalfoeringServiceTest {
             ),
             soeknad,
             "PEN",
-            soeknadType.behandlingstema,
+            null,
             false,
             null,
             tittel
@@ -67,15 +71,15 @@ internal class JournalfoeringServiceTest {
 
         assertEquals("PEN", actualRequest.tema)
         assertEquals("NAV_NO", actualRequest.kanal)
-        assertEquals("ab0011", actualRequest.behandlingstema)
+        assertNull(actualRequest.behandlingstema, "Behandlingstema skal ikke være satt")
 
-        assertEquals(actualRequest.journalfoerendeEnhet, "4862")
+        assertEquals("4862", actualRequest.journalfoerendeEnhet)
         assertEquals(fnrSoeker, actualRequest.avsenderMottaker.id)
         assertEquals("FNR", actualRequest.avsenderMottaker.idType)
         assertEquals(fnrSoeker, actualRequest.bruker.id)
         assertEquals("FNR", actualRequest.bruker.idType)
 
-        assertEquals("etterlatte:gjenlevendepensjon:$soeknadId", actualRequest.eksternReferanseId)
+        assertEquals("etterlatte:omstillingsstoenad:$soeknadId", actualRequest.eksternReferanseId)
 
         // Dokumenter
         assertEquals(1, actualRequest.dokumenter.size)

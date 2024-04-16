@@ -13,18 +13,21 @@ import no.nav.etterlatte.libs.pdl.Gradering.STRENGT_FORTROLIG
 import no.nav.etterlatte.libs.pdl.Gradering.STRENGT_FORTROLIG_UTLAND
 import no.nav.etterlatte.libs.pdl.Gradering.UGRADERT
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.libs.utils.test.avdoedMedUtenlandsopphold
 import org.junit.jupiter.api.Test
 
 
 internal class JournalfoerendeEnhetServiceKtTest {
-    private val gjenlevendepMedOppholdAvtaleland = InnsendtSoeknadFixtures.gjenlevendepensjon()
+    private val omstillingsstoenadMedOppholdAvtaleland =
+        InnsendtSoeknadFixtures.omstillingsSoeknad(avdoed = avdoedMedUtenlandsopphold())
+
     private val barnepMedOppholdAvtaleland = InnsendtSoeknadFixtures.barnepensjon()
 
-    private val avdoedUtenOppholdAvtaleland = gjenlevendepMedOppholdAvtaleland.avdoed.copy(
+    private val avdoedUtenOppholdAvtaleland = omstillingsstoenadMedOppholdAvtaleland.avdoed.copy(
         utenlandsopphold = BetingetOpplysning(svar = EnumSvar(JaNeiVetIkke.NEI, "Nei"), null, null)
     )
 
-    private val gjenlevendepUtenOppholdUtland = gjenlevendepMedOppholdAvtaleland.copy(
+    private val omstillingsstoenadUtenOppholdUtland = omstillingsstoenadMedOppholdAvtaleland.copy(
         avdoed = avdoedUtenOppholdAvtaleland
     )
     private val barnepUtenOppholdUtland = barnepMedOppholdAvtaleland.copy(
@@ -36,16 +39,16 @@ internal class JournalfoerendeEnhetServiceKtTest {
 
     @Test
     fun `Skal returnere null dersom søknaden ikke har adressesperre og avdød ikke har opphold i utlandet`() {
-        finnJournalfoerendeEnhet(gjenlevendepUtenOppholdUtland, UGRADERT) shouldBe null
+        finnJournalfoerendeEnhet(omstillingsstoenadUtenOppholdUtland, UGRADERT) shouldBe null
         finnJournalfoerendeEnhet(barnepUtenOppholdUtland, UGRADERT) shouldBe null
     }
 
     @Test
     fun `Skal returnere null dersom søknaden ikke har adressesperre og avdød ikke har opphold i avtaleland`() {
-        finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland.copy(
-            avdoed = gjenlevendepMedOppholdAvtaleland.avdoed.copy(
-                utenlandsopphold = gjenlevendepMedOppholdAvtaleland.avdoed.utenlandsopphold.copy(
-                    opplysning = gjenlevendepMedOppholdAvtaleland.avdoed.utenlandsopphold.opplysning!!.map {
+        finnJournalfoerendeEnhet(omstillingsstoenadMedOppholdAvtaleland.copy(
+            avdoed = omstillingsstoenadMedOppholdAvtaleland.avdoed.copy(
+                utenlandsopphold = omstillingsstoenadMedOppholdAvtaleland.avdoed.utenlandsopphold.copy(
+                    opplysning = omstillingsstoenadMedOppholdAvtaleland.avdoed.utenlandsopphold.opplysning!!.map {
                         it.copy(land = Opplysning(FritekstSvar("Tanzania")))
                     }
                 )
@@ -53,9 +56,9 @@ internal class JournalfoerendeEnhetServiceKtTest {
         ), UGRADERT) shouldBe null
 
         finnJournalfoerendeEnhet(barnepMedOppholdAvtaleland.copy(
-            foreldre = listOf(gjenlevendepMedOppholdAvtaleland.avdoed.copy(
-                utenlandsopphold = gjenlevendepMedOppholdAvtaleland.avdoed.utenlandsopphold.copy(
-                    opplysning = gjenlevendepMedOppholdAvtaleland.avdoed.utenlandsopphold.opplysning!!.map {
+            foreldre = listOf(omstillingsstoenadMedOppholdAvtaleland.avdoed.copy(
+                utenlandsopphold = omstillingsstoenadMedOppholdAvtaleland.avdoed.utenlandsopphold.copy(
+                    opplysning = omstillingsstoenadMedOppholdAvtaleland.avdoed.utenlandsopphold.opplysning!!.map {
                         it.copy(land = Opplysning(FritekstSvar("Tanzania")))
                     }
                 )),
@@ -67,24 +70,30 @@ internal class JournalfoerendeEnhetServiceKtTest {
 
     @Test
     fun `Skal rutes til NFP UTLAND ÅLESUND dersom avdød har har opphold i avtaleland og det ikke er adressesperre`() {
-        finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland, UGRADERT) shouldBe ENHET_UTLAND
-        finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland, FORTROLIG) shouldBe ENHET_UTLAND
+        finnJournalfoerendeEnhet(omstillingsstoenadMedOppholdAvtaleland, UGRADERT) shouldBe ENHET_UTLAND
+        finnJournalfoerendeEnhet(omstillingsstoenadMedOppholdAvtaleland, FORTROLIG) shouldBe ENHET_UTLAND
         finnJournalfoerendeEnhet(barnepMedOppholdAvtaleland, UGRADERT) shouldBe ENHET_UTLAND
         finnJournalfoerendeEnhet(barnepMedOppholdAvtaleland, FORTROLIG) shouldBe ENHET_UTLAND
     }
 
     @Test
     fun `Skal rutes til vikafossen uansett dersom søknaden har gradering STRENGT_FORTROLIG`() {
-        finnJournalfoerendeEnhet(gjenlevendepUtenOppholdUtland, STRENGT_FORTROLIG) shouldBe ENHET_VIKAFOSSEN
-        finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland, STRENGT_FORTROLIG) shouldBe ENHET_VIKAFOSSEN
+        finnJournalfoerendeEnhet(omstillingsstoenadUtenOppholdUtland, STRENGT_FORTROLIG) shouldBe ENHET_VIKAFOSSEN
+        finnJournalfoerendeEnhet(omstillingsstoenadMedOppholdAvtaleland, STRENGT_FORTROLIG) shouldBe ENHET_VIKAFOSSEN
         finnJournalfoerendeEnhet(barnepUtenOppholdUtland, STRENGT_FORTROLIG) shouldBe ENHET_VIKAFOSSEN
         finnJournalfoerendeEnhet(barnepMedOppholdAvtaleland, STRENGT_FORTROLIG) shouldBe ENHET_VIKAFOSSEN
     }
 
     @Test
     fun `Skal rutes til vikafossen uansett dersom søknaden har gradering STRENGT_FORTROLIG_UTLAND`() {
-        finnJournalfoerendeEnhet(gjenlevendepUtenOppholdUtland, STRENGT_FORTROLIG_UTLAND) shouldBe ENHET_VIKAFOSSEN
-        finnJournalfoerendeEnhet(gjenlevendepMedOppholdAvtaleland, STRENGT_FORTROLIG_UTLAND) shouldBe ENHET_VIKAFOSSEN
+        finnJournalfoerendeEnhet(
+            omstillingsstoenadUtenOppholdUtland,
+            STRENGT_FORTROLIG_UTLAND
+        ) shouldBe ENHET_VIKAFOSSEN
+        finnJournalfoerendeEnhet(
+            omstillingsstoenadMedOppholdAvtaleland,
+            STRENGT_FORTROLIG_UTLAND
+        ) shouldBe ENHET_VIKAFOSSEN
         finnJournalfoerendeEnhet(barnepUtenOppholdUtland, STRENGT_FORTROLIG_UTLAND) shouldBe ENHET_VIKAFOSSEN
         finnJournalfoerendeEnhet(barnepMedOppholdAvtaleland, STRENGT_FORTROLIG_UTLAND) shouldBe ENHET_VIKAFOSSEN
     }

@@ -18,7 +18,6 @@ import no.nav.etterlatte.person.pdl.PersonResponse
 import org.slf4j.LoggerFactory
 import libs.common.util.unsafeRetry
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.finnBehandlingsnummerFromSaktype
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 
@@ -45,7 +44,7 @@ class PersonKlient(private val httpClient: HttpClient) : Pdl {
             httpClient.post {
                 header("Tema", TEMA)
                 header(X_CORRELATION_ID, getCorrelationId())
-                header(BEHANDLINGSNUMMER, finnBehandlingsnummerFromSaktype(soeknadType))
+                header(BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
                 accept(Json)
                 setBody(TextContent(request, Json))
             }.body<ObjectNode>()

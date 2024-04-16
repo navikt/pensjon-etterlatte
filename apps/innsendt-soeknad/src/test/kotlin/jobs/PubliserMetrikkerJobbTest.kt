@@ -21,14 +21,14 @@ internal class PubliserMetrikkerJobbTest {
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
     private val eldsteUarkivert = LocalDateTime.now().minusHours(2)
     private val kildeBP = "barnepensjon-ui"
-    private val kildeGP = "gjenlevendepensjon-ui"
+    private val kildeOMS = "omstillingsstoenad-ui"
 
     @BeforeAll
     fun setUp() {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
-        every { dbMock.rapport() } returns listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeGP, "34"))
-        every { dbMock.kilder() } returns mapOf(kildeBP to 40L, kildeGP to 25L)
+        every { dbMock.rapport() } returns listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeOMS, "34"))
+        every { dbMock.kilder() } returns mapOf(kildeBP to 40L, kildeOMS to 25L)
         every { dbMock.ukategorisert() } returns listOf(1L)
     }
 
@@ -49,7 +49,7 @@ internal class PubliserMetrikkerJobbTest {
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand", "kilde"),
-            arrayOf(Status.SENDT.name, kildeGP)
+            arrayOf(Status.SENDT.name, kildeOMS)
         ) shouldBe 34.0
         verify(exactly = 1) { dbMock.kilder() }
         CollectorRegistry.defaultRegistry.getSampleValue(
@@ -60,7 +60,7 @@ internal class PubliserMetrikkerJobbTest {
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_kilde",
             arrayOf("kilde"),
-            arrayOf(kildeGP)
+            arrayOf(kildeOMS)
         ) shouldBe 25.0
         verify(exactly = 1) { dbMock.ukategorisert() }
     }
