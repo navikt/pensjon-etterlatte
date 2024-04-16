@@ -230,7 +230,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                 </FormElement>
             )}
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('unknownParent')}>
                 <Modal.Header>
                     <Heading size={'small'}>{t('unknownParent')}</Heading>
                 </Modal.Header>

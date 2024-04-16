@@ -27,7 +27,7 @@ export const ContinueApplicationModal = () => {
     }
 
     return (
-        <Modal open={shouldAsk} onClose={() => {}}>
+        <Modal open={shouldAsk} onClose={() => {}} aria-label={t('doYouWantToContinueWithTheApplication')}>
             <Modal.Header>
                 <Heading size={'medium'}>{t('doYouWantToContinueWithTheApplication')}</Heading>
             </Modal.Header>
