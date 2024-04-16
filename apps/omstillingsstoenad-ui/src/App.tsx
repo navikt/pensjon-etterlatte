@@ -2,7 +2,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import Banner from './components/felles/Banner'
 import UgyldigSoeker from './components/UgyldigSoeker'
-import { ContentContainer, Alert } from '@navikt/ds-react'
+import {Alert, Page} from '@navikt/ds-react'
 import useInnloggetBruker from './hooks/useInnloggetBruker'
 import { useAmplitude } from './utils/amplitude'
 import { useSoknadContext } from './context/soknad/SoknadContext'
@@ -17,7 +17,7 @@ import SoknadDialog from './components/soknad/SoknadDialog'
 import SoknadKvittering from './components/soknad/SoknadKvittering'
 import SoknadForside from './components/soknad/SoknadForside'
 
-const SoeknadWrapper = styled(ContentContainer)`
+const SoeknadWrapper = styled(Page.Block)`
     div,
     label,
     legend,
@@ -70,32 +70,34 @@ const App = () => {
             <LoaderOverlay visible={lasterSoeknad} label={'Henter søknadsinformasjon ...'} />
             {!lasterSoeknad && <FortsettSoeknadModal />}
 
-            <SoeknadWrapper role="main">
-                <Routes>
-                    <Route index path={'/'} element={<SoknadForside />} />
+            <Page>
+                <SoeknadWrapper role="main" width="xl">
+                    <Routes>
+                        <Route index path={'/'} element={<SoknadForside />} />
 
-                    <Route path={'skjema'} element={<Outlet />}>
-                        <Route path={'steg/*'} element={<SoknadDialog />} />
-                    </Route>
+                        <Route path={'skjema'} element={<Outlet />}>
+                            <Route path={'steg/*'} element={<SoknadDialog />} />
+                        </Route>
 
-                    <Route path={'/skjema/admin'} element={<Admin />} />
+                        <Route path={'/skjema/admin'} element={<Admin />} />
 
-                    <Route path={'/skjema/sendt'} element={<SoknadKvittering />} />
+                        <Route path={'/skjema/sendt'} element={<SoknadKvittering />} />
 
-                    <Route path={'/ugyldig-alder'} element={<UgyldigSoeker />} />
+                        <Route path={'/ugyldig-alder'} element={<UgyldigSoeker />} />
 
-                    <Route path={'/system-utilgjengelig'} element={<SystemUtilgjengelig />} />
+                        <Route path={'/system-utilgjengelig'} element={<SystemUtilgjengelig />} />
 
-                    <Route path={'/labs'} element={<Navigate replace to="/skjema/admin" />} />
+                        <Route path={'/labs'} element={<Navigate replace to="/skjema/admin" />} />
 
-                    <Route path={'*'} element={<SideIkkeFunnet />} />
-                </Routes>
-                {soknadContext?.state?.error && (
-                    <GlobalAlertWrap>
-                        <Alert variant="error">{soknadContext?.state?.error}</Alert>
-                    </GlobalAlertWrap>
-                )}
-            </SoeknadWrapper>
+                        <Route path={'*'} element={<SideIkkeFunnet />} />
+                    </Routes>
+                    {soknadContext?.state?.error && (
+                        <GlobalAlertWrap>
+                            <Alert variant="error">{soknadContext?.state?.error}</Alert>
+                        </GlobalAlertWrap>
+                    )}
+                </SoeknadWrapper>
+            </Page>
         </>
     )
 }

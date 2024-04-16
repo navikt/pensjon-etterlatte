@@ -48,7 +48,7 @@ export const FortsettSoeknadModal = () => {
     }
 
     return (
-        <Modal open={state.visFortsettSoeknadModal} onClose={() => {}}>
+        <Modal open={state.visFortsettSoeknadModal} onClose={() => {}} aria-label={t('fortsettSoeknad.beskrivelse')}>
             <Modal.Header closeButton={false}>
                 <Heading size={'medium'}>{t('fortsettSoeknad.beskrivelse')}</Heading>
             </Modal.Header>

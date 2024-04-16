@@ -116,6 +116,7 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                     if (!senderSoeknad) setIsOpen(false)
                 }}
                 data-testid={'spoersmaal-modal'}
+                aria-label={t(senderSoeknad ? 'oppsummering.senderSoeknad.tittel' : 'oppsummering.sendSoeknad.tittel')}
             >
                 <Modal.Header>
                     <Heading size={'medium'}>

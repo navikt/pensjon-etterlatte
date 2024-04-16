@@ -113,7 +113,7 @@ const Navigasjon = ({
                 </Button>
             </NavigasjonsRadSkjemaGruppe>
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('avbrytModal.spoersmaal')}>
                 <Modal.Header>
                     <Heading size={'medium'}>{t('avbrytModal.spoersmaal')}</Heading>
                 </Modal.Header>
