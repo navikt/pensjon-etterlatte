@@ -16,7 +16,7 @@ import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import useTranslation from './hooks/useTranslation'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
-import {Page} from "@navikt/ds-react";
+import { Page } from "@navikt/ds-react";
 
 const SoeknadWrapper = styled(Page.Block)`
     div,
