@@ -33,7 +33,6 @@
   },
   "scripts": {
     "start": "ts-node-dev --project ./tsconfig.json src/server.ts",
-    "start:gjenlevendepensjon": "BASE_PATH=/gjenlevendepensjon/soknad yarn start:mock",
     "start:barnepensjon": "BASE_PATH=/barnepensjon/soknad yarn start:mock",
     "start:omstillingsstonad": "BASE_PATH=/omstillingsstonad/soknad yarn start:mock",
     "start:mock": "ts-node-dev --project ./tsconfig.json src/mock/mock-server.ts",

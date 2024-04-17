@@ -23,12 +23,6 @@ class UtkastPubliserer(private val producer: KafkaProdusent<String, String>, pri
                 "Søknad om barnepensjon",
                 "Application for children’s pension"
             )
-            "gjenlevendepensjon-ui" -> SoeknadData(
-                "$url/gjenlevendepensjon/soknad",
-                "Søknad om gjenlevendepensjon eller overgangsstønad",
-                "Søknad om attlevandepensjon eller overgangsstønad",
-                "Application for survivor’s pension or transitional benefit"
-            )
             "omstillingsstoenad-ui" -> SoeknadData(
                 "$url/omstillingsstonad/soknad",
                 "Søknad om omstillingsstønad",

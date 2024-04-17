@@ -35,23 +35,6 @@ class UtkastPublisererTest {
         Assertions.assertEquals("Søknad om barnepensjon", message["tittel"].textValue())
     }
 
-    @Test
-    fun `Created utkast for gjenlevendepensjon skal publisere på kafka`() {
-        val slot = slot<String>()
-
-        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
-
-        publiserer.publiserOpprettUtkastTilMinSide(soeknadSomSkalPubliseres, "gjenlevendepensjon-ui")
-
-        verify {
-            kafkaProduser.publiser(testNoekkel, capture(slot))
-        }
-
-        val message = jacksonObjectMapper().readTree(slot.captured)
-
-        Assertions.assertEquals("created", message["@event_name"].textValue())
-        Assertions.assertEquals("Søknad om gjenlevendepensjon eller overgangsstønad", message["tittel"].textValue())
-    }
 
     @Test
     fun `Created utkast for omstillingsstønad skal publisere på kafka`() {

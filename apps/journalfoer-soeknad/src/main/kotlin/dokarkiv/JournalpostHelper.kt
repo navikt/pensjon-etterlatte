@@ -7,6 +7,5 @@ object JournalpostHelper {
         when (soeknadType) {
             SoeknadType.BARNEPENSJON -> "Søknad om barnepensjon"
             SoeknadType.OMSTILLINGSSTOENAD -> "Søknad om omstillingsstønad"
-            SoeknadType.GJENLEVENDEPENSJON -> "Søknad om gjenlevendepensjon"
         }
 }

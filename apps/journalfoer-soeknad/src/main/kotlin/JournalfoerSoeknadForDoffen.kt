@@ -95,7 +95,6 @@ internal class JournalfoerSoeknadForDoffen(
         return when (soeknadType) {
             SoeknadType.BARNEPENSJON -> "EYB"
             SoeknadType.OMSTILLINGSSTOENAD -> "EYO"
-            else -> throw IllegalArgumentException("Kan ikke hente tema for soeknadType=$soeknadType")
         }
     }
 }

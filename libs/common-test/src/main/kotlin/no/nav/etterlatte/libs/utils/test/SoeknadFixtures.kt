@@ -1,36 +1,20 @@
 package no.nav.etterlatte.libs.utils.test
 
-import no.nav.etterlatte.libs.common.innsendtsoeknad.AndreYtelser
-import no.nav.etterlatte.libs.common.innsendtsoeknad.ArbeidOgUtdanning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ArbeidOgUtdanningOMS
-import no.nav.etterlatte.libs.common.innsendtsoeknad.Arbeidstaker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.BankkontoType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoede
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoedeOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoedeType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.HoeyesteUtdanning
-import no.nav.etterlatte.libs.common.innsendtsoeknad.IngenJobb
 import no.nav.etterlatte.libs.common.innsendtsoeknad.InntektOgPensjon
-import no.nav.etterlatte.libs.common.innsendtsoeknad.InntektType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.JobbStatusType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.JobbStatusTypeOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Kontaktinfo
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Naeringsinntekt
 import no.nav.etterlatte.libs.common.innsendtsoeknad.OmsorgspersonType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.OppholdUtland
 import no.nav.etterlatte.libs.common.innsendtsoeknad.OppholdUtlandType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.PensjonUtland
-import no.nav.etterlatte.libs.common.innsendtsoeknad.SamboerInntekt
-import no.nav.etterlatte.libs.common.innsendtsoeknad.SelvstendigNaeringsdrivende
 import no.nav.etterlatte.libs.common.innsendtsoeknad.SivilstatusType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
-import no.nav.etterlatte.libs.common.innsendtsoeknad.StillingType
-import no.nav.etterlatte.libs.common.innsendtsoeknad.Stoenader
 import no.nav.etterlatte.libs.common.innsendtsoeknad.UtbetalingsInformasjon
-import no.nav.etterlatte.libs.common.innsendtsoeknad.Utdanning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Utenlandsadresse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Utenlandsopphold
-import no.nav.etterlatte.libs.common.innsendtsoeknad.Ytelser
 import no.nav.etterlatte.libs.common.innsendtsoeknad.YtelserAndre
 import no.nav.etterlatte.libs.common.innsendtsoeknad.YtelserNav
 import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
@@ -42,15 +26,12 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.DatoSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.EnumSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Forelder
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.GjenlevendeOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Innsender
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Samboer
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke.JA
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke.NEI
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Verge
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Gjenlevende
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.GjenlevendeOMS
-import no.nav.etterlatte.libs.common.innsendtsoeknad.gjenlevendepensjon.Gjenlevendepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import java.time.LocalDate
@@ -91,154 +72,17 @@ object InnsendtSoeknadFixtures {
                     telefonnummer = Opplysning(FritekstSvar("12345678"))
                 )
             ),
-            eksempelAvdoed()
+            avdoedMedUtenlandsopphold()
         ),
         soesken = listOf(eksempelBarn(Foedselsnummer.of("29080775995")))
     )
 
-    /**
-     * @param innsenderFnr: Personen som har sendt inn søknaden (stort sett den gjenlevende).
-     * @param soekerFnr: Personen som søker om stønaden. Som oftest samme verdi som innsender.
-     */
-    fun gjenlevendepensjon(
+    fun omstillingsSoeknad(
         innsenderFnr: Foedselsnummer = Foedselsnummer.of("11057523044"), // STOR SNERK
-        soekerFnr: Foedselsnummer = innsenderFnr
-    ) = Gjenlevendepensjon(
-        imageTag = UUID.randomUUID().toString(),
-        spraak = Spraak.NB,
-        innsender = Innsender(
-            fornavn = Opplysning("Ola"),
-            etternavn = Opplysning("Nordmann"),
-            foedselsnummer = Opplysning(innsenderFnr),
-        ),
-        harSamtykket = Opplysning(svar = true),
-        utbetalingsInformasjon = BetingetOpplysning(
-            svar = EnumSvar(BankkontoType.NORSK, "Norsk"),
-            opplysning = UtbetalingsInformasjon(
-                kontonummer = Opplysning(FritekstSvar("12010501012"))
-            )
-        ),
-        soeker = Gjenlevende(
-            fornavn = Opplysning("Ola"),
-            etternavn = Opplysning("Nordmann"),
-            foedselsnummer = Opplysning(soekerFnr),
-            statsborgerskap = Opplysning("Norsk"),
-            sivilstatus = Opplysning("Ugift"),
-            adresse = Opplysning("Fyrstikkalleen 1"),
-            bostedsAdresse = Opplysning(FritekstSvar("Kirkeveien 1")),
-            kontaktinfo = Kontaktinfo(
-                telefonnummer = Opplysning(FritekstSvar("97611679"))
-            ),
-            flyktning = Opplysning(EnumSvar(NEI, "Nei")),
-            nySivilstatus = BetingetOpplysning(
-                svar = EnumSvar(SivilstatusType.SAMBOERSKAP, "Samboer"),
-                opplysning = Samboer(
-                    fornavn = Opplysning("Hans"),
-                    etternavn = Opplysning("Pettersen"),
-                    foedselsnummer = Opplysning(Foedselsnummer.of("24014021406")),
-                    fellesBarnEllertidligereGift = Opplysning(EnumSvar(JA, "Ja")),
-                    inntekt = BetingetOpplysning(
-                        svar = EnumSvar(JA, "Ja"),
-                        opplysning = SamboerInntekt(
-                            inntektstype = Opplysning(listOf(EnumSvar(InntektType.ANDRE_YTELSER, "Andre ytelser"))),
-                            samletBruttoinntektPrAar = Opplysning(FritekstSvar("kr 200 000,-"))
-                        )
-                    )
-                )
-            ),
-            arbeidOgUtdanning = ArbeidOgUtdanning(
-                dinSituasjon = Opplysning(
-                    listOf(
-                        EnumSvar(JobbStatusType.ARBEIDSTAKER, "Arbeidstaker"),
-                        EnumSvar(JobbStatusType.INGEN, "Ingen"),
-                        EnumSvar(JobbStatusType.SELVSTENDIG, "Selvstendig"),
-                        EnumSvar(JobbStatusType.UNDER_UTDANNING, "Under utdanning")
-                    )
-                ),
-                arbeidsforhold = Opplysning(
-                    listOf(
-                        Arbeidstaker(
-                            arbeidsgiver = Opplysning(FritekstSvar("Byggevarekjeden")),
-                            ansettelsesforhold = Opplysning(EnumSvar(StillingType.FAST, "Fast ansettelse")),
-                            stillingsprosent = Opplysning(FritekstSvar("100")),
-                            endretInntekt = BetingetOpplysning(
-                                svar = EnumSvar(JA, "Ja"),
-                                opplysning = Opplysning(FritekstSvar("Mye har skjedd i det siste"))
-                            )
-                        )
-                    )
-                ),
-                selvstendig = Opplysning(
-                    listOf(
-                        SelvstendigNaeringsdrivende(
-                            firmanavn = Opplysning(FritekstSvar("Mitt firma!")),
-                            orgnr = Opplysning(FritekstSvar("12313123")),
-                            endretInntekt = BetingetOpplysning(
-                                svar = EnumSvar(JA, "Ja"),
-                                opplysning = Opplysning(FritekstSvar("Fremdeles mye som har skjedd.."))
-                            )
-                        )
-                    )
-                ),
-                utdanning = Opplysning(
-                    Utdanning(
-                        navn = Opplysning(FritekstSvar("Norges IT høyskole")),
-                        startDato = Opplysning(DatoSvar(LocalDate.now().minusYears(1))),
-                        sluttDato = Opplysning(DatoSvar(LocalDate.now().plusYears(2))),
-                    )
-                ),
-                annet = Opplysning(EnumSvar(innhold = "Annet", verdi = IngenJobb.ANNET))
-            ),
-            fullfoertUtdanning = BetingetOpplysning(
-                svar = EnumSvar(HoeyesteUtdanning.ANNEN, "Annen"),
-                opplysning = Opplysning(FritekstSvar("Livets harde skole"))
-            ),
-            andreYtelser = AndreYtelser(
-                kravOmAnnenStonad = BetingetOpplysning(
-                    svar = EnumSvar(JA, "Ja"),
-                    opplysning = Opplysning(EnumSvar(Ytelser.FORELDREPENGER, "Foreldrepenger"))
-                ),
-                annenPensjon = BetingetOpplysning(
-                    svar = EnumSvar(JA, "Ja"),
-                    opplysning = Opplysning(FritekstSvar("KLP"))
-                ),
-                pensjonUtland = BetingetOpplysning(
-                    svar = EnumSvar(JA, "Ja"),
-                    opplysning = PensjonUtland(
-                        pensjonsType = Opplysning(FritekstSvar("Uføre")),
-                        land = Opplysning(FritekstSvar("Sverige")),
-                        bruttobeloepPrAar = Opplysning(FritekstSvar("20000 SEK"))
-
-                    )
-                )
-            ),
-            uregistrertEllerVenterBarn = Opplysning(EnumSvar(NEI, "Nei")),
-            forholdTilAvdoede = ForholdTilAvdoede(
-                relasjon = Opplysning(EnumSvar(ForholdTilAvdoedeType.GIFT, "Gift")),
-                datoForInngaattPartnerskap = Opplysning(DatoSvar(LocalDate.now().minusYears(20))),
-                fellesBarn = Opplysning(EnumSvar(JA, "Ja"))
-            ),
-            oppholdUtland = BetingetOpplysning(
-                svar = EnumSvar(NEI, "Nei"),
-                opplysning = OppholdUtland(
-                    land = Opplysning(FritekstSvar("Sverige")),
-                )
-            )
-        ),
-        avdoed = eksempelAvdoed(),
-        barn = listOf(
-            eksempelBarn(Foedselsnummer.of("24014021406"), OmsorgspersonType.GJENLEVENDE),
-            eksempelBarn(Foedselsnummer.of("29080775995"), OmsorgspersonType.ANNET)
-        ),
-        andreStoenader = listOf(
-            Opplysning(
-                svar = EnumSvar(Stoenader.BARNETILSYN, "Jeg har utgifter til barnetilstyn0"),
-                spoersmaal = "Søknad om barnetilsyn"
-            )
-        )
-    )
-
-    fun omstillingsSoeknad(): Omstillingsstoenad {
+        soekerFnr: Foedselsnummer = innsenderFnr,
+        avdoed: Avdoed? = null,
+        barn: List<Barn> = emptyList()
+    ): Omstillingsstoenad {
         return Omstillingsstoenad(
             imageTag = "9f1f95b2472742227b37d19dd2d735ac9001995e",
             spraak = Spraak.NB,
@@ -252,7 +96,7 @@ object InnsendtSoeknadFixtures {
                     spoersmaal = "Etternavn"
                 ),
                 foedselsnummer = Opplysning(
-                    svar = Foedselsnummer.of("03108718357"),
+                    svar = innsenderFnr,
                     spoersmaal = "Fødselsnummer"
                 )
             ),
@@ -284,8 +128,8 @@ object InnsendtSoeknadFixtures {
                 fornavn = Opplysning(svar = "Kirsten", spoersmaal = "Spoersmal"),
                 etternavn = Opplysning(svar = "Jakobsen", spoersmaal = "Etternavn"),
                 foedselsnummer = Opplysning(
-                    svar = Foedselsnummer.of("26058411891"),
-                    spoersmaal = "Barnets fødselsnummer / d-nummer"
+                    svar = soekerFnr,
+                    spoersmaal = "Fødselsnummer / d-nummer"
                 ),
                 statsborgerskap = Opplysning(
                     svar = "Norge",
@@ -401,7 +245,7 @@ object InnsendtSoeknadFixtures {
                     )
                 )
             ),
-            avdoed = Avdoed(
+            avdoed = avdoed ?: Avdoed(
                 fornavn = Opplysning(svar = "Bernt", spoersmaal = null),
                 etternavn = Opplysning(svar = "Jakobsen", spoersmaal = null),
                 foedselsnummer = Opplysning(
@@ -438,8 +282,7 @@ object InnsendtSoeknadFixtures {
                 naeringsInntekt = null,
                 militaertjeneste = null
             ),
-            barn = listOf()
-
+            barn = barn
         )
     }
 }
@@ -482,7 +325,7 @@ fun eksempelBarn(fnr: Foedselsnummer, dagligOmsorg: OmsorgspersonType? = null) =
     ),
 )
 
-fun eksempelAvdoed() = Avdoed(
+fun avdoedMedUtenlandsopphold() = Avdoed(
     fornavn = Opplysning("Petter"),
     etternavn = Opplysning("Hansen"),
     foedselsnummer = Opplysning(Foedselsnummer.of("24014021406")),

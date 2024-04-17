@@ -50,7 +50,7 @@ import org.testcontainers.junit.jupiter.Container
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
 import soeknad.soeknadApi
-import java.util.Arrays
+import java.util.*
 import java.util.stream.Collectors
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -71,7 +71,7 @@ internal class SoeknadApiIntegrationTest {
     private lateinit var dsbHolder: DataSourceBuilder
     private lateinit var service: SoeknadService
 
-    private val kilde = "barnepensjon-ui"
+    private val kilde = "omstillingsstoenad-ui"
     private val dummyKladd = """{"harSamtykket":"true"}"""
     private val mapper = jacksonObjectMapper()
     private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
@@ -92,11 +92,11 @@ internal class SoeknadApiIntegrationTest {
 
     @Test
     @Order(1)
-    fun `Skal opprette soeknad i databasen for gjenlevende`() {
+    fun `Skal opprette soeknad i databasen for OMS`() {
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             val request = SoeknadRequest(
                 listOf(
-                    InnsendtSoeknadFixtures.gjenlevendepensjon(Foedselsnummer.of(VAKKER_PENN))
+                    InnsendtSoeknadFixtures.omstillingsSoeknad(Foedselsnummer.of(VAKKER_PENN))
                 )
             )
 
@@ -116,7 +116,7 @@ internal class SoeknadApiIntegrationTest {
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
             val request = SoeknadRequest(
                 soeknader = listOf(
-                    InnsendtSoeknadFixtures.gjenlevendepensjon(innsenderFnr = Foedselsnummer.of(LUR_KOPP)),
+                    InnsendtSoeknadFixtures.omstillingsSoeknad(innsenderFnr = Foedselsnummer.of(LUR_KOPP)),
                     InnsendtSoeknadFixtures.barnepensjon(innsenderFnr = Foedselsnummer.of(LUR_KOPP))
                 )
             )

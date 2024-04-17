@@ -38,7 +38,7 @@ internal class SoeknadDaoIntegrationTest {
 
 
     private val kildeBarnepensjon = "barnepensjon-ui"
-    private val kildeGjenlevende = "gjenlevendepensjon-ui"
+    private val kildeOMS = "omstillingsstoenad-ui"
 
 
     @BeforeAll
@@ -111,14 +111,14 @@ internal class SoeknadDaoIntegrationTest {
         val json = """{"harSamtykket":true}"""
 
         val soeknadBarnepensjon = UlagretSoeknad(fnr, json, kildeBarnepensjon)
-        val soeknadGjenlevende = UlagretSoeknad(fnr, json, kildeGjenlevende)
+        val soeknadGjenlevende = UlagretSoeknad(fnr, json, kildeOMS)
 
         val lagretKladdBP = db.lagreKladd(soeknadBarnepensjon)
         val lagretKladdGP = db.lagreKladd(soeknadGjenlevende)
         assertNotEquals(lagretKladdBP, lagretKladdGP)
 
         val funnetKladdBP = db.finnKladd(fnr, kildeBarnepensjon)!!
-        val funnetKladdGP = db.finnKladd(fnr, kildeGjenlevende)!!
+        val funnetKladdGP = db.finnKladd(fnr, kildeOMS)!!
         assertNotEquals(funnetKladdBP, funnetKladdGP)
 
         val soeknadUnderArbeidBP = finnSoeknad(funnetKladdBP.id)
@@ -126,7 +126,7 @@ internal class SoeknadDaoIntegrationTest {
 
         val id = db.ferdigstillSoeknad(soeknadBarnepensjon)
         assertEquals(Status.FERDIGSTILT, db.finnKladd(fnr, kildeBarnepensjon)!!.status)
-        assertEquals(Status.LAGRETKLADD, db.finnKladd(fnr, kildeGjenlevende)!!.status)
+        assertEquals(Status.LAGRETKLADD, db.finnKladd(fnr, kildeOMS)!!.status)
 
         val ferdigstiltSoeknad = finnSoeknad(id)
         assertEquals(kildeBarnepensjon, ferdigstiltSoeknad!!.kilde)
@@ -139,7 +139,7 @@ internal class SoeknadDaoIntegrationTest {
         val jsonGP = """{"harSamtykket":false}"""
 
         val soeknadBP = UlagretSoeknad(fnr, jsonBP, kildeBarnepensjon)
-        val soeknadGP = UlagretSoeknad(fnr, jsonGP, kildeGjenlevende)
+        val soeknadGP = UlagretSoeknad(fnr, jsonGP, kildeOMS)
 
         assertNotNull(db.lagreKladd(soeknadBP), "Kladd for barnepensjon skal være lagret")
         assertNotNull(db.lagreKladd(soeknadGP), "Kladd for gjenlevende skal være lagret")
@@ -149,7 +149,7 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(fnr, funnetKladdBP.fnr)
 
 
-        val funnetKladdGP = db.finnKladd(fnr, kildeGjenlevende)!!
+        val funnetKladdGP = db.finnKladd(fnr, kildeOMS)!!
         assertEquals(jsonGP, funnetKladdGP.payload)
         assertEquals(fnr, funnetKladdGP.fnr)
 
@@ -270,10 +270,10 @@ internal class SoeknadDaoIntegrationTest {
         val json = """{"harSamtykket":true}"""
 
         val ulagretBarnep = UlagretSoeknad(randomFakeFnr(), json, kildeBarnepensjon)
-        val ulagretGjenlevendep = UlagretSoeknad(randomFakeFnr(), json, kildeGjenlevende)
+        val ulagretGjenlevendep = UlagretSoeknad(randomFakeFnr(), json, kildeOMS)
 
         assertNull(db.finnKladd(ulagretBarnep.fnr, kildeBarnepensjon))
-        assertNull(db.finnKladd(ulagretGjenlevendep.fnr, kildeGjenlevende))
+        assertNull(db.finnKladd(ulagretGjenlevendep.fnr, kildeOMS))
 
         val lagretKladd1 = db.lagreKladd(ulagretBarnep)
         val lagretKladd2 = db.lagreKladd(ulagretGjenlevendep)
@@ -288,10 +288,10 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(json, lagretKladd2.payload)
 
         assertEquals(lagretKladd1.id, db.slettOgKonverterKladd(ulagretBarnep.fnr, kildeBarnepensjon))
-        assertEquals(lagretKladd2.id, db.slettKladd(ulagretGjenlevendep.fnr, kildeGjenlevende))
+        assertEquals(lagretKladd2.id, db.slettKladd(ulagretGjenlevendep.fnr, kildeOMS))
 
         assertNull(db.finnKladd(ulagretBarnep.fnr, kildeBarnepensjon))
-        assertNull(db.finnKladd(ulagretGjenlevendep.fnr, kildeGjenlevende))
+        assertNull(db.finnKladd(ulagretGjenlevendep.fnr, kildeOMS))
 
         assertEquals(Status.KONVERTERT, finnSisteStatus(lagretKladd1.id))
         assertEquals(Status.SLETTET, finnSisteStatus(lagretKladd2.id))
@@ -303,10 +303,10 @@ internal class SoeknadDaoIntegrationTest {
         val fnr = randomFakeFnr()
 
         val soeknadBarnepensjon = UlagretSoeknad(fnr, json, kildeBarnepensjon)
-        val soeknadGjenlevende = UlagretSoeknad(fnr, json, kildeGjenlevende)
+        val soeknadGjenlevende = UlagretSoeknad(fnr, json, kildeOMS)
 
         assertNull(db.finnKladd(soeknadBarnepensjon.fnr, kildeBarnepensjon))
-        assertNull(db.finnKladd(soeknadGjenlevende.fnr, kildeGjenlevende))
+        assertNull(db.finnKladd(soeknadGjenlevende.fnr, kildeOMS))
 
         val lagretKladd1 = db.lagreKladd(soeknadBarnepensjon)
         val lagretKladd2 = db.lagreKladd(soeknadGjenlevende)
@@ -323,10 +323,10 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(lagretKladd1.id, db.slettKladd(fnr, kildeBarnepensjon))
 
         assertNull(db.finnKladd(fnr, kildeBarnepensjon), "Kilde barnepensjon skal være slettet")
-        assertNotNull(db.finnKladd(fnr, kildeGjenlevende), "Kilde gjenlevende skal ikke være slettet")
+        assertNotNull(db.finnKladd(fnr, kildeOMS), "Kilde gjenlevende skal ikke være slettet")
 
-        assertEquals(lagretKladd2.id, db.slettKladd(fnr, kildeGjenlevende))
-        assertNull(db.finnKladd(fnr, kildeGjenlevende))
+        assertEquals(lagretKladd2.id, db.slettKladd(fnr, kildeOMS))
+        assertNull(db.finnKladd(fnr, kildeOMS))
     }
 
     @Test
@@ -573,7 +573,7 @@ internal class SoeknadDaoIntegrationTest {
         // To stk stopper på status KLADD
         db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon))
         db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon))
-        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende))
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeOMS))
 
         // Stopp på status "FERDIGSTILT"
         val ferdigstilt = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
@@ -592,14 +592,14 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknadSendt(sendt2Id)
 
         // Stopp på status "SENDT"
-        val sendt3 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende)
+        val sendt3 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeOMS)
         db.lagreKladd(sendt3)
         val sendt3Id = db.ferdigstillSoeknad(sendt3)
         db.soeknadSendt(sendt3Id)
 
         // Stopp på status "ARKIVERINGSFEIL"
         val arkiveringsfeil = UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon)
-        val arkiveringsfeil2 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende)
+        val arkiveringsfeil2 = UlagretSoeknad(randomFakeFnr(), """{}""", kildeOMS)
 
         // Lagre kladd 3 ganger
         db.lagreKladd(arkiveringsfeil)
@@ -633,9 +633,9 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals("1", rapport.find { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }?.count)
         assertEquals("2", rapport.find { it.status == Status.SENDT && it.kilde == kildeBarnepensjon }?.count)
         assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeGjenlevende }?.count)
-        assertEquals("1", rapport.find { it.status == Status.SENDT && it.kilde == kildeGjenlevende }?.count)
-        assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeGjenlevende }?.count)
+        assertEquals("1", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeOMS }?.count)
+        assertEquals("1", rapport.find { it.status == Status.SENDT && it.kilde == kildeOMS }?.count)
+        assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeOMS }?.count)
         assertEquals("1", rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
 
     }
@@ -659,7 +659,7 @@ internal class SoeknadDaoIntegrationTest {
     @Test
     fun `Sjekk antall av hver kilde`() {
         // To stk stopper på status KLADD
-        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeGjenlevende))
+        db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeOMS))
         db.lagreKladd(UlagretSoeknad(randomFakeFnr(), """{}""", kildeBarnepensjon))
 
         // Stopp på status "FERDIGSTILT"
@@ -697,7 +697,7 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(2, kilder.size)
 
         assertEquals(5, kilder[kildeBarnepensjon])
-        assertEquals(1, kilder[kildeGjenlevende])
+        assertEquals(1, kilder[kildeOMS])
 
     }
 
