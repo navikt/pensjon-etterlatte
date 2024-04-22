@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import { IMerOmSituasjonenDin, JobbStatus } from '../../../../typer/situasjon'
-import { IngenJobb, StillingType } from '../../../../typer/arbeidsforhold'
+import { StillingType } from '../../../../typer/arbeidsforhold'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { Studieform } from '../../../../typer/utdanning'
 import { Panel } from '../../../felles/Panel'
@@ -320,10 +320,10 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
 
                         <TekstGruppe
                             tittel={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
-                            innhold={t(merOmSituasjonenDin.annenSituasjon!!.beskrivelse!!)}
+                            innhold={merOmSituasjonenDin.annenSituasjon?.beskrivelse?.map((item) => ` ${t(item)}`)}
                         />
 
-                        {merOmSituasjonenDin.annenSituasjon?.beskrivelse === IngenJobb.annet && (
+                        {merOmSituasjonenDin.annenSituasjon?.annet?.beskrivelse && (
                             <TekstGruppe
                                 tittel={t('merOmSituasjonenDin.annenSituasjon.annet.beskrivelse')}
                                 innhold={merOmSituasjonenDin.annenSituasjon?.annet?.beskrivelse}

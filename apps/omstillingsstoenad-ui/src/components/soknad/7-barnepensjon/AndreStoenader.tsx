@@ -6,7 +6,6 @@ import { ISoeknad } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import { JobbStatus } from '../../../typer/situasjon'
 import { IBarn } from '../../../typer/person'
-import { IngenJobb } from '../../../typer/arbeidsforhold'
 
 const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad; barn?: IBarn[] }) => {
     const { t } = useTranslation()
@@ -15,11 +14,10 @@ const AndreStoenader = ({ soeknad, barn }: { soeknad: ISoeknad; barn?: IBarn[] }
     const erArbeidstaker = situasjon.arbeidsforhold || situasjon.selvstendig
     const erArbeidssoeker = situasjon.jobbStatus?.includes(JobbStatus.arbeidssoeker)
     const etablererBedrift = situasjon.jobbStatus?.includes(JobbStatus.etablerer)
-    const erSyk = situasjon.annenSituasjon?.beskrivelse === IngenJobb.syk
     const underUtdanning = situasjon.utdanning?.naavaerendeUtdanning
     const harBarn = (barn && barn.length > 0) || false
 
-    const rettTilBarnetilsyn = harBarn && (erArbeidstaker || etablererBedrift || erSyk)
+    const rettTilBarnetilsyn = harBarn && (erArbeidstaker || etablererBedrift)
     const rettTilBarnStoenad = harBarn && (underUtdanning || erArbeidssoeker)
 
     return (
