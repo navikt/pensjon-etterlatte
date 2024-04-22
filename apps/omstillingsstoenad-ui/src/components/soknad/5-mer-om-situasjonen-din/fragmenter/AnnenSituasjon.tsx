@@ -23,7 +23,7 @@ const AnnenSituasjon = () => {
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('merOmSituasjonenDin.annenSituasjon.tittel')}</Heading>
+                <Heading size={'small'}>{t('jobbStatus.ingen')}</Heading>
             </SkjemaElement>
             <SkjemaElement>
                 <RHFCheckboksGruppe
