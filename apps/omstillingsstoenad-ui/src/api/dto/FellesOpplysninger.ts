@@ -279,7 +279,7 @@ export interface Arbeidstaker {
 }
 
 export interface AnnenSituasjon {
-    beskrivelse: Opplysning<EnumSvar<IngenJobbType>>
+    beskrivelse: Opplysning<EnumSvar<IngenJobbType>[]>
     annet?: Opplysning<FritekstSvar>
 }
 

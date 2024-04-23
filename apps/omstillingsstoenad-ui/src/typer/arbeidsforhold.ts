@@ -67,7 +67,7 @@ export interface IArbeidssoeker {
 }
 
 export interface IAnnenSituasjon {
-    beskrivelse?: IngenJobb
+    beskrivelse?: IngenJobb[]
     annet?: {
         beskrivelse?: string
     }

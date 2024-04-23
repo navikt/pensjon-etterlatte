@@ -4,10 +4,10 @@ import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { useFormContext } from 'react-hook-form'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { Heading } from '@navikt/ds-react'
 import { IngenJobb } from '../../../../typer/arbeidsforhold'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 
 const AnnenSituasjon = () => {
     const { t } = useTranslation()
@@ -17,27 +17,22 @@ const AnnenSituasjon = () => {
     const annetArbeid = watch('annenSituasjon.beskrivelse')
 
     const annenSituasjonAlternativer = Object.values(IngenJobb).map((value) => {
-        return { label: t(value), value: value }
+        return { children: t(value), value: value, required: true }
     })
 
     return (
         <SkjemaGruppe>
             <SkjemaElement>
-                <Heading size={'small'}>{t('merOmSituasjonenDin.annenSituasjon.tittel')}</Heading>
+                <Heading size={'small'}>{t('jobbStatus.ingen')}</Heading>
             </SkjemaElement>
             <SkjemaElement>
-                <RHFSelect
+                <RHFCheckboksGruppe
                     name={'annenSituasjon.beskrivelse'}
-                    label={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
-                    selectOptions={[
-                        {
-                            label: t('felles.velg'),
-                            value: '',
-                        },
-                    ].concat(annenSituasjonAlternativer)}
+                    legend={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
+                    checkboxes={annenSituasjonAlternativer}
                 />
             </SkjemaElement>
-            {annetArbeid === IngenJobb.annet && (
+            {!!annetArbeid?.length && (
                 <SkjemaElement>
                     <RHFInputArea
                         name={`annenSituasjon.annet.beskrivelse`}

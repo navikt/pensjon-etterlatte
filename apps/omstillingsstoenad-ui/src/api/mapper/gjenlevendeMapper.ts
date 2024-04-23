@@ -54,7 +54,7 @@ import {
     konverterTilHoyesteUtdanning,
 } from './typeMapper'
 import { fullAdresse } from '../../utils/adresse'
-import { IngenJobb, ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
+import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
 import {
     EndringAvInntektGrunn,
     IForventerEndringAvInntekt,
@@ -596,20 +596,20 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
             svar: {
                 beskrivelse: {
                     spoersmaal: t('merOmSituasjonenDin.annenSituasjon.beskrivelse'),
-                    svar: {
-                        innhold: t(dinSituasjon.annenSituasjon!!.beskrivelse!!),
-                        verdi: konverterIngenJobb(dinSituasjon.annenSituasjon!!.beskrivelse!!),
-                    },
+                    svar:
+                        dinSituasjon.annenSituasjon!!.beskrivelse!!.map((type) => ({
+                            verdi: konverterIngenJobb(type),
+                            innhold: t(type),
+                        })) || [],
                 },
-                annet:
-                    dinSituasjon.annenSituasjon!!.beskrivelse === IngenJobb.annet
-                        ? {
-                              spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse'),
-                              svar: {
-                                  innhold: `${dinSituasjon.annenSituasjon!!.annet!!.beskrivelse}`,
-                              },
-                          }
-                        : undefined,
+                annet: dinSituasjon.annenSituasjon!!.annet?.beskrivelse
+                    ? {
+                          spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse'),
+                          svar: {
+                              innhold: `${dinSituasjon.annenSituasjon!!.annet!!.beskrivelse}`,
+                          },
+                      }
+                    : undefined,
             },
         }
     }
