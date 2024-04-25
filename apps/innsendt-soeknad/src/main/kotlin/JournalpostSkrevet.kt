@@ -24,7 +24,6 @@ internal class JournalpostSkrevet(
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
-            validate { it.interestedIn("trengerManuellJournalfoering") }
             validate { it.interestedIn("soeknadFordelt") }
         }.register(this)
     }
@@ -37,10 +36,9 @@ internal class JournalpostSkrevet(
         }
 
         val soeknadSkalTilDoffen = packet["soeknadFordelt"].asBoolean()
-        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].asBoolean()
 
         if (dokumentInfoId != 0L) {
-            if (soeknadSkalTilDoffen && !trengerManuellJournalfoering) {
+            if (soeknadSkalTilDoffen) {
                 setSoeknadTilDoffenArkivert(packet)
 
                 packet["@event_name"] = EventName.TRENGER_BEHANDLING
