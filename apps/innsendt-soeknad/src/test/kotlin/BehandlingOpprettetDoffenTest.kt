@@ -1,7 +1,7 @@
 import io.mockk.spyk
 import io.mockk.verify
 import no.nav.etterlatte.BehandlingOpprettetDoffen
-import no.nav.etterlatte.TRENGER_BEHANDLING_EVENT
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.etterlatte.toJson
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.*
@@ -16,7 +16,7 @@ class BehandlingOpprettetDoffenTest {
             "@lagret_soeknad_id" to 1337,
             "sakId" to 123,
             "behandlingId" to UUID.randomUUID(),
-            "@event_name" to TRENGER_BEHANDLING_EVENT
+            "@event_name" to EventName.TRENGER_BEHANDLING
         ).toJson()
 
         val db = spyk<TestRepo>()
