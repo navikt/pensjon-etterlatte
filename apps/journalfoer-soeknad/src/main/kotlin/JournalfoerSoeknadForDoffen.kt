@@ -37,7 +37,6 @@ internal class JournalfoerSoeknadForDoffen(
             validate { it.requireValue("soeknadFordelt", true) }
             validate { it.interestedIn("sakId") }
             validate { it.rejectKey("@dokarkivRetur") }
-            validate { it.interestedIn("trengerManuellJournalfoering") }
         }.register(this)
     }
 
@@ -74,9 +73,6 @@ internal class JournalfoerSoeknadForDoffen(
 
         val dokument = dokumentService.opprettJournalpostDokument(soeknadId, tittel, skjemaInfo, soeknad.template())
 
-        val trengerManuellJournalfoering = packet["trengerManuellJournalfoering"].asBoolean()
-        val forsoekFerdigstill = !trengerManuellJournalfoering
-
         return journalfoeringService.journalfoer(
             soeknadId = soeknadId,
             fnrSoeker = fnrSoeker,
@@ -85,7 +81,7 @@ internal class JournalfoerSoeknadForDoffen(
             soeknad = soeknad,
             tema = hentTema(soeknad.type),
             behandlingstema = null,
-            forsoekFerdigstill = forsoekFerdigstill,
+            forsoekFerdigstill = true,
             sakId = packet["sakId"].asText(),
             tittel = tittel
         )

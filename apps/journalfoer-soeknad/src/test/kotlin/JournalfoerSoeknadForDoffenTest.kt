@@ -66,47 +66,7 @@ internal class JournalfoerSoeknadForDoffenTest{
     }
 
     @Test
-    fun `Skal journalføre uten ferdigstilling hvis søknad er fordelt til Doffen med trengerManuellJournalfoering`() {
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any(), any()) } returns
-                JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
-        every { journalfoeringService.journalfoer(
-            any(), any(), any(), any(), any(),
-            any(), any(), any(), any(), any()
-        )
-        } returns DokarkivResponse(
-            journalpostId = "543",
-            journalpostferdigstilt = false,
-            dokumenter = listOf(DokarkivDokument("123"))
-        )
-
-        val rapid = TestRapid()
-        JournalfoerSoeknadForDoffen(rapid, dokumentservice, journalfoeringService, clock)
-        rapid.sendTestMessage(getResource("barnepensjonTilDoffenManuellJournalfoering.json"))
-        assertEquals(1, rapid.inspektør.size)
-        rapid.inspektør.message(0).also {
-            assertTrue(it.has("@dokarkivRetur"))
-            assertEquals("543", it["@dokarkivRetur"]["journalpostId"].textValue())
-        }
-
-        verify(exactly = 1) {
-            journalfoeringService.journalfoer(
-                "13",
-                "24871899386",
-                Gradering.UGRADERT,
-                any(),
-                any(),
-                "EYB",
-                null,
-                false,
-                any(),
-                any(),
-            )
-        }
-    }
-
-    @Test
     fun `Skal lese OMS søknader som er fordelt til Doffen`(){
-
         every { dokumentservice.opprettJournalpostDokument("13",any(), any(), any()) } returns
                 JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
         every { journalfoeringService.journalfoer(
@@ -137,45 +97,6 @@ internal class JournalfoerSoeknadForDoffenTest{
                 "EYO",
                 null,
                 true,
-                any(),
-                any(),
-            )
-        }
-    }
-
-    @Test
-    fun `Ikke ferdigstille OMS hvis søknad trengerManuellJournalfoering`() {
-        every { dokumentservice.opprettJournalpostDokument("13", any(), any(), any()) } returns
-                JournalpostDokument("tittel", DokumentKategori.SOK, "", emptyList())
-        every { journalfoeringService.journalfoer(
-            any(), any(), any(), any(), any(),
-            any(), any(), any(), any(), any()
-        )
-        } returns DokarkivResponse(
-            journalpostId = "543",
-            journalpostferdigstilt = false,
-            dokumenter = listOf(DokarkivDokument("123"))
-        )
-
-        val rapid = TestRapid()
-        JournalfoerSoeknadForDoffen(rapid, dokumentservice, journalfoeringService, clock)
-        rapid.sendTestMessage(getResource("omstillingsstoenadTilDoffenManuellJournalfoering.json"))
-        assertEquals(1, rapid.inspektør.size)
-        rapid.inspektør.message(0).also {
-            assertTrue(it.has("@dokarkivRetur"))
-            assertEquals("543", it["@dokarkivRetur"]["journalpostId"].textValue())
-        }
-
-        verify(exactly = 1) {
-            journalfoeringService.journalfoer(
-                "13",
-                "24876696580",
-                Gradering.UGRADERT,
-                any(),
-                any(),
-                "EYO",
-                null,
-                false,
                 any(),
                 any(),
             )
