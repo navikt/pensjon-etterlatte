@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import no.nav.etterlatte.SoeknadPubliserer
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.MessageContext
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.fail
@@ -57,7 +58,7 @@ class SoeknadPublisererTest {
         println(rapidStub.publishedMessages[0].second)
         val message = jacksonObjectMapper().readTree(rapidStub.publishedMessages[0].second)
 
-        assertEquals("soeknad_innsendt", message["@event_name"].textValue())
+        assertEquals(EventName.SOEKNAD_INNSENDT, message["@event_name"].textValue())
         assertEquals(jacksonObjectMapper().readTree(soeknadSomSkalPubliseres.payload), message["@skjema_info"])
         assertEquals(soeknadSomSkalPubliseres.id, message["@lagret_soeknad_id"].longValue())
         assertEquals(soeknadSomSkalPubliseres.fnr, message["@fnr_soeker"].textValue())

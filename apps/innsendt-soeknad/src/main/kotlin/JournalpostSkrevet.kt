@@ -1,7 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.node.BooleanNode
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -20,7 +20,7 @@ internal class JournalpostSkrevet(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.rejectValue("@event_name", TRENGER_BEHANDLING_EVENT) }
+            validate { it.rejectValue("@event_name", EventName.TRENGER_BEHANDLING) }
             validate { it.requireKey("@dokarkivRetur") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.interestedIn("@hendelse_gyldig_til") }
@@ -43,7 +43,7 @@ internal class JournalpostSkrevet(
             if (soeknadSkalTilDoffen && !trengerManuellJournalfoering) {
                 setSoeknadTilDoffenArkivert(packet)
 
-                packet["@event_name"] = TRENGER_BEHANDLING_EVENT
+                packet["@event_name"] = EventName.TRENGER_BEHANDLING
                 context.publish(packet.toJson())
             } else {
                 setSoeknadTilArkivert(packet)
