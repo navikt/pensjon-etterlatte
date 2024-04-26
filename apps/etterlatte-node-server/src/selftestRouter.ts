@@ -6,13 +6,16 @@ export const selftestRouter = express.Router()
 
 selftestRouter.get('/', express.json(), async (req, res) => {
     try {
+        logger.info('selftest')
         const applicationName = config.app.basePath.includes("/barnepensjon/soknad") ? 'barnepensjon-ui' : 'omstillingsstoenad-ui'
+        logger.info('applicationName: ', applicationName)
         const statuscode = await fetch(`${config.app.apiUrl}/internal/selftest`)
                 .then((res) => res.status)
                 .catch((err) => {
                     logger.warn(`selvbetjening-api is down.`, err)
                     return 500
                 })
+        logger.info(`statuscode selvbetjening-api: ${statuscode}`)
 
         const result: IPingResult = {
             serviceName: 'selvbetjening-api',
