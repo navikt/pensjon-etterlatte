@@ -39,6 +39,7 @@ class ApplicationContext(configLocation: String? = null) {
     val soeknadService: SoeknadService
     val kodeverkService: KodeverkService
     val securityMediator = SecurityContextMediatorFactory.from(config)
+    val unsecuredSoeknadHttpClient: HttpClient
     private val krrKlient: KrrKlient
     private val adressebeskyttelseService: AdressebeskyttelseService
 
@@ -62,6 +63,22 @@ class ApplicationContext(configLocation: String? = null) {
         soeknadService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
             .also { closables.add(it::close) }
             .let { SoeknadService(it, adressebeskyttelseService) }
+
+        unsecuredSoeknadHttpClient = unsecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad").getString("url").replace("/api/", ""))
+    }
+
+    private fun unsecuredEndpoint(url: String) = HttpClient(OkHttp) {
+        install(ContentNegotiation) {
+            jackson {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                registerModule(JavaTimeModule())
+            }
+        }
+
+        defaultRequest {
+            url(url)
+        }
     }
 
     private fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(OkHttp) {

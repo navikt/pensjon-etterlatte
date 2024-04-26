@@ -24,6 +24,7 @@ import no.nav.etterlatte.common.LocalDateSerializer
 import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
+import no.nav.etterlatte.internal.selftestApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
@@ -41,6 +42,7 @@ class Server(applicationContext: ApplicationContext) {
     private val securityContext = applicationContext.securityMediator
     private val soeknadService = applicationContext.soeknadService
     private val kodeverkService = applicationContext.kodeverkService
+    private val unsecuredSoeknadHttpClient = applicationContext.unsecuredSoeknadHttpClient
 
     private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
         module {
@@ -75,6 +77,7 @@ class Server(applicationContext: ApplicationContext) {
             routing {
                 healthApi()
                 metricsApi()
+                selftestApi(unsecuredSoeknadHttpClient)
                 secureRoutUsing(securityContext) {
                     personApi(personService)
                     soknadApi(soeknadService)

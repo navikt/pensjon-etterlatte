@@ -8,6 +8,7 @@ import logger from './monitoring/logger'
 import parser from 'body-parser'
 import session from './auth/session'
 import rTracer from 'cls-rtracer'
+import {selftestRouter} from "./selftestRouter";
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -23,6 +24,8 @@ app.use(
 app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))
 app.use(parser.json())
+
+app.use('/internal/selftest', selftestRouter)
 
 // Endpoints to verify is app is ready/alive
 app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: Request, res: Response) => {
