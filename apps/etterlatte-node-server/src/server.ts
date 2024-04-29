@@ -16,7 +16,7 @@ const buildPath = path.resolve(__dirname, '../build')
 const app = express()
 
 app.use((req, res, next) => {
-    logger.info(`request: ${req}`);
+    logger.info(`request: ${req.url}`);
     next();
 });
 
@@ -31,7 +31,7 @@ app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))
 app.use(parser.json())
 
-app.use(`${basePath}internal/selftest`, selftestRouter)
+app.use(`${basePath}/internal/selftest`, selftestRouter)
 
 // Endpoints to verify is app is ready/alive
 app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: Request, res: Response) => {

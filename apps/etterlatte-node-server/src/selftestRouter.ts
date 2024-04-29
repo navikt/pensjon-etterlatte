@@ -6,7 +6,7 @@ export const selftestRouter = express.Router()
 
 selftestRouter.get('/', express.json(), async (req, res) => {
     try {
-        logger.info('selftest')
+        logger.info('selftesqrqwwqt')
         const applicationName = config.app.basePath.includes("/barnepensjon/soknad") ? 'barnepensjon-ui' : 'omstillingsstoenad-ui'
         logger.info('applicationName: ', applicationName)
         const statuscode = await fetch(`${config.app.apiUrl}/internal/selftest`)
