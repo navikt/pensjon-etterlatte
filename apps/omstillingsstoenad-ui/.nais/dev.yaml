@@ -48,6 +48,8 @@ spec:
       level: idporten-loa-high
       locale: nb
       autoLogin: true
+      autoLoginIgnorePaths:
+        - /omstillingsstonad/soknad/internal/**
   env:
     - name: BASE_PATH
       value: /omstillingsstonad/soknad

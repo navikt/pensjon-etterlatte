@@ -48,6 +48,8 @@ spec:
       level: idporten-loa-high
       locale: nb
       autoLogin: true
+      autoLoginIgnorePaths:
+        - /barnepensjon/soknad/internal/**
   env:
     - name: BASE_PATH
       value: /barnepensjon/soknad
