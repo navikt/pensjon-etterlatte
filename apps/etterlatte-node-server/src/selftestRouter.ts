@@ -15,7 +15,6 @@ selftestRouter.get('/', express.json(), async (req, res) => {
                     logger.warn(`selvbetjening-api is down.`, err)
                     return 500
                 })
-        logger.info(`statuscode selvbetjening-api: ${statuscode}`)
 
         const result: IPingResult = {
             serviceName: 'selvbetjening-api',

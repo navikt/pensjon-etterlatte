@@ -15,11 +15,6 @@ const buildPath = path.resolve(__dirname, '../build')
 
 const app = express()
 
-app.use((req, res, next) => {
-    logger.info(`request: ${req.url}`);
-    next();
-});
-
 app.use(
     rTracer.expressMiddleware({
         useHeader: true,
