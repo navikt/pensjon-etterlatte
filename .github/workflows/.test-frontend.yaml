@@ -17,28 +17,30 @@ jobs:
           node-version: '20.x'
 
       # Install and build
-      - name: Install
+      - name: Install & build webapp
         working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-      - name: Build
-        working-directory: apps/${{ github.workflow }}
-        run: yarn build
+
+      - name: Install & build bff
+        working-directory: apps/etterlatte-node-server
+        run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
-      - name: Run unit tests
+      - name: Run unit tests client
         working-directory: apps/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-#      - name: Start application
-#        working-directory: apps/${{ github.workflow }}
-#        run: yarn start & npx wait-on http://localhost:3000
-      - name: Run e2e tests (Cypress)
-        if: github.workflow != 'etterlatte-node-server'
+      - name: Run unit tests BFF
+        working-directory: apps/etterlatte-node-server
+        run: CI=true yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: Run e2e tests (Cypress) client
         uses: cypress-io/github-action@v6
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}

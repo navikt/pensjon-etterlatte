@@ -38,10 +38,6 @@ jobs:
       contents: read
       id-token: write
 
-  test:
-    uses: ./.github/workflows/.test-frontend.yaml
-    secrets: inherit
-
   deploy:
     needs: build
     if: github.event_name != 'pull_request'

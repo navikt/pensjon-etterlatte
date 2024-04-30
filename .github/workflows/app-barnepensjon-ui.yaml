@@ -33,7 +33,7 @@ on:
       - '!apps/etterlatte-node-server/README.md'
 
 jobs:
-  build:
+  test_and_build:
     uses: ./.github/workflows/.build-frontend.yaml
     with:
       dockerfile: apps/etterlatte-node-server/Dockerfile
@@ -42,16 +42,12 @@ jobs:
       contents: read
       id-token: write
 
-  test:
-    uses: ./.github/workflows/.test-frontend.yaml
-    secrets: inherit
-
   deploy:
-    needs: build
+    needs: test_and_build
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/.deploy.yaml
     with:
-      image: ${{ needs.build.outputs.image }}
+      image: ${{ needs.test_and_build.outputs.image }}
     secrets: inherit
     permissions:
       contents: read
