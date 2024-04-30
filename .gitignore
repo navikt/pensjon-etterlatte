@@ -10,7 +10,6 @@ buildServer
 out/
 node_modules/
 yarn-error.log
-/apps/journalfoer-soeknad/pdf.pdf
 
 **/cypress/videos/
 **/cypress/screenshots/

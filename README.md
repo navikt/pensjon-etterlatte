@@ -16,17 +16,12 @@ Felles node backend for søknadsdialogene (omstillingsstønad og barnepensjon).
 [innsendt-soeknad](apps/innsendt-soeknad) \
 Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
 
-[journalfoer-soeknad](apps/journalfoer-soeknad) \
-Sikrer korrekt Journalføring av innsendt søknad.
-
 [omstillingsstoenad-ui](apps/omstillingsstoenad-ui) \
 Brukergrensesnittet for "Søknad om omstillingsstønad".
 
 [selvbetjening-api](apps/selvbetjening-api) \
 API som tilgjengeliggjør data for frontend å kommunisere med diverse apper. 
 
-[sjekk-adressebeskyttelse](apps/sjekk-adressebeskyttelse) \
-Går igjennom alle fødselsnummer i søknaden og sjekker om noen av de har adressebeskyttelse.
 
 # Flyt
 
@@ -34,32 +29,37 @@ Går igjennom alle fødselsnummer i søknaden og sjekker om noen av de har adres
 ```mermaid
 flowchart LR
 
-classDef app fill:#88AACC,color:#000,stroke:#335577
+classDef app fill:#ffeccc,color:#000,stroke:#c77300
+classDef river fill:#88AACC,color:#000,stroke:#335577
 classDef db fill:#ccc,color:#000,stroke:#777
 classDef text fill:none,color:#ddd
 
-barnepensjon-ui:::app --> selvbetjening-api
-omstillingsstonad-ui:::app --> selvbetjening-api
+barnepensjon-ui --> selvbetjening-api
+omstillingsstonad-ui --> selvbetjening-api
 
-subgraph frontend["Soeknad frontend"]
-    barnepensjon-ui
-    omstillingsstonad-ui
-end
-
-selvbetjening-api:::app --> innsendt-soeknad
-innsendt-soeknad:::app <--> innsendt-soeknad-v2[(soeknad\ndatabase)]:::db
-innsendt-soeknad -.-> sjekk-adressebeskyttelse
-sjekk-adressebeskyttelse:::app -.-> journalfoer-soeknad
-journalfoer-soeknad --> ey-pdfgen:::app
-journalfoer-soeknad:::app --> dokarkiv
-journalfoer-soeknad -. dokarkivResponse .-> innsendt-soeknad
+innsendt-soeknad <-.-> etterlatte-gyldig-soeknad
+etterlatte-gyldig-soeknad --> etterlatte-behandling
 
 selvbetjening-api --> pdl
 selvbetjening-api --> kodeverk
-sjekk-adressebeskyttelse --> pdl
+
+selvbetjening-api --> innsendt-soeknad
+innsendt-soeknad <--> innsendt-soeknad-v2[(soeknad\ndatabase)]
+
+subgraph frontend["Søknadsdialog"]
+    barnepensjon-ui:::app
+    omstillingsstonad-ui:::app
+    selvbetjening-api:::app
+    innsendt-soeknad:::app
+    innsendt-soeknad-v2:::db
+end
+
+subgraph gjenny["Gjenny"]
+    etterlatte-gyldig-soeknad:::river
+    etterlatte-behandling:::app
+end
 
 subgraph ekstern["NAV felles"]
-    dokarkiv
     kodeverk
     pdl
 end

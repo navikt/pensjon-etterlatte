@@ -6,9 +6,7 @@ plugins {
 
 include(
     "apps:selvbetjening-api",
-    "apps:journalfoer-soeknad",
     "apps:innsendt-soeknad",
-    "apps:sjekk-adressebeskyttelse",
     "libs:utils",
     "libs:pdl",
     "libs:common-test",
