@@ -92,7 +92,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Install & build webapp
         working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile && yarn build
+        run: yarn install --frozen-lockfile && yarn build --outDir dist
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
