@@ -162,7 +162,7 @@ updates:
       day: "sunday"
 
   - package-ecosystem: "docker"
-    directory: "/docker/frontend.Dockerfile"
+    directory: "/apps/etterlatte-node-server/Dockerfile"
     schedule:
       interval: "monthly"
       day: "sunday"

@@ -16,17 +16,23 @@ on:
       - main
     paths:
       - apps/omstillingsstoenad-ui/**
+      - apps/etterlatte-node-server/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
   pull_request:
     branches:
       - main
     paths:
       - apps/omstillingsstoenad-ui/**
+      - apps/etterlatte-node-server/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
 
 jobs:
   build:
     uses: ./.github/workflows/.build-frontend.yaml
     with:
-      dockerfile: docker/frontend.Dockerfile
+      dockerfile: apps/etterlatte-node-server/Dockerfile
     secrets: inherit
     permissions:
       contents: read

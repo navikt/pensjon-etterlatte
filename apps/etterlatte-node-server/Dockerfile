@@ -11,3 +11,4 @@ ENV NODE_ENV="production"
 EXPOSE 8080
 
 CMD ["./server/server.js"]
+#flytte denne til der backend er?
