@@ -49,7 +49,7 @@ spec:
       locale: nb
       autoLogin: true
       autoLoginIgnorePaths:
-        - /omstillingsstonad/soknad/selftest
+        - /omstillingsstonad/soknad/internal/**
   env:
     - name: BASE_PATH
       value: /omstillingsstonad/soknad
