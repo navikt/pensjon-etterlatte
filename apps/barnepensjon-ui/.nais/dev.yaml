@@ -49,7 +49,7 @@ spec:
       locale: nb
       autoLogin: true
       autoLoginIgnorePaths:
-        - /barnepensjon/soknad/selftest
+        - /barnepensjon/soknad/internal/**
   env:
     - name: BASE_PATH
       value: /barnepensjon/soknad

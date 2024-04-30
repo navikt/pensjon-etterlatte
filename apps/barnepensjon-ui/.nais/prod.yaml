@@ -14,6 +14,7 @@ spec:
     cpuThresholdPercentage: 90
   ingresses:
     - https://www.nav.no/barnepensjon/soknad
+    - https://etterlatte-barnepensjon.intern.nav.no/barnepensjon/soknad
   liveness:
     path: /barnepensjon/soknad/isAlive
     initialDelay: 10
@@ -49,7 +50,7 @@ spec:
       locale: nb
       autoLogin: true
       autoLoginIgnorePaths:
-        - /barnepensjon/soknad/selftest
+        - /barnepensjon/soknad/internal/**
   env:
     - name: BASE_PATH
       value: /barnepensjon/soknad
