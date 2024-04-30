@@ -21,6 +21,7 @@ app.use(
         headerName: 'x_correlation_id',
     })
 )
+logger.info('check new image updated')
 
 app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))
