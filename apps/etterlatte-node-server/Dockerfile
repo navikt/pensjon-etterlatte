@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY apps/etterlatte-node-server/dist ./server
 COPY apps/etterlatte-node-server/node_modules ./node_modules
-COPY apps/${APP_NAME} ./build
+COPY apps/$APP_NAME ./build
 
 ENV NODE_ENV="production"
 EXPOSE 8080
