@@ -118,7 +118,7 @@ jobs:
           build_args: |
            app_name=${{ github.workflow }}
           dockerfile: apps/etterlatte-node-server/Dockerfile
-          docker_context: apps
+          docker_context: apps/
           image_suffix: ${{ github.workflow }}
           tag: ${{ env.GITHUB_REF_SLUG }}
       - name: Print docker tag
