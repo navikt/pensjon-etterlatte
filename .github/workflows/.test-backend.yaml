@@ -16,6 +16,10 @@ jobs:
           distribution: temurin
           java-version: 21
           cache: gradle
+      - name: Validate licenses
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew checkLicense
       - name: Gradle test and build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

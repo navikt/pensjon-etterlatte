@@ -22,6 +22,10 @@ jobs:
           cache: gradle
 
       # Build
+      - name: Validate licenses
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew checkLicense
       - name: Run Gradle Check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
