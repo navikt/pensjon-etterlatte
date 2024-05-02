@@ -1,9 +1,10 @@
-FROM gcr.io/distroless/nodejs20-debian12
+FROM node:bookworm-slim
 
-WORKDIR /usr/src/app/etterlatte-node-server
+WORKDIR /app
 
-COPY dist ./server
-COPY node_modules ./node_modules
+COPY apps/etterlatte-node-server/dist ./server
+COPY apps/etterlatte-node-server/node_modules ./node_modules
+COPY apps/$APP_NAME ./build
 
 USER nonroot
 ENV NODE_ENV="production"
@@ -11,4 +12,3 @@ ENV NODE_ENV="production"
 EXPOSE 8080
 
 CMD ["./server/server.js"]
-#flytte denne til der backend er?

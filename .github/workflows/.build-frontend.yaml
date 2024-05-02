@@ -111,12 +111,14 @@ jobs:
       - name: Build and publish docker image
         uses: nais/docker-build-push@v0
         id: docker-build-push
+        env:
+          APP_NAME: ${{ github.workflow }}
         with:
           team: etterlatte
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
           dockerfile: apps/etterlatte-node-server/Dockerfile
-          docker_context: apps/${{ github.workflow }}/
+          docker_context: apps
           image_suffix: ${{ github.workflow }}
           tag: ${{ env.GITHUB_REF_SLUG }}
       - name: Print docker tag
