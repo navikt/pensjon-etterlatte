@@ -115,8 +115,7 @@ jobs:
           team: etterlatte
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          build_args:
-            APP_NAME=${{ github.workflow }}
+          build_args: APP_NAME=${{ github.workflow }}
           dockerfile: apps/etterlatte-node-server/Dockerfile
           docker_context: apps
           image_suffix: ${{ github.workflow }}
