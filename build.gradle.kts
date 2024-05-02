@@ -7,4 +7,5 @@ plugins {
 
 licenseReport {
     renderers = arrayOf(JsonReportRenderer(), InventoryReportRenderer())
+    allowedLicensesFile = File("$projectDir/buildSrc/akseptable-lisenser.json")
 }
