@@ -1,6 +1,6 @@
 FROM gcr.io/distroless/nodejs20-debian12
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/etterlatte-node-server
 
 COPY dist ./server
 COPY node_modules ./node_modules
