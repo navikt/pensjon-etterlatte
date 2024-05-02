@@ -2,7 +2,8 @@ FROM node:bookworm-slim
 
 WORKDIR /app
 
-ENV APP_NAME=$APP_NAME
+ARG app_name
+ENV APP_NAME=${app_name}
 
 COPY apps/etterlatte-node-server/dist ./server
 COPY apps/etterlatte-node-server/node_modules ./node_modules
