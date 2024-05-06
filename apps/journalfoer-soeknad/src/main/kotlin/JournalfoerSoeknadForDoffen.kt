@@ -7,6 +7,7 @@ import no.nav.etterlatte.dokarkiv.JournalpostHelper
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.pdl.Gradering
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.etterlatte.pdf.DokumentService
 import no.nav.etterlatte.pdf.PdfGeneratorException
 import no.nav.helse.rapids_rivers.JsonMessage
@@ -27,7 +28,7 @@ internal class JournalfoerSoeknadForDoffen(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", "soeknad_innsendt") }
+            validate { it.demandValue("@event_name", EventName.SOEKNAD_INNSENDT) }
             validate { it.requireKey("@skjema_info") }
             validate { it.requireKey("@template") }
             validate { it.requireKey("@adressebeskyttelse") }

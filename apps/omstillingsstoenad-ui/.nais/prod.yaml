@@ -14,6 +14,7 @@ spec:
     cpuThresholdPercentage: 90
   ingresses:
     - https://www.nav.no/omstillingsstonad/soknad
+    - https://etterlatte-omstillingsstonad.intern.nav.no/omstillingsstonad/soknad
   liveness:
     path: /omstillingsstonad/soknad/isAlive
     initialDelay: 10

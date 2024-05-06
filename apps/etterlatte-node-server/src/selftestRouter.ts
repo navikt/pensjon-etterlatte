@@ -31,7 +31,8 @@ selftestRouter.get('/', express.json(), async (req, res) => {
         }
         res.json(selfTestReport)
     } catch (err) {
-        res.status(500).send(err)
+        logger.error("Got error on selftest mot selvbetjening-api", err)
+        res.sendStatus(500)
     }
 })
 

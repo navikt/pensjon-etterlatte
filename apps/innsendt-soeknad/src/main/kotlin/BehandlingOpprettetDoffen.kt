@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -19,7 +20,7 @@ internal class BehandlingOpprettetDoffen(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", TRENGER_BEHANDLING_EVENT) }
+            validate { it.demandValue("@event_name", EventName.TRENGER_BEHANDLING) }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("sakId") }
             validate { it.requireKey("behandlingId") }

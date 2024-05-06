@@ -19,9 +19,14 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-          cache: gradle
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
       # Build
+      - name: Validate licenses
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew checkLicense
       - name: Run Gradle Check
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

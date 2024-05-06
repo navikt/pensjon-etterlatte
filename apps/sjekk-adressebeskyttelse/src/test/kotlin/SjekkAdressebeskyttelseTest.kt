@@ -31,6 +31,7 @@ import no.nav.etterlatte.libs.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.libs.pdl.AdressebeskyttelseResponse
 import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -257,7 +258,7 @@ internal class SjekkAdressebeskyttelseTest {
         val message = mapOf(
             "@lagret_soeknad_id" to "404",
             "@fnr_soeker" to "07106123912",
-            "@event_name" to "soeknad_innsendt",
+            "@event_name" to EventName.SOEKNAD_INNSENDT,
             "@skjema_info" to omstillingsSoeknad()
         ).toJson()
         return message
