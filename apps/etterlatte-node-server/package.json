@@ -28,6 +28,7 @@
     "@types/node-fetch": "^2.5.12",
     "@types/node-jose": "^1.1.13",
     "@types/uuid": "^9.0.8",
+    "license-checker-rseidelsohn": "^4.3.0",
     "prettier": "^3.2.5",
     "ts-node-dev": "^2.0.0"
   },
@@ -38,7 +39,8 @@
     "start:mock": "ts-node-dev --project ./tsconfig.json src/mock/mock-server.ts",
     "build": "NODE_ENV=production tsc --project ./tsconfig.json",
     "build-dev": "NODE_ENV=dev tsc --project ./tsconfig.json",
-    "test": "NODE_ENV=production tsc --project ./tsconfig.json"
+    "test": "NODE_ENV=production tsc --project ./tsconfig.json && yarn lisenssjekk",
+    "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC0-1.0;WTFPL\" --excludePackages etterlatte-node-server@1.0.0 --summary"
   },
   "prettier": {
     "trailingComma": "es5",

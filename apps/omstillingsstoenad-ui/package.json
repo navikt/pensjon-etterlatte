@@ -50,6 +50,7 @@
     "eslint-plugin-jest": "^28.3.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.1",
+    "license-checker-rseidelsohn": "^4.3.0",
     "prettier": "3.2.5",
     "pretty-quick": "4.0.0",
     "react-scripts": "5.0.1"
@@ -59,13 +60,14 @@
     "build:dev": "env REACT_APP_ENVIRONMENT=development react-scripts build",
     "build:prod": "env REACT_APP_ENVIRONMENT=production react-scripts build",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!@ds-datepicker)/'",
+    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!@ds-datepicker)/' && yarn lisenssjekk",
     "test:coverage": "react-scripts test --coverage .",
     "cy:test": "TZ=Europe/Oslo cypress run",
     "cy:open": "TZ=Europe/Oslo cypress open",
     "eject": "react-scripts eject",
     "lint": "yarn lint:jsts && yarn pretty-quick",
-    "lint:jsts": "npx eslint ."
+    "lint:jsts": "npx eslint .",
+    "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages cra@0.1.0 --summary"
   },
   "prettier": {
     "trailingComma": "es5",
