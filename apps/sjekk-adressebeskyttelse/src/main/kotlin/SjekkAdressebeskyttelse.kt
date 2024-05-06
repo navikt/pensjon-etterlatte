@@ -9,9 +9,9 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.common.person.FoedselsnummerValidator
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -27,7 +27,7 @@ internal class SjekkAdressebeskyttelse(
 
     init {
         River(rapidsConnection).apply {
-            validate { it.rejectValue("@event_name", "trenger_behandling") }
+            validate { it.rejectValue("@event_name", EventName.TRENGER_BEHANDLING) }
             validate { it.requireKey("@fnr_soeker") }
             validate { it.requireKey("@lagret_soeknad_id") }
             validate { it.requireKey("@skjema_info") }
