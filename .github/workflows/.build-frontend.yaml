@@ -58,7 +58,7 @@ jobs:
         with:
           start: yarn start
           wait-on: 'http://localhost:3000'
-          working-directory: apps/etterlatte-node-server${{ github.workflow }}
+          working-directory: apps/etterlatte-node-server/${{ github.workflow }}
 
   build-and-publish:
     if: github.event_name != 'pull_request'
