@@ -91,14 +91,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Install & build webapp
-        working-directory: apps/etterlatte-node-server${{ github.workflow }}
+        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
         run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests client
-        working-directory: apps/etterlatte-node-server${{ github.workflow }}
+        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
