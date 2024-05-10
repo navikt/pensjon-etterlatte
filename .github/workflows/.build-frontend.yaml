@@ -35,14 +35,14 @@ jobs:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - name: Install & build webapp
-        working-directory: apps/${{ github.workflow }}
+        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
         run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests client
-        working-directory: apps/${{ github.workflow }}
+        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
         with:
           start: yarn start
           wait-on: 'http://localhost:3000'
-          working-directory: apps/${{ github.workflow }}
+          working-directory: apps/etterlatte-node-server${{ github.workflow }}
 
   build-and-publish:
     if: github.event_name != 'pull_request'
@@ -91,14 +91,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Install & build webapp
-        working-directory: apps/${{ github.workflow }}
+        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
         run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests client
-        working-directory: apps/${{ github.workflow }}
+        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
