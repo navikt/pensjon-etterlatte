@@ -51,11 +51,11 @@ spec:
       autoLoginIgnorePaths:
         - /barnepensjon/soknad/internal/**
   env:
-    - name: base_path
+    - name: BASE_PATH
       value: /barnepensjon/soknad
-    - name: api_url
+    - name: API_URL
       value: http://selvbetjening-api
-    - name: audience
+    - name: AUDIENCE
       value: dev-gcp:etterlatte:selvbetjening-api
   accessPolicy:
     outbound:
