@@ -43,7 +43,7 @@ jobs:
   deploy:
     needs: test_and_build
     if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/.deploy.yaml
+    uses: ./.github/workflows/.deploy-frontend.yaml
     with:
       image: ${{ needs.test_and_build.outputs.image }}
     secrets: inherit

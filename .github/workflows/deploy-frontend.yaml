@@ -1,0 +1,37 @@
+name: .deploy.yaml
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: 'Lenke til docker image'
+        required: true
+        type: string
+
+jobs:
+  deploy-to-dev-gcp:
+    name: dev-gcp
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: apps/etterlatte-node-server/${{ github.workflow }}/.nais/dev.yaml
+          VAR: image=${{ inputs.image }}
+
+  deploy-to-prod-gcp:
+    name: prod-gcp
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
+    needs: deploy-to-dev-gcp
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: apps/etterlatte-node-server/${{ github.workflow }}/.nais/prod.yaml
+          VAR: image=${{ inputs.image }}
