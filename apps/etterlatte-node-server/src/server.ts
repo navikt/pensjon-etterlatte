@@ -25,7 +25,7 @@ app.use(
 logger.info(`check new image updated basePath: ${basePath} buildPath ${buildPath} apiurl ${config.app.apiUrl}`)
 logger.info(`buildfolder exists ${fs.existsSync(buildPath)}`)
 app.use((req, res, next) => {
-    logger.info(`request: ${req}`);
+    logger.info(`request, hostname ${req.hostname} path. ${req.path}`);
     next();
 });
 app.set('trust proxy', 1)
