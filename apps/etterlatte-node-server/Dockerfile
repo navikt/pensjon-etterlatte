@@ -14,7 +14,7 @@ ENV AUDIENCE=${audience}
 
 COPY dist ./server
 COPY node_modules ./node_modules
-COPY $APP_NAME/build ./build
+COPY barnepensjon-ui/build ./build
 
 ENV NODE_ENV="production"
 EXPOSE 8080
