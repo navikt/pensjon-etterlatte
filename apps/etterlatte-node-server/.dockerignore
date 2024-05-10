@@ -1,0 +1,9 @@
+src
+
+barnepensjon-ui/src
+barnepensjon-ui/cypress
+barnepensjon-ui/node_modules
+
+omstillingsstoenad-ui/src
+omstillingsstoenad-ui/cypress
+omstillingsstoenad-ui/node_modules

@@ -32,7 +32,7 @@ updates:
   # =====================
 
   - package-ecosystem: "npm"
-    directory: "/apps/barnepensjon-ui"
+    directory: "/apps/etterlatte-node-server/barnepensjon-ui"
     schedule:
       interval: "monthly"
       day: "sunday"
@@ -82,7 +82,7 @@ updates:
   # ===========================
 
   - package-ecosystem: "npm"
-    directory: "/apps/omstillingsstoenad-ui"
+    directory: "/apps/etterlatte-node-server/omstillingsstoenad-ui"
     schedule:
       interval: "monthly"
       day: "sunday"
