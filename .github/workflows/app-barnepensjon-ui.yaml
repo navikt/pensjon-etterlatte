@@ -22,6 +22,7 @@ on:
       - apps/barnepensjon-ui/**
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/omstillingsstoenad-ui/**'
       - '!apps/etterlatte-node-server/README.md'
   pull_request:
     branches:
@@ -30,6 +31,7 @@ on:
       - apps/barnepensjon-ui/**
       - apps/etterlatte-node-server/**
       - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/omstillingsstoenad-ui/**'
       - '!apps/etterlatte-node-server/README.md'
 
 jobs:
