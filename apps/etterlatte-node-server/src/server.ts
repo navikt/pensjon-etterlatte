@@ -11,7 +11,7 @@ import rTracer from 'cls-rtracer'
 import {selftestRouter} from "./selftestRouter";
 
 const basePath = config.app.basePath
-const buildPath = path.resolve(__dirname, './build')
+const buildPath = path.resolve(__dirname, '../build')
 
 const app = express()
 
