@@ -2,13 +2,13 @@ FROM node:bookworm-slim
 
 WORKDIR /app
 
-ARG base_path
+ARG app_name
 
 ENV APP_NAME=${app_name}
 
 COPY dist ./server
 COPY node_modules ./node_modules
-COPY barnepensjon-ui/build ./build
+COPY .$APP_NAME/build ./build
 
 ENV NODE_ENV="production"
 EXPOSE 8080
