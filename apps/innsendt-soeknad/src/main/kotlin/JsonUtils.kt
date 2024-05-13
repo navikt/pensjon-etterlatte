@@ -12,6 +12,4 @@ val mapper: ObjectMapper = jacksonObjectMapper()
     .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
     .registerModule(JavaTimeModule())
 
-val TRENGER_BEHANDLING_EVENT = "trenger_behandling"
-
 fun Any.toJson(): String = mapper.writeValueAsString(this)

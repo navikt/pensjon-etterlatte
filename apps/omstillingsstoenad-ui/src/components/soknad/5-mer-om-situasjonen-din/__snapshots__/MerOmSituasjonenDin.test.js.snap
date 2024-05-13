@@ -4,7 +4,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-eTNRI cTBPfi"
+      class="sc-fbJSV ixxSkQ"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-beySPh hBKmDL"
+      class="sc-beqWNU hTYxft"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -103,7 +103,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-fHejqy bjvjmI"
+      class="sc-fGFvMH kMjLiU"
     >
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
@@ -111,7 +111,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
-        class="sc-hABBmJ kptMfY"
+        class="sc-hAtFlw bImHlT"
         id="jobbStatus"
       >
         <fieldset
@@ -465,10 +465,10 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         </fieldset>
       </div>
       <fieldset
-        class="sc-beySPh hBKmDL"
+        class="sc-beqWNU hTYxft"
       >
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -477,7 +477,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </h1>
         </div>
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <div>
             <div
@@ -506,7 +506,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <div
             id="arbeidsforhold[0].ansettelsesforhold"
@@ -618,13 +618,13 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <fieldset
-          class="sc-beySPh hBKmDL"
+          class="sc-beqWNU hTYxft"
         >
           <div
-            class="sc-eTNRI cTBPfi"
+            class="sc-fbJSV ixxSkQ"
           >
             <div
-              class="sc-eTNRI cTBPfi"
+              class="sc-fbJSV ixxSkQ"
             >
               <h1
                 class="navds-heading navds-heading--xsmall"
@@ -638,7 +638,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
               </p>
             </div>
             <div
-              class="sc-irLvIq IaKxk"
+              class="sc-irTrJD fakLkL"
             >
               <div
                 class="navds-form-field navds-form-field--medium"
@@ -664,7 +664,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
                 />
               </div>
               <div
-                class="sc-ktwOfi huDixo"
+                class="sc-ktEKgv bDsUzF"
                 id="arbeidsforhold[0].arbeidsmengde.type"
               >
                 <div
@@ -728,7 +728,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
               </div>
             </div>
             <div
-              class="sc-eTNRI cTBPfi"
+              class="sc-fbJSV ixxSkQ"
             >
               <div
                 id="arbeidsforhold[0].midlertidig.svar"
@@ -813,7 +813,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </div>
         </fieldset>
         <fieldset
-          class="sc-beySPh hBKmDL"
+          class="sc-beqWNU hTYxft"
         >
           <div
             id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
@@ -945,10 +945,10 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         </button>
       </fieldset>
       <fieldset
-        class="sc-beySPh hBKmDL"
+        class="sc-beqWNU hTYxft"
       >
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -957,7 +957,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </h1>
         </div>
         <fieldset
-          class="sc-beySPh hBKmDL"
+          class="sc-beqWNU hTYxft"
         >
           <div>
             <div
@@ -992,7 +992,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
             </div>
           </div>
           <div
-            class="sc-eTNRI cTBPfi"
+            class="sc-fbJSV ixxSkQ"
           >
             <div
               class="navds-form-field navds-form-field--medium"
@@ -1027,7 +1027,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </div>
         </fieldset>
         <fieldset
-          class="sc-beySPh hBKmDL"
+          class="sc-beqWNU hTYxft"
         >
           <label
             class="navds-label"
@@ -1040,10 +1040,10 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
             merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse
           </p>
           <div
-            class="sc-eTNRI cTBPfi"
+            class="sc-fbJSV ixxSkQ"
           >
             <div
-              class="sc-irLvIq IaKxk"
+              class="sc-irTrJD fakLkL"
             >
               <div
                 class="navds-form-field navds-form-field--medium"
@@ -1069,7 +1069,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
                 />
               </div>
               <div
-                class="sc-ktwOfi huDixo"
+                class="sc-ktEKgv bDsUzF"
                 id="selvstendig.[0].arbeidsmengde.type"
               >
                 <div
@@ -1135,7 +1135,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </div>
         </fieldset>
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <div
             id="selvstendig.[0].forventerEndretArbeidssituasjon.svar"
@@ -1218,7 +1218,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </div>
         </div>
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <div
             class="navds-read-more navds-read-more--medium"
@@ -1272,10 +1272,10 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
       </fieldset>
     </div>
     <fieldset
-      class="sc-beySPh hBKmDL"
+      class="sc-beqWNU hTYxft"
     >
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-fbJSV ixxSkQ"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -1284,7 +1284,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hABBmJ kptMfY"
+        class="sc-hAtFlw bImHlT"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -1675,10 +1675,10 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySPh hBKmDL"
+      class="sc-beqWNU hTYxft"
     >
       <div
-        class="sc-guDLey efPyOT undefined"
+        class="sc-gueXAH cTNYLi undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1703,7 +1703,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-guDLey sc-dmyCSP efPyOT gPrijY"
+      class="sc-gueXAH sc-dmqGRC cTNYLi iYfIhT"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1773,7 +1773,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsEeTM buOcVS"
+          class="sc-jsMaUZ dKSyDF"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1801,7 +1801,7 @@ exports[`Mer om situasjonen din Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsEeTM buOcVS"
+          class="sc-jsMaUZ dKSyDF"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -1826,7 +1826,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-eTNRI cTBPfi"
+      class="sc-fbJSV ixxSkQ"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -1835,7 +1835,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-beySPh hBKmDL"
+      class="sc-beqWNU hTYxft"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -1925,7 +1925,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-fHejqy bjvjmI"
+      class="sc-fGFvMH kMjLiU"
     >
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
@@ -1933,7 +1933,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
-        class="sc-hABBmJ kptMfY"
+        class="sc-hAtFlw bImHlT"
         id="jobbStatus"
       >
         <fieldset
@@ -2286,10 +2286,10 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
         </fieldset>
       </div>
       <fieldset
-        class="sc-beySPh hBKmDL"
+        class="sc-beqWNU hTYxft"
       >
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -2298,7 +2298,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
           </h1>
         </div>
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <div>
             <div
@@ -2327,7 +2327,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="sc-eTNRI cTBPfi"
+          class="sc-fbJSV ixxSkQ"
         >
           <div
             id="arbeidsforhold[0].ansettelsesforhold"
@@ -2439,13 +2439,13 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
           </div>
         </div>
         <fieldset
-          class="sc-beySPh hBKmDL"
+          class="sc-beqWNU hTYxft"
         >
           <div
-            class="sc-eTNRI cTBPfi"
+            class="sc-fbJSV ixxSkQ"
           >
             <div
-              class="sc-eTNRI cTBPfi"
+              class="sc-fbJSV ixxSkQ"
             >
               <h1
                 class="navds-heading navds-heading--xsmall"
@@ -2459,7 +2459,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
               </p>
             </div>
             <div
-              class="sc-irLvIq IaKxk"
+              class="sc-irTrJD fakLkL"
             >
               <div
                 class="navds-form-field navds-form-field--medium"
@@ -2485,7 +2485,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
                 />
               </div>
               <div
-                class="sc-ktwOfi huDixo"
+                class="sc-ktEKgv bDsUzF"
                 id="arbeidsforhold[0].arbeidsmengde.type"
               >
                 <div
@@ -2549,7 +2549,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
               </div>
             </div>
             <div
-              class="sc-eTNRI cTBPfi"
+              class="sc-fbJSV ixxSkQ"
             >
               <div
                 id="arbeidsforhold[0].midlertidig.svar"
@@ -2634,7 +2634,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
           </div>
         </fieldset>
         <fieldset
-          class="sc-beySPh hBKmDL"
+          class="sc-beqWNU hTYxft"
         >
           <div
             id="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
@@ -2767,10 +2767,10 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
       </fieldset>
     </div>
     <fieldset
-      class="sc-beySPh hBKmDL"
+      class="sc-beqWNU hTYxft"
     >
       <div
-        class="sc-eTNRI cTBPfi"
+        class="sc-fbJSV ixxSkQ"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -2779,7 +2779,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hABBmJ kptMfY"
+        class="sc-hAtFlw bImHlT"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -3170,10 +3170,10 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beySPh hBKmDL"
+      class="sc-beqWNU hTYxft"
     >
       <div
-        class="sc-guDLey efPyOT undefined"
+        class="sc-gueXAH cTNYLi undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -3198,7 +3198,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-guDLey sc-dmyCSP efPyOT gPrijY"
+      class="sc-gueXAH sc-dmqGRC cTNYLi iYfIhT"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -3268,7 +3268,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsEeTM buOcVS"
+          class="sc-jsMaUZ dKSyDF"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -3296,7 +3296,7 @@ exports[`Mer om situasjonen din Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsEeTM buOcVS"
+          class="sc-jsMaUZ dKSyDF"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

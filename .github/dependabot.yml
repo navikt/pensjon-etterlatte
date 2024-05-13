@@ -19,6 +19,7 @@ updates:
           - "io*"
           - "net*"
           - "no*"
+          - "org.flyway*"
           - "org.jetbrains*"
           - "org.junit*"
           - "org.postgres*"

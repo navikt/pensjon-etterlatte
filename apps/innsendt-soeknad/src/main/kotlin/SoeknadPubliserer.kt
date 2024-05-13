@@ -1,5 +1,6 @@
 package no.nav.etterlatte
 
+import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 import no.nav.helse.rapids_rivers.JsonMessage
@@ -16,7 +17,7 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
 
     fun publiser(soeknad: LagretSoeknad) {
         val message = JsonMessage.newMessage(mapOf(
-            "@event_name" to "soeknad_innsendt",
+            "@event_name" to EventName.SOEKNAD_INNSENDT,
             "@skjema_info" to mapper.readTree(soeknad.payload),
             "@lagret_soeknad_id" to soeknad.id,
             "@template" to "soeknad",
@@ -34,7 +35,7 @@ class SoeknadPubliserer(private val rapid: MessageContext, private val db: Soekn
         logger.info("Publiserer soeknad_journfoert for søknaden med id=${soeknad.id}, " +
                 "for å få opprettet en behandling på saken.")
         val message = JsonMessage.newMessage(mapOf(
-            "@event_name" to "trenger_behandling",
+            "@event_name" to EventName.TRENGER_BEHANDLING,
             "@skjema_info" to mapper.readTree(soeknad.payload),
             "@lagret_soeknad_id" to soeknad.id,
             "@template" to "soeknad",
