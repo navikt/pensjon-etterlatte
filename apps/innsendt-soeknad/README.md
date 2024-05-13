@@ -3,8 +3,8 @@
 ## Om tjenesten
 
 Appen **innsendt-soeknad** lagrer data tilknyttet søknader. Søknader lagres som kladd mens brukeren jobber med den.\
-Ved innsending av søknad blir den konvertert til vanlig søknad og videresendt
-til [sjekk-adressebeskyttelse](../sjekk-adressebeskyttelse) og [journalfoer-soeknad](../journalfoer-soeknad).
+Ved innsending av søknad blir den konvertert til vanlig søknad og videresendt 
+[etterlatte-gyldig-soeknad](https://github.com/navikt/pensjon-etterlatte-saksbehandling/tree/main/apps/etterlatte-gyldig-soeknad)
 
 
 
