@@ -1,4 +1,4 @@
-FROM node:bookworm-slim
+FROM gcr.io/distroless/nodejs20-debian12
 
 WORKDIR /app
 
@@ -10,6 +10,7 @@ COPY dist ./server
 COPY node_modules ./node_modules
 COPY $APP_NAME/build ./build
 
+USER nonroot
 ENV NODE_ENV="production"
 EXPOSE 8080
 
