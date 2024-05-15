@@ -110,7 +110,7 @@ jobs:
 
       - name: Move webapp build to BFF location
         working-directory: apps/
-        run: mv -f ${{ github.workflow }}/build etterlatte-node-server
+        run: mv -f ${{ github.workflow }}/build etterlatte-node-server/build
         shell: bash
 
       - name: Build and publish docker image
