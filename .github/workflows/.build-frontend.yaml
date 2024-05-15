@@ -84,7 +84,14 @@ jobs:
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
-
+      - name: Cache for webapp node modules
+        uses: actions/cache@v4
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: apps/${{ github.workflow }}/node_modules
+          key: ${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       # Install and build
       - name: Install & build bff
@@ -93,6 +100,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Install & build webapp
+        if: steps.yarn-cache.outputs.cache-hit != true
         working-directory: apps/${{ github.workflow }}
         run: yarn install --frozen-lockfile && yarn build --outDir webappDist
         env:
@@ -112,7 +120,7 @@ jobs:
 
       - name: Move webapp build to BFF location
         working-directory: apps/
-        run: mkdir -p etterlatte-node-server/webappDist && mv -f ${{ github.workflow }}/webappDist etterlatte-node-server/webappDist
+        run: mkdir -p etterlatte-node-server/webappDist && mv -f apps/${{ github.workflow }}/webappDist etterlatte-node-server/webappDist
         shell: bash
 
       - name: Build and publish docker image
