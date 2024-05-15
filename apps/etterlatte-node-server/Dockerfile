@@ -2,13 +2,9 @@ FROM gcr.io/distroless/nodejs20-debian12
 
 WORKDIR /app
 
-ARG app_name
-
-ENV APP_NAME=${app_name}
-
 COPY dist ./server
 COPY node_modules ./node_modules
-COPY $APP_NAME/build ./build
+COPY build ./build
 
 USER nonroot
 ENV NODE_ENV="production"
