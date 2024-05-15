@@ -20,7 +20,7 @@ jobs:
       - uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
-          RESOURCE: apps/etterlatte-node-server/${{ github.workflow }}/.nais/dev.yaml
+          RESOURCE: apps/${{ github.workflow }}/.nais/dev.yaml
           VAR: image=${{ inputs.image }}
 
   deploy-to-prod-gcp:
@@ -33,5 +33,5 @@ jobs:
       - uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: prod-gcp
-          RESOURCE: apps/etterlatte-node-server/${{ github.workflow }}/.nais/prod.yaml
+          RESOURCE: apps/${{ github.workflow }}/.nais/prod.yaml
           VAR: image=${{ inputs.image }}

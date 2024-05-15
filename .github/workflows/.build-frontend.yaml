@@ -35,14 +35,14 @@ jobs:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       - name: Install & build webapp
-        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
+        working-directory: apps/${{ github.workflow }}
         run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests client
-        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
+        working-directory: apps/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
         with:
           start: yarn start
           wait-on: 'http://localhost:3000'
-          working-directory: apps/etterlatte-node-server/${{ github.workflow }}
+          working-directory: apps/${{ github.workflow }}
 
   build-and-publish:
     if: github.event_name != 'pull_request'
@@ -91,14 +91,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Install & build webapp
-        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
+        working-directory: apps/${{ github.workflow }}
         run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
       # Run tests
       - name: Run unit tests client
-        working-directory: apps/etterlatte-node-server/${{ github.workflow }}
+        working-directory: apps/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
@@ -107,6 +107,11 @@ jobs:
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+
+      - name: Move webapp build to folder
+        working-directory: app/
+        run: mv apps/${{ github.workflow }}/build apps/etterlatte-node-server
+        shell: bash
 
       - name: Build and publish docker image
         uses: nais/docker-build-push@v0
