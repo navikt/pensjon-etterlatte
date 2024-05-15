@@ -36,7 +36,7 @@ jobs:
 
       - name: Install & build webapp
         working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile && yarn build
+        run: yarn install --frozen-lockfile && yarn build --outDir webappDist
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
@@ -92,7 +92,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Install & build webapp
         working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile && yarn build
+        run: yarn install --frozen-lockfile && yarn build --outDir webappDist
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
@@ -110,7 +110,7 @@ jobs:
 
       - name: Move webapp build to BFF location
         working-directory: apps/
-        run: mv -f ${{ github.workflow }}/build etterlatte-node-server/build
+        run: mv -f ${{ github.workflow }}/webappDist etterlatte-node-server/webappDist
         shell: bash
 
       - name: Build and publish docker image
