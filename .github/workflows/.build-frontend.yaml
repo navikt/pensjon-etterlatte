@@ -84,6 +84,8 @@ jobs:
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
+
+
       # Install and build
       - name: Install & build bff
         working-directory: apps/etterlatte-node-server
@@ -110,7 +112,7 @@ jobs:
 
       - name: Move webapp build to BFF location
         working-directory: apps/
-        run: mv -f ${{ github.workflow }}/webappDist etterlatte-node-server/webappDist
+        run: mkdir -p etterlatte-node-server/webappDist && mv -f ${{ github.workflow }}/webappDist etterlatte-node-server/webappDist
         shell: bash
 
       - name: Build and publish docker image
