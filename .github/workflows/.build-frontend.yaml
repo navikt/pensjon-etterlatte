@@ -108,9 +108,9 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - name: Move webapp build to folder
-        working-directory: app/
-        run: mv apps/${{ github.workflow }}/build apps/etterlatte-node-server
+      - name: Move webapp build to BFF location
+        working-directory: apps/
+        run: mv ${{ github.workflow }}/build etterlatte-node-server
         shell: bash
 
       - name: Build and publish docker image
