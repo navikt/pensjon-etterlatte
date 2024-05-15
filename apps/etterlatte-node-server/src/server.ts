@@ -9,7 +9,6 @@ import parser from 'body-parser'
 import session from './auth/session'
 import rTracer from 'cls-rtracer'
 import {selftestRouter} from "./selftestRouter";
-const fs = require("fs"); // Or `import fs from "fs";` with ESM
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -22,12 +21,7 @@ app.use(
         headerName: 'x_correlation_id',
     })
 )
-logger.info(`check new image updated basePath: ${basePath} buildPath ${buildPath} apiurl ${config.app.apiUrl}`)
-logger.info(`buildfolder exists ${fs.existsSync(buildPath)}`)
-app.use((req, res, next) => {
-    logger.info(`request, hostname ${req.hostname} path. ${req.path}`);
-    next();
-});
+
 app.set('trust proxy', 1)
 app.use(basePath, express.static(buildPath, { index: false }))
 app.use(parser.json())
