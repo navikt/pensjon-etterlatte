@@ -30,7 +30,7 @@ jobs:
       # Install and build
       - name: Install & build bff
         working-directory: apps/etterlatte-node-server
-        run: yarn install --frozen-lockfile && yarn build
+        run: yarn install --frozen-lockfile && yarn build --outDir dist
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
