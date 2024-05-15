@@ -36,7 +36,7 @@ jobs:
 
       - name: Install & build webapp
         working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile && yarn build --outDir webappDist
+        run: yarn install --frozen-lockfile && BUILD_PATH=webappDist && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
