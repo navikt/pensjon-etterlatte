@@ -86,7 +86,7 @@ jobs:
         id: yarn-cache-webapp # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: apps/${{ github.workflow }}/node_modules
-          key: 123
+          key: ${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
 
       # Install and build
       - name: Install & build bff
