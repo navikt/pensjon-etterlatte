@@ -81,17 +81,12 @@ jobs:
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
       - name: Cache npm modules webapp
         uses: actions/cache@v4
         id: yarn-cache-webapp # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: apps/${{ github.workflow }}/node_modules
-          key: ${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
+          key: 123
 
       # Install and build
       - name: Install & build bff
