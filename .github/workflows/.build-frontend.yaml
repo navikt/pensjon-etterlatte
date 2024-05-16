@@ -108,17 +108,6 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - name: verify build folders webapp local
-        working-directory: apps/
-        run: |
-          file ${{ github.workflow }}/build
-          ls -l ${{ github.workflow }}/build
-
-      - name: Move webapp build to BFF location
-        working-directory: apps/
-        run: mkdir -p etterlatte-node-server/build && mv -f ${{ github.workflow }}/build etterlatte-node-server/build
-        shell: bash
-
       - name: verify build folders webapp in bff
         working-directory: apps/
         run: |
@@ -126,6 +115,11 @@ jobs:
           ls -l etterlatte-node-server/dist
           ls -l etterlatte-node-server/build
           ls -l etterlatte-node-server
+
+      - name: Move webapp build to BFF location
+        working-directory: apps/
+        run: mv -f ${{ github.workflow }}/build etterlatte-node-server
+        shell: bash
 
       - name: Build and publish docker image
         uses: nais/docker-build-push@v0
