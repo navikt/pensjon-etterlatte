@@ -3,12 +3,12 @@ cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.2" }
 license = { id = 'com.github.jk1.dependency-license-report', version = '2.7' }
 
 [versions]
-token-version = "4.1.4"
-ktor-version = "2.3.10"
-jackson-version = "2.17.0"
+token-version = "4.1.7"
+ktor-version = "2.3.11"
+jackson-version = "2.17.1"
 jupiter-version = "5.10.2"
-testcontainers-version = "1.19.7"
-flyway-version = "10.12.0"
+testcontainers-version = "1.19.8"
+flyway-version = "10.13.0"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024041714471713358051.71746f05c18e"}
@@ -18,7 +18,7 @@ navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", 
 
 etterlatte-common = { module = "pensjon-etterlatte-libs:common", version = "2024.04.23-10.02.2af15a63eeb5"}
 
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.8.0"}
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.8.1"}
 
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version"}
 ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor-version"}
@@ -54,11 +54,11 @@ logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.13"}
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.6"}
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.4"}
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.12.5"}
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.13.0"}
 
-mockk = { module = "io.mockk:mockk", version = "1.13.10"}
+mockk = { module = "io.mockk:mockk", version = "1.13.11"}
 
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.8.1"}
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.9.0"}
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version"}
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version"}
