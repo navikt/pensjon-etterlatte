@@ -1,13 +1,13 @@
 FROM gcr.io/distroless/nodejs20-debian12
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY build ./server
+COPY dist ./server
 COPY node_modules ./node_modules
+COPY build ./build
 
 USER nonroot
 ENV NODE_ENV="production"
-
 EXPOSE 8080
 
 CMD ["./server/server.js"]

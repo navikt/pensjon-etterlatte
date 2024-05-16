@@ -15,33 +15,33 @@ on:
     branches:
       - main
     paths:
+      - apps/etterlatte-node-server/**
       - apps/omstillingsstoenad-ui/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
   pull_request:
     branches:
       - main
     paths:
+      - apps/etterlatte-node-server/**
       - apps/omstillingsstoenad-ui/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
 
 jobs:
-  build:
+  test_and_build:
     uses: ./.github/workflows/.build-frontend.yaml
-    with:
-      dockerfile: docker/frontend.Dockerfile
     secrets: inherit
     permissions:
       contents: read
       id-token: write
 
-  test:
-    uses: ./.github/workflows/.test-frontend.yaml
-    secrets: inherit
-
   deploy:
-    needs: build
+    needs: test_and_build
     if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/.deploy.yaml
+    uses: ./.github/workflows/.deploy-frontend.yaml
     with:
-      image: ${{ needs.build.outputs.image }}
+      image: ${{ needs.test_and_build.outputs.image }}
     secrets: inherit
     permissions:
       contents: read

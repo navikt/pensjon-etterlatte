@@ -2,11 +2,6 @@ name: .build-frontend.yaml
 
 on:
   workflow_call:
-    inputs:
-      dockerfile:
-        description: 'Sti til dockerfile'
-        required: true
-        type: string
     outputs:
       image:
         description: "Docker image url"
@@ -20,6 +15,51 @@ permissions:
   id-token: write
 
 jobs:
+  test-and-verify:
+    if: github.event_name == 'pull_request'
+    name: Test and verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      # Install and build
+      - name: Install & build bff
+        working-directory: apps/etterlatte-node-server
+        run: yarn install --frozen-lockfile && yarn build --outDir dist
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+
+      - name: Install & build webapp
+        working-directory: apps/${{ github.workflow }}
+        run: yarn install --frozen-lockfile && yarn build
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+
+      # Run tests
+      - name: Run unit tests client
+        working-directory: apps/${{ github.workflow }}
+        run: CI=true yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: Run unit tests BFF
+        working-directory: apps/etterlatte-node-server
+        run: CI=true yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: Run e2e tests (Cypress) client
+        uses: cypress-io/github-action@v6
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+        with:
+          start: yarn start
+          wait-on: 'http://localhost:3000'
+          working-directory: apps/${{ github.workflow }}
+
   build-and-publish:
     if: github.event_name != 'pull_request'
     name: Build & publish
@@ -34,43 +74,52 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
 
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
-      # Hash yarn.lock file to see if it has changed
-      - name: Create hash from yarn.lock
-        id: keys
-        run: |
-          echo "yarnlockhash=${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}" >> "$GITHUB_OUTPUT"
-
-      # Client cache
-      - name: Cache node modules (client)
-        id: yarn-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            apps/${{ github.workflow }}/node_modules
-            ~/.cache/Cypress
-          key: ${{ steps.keys.outputs.yarnlockhash }}
-
-      # Install and build client
-      - name: Install node modules
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        working-directory: apps/${{ github.workflow }}
+      # Install and build
+      - name: Install & build bff
+        working-directory: apps/etterlatte-node-server
+        run: yarn install --frozen-lockfile && yarn build --outDir dist
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn install --frozen-lockfile
-      - name: Build
+      - name: Install & build webapp
         working-directory: apps/${{ github.workflow }}
+        run: yarn install --frozen-lockfile && yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
-        run: yarn build
-      - name: Run tests
+
+      # Run tests
+      - name: Run unit tests client
         working-directory: apps/${{ github.workflow }}
         run: CI=true yarn test
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: Run unit tests BFF
+        working-directory: apps/etterlatte-node-server
+        run: CI=true yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+
+      - name: verify build folders webapp in bff
+        working-directory: apps/
+        run: |
+          file etterlatte-node-server/build
+          ls -l etterlatte-node-server/dist
+          ls -l etterlatte-node-server/build
+          ls -l etterlatte-node-server
+
+      - name: Move webapp build to BFF location
+        working-directory: apps/
+        run: rm -rf etterlatte-node-server/build && mv -f ${{ github.workflow }}/build etterlatte-node-server
+        shell: bash
 
       - name: Build and publish docker image
         uses: nais/docker-build-push@v0
@@ -79,8 +128,10 @@ jobs:
           team: etterlatte
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          dockerfile: ${{ inputs.dockerfile }}
-          docker_context: apps/${{ github.workflow }}/
+          build_args: |
+           app_name=${{ github.workflow }}
+          dockerfile: apps/etterlatte-node-server/Dockerfile
+          docker_context: apps/etterlatte-node-server
           image_suffix: ${{ github.workflow }}
           tag: ${{ env.GITHUB_REF_SLUG }}
       - name: Print docker tag
