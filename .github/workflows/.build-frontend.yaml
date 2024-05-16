@@ -29,6 +29,13 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: apps/${{ github.workflow }}/yarn.lock
 
+      - name: Cache npm modules webapp
+        uses: actions/cache@v4
+        id: yarn-cache-webapp # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: apps/${{ github.workflow }}/node_modules
+          key: ${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
+
       # Install and build
       - name: Install & build bff
         working-directory: apps/etterlatte-node-server
@@ -36,9 +43,21 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - name: Install & build webapp
+      # Install and build
+      - name: Install & build bff
+        working-directory: apps/etterlatte-node-server
+        run: yarn install --frozen-lockfile && yarn build --outDir dist
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: Install node modules webapp
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         working-directory: apps/${{ github.workflow }}
-        run: yarn install --frozen-lockfile && yarn build
+        run: yarn install --frozen-lockfile
+        env:
+          NPM_TOKEN: ${{ secrets.READER_TOKEN }}
+      - name: build webapp
+        working-directory: apps/${{ github.workflow }}
+        run: yarn build
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
 
