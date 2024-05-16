@@ -123,7 +123,9 @@ jobs:
         working-directory: apps/
         run: |
           file etterlatte-node-server/build
+          ls -l etterlatte-node-server/dist
           ls -l etterlatte-node-server/build
+          ls -l etterlatte-node-server
 
       - name: Build and publish docker image
         uses: nais/docker-build-push@v0
