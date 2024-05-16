@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY dist ./server
 COPY node_modules ./node_modules
-COPY webappDist ./build
+COPY build ./build
 
 USER nonroot
 ENV NODE_ENV="production"
