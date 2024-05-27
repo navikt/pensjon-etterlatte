@@ -75,6 +75,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.READER_TOKEN }}
         with:
+          install: false
           start: yarn start
           wait-on: 'http://localhost:3000'
           working-directory: apps/${{ github.workflow }}
