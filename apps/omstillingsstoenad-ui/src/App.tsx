@@ -69,7 +69,9 @@ const App = () => {
 
             <LoaderOverlay visible={lasterSoeknad} label={'Henter søknadsinformasjon ...'} />
             {!lasterSoeknad && <FortsettSoeknadModal />}
-
+            <Alert variant="warning">
+                Vi oppgraderer nå systemet og det vil forekomme nedetid.
+            </Alert>
             <Page>
                 <SoeknadWrapper role="main" width="xl">
                     <Routes>
