@@ -1,4 +1,4 @@
-import { Navigate, Outlet, Route, Routes } from 'react-router'
+import {Navigate, Outlet, Route, Routes} from 'react-router'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import Banner from './components/felles/Banner'
 import UgyldigSoeker from './components/UgyldigSoeker'
@@ -16,6 +16,7 @@ import Admin from './components/dev/Admin'
 import SoknadDialog from './components/soknad/SoknadDialog'
 import SoknadKvittering from './components/soknad/SoknadKvittering'
 import SoknadForside from './components/soknad/SoknadForside'
+import {Vedlikehold} from "./Vedlikehold";
 
 const SoeknadWrapper = styled(Page.Block)`
     div,
@@ -69,7 +70,7 @@ const App = () => {
 
             <LoaderOverlay visible={lasterSoeknad} label={'Henter søknadsinformasjon ...'} />
             {!lasterSoeknad && <FortsettSoeknadModal />}
-
+            <Vedlikehold />
             <Page>
                 <SoeknadWrapper role="main" width="xl">
                     <Routes>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import {Outlet, Route, Routes} from 'react-router-dom'
 import styled from 'styled-components'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
@@ -17,6 +17,7 @@ import { ContinueApplicationModal } from './components/common/ContinueApplicatio
 import useTranslation from './hooks/useTranslation'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
 import { Page } from "@navikt/ds-react";
+import {Vedlikehold} from "./Vedlikehold";
 
 const SoeknadWrapper = styled(Page.Block)`
     div,
@@ -59,6 +60,8 @@ export default function App() {
 
             <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
             <ContinueApplicationModal />
+
+            <Vedlikehold />
             <Page>
                 <SoeknadWrapper>
                     <Routes>
