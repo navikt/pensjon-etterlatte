@@ -28,7 +28,7 @@ spec:
   leaderElection: true
   gcp:
     sqlInstances:
-      - type: POSTGRES_12
+      - type: POSTGRES_14
         name: innsendt-soeknad-v2
         databases:
           - name: innsendte-soeknader
