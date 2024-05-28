@@ -30,6 +30,11 @@ spec:
     sqlInstances:
       - type: POSTGRES_14
         name: innsendt-soeknad-v2
+        diskAutoresize: true
+        diskType: SSD
+        autoBackupHour: 3
+        tier: db-custom-1-3840
+        highAvailability: true
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB
