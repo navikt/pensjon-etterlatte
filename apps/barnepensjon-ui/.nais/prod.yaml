@@ -9,8 +9,8 @@ spec:
   image: {{ image }}
   port: 8080
   replicas:
-    min: 1
-    max: 2
+    min: 0
+    max: 0
     cpuThresholdPercentage: 90
   ingresses:
     - https://www.nav.no/barnepensjon/soknad
