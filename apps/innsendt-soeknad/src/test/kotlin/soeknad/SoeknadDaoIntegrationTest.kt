@@ -31,7 +31,7 @@ import kotlin.random.Random
 internal class SoeknadDaoIntegrationTest {
 
     @Container
-    private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:12")
+    private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
 
     private lateinit var db: PostgresSoeknadRepository
     private lateinit var dataSource: DataSource
