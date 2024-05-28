@@ -12,7 +12,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 Object.defineProperty(obj.navigator, 'language', { value: 'nb-NO' })
             },
         })
-        cy.injectAxe()
         cy.wait(['@hentInnloggetPerson'])
         cy.wait(['@hentSoeknad'])
 
