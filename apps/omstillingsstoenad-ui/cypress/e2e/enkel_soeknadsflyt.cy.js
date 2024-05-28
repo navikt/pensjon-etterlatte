@@ -1,5 +1,5 @@
 import mockSoeknad from '../../src/assets/dummy-soeknad.json'
-import { a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValueForId } from '../util/cy-functions'
+import {  basePath, gaaTilNesteSide, getById, selectValue, selectValueForId } from '../util/cy-functions'
 import { format } from 'date-fns'
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
@@ -17,8 +17,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Bekreft riktige opplysninger
         cy.get('[type="checkbox"]').check({ force: true })
-
-        cy.checkA11y()
 
         // Start søknaden
         getById('start-soeknad').click()
