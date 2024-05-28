@@ -9,6 +9,7 @@ export default {
     'steg.OmBarn': 'Opplysingar om barn',
     'steg.Oppsummering': 'Oppsummering',
     'banner.tittel': 'Søknad om omstillingsstønad',
+    'vedlikehold': 'Vi oppgraderer nå systemet og det vil forekomme nedetid.',
     'radiobuttons.ja': 'Ja',
     'radiobuttons.nei': 'Nei',
     'radiobuttons.vetIkke': 'Veit ikkje',

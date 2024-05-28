@@ -6,6 +6,7 @@ export default {
     'steg.SituasjonenDin': 'Situasjonen din',
     'steg.MerOmSituasjonenDin': 'Mer om situasjonen din',
     'steg.InntektenDin': 'Inntekten din',
+    'vedlikehold': 'Vi oppgraderer nå systemet og det vil forekomme nedetid.',
     'steg.OmBarn': 'Opplysninger om barn',
     'steg.Oppsummering': 'Oppsummering',
     'banner.tittel': 'Søknad om omstillingsstønad',

@@ -12,6 +12,7 @@ export default {
     'radiobuttons.ja': 'Yes',
     'radiobuttons.nei': 'No',
     'radiobuttons.vetIkke': 'Don’t know',
+    'vedlikehold': 'We are currently upgrading our systems, some services will be unavailable for a short period of time.',
     'knapp.tilbake': 'Back',
     'knapp.neste': 'Next',
     'knapp.avbryt': 'Cancel',

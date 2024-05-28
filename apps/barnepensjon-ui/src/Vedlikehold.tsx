@@ -1,9 +1,12 @@
 import {Alert} from "@navikt/ds-react";
+import useTranslation from "./hooks/useTranslation";
 
 export const Vedlikehold = () => {
+    const { t } = useTranslation('app')
+
     return (
             <Alert variant="warning">
-                Vi oppgraderer nå systemet og det vil forekomme nedetid.
+                {t('vedlikehold')}
             </Alert>
     )
 }

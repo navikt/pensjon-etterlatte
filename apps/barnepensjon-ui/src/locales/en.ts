@@ -3,6 +3,7 @@ import { TKey, TNamespace, Translation } from '../context/language/translations'
 const app = {
     applicationTitle: 'Application for children’s pension',
     fetchingApplicationDetails: 'Retrieving application information...',
+    vedlikehold: 'We are currently upgrading our systems, some services will be unavailable for a short period of time.',
 }
 
 const common = {
