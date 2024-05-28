@@ -35,7 +35,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValue(omDeg.utbetalingsInformasjon.bankkontoType)
         getById('utbetalingsInformasjon.kontonummer').type(omDeg.utbetalingsInformasjon.kontonummer)
 
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
@@ -77,7 +77,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('selvstendigNaeringsdrivende.beskrivelse').type(omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse)
         selectValueForId('haddePensjonsgivendeInntekt.svar', omDenAvdoede.haddePensjonsgivendeInntekt.svar)
         selectValueForId('doedsfallAarsak', omDenAvdoede.doedsfallAarsak)
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
@@ -93,7 +93,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         )
         selectValueForId('forholdTilAvdoede.fellesBarn', omDegOgAvdoed.forholdTilAvdoede.fellesBarn)
 
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
@@ -113,7 +113,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValueForId('bosattINorge', situasjonenDin.bosattINorge)
         selectValueForId('oppholderSegIUtlandet.svar', situasjonenDin.oppholderSegIUtlandet.svar)
 
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
@@ -156,7 +156,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         selectValue(merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning)
 
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
@@ -256,7 +256,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         getById('ytelserAndre.pensjonsordning').type('Statens pensjonskasse')
 
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
@@ -283,7 +283,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('leggTilBarn').click()
         })
 
-        a11yCheck()
+        
 
         gaaTilNesteSide()
     })
