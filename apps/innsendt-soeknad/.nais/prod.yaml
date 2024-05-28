@@ -38,6 +38,9 @@ spec:
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB
+        flags:
+          - name: max_connections
+            value: "100"
   resources:
     requests:
       cpu: 20m
