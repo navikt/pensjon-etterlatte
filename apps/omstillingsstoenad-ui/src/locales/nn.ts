@@ -594,14 +594,14 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.tittel': 'Frivillig skattetrekk',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del1':
         'Barnepensjon er skattepliktig, men vi trekkjer ikkje skatt av beløpet utan at det er avtalt. Du kan leggje til eit frivillig skattetrekk anten som prosentdel av pensjonen eller som fast beløp. Dette sikrar at skatten blir rett, og gir mindre risiko for restskatt.',
-    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2': '\n',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2': '\b',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.href':
         'https://www.skatteetaten.no/nn/person/skatt/hjelp-til-rett-skatt/familie-og-helse/barn/barn-og-ungdom-med-eiga-inntekt-eller-formue/',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.tekst':
         'Kontakt Skatteetaten dersom du har spørsmål om kor stort skattetrekket vil vere',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del3':
         'Du kan trygt ta pause frå søknaden i opptil 72 timar, men du må då hugse å lagre denne sida ved åtrykkje på «Neste» før du tek pause.',
-    'omBarn.barnepensjon.forskuddstrekk.svar': 'Ønsker du at vi legg inn eit skattetrekk for barnepensjonen?',
+    'omBarn.barnepensjon.forskuddstrekk.svar': 'Vil du at vi skal leggje inn skattetrekk for barnepensjonen?',
     'omBarn.barnepensjon.forskuddstrekk.type': 'Vil du ha frivillig skattetrekk i kroner eller i prosent?',
     'omBarn.barnepensjon.forskuddstrekk.trekk.kroner': 'Frivillig skattetrekk i kroner per månad',
     'omBarn.barnepensjon.forskuddstrekk.trekk.prosent': 'Frivillig skattetrekk i prosent per måned',
