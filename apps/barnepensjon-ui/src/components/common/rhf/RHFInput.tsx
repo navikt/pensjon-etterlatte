@@ -14,9 +14,15 @@ import {
 import useTranslation from '../../../hooks/useTranslation'
 import { getErrorKey } from '../../../utils/errors'
 import { isValidBIC, isValidIBAN } from 'ibantools'
-import { TextField, TextFieldProps } from '@navikt/ds-react'
+import { Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
+    name: FieldPath<FieldValues>
+    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
+    valgfri?: boolean
+}
+
+interface RHFInputAreaProps extends Omit<TextareaProps, 'name'> {
     name: FieldPath<FieldValues>
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
     valgfri?: boolean
@@ -39,6 +45,47 @@ export const RHFInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
             rules={{ required: !valgfri, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
+            )}
+        />
+    )
+}
+
+export const RHFInputArea = ({ name, rules, className, valgfri, description, ...rest }: RHFInputAreaProps) => {
+    const { t } = useTranslation()
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
+
+    const i18nLocale = {
+        counterLeft: t('counterLeft', { ns: 'common' }),
+        counterTooMuch: t('counterTooMuch', { ns: 'common' }),
+    }
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: !valgfri, ...rules }}
+            render={({ field: { value, onChange } }) => (
+                <div className={className}>
+                    <Textarea
+                        id={name}
+                        value={value || ''}
+                        onChange={onChange}
+                        error={feilmelding}
+                        {...rest}
+                        i18n={i18nLocale}
+                        description={
+                            description
+                                ? `${description}\n\n${t('noSensitiveData', { ns: 'common' })}`
+                                : t('noSensitiveData', { ns: 'common' })
+                        }
+                    />
+                </div>
             )}
         />
     )

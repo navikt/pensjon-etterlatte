@@ -1,4 +1,4 @@
-import { BankkontoType } from '../../../../api/dto/FellesOpplysninger'
+import { BankkontoType, KronerEllerProsentType } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import { IPaymentDetails } from '../../../../types/person'
@@ -27,7 +27,19 @@ export default function PaymentDetailsSummary({ paymentDetails }: { paymentDetai
                     <TextGroupJaNeiVetIkke title={t('doYouWantUsToWithholdTax')} content={taxWithhold.answer} />
 
                     {taxWithhold.taxPercentage && (
-                        <TextGroup title={t('desiredTaxPercentage')} content={taxWithhold.taxPercentage} />
+                        <>
+                            <TextGroup
+                                title={t(
+                                    taxWithhold.type === KronerEllerProsentType.KRONER
+                                        ? 'desiredTaxKroner'
+                                        : 'desiredTaxPercentage'
+                                )}
+                                content={taxWithhold.taxPercentage + ' ' + t(taxWithhold.type!!)}
+                            />
+                            {taxWithhold.description && (
+                                <TextGroup title={t('taxPercentageDescription')} content={taxWithhold.description} />
+                            )}
+                        </>
                     )}
                 </>
             )}

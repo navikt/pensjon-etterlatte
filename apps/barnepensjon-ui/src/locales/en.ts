@@ -24,6 +24,9 @@ const common = {
     chooseCurrency: 'Select currency',
     norway: 'Norway',
     optional: 'optional',
+    noSensitiveData: 'Please do not write sensitive personal data.',
+    counterLeft: 'characters remaining',
+    counterTooMuch: 'characters to many',
 }
 
 const navigation = {
@@ -62,6 +65,8 @@ const paymentDetails = {
     title: 'Enter your bank details',
     NORSK: 'Norwegian',
     UTENLANDSK: 'Foreign',
+    KRONER: 'Kroner',
+    PROSENT: 'Percentage',
     bankAccount: 'Enter the Norwegian bank account number for payment of the children’s pension',
     bankAccountDescription: 'You can add a separate bank account number for the child.',
     information: 'You can add a separate bank account number for the child.',
@@ -74,11 +79,21 @@ const paymentDetails = {
     swift: 'The bank’s SWIFT code or BIC',
     swiftHelpText:
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
-    doYouWantUsToWithholdTax: 'Do you want us to deduct tax for the children’s pension?',
-    childPensionIsTaxable:
-        "A children's pension is taxable, but we do not deduct tax from the amount unless we are notified. If you have questions about the amount of the tax deduction, you must contact the Norwegian Tax Administration.",
-    desiredTaxPercentage: 'Enter the desired tax deduction',
-    desiredTaxPercentagePlaceholder: 'as a percentage; for example, 20%',
+    doYouWantUsToWithholdTax: "Do you want us to make a tax deduction for the children's pension?",
+    desiredTaxPercentage: 'Voluntary tax deduction in percentage per month',
+    desiredTaxKroner: 'Voluntary tax deduction in kroner per month',
+    taxWithholdTitle: 'Voluntary tax deduction',
+    taxWithholdDescription1:
+        "A children's pension is taxable, but we do not deduct tax from the amount unless we have agreed with you to do so. You can add a voluntary tax deduction as a percentage of your pension or as a fixed amount. This ensures that your tax payment is correct, and it minimises the risk of back taxes.",
+    taxWithholdDescription2: 'If you have questions about the amount of the tax deduction, you must ',
+    taxWithholdDescription2Href:
+        'https://www.skatteetaten.no/en/person/taxes/get-the-taxes-right/family-and-health/children/children-and-young-people-with-their-own-income-or-capital/',
+    taxWithholdDescription2HrefText: 'contact the Norwegian Tax Administration',
+    taxWithholdDescription3:
+        'You can pause the application process for up to 72 hours, but you must SAVE this page by pressing "Next" before you take a break.',
+    taxPercentageType: 'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
+    taxPercentageDescription:
+        'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
     taxWithholdMustBeSentYearly: 'Please note that voluntary tax deductions must be resubmitted each calendar year.',
 }
 
@@ -413,6 +428,8 @@ const error = {
         'State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway',
     'occupationalInjury.required': 'State whether the death was due to an occupational injury or occupational illness',
     'paymentDetails.taxWithhold.answer.required': 'State whether you wish to add tax deductions ',
+    'paymentDetails.taxWithhold.type.required':
+        'State whether you wish to add tax deductions in kroner or as percentage',
     'paymentDetails.taxWithhold.taxPercentage.required': 'Enter the desired tax deduction',
     'paymentDetails.bankAccount.required': 'Norwegian bank account number is a required field (11 digits)',
     'paymentDetails.bankAccount.pattern': 'Invalid account number It must have 11 digits',
