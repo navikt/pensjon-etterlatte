@@ -594,7 +594,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.tittel': 'Frivillig skattetrekk',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del1':
         'Barnepensjon er skattepliktig, men vi trekkjer ikkje skatt av beløpet utan at det er avtalt. Du kan leggje til eit frivillig skattetrekk anten som prosentdel av pensjonen eller som fast beløp. Dette sikrar at skatten blir rett, og gir mindre risiko for restskatt.',
-    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2': '\b',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2': ' ',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.href':
         'https://www.skatteetaten.no/nn/person/skatt/hjelp-til-rett-skatt/familie-og-helse/barn/barn-og-ungdom-med-eiga-inntekt-eller-formue/',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.tekst':
