@@ -388,16 +388,20 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                                 </RHFRadio>
                                                             </SkjemaElement>
                                                             <SkjemaElement>
-                                                                <RHFNumberInput
-                                                                    htmlSize={Bredde.S}
-                                                                    name={'barnepensjon.forskuddstrekk.trekkprosent'}
-                                                                    label={t(
-                                                                        forskuddstrekkType ===
-                                                                            KronerEllerProsentType.kroner
-                                                                            ? 'omBarn.barnepensjon.forskuddstrekk.trekk.kroner'
-                                                                            : 'omBarn.barnepensjon.forskuddstrekk.trekk.prosent'
-                                                                    )}
-                                                                />
+                                                                {forskuddstrekkType && (
+                                                                    <RHFNumberInput
+                                                                        htmlSize={Bredde.S}
+                                                                        name={
+                                                                            'barnepensjon.forskuddstrekk.trekkprosent'
+                                                                        }
+                                                                        label={t(
+                                                                            forskuddstrekkType ===
+                                                                                KronerEllerProsentType.kroner
+                                                                                ? 'omBarn.barnepensjon.forskuddstrekk.trekk.kroner'
+                                                                                : 'omBarn.barnepensjon.forskuddstrekk.trekk.prosent'
+                                                                        )}
+                                                                    />
+                                                                )}
                                                             </SkjemaElement>
                                                             <SkjemaElement>
                                                                 <RHFInputArea
