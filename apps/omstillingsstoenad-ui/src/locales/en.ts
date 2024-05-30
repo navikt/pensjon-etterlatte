@@ -1145,7 +1145,9 @@ export default {
     'feil.barnepensjon.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.barnepensjon.forskuddstrekk.svar.required':
         'State whether you want tax to be deducted from the children’s pension',
-    'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Enter a valid percentage',
+    'feil.barnepensjon.forskuddstrekk.type.required':
+        'State whether you want tax to be deducted in kroner or as a percentage',
+    'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Enter a valid voluntary tax deduction',
     'feil.dagligOmsorg.required': 'State whether you have the daily care for the child',
     'feil.harBarnetVerge.svar.required': 'State whether a guardian has been appointed for the child',
     'feil.harBarnetVerge.fornavn.pattern': 'Invalid first name',
