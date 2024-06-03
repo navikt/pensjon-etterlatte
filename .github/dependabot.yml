@@ -120,7 +120,7 @@ updates:
       day: "sunday"
 
   - package-ecosystem: "docker"
-    directory: "/apps/etterlatte-node-server/Dockerfile"
+    directory: "/apps/etterlatte-node-server"
     schedule:
       interval: "monthly"
       day: "sunday"
