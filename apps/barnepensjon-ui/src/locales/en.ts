@@ -90,7 +90,7 @@ const paymentDetails = {
         'https://www.skatteetaten.no/en/person/taxes/get-the-taxes-right/family-and-health/children/children-and-young-people-with-their-own-income-or-capital/',
     taxWithholdDescription2HrefText: 'contact the Norwegian Tax Administration',
     taxWithholdDescription3:
-        'You can pause the application process for up to 72 hours, but you must SAVE this page by pressing "Next" before you take a break.',
+        'You can pause the application process for up to 72 hours, but you must save this page by pressing "Next" before you take a break.',
     taxPercentageType: 'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
     taxPercentageDescription:
         'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
