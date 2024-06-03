@@ -28,11 +28,13 @@ updates:
 
 
   # =====================
-  # FRONTEND BARNEPENSJON
+  # FRONTEND BARNEPENSJON OG OMSTILLINGSSTØNAD
   # =====================
 
   - package-ecosystem: "npm"
-    directory: "/apps/barnepensjon-ui"
+    directories:
+      - "/apps/barnepensjon-ui"
+      - "/apps/omstillingsstoenad-ui"
     schedule:
       interval: "monthly"
       day: "sunday"
@@ -69,54 +71,6 @@ updates:
           - "i18next"
           - "ibantools"
           - "web-vitals"
-          - "@types/amplitude-js"
-          - "amplitude-js"
-      styledcomponents:
-        patterns:
-          - "styled-components"
-          - "@types/styled-components"
-
-
-  # ===========================
-  # FRONTEND OMSTILLINGSSTØNAD
-  # ===========================
-
-  - package-ecosystem: "npm"
-    directory: "/apps/omstillingsstoenad-ui"
-    schedule:
-      interval: "monthly"
-      day: "sunday"
-    open-pull-requests-limit: 10
-    groups:
-      ds:
-        patterns:
-          - "@navikt/ds-*"
-      eslint-og-test:
-        patterns:
-          - "@typescript-eslint/*"
-          - "eslint"
-          - "eslint-plugin*"
-          - "prettier"
-          - "axe-core"
-          - "cypress"
-          - "cypress-axe"
-          - "@testing-library/*"
-          - "@types/jest"
-      react:
-        patterns:
-          - "react*"
-          - "@types/react*"
-      prod:
-        patterns:
-          - "lodash"
-          - "@types/lodash"
-          - "axios"
-          - "axios-retry"
-          - "uuid"
-          - "@types/uuid"
-          - "typescript"
-          - "i18next"
-          - "ibantools"
           - "@types/amplitude-js"
           - "amplitude-js"
       styledcomponents:
