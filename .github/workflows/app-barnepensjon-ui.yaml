@@ -20,7 +20,7 @@ on:
       - main
     paths:
       - apps/etterlatte-node-server/**
-      - apps/barnpensjon-ui/**
+      - apps/barnepensjon-ui/**
       - '!apps/etterlatte-node-server/src/mock/**'
       - '!apps/etterlatte-node-server/README.md'
   pull_request:
@@ -28,7 +28,7 @@ on:
       - main
     paths:
       - apps/etterlatte-node-server/**
-      - apps/barnpensjon-ui/**
+      - apps/barnepensjon-ui/**
       - '!apps/etterlatte-node-server/src/mock/**'
       - '!apps/etterlatte-node-server/README.md'
 
