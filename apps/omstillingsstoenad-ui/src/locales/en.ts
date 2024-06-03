@@ -631,8 +631,8 @@ export default {
         'https://www.skatteetaten.no/en/person/taxes/get-the-taxes-right/family-and-health/children/children-and-young-people-with-their-own-income-or-capital/',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.tekst': 'contact the Norwegian Tax Administration',
     'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del3':
-        'You can pause the application process for up to 72 hours, but you must SAVE this page by pressing "Next" before you take a break.',
-    'omBarn.barnepensjon.forskuddstrekk.svar': 'Do you want us to deduct tax from the children’s pension?',
+        'You can pause the application process for up to 72 hours, but you must save this page by pressing "Next" before you take a break.',
+    'omBarn.barnepensjon.forskuddstrekk.svar': "Do you want us to make a tax deduction for the children's pension?",
     'omBarn.barnepensjon.forskuddstrekk.type':
         'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
     'omBarn.barnepensjon.forskuddstrekk.trekk.kroner': 'Voluntary tax deduction in kroner per month',
