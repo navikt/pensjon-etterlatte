@@ -50,6 +50,6 @@
     "singleQuote": true
   },
   "resolutions": {
-    "**/braces": "^3.0.3"
+    "**/braces": "3.0.3"
   }
 }
