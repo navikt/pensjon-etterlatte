@@ -430,7 +430,7 @@ const error = {
     'paymentDetails.taxWithhold.answer.required': 'State whether you wish to add tax deductions ',
     'paymentDetails.taxWithhold.type.required':
         'State whether you wish to add tax deductions in kroner or as percentage',
-    'paymentDetails.taxWithhold.taxPercentage.required': 'Enter the desired tax deduction',
+    'paymentDetails.taxWithhold.taxPercentage.required': 'Enter a valid voluntary tax deduction',
     'paymentDetails.bankAccount.required': 'Norwegian bank account number is a required field (11 digits)',
     'paymentDetails.bankAccount.pattern': 'Invalid account number It must have 11 digits',
     'paymentDetails.accountType.required':

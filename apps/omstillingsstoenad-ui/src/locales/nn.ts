@@ -1095,7 +1095,7 @@ export default {
     'feil.barnepensjon.utbetalingsInformasjon.iban.validate': 'Ugyldig IBAN-nummer',
     'feil.barnepensjon.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fyllast ut',
     'feil.barnepensjon.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
-    'feil.barnepensjon.forskuddstrekk.svar.required': 'Oppgi om du ønsker skattetrekk for barnepensjonen',
+    'feil.barnepensjon.forskuddstrekk.svar.required': 'Oppgi om du vil at vi skal leggje til skattetrekk',
     'feil.barnepensjon.forskuddstrekk.type.required':
         'Oppgi om du vil ha frivillig skattetrekk i kroner eller i prosent',
     'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Oppgi eit gyldig skattetrekk',
