@@ -60,7 +60,7 @@
   },
   "scripts": {
     "start": "REACT_APP_MOCK_API=http://localhost:8080 vite",
-    "build": "tsc && eslint src --ext .ts,.tsx && vite build && yarn lisenssjekk",
+    "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build && yarn lisenssjekk",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest",
     "cy:test": "TZ=Europe/Oslo cypress run",
