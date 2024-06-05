@@ -36,7 +36,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^6.4.5",
-    "@testing-library/react": "^15.0.7",
+    "@testing-library/react": "^16.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/amplitude-js": "^8.16.4",
@@ -47,16 +47,16 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/uuid": "^9.0.8",
-    "@typescript-eslint/eslint-plugin": "^7.11.0",
-    "@typescript-eslint/parser": "^7.11.0",
-    "cypress": "^13.10.0",
-    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^7.12.0",
+    "@typescript-eslint/parser": "^7.12.0",
+    "cypress": "^13.11.0",
+    "eslint": "^9.4.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-jest": "^28.5.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.2",
     "license-checker-rseidelsohn": "^4.3.0",
-    "prettier": "^3.3.0"
+    "prettier": "^3.3.1"
   },
   "scripts": {
     "start": "vite --base /barnepensjon/soknad",
