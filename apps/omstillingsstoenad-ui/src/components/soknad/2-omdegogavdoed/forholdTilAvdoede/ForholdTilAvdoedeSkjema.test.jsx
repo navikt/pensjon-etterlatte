@@ -85,7 +85,7 @@ describe('Forhold til avdoede', () => {
             getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')
         ).toBeDefined()
         expect(getByLabelText('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')).toBeDefined()
-        //expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
+        expect(getByText('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')).toBeDefined()
         expect(getByText('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')).toBeDefined()
     })
 })
