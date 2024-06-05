@@ -17,7 +17,7 @@ const ScrollToTop = () => {
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename={import.meta.env.BASE_URL}>
         <ScrollToTop />
 
         <div className={'app'}>

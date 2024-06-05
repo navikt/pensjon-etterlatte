@@ -1,10 +1,11 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 
-export const isDev = process.env.NODE_ENV === 'development'
+export const isDev = import.meta.env.DEV
 
-const baseURL = isDev ? `${process.env.REACT_APP_MOCK_API}${process.env.PUBLIC_URL}` : process.env.PUBLIC_URL
+const baseURL = isDev ? `http://localhost:8080${import.meta.env.BASE_URL}` : import.meta.env.BASE_URL
 
+console.log('baseurl: ', baseURL)
 export const axiosInstance = axios.create({
     withCredentials: true,
     baseURL,

@@ -5,7 +5,7 @@ Cypress.Commands.add('startApplication', (userFixture: string) => {
     cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
     cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
 
-    cy.visit('http://localhost:3000/barnepensjon/soknad')
+    cy.visit('http://localhost:5173/barnepensjon/soknad')
 
     cy.wait(['@loggedInUser', '@getApplication'])
 })

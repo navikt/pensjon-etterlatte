@@ -4,7 +4,7 @@ describe('Invalid Applicant', () => {
     beforeEach(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: 'user-too-young' }).as('loggedInUser')
 
-        cy.visit('http://localhost:3000/barnepensjon/soknad')
+        cy.visit('http://localhost:5173/barnepensjon/soknad')
 
         cy.wait(['@loggedInUser'])
     })
