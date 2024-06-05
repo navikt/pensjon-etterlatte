@@ -5,7 +5,6 @@ export const isDev = import.meta.env.DEV
 
 const baseURL = isDev ? `http://localhost:8080${import.meta.env.BASE_URL}` : import.meta.env.BASE_URL
 
-console.log('baseurl: ', baseURL)
 export const axiosInstance = axios.create({
     withCredentials: true,
     baseURL,
