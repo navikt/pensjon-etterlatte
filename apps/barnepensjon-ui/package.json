@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/barnepensjon/soknad",
+  "type": "module",
   "dependencies": {
     "@navikt/ds-css": "^6.6.1",
     "@navikt/ds-icons": "^3.4.3",
@@ -49,7 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "cypress": "^13.10.0",
-    "eslint": "^9.4.0",
+    "eslint": "^8.56.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-jest": "^28.5.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
@@ -60,6 +61,7 @@
   "scripts": {
     "start": "REACT_APP_MOCK_API=http://localhost:8080 vite",
     "build": "tsc && eslint src --ext .ts,.tsx && vite build && yarn lisenssjekk",
+    "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest",
     "cy:test": "TZ=Europe/Oslo cypress run",
     "cy:open": "TZ=Europe/Oslo cypress open",

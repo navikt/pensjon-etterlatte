@@ -35,6 +35,7 @@ const user: User = {
     sivilstatus: 'GIFT',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const t = (key: string, _: any) => key
 const isChild = false
 

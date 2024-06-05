@@ -3,6 +3,7 @@ import { IChild } from '../../types/person'
 import { User } from '../../context/user/user'
 import { JaNeiVetIkke } from './FellesOpplysninger'
 import { describe, expect, it } from 'vitest'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const t = (key: string, _: any) => key
 const user: User = {
     fornavn: 'Stor',

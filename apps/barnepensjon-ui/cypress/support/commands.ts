@@ -23,7 +23,7 @@ Cypress.Commands.add('acceptInformationAboutYou', () => {
     cy.clickBtn(Button.Next)
 })
 
-Cypress.Commands.add('useScenario', (role: string, situation: string = null) => {
+Cypress.Commands.add('useScenario', (role: string, situation: string | undefined) => {
     cy.get('[id="applicantRole"]').find(`[value="${role}"]`).check({ force: true })
 
     if (situation) {

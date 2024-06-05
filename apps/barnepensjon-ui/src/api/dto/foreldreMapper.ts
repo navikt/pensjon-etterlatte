@@ -29,7 +29,7 @@ export const hentForeldre = (t: TFunction, child: IChild, application: IApplicat
 
     let firstParent
     if (application?.applicant?.applicantRole === ApplicantRole.PARENT) {
-        firstParent = mapForelderFraInnloggetBruker(t, application.aboutYou, user)
+        firstParent = mapForelderFraInnloggetBruker(application.aboutYou, user)
     } else {
         firstParent = application.firstParent!!
     }
@@ -110,7 +110,7 @@ export const mapForeldreMedUtvidetInfo = (t: TFunction, application: IApplicatio
         forelder1 = mapAvdoed(t, application.firstParent as IDeceasedParent)
     } else {
         if (application.applicant?.applicantRole === ApplicantRole.PARENT) {
-            const livingParent = mapForelderFraInnloggetBruker(t, application.aboutYou, user)
+            const livingParent = mapForelderFraInnloggetBruker(application.aboutYou, user)
 
             forelder1 = mapGjenlevendeForelder(t, livingParent)
         } else {
@@ -123,7 +123,7 @@ export const mapForeldreMedUtvidetInfo = (t: TFunction, application: IApplicatio
     return [forelder1, avdoed]
 }
 
-const mapForelderFraInnloggetBruker = (t: TFunction, aboutYou: IAboutYou, user: User): ILivingParent => ({
+const mapForelderFraInnloggetBruker = (aboutYou: IAboutYou, user: User): ILivingParent => ({
     firstName: user.fornavn!!,
     lastName: user.etternavn!!,
     fnrDnr: user.foedselsnummer!!,
