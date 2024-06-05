@@ -419,7 +419,7 @@ const error = {
     'children.validate': 'Du må søke om barnepensjon for minst ett barn.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge',
     'occupationalInjury.required': 'Oppgi om dødsfallet skyldes yrkesskade eller yrkessykdom',
-    'paymentDetails.taxWithhold.answer.required': 'Oppgi om det ønskes å legge til skattetrekk',
+    'paymentDetails.taxWithhold.answer.required': 'Oppgi om du ønsker skattetrekk for barnepensjonen',
     'paymentDetails.taxWithhold.type.required': 'Oppgi frivillig skattetrekk i kroner eller i prosent',
     'paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi et gyldig skattetrekk',
     'paymentDetails.bankAccount.required': 'Norsk kontonummer må fylles ut (11 siffer)',
