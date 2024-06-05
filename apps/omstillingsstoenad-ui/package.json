@@ -64,7 +64,7 @@
   },
   "scripts": {
     "start": "vite --base /omstillingsstonad/soknad",
-    "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build && yarn lisenssjekk",
+    "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build --base /omstillingsstonad/soknad && yarn lisenssjekk",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "cy:test": "TZ=Europe/Oslo cypress run",

@@ -60,7 +60,8 @@
   },
   "scripts": {
     "start": "vite --base /barnepensjon/soknad",
-    "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build && yarn lisenssjekk",
+    "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build --base /omstillingsstonad/soknad && yarn lisenssjekk",
+    "preview": "vite preview --port 5173",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest",
     "cy:test": "TZ=Europe/Oslo cypress run",
