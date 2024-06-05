@@ -1,0 +1,1205 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Om deg og avdød > Snapshot 1`] = `
+<div>
+  <div
+    class="sc-beqWNU gPAwJh"
+  >
+    <h1
+      class="center navds-heading navds-heading--medium"
+    >
+      omDeg.tittel
+    </h1>
+  </div>
+  <form>
+    <div
+      class="sc-beqWNU gPAwJh"
+    >
+      <fieldset
+        class="sc-gueXAH hrQtgZ"
+      >
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="alternativAdresse"
+            >
+              omDeg.alternativAdresse
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="alternativAdresse"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-r0"
+            />
+          </div>
+        </div>
+      </fieldset>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="kontaktinfo.telefonnummer"
+          >
+            omDeg.kontaktinfo.telefonnummer
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
+            id="kontaktinfo.telefonnummer"
+            size="25"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-r1"
+          />
+        </div>
+      </div>
+    </div>
+    <fieldset
+      class="sc-gueXAH hrQtgZ"
+    >
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          id="utbetalingsInformasjon.bankkontoType"
+        >
+          <fieldset
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              omDeg.utbetalingsInformasjon.bankkontoType
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-labelledby="r5"
+                  class="navds-radio__input"
+                  id="radio-r4"
+                  name="utbetalingsInformasjon.bankkontoType"
+                  type="radio"
+                  value="bankkontoType.norsk"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r4"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="navds-body-short navds-body-short--medium"
+                      id="r5"
+                    >
+                      bankkontoType.norsk
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-labelledby="r8"
+                  class="navds-radio__input"
+                  id="radio-r7"
+                  name="utbetalingsInformasjon.bankkontoType"
+                  type="radio"
+                  value="bankkontoType.utenlandsk"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r7"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="navds-body-short navds-body-short--medium"
+                      id="r8"
+                    >
+                      bankkontoType.utenlandsk
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-r3"
+            />
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <h1
+          class="navds-heading navds-heading--small"
+        >
+          omDeg.utbetalingsInformasjon.tittel
+        </h1>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="utbetalingsInformasjon.utenlandskBankNavn"
+            >
+              omDeg.utbetalingsInformasjon.utenlandskBankNavn
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="utbetalingsInformasjon.utenlandskBankNavn"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-rd"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="utbetalingsInformasjon.utenlandskBankAdresse"
+            >
+              omDeg.utbetalingsInformasjon.utenlandskBankAdresse
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="utbetalingsInformasjon.utenlandskBankAdresse"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-re"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="utbetalingsInformasjon.iban"
+          >
+            <div
+              class="sc-ktEKgv bPXyBo"
+            >
+              omDeg.utbetalingsInformasjon.iban
+               
+              <div
+                class="navds-help-text"
+              >
+                <button
+                  aria-expanded="false"
+                  class="navds-help-text__button"
+                  type="button"
+                >
+                  <svg
+                    aria-labelledby="title-rg"
+                    class="navds-help-text__icon"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rg"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="transparent"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <svg
+                    aria-labelledby="title-rh"
+                    class="navds-help-text__icon navds-help-text__icon--filled"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rh"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="currentColor"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="var(--a-surface-default)"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  aria-hidden="true"
+                  class="navds-popover navds-help-text__popover navds-popover--hidden"
+                  data-placement="top"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <div
+                    class="navds-popover__content navds-body-short"
+                  >
+                    omDeg.utbetalingsInformasjon.ibanHjelpetekst
+                  </div>
+                  <div
+                    class="navds-popover__arrow"
+                    style="bottom: -0.5rem;"
+                  />
+                </div>
+              </div>
+            </div>
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
+            id="utbetalingsInformasjon.iban"
+            size="35"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-rf"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="utbetalingsInformasjon.swift"
+          >
+            <div
+              class="sc-ktEKgv bPXyBo"
+            >
+              omDeg.utbetalingsInformasjon.swift
+               
+              <div
+                class="navds-help-text"
+              >
+                <button
+                  aria-expanded="false"
+                  class="navds-help-text__button"
+                  type="button"
+                >
+                  <svg
+                    aria-labelledby="title-rk"
+                    class="navds-help-text__icon"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rk"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="transparent"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <svg
+                    aria-labelledby="title-rl"
+                    class="navds-help-text__icon navds-help-text__icon--filled"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rl"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="currentColor"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="var(--a-surface-default)"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  aria-hidden="true"
+                  class="navds-popover navds-help-text__popover navds-popover--hidden"
+                  data-placement="top"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <div
+                    class="navds-popover__content navds-body-short"
+                  >
+                    omDeg.utbetalingsInformasjon.swiftHjelpetekst
+                  </div>
+                  <div
+                    class="navds-popover__arrow"
+                    style="bottom: -0.5rem;"
+                  />
+                </div>
+              </div>
+            </div>
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
+            id="utbetalingsInformasjon.swift"
+            size="25"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-rj"
+          />
+        </div>
+      </div>
+    </fieldset>
+    <br />
+    <fieldset
+      class="sc-gueXAH hrQtgZ"
+    >
+      <div
+        class="sc-dmqGRC fVAhCe undefined"
+      >
+        <button
+          class="navds-button navds-button--primary navds-button--medium"
+          type="button"
+        >
+          <span
+            class="navds-label"
+          >
+            knapp.neste
+          </span>
+        </button>
+      </div>
+    </fieldset>
+    <div
+      class="sc-dmqGRC sc-hLseSp fVAhCe hdQudQ"
+    >
+      <button
+        class="navds-button navds-button--tertiary navds-button--medium"
+        id="avbryt-btn"
+        type="button"
+      >
+        <span
+          class="navds-label"
+        >
+          knapp.avbryt
+        </span>
+      </button>
+    </div>
+    <dialog
+      aria-label="avbrytModal.spoersmaal"
+      class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
+      role="dialog"
+    >
+      <div
+        class="navds-modal__header"
+      >
+        <button
+          class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          type="button"
+        >
+          <span
+            class="navds-button__icon"
+          >
+            <svg
+              aria-labelledby="title-rc"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title
+                id="title-rc"
+              >
+                Lukk
+              </title>
+              <path
+                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <h1
+          class="navds-heading navds-heading--medium"
+        >
+          avbrytModal.spoersmaal
+        </h1>
+      </div>
+      <div
+        class="navds-modal__body"
+      >
+        <p
+          class="mute avbryt-text navds-body-short navds-body-short--medium"
+        >
+          avbrytModal.informasjon
+        </p>
+      </div>
+      <div
+        class="navds-modal__footer"
+      >
+        <div
+          class="sc-kFuvnu dkKIJq"
+        >
+          <button
+            class="navds-button navds-button--secondary navds-button--medium"
+            id="avbryt-nei-btn"
+            style="margin: 10px;"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarNei
+            </span>
+          </button>
+          <button
+            class="navds-button navds-button--primary navds-button--medium"
+            id="avbryt-ja-btn"
+            style="margin: 10px;"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarJa
+            </span>
+          </button>
+        </div>
+        <div
+          class="sc-kFuvnu dkKIJq"
+        >
+          <button
+            class="navds-button navds-button--tertiary navds-button--medium"
+            id="slett-soeknad"
+            style="color: rgb(198, 93, 78);"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarSlett
+            </span>
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </form>
+</div>
+`;
+
+exports[`Om deg og avdød Snapshot 1`] = `
+<div>
+  <div
+    class="sc-beqWNU gPAwJh"
+  >
+    <h1
+      class="center navds-heading navds-heading--medium"
+    >
+      omDeg.tittel
+    </h1>
+  </div>
+  <form>
+    <div
+      class="sc-beqWNU gPAwJh"
+    >
+      <fieldset
+        class="sc-gueXAH hrQtgZ"
+      >
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="alternativAdresse"
+            >
+              omDeg.alternativAdresse
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="alternativAdresse"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-r0"
+            />
+          </div>
+        </div>
+      </fieldset>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="kontaktinfo.telefonnummer"
+          >
+            omDeg.kontaktinfo.telefonnummer
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
+            id="kontaktinfo.telefonnummer"
+            size="25"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-r1"
+          />
+        </div>
+      </div>
+    </div>
+    <fieldset
+      class="sc-gueXAH hrQtgZ"
+    >
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          id="utbetalingsInformasjon.bankkontoType"
+        >
+          <fieldset
+            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+          >
+            <legend
+              class="navds-fieldset__legend navds-label"
+            >
+              omDeg.utbetalingsInformasjon.bankkontoType
+            </legend>
+            <div
+              class="navds-radio-buttons"
+            >
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-labelledby="r5"
+                  class="navds-radio__input"
+                  id="radio-r4"
+                  name="utbetalingsInformasjon.bankkontoType"
+                  type="radio"
+                  value="bankkontoType.norsk"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r4"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="navds-body-short navds-body-short--medium"
+                      id="r5"
+                    >
+                      bankkontoType.norsk
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                class="radioBorder navds-radio navds-radio--medium"
+              >
+                <input
+                  aria-labelledby="r8"
+                  class="navds-radio__input"
+                  id="radio-r7"
+                  name="utbetalingsInformasjon.bankkontoType"
+                  type="radio"
+                  value="bankkontoType.utenlandsk"
+                />
+                <label
+                  class="navds-radio__label"
+                  for="radio-r7"
+                >
+                  <span
+                    class="navds-radio__content"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="navds-body-short navds-body-short--medium"
+                      id="r8"
+                    >
+                      bankkontoType.utenlandsk
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-fieldset__error"
+              id="fieldset-error-r3"
+            />
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <h1
+          class="navds-heading navds-heading--small"
+        >
+          omDeg.utbetalingsInformasjon.tittel
+        </h1>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="utbetalingsInformasjon.utenlandskBankNavn"
+            >
+              omDeg.utbetalingsInformasjon.utenlandskBankNavn
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="utbetalingsInformasjon.utenlandskBankNavn"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-rd"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div>
+          <div
+            class="navds-form-field navds-form-field--medium"
+          >
+            <label
+              class="navds-form-field__label navds-label"
+              for="utbetalingsInformasjon.utenlandskBankAdresse"
+            >
+              omDeg.utbetalingsInformasjon.utenlandskBankAdresse
+            </label>
+            <input
+              class="navds-text-field__input navds-body-short navds-body-short--medium"
+              id="utbetalingsInformasjon.utenlandskBankAdresse"
+              type="text"
+              value=""
+            />
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="textField-error-re"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="utbetalingsInformasjon.iban"
+          >
+            <div
+              class="sc-ktEKgv bPXyBo"
+            >
+              omDeg.utbetalingsInformasjon.iban
+               
+              <div
+                class="navds-help-text"
+              >
+                <button
+                  aria-expanded="false"
+                  class="navds-help-text__button"
+                  type="button"
+                >
+                  <svg
+                    aria-labelledby="title-rg"
+                    class="navds-help-text__icon"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rg"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="transparent"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <svg
+                    aria-labelledby="title-rh"
+                    class="navds-help-text__icon navds-help-text__icon--filled"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rh"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="currentColor"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="var(--a-surface-default)"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  aria-hidden="true"
+                  class="navds-popover navds-help-text__popover navds-popover--hidden"
+                  data-placement="top"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <div
+                    class="navds-popover__content navds-body-short"
+                  >
+                    omDeg.utbetalingsInformasjon.ibanHjelpetekst
+                  </div>
+                  <div
+                    class="navds-popover__arrow"
+                    style="bottom: -0.5rem;"
+                  />
+                </div>
+              </div>
+            </div>
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
+            id="utbetalingsInformasjon.iban"
+            size="35"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-rf"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-beqWNU gPAwJh"
+      >
+        <div
+          class="navds-form-field navds-form-field--medium"
+        >
+          <label
+            class="navds-form-field__label navds-label"
+            for="utbetalingsInformasjon.swift"
+          >
+            <div
+              class="sc-ktEKgv bPXyBo"
+            >
+              omDeg.utbetalingsInformasjon.swift
+               
+              <div
+                class="navds-help-text"
+              >
+                <button
+                  aria-expanded="false"
+                  class="navds-help-text__button"
+                  type="button"
+                >
+                  <svg
+                    aria-labelledby="title-rk"
+                    class="navds-help-text__icon"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rk"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="transparent"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  <svg
+                    aria-labelledby="title-rl"
+                    class="navds-help-text__icon navds-help-text__icon--filled"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title
+                      id="title-rl"
+                    >
+                      hjelp
+                    </title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="currentColor"
+                      r="11"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9C9.75 7.75736 10.7574 6.75 12 6.75H12.1716C13.3195 6.75 14.25 7.68054 14.25 8.82843C14.25 9.37966 14.031 9.90832 13.6412 10.2981L12.6412 11.2981C11.7504 12.1889 11.25 13.3971 11.25 14.6569C11.25 15.0711 11.5858 15.4069 12 15.4069C12.4142 15.4069 12.75 15.0711 12.75 14.6569C12.75 13.7949 13.0924 12.9682 13.7019 12.3588L14.7019 11.3588C15.373 10.6877 15.75 9.77748 15.75 8.82843C15.75 6.85212 14.1479 5.25 12.1716 5.25H12C9.92893 5.25 8.25 6.92893 8.25 9V9.5C8.25 9.91421 8.58579 10.25 9 10.25C9.41421 10.25 9.75 9.91421 9.75 9.5V9ZM12 16.5C11.4477 16.5 11 16.9477 11 17.5C11 18.0523 11.4477 18.5 12 18.5C12.5523 18.5 13 18.0523 13 17.5C13 16.9477 12.5523 16.5 12 16.5Z"
+                      fill="var(--a-surface-default)"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <div
+                  aria-hidden="true"
+                  class="navds-popover navds-help-text__popover navds-popover--hidden"
+                  data-placement="top"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <div
+                    class="navds-popover__content navds-body-short"
+                  >
+                    omDeg.utbetalingsInformasjon.swiftHjelpetekst
+                  </div>
+                  <div
+                    class="navds-popover__arrow"
+                    style="bottom: -0.5rem;"
+                  />
+                </div>
+              </div>
+            </div>
+          </label>
+          <input
+            class="navds-text-field__input navds-body-short navds-body-short--medium"
+            id="utbetalingsInformasjon.swift"
+            size="25"
+            type="text"
+            value=""
+          />
+          <div
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-form-field__error"
+            id="textField-error-rj"
+          />
+        </div>
+      </div>
+    </fieldset>
+    <br />
+    <fieldset
+      class="sc-gueXAH hrQtgZ"
+    >
+      <div
+        class="sc-dmqGRC fVAhCe undefined"
+      >
+        <button
+          class="navds-button navds-button--primary navds-button--medium"
+          type="button"
+        >
+          <span
+            class="navds-label"
+          >
+            knapp.neste
+          </span>
+        </button>
+      </div>
+    </fieldset>
+    <div
+      class="sc-dmqGRC sc-hLseSp fVAhCe hdQudQ"
+    >
+      <button
+        class="navds-button navds-button--tertiary navds-button--medium"
+        id="avbryt-btn"
+        type="button"
+      >
+        <span
+          class="navds-label"
+        >
+          knapp.avbryt
+        </span>
+      </button>
+    </div>
+    <dialog
+      aria-label="avbrytModal.spoersmaal"
+      class="navds-modal navds-modal--polyfilled navds-modal--autowidth"
+      role="dialog"
+    >
+      <div
+        class="navds-modal__header"
+      >
+        <button
+          class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          type="button"
+        >
+          <span
+            class="navds-button__icon"
+          >
+            <svg
+              aria-labelledby="title-rc"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title
+                id="title-rc"
+              >
+                Lukk
+              </title>
+              <path
+                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <h1
+          class="navds-heading navds-heading--medium"
+        >
+          avbrytModal.spoersmaal
+        </h1>
+      </div>
+      <div
+        class="navds-modal__body"
+      >
+        <p
+          class="mute avbryt-text navds-body-short navds-body-short--medium"
+        >
+          avbrytModal.informasjon
+        </p>
+      </div>
+      <div
+        class="navds-modal__footer"
+      >
+        <div
+          class="sc-kFuvnu dkKIJq"
+        >
+          <button
+            class="navds-button navds-button--secondary navds-button--medium"
+            id="avbryt-nei-btn"
+            style="margin: 10px;"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarNei
+            </span>
+          </button>
+          <button
+            class="navds-button navds-button--primary navds-button--medium"
+            id="avbryt-ja-btn"
+            style="margin: 10px;"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarJa
+            </span>
+          </button>
+        </div>
+        <div
+          class="sc-kFuvnu dkKIJq"
+        >
+          <button
+            class="navds-button navds-button--tertiary navds-button--medium"
+            id="slett-soeknad"
+            style="color: rgb(198, 93, 78);"
+            type="button"
+          >
+            <span
+              class="navds-label"
+            >
+              avbrytModal.svarSlett
+            </span>
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </form>
+</div>
+`;
