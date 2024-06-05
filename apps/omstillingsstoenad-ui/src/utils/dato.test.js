@@ -126,80 +126,80 @@ describe('Funksjon fraDato fungerer som forventet', () => {
 
 describe('Funksjon erMellomOktoberOgDesember fungerer som forventet', () => {
     beforeAll(() => {
-        jest.useFakeTimers('modern')
+        vi.useFakeTimers('modern')
     })
 
     afterAll(() => {
-        jest.useRealTimers()
+        vi.useRealTimers()
     })
 
     it('Skal returnere true hvis idag er mellom oktober og desember', () => {
-        jest.setSystemTime(new Date(2020, 10, 11))
+        vi.setSystemTime(new Date(2020, 10, 11))
         expect(erMellomOktoberogDesember()).toBeTruthy()
     })
 
     it('Skal returnere true hvis idag er 31. desember', () => {
-        jest.setSystemTime(new Date(2020, 11, 31))
+        vi.setSystemTime(new Date(2020, 11, 31))
         expect(erMellomOktoberogDesember()).toBeTruthy()
     })
 
     it('Skal returnere true hvis idag er 1. oktober', () => {
-        jest.setSystemTime(new Date(2020, 9, 1))
+        vi.setSystemTime(new Date(2020, 9, 1))
         expect(erMellomOktoberogDesember()).toBeTruthy()
     })
 
     it('Skal returnere false hvis idag ikke er mellom oktober og desember', () => {
-        jest.setSystemTime(new Date(2020, 3, 1))
+        vi.setSystemTime(new Date(2020, 3, 1))
         expect(erMellomOktoberogDesember()).toBeFalsy()
     })
 
     it('Skal returnere false hvis idag er 1. januar', () => {
-        jest.setSystemTime(new Date(2020, 0, 1))
+        vi.setSystemTime(new Date(2020, 0, 1))
         expect(erMellomOktoberogDesember()).toBeFalsy()
     })
 
     it('Skal returnere false hvis idag er 30. september', () => {
-        jest.setSystemTime(new Date(2020, 8, 30))
+        vi.setSystemTime(new Date(2020, 8, 30))
         expect(erMellomOktoberogDesember()).toBeFalsy()
     })
 })
 
 describe('Funksjon doedsdatoErMellomOktoberogDesember fungerer som forventet', () => {
     beforeAll(() => {
-        jest.useFakeTimers('modern')
+        vi.useFakeTimers('modern')
     })
 
     afterAll(() => {
-        jest.useRealTimers()
+        vi.useRealTimers()
     })
 
     it('Skal returnere true hvis idag er mellom oktober og desember', () => {
-        jest.setSystemTime(new Date(2020, 10, 11))
+        vi.setSystemTime(new Date(2020, 10, 11))
         expect(doedsdatoErMellomOktoberogDesember(new Date())).toBeTruthy()
     })
 
     it('Skal returnere true hvis idag er 31. desember', () => {
-        jest.setSystemTime(new Date(2020, 11, 31))
+        vi.setSystemTime(new Date(2020, 11, 31))
         expect(doedsdatoErMellomOktoberogDesember(new Date())).toBeTruthy()
     })
 
     it('Skal returnere true hvis idag er 1. oktober', () => {
-        jest.setSystemTime(new Date(2020, 9, 1))
+        vi.setSystemTime(new Date(2020, 9, 1))
         expect(doedsdatoErMellomOktoberogDesember(new Date())).toBeTruthy()
     })
 
     it('Skal returnere false hvis idag ikke er mellom oktober og desember', () => {
-        jest.setSystemTime(new Date(2020, 3, 1))
+        vi.setSystemTime(new Date(2020, 3, 1))
         expect(doedsdatoErMellomOktoberogDesember(new Date())).toBeFalsy()
     })
 
     it('Skal returnere false hvis idag er 1. januar', () => {
-        jest.setSystemTime(new Date(2020, 0, 1))
+        vi.setSystemTime(new Date(2020, 0, 1))
         expect(doedsdatoErMellomOktoberogDesember(new Date())).toBeFalsy()
     })
 
     it('Skal returnere false hvis idag er 30. september', () => {
-        jest.setSystemTime(new Date(2020, 8, 30))
+        vi.setSystemTime(new Date(2020, 8, 30))
         expect(doedsdatoErMellomOktoberogDesember(new Date())).toBeFalsy()
     })
 })

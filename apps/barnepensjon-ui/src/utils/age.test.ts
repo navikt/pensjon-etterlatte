@@ -1,4 +1,5 @@
 import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from './age'
+import { describe, expect, it } from 'vitest'
 
 const age = new Date().getFullYear() - 2000
 

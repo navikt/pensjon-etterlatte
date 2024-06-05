@@ -16,6 +16,7 @@ import { Avdoed, Forelder, GjenlevendeForelder, PersonType } from './Person'
 import { _test, hentForeldre } from './foreldreMapper'
 import { fullAdresse } from '../../utils/personalia'
 import { ApplicantRole } from '../../types/applicant'
+import { describe, expect, it } from 'vitest'
 
 const EMPTY_VALUE = '-'
 

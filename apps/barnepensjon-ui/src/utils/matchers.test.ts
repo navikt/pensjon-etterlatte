@@ -1,4 +1,5 @@
 import { kontonrMatcher, telefonnrMatcher } from "./matchers";
+import { describe, expect, it } from 'vitest'
 
 describe("Verifiser at kontonummer-matcher fungerer som tiltenkt", () => {
     it("Skal matche på korrekte kontonummer", () => {

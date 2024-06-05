@@ -1,4 +1,5 @@
 import { convertSecondsToTime } from './convertSecondsToTime'
+import { describe, expect, it } from 'vitest'
 
 describe('Test that seconds are converted to hours, minutes and seconds', () => {
     it('Should correctly convert', () => {
