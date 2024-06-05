@@ -59,7 +59,7 @@
     "prettier": "^3.3.0"
   },
   "scripts": {
-    "start": "vite --port 3000",
+    "start": "vite --base /barnepensjon/soknad",
     "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build && yarn lisenssjekk",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest",

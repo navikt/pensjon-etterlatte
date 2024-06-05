@@ -72,7 +72,7 @@ jobs:
         with:
           install: false
           start: yarn start
-          wait-on: 'http://localhost:3000'
+          wait-on: 'http://localhost:5173'
           working-directory: apps/${{ github.workflow }}
 
   build-and-publish:

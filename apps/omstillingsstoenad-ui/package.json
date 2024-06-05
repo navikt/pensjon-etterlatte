@@ -63,7 +63,7 @@
     "pretty-quick": "4.0.0"
   },
   "scripts": {
-    "start": "vite",
+    "start": "vite --base /omstillingsstonad/soknad",
     "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build && yarn lisenssjekk",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
