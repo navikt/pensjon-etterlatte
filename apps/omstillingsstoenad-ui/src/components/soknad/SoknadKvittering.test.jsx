@@ -1,9 +1,10 @@
 import { render } from '@testing-library/react'
 import SoknadKvittering from './SoknadKvittering'
+import { describe, expect, it, vi } from 'vitest'
 
-jest.mock('react-i18next', () => ({
-    ...jest.requireActual('react-i18next'),
-    useTranslation: () => ({ t: jest.fn((key) => key) }),
+vi.mock('react-i18next', async () => ({
+    ...await vi.importActual('react-i18next'),
+    useTranslation: () => ({ t: vi.fn((key) => key) }),
 }))
 
 describe('SoknadKvittering', () => {

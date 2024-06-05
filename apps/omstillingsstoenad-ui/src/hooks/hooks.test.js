@@ -15,7 +15,7 @@ describe('useError', () => {
 
 describe('useEffectOnce', () => {
     it('skal kjøre en gang', () => {
-        const fakeCallback = jest.fn()
+        const fakeCallback = vi.fn()
         renderHook(() => {
             useEffectOnce(fakeCallback, true)
             useEffectOnce(fakeCallback, false)
@@ -24,7 +24,7 @@ describe('useEffectOnce', () => {
     })
 
     it('skal kjøre to ganger', () => {
-        const fakeCallback = jest.fn()
+        const fakeCallback = vi.fn()
         renderHook(() => {
             useEffectOnce(fakeCallback, true)
             useEffectOnce(fakeCallback, true)

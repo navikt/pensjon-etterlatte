@@ -4,7 +4,7 @@ describe('System Unavailable', { testIsolation: false }, () => {
     before(() => {
         cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { statusCode: 404 }).as('loggedInUser')
 
-        cy.visit('http://localhost:3000/barnepensjon/soknad')
+        cy.visit('http://localhost:5173/barnepensjon/soknad')
 
         cy.wait(['@loggedInUser'])
     })

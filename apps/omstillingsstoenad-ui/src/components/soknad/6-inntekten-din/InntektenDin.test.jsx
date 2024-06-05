@@ -1,9 +1,11 @@
 import { render } from '@testing-library/react'
 import InntektenDin from './InntektenDin'
+import { describe, expect, it, vi } from 'vitest'
+import {BrowserRouter} from "react-router-dom";
 
-jest.mock('react-i18next', () => ({
+vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
-    ...jest.requireActual('react-i18next'),
+    ...vi.importActual('react-i18next'),
     useTranslation: () => {
         return {
             t: (str) => str,
@@ -16,21 +18,21 @@ jest.mock('react-i18next', () => ({
 
 const defaultValues = {}
 
-jest.mock('../../../context/soknad/SoknadContext', () => ({
+vi.mock('../../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({
         state: { inntektenDin: defaultValues },
-        dispatch: jest.fn(),
+        dispatch: vi.fn(),
     }),
 }))
 
 describe('Inntekten din', () => {
     it('Snapshot', () => {
-        const { container } = render(<InntektenDin />)
+        const { container } = render(<BrowserRouter><InntektenDin /></BrowserRouter>)
         expect(container).toMatchSnapshot()
     })
 
     it('Skal rendre selvstendig', () => {
-        const { container } = render(<InntektenDin />)
+        const { container } = render(<BrowserRouter><InntektenDin /></BrowserRouter>)
 
         expect(container).toMatchSnapshot()
     })

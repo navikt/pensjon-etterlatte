@@ -1,6 +1,7 @@
 import nbLocale from './nb'
 import nnLocale from './nn'
 import enLocale from './en'
+import { describe, expect, it } from 'vitest'
 
 describe('Validering av språkfiler', () => {
     it('Nynorsk har alle de samme tekstnøklene som bokmål', () => {

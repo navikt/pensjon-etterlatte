@@ -1,9 +1,11 @@
 import { act, render, fireEvent } from '@testing-library/react'
 import OmDegOgAvdoed from './OmDegOgAvdoed'
+import { describe, expect, it, vi } from 'vitest'
+import {BrowserRouter} from "react-router-dom";
 
-jest.mock('react-i18next', () => ({
+vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
-    ...jest.requireActual('react-i18next'),
+    ...vi.importActual('react-i18next'),
     useTranslation: () => ({
         t: (str) => str,
         i18n: {
@@ -12,28 +14,28 @@ jest.mock('react-i18next', () => ({
     }),
 }))
 
-jest.mock('uuid', () => ({
+vi.mock('uuid', () => ({
     v4: () => '456',
 }))
 
 describe('Om deg og avdød', () => {
     beforeAll(() => {
-        jest.useFakeTimers('modern')
+        vi.useFakeTimers('modern')
     })
 
     afterAll(() => {
-        jest.useRealTimers()
+        vi.useRealTimers()
     })
 
     it('Snapshot uten samboerskjema', () => {
-        jest.setSystemTime(new Date(2024, 0, 1))
-        const { container } = render(<OmDegOgAvdoed />)
+        vi.setSystemTime(new Date(2024, 0, 1))
+        const { container } = render(<BrowserRouter><OmDegOgAvdoed /></BrowserRouter>)
         expect(container).toMatchSnapshot()
     })
 
     it('Snapshot med sivilstatus samboer', () => {
-        jest.setSystemTime(new Date(2024, 0, 1))
-        const { container, getByText, getByLabelText } = render(<OmDegOgAvdoed />)
+        vi.setSystemTime(new Date(2024, 0, 1))
+        const { container, getByText, getByLabelText } = render(<BrowserRouter><OmDegOgAvdoed /></BrowserRouter>)
 
         act(() => {
             fireEvent.click(getByLabelText('avdoede.relasjon.samboer'))

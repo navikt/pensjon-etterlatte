@@ -1,9 +1,11 @@
 import { render } from '@testing-library/react'
 import OpplysningerOmBarnepensjon from './OpplysningerOmBarnepensjon'
+import { describe, expect, it, vi } from 'vitest'
+import {BrowserRouter} from "react-router-dom";
 
-jest.mock('react-i18next', () => ({
+vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
-    ...jest.requireActual('react-i18next'),
+    ...vi.importActual('react-i18next'),
     useTranslation: () => {
         return {
             t: (str) => str,
@@ -16,7 +18,7 @@ jest.mock('react-i18next', () => ({
 
 describe('Opplysninger om barn', () => {
     it('Snapshot', () => {
-        const { container } = render(<OpplysningerOmBarnepensjon />)
+        const { container } = render(<BrowserRouter><OpplysningerOmBarnepensjon /></BrowserRouter>)
         expect(container).toMatchSnapshot()
     })
 })

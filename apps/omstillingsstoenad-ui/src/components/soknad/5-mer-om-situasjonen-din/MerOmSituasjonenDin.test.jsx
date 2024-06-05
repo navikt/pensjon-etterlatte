@@ -1,9 +1,11 @@
 import { act, render, fireEvent } from '@testing-library/react'
 import MerOmSituasjonenDin from './MerOmSituasjonenDin'
+import { describe, expect, it, vi } from 'vitest'
+import {BrowserRouter} from "react-router-dom";
 
-jest.mock('react-i18next', () => ({
+vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
-    ...jest.requireActual('react-i18next'),
+    ...vi.importActual('react-i18next'),
     useTranslation: () => {
         return {
             t: (str) => str,
@@ -34,21 +36,21 @@ const defaultValues = {
     ],
 }
 
-jest.mock('../../../context/soknad/SoknadContext', () => ({
+vi.mock('../../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({
         state: { merOmSituasjonenDin: defaultValues },
-        dispatch: jest.fn(),
+        dispatch: vi.fn(),
     }),
 }))
 
 describe('Mer om situasjonen din', () => {
     it('Snapshot', () => {
-        const { container } = render(<MerOmSituasjonenDin />)
+        const { container } = render(<BrowserRouter><MerOmSituasjonenDin /></BrowserRouter>)
         expect(container).toMatchSnapshot()
     })
 
     it('Skal rendre selvstendig', () => {
-        const { container, getByLabelText } = render(<MerOmSituasjonenDin />)
+        const { container, getByLabelText } = render(<BrowserRouter><MerOmSituasjonenDin /></BrowserRouter>)
         act(() => {
             fireEvent.click(getByLabelText('jobbStatus.selvstendig'))
         })

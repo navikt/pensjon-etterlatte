@@ -1,4 +1,5 @@
 import { capitalize, capitalizeName } from './capitalize'
+import { describe, expect, it } from 'vitest'
 
 describe('Test of capitalize', () => {
     it('Single word in uppercase is capitalized', () => {

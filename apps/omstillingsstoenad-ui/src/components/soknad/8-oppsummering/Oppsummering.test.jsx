@@ -2,10 +2,11 @@ import { render } from '@testing-library/react'
 import { TekstGruppe } from './fragmenter/TekstGruppe'
 import Oppsummering from './Oppsummering'
 import { BrowserRouter } from 'react-router-dom'
+import { describe, expect, it, vi } from 'vitest'
 
-jest.mock('react-i18next', () => ({
+vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
-    ...jest.requireActual('react-i18next'),
+    ...vi.importActual('react-i18next'),
     useTranslation: () => {
         return {
             t: (str) => str,

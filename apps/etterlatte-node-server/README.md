@@ -6,15 +6,8 @@ Felles node backend for Team Etterlatte.
 
 ## Hvordan ta i bruk
 
-`etterlatte-node-server` bygges til et Docker-image som kan brukes av eksempelvis en React app.
+`etterlatte-node-server` bygges til et Docker-image sammen med valgte forntend.
 
-Skal fungere ved å legge til følgende linjer i appen sin Dockerfile: 
-
-``` 
-FROM ghcr.io/navikt/pensjon-etterlatte/etterlatte-node-server:<VERSJON>
-
-COPY build ./build
-```
 
 Frontend appen sin NAIS config må også inneholde følgende verdier under `env`:
 

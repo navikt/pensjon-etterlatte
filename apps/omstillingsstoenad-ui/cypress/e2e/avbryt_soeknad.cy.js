@@ -6,7 +6,7 @@ describe("Skal avbryte en soeknad",() => {
         cy.intercept("GET", `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {fixture: "testbruker"}).as("hentInnloggetPerson");
         cy.intercept("GET", `${basePath}/api/api/kladd`, {fixture: "kladd"}).as("hentSoeknad");
 
-        cy.visit("localhost:3000/omstillingsstonad/soknad", {
+        cy.visit("localhost:5173/omstillingsstonad/soknad", {
             onBeforeLoad: (obj) => {
                 Object.defineProperty(obj.navigator, "language", {value: "nb-NO"});
             },

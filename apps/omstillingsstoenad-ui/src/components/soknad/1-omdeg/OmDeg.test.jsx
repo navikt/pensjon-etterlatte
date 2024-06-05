@@ -1,9 +1,11 @@
 import { render, fireEvent } from "@testing-library/react";
 import OmDeg from "./OmDeg";
+import { describe, expect, it, vi } from 'vitest'
+import {BrowserRouter} from "react-router-dom";
 
-jest.mock("react-i18next", () => ({
+vi.mock("react-i18next", () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
-    ...jest.requireActual("react-i18next"),
+    ...vi.importActual("react-i18next"),
     useTranslation: () => {
         return {
             t: (str) => str,
@@ -15,12 +17,13 @@ jest.mock("react-i18next", () => ({
 }));
 
 // Her må det mockes litt forskjellige guid-pakker...
-jest.mock("uuid", () => ({
+vi.mock("uuid", () => ({
     v4: () => "456"
 }))
+
 describe("Om deg og avdød", () => {
     it("Snapshot", () => {
-        const { container, getByText } = render(<OmDeg />);
+        const { container, getByText } = render(<BrowserRouter><OmDeg /></BrowserRouter>);
         
         const bankkontoTypeUtenlandsk = container.querySelectorAll("[value='bankkontoType.utenlandsk']")[0];
         fireEvent.click(bankkontoTypeUtenlandsk);

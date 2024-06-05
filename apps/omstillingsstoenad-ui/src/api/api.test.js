@@ -1,7 +1,7 @@
 import { axiosInstance } from './axios'
 import { lagreSoeknad, sendSoeknad } from './api'
 
-jest.mock('./axios')
+vi.mock('./axios')
 
 describe('Test sending av søknad', () => {
     it('Søknadsobjekt fylles ut korrekt', async () => {
