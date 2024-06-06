@@ -48,5 +48,8 @@
     "tabWidth": 4,
     "semi": false,
     "singleQuote": true
+  },
+  "resolutions": {
+    "**/braces": "3.0.3"
   }
 }
