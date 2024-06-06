@@ -7,10 +7,11 @@ import {
     BankkontoType,
     BetingetOpplysning,
     EnumSvar,
-    FritekstSvar,
     JaNeiVetIkke,
+    KronerEllerProsentType,
     OppholdUtland,
     Opplysning,
+    SkatteTrekk,
     UtbetalingsInformasjon,
     Utenlandsadresse,
 } from './FellesOpplysninger'
@@ -108,23 +109,44 @@ const mapUtbetalingsinfo = (
             },
         }
     } else if (!!person.paymentDetails?.bankAccount) {
-        let skattetrekk: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined
-        if (!!person.paymentDetails?.taxWithhold?.answer) {
+        let skattetrekk: SkatteTrekk | undefined
+        if (person.paymentDetails?.taxWithhold?.answer === JaNeiVetIkke.JA) {
             skattetrekk = {
-                spoersmaal: t('doYouWantUsToWithholdTax', { ns: 'paymentDetails' }),
                 svar: {
-                    verdi: person.paymentDetails.taxWithhold.answer,
-                    innhold: t(person.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
+                    spoersmaal: t('doYouWantUsToWithholdTax', { ns: 'paymentDetails' }),
+                    svar: {
+                        verdi: person.paymentDetails.taxWithhold.answer,
+                        innhold: t(person.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
+                    },
                 },
-                opplysning:
-                    person.paymentDetails.taxWithhold.answer === JaNeiVetIkke.JA
+                trekk:
+                    person.paymentDetails.taxWithhold.type!! === KronerEllerProsentType.KRONER
                         ? {
-                              spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
+                              spoersmaal: t('desiredTaxKroner', { ns: 'paymentDetails' }),
                               svar: {
-                                  innhold: person.paymentDetails.taxWithhold.taxPercentage || '-',
+                                  innhold:
+                                      person.paymentDetails?.taxWithhold?.taxPercentage!! +
+                                      ' ' +
+                                      t(person.paymentDetails?.taxWithhold?.type!!),
                               },
                           }
-                        : undefined,
+                        : {
+                              spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
+                              svar: {
+                                  innhold:
+                                      person.paymentDetails?.taxWithhold?.taxPercentage!! +
+                                      ' ' +
+                                      t(person.paymentDetails?.taxWithhold?.type!!),
+                              },
+                          },
+                beskrivelse: person.paymentDetails.taxWithhold.description!!
+                    ? {
+                          spoersmaal: t('taxPercentageDescription', { ns: 'paymentDetails' }),
+                          svar: {
+                              innhold: person.paymentDetails.taxWithhold.description!!,
+                          },
+                      }
+                    : undefined,
             }
         }
 

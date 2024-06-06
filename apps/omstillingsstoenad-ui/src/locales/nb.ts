@@ -595,11 +595,21 @@ export default {
     'omBarn.barnepensjon.kontonummer.informasjon': 'Du kan legge til et eget kontonummer for barnet.',
     'omBarn.barnepensjon.kontonummer.kontonummer': 'Oppgi norsk kontonummer for utbetaling av barnepensjon',
     'omBarn.barnepensjon.kontonummer.placeholder': '11 siffer',
+    'omBarn.barnepensjon.forskuddstrekk.tittel': 'Frivillig skattetrekk',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del1':
+        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at det er avtalt. Du kan legge til et frivillig skattetrekk som en prosentandel av pensjonen eller som et fast beløp. Dette sikrer at skatten blir riktig og gir mindre risiko for restskatt. \n',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2': 'Har du spørsmål om størrelsen på skattetrekket må ',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.href':
+        'https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/familie-og-helse/barn/barn-og-ungdom-med-egen-inntekt-eller-formue/',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.tekst': 'du ta kontakt med Skatteetaten',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del3':
+        'Du kan trygt ta pause fra søknaden i inntil 72 timer, men du må lagre denne siden ved å trykke på "Neste" før du tar pause. ',
     'omBarn.barnepensjon.forskuddstrekk.svar': 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
-    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':
-        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at vi får beskjed om det. Hvis du har spørsmål om størrelsen på skattetrekket må du ta kontakt med Skatteetaten.',
-    'omBarn.barnepensjon.forskuddstrekk.trekkprosent': 'Oppgi ønsket skattetrekk',
-    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'i prosent, for eksempel 20%',
+    'omBarn.barnepensjon.forskuddstrekk.type': 'Ønsker du frivillig skattetrekk i kroner eller prosent?',
+    'omBarn.barnepensjon.forskuddstrekk.trekk.kroner': 'Frivillig skattetrekk i kroner per måned',
+    'omBarn.barnepensjon.forskuddstrekk.trekk.prosent': 'Frivillig skattetrekk i prosent per måned',
+    'omBarn.barnepensjon.forskuddstrekk.beskrivelse':
+        'Vi trenger beskjed hvis det ikke skal være trekk i desember eller andre deler av året (valgfritt)',
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
@@ -1083,7 +1093,8 @@ export default {
     'feil.barnepensjon.utbetalingsInformasjon.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
     'feil.barnepensjon.utbetalingsInformasjon.swift.validate': 'Ugyldig SWIFT/BIC kode',
     'feil.barnepensjon.forskuddstrekk.svar.required': 'Oppgi om du ønsker skattetrekk for barnepensjonen',
-    'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Oppgi en gyldig prosent',
+    'feil.barnepensjon.forskuddstrekk.type.required': 'Oppgi frivillig skattetrekk i kroner eller i prosent',
+    'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Oppgi et gyldig skattetrekk',
     'feil.dagligOmsorg.required': 'Oppgi om du har daglig omsorg for barnet',
     'feil.harBarnetVerge.svar.required': 'Oppgi om det er oppnevnt en verge for barnet',
     'feil.harBarnetVerge.fornavn.pattern': 'Ugyldig fornavn',

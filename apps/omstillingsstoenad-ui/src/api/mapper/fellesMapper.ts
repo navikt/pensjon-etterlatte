@@ -3,12 +3,12 @@ import { BarnRelasjon, IBarn } from '../../typer/person'
 import {
     BankkontoType,
     BetingetOpplysning,
-    Opplysning,
+    EnumSvar,
     JaNeiVetIkke,
+    Opplysning,
+    SkatteTrekk,
     UtbetalingsInformasjon,
     Utenlandsadresse,
-    EnumSvar,
-    FritekstSvar,
 } from '../dto/FellesOpplysninger'
 import {
     Avdoed,
@@ -21,7 +21,11 @@ import {
     PersonType,
     Verge,
 } from '../dto/Person'
-import { BankkontoType as GammelBankkontoType, IUtbetalingsInformasjon } from '../../typer/utbetaling'
+import {
+    BankkontoType as GammelBankkontoType,
+    IUtbetalingsInformasjon,
+    KronerEllerProsentType,
+} from '../../typer/utbetaling'
 import { IValg } from '../../typer/Spoersmaal'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
@@ -241,22 +245,41 @@ export const hentUtbetalingsInformasjonBarn = (
     return undefined
 }
 
-const hentSkattetrekk = (
-    t: TFunction,
-    soeker: IBarn
-): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar>> | undefined => {
+const hentSkattetrekk = (t: TFunction, soeker: IBarn): SkatteTrekk | undefined => {
     if (soeker.barnepensjon?.forskuddstrekk?.svar === IValg.JA) {
-        const trekkprosent: Opplysning<FritekstSvar> = {
-            spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.trekkprosent'),
-            svar: {
-                innhold: soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!!,
-            },
-        }
-
         return {
-            spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.svar'),
-            svar: valgTilSvar(t, soeker.barnepensjon!!.forskuddstrekk!!.svar!!),
-            opplysning: trekkprosent,
+            svar: {
+                spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.svar'),
+                svar: valgTilSvar(t, soeker.barnepensjon!!.forskuddstrekk!!.svar!!),
+            },
+            trekk:
+                soeker.barnepensjon!!.forskuddstrekk!!.type!! === KronerEllerProsentType.kroner
+                    ? {
+                          spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.trekk.kroner'),
+                          svar: {
+                              innhold:
+                                  soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!! +
+                                  ' ' +
+                                  t(soeker.barnepensjon!!.forskuddstrekk!!.type!!),
+                          },
+                      }
+                    : {
+                          spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.trekk.prosent'),
+                          svar: {
+                              innhold:
+                                  soeker.barnepensjon!!.forskuddstrekk!!.trekkprosent!! +
+                                  ' ' +
+                                  t(soeker.barnepensjon!!.forskuddstrekk!!.type!!),
+                          },
+                      },
+            beskrivelse: soeker.barnepensjon!!.forskuddstrekk!!.beskrivelse
+                ? {
+                      spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.beskrivelse'),
+                      svar: {
+                          innhold: soeker.barnepensjon!!.forskuddstrekk!!.beskrivelse!!,
+                      },
+                  }
+                : undefined,
         }
     }
     return undefined

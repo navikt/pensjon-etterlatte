@@ -1,4 +1,4 @@
-import { BankkontoType, JaNeiVetIkke } from '../api/dto/FellesOpplysninger'
+import { BankkontoType, JaNeiVetIkke, KronerEllerProsentType } from '../api/dto/FellesOpplysninger'
 
 export interface IAboutYou {
     addressOfResidenceConfirmed?: JaNeiVetIkke
@@ -23,7 +23,9 @@ export interface IPaymentDetails {
     swift?: string
     taxWithhold?: {
         answer?: JaNeiVetIkke
+        type?: KronerEllerProsentType
         taxPercentage?: string
+        description?: string
     }
 }
 
