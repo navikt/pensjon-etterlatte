@@ -1,5 +1,6 @@
 import { fullAdresse, nameAndFnr } from './personalia'
 import { IParent } from '../context/application/application'
+import { describe, expect, it } from 'vitest'
 
 describe('Test at adresse blir korrekt bygget opp', () => {
     it('Skal bygge opp hele adressen', () => {

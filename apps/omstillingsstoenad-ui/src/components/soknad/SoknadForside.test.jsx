@@ -1,13 +1,20 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import SoknadForside from './SoknadForside'
 import { SoknadProvider } from '../../context/soknad/SoknadContext'
+import { describe, it, vi } from 'vitest'
+import {BrowserRouter} from "react-router-dom";
 
-jest.mock('react-i18next', () => ({
-    ...jest.requireActual('react-i18next'),
-    useTranslation: () => ({ t: jest.fn((key) => key) }),
+import * as chai from "chai";
+
+chai.use(require("chai-dom"));
+var expect = chai.expect;
+
+vi.mock('react-i18next', async () => ({
+    ...await vi.importActual('react-i18next'),
+    useTranslation: () => ({ t: vi.fn((key) => key) }),
 }))
 
-jest.mock('../../context/bruker/BrukerContext', () => ({
+vi.mock('../../context/bruker/BrukerContext', () => ({
     useBrukerContext: () => {
         return {
             state: {
@@ -18,9 +25,9 @@ jest.mock('../../context/bruker/BrukerContext', () => ({
     },
 }))
 
-jest.mock('react-router', () => ({
-    ...jest.requireActual('react-router'),
-    useLocation: jest.fn().mockImplementation(() => {
+vi.mock('react-router', async () => ({
+    ...await vi.importActual('react-router'),
+    useLocation: vi.fn().mockImplementation(() => {
         return {
             pathname: '/testroute',
             search: '',
@@ -30,9 +37,9 @@ jest.mock('react-router', () => ({
     }),
 }))
 
-const mockedUsedNavigate = jest.fn()
-jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
+const mockedUsedNavigate = vi.fn()
+vi.mock('react-router-dom', async () => ({
+    ...await vi.importActual('react-router-dom'),
     useNavigate: () => mockedUsedNavigate,
 }))
 
@@ -52,7 +59,9 @@ beforeEach(() => {
     act(() => {
         render(
             <SoknadProvider>
-                <SoknadForside />
+                <BrowserRouter>
+                    <SoknadForside />
+                </BrowserRouter>
             </SoknadProvider>,
             container
         )
@@ -67,8 +76,7 @@ afterEach(() => {
 describe('Samtykke', () => {
     it('Knapp vises ikke hvis samtykke mangler', async () => {
         const bekreftSjekkboks = await screen.findByText('forside.samtykke.bekreftelse')
-        expect(bekreftSjekkboks).toBeVisible()
-        expect(bekreftSjekkboks).not.toBeChecked()
+        expect(bekreftSjekkboks).to.be.visible;
 
         const startKnapp = screen.queryByText('forside.startSoeknad')
         expect(startKnapp).toBeNull()
@@ -76,14 +84,14 @@ describe('Samtykke', () => {
 
     it('Knapp vises hvis samtykke er huket av', async () => {
         const bekreftSjekkboks = await screen.findByLabelText('forside.samtykke.bekreftelse')
-        expect(bekreftSjekkboks).toBeVisible()
+        expect(bekreftSjekkboks).to.be.visible;
 
         await act(async () => {
             fireEvent.click(bekreftSjekkboks)
         })
-        expect(bekreftSjekkboks).toBeChecked()
+        expect(bekreftSjekkboks).to.be.checked;
 
         const startKnapp = await screen.findByText('forside.startSoeknad')
-        expect(startKnapp).toBeVisible()
+        expect(startKnapp).to.be.visible;
     })
 })

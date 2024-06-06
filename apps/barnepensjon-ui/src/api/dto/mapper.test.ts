@@ -16,6 +16,7 @@ import { Avdoed, Forelder, GjenlevendeForelder, PersonType } from './Person'
 import { _test, hentForeldre } from './foreldreMapper'
 import { fullAdresse } from '../../utils/personalia'
 import { ApplicantRole } from '../../types/applicant'
+import { describe, expect, it } from 'vitest'
 
 const EMPTY_VALUE = '-'
 
@@ -34,6 +35,7 @@ const user: User = {
     sivilstatus: 'GIFT',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const t = (key: string, _: any) => key
 const isChild = false
 

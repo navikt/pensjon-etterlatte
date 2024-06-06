@@ -1,4 +1,9 @@
 import { moveMostUsedCountriesToBeginning } from './useCountries'
+import { describe, expect, it } from 'vitest'
+/**
+ * @vitest-environment jsdom
+ */
+
 
 describe('Test of moveMostUsedCountriesToBeginning', () => {
     it('Sjekk mest brukte land ender på først i listen', () => {

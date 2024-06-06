@@ -10,6 +10,7 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { Panel } from '../../../felles/Panel'
 import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
+import { KronerEllerProsentType } from '../../../../typer/utbetaling'
 
 interface Props {
     opplysningerOmBarn: IOmBarn
@@ -116,9 +117,23 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                         {barnet.barnepensjon?.forskuddstrekk?.svar === IValg.JA && (
                             <Panel>
                                 <TekstGruppe
-                                    tittel={t('omBarn.barnepensjon.forskuddstrekk.trekkprosent')}
-                                    innhold={barnet.barnepensjon.forskuddstrekk.trekkprosent}
+                                    tittel={t(
+                                        barnet.barnepensjon.forskuddstrekk.type === KronerEllerProsentType.kroner
+                                            ? 'omBarn.barnepensjon.forskuddstrekk.trekk.kroner'
+                                            : 'omBarn.barnepensjon.forskuddstrekk.trekk.prosent'
+                                    )}
+                                    innhold={
+                                        barnet.barnepensjon.forskuddstrekk.trekkprosent +
+                                        ' ' +
+                                        t(barnet.barnepensjon.forskuddstrekk.type!!)
+                                    }
                                 />
+                                {barnet.barnepensjon?.forskuddstrekk.beskrivelse && (
+                                    <TekstGruppe
+                                        tittel={t('omBarn.barnepensjon.forskuddstrekk.beskrivelse')}
+                                        innhold={barnet.barnepensjon.forskuddstrekk.beskrivelse}
+                                    />
+                                )}
                             </Panel>
                         )}
 

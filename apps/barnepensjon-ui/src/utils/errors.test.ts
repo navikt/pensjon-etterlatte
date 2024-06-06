@@ -1,4 +1,5 @@
 import { getErrorKey } from './errors'
+import { describe, expect, it } from 'vitest'
 
 describe('Test error', () => {
     it('should return correct error key', function () {

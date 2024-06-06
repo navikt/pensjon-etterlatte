@@ -4,6 +4,10 @@ import { ActionTypes, User } from './user'
 import { UserProvider, useUserContext } from './UserContext'
 import React from 'react'
 import { FCProps } from '../../types/FCProps'
+import { describe, expect, test } from 'vitest'
+/**
+ * @vitest-environment jsdom
+ */
 
 const setup = () => {
     const wrapper: React.FC<FCProps> = ({ children }) => <UserProvider>{children}</UserProvider>

@@ -622,11 +622,23 @@ export default {
     'omBarn.barnepensjon.kontonummer.kontonummer':
         'Enter the Norwegian bank account number for payment of children’s pension',
     'omBarn.barnepensjon.kontonummer.placeholder': '11 digits',
-    'omBarn.barnepensjon.forskuddstrekk.svar': 'Do you want us to deduct tax from the children’s pension?',
-    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst':
-        "A children's pension is taxable, but we do not deduct tax from the amount unless we are notified. If you have questions about the amount of the tax deduction, you must contact the Norwegian Tax Administration.",
-    'omBarn.barnepensjon.forskuddstrekk.trekkprosent': 'Enter the desired tax deduction',
-    'omBarn.barnepensjon.forskuddstrekk.placeholder': 'Example given 20%',
+    'omBarn.barnepensjon.forskuddstrekk.tittel': 'Voluntary tax deduction',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del1':
+        "A children's pension is taxable, but we do not deduct tax from the amount unless we have agreed with you to do so. You can add a voluntary tax deduction as a percentage of your pension or as a fixed amount. This ensures that your tax payment is correct, and it minimises the risk of back taxes.",
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2':
+        'If you have questions about the amount of the tax deduction, you must ',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.href':
+        'https://www.skatteetaten.no/en/person/taxes/get-the-taxes-right/family-and-health/children/children-and-young-people-with-their-own-income-or-capital/',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.tekst': 'contact the Norwegian Tax Administration',
+    'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del3':
+        'You can pause the application process for up to 72 hours, but you must save this page by pressing "Next" before you take a break.',
+    'omBarn.barnepensjon.forskuddstrekk.svar': "Do you want us to make a tax deduction for the children's pension?",
+    'omBarn.barnepensjon.forskuddstrekk.type':
+        'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
+    'omBarn.barnepensjon.forskuddstrekk.trekk.kroner': 'Voluntary tax deduction in kroner per month',
+    'omBarn.barnepensjon.forskuddstrekk.trekk.prosent': 'Voluntary tax deduction in percentage per month',
+    'omBarn.barnepensjon.forskuddstrekk.beskrivelse':
+        'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Please be aware that voluntary tax deductions must be renewed annually.',
     'omBarn.infokort.foedselsnummer': 'NORWEGIAN NATIONAL IDENTITY NUMBER',
@@ -1133,7 +1145,9 @@ export default {
     'feil.barnepensjon.utbetalingsInformasjon.swift.validate': 'Invalid SWIFT code or BIC',
     'feil.barnepensjon.forskuddstrekk.svar.required':
         'State whether you want tax to be deducted from the children’s pension',
-    'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Enter a valid percentage',
+    'feil.barnepensjon.forskuddstrekk.type.required':
+        'State whether you want tax to be deducted in kroner or as a percentage',
+    'feil.barnepensjon.forskuddstrekk.trekkprosent.required': 'Enter a valid voluntary tax deduction',
     'feil.dagligOmsorg.required': 'State whether you have the daily care for the child',
     'feil.harBarnetVerge.svar.required': 'State whether a guardian has been appointed for the child',
     'feil.harBarnetVerge.fornavn.pattern': 'Invalid first name',

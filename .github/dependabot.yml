@@ -35,6 +35,7 @@ updates:
     directories:
       - "/apps/barnepensjon-ui"
       - "/apps/omstillingsstoenad-ui"
+      - "/apps/etterlatte-node-server"
     schedule:
       interval: "monthly"
       day: "sunday"
@@ -54,6 +55,8 @@ updates:
           - "cypress-axe"
           - "@testing-library/*"
           - "@types/jest"
+          - "license-checker-rseidelsohn"
+          - "ts-node-dev"
       react:
         patterns:
           - "react*"
@@ -73,25 +76,26 @@ updates:
           - "web-vitals"
           - "@types/amplitude-js"
           - "amplitude-js"
+      node-server:
+        patterns:
+          - "@navikt/nav-dekoratoren-moduler"
+          - "@navikt/oasis"
+          - "cls-rtracer"
+          - "express"
+          - "jsdom"
+          - "jsonwebtoken"
+          - "node-cache"
+          - "node-fetch"
+          - "prom-client"
+          - "winston"
+          - "winston-transport"
+          - "@types/express*"
+          - "@types/jsonwebtoken"
+          - "@types/node*"
       styledcomponents:
         patterns:
           - "styled-components"
           - "@types/styled-components"
-
-  # ===========
-  # NODE SERVER
-  # ===========
-
-  - package-ecosystem: "npm"
-    directory: "/apps/etterlatte-node-server"
-    schedule:
-      interval: "monthly"
-      day: "sunday"
-    open-pull-requests-limit: 10
-    groups:
-      prod:
-        patterns:
-          - "*"
 
 
   # ==============
@@ -110,13 +114,13 @@ updates:
   # ===========
 
   - package-ecosystem: "docker"
-    directory: "/docker/backend.Dockerfile"
+    directory: "/docker/backend"
     schedule:
       interval: "monthly"
       day: "sunday"
 
   - package-ecosystem: "docker"
-    directory: "/apps/etterlatte-node-server/Dockerfile"
+    directory: "/apps/etterlatte-node-server"
     schedule:
       interval: "monthly"
       day: "sunday"

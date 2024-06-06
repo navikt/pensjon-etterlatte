@@ -25,7 +25,7 @@ export default function SystemUnavailable() {
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const retry = () => {
-        window.location.href = process.env.PUBLIC_URL
+        window.location.href = import.meta.env.BASE_URL
     }
 
     return (

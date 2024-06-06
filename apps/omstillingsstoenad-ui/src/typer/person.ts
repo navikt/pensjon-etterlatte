@@ -1,5 +1,5 @@
 import { IValg } from './Spoersmaal'
-import { IUtbetalingsInformasjon } from './utbetaling'
+import { IUtbetalingsInformasjon, KronerEllerProsentType } from './utbetaling'
 
 export enum Sivilstatus {
     enke = 'nySivilstatus.enke',
@@ -74,7 +74,9 @@ export interface IBarn {
         utbetalingsInformasjon?: IUtbetalingsInformasjon
         forskuddstrekk?: {
             svar?: IValg
+            type?: KronerEllerProsentType
             trekkprosent?: string
+            beskrivelse?: string
         }
     }
 }
