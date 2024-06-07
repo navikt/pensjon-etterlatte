@@ -35,6 +35,10 @@ spec:
         autoBackupHour: 3
         tier: db-custom-1-3840
         highAvailability: true
+        pointInTimeRecovery: true
+        maintenance:
+          day: 7
+          hour: 2
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB
