@@ -40,6 +40,10 @@ spec:
     autoInstrumentation:
       enabled: true
       runtime: nodejs
+    logging:
+      destinations:
+        - id: elastic
+        - id: loki
   tokenx:
     enabled: true
   idporten:
