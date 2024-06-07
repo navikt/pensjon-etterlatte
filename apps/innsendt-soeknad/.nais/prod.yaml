@@ -32,9 +32,13 @@ spec:
         name: innsendt-soeknad-v2
         diskAutoresize: true
         diskType: SSD
-        autoBackupHour: 3
+        autoBackupHour: 1
         tier: db-custom-1-3840
         highAvailability: true
+        pointInTimeRecovery: true
+        maintenance:
+          day: 7
+          hour: 2
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB
