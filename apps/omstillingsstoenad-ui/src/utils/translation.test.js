@@ -1,5 +1,5 @@
 import { getTransKey } from './translation'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 describe('Test translation-utils', () => {
     it('getTranskey skal fjerne firkantparentes fra errornavn', () => {
