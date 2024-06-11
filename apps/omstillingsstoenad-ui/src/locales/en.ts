@@ -640,7 +640,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.beskrivelse':
         'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
     'omBarn.barnepensjon.forskuddstrekk.info':
-        'Please be aware that voluntary tax deductions must be renewed annually.',
+        'You retain the voluntary tax deduction in future years until you notify us about a change.',
     'omBarn.infokort.foedselsnummer': 'NORWEGIAN NATIONAL IDENTITY NUMBER',
     'omBarn.infokort.foreldre': 'THE CHILD’S PARENTS',
     'omBarn.infokort.foreldre.jegOgAvdoed': 'I and the deceased',

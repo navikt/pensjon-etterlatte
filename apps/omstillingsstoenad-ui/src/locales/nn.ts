@@ -608,7 +608,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.beskrivelse':
         'Vi må få beskjed dersom det ikkje skal vere trekk i desember eller andre delar av året (valfritt)',
     'omBarn.barnepensjon.forskuddstrekk.info':
-        'Ver merksam på at frivillig skattetrekk må sendast inn på nytt kvart kalenderår.',
+        'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
     'omBarn.infokort.foreldre': 'FORELDRE TIL BARNET',
     'omBarn.infokort.foreldre.jegOgAvdoed': 'Eg og avdøde',

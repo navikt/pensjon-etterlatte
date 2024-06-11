@@ -93,7 +93,7 @@ const paymentDetails = {
     taxPercentageType: 'Ønsker du frivillig skattetrekk i kroner eller prosent?',
     taxPercentageDescription:
         'Vi trenger beskjed hvis det ikke skal være trekk i desember eller andre deler av året (valgfritt)',
-    taxWithholdMustBeSentYearly: 'Vær oppmerksom på at frivillig skattetrekk må sendes inn på nytt hvert kalenderår.',
+    taxWithholdMustBeSentYearly: 'Du beholder det frivillige skattetrekket i årene fremover til du selv melder fra om endring.',
 }
 
 const radiobuttons = {
