@@ -19,23 +19,26 @@ class ClientConfig(
         }
 
     internal val clients: Map<String, OAuth2Client> =
-        applicationConfig.configList(CLIENTS_PATH)
+        applicationConfig
+            .configList(CLIENTS_PATH)
             .associate { clientConfig ->
                 val wellKnownUrl = clientConfig.propertyToString("well_known_url")
-                val clientAuth = ClientAuthenticationProperties(
-                    clientConfig.propertyToString("authentication.client_id"),
-                    ClientAuthenticationMethod(
-                        clientConfig.propertyToString("authentication.client_auth_method")
-                    ),
-                    clientConfig.propertyToStringOrNull("client_secret"),
-                    clientConfig.propertyToStringOrNull("authentication.client_jwk")
-                )
-                clientConfig.propertyToString(CLIENT_NAME) to OAuth2Client(
-                    httpClient = httpClient,
-                    wellKnownUrl = wellKnownUrl,
-                    clientAuthProperties = clientAuth,
-                    cacheConfig = cacheConfig
-                )
+                val clientAuth =
+                    ClientAuthenticationProperties(
+                        clientConfig.propertyToString("authentication.client_id"),
+                        ClientAuthenticationMethod(
+                            clientConfig.propertyToString("authentication.client_auth_method")
+                        ),
+                        clientConfig.propertyToStringOrNull("client_secret"),
+                        clientConfig.propertyToStringOrNull("authentication.client_jwk")
+                    )
+                clientConfig.propertyToString(CLIENT_NAME) to
+                    OAuth2Client(
+                        httpClient = httpClient,
+                        wellKnownUrl = wellKnownUrl,
+                        clientAuthProperties = clientAuth,
+                        cacheConfig = cacheConfig
+                    )
             }
 
     companion object CommonConfigurationAttributes {
@@ -47,4 +50,5 @@ class ClientConfig(
 }
 
 internal fun ApplicationConfig.propertyToString(prop: String) = this.property(prop).getString()
+
 internal fun ApplicationConfig.propertyToStringOrNull(prop: String) = this.propertyOrNull(prop)?.getString()

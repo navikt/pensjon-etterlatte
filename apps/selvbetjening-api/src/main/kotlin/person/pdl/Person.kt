@@ -61,9 +61,7 @@ data class Metadata(
     val master: String,
     val opplysningsId: String
 ) {
-    fun sisteRegistrertDato(): LocalDateTime {
-        return endringer.maxByOrNull { it.registrert }?.registrert!!
-    }
+    fun sisteRegistrertDato(): LocalDateTime = endringer.maxByOrNull { it.registrert }?.registrert!!
 }
 
 data class Endring(
@@ -77,7 +75,7 @@ data class Endring(
 enum class Endringstype {
     KORRIGER,
     OPPHOER,
-    OPPRETT;
+    OPPRETT
 }
 
 enum class Sivilstandstype {
@@ -90,7 +88,7 @@ enum class Sivilstandstype {
     REGISTRERT_PARTNER,
     SEPARERT_PARTNER,
     SKILT_PARTNER,
-    GJENLEVENDE_PARTNER;
+    GJENLEVENDE_PARTNER
 }
 
 data class Sivilstand(

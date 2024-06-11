@@ -1,17 +1,21 @@
 package libs.common.util
 
 import kotlinx.coroutines.runBlocking
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
 import java.util.*
 
 class RetryTest {
-
     @Test
     fun `unsafe retry skal gi resultatet om det gikk bra`() {
-        assertEquals("OK", runBlocking {
-            unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
-        })
+        assertEquals(
+            "OK",
+            runBlocking {
+                unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
+            }
+        )
     }
 
     @Test
@@ -49,9 +53,7 @@ class RetryTest {
                     assertEquals(3, it.exceptions.size)
                 }
             }
-
         }
-
     }
 
     private fun ustabilMetode(eksternFeil: List<Boolean>): suspend () -> String {

@@ -18,26 +18,35 @@ import no.nav.etterlatte.soeknad.SoeknadService
 
 fun Route.soeknadApi(service: SoeknadService) {
     post("/api/soeknad") {
-        call.application.environment.log.info("SoeknadRequest mottatt i innsendt-soeknad!")
+        call.application.environment.log
+            .info("SoeknadRequest mottatt i innsendt-soeknad!")
 
         try {
             val kilde = call.request.queryParameters["kilde"]!!
             val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), call.receive(), kilde)
 
-            call.application.environment.log.info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
+            call.application.environment.log
+                .info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
             call.respond(HttpStatusCode.OK)
         } catch (e: SoeknadConflictException) {
-            call.application.environment.log.warn("Bruker har allerede en innsendt søknad under arbeid", e)
+            call.application.environment.log
+                .warn("Bruker har allerede en innsendt søknad under arbeid", e)
             call.respond(HttpStatusCode.Conflict)
         } catch (e: Exception) {
-            call.application.environment.log.error("Klarte ikke å lagre søknaden(e)", e)
+            call.application.environment.log
+                .error("Klarte ikke å lagre søknaden(e)", e)
             throw e
         }
     }
 
     route("/api/kladd") {
         post {
-            val id = service.lagreKladd(fnrFromToken(), call.receive<JsonNode>(), call.request.queryParameters["kilde"]!!)
+            val id =
+                service.lagreKladd(
+                    fnrFromToken(),
+                    call.receive<JsonNode>(),
+                    call.request.queryParameters["kilde"]!!
+                )
 
             call.respondText(id.toString(), ContentType.Text.Plain)
         }
@@ -51,12 +60,13 @@ fun Route.soeknadApi(service: SoeknadService) {
         get {
             val soeknad = service.hentKladd(fnrFromToken(), call.request.queryParameters["kilde"]!!)
 
-            if (soeknad == null)
+            if (soeknad == null) {
                 call.respond(HttpStatusCode.NotFound)
-            else if (soeknad.status != Status.LAGRETKLADD)
+            } else if (soeknad.status != Status.LAGRETKLADD) {
                 call.respond(HttpStatusCode.Conflict)
-            else
+            } else {
                 call.respond(soeknad)
+            }
         }
     }
 }

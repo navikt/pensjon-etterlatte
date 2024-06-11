@@ -15,24 +15,28 @@ internal class BehandlingOpprettetDoffen(
     rapidsConnection: RapidsConnection,
     private val soeknader: SoeknadRepository
 ) : River.PacketListener {
-
     private val logger = LoggerFactory.getLogger(BehandlingOpprettetDoffen::class.java)
 
     init {
-        River(rapidsConnection).apply {
-            validate { it.demandValue("@event_name", EventName.TRENGER_BEHANDLING) }
-            validate { it.requireKey("@lagret_soeknad_id") }
-            validate { it.requireKey("sakId") }
-            validate { it.requireKey("behandlingId") }
-            validate { it.interestedIn("@hendelse_gyldig_til") }
-        }.register(this)
+        River(rapidsConnection)
+            .apply {
+                validate { it.demandValue("@event_name", EventName.TRENGER_BEHANDLING) }
+                validate { it.requireKey("@lagret_soeknad_id") }
+                validate { it.requireKey("sakId") }
+                validate { it.requireKey("behandlingId") }
+                validate { it.interestedIn("@hendelse_gyldig_til") }
+            }.register(this)
     }
 
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
+    override fun onPacket(
+        packet: JsonMessage,
+        context: MessageContext
+    ) {
         val sakId = packet["sakId"].longValue()
-        val behandlingId = packet["behandlingId"].textValue().let {
-            UUID.fromString(it)
-        }
+        val behandlingId =
+            packet["behandlingId"].textValue().let {
+                UUID.fromString(it)
+            }
 
         val soeknadId = packet["@lagret_soeknad_id"]
         if (soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
@@ -44,11 +48,12 @@ internal class BehandlingOpprettetDoffen(
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if (it.isBefore(OffsetDateTime.now())) {
-                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} har " +
-                            "behandling, men hendelsen gikk ut på dato $it")
+                    logger.info(
+                        "${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} har " +
+                            "behandling, men hendelsen gikk ut på dato $it"
+                    )
                 }
             }
         }
     }
 }
-

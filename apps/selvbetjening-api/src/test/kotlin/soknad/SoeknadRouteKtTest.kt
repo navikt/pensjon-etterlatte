@@ -36,9 +36,12 @@ internal class SoeknadRouteKtTest {
 
     @Test
     fun `Skal lagre søknader`() {
-        val soeknad = SoeknadRequest(listOf(
-            InnsendtSoeknadFixtures.omstillingsSoeknad()
-        ))
+        val soeknad =
+            SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.omstillingsSoeknad()
+                )
+            )
 
         withTestApplication({ testModule { soknadApi(service) } }) {
             coEvery { service.sendSoeknader(any(), kilde) } returns RetryResult.Success()

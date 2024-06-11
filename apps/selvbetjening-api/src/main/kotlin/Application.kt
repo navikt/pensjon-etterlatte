@@ -27,7 +27,9 @@ import no.nav.etterlatte.soknad.SoeknadService
 
 const val PDL_URL = "PDL_URL"
 
-class ApplicationContext(configLocation: String? = null) {
+class ApplicationContext(
+    configLocation: String? = null
+) {
     private val closables = mutableListOf<() -> Unit>()
     private val config: Config = configLocation?.let { ConfigFactory.load(it) } ?: ConfigFactory.load()
 
@@ -44,84 +46,99 @@ class ApplicationContext(configLocation: String? = null) {
     private val adressebeskyttelseService: AdressebeskyttelseService
 
     init {
-        kodeverkService = kodeverkHttpClient()
-            .also { closables.add(it::close) }
-            .let { KodeverkService(KodeverkKlient(it, System.getenv("KODEVERK_URL"))) }
+        kodeverkService =
+            kodeverkHttpClient()
+                .also { closables.add(it::close) }
+                .let { KodeverkService(KodeverkKlient(it, System.getenv("KODEVERK_URL"))) }
 
-        krrKlient = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
-            .also { closables.add(it::close) }
-            .let { KrrKlient(it) }
+        krrKlient =
+            tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
+                .also { closables.add(it::close) }
+                .let { KrrKlient(it) }
 
-        personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
-            .also { closables.add(it::close) }
-            .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
+        personService =
+            tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
+                .also { closables.add(it::close) }
+                .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
 
-        adressebeskyttelseService = systemPdlHttpClient()
-            .also { closables.add(it::close) }
-            .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv(PDL_URL))) }
+        adressebeskyttelseService =
+            systemPdlHttpClient()
+                .also { closables.add(it::close) }
+                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv(PDL_URL))) }
 
-        soeknadService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
-            .also { closables.add(it::close) }
-            .let { SoeknadService(it, adressebeskyttelseService) }
+        soeknadService =
+            tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
+                .also { closables.add(it::close) }
+                .let { SoeknadService(it, adressebeskyttelseService) }
 
-        unsecuredSoeknadHttpClient = unsecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad").getString("url").replace("/api/", ""))
+        unsecuredSoeknadHttpClient =
+            unsecuredEndpoint(
+                config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad").getString("url").replace("/api/", "")
+            )
     }
 
-    private fun unsecuredEndpoint(url: String) = HttpClient(OkHttp) {
-        install(ContentNegotiation) {
-            jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                registerModule(JavaTimeModule())
+    private fun unsecuredEndpoint(url: String) =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
+            }
+
+            defaultRequest {
+                url(url)
             }
         }
 
-        defaultRequest {
-            url(url)
-        }
-    }
+    private fun tokenSecuredEndpoint(endpointConfig: Config) =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
+            }
 
-    private fun tokenSecuredEndpoint(endpointConfig: Config) = HttpClient(OkHttp) {
-        install(ContentNegotiation) {
-            jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                registerModule(JavaTimeModule())
+            install(Auth) {
+                bearerToken {
+                    tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
+                }
+            }
+
+            defaultRequest {
+                url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
             }
         }
 
-        install(Auth) {
-            bearerToken {
-                tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
+    private fun kodeverkHttpClient() =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
             }
         }
-
-        defaultRequest {
-            url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
-        }
-    }
-
-    private fun kodeverkHttpClient() = HttpClient(OkHttp) {
-        install(ContentNegotiation) {
-            jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                registerModule(JavaTimeModule())
-            }
-        }
-    }
 
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
-    private fun systemPdlHttpClient() = HttpClient(OkHttp) {
-        install(ContentNegotiation) { jackson() }
-        install(Auth) {
-            clientCredential {
-                config = System.getenv().toMutableMap()
-                    .apply { put("AZURE_APP_OUTBOUND_SCOPE", requireNotNull(get("PDL_AZURE_SCOPE"))) }
+    private fun systemPdlHttpClient() =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) { jackson() }
+            install(Auth) {
+                clientCredential {
+                    config =
+                        System
+                            .getenv()
+                            .toMutableMap()
+                            .apply { put("AZURE_APP_OUTBOUND_SCOPE", requireNotNull(get("PDL_AZURE_SCOPE"))) }
+                }
             }
         }
-    }
 }
 
 fun main() {

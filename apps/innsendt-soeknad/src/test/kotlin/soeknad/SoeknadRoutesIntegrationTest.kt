@@ -56,7 +56,6 @@ import java.util.stream.Collectors
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation::class)
 internal class SoeknadApiIntegrationTest {
-
     companion object {
         private const val STOR_SNERK = "11057523044"
         private const val LUR_KOPP = "04117120886"
@@ -94,11 +93,12 @@ internal class SoeknadApiIntegrationTest {
     @Order(1)
     fun `Skal opprette soeknad i databasen for OMS`() {
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
-            val request = SoeknadRequest(
-                listOf(
-                    InnsendtSoeknadFixtures.omstillingsSoeknad(Foedselsnummer.of(VAKKER_PENN))
+            val request =
+                SoeknadRequest(
+                    listOf(
+                        InnsendtSoeknadFixtures.omstillingsSoeknad(Foedselsnummer.of(VAKKER_PENN))
+                    )
                 )
-            )
 
             handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
@@ -114,12 +114,14 @@ internal class SoeknadApiIntegrationTest {
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
         withTestApplication({ apiTestModule { soeknadApi(service) } }) {
-            val request = SoeknadRequest(
-                soeknader = listOf(
-                    InnsendtSoeknadFixtures.omstillingsSoeknad(innsenderFnr = Foedselsnummer.of(LUR_KOPP)),
-                    InnsendtSoeknadFixtures.barnepensjon(innsenderFnr = Foedselsnummer.of(LUR_KOPP))
+            val request =
+                SoeknadRequest(
+                    soeknader =
+                        listOf(
+                            InnsendtSoeknadFixtures.omstillingsSoeknad(innsenderFnr = Foedselsnummer.of(LUR_KOPP)),
+                            InnsendtSoeknadFixtures.barnepensjon(innsenderFnr = Foedselsnummer.of(LUR_KOPP))
+                        )
                 )
-            )
 
             handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
@@ -129,16 +131,20 @@ internal class SoeknadApiIntegrationTest {
                 response.status() shouldBe HttpStatusCode.OK
 
                 // Verifiser søknad for gjenlevendepensjon
-                val gjenlevendeRow = dsbHolder.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM innhold WHERE fnr = '$LUR_KOPP'")
+                val gjenlevendeRow =
+                    dsbHolder.dataSource.connection
+                        .createStatement()
+                        .executeQuery("SELECT * FROM innhold WHERE fnr = '$LUR_KOPP'")
                 gjenlevendeRow.next()
 
                 gjenlevendeRow.getString("fnr") shouldBe LUR_KOPP
                 gjenlevendeRow.getString("payload") shouldBe request.soeknader.first().toJson()
 
                 // Verifiser egen søknad for barnepensjon
-                val barnepensjonRow = dsbHolder.dataSource.connection.createStatement()
-                    .executeQuery("SELECT * FROM innhold WHERE fnr = '$BLÅØYD_SAKS'")
+                val barnepensjonRow =
+                    dsbHolder.dataSource.connection
+                        .createStatement()
+                        .executeQuery("SELECT * FROM innhold WHERE fnr = '$BLÅØYD_SAKS'")
                 barnepensjonRow.next()
 
                 barnepensjonRow.getString("fnr") shouldBe BLÅØYD_SAKS
@@ -238,13 +244,20 @@ fun Application.apiTestModule(routes: Route.() -> Unit) {
 fun TestApplicationRequest.tokenFor(fnr: String) {
     addHeader(
         HttpHeaders.Authorization,
-        """Bearer ${PlainJWT(JWTClaimsSet.Builder().claim("pid", fnr).issuer("lol").build()).serialize()}"""
+        """Bearer ${PlainJWT(
+            JWTClaimsSet
+                .Builder()
+                .claim("pid", fnr)
+                .issuer("lol")
+                .build()
+        ).serialize()}"""
     )
 }
 
 class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
-
-    class ProviderConfiguration internal constructor(name: String?) : Config(name)
+    class ProviderConfiguration internal constructor(
+        name: String?
+    ) : Config(name)
 
     private fun getTokensFromHeader(request: Headers): List<JwtToken> {
         try {
@@ -263,23 +276,22 @@ class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfigurati
         return emptyList()
     }
 
-    private fun extractBearerTokens(vararg headerValues: String): List<String> {
-        return Arrays.stream(headerValues)
+    private fun extractBearerTokens(vararg headerValues: String): List<String> =
+        Arrays
+            .stream(headerValues)
             .map { s: String ->
-                s.split(
-                    " ".toRegex()
-                ).toTypedArray()
-            }
-            .filter { pair: Array<String> -> pair.size == 2 }
+                s
+                    .split(
+                        " ".toRegex()
+                    ).toTypedArray()
+            }.filter { pair: Array<String> -> pair.size == 2 }
             .filter { pair: Array<String> ->
-                pair[0].trim { it <= ' ' }
+                pair[0]
+                    .trim { it <= ' ' }
                     .equals("Bearer", ignoreCase = true)
-            }
-            .map { pair: Array<String> ->
+            }.map { pair: Array<String> ->
                 pair[1].trim { it <= ' ' }
-            }
-            .collect(Collectors.toList())
-    }
+            }.collect(Collectors.toList())
 
     override suspend fun onAuthenticate(context: AuthenticationContext) {
         context.principal(

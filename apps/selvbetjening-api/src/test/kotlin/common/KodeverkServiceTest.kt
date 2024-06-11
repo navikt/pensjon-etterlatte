@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
 internal class KodeverkServiceTest {
-
     companion object {
         private const val POSTNR_OSLO = "0689"
     }
@@ -37,17 +36,19 @@ internal class KodeverkServiceTest {
 
     @Test
     fun `Bokmaal postnr finnes med gyldig dato`() {
-        coEvery { mockKlient.hentPostnummer() } returns KodeverkResponse(
-            mapOf(
-                POSTNR_OSLO to listOf(
-                    Betydning(
-                        gyldigFra = LocalDate.now().minusYears(5).toString(),
-                        gyldigTil = LocalDate.now().plusYears(1).toString(),
-                        beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
-                    )
+        coEvery { mockKlient.hentPostnummer() } returns
+            KodeverkResponse(
+                mapOf(
+                    POSTNR_OSLO to
+                        listOf(
+                            Betydning(
+                                gyldigFra = LocalDate.now().minusYears(5).toString(),
+                                gyldigTil = LocalDate.now().plusYears(1).toString(),
+                                beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
+                            )
+                        )
                 )
             )
-        )
 
         runBlocking {
             assertEquals("Oslo", service.hentPoststed(POSTNR_OSLO))
@@ -58,17 +59,19 @@ internal class KodeverkServiceTest {
 
     @Test
     fun `Bokmaal postnr finnes, men har ikke gyldig dato`() {
-        coEvery { mockKlient.hentPostnummer() } returns KodeverkResponse(
-            mapOf(
-                POSTNR_OSLO to listOf(
-                    Betydning(
-                        gyldigFra = LocalDate.now().minusYears(5).toString(),
-                        gyldigTil = LocalDate.now().minusDays(1).toString(),
-                        beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
-                    )
+        coEvery { mockKlient.hentPostnummer() } returns
+            KodeverkResponse(
+                mapOf(
+                    POSTNR_OSLO to
+                        listOf(
+                            Betydning(
+                                gyldigFra = LocalDate.now().minusYears(5).toString(),
+                                gyldigTil = LocalDate.now().minusDays(1).toString(),
+                                beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
+                            )
+                        )
                 )
             )
-        )
 
         runBlocking {
             assertEquals("", service.hentPoststed(POSTNR_OSLO))
@@ -76,5 +79,4 @@ internal class KodeverkServiceTest {
 
         coVerify(exactly = 1) { mockKlient.hentPostnummer() }
     }
-
 }

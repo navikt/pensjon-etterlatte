@@ -26,66 +26,79 @@ import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
 
-class TokenSecurityContext(private val tokens: TokenValidationContext): SecurityContext {
-    fun tokenIssuedBy(issuer: String): JwtToken? {
-        return tokens.getJwtToken(issuer)
-    }
+class TokenSecurityContext(
+    private val tokens: TokenValidationContext
+) : SecurityContext {
+    fun tokenIssuedBy(issuer: String): JwtToken? = tokens.getJwtToken(issuer)
 
-    override fun user() = tokens.firstValidToken?.jwtTokenClaims?.get("pid")?.toString()
+    override fun user() =
+        tokens.firstValidToken
+            ?.jwtTokenClaims
+            ?.get("pid")
+            ?.toString()
 }
 
-class TokenSupportSecurityContextMediator(private val configuration: ApplicationConfig): SecurityContextMediator {
-
-    private val defaultHttpClient = HttpClient(OkHttp) {
-        install(ContentNegotiation) {
-            jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+class TokenSupportSecurityContextMediator(
+    private val configuration: ApplicationConfig
+) : SecurityContextMediator {
+    private val defaultHttpClient =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                }
             }
         }
-    }
 
     val tokenexchangeIssuer = "tokenx"
-    val tokenxKlient = runBlocking {
-        configuration.propertyOrNull("no.nav.etterlatte.app.ventmedutgaaendekall")?.getString()?.toLong()?.also {
-            println("Venter $it sekunder før kall til token-issuers")
-            delay(it * 1000)
+    val tokenxKlient =
+        runBlocking {
+            configuration.propertyOrNull("no.nav.etterlatte.app.ventmedutgaaendekall")?.getString()?.toLong()?.also {
+                println("Venter $it sekunder før kall til token-issuers")
+                delay(it * 1000)
+            }
+            checkNotNull(ClientConfig(configuration, defaultHttpClient).clients[tokenexchangeIssuer])
         }
-        checkNotNull(ClientConfig(configuration, defaultHttpClient).clients[tokenexchangeIssuer])
-    }
 
-
-    private fun attachToRoute(route: Route){
+    private fun attachToRoute(route: Route) {
         route.intercept(ApplicationCallPipeline.Call) {
             withContext(
-                Dispatchers.Default + ThreadBoundSecCtx.asContextElement(
-                    value = TokenSecurityContext(
-                        call.principal<TokenValidationContextPrincipal>()?.context!!
+                Dispatchers.Default +
+                    ThreadBoundSecCtx.asContextElement(
+                        value =
+                            TokenSecurityContext(
+                                call.principal<TokenValidationContextPrincipal>()?.context!!
+                            )
                     )
-                )
             ) {
                 proceed()
             }
         }
     }
 
-    override fun outgoingToken(
-        audience: String
-    ) = suspend {
-        (ThreadBoundSecCtx.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
-            tokenxKlient.tokenExchange(
-                it.encodedToken,
-                audience
-            ).accessToken
-        }!!
-    }
-    override fun secureRoute(ctx: Route, block: Route.()->Unit){
+    override fun outgoingToken(audience: String) =
+        suspend {
+            (ThreadBoundSecCtx.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
+                tokenxKlient
+                    .tokenExchange(
+                        it.encodedToken,
+                        audience
+                    ).accessToken
+            }!!
+        }
+
+    override fun secureRoute(
+        ctx: Route,
+        block: Route.() -> Unit
+    ) {
         ctx.authenticate {
             attachToRoute(this)
             block()
         }
     }
-    override fun installSecurity(ktor: Application){
+
+    override fun installSecurity(ktor: Application) {
         ktor.install(Authentication) {
             tokenValidationSupport(config = configuration)
         }

@@ -16,7 +16,12 @@ class DatasourceBuilderTest {
 
     @BeforeAll
     fun beforeAll() {
-        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer, mapOf("NAIS_CLUSTER_NAME" to "integrationtest"), shouldMigrate = false)
+        val (_, dsb) =
+            opprettInMemoryDatabase(
+                postgreSQLContainer,
+                mapOf("NAIS_CLUSTER_NAME" to "integrationtest"),
+                shouldMigrate = false
+            )
 
         dsb.dataSource.createGcpPersonalRole()
         dsb.migrate()
@@ -55,13 +60,14 @@ class DatasourceBuilderTest {
 
     @Test
     fun `GCP user should have been granted access`() {
-        DataSourceBuilder(mapOf(
-            "DB_HOST" to postgreSQLContainer.host,
-            "DB_PORT" to postgreSQLContainer.firstMappedPort.toString(),
-            "DB_DATABASE" to postgreSQLContainer.databaseName,
-            "DB_USERNAME" to "personaluser",
-            "DB_PASSWORD" to "password"
-        )).dataSource.let (PostgresSoeknadRepository::using).eldsteUarkiverte()
+        DataSourceBuilder(
+            mapOf(
+                "DB_HOST" to postgreSQLContainer.host,
+                "DB_PORT" to postgreSQLContainer.firstMappedPort.toString(),
+                "DB_DATABASE" to postgreSQLContainer.databaseName,
+                "DB_USERNAME" to "personaluser",
+                "DB_PASSWORD" to "password"
+            )
+        ).dataSource.let(PostgresSoeknadRepository::using).eldsteUarkiverte()
     }
-
 }

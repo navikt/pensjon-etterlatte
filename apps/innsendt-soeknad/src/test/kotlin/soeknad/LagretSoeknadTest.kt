@@ -2,11 +2,12 @@ package soeknad
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 
 internal class LagretSoeknadTest {
-
     private val mapper = jacksonObjectMapper()
 
     @Test
@@ -24,5 +25,4 @@ internal class LagretSoeknadTest {
         assertEquals(soeknad.payload, deserialized.payload)
         assertNull(deserialized.status)
     }
-
 }

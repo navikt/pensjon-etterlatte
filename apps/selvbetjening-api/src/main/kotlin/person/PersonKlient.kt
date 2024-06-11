@@ -9,23 +9,28 @@ import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.content.TextContent
 import io.ktor.http.ContentType.Application.Json
+import libs.common.util.unsafeRetry
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.pdl.GraphqlRequest
 import no.nav.etterlatte.libs.pdl.Variables
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.person.pdl.PersonResponse
-import org.slf4j.LoggerFactory
-import libs.common.util.unsafeRetry
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
+import no.nav.etterlatte.person.pdl.PersonResponse
+import org.slf4j.LoggerFactory
 
 interface Pdl {
-    suspend fun hentPerson(fnr: Foedselsnummer, soeknadType: SoeknadType): PersonResponse
+    suspend fun hentPerson(
+        fnr: Foedselsnummer,
+        soeknadType: SoeknadType
+    ): PersonResponse
 }
 
-class PersonKlient(private val httpClient: HttpClient) : Pdl {
+class PersonKlient(
+    private val httpClient: HttpClient
+) : Pdl {
     private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
     companion object {
@@ -33,22 +38,29 @@ class PersonKlient(private val httpClient: HttpClient) : Pdl {
         private const val BEHANDLINGSNUMMER = "behandlingsnummer"
     }
 
-    override suspend fun hentPerson(fnr: Foedselsnummer, soeknadType: SoeknadType): PersonResponse {
-        val query = javaClass.getResource("/pdl/hentPerson.graphql")!!
-            .readText()
-            .replace(Regex("[\n\t]"), "")
+    override suspend fun hentPerson(
+        fnr: Foedselsnummer,
+        soeknadType: SoeknadType
+    ): PersonResponse {
+        val query =
+            javaClass
+                .getResource("/pdl/hentPerson.graphql")!!
+                .readText()
+                .replace(Regex("[\n\t]"), "")
 
         val request = GraphqlRequest(query, Variables(ident = fnr.value)).toJson()
 
-        val responseNode = unsafeRetry {
-            httpClient.post {
-                header("Tema", TEMA)
-                header(X_CORRELATION_ID, getCorrelationId())
-                header(BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
-                accept(Json)
-                setBody(TextContent(request, Json))
-            }.body<ObjectNode>()
-        }
+        val responseNode =
+            unsafeRetry {
+                httpClient
+                    .post {
+                        header("Tema", TEMA)
+                        header(X_CORRELATION_ID, getCorrelationId())
+                        header(BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
+                        accept(Json)
+                        setBody(TextContent(request, Json))
+                    }.body<ObjectNode>()
+            }
 
         return try {
             mapJsonToAny(responseNode!!.toJson())

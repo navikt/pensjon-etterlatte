@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class JournalpostSkrevetTest {
-
     @Test
-    fun `meldinger med journalpostferdigstilt blir arkivert`(){
+    fun `meldinger med journalpostferdigstilt blir arkivert`() {
         val db = spyk<TestRepo>()
 
-        val testRapid = TestRapid().apply {
-            JournalpostSkrevet(this, db)
-        }
+        val testRapid =
+            TestRapid().apply {
+                JournalpostSkrevet(this, db)
+            }
 
         testRapid.sendTestMessage(testMessage(11, 12, 1))
         testRapid.sendTestMessage(testMessage(21, 22, 2))
@@ -33,14 +33,16 @@ class JournalpostSkrevetTest {
     @Test
     fun `meldinger som har soeknadFordelt satt til true får status venter på behandling`() {
         val db = spyk<TestRepo>()
-        val testMessage = jsonTestMessage(11, 12, 1)
-            .apply {
-                this["soeknadFordelt"] = true
-            }.toJson()
+        val testMessage =
+            jsonTestMessage(11, 12, 1)
+                .apply {
+                    this["soeknadFordelt"] = true
+                }.toJson()
 
-        val testRapid = TestRapid().apply {
-            JournalpostSkrevet(this, db)
-        }
+        val testRapid =
+            TestRapid().apply {
+                JournalpostSkrevet(this, db)
+            }
 
         testRapid.sendTestMessage(testMessage)
 
@@ -52,12 +54,13 @@ class JournalpostSkrevetTest {
     }
 
     @Test
-    fun `meldinger uten journalpostferdigstilt blir ansett som feilet`(){
+    fun `meldinger uten journalpostferdigstilt blir ansett som feilet`() {
         val db = spyk<TestRepo>()
 
-        val testRapid = TestRapid().apply {
-            JournalpostSkrevet(this, db)
-        }
+        val testRapid =
+            TestRapid().apply {
+                JournalpostSkrevet(this, db)
+            }
 
         testRapid.sendTestMessage(testMessage(11, 12))
         testRapid.sendTestMessage(testMessage(21, 22))
@@ -72,5 +75,3 @@ class JournalpostSkrevetTest {
         verify(exactly = 0) { db.soeknadArkivert(any(), any()) }
     }
 }
-
-

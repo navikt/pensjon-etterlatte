@@ -13,10 +13,16 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.LoggerFactory
 
 interface Pdl {
-    suspend fun finnAdressebeskyttelseForFnr(fnrListe: List<Foedselsnummer>, soeknadType: SoeknadType): AdressebeskyttelseResponse
+    suspend fun finnAdressebeskyttelseForFnr(
+        fnrListe: List<Foedselsnummer>,
+        soeknadType: SoeknadType
+    ): AdressebeskyttelseResponse
 }
 
-class AdressebeskyttelseKlient(private val client: HttpClient, private val apiUrl: String) : Pdl {
+class AdressebeskyttelseKlient(
+    private val client: HttpClient,
+    private val apiUrl: String
+) : Pdl {
     private val logger = LoggerFactory.getLogger(AdressebeskyttelseKlient::class.java)
 
     /**
@@ -27,24 +33,27 @@ class AdressebeskyttelseKlient(private val client: HttpClient, private val apiUr
      *
      * @return [AdressebeskyttelseResponse]: Responsobjekt fra PDL.
      */
-    override suspend fun finnAdressebeskyttelseForFnr(fnrListe: List<Foedselsnummer>, soeknadType: SoeknadType):
-            AdressebeskyttelseResponse {
-
+    override suspend fun finnAdressebeskyttelseForFnr(
+        fnrListe: List<Foedselsnummer>,
+        soeknadType: SoeknadType
+    ): AdressebeskyttelseResponse {
         val query = hentQuery()
 
         val request = GraphqlRequest(query, Variables(identer = fnrListe.map { it.value }))
 
-        val response = client.post(apiUrl) {
-            header(HEADER_TEMA, HEADER_TEMA_VALUE)
-            header(HEADER_BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
-            accept(ContentType.Application.Json)
-            contentType(ContentType.Application.Json)
-            setBody(request)
-        }.body<AdressebeskyttelseResponse>()
+        val response =
+            client
+                .post(apiUrl) {
+                    header(HEADER_TEMA, HEADER_TEMA_VALUE)
+                    header(HEADER_BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
+                    accept(ContentType.Application.Json)
+                    contentType(ContentType.Application.Json)
+                    setBody(request)
+                }.body<AdressebeskyttelseResponse>()
 
         // Logge feil dersom det finnes noen
         response.errors?.forEach { error ->
-            logger.error("Feil ved uthenting av adressebeskyttelse: ${error}")
+            logger.error("Feil ved uthenting av adressebeskyttelse: $error")
         }
 
         return response
@@ -56,7 +65,9 @@ class AdressebeskyttelseKlient(private val client: HttpClient, private val apiUr
         const val HEADER_TEMA_VALUE = "PEN"
     }
 
-    private fun hentQuery(): String = javaClass.getResource("/pdl/hentAdressebeskyttelse.graphql")!!
-        .readText()
-        .replace(System.lineSeparator(), "")
+    private fun hentQuery(): String =
+        javaClass
+            .getResource("/pdl/hentAdressebeskyttelse.graphql")!!
+            .readText()
+            .replace(System.lineSeparator(), "")
 }

@@ -8,7 +8,7 @@ interface KafkaProdusent<K, V> {
     fun publiser(
         noekkel: K,
         verdi: V,
-        headers: Map<String, ByteArray>? = emptyMap(),
+        headers: Map<String, ByteArray>? = emptyMap()
     ): Pair<Int, Long>
 
     fun close() = Unit
@@ -17,36 +17,41 @@ interface KafkaProdusent<K, V> {
 fun KafkaConfig.standardProducer(topic: String): KafkaProdusent<String, String> =
     KafkaProdusentImpl(
         KafkaProducer(producerConfig(), StringSerializer(), StringSerializer()),
-        topic,
+        topic
     )
 
 class KafkaProdusentImpl<K, V>(
     private val kafka: KafkaProducer<K, V>,
-    private val topic: String,
+    private val topic: String
 ) : KafkaProdusent<K, V> {
     override fun publiser(
         noekkel: K,
         verdi: V,
-        headers: Map<String, ByteArray>?,
-    ): Pair<Int, Long> {
-        return kafka.send(
-            ProducerRecord(topic, noekkel, verdi).also {
-                headers?.forEach { h ->
-                    it.headers().add(h.key, h.value)
+        headers: Map<String, ByteArray>?
+    ): Pair<Int, Long> =
+        kafka
+            .send(
+                ProducerRecord(topic, noekkel, verdi).also {
+                    headers?.forEach { h ->
+                        it.headers().add(h.key, h.value)
+                    }
                 }
-            },
-        ).get().let {
-            it.partition() to it.offset()
-        }
-    }
+            ).get()
+            .let {
+                it.partition() to it.offset()
+            }
 
     override fun close() {
         kafka.close()
     }
 }
 
-class TestProdusent<K, V>() : KafkaProdusent<K, V> {
-    data class Record<K, V>(val noekkel: K, val verdi: V, val headers: Map<String, ByteArray>?)
+class TestProdusent<K, V> : KafkaProdusent<K, V> {
+    data class Record<K, V>(
+        val noekkel: K,
+        val verdi: V,
+        val headers: Map<String, ByteArray>?
+    )
 
     var closed = false
         private set
@@ -55,7 +60,7 @@ class TestProdusent<K, V>() : KafkaProdusent<K, V> {
     override fun publiser(
         noekkel: K,
         verdi: V,
-        headers: Map<String, ByteArray>?,
+        headers: Map<String, ByteArray>?
     ): Pair<Int, Long> {
         require(!closed)
         return publiserteMeldinger.let {

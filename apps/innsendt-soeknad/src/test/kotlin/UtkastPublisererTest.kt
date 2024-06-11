@@ -35,7 +35,6 @@ class UtkastPublisererTest {
         Assertions.assertEquals("Søknad om barnepensjon", message["tittel"].textValue())
     }
 
-
     @Test
     fun `Created utkast for omstillingsstønad skal publisere på kafka`() {
         val slot = slot<String>()
@@ -58,21 +57,24 @@ class UtkastPublisererTest {
     fun `Created utkast for barnepensjon skal publisere på riktig format`() {
         val slot = slot<String>()
 
-        val forventetMessage = mapOf(
-            "@event_name" to "created",
-            "utkastId" to "6dcce2d1-40ea-366e-b2a2-f367abc8b7f1",
-            "ident" to "fnr",
-            "link" to "test/barnepensjon/soknad",
-            "tittel" to "Søknad om barnepensjon",
-            "tittel_i18n" to mapOf(
-                "nb" to "Søknad om barnepensjon",
-                "nn" to "Søknad om barnepensjon",
-                "en" to "Application for children’s pension"
-            ),
-            "metrics" to mapOf(
-                "skjemanavn" to "Søknad om barnepensjon",
+        val forventetMessage =
+            mapOf(
+                "@event_name" to "created",
+                "utkastId" to "6dcce2d1-40ea-366e-b2a2-f367abc8b7f1",
+                "ident" to "fnr",
+                "link" to "test/barnepensjon/soknad",
+                "tittel" to "Søknad om barnepensjon",
+                "tittel_i18n" to
+                    mapOf(
+                        "nb" to "Søknad om barnepensjon",
+                        "nn" to "Søknad om barnepensjon",
+                        "en" to "Application for children’s pension"
+                    ),
+                "metrics" to
+                    mapOf(
+                        "skjemanavn" to "Søknad om barnepensjon"
+                    )
             )
-        )
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
 
@@ -108,7 +110,9 @@ class UtkastPublisererTest {
         val message = jacksonObjectMapper().readTree(slot.captured)
 
         Assertions.assertEquals("deleted", message["@event_name"].textValue())
-        Assertions.assertEquals(UUID.nameUUIDFromBytes("fnr123".toByteArray()).toString(), message["utkastId"].textValue())
+        Assertions.assertEquals(
+            UUID.nameUUIDFromBytes("fnr123".toByteArray()).toString(),
+            message["utkastId"].textValue()
+        )
     }
-
 }

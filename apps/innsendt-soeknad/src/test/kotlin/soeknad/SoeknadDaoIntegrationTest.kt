@@ -26,20 +26,16 @@ import java.util.*
 import javax.sql.DataSource
 import kotlin.random.Random
 
-
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class SoeknadDaoIntegrationTest {
-
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
 
     private lateinit var db: PostgresSoeknadRepository
     private lateinit var dataSource: DataSource
 
-
     private val kildeBarnepensjon = "barnepensjon-ui"
     private val kildeOMS = "omstillingsstoenad-ui"
-
 
     @BeforeAll
     fun beforeAll() {
@@ -48,6 +44,7 @@ internal class SoeknadDaoIntegrationTest {
         dsb.migrate()
         db = PostgresSoeknadRepository.using(dataSource)
     }
+
     @AfterAll
     fun afterAll() {
         postgreSQLContainer.stop()
@@ -147,7 +144,6 @@ internal class SoeknadDaoIntegrationTest {
         val funnetKladdBP = db.finnKladd(fnr, kildeBarnepensjon)!!
         assertEquals(jsonBP, funnetKladdBP.payload)
         assertEquals(fnr, funnetKladdBP.fnr)
-
 
         val funnetKladdGP = db.finnKladd(fnr, kildeOMS)!!
         assertEquals(jsonGP, funnetKladdGP.payload)
@@ -262,8 +258,6 @@ internal class SoeknadDaoIntegrationTest {
         assertNull(db.finnKladd(s2.fnr, kildeBarnepensjon))
         assertNull(db.finnKladd(s3.fnr, kildeBarnepensjon))
     }
-
-
 
     @Test
     fun `Kladd slettes og markeres som konvertert`() {
@@ -384,12 +378,13 @@ internal class SoeknadDaoIntegrationTest {
         val fnr3 = randomFakeFnr()
         val fnr4 = randomFakeFnr()
 
-        val soeknader = listOf(
-            SoeknadTest(1000, fnr1, """{}""", nowUTC.minusDays(5), kildeBarnepensjon),
-            SoeknadTest(1111, fnr2, """{}""", nowUTC.minusHours(72), kildeBarnepensjon),
-            SoeknadTest(2222, fnr3, """{}""", nowUTC.minusHours(71).plusMinutes(59), kildeBarnepensjon),
-            SoeknadTest(3333, fnr4, """{}""", nowUTC, kildeBarnepensjon),
-        )
+        val soeknader =
+            listOf(
+                SoeknadTest(1000, fnr1, """{}""", nowUTC.minusDays(5), kildeBarnepensjon),
+                SoeknadTest(1111, fnr2, """{}""", nowUTC.minusHours(72), kildeBarnepensjon),
+                SoeknadTest(2222, fnr3, """{}""", nowUTC.minusHours(71).plusMinutes(59), kildeBarnepensjon),
+                SoeknadTest(3333, fnr4, """{}""", nowUTC, kildeBarnepensjon)
+            )
         lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
 
         assertEquals(listOf(SlettetSoeknad(1000, fnr1), SlettetSoeknad(1111, fnr2)), db.slettUtgaatteKladder())
@@ -518,16 +513,17 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknadTilDoffenArkivert(lagretSoeknadID)
         db.soeknadHarBehandling(lagretSoeknadID, 1337L, UUID.randomUUID())
 
-        finnHendelser(lagretSoeknadID) shouldContainExactly listOf(
-            Status.LAGRETKLADD,
-            Status.LAGRETKLADD,
-            Status.FERDIGSTILT,
-            Status.SENDT,
-            Status.ARKIVERT,
-            Status.ARKIVERINGSFEIL,
-            Status.VENTERBEHANDLING,
-            Status.BEHANDLINGLAGRET
-        )
+        finnHendelser(lagretSoeknadID) shouldContainExactly
+            listOf(
+                Status.LAGRETKLADD,
+                Status.LAGRETKLADD,
+                Status.FERDIGSTILT,
+                Status.SENDT,
+                Status.ARKIVERT,
+                Status.ARKIVERINGSFEIL,
+                Status.VENTERBEHANDLING,
+                Status.BEHANDLINGLAGRET
+            )
     }
 
     @Test
@@ -566,7 +562,6 @@ internal class SoeknadDaoIntegrationTest {
         db.slettArkiverteSoeknader()
         finnSoeknad(lagretSoeknad.fnr, kildeBarnepensjon) shouldBe lagretSoeknad
     }
-
 
     @Test
     fun `Sjekk innhold i rapport, skal kun være siste status på hver søknad`() {
@@ -637,21 +632,25 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals("1", rapport.find { it.status == Status.SENDT && it.kilde == kildeOMS }?.count)
         assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeOMS }?.count)
         assertEquals("1", rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
-
     }
 
     @Test
     fun `Sjekk at alle statuser finnes i databasen`() {
-        val statusListe: List<Status> = dataSource.connection.use {
-            it.prepareStatement("SELECT id FROM status")
-                .executeQuery()
-                .let {
-                    generateSequence {
-                        if (it.next()) Status.valueOf(it.getString(1))
-                        else null
-                    }.toList()
-                }
-        }
+        val statusListe: List<Status> =
+            dataSource.connection.use {
+                it
+                    .prepareStatement("SELECT id FROM status")
+                    .executeQuery()
+                    .let {
+                        generateSequence {
+                            if (it.next()) {
+                                Status.valueOf(it.getString(1))
+                            } else {
+                                null
+                            }
+                        }.toList()
+                    }
+            }
 
         assertEquals(Status.values().size, statusListe.size)
     }
@@ -698,14 +697,15 @@ internal class SoeknadDaoIntegrationTest {
 
         assertEquals(5, kilder[kildeBarnepensjon])
         assertEquals(1, kilder[kildeOMS])
-
     }
 
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
         dataSource.connection.use { conn ->
-            val rs = conn.prepareStatement("SELECT id, type, kilde FROM soeknad WHERE id = ?")
-                .apply { setLong(1, id) }
-                .executeQuery()
+            val rs =
+                conn
+                    .prepareStatement("SELECT id, type, kilde FROM soeknad WHERE id = ?")
+                    .apply { setLong(1, id) }
+                    .executeQuery()
 
             return if (rs.next()) {
                 FerdigstiltSoeknad(
@@ -713,7 +713,9 @@ internal class SoeknadDaoIntegrationTest {
                     rs.getString("type")?.let { SoeknadType.valueOf(it) },
                     rs.getString("kilde")
                 )
-            } else null
+            } else {
+                null
+            }
         }
 
     private fun lagreSoeknaderMedOpprettetTidspunkt(
@@ -722,116 +724,139 @@ internal class SoeknadDaoIntegrationTest {
     ) {
         soeknader.forEachIndexed { index, soeknad ->
             dataSource.connection.use {
-                it.prepareStatement(
-                    """
-                    WITH soeknad_id AS (
-                        INSERT INTO soeknad(id, opprettet, kilde) VALUES(${soeknad.id}, ?, ?) RETURNING id
-                    ) INSERT INTO innhold(soeknad_id, fnr, payload) VALUES(${soeknad.id}, ?, ?) RETURNING soeknad_id
-                """.trimIndent()
-                )
-                    .apply {
+                it
+                    .prepareStatement(
+                        """
+                        WITH soeknad_id AS (
+                            INSERT INTO soeknad(id, opprettet, kilde) VALUES(${soeknad.id}, ?, ?) RETURNING id
+                        ) INSERT INTO innhold(soeknad_id, fnr, payload) VALUES(${soeknad.id}, ?, ?) RETURNING soeknad_id
+                        """.trimIndent()
+                    ).apply {
                         setTimestamp(1, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
                         setString(2, soeknad.kilde)
                         setString(3, soeknad.fnr)
                         setString(4, soeknad.data)
-                    }
-                    .execute()
+                    }.execute()
             }
 
             if (opprettKladdHendelse) nyKladdHendelse(soeknad, (soeknad.id + index))
         }
     }
 
-    private fun nyKladdHendelse(soeknad: SoeknadTest, hendelseId: Long) {
+    private fun nyKladdHendelse(
+        soeknad: SoeknadTest,
+        hendelseId: Long
+    ) {
         dataSource.connection.use {
-            it.prepareStatement("INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)")
-                .apply {
+            it
+                .prepareStatement(
+                    "INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)"
+                ).apply {
                     setLong(1, hendelseId)
                     setLong(2, soeknad.id)
                     setString(3, Status.LAGRETKLADD.name)
                     setString(4, "{}")
                     setTimestamp(5, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
-                }
-                .execute()
+                }.execute()
         }
     }
 
     private fun slettHendelserForSoeknad(soeknadId: Long) {
         dataSource.connection.use {
-            it.prepareStatement("DELETE FROM hendelse WHERE soeknad_id = ?")
+            it
+                .prepareStatement("DELETE FROM hendelse WHERE soeknad_id = ?")
                 .apply { setLong(1, soeknadId) }
                 .execute()
         }
     }
 
     private fun finnHendelser(soeknadId: Long): List<Status> {
-        val sql = """
+        val sql =
+            """
             SELECT status.id FROM hendelse 
             INNER JOIN status ON hendelse.status_id = status.id
             WHERE soeknad_id = ?
             ORDER BY status.rang
-        """.trimIndent()
+            """.trimIndent()
 
         return dataSource.connection.use {
-            val rs = it.prepareStatement(sql)
-                .apply { setLong(1, soeknadId) }
-                .executeQuery()
+            val rs =
+                it
+                    .prepareStatement(sql)
+                    .apply { setLong(1, soeknadId) }
+                    .executeQuery()
 
             generateSequence {
-                if (rs.next()) Status.valueOf(rs.getString(1))
-                else null
+                if (rs.next()) {
+                    Status.valueOf(rs.getString(1))
+                } else {
+                    null
+                }
             }.toList()
         }
     }
 
-    private fun finnSoeknad(fnr: String, kilde: String): LagretSoeknad? {
-        return dataSource.connection.use {
-            val pstmt = it.prepareStatement(
-                """
-                SELECT * FROM innhold i 
-                INNER JOIN soeknad s on s.id = i.soeknad_id 
-                WHERE i.fnr = ? AND s.kilde = ?
-            """.trimIndent()
-            )
+    private fun finnSoeknad(
+        fnr: String,
+        kilde: String
+    ): LagretSoeknad? =
+        dataSource.connection.use {
+            val pstmt =
+                it.prepareStatement(
+                    """
+                    SELECT * FROM innhold i 
+                    INNER JOIN soeknad s on s.id = i.soeknad_id 
+                    WHERE i.fnr = ? AND s.kilde = ?
+                    """.trimIndent()
+                )
             pstmt.setString(1, fnr)
             pstmt.setString(2, kilde)
 
             val rs = pstmt.executeQuery()
 
-            if (rs.next()) LagretSoeknad(rs.getLong("soeknad_id"), rs.getString("fnr"), rs.getString("payload"))
-            else null
+            if (rs.next()) {
+                LagretSoeknad(rs.getLong("soeknad_id"), rs.getString("fnr"), rs.getString("payload"))
+            } else {
+                null
+            }
         }
-    }
 
-    private fun finnSisteStatus(id: SoeknadID): Status? {
-        return dataSource.connection.use {
-            val rs = it.prepareStatement("""
-                    SELECT h.status_id FROM hendelse h
-                    WHERE h.soeknad_id = ?
-                    ORDER BY h.opprettet DESC
-                    LIMIT 1;
-                """.trimIndent())
-                .apply { setLong(1, id) }
-                .executeQuery()
+    private fun finnSisteStatus(id: SoeknadID): Status? =
+        dataSource.connection.use {
+            val rs =
+                it
+                    .prepareStatement(
+                        """
+                        SELECT h.status_id FROM hendelse h
+                        WHERE h.soeknad_id = ?
+                        ORDER BY h.opprettet DESC
+                        LIMIT 1;
+                        """.trimIndent()
+                    ).apply { setLong(1, id) }
+                    .executeQuery()
 
-            if (rs.next()) rs.getString("status_id")?.let { id -> Status.valueOf(id) }
-            else null
+            if (rs.next()) {
+                rs.getString("status_id")?.let { id -> Status.valueOf(id) }
+            } else {
+                null
+            }
         }
-    }
 
-    private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad>? {
-        return dataSource.connection.use {
+    private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad>? =
+        dataSource.connection.use {
             val pstmt = it.prepareStatement("SELECT * FROM innhold i WHERE i.fnr = ?")
             pstmt.setString(1, fnr)
 
             val rs = pstmt.executeQuery()
 
             generateSequence {
-                if (rs.next()) LagretSoeknad(rs.getLong("soeknad_id"), rs.getString("fnr"), rs.getString("payload"))
-                else null
+                if (rs.next()) {
+                    LagretSoeknad(rs.getLong("soeknad_id"), rs.getString("fnr"), rs.getString("payload"))
+                } else {
+                    null
+                }
             }.toList()
         }
-    }
 
     private data class SoeknadTest(
         val id: SoeknadID,

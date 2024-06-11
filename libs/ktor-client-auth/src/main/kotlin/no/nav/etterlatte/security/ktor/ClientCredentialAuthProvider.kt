@@ -25,21 +25,26 @@ class ClientCredentialAuthConfig {
     lateinit var config: Map<String, String>
 }
 
-class ClientCredentialAuthProvider(config: Map<String, String>) : AuthProvider {
+class ClientCredentialAuthProvider(
+    config: Map<String, String>
+) : AuthProvider {
     override val sendWithoutRequest: Boolean = true
-    private val clientPropertiesConfig = ClientProperties(
-        tokenEndpointUrl = null, //URI(conf["token_endpoint_url"]!!),
-        wellKnownUrl = config["AZURE_APP_WELL_KNOWN_URL"]?.let { URI(it) },
-        grantType = GrantType.CLIENT_CREDENTIALS,
-        scope = config["AZURE_APP_OUTBOUND_SCOPE"]?.split(",") ?: emptyList(),
-        authentication = ClientAuthenticationProperties.builder(
-            clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
-            clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT,
-        ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
-            .build(),
-        resourceUrl = null, //conf["resource_url"]?.let { URI(it) },
-        tokenExchange = null
-    )
+    private val clientPropertiesConfig =
+        ClientProperties(
+            tokenEndpointUrl = null, // URI(conf["token_endpoint_url"]!!),
+            wellKnownUrl = config["AZURE_APP_WELL_KNOWN_URL"]?.let { URI(it) },
+            grantType = GrantType.CLIENT_CREDENTIALS,
+            scope = config["AZURE_APP_OUTBOUND_SCOPE"]?.split(",") ?: emptyList(),
+            authentication =
+                ClientAuthenticationProperties
+                    .builder(
+                        clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
+                        clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT
+                    ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
+                    .build(),
+            resourceUrl = null, // conf["resource_url"]?.let { URI(it) },
+            tokenExchange = null
+        )
 
     private fun Map<String, String>.getOrThrow(key: String) =
         this[key]
@@ -48,22 +53,22 @@ class ClientCredentialAuthProvider(config: Map<String, String>) : AuthProvider {
     private val httpClient = DefaultOAuth2HttpClient()
     private val accessTokenService = setupOAuth2AccessTokenService(httpClient = httpClient)
 
-    override fun isApplicable(auth: HttpAuthHeader): Boolean {
-        return true
-    }
+    override fun isApplicable(auth: HttpAuthHeader): Boolean = true
 
-    override suspend fun addRequestHeaders(request: HttpRequestBuilder, authHeader: HttpAuthHeader?) {
+    override suspend fun addRequestHeaders(
+        request: HttpRequestBuilder,
+        authHeader: HttpAuthHeader?
+    ) {
         accessTokenService.getAccessToken(clientPropertiesConfig)?.accessToken.also {
             request.headers[HttpHeaders.Authorization] = "Bearer $it"
         }
     }
 }
 
-internal fun setupOAuth2AccessTokenService(httpClient: DefaultOAuth2HttpClient, ): OAuth2AccessTokenService {
-    return OAuth2AccessTokenService(
+internal fun setupOAuth2AccessTokenService(httpClient: DefaultOAuth2HttpClient): OAuth2AccessTokenService =
+    OAuth2AccessTokenService(
         tokenResolver = { throw IllegalArgumentException("Ikke i bruk") },
         onBehalfOfTokenClient = OnBehalfOfTokenClient(httpClient),
         clientCredentialsTokenClient = ClientCredentialsTokenClient(httpClient),
-        tokenExchangeClient = TokenExchangeClient(httpClient),
+        tokenExchangeClient = TokenExchangeClient(httpClient)
     )
-}

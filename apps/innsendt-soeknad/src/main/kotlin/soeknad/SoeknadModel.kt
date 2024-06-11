@@ -48,7 +48,7 @@ enum class Status {
     SLETTET,
     UTGAATT,
     VENTERBEHANDLING,
-    BEHANDLINGLAGRET,
+    BEHANDLINGLAGRET
     ;
 
     companion object {

@@ -16,34 +16,36 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class PersonKlientTest {
-
     private lateinit var personKlient: Pdl
 
     @BeforeAll
     fun setup() {
-        val httpClient = HttpClient(MockEngine) {
-            engine {
-                addHandler { request ->
-                    when (request.url.fullPath) {
-                        "/" -> {
-                            val headers = headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
+        val httpClient =
+            HttpClient(MockEngine) {
+                engine {
+                    addHandler { request ->
+                        when (request.url.fullPath) {
+                            "/" -> {
+                                val headers =
+                                    headersOf(
+                                        "Content-Type" to listOf(ContentType.Application.Json.toString())
+                                    )
 
-                            val json = javaClass.getResource("/pdl/personResponse.json")!!.readText()
+                                val json = javaClass.getResource("/pdl/personResponse.json")!!.readText()
 
-                            respond(json, headers = headers)
+                                respond(json, headers = headers)
+                            }
+                            else -> error(request.url.fullPath)
                         }
-                        else -> error(request.url.fullPath)
                     }
                 }
+                install(ContentNegotiation) { jackson() }
             }
-            install(ContentNegotiation) { jackson() }
-        }
 
         personKlient = PersonKlient(httpClient)
     }
 
     @Test
     fun asdf() {
-
     }
 }

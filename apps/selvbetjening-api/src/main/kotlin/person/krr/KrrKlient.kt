@@ -10,9 +10,9 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.util.*
@@ -21,23 +21,29 @@ interface Krr {
     suspend fun hentDigitalKontaktinformasjon(fnr: Foedselsnummer): DigitalKontaktinformasjon?
 }
 
-class KrrKlient(private val client: HttpClient) : Krr {
+class KrrKlient(
+    private val client: HttpClient
+) : Krr {
     private val logger: Logger = LoggerFactory.getLogger(KrrKlient::class.java)
 
     override suspend fun hentDigitalKontaktinformasjon(fnr: Foedselsnummer): DigitalKontaktinformasjon? {
         logger.info("Henter kontaktopplysninger fra KRR.")
 
         return try {
-            val response = client.get("person") {
-                header(HttpHeaders.NavPersonIdent, fnr.value)
-                header(HttpHeaders.NavCallId, UUID.randomUUID().toString())
-                header(X_CORRELATION_ID, getCorrelationId())
-                accept(ContentType.Application.Json)
-                contentType(ContentType.Application.Json)
-            }
+            val response =
+                client.get("person") {
+                    header(HttpHeaders.NavPersonIdent, fnr.value)
+                    header(HttpHeaders.NavCallId, UUID.randomUUID().toString())
+                    header(X_CORRELATION_ID, getCorrelationId())
+                    accept(ContentType.Application.Json)
+                    contentType(ContentType.Application.Json)
+                }
 
-            if (response.status.isSuccess()) response.body()
-            else throw ClientRequestException(response, response.toString())
+            if (response.status.isSuccess()) {
+                response.body()
+            } else {
+                throw ClientRequestException(response, response.toString())
+            }
         } catch (cause: Throwable) {
             logger.warn("Klarte ikke å hente kontaktinformasjon fra KRR.", KrrException(cause))
             return null
@@ -45,8 +51,9 @@ class KrrKlient(private val client: HttpClient) : Krr {
     }
 }
 
-class KrrException(cause: Throwable) :
-    Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
+class KrrException(
+    cause: Throwable
+) : Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
 
 val HttpHeaders.NavConsumerId: String
     get() = "Nav-Consumer-Id"

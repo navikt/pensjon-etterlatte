@@ -18,11 +18,13 @@ import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 fun Route.selftestApi(unsecuredSoeknadHttpClient: HttpClient) {
     route("internal") {
         get("selftest") {
-            val statusinnsendtSoeknad = unsecuredSoeknadHttpClient.get("/isready") {
-                contentType(ContentType.Application.Json)
-                header(X_CORRELATION_ID, getCorrelationId())
-            }.status
-            if(statusinnsendtSoeknad.isSuccess()) {
+            val statusinnsendtSoeknad =
+                unsecuredSoeknadHttpClient
+                    .get("/isready") {
+                        contentType(ContentType.Application.Json)
+                        header(X_CORRELATION_ID, getCorrelationId())
+                    }.status
+            if (statusinnsendtSoeknad.isSuccess()) {
                 call.respond(HttpStatusCode.OK)
             } else {
                 call.respond(HttpStatusCode.InternalServerError)

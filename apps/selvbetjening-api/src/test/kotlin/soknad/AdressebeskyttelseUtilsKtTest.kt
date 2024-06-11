@@ -13,38 +13,43 @@ import no.nav.etterlatte.soknad.fjernStedslokaliserendeInfo
 import org.junit.jupiter.api.Test
 
 internal class AdressebeskyttelseUtilsKtTest {
-
     @Test
     fun `Skal finne unike barn`() {
-        val omstillingsstoenad = InnsendtSoeknadFixtures.omstillingsSoeknad(
-            innsenderFnr = Foedselsnummer.of("24014021406"),
-            barn = listOf(
-                eksempelBarn(Foedselsnummer.of("29080775995")),
-                eksempelBarn(Foedselsnummer.of("03081375711")),
+        val omstillingsstoenad =
+            InnsendtSoeknadFixtures.omstillingsSoeknad(
+                innsenderFnr = Foedselsnummer.of("24014021406"),
+                barn =
+                    listOf(
+                        eksempelBarn(Foedselsnummer.of("29080775995")),
+                        eksempelBarn(Foedselsnummer.of("03081375711"))
+                    )
             )
-        )
-        val barnepensjon = InnsendtSoeknadFixtures.barnepensjon(
-            innsenderFnr = Foedselsnummer.of("24014021406"),
-            soekerFnr = Foedselsnummer.of("29080775995")
-        )
+        val barnepensjon =
+            InnsendtSoeknadFixtures.barnepensjon(
+                innsenderFnr = Foedselsnummer.of("24014021406"),
+                soekerFnr = Foedselsnummer.of("29080775995")
+            )
 
         val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))
 
-        request.finnUnikeBarn() shouldContainExactlyInAnyOrder listOf(
-            Foedselsnummer.of("03081375711"),
-            Foedselsnummer.of("29080775995")
-        )
+        request.finnUnikeBarn() shouldContainExactlyInAnyOrder
+            listOf(
+                Foedselsnummer.of("03081375711"),
+                Foedselsnummer.of("29080775995")
+            )
     }
 
     @Test
     fun `Skal fjerne informasjon om utenlandsopphold og utbetalingsinformasjon for en gitt liste med barn`() {
-        val omstillingsstoenad = InnsendtSoeknadFixtures.omstillingsSoeknad(
-            innsenderFnr = Foedselsnummer.of("24014021406")
-        )
-        val barnepensjon = InnsendtSoeknadFixtures.barnepensjon(
-            innsenderFnr = Foedselsnummer.of("24014021406"),
-            soekerFnr = Foedselsnummer.of("29080775995")
-        )
+        val omstillingsstoenad =
+            InnsendtSoeknadFixtures.omstillingsSoeknad(
+                innsenderFnr = Foedselsnummer.of("24014021406")
+            )
+        val barnepensjon =
+            InnsendtSoeknadFixtures.barnepensjon(
+                innsenderFnr = Foedselsnummer.of("24014021406"),
+                soekerFnr = Foedselsnummer.of("29080775995")
+            )
 
         val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))
         val barnFnr = listOf(Foedselsnummer.of("29080775995"), Foedselsnummer.of("24014021406"))
