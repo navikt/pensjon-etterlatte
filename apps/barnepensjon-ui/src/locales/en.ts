@@ -94,7 +94,7 @@ const paymentDetails = {
     taxPercentageType: 'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
     taxPercentageDescription:
         'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
-    taxWithholdMustBeSentYearly: 'Please note that voluntary tax deductions must be resubmitted each calendar year.',
+    taxWithholdMustBeSentYearly: 'You retain the voluntary tax deduction in future years until you notify us about a change.',
 }
 
 const radiobuttons = {
