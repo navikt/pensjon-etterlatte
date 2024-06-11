@@ -8,12 +8,11 @@ import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
+@Suppress("ktlint:standard:max-line-length")
 internal class KodeverkServiceTest {
-
     private val mockKlient = mockk<KodeverkKlient>()
 
     private val service = KodeverkService(mockKlient)
@@ -76,7 +75,6 @@ internal class KodeverkServiceTest {
             }
         }
     }
-
 
     @Nested
     inner class Postnummer {
@@ -154,7 +152,6 @@ internal class KodeverkServiceTest {
 
             coVerify(exactly = 1) { mockKlient.hentValutaer() }
         }
-
     }
 
     @Test

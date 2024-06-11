@@ -26,26 +26,28 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 internal class PersonServiceTest {
-
     private companion object {
         private const val TREIG_FLOSKEL = "04096222195"
         private const val TRIVIELL_MIDTPUNKT = "19040550081"
     }
 
-    private val mapper = jacksonObjectMapper()
-        .configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true)
-        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        .registerModule(JavaTimeModule())
+    private val mapper =
+        jacksonObjectMapper()
+            .configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true)
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .registerModule(JavaTimeModule())
 
     private val personKlient = mockk<PersonKlient>()
-    private val krrKlient = mockk<KrrKlient>() {
-        coEvery { hentDigitalKontaktinformasjon(any()) } returns null
-    }
-    private val kodeverkService = mockk<KodeverkService> {
-        coEvery { hentPoststed("0380") } returns "Skåla"
-        coEvery { hentPoststed(null) } returns null
-        coEvery { hentLand(any()) } returns "Norge"
-    }
+    private val krrKlient =
+        mockk<KrrKlient> {
+            coEvery { hentDigitalKontaktinformasjon(any()) } returns null
+        }
+    private val kodeverkService =
+        mockk<KodeverkService> {
+            coEvery { hentPoststed("0380") } returns "Skåla"
+            coEvery { hentPoststed(null) } returns null
+            coEvery { hentLand(any()) } returns "Norge"
+        }
 
     private val service = PersonService(personKlient, kodeverkService, krrKlient)
 
@@ -59,9 +61,10 @@ internal class PersonServiceTest {
         coEvery { personKlient.hentPerson(any(), any()) } returns opprettResponse("/pdl/personResponse.json")
         coEvery { krrKlient.hentDigitalKontaktinformasjon(any()) } returns opprettDigitalKontaktInfo()
 
-        val person = runBlocking {
-            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
-        }
+        val person =
+            runBlocking {
+                service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
+            }
 
         assertEquals("TRIVIELL", person.fornavn)
         assertEquals("MIDTPUNKT", person.etternavn)
@@ -87,9 +90,10 @@ internal class PersonServiceTest {
     fun `Person med sivilstand-historikk mappes korrekt`() {
         coEvery { personKlient.hentPerson(any(), any()) } returns opprettResponse("/pdl/endretSivilstand.json")
 
-        val person = runBlocking {
-            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
-        }
+        val person =
+            runBlocking {
+                service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
+            }
 
         assertEquals(Sivilstandstype.ENKE_ELLER_ENKEMANN.name, person.sivilstatus)
 
@@ -100,9 +104,10 @@ internal class PersonServiceTest {
     fun `Person med adressebeskyttelse mappes korrekt`() {
         coEvery { personKlient.hentPerson(any(), any()) } returns opprettResponse("/pdl/adressebeskyttetPerson.json")
 
-        val person = runBlocking {
-            service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
-        }
+        val person =
+            runBlocking {
+                service.hentPerson(Foedselsnummer.of(TRIVIELL_MIDTPUNKT), SoeknadType.BARNEPENSJON)
+            }
 
         assertEquals(true, person.adressebeskyttelse)
         assertNull(person.adresse)
@@ -129,14 +134,15 @@ internal class PersonServiceTest {
         return mapper.readValue(json, jacksonTypeRef())
     }
 
-    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjon = DigitalKontaktinformasjon(
-        personident = TRIVIELL_MIDTPUNKT,
-        aktiv = true,
-        kanVarsles = true,
-        reservert = false,
-        spraak = "nb",
-        epostadresse = "noreply@nav.no",
-        mobiltelefonnummer = "11111111",
-        sikkerDigitalPostkasse = null
-    )
+    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjon =
+        DigitalKontaktinformasjon(
+            personident = TRIVIELL_MIDTPUNKT,
+            aktiv = true,
+            kanVarsles = true,
+            reservert = false,
+            spraak = "nb",
+            epostadresse = "noreply@nav.no",
+            mobiltelefonnummer = "11111111",
+            sikkerDigitalPostkasse = null
+        )
 }

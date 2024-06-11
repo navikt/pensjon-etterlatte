@@ -15,7 +15,11 @@ import java.time.temporal.ChronoUnit
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
-class PubliserTilstandJobb(private val db: SoeknadRepository, private val publiserSoeknad: SoeknadPubliserer, private val publiserUtkast: UtkastPubliserer) {
+class PubliserTilstandJobb(
+    private val db: SoeknadRepository,
+    private val publiserSoeknad: SoeknadPubliserer,
+    private val publiserUtkast: UtkastPubliserer
+) {
     private val logger = LoggerFactory.getLogger(PubliserTilstandJobb::class.java)
 
     fun schedule(): Timer {
@@ -24,7 +28,7 @@ class PubliserTilstandJobb(private val db: SoeknadRepository, private val publis
         return fixedRateTimer(
             name = this.javaClass.simpleName,
             initialDelay = Duration.of(1, ChronoUnit.MINUTES).toMillis(),
-            period = Duration.of(10, ChronoUnit.MINUTES).toMillis(),
+            period = Duration.of(10, ChronoUnit.MINUTES).toMillis()
         ) {
             runBlocking {
                 sjekkTilstandOgPubliser()
@@ -52,24 +56,28 @@ class PubliserTilstandJobb(private val db: SoeknadRepository, private val publis
                     }
                 }
 
-                db.usendteSoeknader().also {
-                    if (it.isNotEmpty()) {
-                        logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")
+                db
+                    .usendteSoeknader()
+                    .also {
+                        if (it.isNotEmpty()) {
+                            logger.info("Publiserer melding om søknader ${it.map(LagretSoeknad::id)} ut på kafka")
+                        }
+                    }.forEach {
+                        publiserSoeknad.publiser(it)
                     }
-                }.forEach {
-                    publiserSoeknad.publiser(it)
-                }
 
-                db.arkiverteUtenBehandlingIDoffen().also {
-                    if (it.isNotEmpty()) {
-                        logger.info(
-                            "Publiserer melding om søknader ${it.map(LagretSoeknad::id)} som mangler " +
+                db
+                    .arkiverteUtenBehandlingIDoffen()
+                    .also {
+                        if (it.isNotEmpty()) {
+                            logger.info(
+                                "Publiserer melding om søknader ${it.map(LagretSoeknad::id)} som mangler " +
                                     "behandling ut på Kafka"
-                        )
+                            )
+                        }
+                    }.forEach {
+                        publiserSoeknad.publiserBehandlingsbehov(it)
                     }
-                }.forEach {
-                    publiserSoeknad.publiserBehandlingsbehov(it)
-                }
             } catch (e: Exception) {
                 logger.error("Feil under kjøring av jobb: ", e)
             }

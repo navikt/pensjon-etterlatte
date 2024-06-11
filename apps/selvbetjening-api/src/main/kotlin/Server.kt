@@ -36,58 +36,70 @@ import org.slf4j.event.Level
 import java.time.LocalDate
 import java.util.UUID
 
-
-class Server(applicationContext: ApplicationContext) {
+class Server(
+    applicationContext: ApplicationContext
+) {
     private val personService = applicationContext.personService
     private val securityContext = applicationContext.securityMediator
     private val soeknadService = applicationContext.soeknadService
     private val kodeverkService = applicationContext.kodeverkService
     private val unsecuredSoeknadHttpClient = applicationContext.unsecuredSoeknadHttpClient
 
-    private val engine = embeddedServer(CIO, environment = applicationEngineEnvironment {
-        module {
-            install(ContentNegotiation) {
-                jackson {
-                    enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
-                    disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-                    disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-                    registerModule(JavaTimeModule())
-                    registerModule(SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer()))
+    private val engine =
+        embeddedServer(
+            CIO,
+            environment =
+                applicationEngineEnvironment {
+                    module {
+                        install(ContentNegotiation) {
+                            jackson {
+                                enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+                                disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                                disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+                                registerModule(JavaTimeModule())
+                                registerModule(
+                                    SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer())
+                                )
+                            }
+                        }
+                        installAuthUsing(securityContext)
+
+                        install(CallLogging) {
+                            level = Level.INFO
+                            disableDefaultColors()
+                            filter { call -> !call.request.path().startsWith("/internal") }
+                            mdc(CORRELATION_ID) { call ->
+                                call.request.header(X_CORRELATION_ID)
+                                    ?: UUID.randomUUID().toString()
+                            }
+                        }
+
+                        install(MicrometerMetrics) {
+                            registry = Metrikker.registry
+                            meterBinders =
+                                listOf(
+                                    LogbackMetrics(),
+                                    JvmMemoryMetrics(),
+                                    ProcessorMetrics(),
+                                    UptimeMetrics()
+                                )
+                        }
+
+                        routing {
+                            healthApi()
+                            metricsApi()
+                            selftestApi(unsecuredSoeknadHttpClient)
+                            secureRoutUsing(securityContext) {
+                                personApi(personService)
+                                soknadApi(soeknadService)
+                                kodeverkApi(kodeverkService)
+                                loggApi()
+                            }
+                        }
+                    }
+                    connector { port = 8080 }
                 }
-            }
-            installAuthUsing(securityContext)
-
-            install(CallLogging) {
-                level = Level.INFO
-                disableDefaultColors()
-                filter { call -> !call.request.path().startsWith("/internal") }
-                mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
-            }
-
-            install(MicrometerMetrics) {
-                registry = Metrikker.registry
-                meterBinders = listOf(
-                    LogbackMetrics(),
-                    JvmMemoryMetrics(),
-                    ProcessorMetrics(),
-                    UptimeMetrics()
-                )
-            }
-
-            routing {
-                healthApi()
-                metricsApi()
-                selftestApi(unsecuredSoeknadHttpClient)
-                secureRoutUsing(securityContext) {
-                    personApi(personService)
-                    soknadApi(soeknadService)
-                    kodeverkApi(kodeverkService)
-                    loggApi()
-                }
-            }
-        }
-        connector { port = 8080 }
-    })
+        )
 
     fun run() = engine.start(true)
 }

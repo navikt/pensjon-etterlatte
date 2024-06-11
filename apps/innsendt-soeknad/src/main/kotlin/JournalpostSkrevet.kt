@@ -15,20 +15,23 @@ internal class JournalpostSkrevet(
     rapidsConnection: RapidsConnection,
     private val soeknader: SoeknadRepository
 ) : River.PacketListener {
-
     private val logger = LoggerFactory.getLogger(JournalpostSkrevet::class.java)
 
     init {
-        River(rapidsConnection).apply {
-            validate { it.rejectValue("@event_name", EventName.TRENGER_BEHANDLING) }
-            validate { it.requireKey("@dokarkivRetur") }
-            validate { it.requireKey("@lagret_soeknad_id") }
-            validate { it.interestedIn("@hendelse_gyldig_til") }
-            validate { it.interestedIn("soeknadFordelt") }
-        }.register(this)
+        River(rapidsConnection)
+            .apply {
+                validate { it.rejectValue("@event_name", EventName.TRENGER_BEHANDLING) }
+                validate { it.requireKey("@dokarkivRetur") }
+                validate { it.requireKey("@lagret_soeknad_id") }
+                validate { it.interestedIn("@hendelse_gyldig_til") }
+                validate { it.interestedIn("soeknadFordelt") }
+            }.register(this)
     }
 
-    override fun onPacket(packet: JsonMessage, context: MessageContext) {
+    override fun onPacket(
+        packet: JsonMessage,
+        context: MessageContext
+    ) {
         val dokumentInfoId = dokarkivRetur(packet).path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
 
         if (erTestSoeknad(packet)) {
@@ -54,7 +57,8 @@ internal class JournalpostSkrevet(
         if (!packet["@hendelse_gyldig_til"].isMissingOrNull()) {
             OffsetDateTime.parse(packet["@hendelse_gyldig_til"].asText()).also {
                 if (it.isBefore(OffsetDateTime.now())) {
-                    logger.info("${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadIdAsLong(packet)} " +
+                    logger.info(
+                        "${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadIdAsLong(packet)} " +
                             "er arkivert, men hendelsen gikk ut på dato $it"
                     )
                 }
@@ -64,7 +68,9 @@ internal class JournalpostSkrevet(
 
     private fun setSoeknadTilFeiletArkivering(packet: JsonMessage) {
         if (!erTestSoeknad(packet)) {
-            soeknader.soeknadFeiletArkivering(soeknadIdAsLong(packet), dokarkivRetur(packet).toJson()
+            soeknader.soeknadFeiletArkivering(
+                soeknadIdAsLong(packet),
+                dokarkivRetur(packet).toJson()
             )
         }
     }
@@ -81,9 +87,8 @@ internal class JournalpostSkrevet(
         }
     }
 
-    private fun soeknadIdAsLong(packet: JsonMessage): Long {
-        return if (erTestSoeknad(packet)) 0L else soeknadId(packet).asLong()
-    }
+    private fun soeknadIdAsLong(packet: JsonMessage): Long =
+        if (erTestSoeknad(packet)) 0L else soeknadId(packet).asLong()
 
     private fun erTestSoeknad(packet: JsonMessage): Boolean {
         val soeknadId = soeknadId(packet)

@@ -27,30 +27,34 @@ internal class AdressebeskyttelseTest {
 
     @Test
     fun `Verifiser prioritering av gradering`() {
-        val graderinger1 = listOf(
-            Gradering.UGRADERT,
-            Gradering.STRENGT_FORTROLIG,
-            Gradering.STRENGT_FORTROLIG_UTLAND,
-            Gradering.FORTROLIG
-        )
+        val graderinger1 =
+            listOf(
+                Gradering.UGRADERT,
+                Gradering.STRENGT_FORTROLIG,
+                Gradering.STRENGT_FORTROLIG_UTLAND,
+                Gradering.FORTROLIG
+            )
         assertEquals(Gradering.STRENGT_FORTROLIG_UTLAND, graderinger1.minOrNull())
 
-        val graderinger2 = listOf(
-            Gradering.FORTROLIG,
-            Gradering.STRENGT_FORTROLIG,
-            Gradering.UGRADERT
-        )
+        val graderinger2 =
+            listOf(
+                Gradering.FORTROLIG,
+                Gradering.STRENGT_FORTROLIG,
+                Gradering.UGRADERT
+            )
         assertEquals(Gradering.STRENGT_FORTROLIG, graderinger2.minOrNull())
 
-        val graderinger3 = listOf(
-            Gradering.FORTROLIG,
-            Gradering.UGRADERT
-        )
+        val graderinger3 =
+            listOf(
+                Gradering.FORTROLIG,
+                Gradering.UGRADERT
+            )
         assertEquals(Gradering.FORTROLIG, graderinger3.minOrNull())
 
-        val graderinger4 = listOf(
-            Gradering.UGRADERT
-        )
+        val graderinger4 =
+            listOf(
+                Gradering.UGRADERT
+            )
         assertEquals(Gradering.UGRADERT, graderinger4.minOrNull())
 
         val graderinger5 = emptyList<Gradering>()
@@ -80,14 +84,15 @@ internal class AdressebeskyttelseTest {
 
     @Test
     fun `Sjekk serde av AdressebeskyttelseResponse`() {
-        val response = AdressebeskyttelseResponse(
-            HentAdressebeskyttelse(
-                listOfNotNull(
-                    mockPerson(Gradering.FORTROLIG),
-                    mockPerson(Gradering.STRENGT_FORTROLIG_UTLAND, Gradering.STRENGT_FORTROLIG)
+        val response =
+            AdressebeskyttelseResponse(
+                HentAdressebeskyttelse(
+                    listOfNotNull(
+                        mockPerson(Gradering.FORTROLIG),
+                        mockPerson(Gradering.STRENGT_FORTROLIG_UTLAND, Gradering.STRENGT_FORTROLIG)
+                    )
                 )
             )
-        )
 
         val serialized = mapper.writeValueAsString(response)
 
@@ -108,9 +113,9 @@ internal class AdressebeskyttelseTest {
     private fun mockPerson(vararg gradering: Gradering?) =
         AdressebeskyttelseBolkPerson(
             ident = "12345678910",
-            person = AdressebeskyttelsePerson(
-                gradering.filterNotNull().map { Adressebeskyttelse(it) }
-            )
+            person =
+                AdressebeskyttelsePerson(
+                    gradering.filterNotNull().map { Adressebeskyttelse(it) }
+                )
         )
-
 }

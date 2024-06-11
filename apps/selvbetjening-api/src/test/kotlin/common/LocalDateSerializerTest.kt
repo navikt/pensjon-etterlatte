@@ -14,15 +14,21 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
 internal class LocalDateSerializerTest {
-    private data class TestClassOptionalDate(val date: LocalDate?)
-    private data class TestClassRequiredDate(val date: LocalDate)
+    private data class TestClassOptionalDate(
+        val date: LocalDate?
+    )
 
-    private val jacksonObjectMapper = jacksonObjectMapper()
-        .enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
-        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-        .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-        .registerModule(JavaTimeModule())
-        .registerModule(SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer()))
+    private data class TestClassRequiredDate(
+        val date: LocalDate
+    )
+
+    private val jacksonObjectMapper =
+        jacksonObjectMapper()
+            .enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .registerModule(JavaTimeModule())
+            .registerModule(SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer()))
 
     @Test
     fun `Ved konvertering av UTC string til LocalDate skal vi benytte norsk tidssone`() {

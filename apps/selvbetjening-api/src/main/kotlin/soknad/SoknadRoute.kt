@@ -15,12 +15,12 @@ import libs.common.util.RetryResult.Failure
 import libs.common.util.RetryResult.Success
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 
-
 fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             try {
-                call.application.environment.log.info("SoeknadRequest mottatt!")
+                call.application.environment.log
+                    .info("SoeknadRequest mottatt!")
 
                 val request = call.receive<SoeknadRequest>()
 
@@ -28,19 +28,25 @@ fun Route.soknadApi(service: SoeknadService) {
 
                 when (val response = service.sendSoeknader(request, kilde)) {
                     is Success -> {
-                        call.application.environment.log.info("Søknad markert som ferdigstilt")
+                        call.application.environment.log
+                            .info("Søknad markert som ferdigstilt")
                         call.respond(HttpStatusCode.OK)
                     }
                     is Failure -> {
                         val error = response.lastError()
-                        call.application.environment.log.error("Innsending av søknad feilet ", error)
+                        call.application.environment.log
+                            .error("Innsending av søknad feilet ", error)
 
-                        if (error is ClientRequestException) call.respond(error.response.status)
-                        else call.respond(HttpStatusCode.InternalServerError)
+                        if (error is ClientRequestException) {
+                            call.respond(error.response.status)
+                        } else {
+                            call.respond(HttpStatusCode.InternalServerError)
+                        }
                     }
                 }
             } catch (ex: Exception) {
-                call.application.environment.log.error("Klarte ikke å lagre søknad", ex)
+                call.application.environment.log
+                    .error("Klarte ikke å lagre søknad", ex)
             }
         }
     }
@@ -51,11 +57,13 @@ fun Route.soknadApi(service: SoeknadService) {
             val soeknadJson = call.receive<JsonNode>()
             when (val response = service.lagreKladd(soeknadJson, kilde)) {
                 is Success -> {
-                    call.application.environment.log.info("Lagret ny kladd med id ${response.content}")
+                    call.application.environment.log
+                        .info("Lagret ny kladd med id ${response.content}")
                     call.respond(response.content ?: HttpStatusCode.OK)
                 }
                 is Failure -> {
-                    call.application.environment.log.error("Klarte ikke å lagre kladd", response.lastError())
+                    call.application.environment.log
+                        .error("Klarte ikke å lagre kladd", response.lastError())
                     call.respond(HttpStatusCode.InternalServerError)
                 }
             }
@@ -67,21 +75,25 @@ fun Route.soknadApi(service: SoeknadService) {
                 is Success -> {
                     when (response.content) {
                         HttpStatusCode.NotFound -> {
-                            call.application.environment.log.info("Forsøkte å hente kladd som ikke finnes")
+                            call.application.environment.log
+                                .info("Forsøkte å hente kladd som ikke finnes")
                             call.respond(HttpStatusCode.NotFound)
                         }
                         HttpStatusCode.Conflict -> {
-                            call.application.environment.log.info("Bruker har allerede innsendt søknad under arbeid.")
+                            call.application.environment.log
+                                .info("Bruker har allerede innsendt søknad under arbeid.")
                             call.respond(HttpStatusCode.Conflict)
                         }
                         else -> {
-                            call.application.environment.log.info("Kladd hentet OK")
+                            call.application.environment.log
+                                .info("Kladd hentet OK")
                             call.respond(response.content ?: throw Exception("Lagret kladd funnet uten innhold"))
                         }
                     }
                 }
                 is Failure -> {
-                    call.application.environment.log.error("Klarte ikke å hente kladd", response.lastError())
+                    call.application.environment.log
+                        .error("Klarte ikke å hente kladd", response.lastError())
                     call.respond(HttpStatusCode.InternalServerError)
                 }
             }
@@ -91,11 +103,13 @@ fun Route.soknadApi(service: SoeknadService) {
             val kilde = call.request.queryParameters["kilde"]!!
             when (val response = service.slettKladd(kilde)) {
                 is Success -> {
-                    call.application.environment.log.info("klarte å slette kladd")
+                    call.application.environment.log
+                        .info("klarte å slette kladd")
                     call.respond(response.content ?: HttpStatusCode.NoContent)
                 }
                 is Failure -> {
-                    call.application.environment.log.error("klarte ikke å slette kladd", response.lastError())
+                    call.application.environment.log
+                        .error("klarte ikke å slette kladd", response.lastError())
                     call.respond(HttpStatusCode.InternalServerError)
                 }
             }

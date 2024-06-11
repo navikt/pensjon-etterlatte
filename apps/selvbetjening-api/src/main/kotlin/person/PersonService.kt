@@ -3,13 +3,12 @@ package no.nav.etterlatte.person
 import io.ktor.server.plugins.NotFoundException
 import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.pdl.ResponseError
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.krr.Krr
 import no.nav.etterlatte.person.pdl.HentPerson
 import org.slf4j.LoggerFactory
-
 
 class PersonService(
     private val klient: PersonKlient,
@@ -19,7 +18,10 @@ class PersonService(
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
     private val adressebeskyttet = listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND)
 
-    suspend fun hentPerson(fnr: Foedselsnummer, soeknadType: SoeknadType): Person {
+    suspend fun hentPerson(
+        fnr: Foedselsnummer,
+        soeknadType: SoeknadType
+    ): Person {
         logger.info("Henter person fra PDL")
 
         val response = klient.hentPerson(fnr, soeknadType)
@@ -38,23 +40,29 @@ class PersonService(
         fnr: Foedselsnummer,
         hentPerson: HentPerson
     ): Person {
-        val navn = hentPerson.navn
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
+        val navn =
+            hentPerson.navn
+                .maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
-        val adressebeskyttelse = hentPerson.adressebeskyttelse
-            .any { it.gradering in adressebeskyttet }
+        val adressebeskyttelse =
+            hentPerson.adressebeskyttelse
+                .any { it.gradering in adressebeskyttet }
 
-        val bostedsadresse = hentPerson.bostedsadresse
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+        val bostedsadresse =
+            hentPerson.bostedsadresse
+                .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val statsborgerskap = hentPerson.statsborgerskap
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+        val statsborgerskap =
+            hentPerson.statsborgerskap
+                .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val sivilstand = hentPerson.sivilstand
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+        val sivilstand =
+            hentPerson.sivilstand
+                .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val foedsel = hentPerson.foedsel
-            .maxByOrNull { it.metadata.sisteRegistrertDato() }
+        val foedsel =
+            hentPerson.foedsel
+                .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
 

@@ -18,26 +18,30 @@ import no.nav.etterlatte.person.krr.KrrKlient
 import org.junit.jupiter.api.Test
 
 internal class KrrKlientTest {
-    private fun opprettKlient(responseContent: DigitalKontaktinformasjon, status: HttpStatusCode): KrrKlient {
-        val httpClient = HttpClient(MockEngine) {
-            engine {
-                addHandler { request ->
-                    when (request.url.fullPath) {
-                        "/person" -> {
-                            respond(
-                                responseContent.toJson(),
-                                status,
-                                headersOf(
-                                    "Content-Type" to listOf(ContentType.Application.Json.toString())
+    private fun opprettKlient(
+        responseContent: DigitalKontaktinformasjon,
+        status: HttpStatusCode
+    ): KrrKlient {
+        val httpClient =
+            HttpClient(MockEngine) {
+                engine {
+                    addHandler { request ->
+                        when (request.url.fullPath) {
+                            "/person" -> {
+                                respond(
+                                    responseContent.toJson(),
+                                    status,
+                                    headersOf(
+                                        "Content-Type" to listOf(ContentType.Application.Json.toString())
+                                    )
                                 )
-                            )
+                            }
+                            else -> error("Unhandled ${request.url.fullPath}")
                         }
-                        else -> error("Unhandled ${request.url.fullPath}")
                     }
                 }
+                install(ContentNegotiation) { jackson() }
             }
-            install(ContentNegotiation) { jackson() }
-        }
 
         return KrrKlient(httpClient)
     }
@@ -47,36 +51,38 @@ internal class KrrKlientTest {
         val expectedResponse = opprettDigitalKontaktInfo()
         val klient = opprettKlient(expectedResponse, HttpStatusCode.OK)
 
-        val response = runBlocking {
-            klient.hentDigitalKontaktinformasjon(Foedselsnummer.of("11057523044"))
-        }
+        val response =
+            runBlocking {
+                klient.hentDigitalKontaktinformasjon(Foedselsnummer.of("11057523044"))
+            }
 
         response?.epostadresse shouldBe expectedResponse.epostadresse
         response?.mobiltelefonnummer shouldBe expectedResponse.mobiltelefonnummer
         response?.spraak shouldBe expectedResponse.spraak
     }
 
-
     @Test
     fun `Skal returnere null ved feilmelding`() {
         val expectedResponse = opprettDigitalKontaktInfo()
         val klient = opprettKlient(expectedResponse, HttpStatusCode.InternalServerError)
 
-        val response = runBlocking {
-            klient.hentDigitalKontaktinformasjon(Foedselsnummer.of("11057523044"))
-        }
+        val response =
+            runBlocking {
+                klient.hentDigitalKontaktinformasjon(Foedselsnummer.of("11057523044"))
+            }
 
         response shouldBe null
     }
 
-    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjon = DigitalKontaktinformasjon(
-        personident = "11057523044",
-        aktiv = true,
-        kanVarsles = true,
-        reservert = false,
-        spraak = "nb",
-        epostadresse = "noreply@nav.no",
-        mobiltelefonnummer = "11111111",
-        sikkerDigitalPostkasse = null
-    )
+    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjon =
+        DigitalKontaktinformasjon(
+            personident = "11057523044",
+            aktiv = true,
+            kanVarsles = true,
+            reservert = false,
+            spraak = "nb",
+            epostadresse = "noreply@nav.no",
+            mobiltelefonnummer = "11111111",
+            sikkerDigitalPostkasse = null
+        )
 }

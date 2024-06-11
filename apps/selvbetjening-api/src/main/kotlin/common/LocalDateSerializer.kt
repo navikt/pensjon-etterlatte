@@ -8,7 +8,10 @@ import java.time.ZoneId
 import java.time.ZonedDateTime
 
 class LocalDateSerializer : JsonDeserializer<LocalDate?>() {
-    override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): LocalDate? {
+    override fun deserialize(
+        p: JsonParser?,
+        ctxt: DeserializationContext?
+    ): LocalDate? {
         val value = p?.readValueAs(String::class.java)
 
         return if (value?.contains("T") == true) {

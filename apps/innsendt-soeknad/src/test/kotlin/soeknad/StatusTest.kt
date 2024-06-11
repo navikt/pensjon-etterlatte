@@ -4,7 +4,6 @@ import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
 internal class StatusTest {
-
     @Test
     fun `Antall statuser er korrekt`() {
         Status.values().size shouldBe 10
@@ -16,14 +15,15 @@ internal class StatusTest {
 
         innsendt.size shouldBe 6
 
-        val forventetInnsendt = listOf(
-            Status.FERDIGSTILT,
-            Status.SENDT,
-            Status.ARKIVERT,
-            Status.ARKIVERINGSFEIL,
-            Status.VENTERBEHANDLING,
-            Status.BEHANDLINGLAGRET
-        )
+        val forventetInnsendt =
+            listOf(
+                Status.FERDIGSTILT,
+                Status.SENDT,
+                Status.ARKIVERT,
+                Status.ARKIVERINGSFEIL,
+                Status.VENTERBEHANDLING,
+                Status.BEHANDLINGLAGRET
+            )
 
         innsendt shouldBe forventetInnsendt
 
@@ -31,12 +31,13 @@ internal class StatusTest {
 
         resterendeStatuser.size shouldBe 4
 
-        val forventetResterende = listOf(
-            Status.LAGRETKLADD,
-            Status.KONVERTERT,
-            Status.SLETTET,
-            Status.UTGAATT
-        )
+        val forventetResterende =
+            listOf(
+                Status.LAGRETKLADD,
+                Status.KONVERTERT,
+                Status.SLETTET,
+                Status.UTGAATT
+            )
 
         resterendeStatuser shouldBe forventetResterende
     }

@@ -21,5 +21,6 @@ fun Route.loggApi() {
     }
 }
 
-data class LoggRequest(val message: String)
-
+data class LoggRequest(
+    val message: String
+)

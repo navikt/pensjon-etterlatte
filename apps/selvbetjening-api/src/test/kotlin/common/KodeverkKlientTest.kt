@@ -19,23 +19,23 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Disabled
 internal class KodeverkKlientTest {
-
     lateinit var httpClient: HttpClient
 
     @BeforeAll
     fun setupClient() {
-        httpClient = HttpClient(CIO) {
-            install(ContentNegotiation) {
-                jackson {
-                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+        httpClient =
+            HttpClient(CIO) {
+                install(ContentNegotiation) {
+                    jackson {
+                        configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                        setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    }
+                }
+                defaultRequest {
+                    url.takeFrom("https://kodeverk.dev.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb")
+                    headers["Nav-Consumer-Id"] = "srvbarnepensjon"
                 }
             }
-            defaultRequest {
-                url.takeFrom("https://kodeverk.dev.adeo.no/api/v1/kodeverk/Postnummer/koder/betydninger?spraak=nb")
-                headers["Nav-Consumer-Id"] = "srvbarnepensjon"
-            }
-        }
     }
 
     @Test
@@ -48,5 +48,4 @@ internal class KodeverkKlientTest {
             assertTrue(kodeverkResponse.betydninger.isNotEmpty())
         }
     }
-
 }

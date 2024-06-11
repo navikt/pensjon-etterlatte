@@ -27,7 +27,8 @@ internal class PubliserMetrikkerJobbTest {
     fun setUp() {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
-        every { dbMock.rapport() } returns listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeOMS, "34"))
+        every { dbMock.rapport() } returns
+            listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeOMS, "34"))
         every { dbMock.kilder() } returns mapOf(kildeBP to 40L, kildeOMS to 25L)
         every { dbMock.ukategorisert() } returns listOf(1L)
     }

@@ -44,12 +44,13 @@ internal class PersonRouteTest {
     @EnumSource(SoeknadType::class)
     fun `Enkel test av endepunkt`(type: SoeknadType) {
         withTestApplication({ testModule { personApi(service) } }) {
-            coEvery { service.hentPerson(any(), any()) } returns Person(
-                fornavn = "STOR",
-                etternavn = "SNERK",
-                foedselsnummer = Foedselsnummer.of(STOR_SNERK),
-                adressebeskyttelse = false
-            )
+            coEvery { service.hentPerson(any(), any()) } returns
+                Person(
+                    fornavn = "STOR",
+                    etternavn = "SNERK",
+                    foedselsnummer = Foedselsnummer.of(STOR_SNERK),
+                    adressebeskyttelse = false
+                )
 
             handleRequest(HttpMethod.Get, "/person/innlogget?soeknadType=$type") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())

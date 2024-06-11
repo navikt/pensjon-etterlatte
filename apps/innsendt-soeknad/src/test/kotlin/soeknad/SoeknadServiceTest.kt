@@ -19,7 +19,6 @@ import org.junit.jupiter.api.Test
 import kotlin.random.Random
 
 internal class SoeknadServiceTest {
-
     private val mockRepository = mockk<SoeknadRepository>()
     private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
@@ -32,12 +31,13 @@ internal class SoeknadServiceTest {
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
         every { mockRepository.ferdigstillSoeknad(any()) } returns 1
 
-        val request = SoeknadRequest(
-            listOf(
-                InnsendtSoeknadFixtures.omstillingsSoeknad(),
-                InnsendtSoeknadFixtures.barnepensjon()
+        val request =
+            SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.omstillingsSoeknad(),
+                    InnsendtSoeknadFixtures.barnepensjon()
+                )
             )
-        )
 
         val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
 
@@ -90,12 +90,13 @@ internal class SoeknadServiceTest {
         every { mockRepository.ferdigstillSoeknad(any()) } returns Random.nextLong(0, 100)
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-        val request = SoeknadRequest(
-            listOf(
-                InnsendtSoeknadFixtures.omstillingsSoeknad(gjenlevFnr),
-                InnsendtSoeknadFixtures.barnepensjon(gjenlevFnr, Foedselsnummer.of("05111850870"))
+        val request =
+            SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.omstillingsSoeknad(gjenlevFnr),
+                    InnsendtSoeknadFixtures.barnepensjon(gjenlevFnr, Foedselsnummer.of("05111850870"))
+                )
             )
-        )
 
         val isSuccess = service.sendSoeknad(gjenlevFnr, request, kilde)
 
@@ -120,12 +121,13 @@ internal class SoeknadServiceTest {
         every { mockRepository.slettOgKonverterKladd(any(), any()) } returns Random.nextLong(0, 100)
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-        val request = SoeknadRequest(
-            listOf(
-                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
-                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
+        val request =
+            SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
+                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
+                )
             )
-        )
 
         val isSuccess = service.sendSoeknad(fnr, request, kilde)
 
@@ -145,14 +147,16 @@ internal class SoeknadServiceTest {
         val fnr = Foedselsnummer.of("24014021406")
 
         every { mockRepository.finnKladd("11057523044", any()) } returns LagretSoeknad(1, "11057523044", """{}""")
-        every { mockRepository.finnKladd("05111850870", any()) } returns LagretSoeknad(2, "05111850870", """{}""").apply { status = Status.FERDIGSTILT }
+        every { mockRepository.finnKladd("05111850870", any()) } returns
+            LagretSoeknad(2, "05111850870", """{}""").apply { status = Status.FERDIGSTILT }
 
-        val request = SoeknadRequest(
-            listOf(
-                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
-                InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
+        val request =
+            SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
+                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
+                )
             )
-        )
 
         try {
             service.sendSoeknad(fnr, request, kilde)
