@@ -27,6 +27,7 @@ const common = {
     noSensitiveData: 'Please do not write sensitive personal data.',
     counterLeft: 'characters remaining',
     counterTooMuch: 'characters to many',
+    whyWeAsk: 'Why do we ask about this?',
 }
 
 const navigation = {
@@ -243,6 +244,12 @@ const aboutYou = {
     memberFolketrygdenAbroad:
         'Are you a member of the Norwegian National Insurance Scheme during your period living in a country other than Norway?',
     'subtitle.personalia': 'Personal data',
+    disabilityBenefits: 'Are you receiving disability benefits?',
+    disabilityBenefitsInfo:
+        'If you receive disability benefits at the same time as a children’s pension, the children’s pension will be deducted kroner-for-kroner for the disability benefits.',
+    workAssessmentAllowance: 'Are you receiving a Work Assessment Allowance (AAP)?',
+    workAssessmentAllowanceInfo:
+        'If you receive Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
 }
 
 const aboutParents = {
@@ -372,6 +379,12 @@ const aboutChildren = {
         'You must submit documentation proving that you are the guardian for the child after you have submitted the application.',
     onlyGuardiansCanApply:
         'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children can be added.',
+    disabilityBenefits: 'Does the child receive disability benefit?',
+    disabilityBenefitsInfo:
+        'If the child is receiving disability benefits at the same time as a children’s pension, the children’s pension will be deducted kroner-for-kroner for the disability benefits.',
+    workAssessmentAllowance: 'Does the child receiving a Work Assessment Allowance (AAP)?',
+    workAssessmentAllowanceInfo:
+        'If the child is receiving a Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
 }
 
 const summary = {

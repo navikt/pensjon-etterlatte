@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
 import ikon from '../../../assets/barn1.svg'
-import { ActionTypes } from '../../../context/application/application'
+import { ActionTypes, IDeceasedParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import { IAboutChildren, IChild } from '../../../types/person'
@@ -15,7 +15,8 @@ import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../..
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
-import { ApplicantRole } from '../../../types/applicant'
+import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
+import { isAfter } from 'date-fns'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
@@ -96,6 +97,17 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
     const { handleSubmit } = methods
 
+    const getDateOfDeath = (): Date => {
+        if (state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED) {
+            if (state.unknownParent) return (state.firstParent as IDeceasedParent).dateOfDeath
+            const firstDateOfDeath = (state.firstParent as IDeceasedParent).dateOfDeath
+            const secondDateOfDeath = (state.secondParent as IDeceasedParent).dateOfDeath
+            // Hvis begge foreldre er døde, returner den siste dødsdatoen
+            return isAfter(firstDateOfDeath, secondDateOfDeath) ? firstDateOfDeath : secondDateOfDeath
+        }
+        return (state.secondParent as IDeceasedParent).dateOfDeath
+    }
+
     return (
         <>
             <FormProvider {...methods}>
@@ -168,6 +180,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                         child={fields[activeChildIndex] as IChild}
                         isChild={isChild}
                         isGuardian={isGuardian}
+                        dateOfDeath={getDateOfDeath()}
                     />
                 )}
             </FormProvider>

@@ -18,7 +18,7 @@ import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
 import Datepicker from '../../common/Datepicker'
-import { Heading, HGrid } from '@navikt/ds-react'
+import { Heading, HGrid, ReadMore } from '@navikt/ds-react'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import FormGroup from '../../common/FormGroup'
 import { ApplicantRole } from '../../../types/applicant'
@@ -124,6 +124,34 @@ export default function AboutYou({ next }: StepProps) {
                             </FormElement>
                         )}
                     </FormElement>
+
+                    {!user.adressebeskyttelse && isChild && (
+                        <>
+                            <FormGroup>
+                                <FormElement>
+                                    <RHFGeneralQuestionRadio
+                                        name={'disabilityBenefits'}
+                                        legend={t('disabilityBenefits')}
+                                    />
+                                    <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                        {t('disabilityBenefitsInfo')}
+                                    </ReadMore>
+                                </FormElement>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <FormElement>
+                                    <RHFGeneralQuestionRadio
+                                        name={'workAssessmentAllowance'}
+                                        legend={t('workAssessmentAllowance')}
+                                    />
+                                    <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                        {t('workAssessmentAllowanceInfo')}
+                                    </ReadMore>
+                                </FormElement>
+                            </FormGroup>
+                        </>
+                    )}
 
                     {!user.adressebeskyttelse && isChild && <PaymentDetails />}
 

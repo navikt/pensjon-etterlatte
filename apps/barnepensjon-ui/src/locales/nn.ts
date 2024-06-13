@@ -27,6 +27,7 @@ const common = {
     noSensitiveData: 'Ikkje oppgi sensitive personopplysningar.',
     counterLeft: 'teikn att',
     counterTooMuch: 'teikn for mykje',
+    whyWeAsk: 'Kvifor spør vi om dette?',
 }
 
 const navigation = {
@@ -238,6 +239,12 @@ const aboutYou = {
     countryOfResidence: 'Oppgi kva land du er busett i',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygda under opphald i eit anna land enn Noreg?',
     'subtitle.personalia': 'Personalia',
+    disabilityBenefits: 'Får du uføretrygd?',
+    disabilityBenefitsInfo:
+        'Dersom du får både uføretrygd og barnepensjon, vil barnepensjonen bli trekt krone for krone for uføretrygda.',
+    workAssessmentAllowance: 'Får du arbeidsavklaringspengar (AAP)?',
+    workAssessmentAllowanceInfo:
+        'Dersom du får både arbeidsavklaringspengar (AAP) og barnepensjon, vil arbeidsavklaringspengane bli trekte krone for krone for barnepensjonen.',
 }
 
 const aboutParents = {
@@ -363,6 +370,12 @@ const aboutChildren = {
         'Når du har sendt inn søknaden, må du sende inn dokumentasjon på at du er verje for barnet.',
     onlyGuardiansCanApply:
         'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn kan leggjast til.',
+    disabilityBenefits: 'Får barnet uføretrygd?',
+    disabilityBenefitsInfo:
+        'Dersom barnet får både uføretrygd og barnepensjon, vil barnepensjonen bli trekt krone for krone for uføretrygda.',
+    workAssessmentAllowance: 'Får barnet arbeidsavklaringspengar (AAP)?',
+    workAssessmentAllowanceInfo:
+        'Dersom barnet får både arbeidsavklaringspengar (AAP) og barnepensjon, vil arbeidsavklaringspengane bli trekte krone for krone for barnepensjonen.',
 }
 
 const summary = {

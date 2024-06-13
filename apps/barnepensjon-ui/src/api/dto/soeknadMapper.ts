@@ -208,6 +208,30 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
           }
         : undefined
 
+    const ufoeretrygd: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!child.disabilityBenefits
+        ? {
+              spoersmaal: t('disabilityBenefits', {
+                  ns: 'aboutChildren',
+              }),
+              svar: {
+                  innhold: t(child.disabilityBenefits, { ns: 'radiobuttons' }),
+                  verdi: child.disabilityBenefits,
+              },
+          }
+        : undefined
+
+    const arbeidsavklaringspenger: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!child.workAssessmentAllowance
+        ? {
+              spoersmaal: t('workAssessmentAllowance', {
+                  ns: 'aboutChildren',
+              }),
+              svar: {
+                  innhold: t(child.workAssessmentAllowance, { ns: 'radiobuttons' }),
+                  verdi: child.workAssessmentAllowance,
+              },
+          }
+        : undefined
+
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -230,6 +254,8 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         ukjentForelder,
         foreldre: hentForeldre(t, child, application, user),
         verge: mapVerge(t, child, user),
+        ufoeretrygd,
+        arbeidsavklaringspenger,
     }
 }
 

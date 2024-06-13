@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Label, Panel } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore } from '@navikt/ds-react'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -7,7 +7,7 @@ import ikon from '../../../../assets/barn1.svg'
 import useCountries from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IChild, ParentRelationType } from '../../../../types/person'
-import { getAgeFromFoedselsnummer, isLegalAge } from '../../../../utils/age'
+import { getAgeOnDateOfDeathFromFoedselsnummer } from '../../../../utils/age'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormGroup from '../../../common/FormGroup'
 import { NavRow } from '../../../common/Navigation'
@@ -21,6 +21,7 @@ import { IsGuardianQuestion } from './IsGuardianQuestion'
 import { useUserContext } from '../../../../context/user/UserContext'
 import FormElement from '../../../common/FormElement'
 import { isDev } from '../../../../api/axios'
+import { RHFGeneralQuestionRadio } from '~components/common/rhf/RHFRadio'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -77,9 +78,14 @@ interface Props {
     fnrRegisteredChild: string[]
     isChild: boolean
     isGuardian: boolean
+    dateOfDeath: Date
 }
 
-const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
+const checkFnr = (fnr?: string): boolean => {
+    return (fnr && fnrValidator(fnr).status === 'valid') || false
+}
+
+const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian, dateOfDeath }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: user } = useUserContext()
@@ -118,16 +124,20 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     const livesAbroadAnswer = watch('staysAbroad.answer')
 
     const canApplyForChildrensPension = (): boolean => {
-        if (parents === ParentRelationType.BOTH && fnr && fnrValidator(fnr).status === 'valid') {
-            const alder = getAgeFromFoedselsnummer(fnr)
-            return !isLegalAge(alder)
+        if (parents === ParentRelationType.BOTH && checkFnr(fnr)) {
+            if (isGuardian) return childUnder20()
+            return childUnder18()
         }
 
         return false
     }
 
-    const tooOldChild = () => {
-        return fnr && fnrValidator(fnr).status === 'valid' && getAgeFromFoedselsnummer(fnr) >= 18
+    const childUnder20 = () => {
+        return checkFnr(fnr) && getAgeOnDateOfDeathFromFoedselsnummer(fnr, dateOfDeath) < 20
+    }
+
+    const childUnder18 = () => {
+        return checkFnr(fnr) && getAgeOnDateOfDeathFromFoedselsnummer(fnr, dateOfDeath) < 20
     }
 
     useEffect(() => {
@@ -146,7 +156,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                     <ChangeChildPanelContent>
                         <FormGroup>
                             <PersonInfo duplicateList={fnrRegisteredChild} />
-                            {tooOldChild() && (
+                            {!childUnder18() && !isGuardian && (
                                 <Panel border>
                                     <Alert id={'above18Warning'} inline={true} variant={'info'}>
                                         <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
@@ -154,12 +164,11 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 </Panel>
                             )}
                         </FormGroup>
-
                         <FormElement>
                             <ParentQuestion parents={parents} />
                         </FormElement>
 
-                        {!tooOldChild() && parents === ParentRelationType.BOTH && (
+                        {canApplyForChildrensPension() && (
                             <FormGroup>
                                 {isChild && !user.adressebeskyttelse && (
                                     <LivesAbroadQuestion
@@ -185,35 +194,52 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                             />
                                         </FormGroup>
 
-                                        {canApplyForChildrensPension() && (
+                                        {isGuardian && !childUnder18() && (
                                             <>
-                                                <GuardianDetails
-                                                    isGuardian={isGuardian}
-                                                    childHasGuardianship={childHasGuardianship}
-                                                />
-
                                                 <FormGroup>
-                                                    <Label>{t('applyForThisChild')}</Label>
-                                                    <RHFConfirmationPanel
-                                                        name={'appliesForChildrensPension'}
-                                                        label={t('userAppliesForChildrensPension')}
-                                                        valgfri={true}
-                                                        size={'medium'}
-                                                    />
+                                                    <FormElement>
+                                                        <RHFGeneralQuestionRadio
+                                                            name={'disabilityBenefits'}
+                                                            legend={t('disabilityBenefits')}
+                                                        />
+                                                        <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                                            {t('disabilityBenefitsInfo')}
+                                                        </ReadMore>
+                                                    </FormElement>
+                                                    <FormElement>
+                                                        <RHFGeneralQuestionRadio
+                                                            name={'workAssessmentAllowance'}
+                                                            legend={t('workAssessmentAllowance')}
+                                                        />
+                                                        <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                                            {t('workAssessmentAllowanceInfo')}
+                                                        </ReadMore>
+                                                    </FormElement>
                                                 </FormGroup>
-
-                                                {!user.adressebeskyttelse && appliesForChildrensPension && (
-                                                    <PaymentDetails />
-                                                )}
                                             </>
                                         )}
+
+                                        <GuardianDetails
+                                            isGuardian={isGuardian}
+                                            childHasGuardianship={childHasGuardianship}
+                                        />
+
+                                        <FormGroup>
+                                            <Label>{t('applyForThisChild')}</Label>
+                                            <RHFConfirmationPanel
+                                                name={'appliesForChildrensPension'}
+                                                label={t('userAppliesForChildrensPension')}
+                                                valgfri={true}
+                                                size={'medium'}
+                                            />
+                                        </FormGroup>
+
+                                        {!user.adressebeskyttelse && appliesForChildrensPension && <PaymentDetails />}
                                     </>
                                 )}
                             </FormGroup>
                         )}
-
                         <ErrorSummaryWrapper errors={errors} />
-
                         <NavRow>
                             <Button
                                 id={'cancelAddChildren'}
