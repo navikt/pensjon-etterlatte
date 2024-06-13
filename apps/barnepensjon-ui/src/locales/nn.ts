@@ -301,7 +301,7 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroadTitle: 'Pensjon frå utlandet (valfri)',
     pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
     pensionWithCurrency: 'Årleg pensjon i valutaen til landet',
-    selfEmploymentTitle: 'Næringsinntekt',
+    selfEmploymentTitle: 'Næringsinntekt i Noreg',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivende. Dette kan påvirke berekninga av barnepensjon. Vi hentar informasjon om andre inntekter.',
     wasTheDeceasedSelfEmployed: 'Var han eller ho sjølvstendig næringsdrivande?',
