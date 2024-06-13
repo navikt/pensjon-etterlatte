@@ -97,17 +97,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
     const { handleSubmit } = methods
 
-    const getDateOfDeath = (): Date => {
-        if (state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED) {
-            if (state.unknownParent) return (state.firstParent as IDeceasedParent).dateOfDeath
-            const firstDateOfDeath = (state.firstParent as IDeceasedParent).dateOfDeath
-            const secondDateOfDeath = (state.secondParent as IDeceasedParent).dateOfDeath
-            // Hvis begge foreldre er døde, returner den siste dødsdatoen
-            return isAfter(firstDateOfDeath, secondDateOfDeath) ? firstDateOfDeath : secondDateOfDeath
-        }
-        return (state.secondParent as IDeceasedParent).dateOfDeath
-    }
-
     return (
         <>
             <FormProvider {...methods}>
@@ -180,7 +169,6 @@ export default function AboutChildren({ next, prev }: StepProps) {
                         child={fields[activeChildIndex] as IChild}
                         isChild={isChild}
                         isGuardian={isGuardian}
-                        dateOfDeath={getDateOfDeath()}
                     />
                 )}
             </FormProvider>

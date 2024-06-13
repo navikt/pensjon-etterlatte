@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import ikon from '../../../../assets/barn1.svg'
 import useCountries from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
-import { IChild, ParentRelationType } from '../../../../types/person'
-import { getAgeOnDateOfDeathFromFoedselsnummer } from '../../../../utils/age'
+import { IChild, ParentRelationType } from '~types/person'
+import { getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormGroup from '../../../common/FormGroup'
 import { NavRow } from '../../../common/Navigation'
@@ -18,9 +18,9 @@ import { LivesAbroadQuestion } from './LivesAbroadQuestion'
 import PersonInfo from '../../../common/PersonInfo'
 import ParentQuestion from './ParentQuestion'
 import { IsGuardianQuestion } from './IsGuardianQuestion'
-import { useUserContext } from '../../../../context/user/UserContext'
+import { useUserContext } from '~context/user/UserContext'
 import FormElement from '../../../common/FormElement'
-import { isDev } from '../../../../api/axios'
+import { isDev } from '~api/axios'
 import { RHFGeneralQuestionRadio } from '~components/common/rhf/RHFRadio'
 
 const ChangeChildPanel = styled(Panel)`
@@ -78,14 +78,13 @@ interface Props {
     fnrRegisteredChild: string[]
     isChild: boolean
     isGuardian: boolean
-    dateOfDeath: Date
 }
 
 const checkFnr = (fnr?: string): boolean => {
     return (fnr && fnrValidator(fnr).status === 'valid') || false
 }
 
-const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian, dateOfDeath }: Props) => {
+const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: any } = useCountries()
     const { state: user } = useUserContext()
@@ -125,19 +124,15 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
     const canApplyForChildrensPension = (): boolean => {
         if (parents === ParentRelationType.BOTH && checkFnr(fnr)) {
-            if (isGuardian) return childUnder20()
-            return childUnder18()
+            if (isGuardian) return true
+            return !childOver18()
         }
 
         return false
     }
 
-    const childUnder20 = () => {
-        return checkFnr(fnr) && getAgeOnDateOfDeathFromFoedselsnummer(fnr, dateOfDeath) < 20
-    }
-
-    const childUnder18 = () => {
-        return checkFnr(fnr) && getAgeOnDateOfDeathFromFoedselsnummer(fnr, dateOfDeath) < 20
+    const childOver18 = () => {
+        return checkFnr(fnr) && isLegalAge(getAgeFromFoedselsnummer(fnr))
     }
 
     useEffect(() => {
@@ -156,7 +151,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                     <ChangeChildPanelContent>
                         <FormGroup>
                             <PersonInfo duplicateList={fnrRegisteredChild} />
-                            {!childUnder18() && !isGuardian && (
+                            {childOver18() && !isGuardian && (
                                 <Panel border>
                                     <Alert id={'above18Warning'} inline={true} variant={'info'}>
                                         <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
@@ -194,7 +189,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                             />
                                         </FormGroup>
 
-                                        {isGuardian && !childUnder18() && (
+                                        {isGuardian && childOver18() && (
                                             <>
                                                 <FormGroup>
                                                     <FormElement>
