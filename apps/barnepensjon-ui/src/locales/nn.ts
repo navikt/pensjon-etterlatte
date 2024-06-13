@@ -370,10 +370,10 @@ const aboutChildren = {
         'Når du har sendt inn søknaden, må du sende inn dokumentasjon på at du er verje for barnet.',
     onlyGuardiansCanApply:
         'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn kan leggjast til.',
-    disabilityBenefits: 'Får barnet uføretrygd?',
+    disabilityBenefitsIsGuardian: 'Får barnet uføretrygd?',
     disabilityBenefitsInfo:
         'Dersom barnet får både uføretrygd og barnepensjon, vil barnepensjonen bli trekt krone for krone for uføretrygda.',
-    workAssessmentAllowance: 'Får barnet arbeidsavklaringspengar (AAP)?',
+    workAssessmentAllowanceIsGuardian: 'Får barnet arbeidsavklaringspengar (AAP)?',
     workAssessmentAllowanceInfo:
         'Dersom barnet får både arbeidsavklaringspengar (AAP) og barnepensjon, vil arbeidsavklaringspengane bli trekte krone for krone for barnepensjonen.',
 }
@@ -466,6 +466,10 @@ const error = {
     'countryOfResidence.required': 'Oppgi land',
     'stayedAbroad.required': 'Opphald i utland må svarast på',
     'stayedAbroadCountry.required': 'Oppgi noverande opphaldsland',
+    'disabilityBenefits.required': 'Oppgi om du får uføretrygd',
+    'disabilityBenefitsIsGuardian.required': 'Oppgi om barnet får uføretrygd',
+    'workAssessmentAllowance.required': 'Oppgi om du får arbeidsavklaringspengar (AAP)',
+    'workAssessmentAllowanceIsGuardian.required': 'Oppgi om barnet får arbeidsavklaringspengar (AAP)',
 }
 
 const pageNotFound = {

@@ -194,8 +194,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                 <FormGroup>
                                                     <FormElement>
                                                         <RHFGeneralQuestionRadio
-                                                            name={'disabilityBenefits'}
-                                                            legend={t('disabilityBenefits')}
+                                                            name={'disabilityBenefitsIsGuardian'}
+                                                            legend={t('disabilityBenefitsIsGuardian')}
                                                         />
                                                         <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
                                                             {t('disabilityBenefitsInfo')}
@@ -203,8 +203,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                     </FormElement>
                                                     <FormElement>
                                                         <RHFGeneralQuestionRadio
-                                                            name={'workAssessmentAllowance'}
-                                                            legend={t('workAssessmentAllowance')}
+                                                            name={'workAssessmentAllowanceIsGuardian'}
+                                                            legend={t('workAssessmentAllowanceIsGuardian')}
                                                         />
                                                         <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
                                                             {t('workAssessmentAllowanceInfo')}

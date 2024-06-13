@@ -372,10 +372,10 @@ const aboutChildren = {
         'Du må sende inn dokumentasjon på at du er verge for barnet når du har sendt inn søknaden.',
     onlyGuardiansCanApply:
         'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn kan legges til.',
-    disabilityBenefits: 'Får barnet uføretrygd?',
+    disabilityBenefitsIsGuardian: 'Får barnet uføretrygd?',
     disabilityBenefitsInfo:
         'Får barnet uføretrygd samtidig som barnepensjon vil barnepensjonen trekkes krone for krone for uføretrygden.',
-    workAssessmentAllowance: 'Får barnet arbeidsavklaringspenger (AAP)?',
+    workAssessmentAllowanceIsGuardian: 'Får barnet arbeidsavklaringspenger (AAP)?',
     workAssessmentAllowanceInfo:
         'Får barnet arbeidsavklaringspenger (AAP) samtidig som barnepensjon vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
 }
@@ -469,6 +469,10 @@ const error = {
     'countryOfResidence.required': 'Oppgi hvilket land du er bosatt i',
     'stayedAbroad.required': 'Opphold må besvares',
     'stayedAbroadCountry.required': 'Oppgi land',
+    'disabilityBenefits.required': 'Oppgi om du mottar uføretrygd',
+    'workAssessmentAllowance.required': 'Oppgi om du mottar arbeidsavklaringspenger (AAP)',
+    'disabilityBenefitsIsGuardian.required': 'Oppgi om barnet mottar uføretrygd',
+    'workAssessmentAllowanceIsGuardian.required': 'Oppgi om barnet mottar arbeidsavklaringspenger (AAP)',
 }
 
 const pageNotFound = {

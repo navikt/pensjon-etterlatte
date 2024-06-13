@@ -56,8 +56,8 @@ export interface IChild {
     }
     appliesForChildrensPension?: boolean
     paymentDetails?: IPaymentDetails
-    disabilityBenefits?: JaNeiVetIkke
-    workAssessmentAllowance?: JaNeiVetIkke
+    disabilityBenefitsIsGuardian?: JaNeiVetIkke
+    workAssessmentAllowanceIsGuardian?: JaNeiVetIkke
 }
 
 export enum ParentRelationType {

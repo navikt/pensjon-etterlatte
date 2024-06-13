@@ -379,10 +379,10 @@ const aboutChildren = {
         'You must submit documentation proving that you are the guardian for the child after you have submitted the application.',
     onlyGuardiansCanApply:
         'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children can be added.',
-    disabilityBenefits: 'Does the child receive disability benefit?',
+    disabilityBenefitsIsGuardian: 'Does the child receive disability benefit?',
     disabilityBenefitsInfo:
         'If the child is receiving disability benefits at the same time as a children’s pension, the children’s pension will be deducted kroner-for-kroner for the disability benefits.',
-    workAssessmentAllowance: 'Does the child receiving a Work Assessment Allowance (AAP)?',
+    workAssessmentAllowanceIsGuardian: 'Does the child receiving a Work Assessment Allowance (AAP)?',
     workAssessmentAllowanceInfo:
         'If the child is receiving a Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
 }
@@ -481,6 +481,10 @@ const error = {
     'countryOfResidence.required': 'Enter your current country of residence',
     'stayedAbroad.required': 'You must answer this question about residence',
     'stayedAbroadCountry.required': 'State which country',
+    'disabilityBenefits.required': 'State whether you receives disability benefit',
+    'disabilityBenefitsIsGuardian.required': 'State whether the child receives disability benefit',
+    'workAssessmentAllowance.required': 'State whether you receives a Work Assessment Allowance (AAP)',
+    'workAssessmentAllowanceIsGuardian.required': 'State whether the child receives a Work Assessment Allowance (AAP)',
 }
 
 const pageNotFound = {
