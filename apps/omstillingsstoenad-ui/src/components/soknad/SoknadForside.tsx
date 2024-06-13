@@ -14,7 +14,7 @@ import {
     Link,
     List,
 } from '@navikt/ds-react'
-import { LogEvents, useAmplitude } from '../../utils/amplitude'
+import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 import { useLanguage } from '../../hooks/useLanguage'
 import { Spraakvalg } from '../felles/Spraakvalg'
 import { MuligeSteg } from '../../typer/steg'
