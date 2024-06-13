@@ -9,7 +9,7 @@ import { mapTilBarnepensjonSoeknadListe, mapTilOmstillingsstoenadSoeknad } from 
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import SoknadSteg from '../../../typer/SoknadSteg'
-import { LogEvents, useAmplitude } from '../../../utils/amplitude'
+import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
 import Navigasjon from '../../felles/Navigasjon'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { SkjemaElement } from '../../felles/SkjemaElement'
