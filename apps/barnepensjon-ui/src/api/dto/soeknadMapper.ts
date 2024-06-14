@@ -344,7 +344,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
     const ufoeretrygd: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!aboutYou.disabilityBenefits
         ? {
               spoersmaal: t('disabilityBenefits', {
-                  ns: 'aboutChildren',
+                  ns: 'aboutYou',
               }),
               svar: {
                   innhold: t(aboutYou.disabilityBenefits, { ns: 'radiobuttons' }),
@@ -356,7 +356,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
     const arbeidsavklaringspenger: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!aboutYou.workAssessmentAllowance
         ? {
               spoersmaal: t('workAssessmentAllowance', {
-                  ns: 'aboutChildren',
+                  ns: 'aboutYou',
               }),
               svar: {
                   innhold: t(aboutYou.workAssessmentAllowance, { ns: 'radiobuttons' }),
