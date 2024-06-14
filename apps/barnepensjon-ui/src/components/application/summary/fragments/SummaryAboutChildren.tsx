@@ -129,14 +129,17 @@ export const SummaryAboutChildren = memo(
                             </>
                         )}
 
-                        {child.disabilityBenefits && (
-                            <TextGroupJaNeiVetIkke title={t('disabilityBenefits')} content={child.disabilityBenefits} />
+                        {child.disabilityBenefitsIsGuardian && (
+                            <TextGroupJaNeiVetIkke
+                                title={t('disabilityBenefitsIsGuardian')}
+                                content={child.disabilityBenefitsIsGuardian}
+                            />
                         )}
 
-                        {child.workAssessmentAllowance && (
+                        {child.disabilityBenefitsIsGuardian && (
                             <TextGroupJaNeiVetIkke
-                                title={t('workAssessmentAllowance')}
-                                content={child.workAssessmentAllowance}
+                                title={t('disabilityBenefitsIsGuardian')}
+                                content={child.disabilityBenefitsIsGuardian}
                             />
                         )}
 
