@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
 import ikon from '../../../assets/barn1.svg'
-import { ActionTypes, IDeceasedParent } from '../../../context/application/application'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ActionTypes } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import { IAboutChildren, IChild } from '../../../types/person'
+import { IAboutChildren, IChild } from '~types/person'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
@@ -15,8 +15,7 @@ import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../..
 import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
-import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
-import { isAfter } from 'date-fns'
+import { ApplicantRole } from '~types/applicant'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
