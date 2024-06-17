@@ -70,24 +70,23 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                     )}
                 </Panel>
 
-                {aboutYou.disabilityBenefits ||
-                    (aboutYou.workAssessmentAllowance && (
-                        <Panel>
-                            {aboutYou.disabilityBenefits && (
-                                <TextGroupJaNeiVetIkke
-                                    title={t('disabilityBenefits')}
-                                    content={aboutYou.disabilityBenefits}
-                                />
-                            )}
+                {(aboutYou.disabilityBenefits || aboutYou.workAssessmentAllowance) && (
+                    <Panel>
+                        {aboutYou.disabilityBenefits && (
+                            <TextGroupJaNeiVetIkke
+                                title={t('disabilityBenefits')}
+                                content={aboutYou.disabilityBenefits}
+                            />
+                        )}
 
-                            {aboutYou.workAssessmentAllowance && (
-                                <TextGroupJaNeiVetIkke
-                                    title={t('workAssessmentAllowance')}
-                                    content={aboutYou.workAssessmentAllowance}
-                                />
-                            )}
-                        </Panel>
-                    ))}
+                        {aboutYou.workAssessmentAllowance && (
+                            <TextGroupJaNeiVetIkke
+                                title={t('workAssessmentAllowance')}
+                                content={aboutYou.workAssessmentAllowance}
+                            />
+                        )}
+                    </Panel>
+                )}
 
                 <Panel>
                     {aboutYou.addressOfResidenceConfirmed && (
