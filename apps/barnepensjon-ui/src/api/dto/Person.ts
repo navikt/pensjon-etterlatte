@@ -79,6 +79,8 @@ export interface Barn extends Person {
     ukjentForelder?: Opplysning<string>
     verge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>
     dagligOmsorg?: Opplysning<EnumSvar<OmsorgspersonType>>
+    ufoeretrygd?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    arbeidsavklaringspenger?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
 export interface Avdoed extends Person {

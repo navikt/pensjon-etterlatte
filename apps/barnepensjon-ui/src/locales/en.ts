@@ -27,6 +27,7 @@ const common = {
     noSensitiveData: 'Please do not write sensitive personal data.',
     counterLeft: 'characters remaining',
     counterTooMuch: 'characters to many',
+    whyWeAsk: 'Why do we ask about this?',
 }
 
 const navigation = {
@@ -94,7 +95,8 @@ const paymentDetails = {
     taxPercentageType: 'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
     taxPercentageDescription:
         'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
-    taxWithholdMustBeSentYearly: 'You retain the voluntary tax deduction in future years until you notify us about a change.',
+    taxWithholdMustBeSentYearly:
+        'You retain the voluntary tax deduction in future years until you notify us about a change.',
 }
 
 const radiobuttons = {
@@ -243,6 +245,14 @@ const aboutYou = {
     memberFolketrygdenAbroad:
         'Are you a member of the Norwegian National Insurance Scheme during your period living in a country other than Norway?',
     'subtitle.personalia': 'Personal data',
+    disabilityBenefits: 'Are you receiving disability benefits?',
+    disabilityBenefitsInfo:
+        'If you receive disability benefits at the same time as a children’s pension, the children’s pension will be deducted kroner-for-kroner for the disability benefits.',
+    workAssessmentAllowance: 'Are you receiving a Work Assessment Allowance (AAP)?',
+    workAssessmentAllowanceInfo:
+        'If you receive Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
+    paymentsFromNav: 'Payments from NAV',
+    bankAccountNumberAndPayment: 'Bank account number and payment',
 }
 
 const aboutParents = {
@@ -301,7 +311,7 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroadTitle: 'Pension from abroad (optional)',
     pensionReceivedFromAbroadDescription: 'Enter any pension the deceased received from this country.',
     pensionWithCurrency: 'Annual pension, in the currency of that country',
-    selfEmploymentTitle: 'Income from self-employment',
+    selfEmploymentTitle: 'Income from self-employment in Norway',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'We need to know if the deceased had any income as a self-employed person. This can influence the calculation of the children’s pension. We obtain information about other income directly.',
     wasTheDeceasedSelfEmployed: 'Was the deceased self-employed?',
@@ -372,6 +382,12 @@ const aboutChildren = {
         'You must submit documentation proving that you are the guardian for the child after you have submitted the application.',
     onlyGuardiansCanApply:
         'You can only apply for a children’s pension for children you are the guardian of. \n All of the deceased’s children can be added.',
+    disabilityBenefitsIsGuardian: 'Does the child receive disability benefit?',
+    disabilityBenefitsInfo:
+        'If the child is receiving disability benefits at the same time as a children’s pension, the children’s pension will be deducted kroner-for-kroner for the disability benefits.',
+    workAssessmentAllowanceIsGuardian: 'Does the child receiving a Work Assessment Allowance (AAP)?',
+    workAssessmentAllowanceInfo:
+        'If the child is receiving a Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
 }
 
 const summary = {
@@ -468,6 +484,10 @@ const error = {
     'countryOfResidence.required': 'Enter your current country of residence',
     'stayedAbroad.required': 'You must answer this question about residence',
     'stayedAbroadCountry.required': 'State which country',
+    'disabilityBenefits.required': 'State whether you receives disability benefit',
+    'disabilityBenefitsIsGuardian.required': 'State whether the child receives disability benefit',
+    'workAssessmentAllowance.required': 'State whether you receives a Work Assessment Allowance (AAP)',
+    'workAssessmentAllowanceIsGuardian.required': 'State whether the child receives a Work Assessment Allowance (AAP)',
 }
 
 const pageNotFound = {

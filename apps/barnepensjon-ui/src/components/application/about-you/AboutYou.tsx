@@ -18,7 +18,7 @@ import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import useCountries from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
 import Datepicker from '../../common/Datepicker'
-import { Heading, HGrid } from '@navikt/ds-react'
+import { Heading, HGrid, ReadMore } from '@navikt/ds-react'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import FormGroup from '../../common/FormGroup'
 import { ApplicantRole } from '../../../types/applicant'
@@ -125,7 +125,39 @@ export default function AboutYou({ next }: StepProps) {
                         )}
                     </FormElement>
 
-                    {!user.adressebeskyttelse && isChild && <PaymentDetails />}
+                    {!user.adressebeskyttelse && isChild && (
+                        <>
+                            <Heading size={'small'}>{t('paymentsFromNav')}</Heading>
+                            <FormGroup>
+                                <FormElement>
+                                    <RHFGeneralQuestionRadio
+                                        name={'disabilityBenefits'}
+                                        legend={t('disabilityBenefits')}
+                                    />
+                                    <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                        {t('disabilityBenefitsInfo')}
+                                    </ReadMore>
+                                </FormElement>
+
+                                <FormElement>
+                                    <RHFGeneralQuestionRadio
+                                        name={'workAssessmentAllowance'}
+                                        legend={t('workAssessmentAllowance')}
+                                    />
+                                    <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                        {t('workAssessmentAllowanceInfo')}
+                                    </ReadMore>
+                                </FormElement>
+                            </FormGroup>
+                        </>
+                    )}
+
+                    {!user.adressebeskyttelse && isChild && (
+                        <>
+                            <Heading size={'small'}>{t('bankAccountNumberAndPayment')}</Heading>
+                            <PaymentDetails />
+                        </>
+                    )}
 
                     <ErrorSummaryWrapper errors={errors} />
 

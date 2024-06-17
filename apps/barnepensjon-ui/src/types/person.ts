@@ -12,6 +12,8 @@ export interface IAboutYou {
     stayedAbroadFromDate?: Date
     stayedAbroadToDate?: Date
     memberFolketrygdenAbroad?: JaNeiVetIkke
+    disabilityBenefits?: JaNeiVetIkke
+    workAssessmentAllowance?: JaNeiVetIkke
 }
 
 export interface IPaymentDetails {
@@ -54,6 +56,8 @@ export interface IChild {
     }
     appliesForChildrensPension?: boolean
     paymentDetails?: IPaymentDetails
+    disabilityBenefitsIsGuardian?: JaNeiVetIkke
+    workAssessmentAllowanceIsGuardian?: JaNeiVetIkke
 }
 
 export enum ParentRelationType {

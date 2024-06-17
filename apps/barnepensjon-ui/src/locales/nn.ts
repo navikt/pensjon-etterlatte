@@ -27,6 +27,7 @@ const common = {
     noSensitiveData: 'Ikkje oppgi sensitive personopplysningar.',
     counterLeft: 'teikn att',
     counterTooMuch: 'teikn for mykje',
+    whyWeAsk: 'Kvifor spør vi om dette?',
 }
 
 const navigation = {
@@ -93,7 +94,8 @@ const paymentDetails = {
     taxPercentageType: 'Vil du ha frivillig skattetrekk i kroner eller i prosent?',
     taxPercentageDescription:
         'Vi må få beskjed dersom det ikkje skal vere trekk i desember eller andre delar av året (valfritt)',
-    taxWithholdMustBeSentYearly: 'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
+    taxWithholdMustBeSentYearly:
+        'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
 }
 
 const radiobuttons = {
@@ -238,6 +240,14 @@ const aboutYou = {
     countryOfResidence: 'Oppgi kva land du er busett i',
     memberFolketrygdenAbroad: 'Er du medlem i folketrygda under opphald i eit anna land enn Noreg?',
     'subtitle.personalia': 'Personalia',
+    disabilityBenefits: 'Får du uføretrygd?',
+    disabilityBenefitsInfo:
+        'Dersom du får både uføretrygd og barnepensjon, vil barnepensjonen bli trekt krone for krone for uføretrygda.',
+    workAssessmentAllowance: 'Får du arbeidsavklaringspengar (AAP)?',
+    workAssessmentAllowanceInfo:
+        'Dersom du får både arbeidsavklaringspengar (AAP) og barnepensjon, vil arbeidsavklaringspengane bli trekte krone for krone for barnepensjonen.',
+    paymentsFromNav: 'Utbetalingar frå NAV',
+    bankAccountNumberAndPayment: 'Kontonummer og utbetaling',
 }
 
 const aboutParents = {
@@ -294,7 +304,7 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroadTitle: 'Pensjon frå utlandet (valfri)',
     pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
     pensionWithCurrency: 'Årleg pensjon i valutaen til landet',
-    selfEmploymentTitle: 'Næringsinntekt',
+    selfEmploymentTitle: 'Næringsinntekt i Noreg',
     weNeedToKnowIfDeceasedWasSelfEmployed:
         'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivende. Dette kan påvirke berekninga av barnepensjon. Vi hentar informasjon om andre inntekter.',
     wasTheDeceasedSelfEmployed: 'Var han eller ho sjølvstendig næringsdrivande?',
@@ -363,6 +373,12 @@ const aboutChildren = {
         'Når du har sendt inn søknaden, må du sende inn dokumentasjon på at du er verje for barnet.',
     onlyGuardiansCanApply:
         'Du kan berre søke om barnepensjon for barn du er verje for. \nAlle avdøde sine barn kan leggjast til.',
+    disabilityBenefitsIsGuardian: 'Får barnet uføretrygd?',
+    disabilityBenefitsInfo:
+        'Dersom barnet får både uføretrygd og barnepensjon, vil barnepensjonen bli trekt krone for krone for uføretrygda.',
+    workAssessmentAllowanceIsGuardian: 'Får barnet arbeidsavklaringspengar (AAP)?',
+    workAssessmentAllowanceInfo:
+        'Dersom barnet får både arbeidsavklaringspengar (AAP) og barnepensjon, vil arbeidsavklaringspengane bli trekte krone for krone for barnepensjonen.',
 }
 
 const summary = {
@@ -453,6 +469,10 @@ const error = {
     'countryOfResidence.required': 'Oppgi land',
     'stayedAbroad.required': 'Opphald i utland må svarast på',
     'stayedAbroadCountry.required': 'Oppgi noverande opphaldsland',
+    'disabilityBenefits.required': 'Oppgi om du får uføretrygd',
+    'disabilityBenefitsIsGuardian.required': 'Oppgi om barnet får uføretrygd',
+    'workAssessmentAllowance.required': 'Oppgi om du får arbeidsavklaringspengar (AAP)',
+    'workAssessmentAllowanceIsGuardian.required': 'Oppgi om barnet får arbeidsavklaringspengar (AAP)',
 }
 
 const pageNotFound = {

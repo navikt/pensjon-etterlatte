@@ -14,7 +14,7 @@ internal fun SoeknadRequest.finnUnikeBarn() =
                 is Barnepensjon -> it.soesken + it.soeker
                 else -> throw Exception("Ukjent søknadstype")
             }
-        }.map { it.foedselsnummer.svar }
+        }.map { it.foedselsnummer!!.svar }
         .distinct()
 
 /**
@@ -34,7 +34,7 @@ internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsn
                             soeker = soeknad.soeker.utenAdresseFor(fnrListe),
                             soesken = soeknad.soesken.map { it.utenAdresseFor(fnrListe) },
                             utbetalingsInformasjon =
-                                if (soeknad.soeker.foedselsnummer.svar in
+                                if (soeknad.soeker.foedselsnummer!!.svar in
                                     fnrListe
                                 ) {
                                     null
@@ -48,4 +48,4 @@ internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsn
     )
 
 private fun Barn.utenAdresseFor(fnrListe: List<Foedselsnummer>) =
-    if (this.foedselsnummer.svar in fnrListe) this.copy(utenlandsAdresse = null) else this
+    if (this.foedselsnummer!!.svar in fnrListe) this.copy(utenlandsAdresse = null) else this

@@ -208,6 +208,31 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
           }
         : undefined
 
+    const ufoeretrygd: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!child.disabilityBenefitsIsGuardian
+        ? {
+              spoersmaal: t('disabilityBenefitsIsGuardian', {
+                  ns: 'aboutChildren',
+              }),
+              svar: {
+                  innhold: t(child.disabilityBenefitsIsGuardian, { ns: 'radiobuttons' }),
+                  verdi: child.disabilityBenefitsIsGuardian,
+              },
+          }
+        : undefined
+
+    const arbeidsavklaringspenger: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined =
+        !!child.workAssessmentAllowanceIsGuardian
+            ? {
+                  spoersmaal: t('workAssessmentAllowanceIsGuardian', {
+                      ns: 'aboutChildren',
+                  }),
+                  svar: {
+                      innhold: t(child.workAssessmentAllowanceIsGuardian, { ns: 'radiobuttons' }),
+                      verdi: child.workAssessmentAllowanceIsGuardian,
+                  },
+              }
+            : undefined
+
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -230,6 +255,8 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         ukjentForelder,
         foreldre: hentForeldre(t, child, application, user),
         verge: mapVerge(t, child, user),
+        ufoeretrygd,
+        arbeidsavklaringspenger,
     }
 }
 
@@ -314,6 +341,30 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
           }
         : undefined
 
+    const ufoeretrygd: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!aboutYou.disabilityBenefits
+        ? {
+              spoersmaal: t('disabilityBenefits', {
+                  ns: 'aboutYou',
+              }),
+              svar: {
+                  innhold: t(aboutYou.disabilityBenefits, { ns: 'radiobuttons' }),
+                  verdi: aboutYou.disabilityBenefits,
+              },
+          }
+        : undefined
+
+    const arbeidsavklaringspenger: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!aboutYou.workAssessmentAllowance
+        ? {
+              spoersmaal: t('workAssessmentAllowance', {
+                  ns: 'aboutYou',
+              }),
+              svar: {
+                  innhold: t(aboutYou.workAssessmentAllowance, { ns: 'radiobuttons' }),
+                  verdi: aboutYou.workAssessmentAllowance,
+              },
+          }
+        : undefined
+
     return {
         type: PersonType.BARN,
         fornavn: {
@@ -336,6 +387,8 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         ukjentForelder,
         utenlandsAdresse,
         bosattNorge,
+        ufoeretrygd,
+        arbeidsavklaringspenger,
     }
 }
 

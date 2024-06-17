@@ -34,7 +34,7 @@ class SoeknadService(
         return if (ider.size == request.soeknader.size) {
             logger.info("Lagret alle (${ider.size}) innsendte søknader.")
 
-            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer.svar == innloggetBrukerFnr }
+            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer!!.svar == innloggetBrukerFnr }
             if (innsenderSoekerIkke) {
                 db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)?.also {
                     publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBrukerFnr.value, it)
@@ -74,7 +74,7 @@ class SoeknadService(
     ): List<SoeknadID> {
         val soeknader =
             request.soeknader
-                .map { UlagretSoeknad(it.soeker.foedselsnummer.svar.value, it.toJson(), kilde, it.type) }
+                .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), kilde, it.type) }
 
         val finnesKonflikter =
             soeknader
