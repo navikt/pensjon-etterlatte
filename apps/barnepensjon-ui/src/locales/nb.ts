@@ -246,6 +246,8 @@ const aboutYou = {
     workAssessmentAllowance: 'Får du arbeidsavklaringspenger (AAP)?',
     workAssessmentAllowanceInfo:
         'Får du arbeidsavklaringspenger (AAP) samtidig som barnepensjon, vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
+    paymentsFromNav: 'Utbetalinger fra NAV',
+    bankAccountNumberAndPayment: 'Kontonummer og utbetaling',
 }
 
 const aboutParents = {

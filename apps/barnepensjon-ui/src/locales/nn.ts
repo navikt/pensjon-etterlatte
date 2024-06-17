@@ -94,7 +94,8 @@ const paymentDetails = {
     taxPercentageType: 'Vil du ha frivillig skattetrekk i kroner eller i prosent?',
     taxPercentageDescription:
         'Vi må få beskjed dersom det ikkje skal vere trekk i desember eller andre delar av året (valfritt)',
-    taxWithholdMustBeSentYearly: 'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
+    taxWithholdMustBeSentYearly:
+        'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
 }
 
 const radiobuttons = {
@@ -245,6 +246,8 @@ const aboutYou = {
     workAssessmentAllowance: 'Får du arbeidsavklaringspengar (AAP)?',
     workAssessmentAllowanceInfo:
         'Dersom du får både arbeidsavklaringspengar (AAP) og barnepensjon, vil arbeidsavklaringspengane bli trekte krone for krone for barnepensjonen.',
+    paymentsFromNav: 'Utbetalingar frå NAV',
+    bankAccountNumberAndPayment: 'Kontonummer og utbetaling',
 }
 
 const aboutParents = {

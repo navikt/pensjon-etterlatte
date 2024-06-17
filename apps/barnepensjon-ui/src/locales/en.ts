@@ -95,7 +95,8 @@ const paymentDetails = {
     taxPercentageType: 'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
     taxPercentageDescription:
         'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
-    taxWithholdMustBeSentYearly: 'You retain the voluntary tax deduction in future years until you notify us about a change.',
+    taxWithholdMustBeSentYearly:
+        'You retain the voluntary tax deduction in future years until you notify us about a change.',
 }
 
 const radiobuttons = {
@@ -250,6 +251,8 @@ const aboutYou = {
     workAssessmentAllowance: 'Are you receiving a Work Assessment Allowance (AAP)?',
     workAssessmentAllowanceInfo:
         'If you receive Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
+    paymentsFromNav: 'Payments from NAV',
+    bankAccountNumberAndPayment: 'Bank account number and payment',
 }
 
 const aboutParents = {

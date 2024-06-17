@@ -127,6 +127,7 @@ export default function AboutYou({ next }: StepProps) {
 
                     {!user.adressebeskyttelse && isChild && (
                         <>
+                            <Heading size={'small'}>{t('paymentsFromNav')}</Heading>
                             <FormGroup>
                                 <FormElement>
                                     <RHFGeneralQuestionRadio
@@ -137,9 +138,7 @@ export default function AboutYou({ next }: StepProps) {
                                         {t('disabilityBenefitsInfo')}
                                     </ReadMore>
                                 </FormElement>
-                            </FormGroup>
 
-                            <FormGroup>
                                 <FormElement>
                                     <RHFGeneralQuestionRadio
                                         name={'workAssessmentAllowance'}
@@ -153,7 +152,12 @@ export default function AboutYou({ next }: StepProps) {
                         </>
                     )}
 
-                    {!user.adressebeskyttelse && isChild && <PaymentDetails />}
+                    {!user.adressebeskyttelse && isChild && (
+                        <>
+                            <Heading size={'small'}>{t('bankAccountNumberAndPayment')}</Heading>
+                            <PaymentDetails />
+                        </>
+                    )}
 
                     <ErrorSummaryWrapper errors={errors} />
 
