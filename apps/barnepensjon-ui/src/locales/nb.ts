@@ -94,7 +94,8 @@ const paymentDetails = {
     taxPercentageType: 'Ønsker du frivillig skattetrekk i kroner eller prosent?',
     taxPercentageDescription:
         'Vi trenger beskjed hvis det ikke skal være trekk i desember eller andre deler av året (valgfritt)',
-    taxWithholdMustBeSentYearly: 'Du beholder det frivillige skattetrekket i årene fremover til du selv melder fra om endring.',
+    taxWithholdMustBeSentYearly:
+        'Du beholder det frivillige skattetrekket i årene fremover til du selv melder fra om endring.',
 }
 
 const radiobuttons = {
@@ -241,10 +242,10 @@ const aboutYou = {
     'subtitle.personalia': 'Personalia',
     disabilityBenefits: 'Får du uføretrygd?',
     disabilityBenefitsInfo:
-        'Får du uføretrygd samtidig som barnepensjon vil barnepensjonen trekkes krone for krone for uføretrygden.',
+        'Får du uføretrygd samtidig som barnepensjon, vil barnepensjonen trekkes krone for krone for uføretrygden.',
     workAssessmentAllowance: 'Får du arbeidsavklaringspenger (AAP)?',
     workAssessmentAllowanceInfo:
-        'Får du arbeidsavklaringspenger (AAP) samtidig som barnepensjon vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
+        'Får du arbeidsavklaringspenger (AAP) samtidig som barnepensjon, vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
 }
 
 const aboutParents = {
@@ -374,10 +375,10 @@ const aboutChildren = {
         'Du kan kun søke om barnepensjon for barn du er verge for. \nAlle avdødes barn kan legges til.',
     disabilityBenefitsIsGuardian: 'Får barnet uføretrygd?',
     disabilityBenefitsInfo:
-        'Får barnet uføretrygd samtidig som barnepensjon vil barnepensjonen trekkes krone for krone for uføretrygden.',
+        'Får barnet uføretrygd samtidig som barnepensjon, vil barnepensjonen trekkes krone for krone for uføretrygden.',
     workAssessmentAllowanceIsGuardian: 'Får barnet arbeidsavklaringspenger (AAP)?',
     workAssessmentAllowanceInfo:
-        'Får barnet arbeidsavklaringspenger (AAP) samtidig som barnepensjon vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
+        'Får barnet arbeidsavklaringspenger (AAP) samtidig som barnepensjon, vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
 }
 
 const summary = {

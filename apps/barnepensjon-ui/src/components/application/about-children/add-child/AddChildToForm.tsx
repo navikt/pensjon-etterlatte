@@ -187,11 +187,9 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                 isGuardian={isGuardian}
                                                 loggedInUserIsGuardian={loggedInUserIsGuardian}
                                             />
-                                        </FormGroup>
 
-                                        {isGuardian && childOver18() && (
-                                            <>
-                                                <FormGroup>
+                                            {isGuardian && childOver18() && (
+                                                <>
                                                     <FormElement>
                                                         <RHFGeneralQuestionRadio
                                                             name={'disabilityBenefitsIsGuardian'}
@@ -210,9 +208,9 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                             {t('workAssessmentAllowanceInfo')}
                                                         </ReadMore>
                                                     </FormElement>
-                                                </FormGroup>
-                                            </>
-                                        )}
+                                                </>
+                                            )}
+                                        </FormGroup>
 
                                         <GuardianDetails
                                             isGuardian={isGuardian}
