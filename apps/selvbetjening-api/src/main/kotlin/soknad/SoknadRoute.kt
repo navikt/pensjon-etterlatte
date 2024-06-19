@@ -1,8 +1,8 @@
 package no.nav.etterlatte.soknad
 
 import com.fasterxml.jackson.databind.JsonNode
-import io.ktor.client.plugins.ClientRequestException
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.isSuccess
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
@@ -25,9 +25,9 @@ fun Route.soknadApi(service: SoeknadService) {
                 val request = call.receive<SoeknadRequest>()
                 val kilde = call.request.queryParameters["kilde"]!!
 
-                val response = service.sendSoeknader(request, kilde)
+                val statusCode = service.sendSoeknader(request, kilde)
 
-                call.respond(response)
+                call.respond(statusCode)
             } catch (ex: Exception) {
                 call.application.environment.log
                     .error("Klarte ikke å lagre søknad", ex)

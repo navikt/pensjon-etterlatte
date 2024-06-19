@@ -36,7 +36,7 @@ class SoeknadService(
     suspend fun sendSoeknader(
         request: SoeknadRequest,
         kilde: String
-    ): HttpResponse {
+    ): HttpStatusCode {
         logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
         request.soeknader.forEach {
@@ -50,12 +50,13 @@ class SoeknadService(
                 header(X_CORRELATION_ID, getCorrelationId())
                 parameter("kilde", kilde)
                 setBody(vurderAdressebeskyttelse(request))
-            }.also {
+            }.let {
                 if (it.status.isSuccess()) {
                     logger.info("Søknader lagret ok!")
                 } else {
                     logger.error("Feil ved lagring av søknader \n[HTTP ${it.status}]: ${it.body<String>()}")
                 }
+                it.status
             }
     }
 

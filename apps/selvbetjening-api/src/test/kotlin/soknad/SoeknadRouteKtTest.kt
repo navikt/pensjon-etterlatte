@@ -45,7 +45,7 @@ internal class SoeknadRouteKtTest {
             )
 
         withTestApplication({ testModule { soknadApi(service) } }) {
-            coEvery { service.sendSoeknader(any(), kilde) } returns mockk<HttpResponse>()
+            coEvery { service.sendSoeknader(any(), kilde) } returns HttpStatusCode.OK
             handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 setBody(soeknad.toJson())

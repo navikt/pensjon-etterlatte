@@ -76,7 +76,9 @@ fun main() {
         RapidApplication
             .Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
             .withKtorModule { apiModule { soeknadApi(SoeknadService(db, utkastPubliserer)) } }
-            .build()
+            .build {
+                datasourceBuilder.migrate()
+            }
             .also { rapidConnection ->
                 JournalpostSkrevet(rapidConnection, db)
                 BehandlingOpprettetDoffen(rapidConnection, db)
