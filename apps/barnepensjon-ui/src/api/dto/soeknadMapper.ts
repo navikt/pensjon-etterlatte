@@ -243,10 +243,18 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
             spoersmaal: t('lastName', { ns: 'common' }),
             svar: child.lastName!!,
         },
-        foedselsnummer: {
-            spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: child.fnrDnr!!,
-        },
+        foedselsnummer: child.fnrDnr
+            ? {
+                  spoersmaal: t('fnrDnr', { ns: 'common' }),
+                  svar: child.fnrDnr,
+              }
+            : undefined,
+        foedselsdato: child.dateOfBirth
+            ? {
+                  spoersmaal: t('dateOfBirth', { ns: 'common' }),
+                  svar: child.dateOfBirth,
+              }
+            : undefined,
         statsborgerskap: {
             spoersmaal: t('citizenship', { ns: 'common' }),
             svar: child.citizenship!!,

@@ -47,7 +47,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
                         onClick: handleSubmit(save),
                     }}
                     left={{ label: t('backButton', { ns: 'btn' }), variant: 'secondary', onClick: prev }}
-                    hideCancel={fnrRegisteredParent ? true : false}
+                    hideCancel={!!fnrRegisteredParent}
                 />
             </form>
         </FormProvider>

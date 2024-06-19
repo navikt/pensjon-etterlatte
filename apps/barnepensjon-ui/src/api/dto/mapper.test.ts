@@ -69,7 +69,7 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
             applicant: createApplicant(ApplicantRole.PARENT),
             aboutYou: {},
             secondParent: {
-                ...createParent('Sedat', 'Ripsbærbusk', '26117512737'),
+                ...createParent('Sedat', 'Ripsbærbusk', '26117512737', '1975-11-26'),
                 dateOfDeath: new Date(2022, 1, 1),
                 staysAbroad: {
                     hasStaysAbroad: JaNeiVetIkke.NEI,
@@ -97,7 +97,8 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
         const gjenlevende = foreldre[0] as GjenlevendeForelder
         expect(gjenlevende.fornavn.svar).toEqual(user.fornavn)
         expect(gjenlevende.etternavn.svar).toEqual(user.etternavn)
-        expect(gjenlevende.foedselsnummer.svar).toEqual(user.foedselsnummer)
+        expect(gjenlevende.foedselsnummer?.svar).toEqual(user.foedselsnummer)
+        expect(gjenlevende.foedselsdato?.svar).toEqual(user.foedselsdato)
         expect(gjenlevende.statsborgerskap.svar).toEqual(user.statsborgerskap)
         expect(gjenlevende.adresse!!.svar).toEqual(fullAdresse(user))
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(user.telefonnummer)
@@ -106,7 +107,8 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
         const avdoed = foreldre[1] as Avdoed
         expect(avdoed.fornavn.svar).toEqual(secondParent.firstName)
         expect(avdoed.etternavn.svar).toEqual(secondParent.lastName)
-        expect(avdoed.foedselsnummer.svar).toEqual(secondParent.fnrDnr)
+        expect(avdoed.foedselsnummer?.svar).toEqual(secondParent.fnrDnr)
+        expect(avdoed.foedselsdato?.svar).toEqual(secondParent.dateOfBirth)
         expect(avdoed.statsborgerskap.svar.innhold).toEqual(secondParent.citizenship)
         expect(avdoed.datoForDoedsfallet.svar.innhold).toEqual(secondParent.dateOfDeath)
     })
@@ -117,24 +119,26 @@ describe('Test mapping foreldre', () => {
         expect(forelder.type).toEqual(PersonType.FORELDER)
         expect(forelder.fornavn.svar).toEqual(parent.firstName)
         expect(forelder.etternavn.svar).toEqual(parent.lastName)
-        expect(forelder.foedselsnummer.svar).toEqual(parent.fnrDnr)
+        expect(forelder.foedselsnummer?.svar).toEqual(parent.fnrDnr)
+        expect(forelder.foedselsdato?.svar).toEqual(parent.dateOfBirth)
     }
 
     const compareParentsWithUser = (forelder: Forelder, user: User) => {
         expect(forelder.type).toEqual(PersonType.FORELDER)
         expect(forelder.fornavn.svar).toEqual(user.fornavn)
         expect(forelder.etternavn.svar).toEqual(user.etternavn)
-        expect(forelder.foedselsnummer.svar).toEqual(user.foedselsnummer)
+        expect(forelder.foedselsnummer?.svar).toEqual(user.foedselsnummer)
+        expect(forelder.foedselsdato?.svar).toBeUndefined()
     }
 
     it('Mapping av forenklede foreldre fungerer - forelder søker', () => {
-        expect.assertions(19)
+        expect.assertions(23)
 
         const application: IApplication = {
             applicant: createApplicant(ApplicantRole.PARENT),
             aboutYou: {},
             firstParent: undefined,
-            secondParent: createParent('Sedat', 'Ripsbærbusk', '26117512737'),
+            secondParent: createParent('Sedat', 'Ripsbærbusk', '26117512737', '1975-11-26'),
         }
 
         const child: IChild = { parents: ParentRelationType.BOTH }
@@ -157,13 +161,13 @@ describe('Test mapping foreldre', () => {
     })
 
     it('Mapping av forenklede foreldre fungerer - verge søker', () => {
-        expect.assertions(19)
+        expect.assertions(23)
 
         const application: IApplication = {
             applicant: createApplicant(ApplicantRole.GUARDIAN),
             aboutYou: {},
-            firstParent: createParent('Grønn', 'Kopp', '29018322402'),
-            secondParent: createParent('Sedat', 'Ripsbærbusk', '26117512737'),
+            firstParent: createParent('Grønn', 'Kopp', '29018322402', '1983-01-29'),
+            secondParent: createParent('Sedat', 'Ripsbærbusk', '26117512737', '1975-11-26'),
         }
 
         const child: IChild = { parents: ParentRelationType.BOTH }
@@ -199,13 +203,13 @@ describe('Test mapping foreldre', () => {
 
     it('Mapping av gjenlevende forelder - mangler adresse og telefon', () => {
         const livingParent: ILivingParent = {
-            ...createParent('Grønn', 'Kopp', '29018322402'),
+            ...createParent('Grønn', 'Kopp', '29018322402', '1983-01-29'),
         }
 
         const gjenlevende: GjenlevendeForelder = _test.mapGjenlevendeForelder(t, livingParent)
         expect(gjenlevende.fornavn.svar).toEqual(livingParent.firstName)
         expect(gjenlevende.etternavn.svar).toEqual(livingParent.lastName)
-        expect(gjenlevende.foedselsnummer.svar).toEqual(livingParent.fnrDnr)
+        expect(gjenlevende.foedselsnummer?.svar).toEqual(livingParent.fnrDnr)
         expect(gjenlevende.statsborgerskap.svar).toEqual(livingParent.citizenship)
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(EMPTY_VALUE)
         expect(gjenlevende.adresse!!.svar).toEqual(EMPTY_VALUE)
@@ -213,7 +217,7 @@ describe('Test mapping foreldre', () => {
 
     it('Mapping av gjenlevende forelder - komplett med adresse og telefon', () => {
         const livingParent: ILivingParent = {
-            ...createParent('Grønn', 'Kopp', '29018322402'),
+            ...createParent('Grønn', 'Kopp', '29018322402', '1983-01-29'),
             phoneNumber: '999 999 999',
             address: 'Testveien 13, 1234 Oslo',
         }
@@ -221,7 +225,7 @@ describe('Test mapping foreldre', () => {
         const gjenlevende: GjenlevendeForelder = _test.mapGjenlevendeForelder(t, livingParent)
         expect(gjenlevende.fornavn.svar).toEqual(livingParent.firstName)
         expect(gjenlevende.etternavn.svar).toEqual(livingParent.lastName)
-        expect(gjenlevende.foedselsnummer.svar).toEqual(livingParent.fnrDnr)
+        expect(gjenlevende.foedselsnummer?.svar).toEqual(livingParent.fnrDnr)
         expect(gjenlevende.statsborgerskap.svar).toEqual(livingParent.citizenship)
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(livingParent.phoneNumber)
         expect(gjenlevende.adresse!!.svar).toEqual(livingParent.address)
@@ -355,7 +359,7 @@ describe('Næringsinntekt mappes korrekt', () => {
 describe('Avdød mappes korrekt', () => {
     it('Generell sjekk på avdød mapping', () => {
         const parent: IDeceasedParent = {
-            ...createParent('Grønn', 'Kopp', '29018322402'),
+            ...createParent('Grønn', 'Kopp', '29018322402', '1983-01-29'),
             dateOfDeath: new Date(2022, 1, 1),
             staysAbroad: {
                 hasStaysAbroad: JaNeiVetIkke.VET_IKKE,
@@ -372,7 +376,7 @@ describe('Avdød mappes korrekt', () => {
         expect(result.type).toBe(PersonType.AVDOED)
         expect(result.fornavn.svar).toBe(parent.firstName)
         expect(result.etternavn.svar).toBe(parent.lastName)
-        expect(result.foedselsnummer.svar).toBe(parent.fnrDnr)
+        expect(result.foedselsnummer?.svar).toBe(parent.fnrDnr)
         expect(result.statsborgerskap.svar.innhold).toBe(parent.citizenship)
         expect(result.datoForDoedsfallet.svar.innhold).toBe(parent.dateOfDeath)
 
@@ -388,10 +392,11 @@ const createApplicant = (role: ApplicantRole, consent?: boolean): IApplicant => 
     applicantRole: role,
 })
 
-const createParent = (firstName: string, lastName: string, fnrDnr: string): IParent => ({
+const createParent = (firstName: string, lastName: string, fnrDnr: string, dateOfBirth: string): IParent => ({
     firstName,
     lastName,
     fnrDnr,
+    dateOfBirth,
     citizenship: 'Norge',
 })
 

@@ -28,6 +28,7 @@ export const SummaryAboutLivingParent = memo(({ aboutTheParent, pathPrefix }: Pr
                     firstName={aboutTheParent.firstName}
                     lastName={aboutTheParent.lastName}
                     fnrDnr={aboutTheParent.fnrDnr}
+                    dateOfBirth={aboutTheParent.dateOfBirth}
                     citizenship={aboutTheParent.citizenship}
                 />
                 <TextGroup title={t('address')} content={aboutTheParent?.address} />

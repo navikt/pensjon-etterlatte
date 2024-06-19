@@ -80,10 +80,18 @@ const mapTilForelder = (t: TFunction, parent: IParent): Forelder => ({
         spoersmaal: t('lastName', { ns: 'common' }),
         svar: parent!!.lastName,
     },
-    foedselsnummer: {
-        spoersmaal: t('fnrDnr', { ns: 'common' }),
-        svar: parent!!.fnrDnr,
-    },
+    foedselsnummer: parent.fnrDnr
+        ? {
+              spoersmaal: t('fnrDnr', { ns: 'common' }),
+              svar: parent.fnrDnr,
+          }
+        : undefined,
+    foedselsdato: parent.dateOfBirth
+        ? {
+              spoersmaal: t('dateOfBirth', { ns: 'common' }),
+              svar: parent.dateOfBirth,
+          }
+        : undefined,
 })
 
 export const mapForeldreMedUtvidetInfo = (t: TFunction, application: IApplication, user: User): Person[] => {
@@ -142,10 +150,18 @@ const mapGjenlevendeForelder = (t: TFunction, livingParent: ILivingParent): Gjen
         spoersmaal: t('lastName', { ns: 'common' }),
         svar: livingParent.lastName,
     },
-    foedselsnummer: {
-        spoersmaal: t('fnrDnr', { ns: 'common' }),
-        svar: livingParent.fnrDnr,
-    },
+    foedselsnummer: livingParent.fnrDnr
+        ? {
+              spoersmaal: t('fnrDnr', { ns: 'common' }),
+              svar: livingParent.fnrDnr,
+          }
+        : undefined,
+    foedselsdato: livingParent.dateOfBirth
+        ? {
+              spoersmaal: t('dateOfBirth', { ns: 'common' }),
+              svar: livingParent.dateOfBirth,
+          }
+        : undefined,
     statsborgerskap: {
         spoersmaal: t('citizenship', { ns: 'common' }),
         svar: livingParent.citizenship,
@@ -176,10 +192,18 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             spoersmaal: t('lastName', { ns: 'common' }),
             svar: parent.lastName!!,
         },
-        foedselsnummer: {
-            spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: parent.fnrDnr!!,
-        },
+        foedselsnummer: parent.fnrDnr
+            ? {
+                  spoersmaal: t('fnrDnr', { ns: 'common' }),
+                  svar: parent.fnrDnr,
+              }
+            : undefined,
+        foedselsdato: parent.dateOfBirth
+            ? {
+                  spoersmaal: t('dateOfBirth', { ns: 'common' }),
+                  svar: parent.dateOfBirth,
+              }
+            : undefined,
 
         datoForDoedsfallet: {
             spoersmaal: t('dateOfDeath', { ns: 'aboutTheDeceased' }),

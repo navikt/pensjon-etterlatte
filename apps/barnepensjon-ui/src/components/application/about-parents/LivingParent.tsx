@@ -32,6 +32,7 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
     const {
         handleSubmit,
         formState: { errors },
+        watch,
     } = methods
 
     return (
@@ -40,7 +41,7 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
                 <StepHeading>{t('title')}</StepHeading>
 
                 <FormGroup>
-                    <PersonInfo duplicateList={fnrRegisteredParent} />
+                    <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
                 </FormGroup>
                 <FormElement>
                     <RHFInput name={'address'} label={t('address')} valgfri={true} />

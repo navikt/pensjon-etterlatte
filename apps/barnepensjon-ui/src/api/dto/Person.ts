@@ -35,6 +35,7 @@ export interface Person {
     fornavn?: Opplysning<string>
     etternavn?: Opplysning<string>
     foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 }
 
 export interface Innsender extends Person {
@@ -43,6 +44,7 @@ export interface Innsender extends Person {
     fornavn: Opplysning<string>
     etternavn: Opplysning<string>
     foedselsnummer: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 }
 
 export interface Forelder extends Person {
@@ -50,7 +52,8 @@ export interface Forelder extends Person {
 
     fornavn: Opplysning<string>
     etternavn: Opplysning<string>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 }
 
 export interface GjenlevendeForelder extends Person {
@@ -58,7 +61,8 @@ export interface GjenlevendeForelder extends Person {
 
     fornavn: Opplysning<string>
     etternavn: Opplysning<string>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
     statsborgerskap: Opplysning<string>
     adresse?: Opplysning<string>
@@ -70,7 +74,8 @@ export interface Barn extends Person {
 
     fornavn: Opplysning<string>
     etternavn: Opplysning<string>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
     statsborgerskap: Opplysning<string>
     utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>
@@ -88,7 +93,8 @@ export interface Avdoed extends Person {
 
     fornavn: Opplysning<string>
     etternavn: Opplysning<string>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
     datoForDoedsfallet: Opplysning<DatoSvar>
     statsborgerskap: Opplysning<FritekstSvar>

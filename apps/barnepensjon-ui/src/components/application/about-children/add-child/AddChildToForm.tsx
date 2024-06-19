@@ -7,7 +7,7 @@ import ikon from '../../../../assets/barn1.svg'
 import useCountries from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IChild, ParentRelationType } from '~types/person'
-import { getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
+import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormGroup from '../../../common/FormGroup'
 import { NavRow } from '../../../common/Navigation'
@@ -117,13 +117,14 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
     const parents = watch('parents')
     const fnr: any = watch('fnrDnr')
+    const dateOfBirth: any = watch('dateOfBirth')
     const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
     const childHasGuardianship = watch('childHasGuardianship.answer')
     const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
     const livesAbroadAnswer = watch('staysAbroad.answer')
 
     const canApplyForChildrensPension = (): boolean => {
-        if (parents === ParentRelationType.BOTH && checkFnr(fnr)) {
+        if (parents === ParentRelationType.BOTH) {
             if (isGuardian) return true
             return !childOver18()
         }
@@ -132,7 +133,10 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     }
 
     const childOver18 = () => {
-        return checkFnr(fnr) && isLegalAge(getAgeFromFoedselsnummer(fnr))
+        return (
+            (checkFnr(fnr) && isLegalAge(getAgeFromFoedselsnummer(fnr))) ||
+            (dateOfBirth && isLegalAge(getAgeFromDate(dateOfBirth)))
+        )
     }
 
     useEffect(() => {
@@ -150,7 +154,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
                     <ChangeChildPanelContent>
                         <FormGroup>
-                            <PersonInfo duplicateList={fnrRegisteredChild} />
+                            <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
                             {childOver18() && !isGuardian && (
                                 <Panel border>
                                     <Alert id={'above18Warning'} inline={true} variant={'info'}>

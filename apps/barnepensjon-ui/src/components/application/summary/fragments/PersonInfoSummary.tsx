@@ -6,6 +6,7 @@ export default function PersonInfoSummary({
     firstName,
     lastName,
     fnrDnr,
+    dateOfBirth,
     citizenship,
     address,
 }: {
@@ -13,6 +14,7 @@ export default function PersonInfoSummary({
     firstName?: string
     lastName?: string
     fnrDnr?: string
+    dateOfBirth?: string
     citizenship?: string
     address?: string
 }) {
@@ -29,7 +31,11 @@ export default function PersonInfoSummary({
                 </>
             )}
 
-            <TextGroup title={t('fnrDnr')} content={fnrDnr} />
+            {fnrDnr ? (
+                <TextGroup title={t('fnrDnr')} content={fnrDnr} />
+            ) : (
+                <TextGroup title={t('dateOfBirth')} content={dateOfBirth} />
+            )}
             <TextGroup title={t('citizenship')} content={citizenship} />
             {address && <TextGroup title={t('address')} content={address} />}
         </>

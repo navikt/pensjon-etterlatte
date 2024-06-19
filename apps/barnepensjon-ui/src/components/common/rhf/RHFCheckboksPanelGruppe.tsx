@@ -8,7 +8,7 @@ import {
     Checkbox,
     CheckboxProps,
     CheckboxGroupProps,
-    ConfirmationPanelProps
+    ConfirmationPanelProps,
 } from '@navikt/ds-react'
 
 const handleSelect = (array: any[], addOrRemove: any) => {
@@ -42,7 +42,7 @@ export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmation
                     <ConfirmationPanel
                         {...rest}
                         checked={value || false}
-                        onChange={(e) => onChange(!!e.target.checked)}
+                        onChange={(e) => onChange(e.target.checked)}
                         defaultValue={value || false}
                         error={feilmelding}
                     />
@@ -88,6 +88,45 @@ export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFC
                                 {checkbox.children}
                             </Checkbox>
                         ))}
+                    </CheckboxGroup>
+                )}
+            />
+        </div>
+    )
+}
+
+interface RHFCheckboksProps extends Omit<CheckboxGroupProps, 'onChange' | 'children'> {
+    name: FieldPath<FieldValues>
+    checkbox: CheckboxProps
+    required: boolean
+}
+
+export function RHFCheckboks({ name, checkbox, required, ...rest }: RHFCheckboksProps) {
+    const { t } = useTranslation('error')
+
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
+
+    return (
+        <div id={name}>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required }}
+                render={({ field: { value, onChange } }) => (
+                    <CheckboxGroup {...rest} error={feilmelding} defaultValue={[value]}>
+                        <Checkbox
+                            key={checkbox.value as string}
+                            value={value || false}
+                            onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+                        >
+                            {checkbox.children}
+                        </Checkbox>
                     </CheckboxGroup>
                 )}
             />
