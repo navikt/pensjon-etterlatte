@@ -158,9 +158,9 @@ internal class SoeknadServiceTest {
 
         runBlocking {
             val request = SoeknadRequest(listOf(omstillingsSoeknad(), barnepensjon()))
-            val response = service.sendSoeknader(request, kilde)
+            val statusCode = service.sendSoeknader(request, kilde)
 
-            assertEquals(HttpStatusCode.OK, response.status)
+            assertEquals(HttpStatusCode.OK, statusCode)
         }
     }
 
