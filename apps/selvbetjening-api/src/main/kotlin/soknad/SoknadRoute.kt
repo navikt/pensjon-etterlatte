@@ -23,30 +23,16 @@ fun Route.soknadApi(service: SoeknadService) {
                     .info("SoeknadRequest mottatt!")
 
                 val request = call.receive<SoeknadRequest>()
-
                 val kilde = call.request.queryParameters["kilde"]!!
 
-                when (val response = service.sendSoeknader(request, kilde)) {
-                    is Success -> {
-                        call.application.environment.log
-                            .info("Søknad markert som ferdigstilt")
-                        call.respond(HttpStatusCode.OK)
-                    }
-                    is Failure -> {
-                        val error = response.lastError()
-                        call.application.environment.log
-                            .error("Innsending av søknad feilet ", error)
+                val response = service.sendSoeknader(request, kilde)
 
-                        if (error is ClientRequestException) {
-                            call.respond(error.response.status)
-                        } else {
-                            call.respond(HttpStatusCode.InternalServerError)
-                        }
-                    }
-                }
+                call.respond(response)
             } catch (ex: Exception) {
                 call.application.environment.log
                     .error("Klarte ikke å lagre søknad", ex)
+
+                call.respond(HttpStatusCode.InternalServerError)
             }
         }
     }
