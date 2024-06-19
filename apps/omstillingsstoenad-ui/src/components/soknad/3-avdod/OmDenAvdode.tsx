@@ -11,7 +11,7 @@ import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 import Navigasjon from '../../felles/Navigasjon'
-import { BodyLong, Heading, HGrid } from '@navikt/ds-react'
+import { Alert, BodyLong, Heading, HGrid } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -19,6 +19,7 @@ import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import Datovelger from '../../felles/Datovelger'
 import { isDev } from '../../../api/axios'
+import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -55,6 +56,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const erValidert = state.omDenAvdoede.erValidert
     const selvstendigNaeringsdrivende = watch('selvstendigNaeringsdrivende.svar')
     const datoForDoedsfallet = watch('datoForDoedsfallet')
+    const ukjentFoedselsnummer = watch('ukjentFoedselsnummer')
 
     const minsteDatoForDoedsfall = new Date(2015, 0, 1)
 
@@ -73,11 +75,22 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
                     </HGrid>
                     <SkjemaElement>
-                        <RHFFoedselsnummerInput
-                            name={'foedselsnummer'}
-                            label={t('omDenAvdoede.foedselsnummer')}
-                            htmlSize={Bredde.S}
-                        />
+                        {!ukjentFoedselsnummer && (
+                            <RHFFoedselsnummerInput
+                                name={'foedselsnummer'}
+                                label={t('omDenAvdoede.foedselsnummer')}
+                                htmlSize={Bredde.S}
+                            />
+                        )}
+
+                        <RHFCheckboks name={'ukjentFoedselsnummer'} label={t('omDenAvdoede.ukjentFoedselsnummer')} />
+
+                        {ukjentFoedselsnummer && (
+                            <>
+                                <Alert variant={'info'}>{t('omDenAvdoede.ukjentFoedselsnummerInfo')}</Alert>
+                                <Datovelger name={'foedselsdato'} label={t('omDenAvdoede.foedselsdato')} />
+                            </>
+                        )}
                     </SkjemaElement>
                     <SkjemaElement>
                         <RHFSelect

@@ -8,6 +8,7 @@ import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import styled from 'styled-components'
 import { SkjemaElement } from '../../felles/SkjemaElement'
+import { format } from 'date-fns'
 
 const InfokortInformasjonsElement = styled.div`
     margin: 10px 0 10px 0;
@@ -49,10 +50,22 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     </Heading>
                 </div>
                 <InfokortInformasjonsElement>
-                    <BodyShort size={'small'}>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
-                        {foedselsnummer}
-                    </BodyShort>
+                    {foedselsnummer && (
+                        <>
+                            <BodyShort size={'small'}>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
+                            <BodyShort size={'small'} spacing>
+                                {foedselsnummer}
+                            </BodyShort>
+                        </>
+                    )}
+                    {barn.foedselsdato && (
+                        <>
+                            <BodyShort size={'small'}>{t('omBarn.infokort.foedselsdato')}</BodyShort>
+                            <BodyShort size={'small'} spacing>
+                                {format(barn.foedselsdato, 'dd.MM.yyyy')}
+                            </BodyShort>
+                        </>
+                    )}
 
                     <BodyShort size={'small'}>{t('omBarn.infokort.foreldre')}</BodyShort>
                     <BodyShort size={'small'} spacing>

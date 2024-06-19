@@ -17,7 +17,7 @@ import {
     InntektOgPensjon,
 } from './FellesOpplysninger'
 
-type Foedselsnummer = String
+type Foedselsnummer = string
 
 export enum PersonType {
     INNSENDER = 'INNSENDER',
@@ -37,50 +37,54 @@ export enum OmsorgspersonType {
 
 export interface Person {
     type: PersonType
-    fornavn?: Opplysning<String>
-    etternavn?: Opplysning<String>
+    fornavn?: Opplysning<string>
+    etternavn?: Opplysning<string>
     foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 }
 
 export interface Innsender extends Person {
     type: PersonType.INNSENDER
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
     foedselsnummer: Opplysning<Foedselsnummer>
 }
 
 export interface Forelder extends Person {
     type: PersonType.FORELDER
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 }
 
 export interface GjenlevendeForelder extends Person {
     type: PersonType.GJENLEVENDE_FORELDER
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
-    statsborgerskap: Opplysning<String>
-    adresse?: Opplysning<String>
+    statsborgerskap: Opplysning<string>
+    adresse?: Opplysning<string>
     kontaktinfo: Kontaktinfo
 }
 
 export interface Gjenlevende extends Person {
     type: PersonType.GJENLEVENDE_OMS
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
-    statsborgerskap: Opplysning<String>
-    sivilstatus: Opplysning<String>
+    statsborgerskap: Opplysning<string>
+    sivilstatus: Opplysning<string>
 
-    adresse?: Opplysning<String>
+    adresse?: Opplysning<string>
     bostedsAdresse?: Opplysning<FritekstSvar>
     kontaktinfo: Kontaktinfo
     flyktning?: Opplysning<EnumSvar<JaNeiVetIkke>>
@@ -97,11 +101,12 @@ export interface Gjenlevende extends Person {
 export interface Barn extends Person {
     type: PersonType.BARN
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
-    statsborgerskap: Opplysning<String>
+    statsborgerskap: Opplysning<string>
     utenlandsAdresse?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsadresse | undefined>
     foreldre: Forelder[]
     verge?: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Verge>
@@ -111,9 +116,10 @@ export interface Barn extends Person {
 export interface Avdoed extends Person {
     type: PersonType.AVDOED
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
     datoForDoedsfallet: Opplysning<DatoSvar>
     statsborgerskap: Opplysning<FritekstSvar>
@@ -125,17 +131,19 @@ export interface Avdoed extends Person {
 export interface Verge extends Person {
     type: PersonType.VERGE
 
-    fornavn?: Opplysning<String>
-    etternavn?: Opplysning<String>
+    fornavn?: Opplysning<string>
+    etternavn?: Opplysning<string>
     foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 }
 
 export interface Samboer extends Person {
     type: PersonType.SAMBOER
 
-    fornavn: Opplysning<String>
-    etternavn: Opplysning<String>
-    foedselsnummer: Opplysning<Foedselsnummer>
+    fornavn: Opplysning<string>
+    etternavn: Opplysning<string>
+    foedselsnummer?: Opplysning<Foedselsnummer>
+    foedselsdato?: Opplysning<string>
 
     fellesBarnEllertidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>>
 }

@@ -531,6 +531,10 @@ export default {
     'omDenAvdoede.etternavn': 'Etternavn',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
+    'omDenAvdoede.ukjentFoedselsnummer': 'Jeg kjenner ikke avdødes fødselsnummer (valgfritt)',
+    'omDenAvdoede.ukjentFoedselsnummerInfo':
+        'Ettersom du ikke oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
+    'omDenAvdoede.foedselsdato': 'Avdødes fødselsdato',
     'omDenAvdoede.statsborgerskap': 'Statsborgerskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For eksempel norsk',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphold utenfor Norge',
@@ -571,6 +575,10 @@ export default {
     'omBarn.fornavn': 'Fornavn',
     'omBarn.etternavn': 'Etternavn',
     'omBarn.foedselsnummer': 'Barnets fødselsnummer / d-nummer',
+    'omBarn.ukjentFoedselsnummer': 'Jeg kjenner ikke barnets fødselsnummer',
+    'omBarn.ukjentFoedselsnummerInfo':
+        'Ettersom du ikke oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
+    'omBarn.foedselsdato': 'Barnets fødselsdato',
     'omBarn.relasjon': 'Hvem er foreldre til barnet?',
     'omBarn.relasjonHjelpetekst':
         'Vi må vite om dette er et barn du har felles med avdøde, avdødes eget barn, eller ditt eget barn.',
@@ -613,6 +621,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Du beholder det frivillige skattetrekket i årene fremover til du selv melder fra om endring.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
+    'omBarn.infokort.foedselsdato': 'FØDSELSDATO',
     'omBarn.infokort.foreldre': 'FORELDRE TIL BARNET',
     'omBarn.infokort.foreldre.jegOgAvdoed': 'Jeg og avdøde',
     'omBarn.infokort.bosted': 'BOSTED',
@@ -806,6 +815,7 @@ export default {
     'studieform.heltid': 'Heltid',
     'studieform.deltid': 'Deltid',
     'felles.fnrDnr': 'Fødselsnummer / d-nummer',
+    'felles.foedselsdato': 'Fødselsdato',
     'felles.fnr': 'Fødselsnummer',
     'felles.fnrPlaceholder': '11 siffer',
     'felles.foedselsnummer': 'Fødselsnummer',
@@ -941,6 +951,7 @@ export default {
     'feil.foedselsnummer.validate': 'Ugyldig fødselsnummer',
     'feil.foedselsnummer.required': 'Oppgi fødselsnummer',
     'feil.foedselsnummer.duplicate': 'Fødselsnummeret er allerede lagt til',
+    'feil.foedselsdato.required': 'Oppgi fødselsdato',
     'feil.statsborgerskap.required': 'Oppgi statsborgerskap',
     'feil.nySivilstatus.sivilstatus.required': 'Oppgi din nåværende sivilstand',
     'feil.nySivilstatus.nySivilstatusEtterDoedsfallet.required': 'Endret sivilstatus må besvares',

@@ -30,6 +30,7 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                     fornavn={omDenAvdoede.fornavn}
                     etternavn={omDenAvdoede.etternavn}
                     fnrDnr={omDenAvdoede.foedselsnummer}
+                    foedselsdato={omDenAvdoede.foedselsdato}
                     statsborgerskap={omDenAvdoede.statsborgerskap}
                 />
                 <TekstGruppe tittel={t('omDenAvdoede.datoForDoedsfallet')} innhold={omDenAvdoede.datoForDoedsfallet} />
