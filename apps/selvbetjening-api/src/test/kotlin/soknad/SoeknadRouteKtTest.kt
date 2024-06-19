@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
@@ -44,7 +45,7 @@ internal class SoeknadRouteKtTest {
             )
 
         withTestApplication({ testModule { soknadApi(service) } }) {
-            coEvery { service.sendSoeknader(any(), kilde) } returns RetryResult.Success()
+            coEvery { service.sendSoeknader(any(), kilde) } returns mockk<HttpResponse>()
             handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 setBody(soeknad.toJson())

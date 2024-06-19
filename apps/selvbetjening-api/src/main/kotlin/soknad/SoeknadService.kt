@@ -10,6 +10,7 @@ import io.ktor.client.request.header
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType.Application.Json
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
@@ -35,23 +36,27 @@ class SoeknadService(
     suspend fun sendSoeknader(
         request: SoeknadRequest,
         kilde: String
-    ): RetryResult {
+    ): HttpResponse {
         logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
         request.soeknader.forEach {
             Metrikker.soeknadTotal.labels(it.type.name).inc()
         }
 
-        return retry(0) {
-            innsendtSoeknadKlient
-                .post("soeknad") {
-                    contentType(Json)
-                    header("kilde", kilde)
-                    header(X_CORRELATION_ID, getCorrelationId())
-                    parameter("kilde", kilde)
-                    setBody(vurderAdressebeskyttelse(request))
-                }.body<String>()
-        }
+        return innsendtSoeknadKlient
+            .post("soeknad") {
+                contentType(Json)
+                header("kilde", kilde)
+                header(X_CORRELATION_ID, getCorrelationId())
+                parameter("kilde", kilde)
+                setBody(vurderAdressebeskyttelse(request))
+            }.also {
+                if (it.status.isSuccess()) {
+                    logger.info("Søknader lagret ok!")
+                } else {
+                    logger.error("Feil ved lagring av søknader \n[HTTP ${it.status}]: ${it.body<String>()}")
+                }
+            }
     }
 
     private suspend fun vurderAdressebeskyttelse(request: SoeknadRequest): SoeknadRequest {
