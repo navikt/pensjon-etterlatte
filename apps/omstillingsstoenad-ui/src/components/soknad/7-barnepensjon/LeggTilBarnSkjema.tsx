@@ -15,7 +15,7 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Link, RadioProps } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Link, RadioProps, VStack } from '@navikt/ds-react'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -228,10 +228,10 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     />
 
                                     {ukjentFoedselsnummer && (
-                                        <>
+                                        <VStack gap="4">
                                             <Alert variant={'info'}>{t('omBarn.ukjentFoedselsnummerInfo')}</Alert>
                                             <Datovelger name={'foedselsdato'} label={t('omBarn.foedselsdato')} />
-                                        </>
+                                        </VStack>
                                     )}
                                 </SkjemaElement>
                                 <SkjemaElement>

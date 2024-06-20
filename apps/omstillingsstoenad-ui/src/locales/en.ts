@@ -554,7 +554,7 @@ export default {
     'omDenAvdoede.fornavn': 'First name(s)',
     'omDenAvdoede.etternavn': 'Family name',
     'omDenAvdoede.foedselsnummer': 'Norwegian national identity number or D number',
-    'omDenAvdoede.ukjentFoedselsnummer': "I do not know the deceased's national identity number. (optional)",
+    'omDenAvdoede.ukjentFoedselsnummer': "I do not know the deceased's national identity number (optional)",
     'omDenAvdoede.ukjentFoedselsnummerInfo':
         'Since you do not provide a personal identification number, the processing of your application may take longer.',
     'omDenAvdoede.foedselsdato': 'Date of birth of the deceased',
@@ -600,7 +600,7 @@ export default {
     'omBarn.fornavn': 'First name(s)',
     'omBarn.etternavn': 'Family name',
     'omBarn.foedselsnummer': 'The child’s Norwegian national identity number or D number',
-    'omBarn.ukjentFoedselsnummer': "I do not know the child's national identity number. (optional)",
+    'omBarn.ukjentFoedselsnummer': "I do not know the child's national identity number (optional)",
     'omBarn.ukjentFoedselsnummerInfo':
         'Since you do not provide your personal identification number, the processing of your application may take longer.',
     'omBarn.foedselsdato': 'The child’s date of birth',

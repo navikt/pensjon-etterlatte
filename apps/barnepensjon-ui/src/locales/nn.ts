@@ -10,7 +10,7 @@ const common = {
     lastName: 'Etternamn',
     name: 'Namn',
     fnrDnr: 'Fødselsnummer / d-nummer',
-    fnrIsUnknown: 'Eg veit ikkje fødselsnummeret. (valfritt)',
+    fnrIsUnknown: 'Eg veit ikkje fødselsnummeret (valfritt)',
     fnrIsUnknownHelpText: 'Ettersom du ikkje oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
     dateOfBirth: 'Fødselsdato',
     address: 'Bustadsadresse',

@@ -11,7 +11,7 @@ import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 import Navigasjon from '../../felles/Navigasjon'
-import { Alert, BodyLong, Heading, HGrid } from '@navikt/ds-react'
+import { Alert, BodyLong, Heading, HGrid, VStack } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
@@ -86,10 +86,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                         <RHFCheckboks name={'ukjentFoedselsnummer'} label={t('omDenAvdoede.ukjentFoedselsnummer')} />
 
                         {ukjentFoedselsnummer && (
-                            <>
+                            <VStack gap="4">
                                 <Alert variant={'info'}>{t('omDenAvdoede.ukjentFoedselsnummerInfo')}</Alert>
                                 <Datovelger name={'foedselsdato'} label={t('omDenAvdoede.foedselsdato')} />
-                            </>
+                            </VStack>
                         )}
                     </SkjemaElement>
                     <SkjemaElement>

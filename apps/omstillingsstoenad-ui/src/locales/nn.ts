@@ -526,7 +526,7 @@ export default {
     'omDenAvdoede.fornavn': 'Førenamn',
     'omDenAvdoede.etternavn': 'Etternamn',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
-    'omDenAvdoede.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til avdøde. (valfritt)',
+    'omDenAvdoede.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til avdøde (valfritt)',
     'omDenAvdoede.ukjentFoedselsnummerInfo':
         'Sidan du ikkje oppgir fødselsnummer, kan behandlinga av søknaden din ta lengre tid.',
     'omDenAvdoede.foedselsdato': 'Avdødes fødselsdato',
@@ -571,7 +571,7 @@ export default {
     'omBarn.fornavn': 'Førenamn',
     'omBarn.etternavn': 'Etternamn',
     'omBarn.foedselsnummer': 'Barnet sitt fødselsnummer / d-nummer',
-    'omBarn.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til barnet. (valfritt)',
+    'omBarn.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til barnet (valfritt)',
     'omBarn.ukjentFoedselsnummerInfo':
         'Sidan du ikkje oppgir fødselsnummer, kan behandlinga av søknaden din ta lengre tid.',
     'omBarn.foedselsdato': 'Fødselsdatoen til barnet',

@@ -575,7 +575,7 @@ export default {
     'omBarn.fornavn': 'Fornavn',
     'omBarn.etternavn': 'Etternavn',
     'omBarn.foedselsnummer': 'Barnets fødselsnummer / d-nummer',
-    'omBarn.ukjentFoedselsnummer': 'Jeg kjenner ikke barnets fødselsnummer',
+    'omBarn.ukjentFoedselsnummer': 'Jeg kjenner ikke barnets fødselsnummer (valgfritt)',
     'omBarn.ukjentFoedselsnummerInfo':
         'Ettersom du ikke oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
     'omBarn.foedselsdato': 'Barnets fødselsdato',

@@ -6,7 +6,7 @@ import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
 import Datepicker from '~components/common/Datepicker'
-import { Alert } from '@navikt/ds-react'
+import { Alert, VStack } from '@navikt/ds-react'
 
 interface Props {
     duplicateList?: string[]
@@ -52,10 +52,10 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                 />
 
                 {fnrIsUnknown && (
-                    <>
+                    <VStack gap="4">
                         <Alert variant={'info'}>{t('fnrIsUnknownHelpText')}</Alert>
                         <Datepicker name={'dateOfBirth'} label={'Fødselsdato'} maxDate={new Date()} />
-                    </>
+                    </VStack>
                 )}
             </FormElement>
 
