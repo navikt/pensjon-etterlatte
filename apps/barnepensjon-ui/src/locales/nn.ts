@@ -11,7 +11,7 @@ const common = {
     name: 'Namn',
     fnrDnr: 'Fødselsnummer / d-nummer',
     fnrIsUnknown: 'Eg veit ikkje fødselsnummeret. (valfritt)',
-    fnrIsUnknownHelpText: 'Ettersom du ikke oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
+    fnrIsUnknownHelpText: 'Ettersom du ikkje oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
     dateOfBirth: 'Fødselsdato',
     address: 'Bustadsadresse',
     maritalStatus: 'Sivilstatus',
