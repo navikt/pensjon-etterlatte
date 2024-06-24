@@ -12,7 +12,7 @@ const common = {
     fnrDnr: 'Norwegian national identity number or D number',
     fnrIsUnknown: 'I do not know the national identy number (optional)',
     fnrIsUnknownHelpText:
-        'Since you do not provide a personal identification number, the processing of your application may take longer.',
+        'The application process will take longer if you fail to state their national identity number.',
     dateOfBirth: 'Date of birth',
     address: 'Residential address',
     maritalStatus: 'Marital status',
