@@ -533,7 +533,7 @@ export default {
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
     'omDenAvdoede.ukjentFoedselsnummer': 'Jeg kjenner ikke avdødes fødselsnummer (valgfritt)',
     'omDenAvdoede.ukjentFoedselsnummerInfo':
-        'Ettersom du ikke oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
+        'Behandlingen av søknaden tar lengre tid når du ikke oppgir fødselsnummeret.',
     'omDenAvdoede.foedselsdato': 'Avdødes fødselsdato',
     'omDenAvdoede.statsborgerskap': 'Statsborgerskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For eksempel norsk',
@@ -576,8 +576,7 @@ export default {
     'omBarn.etternavn': 'Etternavn',
     'omBarn.foedselsnummer': 'Barnets fødselsnummer / d-nummer',
     'omBarn.ukjentFoedselsnummer': 'Jeg kjenner ikke barnets fødselsnummer (valgfritt)',
-    'omBarn.ukjentFoedselsnummerInfo':
-        'Ettersom du ikke oppgir fødselsnummer, kan behandlingen av søknaden ta lengre tid.',
+    'omBarn.ukjentFoedselsnummerInfo': 'Behandlingen av søknaden tar lengre tid når du ikke oppgir fødselsnummeret.',
     'omBarn.foedselsdato': 'Barnets fødselsdato',
     'omBarn.relasjon': 'Hvem er foreldre til barnet?',
     'omBarn.relasjonHjelpetekst':
