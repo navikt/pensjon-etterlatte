@@ -22,9 +22,15 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
             <FormElement>
                 <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
             </FormElement>
+
             <FormElement>
                 <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
             </FormElement>
+
+            <FormElement>
+                <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
+            </FormElement>
+
             <FormElement>
                 {!fnrIsUnknown && (
                     <RHFFoedselsnummerInput
@@ -57,10 +63,6 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                         <Datepicker name={'dateOfBirth'} label={t('dateOfBirth')} maxDate={new Date()} />
                     </VStack>
                 )}
-            </FormElement>
-
-            <FormElement>
-                <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
             </FormElement>
         </>
     )
