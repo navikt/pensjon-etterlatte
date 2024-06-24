@@ -1,6 +1,6 @@
 import useTranslation from '../../hooks/useTranslation'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
-import { RHFSelect } from './rhf/RHFSelect'
+import { StandardBreddeRHFSelect } from './rhf/RHFSelect'
 import useCountries from '../../hooks/useCountries'
 import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
@@ -28,7 +28,7 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
             </FormElement>
 
             <FormElement>
-                <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
+                <StandardBreddeRHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
             </FormElement>
 
             <FormElement>
