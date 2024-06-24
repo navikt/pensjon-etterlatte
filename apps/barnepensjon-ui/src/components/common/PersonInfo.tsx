@@ -54,7 +54,7 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                 {fnrIsUnknown && (
                     <VStack gap="4">
                         <Alert variant={'info'}>{t('fnrIsUnknownHelpText')}</Alert>
-                        <Datepicker name={'dateOfBirth'} label={'Fødselsdato'} maxDate={new Date()} />
+                        <Datepicker name={'dateOfBirth'} label={t('dateOfBirth')} maxDate={new Date()} />
                     </VStack>
                 )}
             </FormElement>
