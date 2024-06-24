@@ -1,6 +1,6 @@
 import useTranslation from '../../hooks/useTranslation'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
-import { RHFSelect } from './rhf/RHFSelect'
+import { StandardBreddeRHFSelect } from './rhf/RHFSelect'
 import useCountries from '../../hooks/useCountries'
 import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
@@ -22,9 +22,15 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
             <FormElement>
                 <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
             </FormElement>
+
             <FormElement>
                 <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
             </FormElement>
+
+            <FormElement>
+                <StandardBreddeRHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
+            </FormElement>
+
             <FormElement>
                 {!fnrIsUnknown && (
                     <RHFFoedselsnummerInput
@@ -57,10 +63,6 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                         <Datepicker name={'dateOfBirth'} label={t('dateOfBirth')} maxDate={new Date()} />
                     </VStack>
                 )}
-            </FormElement>
-
-            <FormElement>
-                <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
             </FormElement>
         </>
     )
