@@ -42,7 +42,7 @@ export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmation
                     <ConfirmationPanel
                         {...rest}
                         checked={value || false}
-                        onChange={(e) => onChange(!!e.target.checked)}
+                        onChange={(e) => onChange(e.target.checked)}
                     />
                 )}
             />
@@ -97,5 +97,44 @@ export const RHFCheckboksGruppe = ({
                 )}
             />
         </CheckboxGroupWrapper>
+    )
+}
+
+interface RHFCheckboksProps {
+    name: FieldPath<FieldValues>
+    label: string
+    required?: boolean
+}
+
+export function RHFCheckboks({ name, label, required }: RHFCheckboksProps) {
+    const { t } = useTranslation('error')
+
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined
+
+    return (
+        <div id={name}>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required }}
+                render={({ field: { value, onChange } }) => (
+                    <CheckboxGroup legend={''} hideLegend={true} error={feilmelding} defaultValue={[value]}>
+                        <Checkbox
+                            key={name}
+                            value={value || false}
+                            onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+                        >
+                            {label}
+                        </Checkbox>
+                    </CheckboxGroup>
+                )}
+            />
+        </div>
     )
 }

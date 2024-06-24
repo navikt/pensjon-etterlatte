@@ -1,33 +1,37 @@
 import useTranslation from '../../hooks/useTranslation'
-import { HGrid } from '@navikt/ds-react'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
 import { RHFSelect } from './rhf/RHFSelect'
 import useCountries from '../../hooks/useCountries'
 import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
-import { GridColumns, GridGap } from '../../utils/grid'
+import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
+import Datepicker from '~components/common/Datepicker'
+import { Alert, VStack } from '@navikt/ds-react'
 
 interface Props {
     duplicateList?: string[]
+    fnrIsUnknown?: boolean
 }
 
-export default function PersonInfo({ duplicateList }: Props) {
+export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
     const { t } = useTranslation('common')
     const { countries }: { countries: any } = useCountries()
 
     return (
         <>
             <FormElement>
-                <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
-                    <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} />
-                    <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} />
-                </HGrid>
+                <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
             </FormElement>
             <FormElement>
-                <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
+            </FormElement>
+            <FormElement>
+                {!fnrIsUnknown && (
                     <RHFFoedselsnummerInput
                         name={'fnrDnr'}
                         label={t('fnrDnr')}
+                        htmlSize={20}
+                        readOnly={!!fnrIsUnknown}
                         rules={{
                             validate: {
                                 validate: (value) => fnrValidator(value).status === 'valid',
@@ -35,9 +39,28 @@ export default function PersonInfo({ duplicateList }: Props) {
                             },
                         }}
                     />
+                )}
 
-                    <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
-                </HGrid>
+                <RHFCheckboks
+                    name={'fnrIsUnknown'}
+                    checkbox={{
+                        children: t('fnrIsUnknown'),
+                        value: false,
+                    }}
+                    required={false}
+                    legend={''}
+                />
+
+                {fnrIsUnknown && (
+                    <VStack gap="4">
+                        <Alert variant={'info'}>{t('fnrIsUnknownHelpText')}</Alert>
+                        <Datepicker name={'dateOfBirth'} label={'Fødselsdato'} maxDate={new Date()} />
+                    </VStack>
+                )}
+            </FormElement>
+
+            <FormElement>
+                <RHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
             </FormElement>
         </>
     )

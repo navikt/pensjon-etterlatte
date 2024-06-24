@@ -123,10 +123,18 @@ export const mapBarn = (t: TFunction, barn: IBarn, soeknad: ISoeknad, bruker: IB
             spoersmaal: t('omBarn.etternavn'),
             svar: barn.etternavn!!,
         },
-        foedselsnummer: {
-            spoersmaal: t('omBarn.foedselsnummer'),
-            svar: barn.foedselsnummer!!,
-        },
+        foedselsnummer: barn.foedselsnummer
+            ? {
+                  spoersmaal: t('omBarn.foedselsnummer'),
+                  svar: barn.foedselsnummer!!,
+              }
+            : undefined,
+        foedselsdato: barn.foedselsdato
+            ? {
+                  spoersmaal: t('omBarn.foedselsdato'),
+                  svar: barn.foedselsdato!!,
+              }
+            : undefined,
         statsborgerskap: {
             spoersmaal: t('omBarn.statsborgerskap'),
             svar: barn.statsborgerskap!!,
@@ -312,10 +320,18 @@ export const hentForeldre = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): 
             spoersmaal: t('felles.etternavn'),
             svar: soeknad.omDenAvdoede.etternavn!!,
         },
-        foedselsnummer: {
-            spoersmaal: t('felles.foedselsnummer'),
-            svar: soeknad.omDenAvdoede.foedselsnummer!!,
-        },
+        foedselsnummer: soeknad.omDenAvdoede.foedselsnummer
+            ? {
+                  spoersmaal: t('omDenAvdoede.foedselsnummer'),
+                  svar: soeknad.omDenAvdoede.foedselsnummer!!,
+              }
+            : undefined,
+        foedselsdato: soeknad.omDenAvdoede.foedselsdato
+            ? {
+                  spoersmaal: t('omDenAvdoede.foedselsdato'),
+                  svar: soeknad.omDenAvdoede.foedselsdato!!,
+              }
+            : undefined,
     }
 
     return [gjenlevende, avdoed]

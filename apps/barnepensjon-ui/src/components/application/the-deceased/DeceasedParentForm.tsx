@@ -33,7 +33,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     return (
         <>
             <FormElement>
-                <PersonInfo duplicateList={fnrRegisteredParent} />
+                <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')}/>
             </FormElement>
             <FormGroup>
                 <FormElement>

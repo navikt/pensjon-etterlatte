@@ -41,6 +41,7 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                             fornavn={barnet.fornavn}
                             etternavn={barnet.etternavn}
                             fnrDnr={barnet.foedselsnummer}
+                            foedselsdato={barnet.foedselsdato}
                             statsborgerskap={barnet.statsborgerskap}
                         />
 

@@ -526,6 +526,10 @@ export default {
     'omDenAvdoede.fornavn': 'Førenamn',
     'omDenAvdoede.etternavn': 'Etternamn',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
+    'omDenAvdoede.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til avdøde (valfritt)',
+    'omDenAvdoede.ukjentFoedselsnummerInfo':
+        'Sidan du ikkje oppgir fødselsnummer, kan behandlinga av søknaden din ta lengre tid.',
+    'omDenAvdoede.foedselsdato': 'Avdødes fødselsdato',
     'omDenAvdoede.statsborgerskap': 'Statsborgarskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'Til dømes norsk',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
@@ -567,6 +571,10 @@ export default {
     'omBarn.fornavn': 'Førenamn',
     'omBarn.etternavn': 'Etternamn',
     'omBarn.foedselsnummer': 'Barnet sitt fødselsnummer / d-nummer',
+    'omBarn.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til barnet (valfritt)',
+    'omBarn.ukjentFoedselsnummerInfo':
+        'Sidan du ikkje oppgir fødselsnummer, kan behandlinga av søknaden din ta lengre tid.',
+    'omBarn.foedselsdato': 'Fødselsdatoen til barnet',
     'omBarn.relasjon': 'Kven er foreldre til barnet?',
     'omBarn.relasjonHjelpetekst':
         'Vi må vite om dette er eit barn du har felles med avdøde, avdøde sitt eige barn, eller ditt eige barn.',
@@ -610,6 +618,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.info':
         'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
     'omBarn.infokort.foedselsnummer': 'FØDSELSNUMMER',
+    'omBarn.infokort.foedselsdato': 'FØDSELSDATO',
     'omBarn.infokort.foreldre': 'FORELDRE TIL BARNET',
     'omBarn.infokort.foreldre.jegOgAvdoed': 'Eg og avdøde',
     'omBarn.infokort.bosted': 'BUSTAD',
@@ -805,6 +814,7 @@ export default {
     'felles.fnr': 'Fødselsnummer',
     'felles.fnrPlaceholder': '11 siffer',
     'felles.foedselsnummer': 'Fødselsnummer',
+    'felles.foedselsdato': 'Fødselsdato',
     'felles.navn': 'Namn',
     'felles.fornavn': 'Førenamn',
     'felles.etternavn': 'Etternamn',
@@ -939,6 +949,7 @@ export default {
     'feil.foedselsnummer.validate': 'Ugyldig fødselsnummer',
     'feil.foedselsnummer.required': 'Oppgi fødselsnummer',
     'feil.foedselsnummer.duplicate': 'Fødselsnummeret er allereie lagt til',
+    'feil.foedselsdato.required': 'Oppgi fødselsdatoen',
     'feil.statsborgerskap.required': 'Oppgi statsborgarskap',
     'feil.nySivilstatus.sivilstatus.required': 'Oppgi noverande sivilstand',
     'feil.nySivilstatus.nySivilstatusEtterDoedsfallet.required': 'Endra sivilstatus må svarast på',

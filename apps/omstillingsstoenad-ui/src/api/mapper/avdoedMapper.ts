@@ -93,10 +93,18 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             spoersmaal: t('omDenAvdoede.etternavn'),
             svar: soeknad.omDenAvdoede.etternavn!!,
         },
-        foedselsnummer: {
-            spoersmaal: t('omDenAvdoede.foedselsnummer'),
-            svar: soeknad.omDenAvdoede.foedselsnummer!!,
-        },
+        foedselsnummer: soeknad.omDenAvdoede.foedselsnummer
+            ? {
+                  spoersmaal: t('omDenAvdoede.foedselsnummer'),
+                  svar: soeknad.omDenAvdoede.foedselsnummer!!,
+              }
+            : undefined,
+        foedselsdato: soeknad.omDenAvdoede.foedselsdato
+            ? {
+                  spoersmaal: t('omDenAvdoede.foedselsdato'),
+                  svar: soeknad.omDenAvdoede.foedselsdato!!,
+              }
+            : undefined,
 
         datoForDoedsfallet: {
             spoersmaal: t('omDenAvdoede.datoForDoedsfallet'),

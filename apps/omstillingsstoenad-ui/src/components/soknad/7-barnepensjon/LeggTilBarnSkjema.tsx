@@ -12,11 +12,11 @@ import {
 } from '../../felles/rhf/RHFInput'
 import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
-import { hentAlderFraFoedselsnummer } from '../../../utils/dato'
+import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Link, RadioProps } from '@navikt/ds-react'
-import { RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
+import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Link, RadioProps, VStack } from '@navikt/ds-react'
+import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
 import { useLand } from '../../../hooks/useLand'
 import ikon from '../../../assets/ikoner/barn1.svg'
@@ -32,6 +32,7 @@ import { Panel } from '../../felles/Panel'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { BankkontoType, KronerEllerProsentType } from '../../../typer/utbetaling'
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
+import Datovelger from '~components/felles/Datovelger'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -131,6 +132,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const harBarnetVerge = watch('harBarnetVerge.svar')
     const relasjon = watch('relasjon')
     const foedselsnummer: any = watch('foedselsnummer')
+    const foedselsdato: any = watch('foedselsdato')
+    const ukjentFoedselsnummer: any = watch('ukjentFoedselsnummer')
     const annetKontonummerBarnepensjon = watch('barnepensjon.kontonummer.svar')
     const forskuddstrekkBarnepensjon = watch('barnepensjon.forskuddstrekk.svar')
     const forskuddstrekkType = watch('barnepensjon.forskuddstrekk.type')
@@ -139,6 +142,9 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     const kanSoekeOmBarnepensjon = (): boolean => {
         if (foedselsnummer && fnr(foedselsnummer).status === 'valid') {
             const alder = hentAlderFraFoedselsnummer(foedselsnummer)
+            return !erMyndig(alder)
+        } else if (foedselsdato) {
+            const alder = hentAlder(new Date(foedselsdato))
             return !erMyndig(alder)
         }
 
@@ -198,21 +204,35 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                     </HGrid>
                                 </SkjemaElement>
                                 <SkjemaElement>
-                                    <RHFFoedselsnummerInput
-                                        name={'foedselsnummer'}
-                                        label={t('omBarn.foedselsnummer')}
-                                        rules={{
-                                            validate: {
-                                                validate: (value) => {
-                                                    return fnr(value).status === 'valid'
+                                    {!ukjentFoedselsnummer && (
+                                        <RHFFoedselsnummerInput
+                                            name={'foedselsnummer'}
+                                            label={t('omBarn.foedselsnummer')}
+                                            rules={{
+                                                validate: {
+                                                    validate: (value) => {
+                                                        return fnr(value).status === 'valid'
+                                                    },
+                                                    duplicate: (value) => {
+                                                        return !fnrRegistrerteBarn.includes(value)
+                                                    },
                                                 },
-                                                duplicate: (value) => {
-                                                    return !fnrRegistrerteBarn.includes(value)
-                                                },
-                                            },
-                                        }}
-                                        htmlSize={Bredde.S}
+                                            }}
+                                            htmlSize={Bredde.S}
+                                        />
+                                    )}
+
+                                    <RHFCheckboks
+                                        name={'ukjentFoedselsnummer'}
+                                        label={t('omBarn.ukjentFoedselsnummer')}
                                     />
+
+                                    {ukjentFoedselsnummer && (
+                                        <VStack gap="4">
+                                            <Alert variant={'info'}>{t('omBarn.ukjentFoedselsnummerInfo')}</Alert>
+                                            <Datovelger name={'foedselsdato'} label={t('omBarn.foedselsdato')} />
+                                        </VStack>
+                                    )}
                                 </SkjemaElement>
                                 <SkjemaElement>
                                     <RHFSelect

@@ -40,6 +40,8 @@ export interface IChild {
     firstName?: string
     lastName?: string
     fnrDnr?: string
+    fnrIsUnknown?: boolean
+    dateOfBirth?: string
     childHasGuardianship?: {
         answer?: JaNeiVetIkke
         firstName?: string

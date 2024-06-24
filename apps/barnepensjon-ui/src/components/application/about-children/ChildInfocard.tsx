@@ -15,6 +15,7 @@ import {
 } from '../../common/card/InfoCard'
 import { IChild } from '../../../types/person'
 import FormElement from '../../common/FormElement'
+import { format } from 'date-fns'
 
 interface Props {
     child: IChild
@@ -41,10 +42,23 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </Heading>
                 </InformationBoxContent>
                 <InformationElement>
-                    <BodyShort size={'small'}>{t('infoCard_fnr')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
-                        {foedselsnummer}
-                    </BodyShort>
+                    {foedselsnummer && (
+                        <>
+                            <BodyShort size={'small'}>{t('infoCard_fnr')}</BodyShort>
+                            <BodyShort size={'small'} spacing>
+                                {foedselsnummer}
+                            </BodyShort>
+                        </>
+                    )}
+                    {child.dateOfBirth && (
+                        <>
+                            <BodyShort size={'small'}>{t('infoCard_dob')}</BodyShort>
+                            <BodyShort size={'small'} spacing>
+                                {format(child.dateOfBirth, 'dd.MM.yyyy')}
+                            </BodyShort>
+                        </>
+                    )}
+
                     <BodyShort size={'small'}>{t('infoCard_citizenship')}</BodyShort>
                     <BodyShort size={'small'} spacing>
                         {child.citizenship}

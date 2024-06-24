@@ -52,6 +52,8 @@ export interface IBarn {
     fornavn?: string
     etternavn?: string
     foedselsnummer?: string
+    ukjentFoedselsnummer?: boolean
+    foedselsdato?: string
     harBarnetVerge?: {
         svar?: IValg
         fornavn?: string
@@ -97,6 +99,8 @@ export interface IAvdoed {
     fornavn?: string
     etternavn?: string
     foedselsnummer?: string
+    ukjentFoedselsnummer?: boolean
+    foedselsdato?: string
     statsborgerskap?: string
     datoForDoedsfallet?: Date
     boddEllerJobbetUtland?: {

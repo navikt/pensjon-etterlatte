@@ -6,6 +6,7 @@ export default function PersonInfoOppsummering({
     fornavn,
     etternavn,
     fnrDnr,
+    foedselsdato,
     statsborgerskap,
     sivilstatus,
     adresse,
@@ -14,6 +15,7 @@ export default function PersonInfoOppsummering({
     fornavn?: string
     etternavn?: string
     fnrDnr?: string
+    foedselsdato?: string
     statsborgerskap?: string
     sivilstatus?: string
     adresse?: string
@@ -31,8 +33,11 @@ export default function PersonInfoOppsummering({
                 </>
             )}
 
-            <TekstGruppe tittel={t('felles.fnrDnr')} innhold={fnrDnr} />
+            {fnrDnr && <TekstGruppe tittel={t('felles.fnrDnr')} innhold={fnrDnr} />}
+            {foedselsdato && <TekstGruppe tittel={t('felles.foedselsdato')} innhold={foedselsdato} />}
+
             <TekstGruppe tittel={t('felles.statsborgerskap')} innhold={statsborgerskap} />
+
             {sivilstatus && (
                 <TekstGruppe tittel={t('felles.sivilstatus')} innhold={t(`pdl.sivilstatus.${sivilstatus}`)} />
             )}

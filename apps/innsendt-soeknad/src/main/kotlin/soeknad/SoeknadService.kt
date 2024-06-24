@@ -12,6 +12,7 @@ import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.Status
 import soeknad.UlagretSoeknad
+import java.util.*
 
 class SoeknadService(
     private val db: SoeknadRepository,
@@ -34,7 +35,7 @@ class SoeknadService(
         return if (ider.size == request.soeknader.size) {
             logger.info("Lagret alle (${ider.size}) innsendte søknader.")
 
-            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer!!.svar == innloggetBrukerFnr }
+            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer?.svar == innloggetBrukerFnr }
             if (innsenderSoekerIkke) {
                 db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)?.also {
                     publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBrukerFnr.value, it)
@@ -74,7 +75,10 @@ class SoeknadService(
     ): List<SoeknadID> {
         val soeknader =
             request.soeknader
-                .map { UlagretSoeknad(it.soeker.foedselsnummer!!.svar.value, it.toJson(), kilde, it.type) }
+                .map {
+                    val fnr = it.soeker.foedselsnummer?.svar?.value ?: UUID.randomUUID().toString()
+                    UlagretSoeknad(fnr, it.toJson(), kilde, it.type)
+                }
 
         val finnesKonflikter =
             soeknader

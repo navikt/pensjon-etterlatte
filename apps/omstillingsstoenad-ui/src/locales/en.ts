@@ -554,6 +554,10 @@ export default {
     'omDenAvdoede.fornavn': 'First name(s)',
     'omDenAvdoede.etternavn': 'Family name',
     'omDenAvdoede.foedselsnummer': 'Norwegian national identity number or D number',
+    'omDenAvdoede.ukjentFoedselsnummer': "I do not know the deceased's national identity number (optional)",
+    'omDenAvdoede.ukjentFoedselsnummerInfo':
+        'Since you do not provide a personal identification number, the processing of your application may take longer.',
+    'omDenAvdoede.foedselsdato': 'Date of birth of the deceased',
     'omDenAvdoede.statsborgerskap': 'Nationality',
     'omDenAvdoede.statsborgerskapPlaceholder': 'For example: Norwegian',
     'omDenAvdoede.datoForDoedsfallet': 'When did the death occur?',
@@ -596,6 +600,10 @@ export default {
     'omBarn.fornavn': 'First name(s)',
     'omBarn.etternavn': 'Family name',
     'omBarn.foedselsnummer': 'The child’s Norwegian national identity number or D number',
+    'omBarn.ukjentFoedselsnummer': "I do not know the child's national identity number (optional)",
+    'omBarn.ukjentFoedselsnummerInfo':
+        'Since you do not provide your personal identification number, the processing of your application may take longer.',
+    'omBarn.foedselsdato': 'The child’s date of birth',
     'omBarn.relasjon': 'Who are the parents of the child?',
     'omBarn.relasjonHjelpetekst':
         'We need to know if this is a child you share with the deceased, the deceased’s child from another relationship, or your child from another relationship.',
@@ -642,6 +650,7 @@ export default {
     'omBarn.barnepensjon.forskuddstrekk.info':
         'You retain the voluntary tax deduction in future years until you notify us about a change.',
     'omBarn.infokort.foedselsnummer': 'NORWEGIAN NATIONAL IDENTITY NUMBER',
+    'omBarn.infokort.foedselsdato': 'DATE OF BIRTH',
     'omBarn.infokort.foreldre': 'THE CHILD’S PARENTS',
     'omBarn.infokort.foreldre.jegOgAvdoed': 'I and the deceased',
     'omBarn.infokort.bosted': 'PLACE OF RESIDENCE',
@@ -838,6 +847,7 @@ export default {
     'felles.fnr': 'Norwegian national identity number',
     'felles.fnrPlaceholder': '11 digits',
     'felles.foedselsnummer': 'Norwegian national identity number',
+    'felles.foedselsdato': 'Date of birth',
     'felles.navn': 'Name',
     'felles.fornavn': 'First name(s)',
     'felles.etternavn': 'Family name',
@@ -979,6 +989,7 @@ export default {
     'feil.foedselsnummer.validate': 'Invalid national identity number',
     'feil.foedselsnummer.required': 'Enter Norwegian national identity number',
     'feil.foedselsnummer.duplicate': 'This national identity number has already been entered',
+    'feil.foedselsdato.required': 'Date of birth is required',
     'feil.statsborgerskap.required': 'Enter nationality',
     'feil.nySivilstatus.sivilstatus.required': 'State your current marital status',
     'feil.nySivilstatus.nySivilstatusEtterDoedsfallet.required':

@@ -83,6 +83,7 @@ export const SummaryAboutChildren = memo(
                             firstName={child.firstName}
                             lastName={child.lastName}
                             fnrDnr={child.fnrDnr}
+                            dateOfBirth={child.dateOfBirth}
                             citizenship={child.citizenship}
                         />
                         {child.staysAbroad?.answer && (
