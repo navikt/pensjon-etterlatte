@@ -695,9 +695,9 @@ export default {
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'notifying us of any changes.',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
-        'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on ',
+        'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
-    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page',
+    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page.',
     'soeknadKvittering.seSaken.informasjon.innhold2':
         'Curious about how long this will take? That information is available here: ',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
