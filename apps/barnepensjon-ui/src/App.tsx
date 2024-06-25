@@ -19,18 +19,6 @@ import { InvalidApplicant } from './components/error/InvalidApplicant'
 import { Page } from "@navikt/ds-react";
 
 const SoeknadWrapper = styled(Page.Block)`
-    div,
-    label,
-    legend,
-    span,
-    p {
-        font-size: 16px;
-    }
-
-    .navds-step-indicator {
-        justify-content: center;
-    }
-
     @media screen and (max-width: 650px) {
         padding: 1rem;
         margin: 0 auto;
