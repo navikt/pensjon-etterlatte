@@ -49,10 +49,10 @@ const FlexCenter = styled.div`
 `
 
 const FlatDangerButton = styled(Button)`
-    color: #c65d4e;
+    color: var(--a-surface-danger);
 
     &:hover {
-        box-shadow: inset 0 0 0 2px #c65d4e;
+        box-shadow: inset 0 0 0 2px var(--a-surface-danger);
     }
 `
 
@@ -138,7 +138,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                 </Modal.Header>
 
                 <Modal.Body>
-                    <BodyShortMuted style={{ textAlign: 'center' }} size={'small'}>
+                    <BodyShortMuted>
                         {t('cancelApplicationBody')}
                     </BodyShortMuted>
                 </Modal.Body>
