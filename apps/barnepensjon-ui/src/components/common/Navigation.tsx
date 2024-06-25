@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
 import { ActionTypes as UserActionTypes } from '../../context/user/user'
-import { Button, ButtonProps, Heading, Loader, Modal } from '@navikt/ds-react'
+import {BodyShort, Button, ButtonProps, Heading, Loader, Modal} from '@navikt/ds-react'
 import FormGroup from './FormGroup'
 import styled, { css } from 'styled-components'
 import { deleteDraft } from '../../api/api'
@@ -138,9 +138,9 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                 </Modal.Header>
 
                 <Modal.Body>
-                    <BodyShortMuted>
+                    <BodyShort>
                         {t('cancelApplicationBody')}
-                    </BodyShortMuted>
+                    </BodyShort>
                 </Modal.Body>
 
                 <Modal.Footer>
