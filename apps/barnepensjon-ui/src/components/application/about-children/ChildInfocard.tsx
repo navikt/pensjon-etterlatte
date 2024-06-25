@@ -44,28 +44,28 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                 <InformationElement>
                     {foedselsnummer && (
                         <>
-                            <BodyShort size={'small'}>{t('infoCard_fnr')}</BodyShort>
-                            <BodyShort size={'small'} spacing>
+                            <BodyShort>{t('infoCard_fnr')}</BodyShort>
+                            <BodyShort spacing>
                                 {foedselsnummer}
                             </BodyShort>
                         </>
                     )}
                     {child.dateOfBirth && (
                         <>
-                            <BodyShort size={'small'}>{t('infoCard_dob')}</BodyShort>
-                            <BodyShort size={'small'} spacing>
+                            <BodyShort>{t('infoCard_dob')}</BodyShort>
+                            <BodyShort  spacing>
                                 {format(child.dateOfBirth, 'dd.MM.yyyy')}
                             </BodyShort>
                         </>
                     )}
 
-                    <BodyShort size={'small'}>{t('infoCard_citizenship')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
+                    <BodyShort>{t('infoCard_citizenship')}</BodyShort>
+                    <BodyShort spacing>
                         {child.citizenship}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('infoCard_residence')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
+                    <BodyShort>{t('infoCard_residence')}</BodyShort>
+                    <BodyShort spacing>
                         {t('livesIn')}&nbsp;
                         {child.staysAbroad?.answer === JaNeiVetIkke.JA
                             ? child.staysAbroad?.country

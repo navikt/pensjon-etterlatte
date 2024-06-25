@@ -100,7 +100,7 @@ export default function FrontPage() {
                 <>
                     <FormGroup>
                         <Label spacing>{t('parentApplicantInformationLabel')}</Label>
-                        <BodyLong size={'small'}>{t('parentApplicantInformation')}</BodyLong>
+                        <BodyLong>{t('parentApplicantInformation')}</BodyLong>
                         <FormElement>
                             <Trans value={t('youNeedFnrForEveryoneInThisApplicationSurvivingParent')} />
                         </FormElement>
@@ -124,7 +124,7 @@ export default function FrontPage() {
                         <BodyLong spacing size={'small'}>
                             {t('guardianApplicantInformation')}
                         </BodyLong>
-                        <BodyLong size={'small'}>
+                        <BodyLong>
                             <Trans value={t('guardiansMustSendDocumentation')} />
                         </BodyLong>
                     </FormGroup>
@@ -155,7 +155,7 @@ export default function FrontPage() {
                 <>
                     <FormGroup>
                         <Label spacing>{t('CHILD')}</Label>
-                        <BodyLong size={'small'}>
+                        <BodyLong>
                             <Trans value={t('over18WithoutFnr')} />
                         </BodyLong>
                     </FormGroup>
