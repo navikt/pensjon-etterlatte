@@ -55,16 +55,16 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
       class="navds-body-long navds-body-long--medium"
     >
       soeknadKvittering.seSaken.informasjon.innhold1
-       
+       
       <a
         class="navds-link navds-link--action"
         href="soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href"
       >
         soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst
       </a>
-       
+       
       soeknadKvittering.seSaken.informasjon.innhold2
-       
+       
       <a
         class="navds-link navds-link--action"
         href="soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href"
