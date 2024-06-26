@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Heading, HelpText, Label, Link, Panel, RadioProps } from '@navikt/ds-react'
+import {Alert, BodyShort, Box, Heading, HelpText, Label, Link, RadioProps} from '@navikt/ds-react'
 import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke, KronerEllerProsentType } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
@@ -104,11 +104,11 @@ export default function PaymentDetails() {
                                     />
                                 </FormElement>
                                 <FormElement>
-                                    <Panel border>
+                                    <Box padding="4" borderWidth="1" borderRadius="small">
                                         <Alert variant={'info'} inline>
-                                            <BodyShort size={'small'}>{t('taxWithholdMustBeSentYearly')}</BodyShort>
+                                            <BodyShort>{t('taxWithholdMustBeSentYearly')}</BodyShort>
                                         </Alert>
-                                    </Panel>
+                                    </Box>
                                 </FormElement>
                             </>
                         )}

@@ -52,33 +52,33 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                 <InfokortInformasjonsElement>
                     {foedselsnummer && (
                         <>
-                            <BodyShort size={'small'}>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
-                            <BodyShort size={'small'} spacing>
+                            <BodyShort>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
+                            <BodyShort spacing>
                                 {foedselsnummer}
                             </BodyShort>
                         </>
                     )}
                     {barn.foedselsdato && (
                         <>
-                            <BodyShort size={'small'}>{t('omBarn.infokort.foedselsdato')}</BodyShort>
-                            <BodyShort size={'small'} spacing>
+                            <BodyShort>{t('omBarn.infokort.foedselsdato')}</BodyShort>
+                            <BodyShort spacing>
                                 {format(barn.foedselsdato, 'dd.MM.yyyy')}
                             </BodyShort>
                         </>
                     )}
 
-                    <BodyShort size={'small'}>{t('omBarn.infokort.foreldre')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
+                    <BodyShort>{t('omBarn.infokort.foreldre')}</BodyShort>
+                    <BodyShort spacing>
                         {t('omBarn.infokort.foreldre.jegOgAvdoed')}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('omBarn.infokort.statsborgerskap')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
+                    <BodyShort>{t('omBarn.infokort.statsborgerskap')}</BodyShort>
+                    <BodyShort spacing>
                         {barn.statsborgerskap}
                     </BodyShort>
 
-                    <BodyShort size={'small'}>{t('omBarn.infokort.bosted')}</BodyShort>
-                    <BodyShort size={'small'} spacing>
+                    <BodyShort>{t('omBarn.infokort.bosted')}</BodyShort>
+                    <BodyShort spacing>
                         {t('omBarn.borI')}&nbsp;
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t('felles.norge')}
                     </BodyShort>

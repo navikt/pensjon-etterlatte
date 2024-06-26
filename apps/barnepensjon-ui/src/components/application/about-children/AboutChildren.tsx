@@ -105,7 +105,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
                         <FormGroup>
                             <GuidePanel>
-                                <BodyShort size={'small'}>
+                                <BodyShort>
                                     {isGuardian ? t('informationGuardian') : t('information')}
                                 </BodyShort>
                             </GuidePanel>

@@ -157,7 +157,7 @@ export default function Summary({ prev }: StepProps) {
                     {loading ? (
                         <Loader size={'xlarge'} />
                     ) : (
-                        <BodyShortMuted size={'small'}>{t('sendApplicationBody')}</BodyShortMuted>
+                        <BodyShortMuted>{t('sendApplicationBody')}</BodyShortMuted>
                     )}
                 </Modal.Body>
                 {!loading && (

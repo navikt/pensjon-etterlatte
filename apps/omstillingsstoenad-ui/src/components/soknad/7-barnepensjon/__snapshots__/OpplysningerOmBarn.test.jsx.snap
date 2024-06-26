@@ -101,12 +101,12 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
           class="navds-guide-panel__content"
         >
           <h1
-            class="navds-heading navds-heading--xsmall"
+            class="navds-heading navds-heading--small"
           >
             omBarn.informasjon.tittel
           </h1>
           <p
-            class="navds-body-short navds-body-short--small"
+            class="navds-body-short navds-body-short--medium"
           >
             omBarn.informasjon
           </p>

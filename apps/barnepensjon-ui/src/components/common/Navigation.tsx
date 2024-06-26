@@ -3,11 +3,10 @@ import { useState } from 'react'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
 import { ActionTypes as UserActionTypes } from '../../context/user/user'
-import { Button, ButtonProps, Heading, Loader, Modal } from '@navikt/ds-react'
+import {BodyShort, Button, ButtonProps, Heading, Loader, Modal} from '@navikt/ds-react'
 import FormGroup from './FormGroup'
 import styled, { css } from 'styled-components'
 import { deleteDraft } from '../../api/api'
-import { BodyShortMuted } from './StyledTypography'
 import useTranslation from '../../hooks/useTranslation'
 import { EventType, LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 
@@ -49,10 +48,10 @@ const FlexCenter = styled.div`
 `
 
 const FlatDangerButton = styled(Button)`
-    color: #c65d4e;
+    color: var(--a-surface-danger);
 
     &:hover {
-        box-shadow: inset 0 0 0 2px #c65d4e;
+        box-shadow: inset 0 0 0 2px var(--a-surface-danger);
     }
 `
 
@@ -138,9 +137,9 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                 </Modal.Header>
 
                 <Modal.Body>
-                    <BodyShortMuted style={{ textAlign: 'center' }} size={'small'}>
+                    <BodyShort textColor="subtle">
                         {t('cancelApplicationBody')}
-                    </BodyShortMuted>
+                    </BodyShort>
                 </Modal.Body>
 
                 <Modal.Footer>

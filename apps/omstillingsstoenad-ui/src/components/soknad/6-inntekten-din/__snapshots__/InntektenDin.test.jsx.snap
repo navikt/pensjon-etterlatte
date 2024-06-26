@@ -373,7 +373,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       class="sc-beqWNU hTYxft"
     >
       <h1
-        class="navds-heading navds-heading--xsmall"
+        class="navds-heading navds-heading--small"
       >
         inntektenDin.ytelserNAV.tittel
       </h1>
@@ -471,7 +471,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       class="sc-beqWNU hTYxft"
     >
       <h1
-        class="navds-heading navds-heading--xsmall"
+        class="navds-heading navds-heading--small"
       >
         inntektenDin.ytelserAndre.tittel
       </h1>
@@ -1086,7 +1086,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       class="sc-beqWNU hTYxft"
     >
       <h1
-        class="navds-heading navds-heading--xsmall"
+        class="navds-heading navds-heading--small"
       >
         inntektenDin.ytelserNAV.tittel
       </h1>
@@ -1184,7 +1184,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       class="sc-beqWNU hTYxft"
     >
       <h1
-        class="navds-heading navds-heading--xsmall"
+        class="navds-heading navds-heading--small"
       >
         inntektenDin.ytelserAndre.tittel
       </h1>
