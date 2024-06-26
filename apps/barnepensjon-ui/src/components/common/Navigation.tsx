@@ -7,7 +7,6 @@ import {BodyShort, Button, ButtonProps, Heading, Loader, Modal} from '@navikt/ds
 import FormGroup from './FormGroup'
 import styled, { css } from 'styled-components'
 import { deleteDraft } from '../../api/api'
-import { BodyShortMuted } from './StyledTypography'
 import useTranslation from '../../hooks/useTranslation'
 import { EventType, LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 
