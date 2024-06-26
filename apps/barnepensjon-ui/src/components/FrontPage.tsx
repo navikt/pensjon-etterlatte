@@ -125,7 +125,7 @@ export default function FrontPage() {
                             {t('guardianApplicantInformation')}
                         </BodyLong>
                         <BodyLong>
-                            <Trans value={t('guardiansMustSendDocumentation')} />
+                            <Trans value={t('fnrOrBirthdateRequired')} />
                         </BodyLong>
                     </FormGroup>
                     <FormGroup>

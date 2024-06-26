@@ -206,8 +206,6 @@ const frontPage = {
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har saman med avdøde.',
     guardianApplicantInformationLabel: 'Eg søker for eitt eller fleire barn eg er verje for',
     guardianApplicantInformation: 'I søknaden må du oppgi alle barn og/eller adoptivbarn som avdøde hadde under 20 år.',
-    guardiansMustSendDocumentation:
-        'For at vi skal kunne behandle søknaden om barnepensjon, må du ettersende dokumentasjon på barn du er verje for.\n\n Du må oppgi fødselsnummer på alle i søknaden. Dersom du ikkje har denne informasjonen, fyller du ut ein av våre <a href="https://www.nav.no/start/soknad-barnepensjon/nn">andre søknader om barnepensjon</a>.',
     childApplicantInformation1:
         '<b>Viss du har mista ein forelder</b>\nNår dødsfallet skuldast ein yrkesskade eller yrkessjukdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:
