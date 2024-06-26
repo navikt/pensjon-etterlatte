@@ -341,7 +341,8 @@ const aboutChildren = {
     onlyParentOrGuardianCanApply:
         'If the child has lost a parent, the parent or appointed guardian must submit a separate application.',
     onlyParentOrGuardianCanApplyOnLivingParent: `Only the child's parent or appointed guardian can apply for a children’s pension for this child. The children’s pension must be applied for separately.`,
-    onlyChildrenUnder18Necessary: 'You must only list children under the age of 18.',
+    onlyChildrenUnder18Necessary:
+        'You must only list children under the age of 18. Children over the age of 18 must apply themselves.',
     livesIn: 'Lives in',
     doesTheChildLiveAbroad: 'Does the child live in a country other than Norway?',
     doesTheSiblingLiveAbroad: 'Does the sibling live in a country other than Norway?',

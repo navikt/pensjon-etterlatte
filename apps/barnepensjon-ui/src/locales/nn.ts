@@ -332,7 +332,7 @@ const aboutChildren = {
         'Har barnet mista ein forelder så må forelder eller oppnemnt verje sende eigen søknad.',
     onlyParentOrGuardianCanApplyOnLivingParent:
         'Det er berre barnets forelder eller oppnemnt verje som kan søke om barnepensjon for dette barnet. Det må søkast om barnepensjon i eigen søknad.',
-    onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år.',
+    onlyChildrenUnder18Necessary: 'Du skal kun oppgi barn under 18 år. Barn over 18 år må søkje sjølve.',
     livesIn: 'Bur i',
     doesTheChildLiveAbroad: 'Bur barnet i eit anna land enn Noreg?',
     doesTheSiblingLiveAbroad: 'Bur søskenet i eit anna land enn Noreg?',
