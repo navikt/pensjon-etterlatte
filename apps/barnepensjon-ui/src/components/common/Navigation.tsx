@@ -137,7 +137,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                 </Modal.Header>
 
                 <Modal.Body>
-                    <BodyShort>
+                    <BodyShort textColor="subtle">
                         {t('cancelApplicationBody')}
                     </BodyShort>
                 </Modal.Body>
