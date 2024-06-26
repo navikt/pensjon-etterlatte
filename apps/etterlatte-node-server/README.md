@@ -33,10 +33,10 @@ Kjøre prosjektet (uten BASE_PATH):\
 `yarn start`
 
 Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
-`yarn start:barnepensjon`
+`yarn start:bp`
 
 Kjøre prosjektet (BASE_PATH=/omstillingsstonad/soknad):\
-`yarn start:omstillingsstonad`
+`yarn start:oms`
 
 ### OBS!
 
