@@ -219,13 +219,11 @@ const frontPage = {
         '<b>If you have lost both of your parents or your paternity has not been determined</b> \nYou are entitled to receive the children’s pension until the age of 20 if you are studying or serving as an apprentice or trainee. You can receive the children’s pension until the age of 21 if the death was also due to occupational injury or occupational illness.',
     childApplicantInformationOver18:
         'If you have lost one or both of your parents you must use <a href="https://www.nav.no/soknader/en/person/pensjon/barn-som-har-mistet-en-eller-begge-foreldrene">this application</a>.',
-    youNeedFnrForEveryoneInThisApplicationSurvivingParent:
-        'You must enter the entire national identity number of the child/children and the deceased. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions</a>.',
+    fnrOrBirthdateRequired:
+        'You must provide either national identity number or date of birth for everyone included in the application. Application processing will be faster if you provide national identity numbers.',
     aboutSurvivorsPensionTitle: 'Have you lost your spouse, cohabiting partner or partner?',
     aboutSurvivorsPensionDescription:
         'You may be eligible for transitional benefits. If you want to apply for a children’s pension at the same time, you can do both on the same <a href="https://www.nav.no/omstillingsstonad/soknad/">adjustment allowance application form.</a>',
-    over18WithoutFnr:
-        'Remember to provide all their national identity numbers on the application. If you do not have that information, please use one of our <a href="https://www.nav.no/start/soknad-barnepensjon/en">other applications for children’s pensions.</a>',
     BOTH_PARENTS_DECEASED: 'Both parents',
     BOTH_PARENTS_DECEASED_CHILD_APPLICANT: 'I have no parents',
     ONE_PARENT_DECEASED: 'One parent',

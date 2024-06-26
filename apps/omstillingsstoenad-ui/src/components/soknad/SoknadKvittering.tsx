@@ -30,12 +30,11 @@ const SoknadKvittering = () => {
                 <Heading size={'small'}>{t('soeknadKvittering.seSaken.tittel')}</Heading>
 
                 <BodyLong>
-                    {t('soeknadKvittering.seSaken.informasjon.innhold1')}&nbsp;
+                    {t('soeknadKvittering.seSaken.informasjon.innhold1')}{' '}
                     <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href')}>
                         {t('soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst')}
-                    </Link>
-                    &nbsp;
-                    {t('soeknadKvittering.seSaken.informasjon.innhold2')}&nbsp;
+                    </Link>{' '}
+                    {t('soeknadKvittering.seSaken.informasjon.innhold2')}{' '}
                     <Link href={t('soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href')}>
                         {t('soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst')}
                     </Link>

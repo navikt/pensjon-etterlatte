@@ -102,7 +102,7 @@ export default function FrontPage() {
                         <Label spacing>{t('parentApplicantInformationLabel')}</Label>
                         <BodyLong>{t('parentApplicantInformation')}</BodyLong>
                         <FormElement>
-                            <Trans value={t('youNeedFnrForEveryoneInThisApplicationSurvivingParent')} />
+                            <Trans value={t('fnrOrBirthdateRequired')} />
                         </FormElement>
                     </FormGroup>
                     <FormGroup>
@@ -156,7 +156,7 @@ export default function FrontPage() {
                     <FormGroup>
                         <Label spacing>{t('CHILD')}</Label>
                         <BodyLong>
-                            <Trans value={t('over18WithoutFnr')} />
+                            <Trans value={t('fnrOrBirthdateRequired')} />
                         </BodyLong>
                     </FormGroup>
                     <FormGroup>
