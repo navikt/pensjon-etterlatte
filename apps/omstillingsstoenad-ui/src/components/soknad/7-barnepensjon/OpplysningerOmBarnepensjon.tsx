@@ -107,8 +107,8 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
 
                         <SkjemaElement>
                             <GuidePanel>
-                                <Heading size={'xsmall'}>{t('omBarn.informasjon.tittel')}</Heading>
-                                <BodyShort size={'small'}>{t('omBarn.informasjon')}</BodyShort>
+                                <Heading size={'small'}>{t('omBarn.informasjon.tittel')}</Heading>
+                                <BodyShort>{t('omBarn.informasjon')}</BodyShort>
                             </GuidePanel>
                         </SkjemaElement>
 

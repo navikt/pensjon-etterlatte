@@ -171,8 +171,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
         <>
             <SkjemaElement>
                 <GuidePanel>
-                    <Heading size={'xsmall'}>{t('omBarn.informasjon.tittel')}</Heading>
-                    <BodyShort size={'small'}>{t('omBarn.informasjon')}</BodyShort>
+                    <Heading size={'small'}>{t('omBarn.informasjon.tittel')}</Heading>
+                    <BodyShort>{t('omBarn.informasjon')}</BodyShort>
                 </GuidePanel>
             </SkjemaElement>
             <FormProvider {...methods}>

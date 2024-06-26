@@ -20,7 +20,7 @@ const YtelserAndre = () => {
 
     return (
         <SkjemaGruppe>
-            <Heading size={'xsmall'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
+            <Heading size={'small'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={'ytelserAndre.svar'}

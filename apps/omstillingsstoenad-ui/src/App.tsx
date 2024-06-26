@@ -18,14 +18,6 @@ import SoknadKvittering from './components/soknad/SoknadKvittering'
 import SoknadForside from './components/soknad/SoknadForside'
 
 const SoeknadWrapper = styled(Page.Block)`
-    div,
-    label,
-    legend,
-    span,
-    p {
-        font-size: 16px;
-    }
-
     .navds-step-indicator {
         justify-content: center;
     }

@@ -18,7 +18,7 @@ const YtelserNAV = () => {
 
     return (
         <SkjemaGruppe>
-            <Heading size={'xsmall'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
+            <Heading size={'small'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
             <SkjemaElement>
                 <RHFSpoersmaalRadio
                     name={'ytelserNAV.svar'}
