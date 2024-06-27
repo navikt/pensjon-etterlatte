@@ -1,0 +1,14 @@
+import useTranslation from '../hooks/useTranslation'
+import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
+
+
+export default function FrontPage() {
+    const { t } = useTranslation('frontPage')
+    const { logEvent } = useAmplitude()
+
+    logEvent(LogEvents.PAGE_CHANGE)
+
+    return (
+        <div>Selvbetjening</div>
+    )
+}
