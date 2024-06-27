@@ -53,29 +53,21 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
-                            <BodyShort spacing>
-                                {foedselsnummer}
-                            </BodyShort>
+                            <BodyShort spacing>{foedselsnummer}</BodyShort>
                         </>
                     )}
                     {barn.foedselsdato && (
                         <>
                             <BodyShort>{t('omBarn.infokort.foedselsdato')}</BodyShort>
-                            <BodyShort spacing>
-                                {format(barn.foedselsdato, 'dd.MM.yyyy')}
-                            </BodyShort>
+                            <BodyShort spacing>{format(barn.foedselsdato, 'dd.MM.yyyy')}</BodyShort>
                         </>
                     )}
 
                     <BodyShort>{t('omBarn.infokort.foreldre')}</BodyShort>
-                    <BodyShort spacing>
-                        {t('omBarn.infokort.foreldre.jegOgAvdoed')}
-                    </BodyShort>
+                    <BodyShort spacing>{t('omBarn.infokort.foreldre.jegOgAvdoed')}</BodyShort>
 
                     <BodyShort>{t('omBarn.infokort.statsborgerskap')}</BodyShort>
-                    <BodyShort spacing>
-                        {barn.statsborgerskap}
-                    </BodyShort>
+                    <BodyShort spacing>{barn.statsborgerskap}</BodyShort>
 
                     <BodyShort>{t('omBarn.infokort.bosted')}</BodyShort>
                     <BodyShort spacing>
@@ -83,9 +75,13 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         {barn.bosattUtland?.svar === IValg.JA ? barn.bosattUtland?.land : t('felles.norge')}
                     </BodyShort>
 
-                    {barn.barnepensjon?.soeker && (
+                    {barn.barnepensjon?.soeker ? (
                         <SkjemaElement>
                             <Tag variant={'success'}>{t('omBarn.barnepensjon.soekt')}</Tag>
+                        </SkjemaElement>
+                    ) : (
+                        <SkjemaElement>
+                            <Tag variant={'warning'}>{t('omBarn.barnepensjon.ikkeSoekt')}</Tag>
                         </SkjemaElement>
                     )}
                 </InfokortInformasjonsElement>
