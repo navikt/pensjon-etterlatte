@@ -439,7 +439,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                                                     variant={'info'}
                                                                     className={'navds-alert--inline'}
                                                                 >
-                                                                    <BodyShort size={'small'}>
+                                                                    <BodyShort>
                                                                         {t('omBarn.barnepensjon.forskuddstrekk.info')}
                                                                     </BodyShort>
                                                                 </Alert>

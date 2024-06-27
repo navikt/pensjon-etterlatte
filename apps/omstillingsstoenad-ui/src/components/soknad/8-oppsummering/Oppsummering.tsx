@@ -128,7 +128,7 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
                     {senderSoeknad ? (
                         <Loader size={'xlarge'} />
                     ) : (
-                        <BodyLong size={'small'}>{t('oppsummering.sendSoeknad.innhold')}</BodyLong>
+                        <BodyLong>{t('oppsummering.sendSoeknad.innhold')}</BodyLong>
                     )}
                 </Modal.Body>
                 {!senderSoeknad && (
