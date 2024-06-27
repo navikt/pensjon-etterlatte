@@ -45,24 +45,18 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('infoCard_fnr')}</BodyShort>
-                            <BodyShort spacing>
-                                {foedselsnummer}
-                            </BodyShort>
+                            <BodyShort spacing>{foedselsnummer}</BodyShort>
                         </>
                     )}
                     {child.dateOfBirth && (
                         <>
                             <BodyShort>{t('infoCard_dob')}</BodyShort>
-                            <BodyShort  spacing>
-                                {format(child.dateOfBirth, 'dd.MM.yyyy')}
-                            </BodyShort>
+                            <BodyShort spacing>{format(child.dateOfBirth, 'dd.MM.yyyy')}</BodyShort>
                         </>
                     )}
 
                     <BodyShort>{t('infoCard_citizenship')}</BodyShort>
-                    <BodyShort spacing>
-                        {child.citizenship}
-                    </BodyShort>
+                    <BodyShort spacing>{child.citizenship}</BodyShort>
 
                     <BodyShort>{t('infoCard_residence')}</BodyShort>
                     <BodyShort spacing>
@@ -72,9 +66,13 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                             : t('norway', { ns: 'common' })}
                     </BodyShort>
 
-                    {!!child.appliesForChildrensPension && (
+                    {!!child.appliesForChildrensPension ? (
                         <FormElement>
                             <Tag variant={'success'}>{t('childAppliedForPension')}</Tag>
+                        </FormElement>
+                    ) : (
+                        <FormElement>
+                            <Tag variant={'warning'}>{t('childNotApplyingForPension')}</Tag>
                         </FormElement>
                     )}
                 </InformationElement>

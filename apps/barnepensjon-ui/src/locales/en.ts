@@ -334,6 +334,7 @@ const aboutTheDeceased = {
 
 const aboutChildren = {
     childAppliedForPension: 'Applies for children’s pension',
+    childNotApplyingForPension: 'Not applying for children’s pension',
     applyForThisChild: 'Apply for children’s pension',
     userAppliesForChildrensPension: 'Yes, I am applying for a children’s pension for the child',
     onlyChildrenOfDeceasedHaveRights:

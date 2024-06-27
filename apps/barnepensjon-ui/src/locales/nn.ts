@@ -325,6 +325,7 @@ const aboutTheDeceased = {
 
 const aboutChildren = {
     childAppliedForPension: 'Søker om barnepensjon',
+    childNotApplyingForPension: 'Søker ikkje om barnepensjon',
     applyForThisChild: 'Søk om barnepensjon',
     userAppliesForChildrensPension: 'Ja, eg søker om barnepensjon for barnet',
     onlyChildrenOfDeceasedHaveRights: 'Det er berre avdødes barn og adoptivbarn som kan ha rett til barnepensjon.',
