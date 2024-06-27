@@ -619,6 +619,7 @@ export default {
     'omBarn.borI': 'Lives in',
     'omBarn.dagligOmsorg': 'Do you have the daily care for this child?',
     'omBarn.barnepensjon.soekt': 'Applying for children’s pension',
+    'omBarn.barnepensjon.ikkeSoekt': 'Not applying for children’s pension',
     'omBarn.barnepensjon.soeker': 'Apply for children’s pension for this the child',
     'omBarn.barnepensjon.soekerInfo':
         'You can apply for a children’s pension for children under the age of 18 you share with the deceased (“joint children”).',
