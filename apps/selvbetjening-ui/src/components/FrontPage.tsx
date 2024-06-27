@@ -1,16 +1,12 @@
-import { List } from '@navikt/ds-react'
 import useTranslation from '../hooks/useTranslation'
-import styled from 'styled-components'
+import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 
-export const ListItemWithIndent = styled(List.Item)`
-    margin-left: 1rem;
-`
 
 export default function FrontPage() {
-    // const navigate = useNavigate() TODO
-
     const { t } = useTranslation('frontPage')
-    // const { logEvent } = useAmplitude() TODO
+    const { logEvent } = useAmplitude()
+
+    logEvent(LogEvents.PAGE_CHANGE)
 
     return (
         <div>Selvbetjening</div>
