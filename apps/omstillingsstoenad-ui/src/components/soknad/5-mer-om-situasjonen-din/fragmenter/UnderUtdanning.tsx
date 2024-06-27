@@ -3,7 +3,7 @@ import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import Datovelger from '../../../felles/Datovelger'
 import { useTranslation } from 'react-i18next'
-import { Detail, Heading, RadioProps } from '@navikt/ds-react'
+import { BodyShort, Heading, RadioProps } from '@navikt/ds-react'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { IValg } from '../../../../typer/Spoersmaal'
@@ -73,9 +73,9 @@ const UnderUtdanning = () => {
                     <Heading size={'small'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}
                     </Heading>
-                    <Detail textColor={'subtle'}>
+                    <BodyShort textColor={'subtle'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
-                    </Detail>
+                    </BodyShort>
                 </SkjemaElement>
                 <SkjemaGruppeRad>
                     <Datovelger

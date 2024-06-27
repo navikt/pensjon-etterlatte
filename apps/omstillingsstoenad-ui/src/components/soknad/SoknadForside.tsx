@@ -43,7 +43,7 @@ const SoknadForside = () => {
             {erForGammel(brukerState.alder!!) && (
                 <SkjemaElement>
                     <Alert variant={'info'}>
-                        <Heading size={'xsmall'} spacing>
+                        <Heading size={'small'} spacing>
                             {t('forside.over67.tittel')}
                         </Heading>
                         <BodyShort spacing>{t('forside.over67.avsnitt1')}</BodyShort>

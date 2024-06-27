@@ -3,7 +3,7 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { RHFNumberInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { IDeceasedParent, IStaysAbroad } from '../../../context/application/application'
-import { Button, Detail, HGrid, Label, Panel } from '@navikt/ds-react'
+import { BodyShort, Button, HGrid, Label, Panel } from '@navikt/ds-react'
 import { RHFSelect, StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
@@ -101,7 +101,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: any;
 
                         <FormElement>
                             <Label>{t('pensionReceivedFromAbroadTitle')}</Label>
-                            <Detail textColor={'subtle'}>{t('pensionReceivedFromAbroadDescription')}</Detail>
+                            <BodyShort textColor={'subtle'}>{t('pensionReceivedFromAbroadDescription')}</BodyShort>
                             <HGrid
                                 gap={'2'}
                                 columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}

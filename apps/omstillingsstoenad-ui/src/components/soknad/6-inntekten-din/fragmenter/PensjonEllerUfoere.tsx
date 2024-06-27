@@ -45,7 +45,7 @@ const PensjonEllerUfoere = () => {
 
                 {pensjonstype?.includes(PensjonEllerTrygd.tjenestepensjonsordning) && (
                     <SkjemaGruppe>
-                        <Heading size={'xsmall'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
+                        <Heading size={'small'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
 
                         <SkjemaElement>
                             <RHFSelect
@@ -78,7 +78,7 @@ const PensjonEllerUfoere = () => {
 
             {pensjonstype?.includes(PensjonEllerTrygd.pensjonFraUtlandet) && (
                 <>
-                    <Heading size={'xsmall'}>{t('soekbarYtelse.pensjonFraUtlandet')}</Heading>
+                    <Heading size={'small'}>{t('soekbarYtelse.pensjonFraUtlandet')}</Heading>
 
                     <SkjemaElement>
                         <RHFInput
