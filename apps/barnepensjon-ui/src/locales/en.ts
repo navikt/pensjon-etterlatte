@@ -443,8 +443,10 @@ const error = {
     'address.required': 'Enter address',
     'phoneNumber.minLength': 'Inadequate number of digits in telephone number',
     'phoneNumber.pattern': 'Telephone number has invalid format',
-    'children.required': 'You must apply for the children’s pension for at least one child.',
-    'children.validate': 'You must apply for the children’s pension for at least one child.',
+    'children.required':
+        'To submit your application, you must apply for a children’s pension for at least one child. You can make changes to your application by clicking "change" for the child you are applying for.',
+    'children.validate':
+        'To submit your application, you must apply for a children’s pension for at least one child. You can make changes to your application by clicking "change" for the child you are applying for.',
     'memberFolketrygdenAbroad.required':
         'State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway',
     'occupationalInjury.required': 'State whether the death was due to an occupational injury or occupational illness',
