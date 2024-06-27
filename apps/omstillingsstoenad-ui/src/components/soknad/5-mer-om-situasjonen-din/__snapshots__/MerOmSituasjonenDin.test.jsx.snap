@@ -627,12 +627,12 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="sc-fbJSV ixxSkQ"
             >
               <h1
-                class="navds-heading navds-heading--xsmall"
+                class="navds-heading navds-heading--small"
               >
                 merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
               </h1>
               <p
-                class="navds-detail"
+                class="navds-body-short navds-body-short--medium"
               >
                 merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
               </p>
@@ -1035,7 +1035,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
             merOmSituasjonenDin.selvstendig.arbeidsmengde
           </label>
           <p
-            class="navds-detail navds-typo--color-subtle"
+            class="navds-body-short navds-body-short--medium navds-typo--color-subtle"
           >
             merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse
           </p>
@@ -2448,12 +2448,12 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="sc-fbJSV ixxSkQ"
             >
               <h1
-                class="navds-heading navds-heading--xsmall"
+                class="navds-heading navds-heading--small"
               >
                 merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
               </h1>
               <p
-                class="navds-detail"
+                class="navds-body-short navds-body-short--medium"
               >
                 merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
               </p>
