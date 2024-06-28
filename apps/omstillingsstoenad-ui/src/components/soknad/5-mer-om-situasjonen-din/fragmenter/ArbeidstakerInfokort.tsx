@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
 import { useTranslation } from 'react-i18next'
-import { Button, Detail, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Button, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
@@ -62,12 +62,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 {ansettelsesforhold === StillingType.fast && (
                     <SkjemaElement>
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>
+                            <Heading size={'small'}>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
-                            <Detail>
+                            <BodyShort>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse')}
-                            </Detail>
+                            </BodyShort>
                         </SkjemaElement>
                         <RHFProsentInput
                             name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
@@ -81,12 +81,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     ansettelsesforhold === StillingType.tilkallingsvikar) && (
                     <SkjemaElement>
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>
+                            <Heading size={'small'}>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
-                            <Detail>
+                            <BodyShort>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse')}
-                            </Detail>
+                            </BodyShort>
                         </SkjemaElement>
                         <NumberSelectRad>
                             <RHFNumberInput

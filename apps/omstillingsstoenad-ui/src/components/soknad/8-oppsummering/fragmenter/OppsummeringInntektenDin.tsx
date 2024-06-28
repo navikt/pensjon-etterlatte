@@ -48,7 +48,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                     {inntektenDin.loennsinntekt?.norgeEllerUtland.includes(NorgeOgUtland.norge) && (
                         <Panel>
-                            <Heading size={'xsmall'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.norge')}</Heading>
+                            <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.norge')}</Heading>
 
                             {inntektenDin.loennsinntekt.norge?.inntektIFjor?.tilDoedsfall && (
                                 <TekstGruppe
@@ -85,7 +85,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                     {inntektenDin.loennsinntekt?.norgeEllerUtland.includes(NorgeOgUtland.utland) && (
                         <Panel>
-                            <Heading size={'xsmall'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
+                            <Heading size={'small'}>{t('inntektenDin.loennsinntekt.norgeEllerUtland.utland')}</Heading>
 
                             {inntektenDin.loennsinntekt.utland?.inntektAaretFoerDoedsfall && (
                                 <TekstGruppe
@@ -165,7 +165,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                     {inntektenDin.naeringsinntekt?.norgeEllerUtland.includes(NorgeOgUtland.norge) && (
                         <Panel>
-                            <Heading size={'xsmall'}>
+                            <Heading size={'small'}>
                                 {t('inntektenDin.naeringsinntekt.norgeEllerUtland.norge')}
                             </Heading>
 
@@ -222,7 +222,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                     {inntektenDin.naeringsinntekt?.norgeEllerUtland.includes(NorgeOgUtland.utland) && (
                         <Panel>
-                            <Heading size={'xsmall'}>
+                            <Heading size={'small'}>
                                 {t('inntektenDin.naeringsinntekt.norgeEllerUtland.utland')}
                             </Heading>
 
@@ -320,7 +320,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         PensjonEllerTrygd.tjenestepensjonsordning
                     ) && (
                         <Panel>
-                            <Heading size={'xsmall'} spacing>
+                            <Heading size={'small'} spacing>
                                 {t('soekbarYtelse.tjenestepensjonsordning')}
                             </Heading>
 
@@ -337,7 +337,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                     {inntektenDin.pensjonEllerUfoere?.pensjonstype?.includes(PensjonEllerTrygd.pensjonFraUtlandet) && (
                         <Panel>
-                            <Heading size={'xsmall'} spacing>
+                            <Heading size={'small'} spacing>
                                 {t('soekbarYtelse.pensjonFraUtlandet')}
                             </Heading>
 

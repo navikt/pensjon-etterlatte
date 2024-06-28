@@ -1074,7 +1074,7 @@ exports[`Oppsummering > Snapshot 1`] = `
       class="navds-modal__body"
     >
       <p
-        class="navds-body-long navds-body-long--small"
+        class="navds-body-long navds-body-long--medium"
       >
         oppsummering.sendSoeknad.innhold
       </p>

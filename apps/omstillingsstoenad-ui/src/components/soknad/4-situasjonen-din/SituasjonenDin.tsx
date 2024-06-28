@@ -70,7 +70,7 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                 <SkjemaGruppe>
                     <GuidePanel>
                         <BodyShort>{t('situasjonenDin.ingress')}</BodyShort>
-                        <List as={'ul'} size={'small'}>
+                        <List as={'ul'}>
                             <List.Item>{t('situasjonenDin.ingress.li1')}</List.Item>
                             <List.Item>{t('situasjonenDin.ingress.li2')}</List.Item>
                             <List.Item>{t('situasjonenDin.ingress.li3')}</List.Item>
@@ -82,7 +82,7 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
+                        <Heading size={'small'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
                     </SkjemaElement>
                     <SkjemaElement>
                         <RHFSpoersmaalRadio name={'omsorgMinstFemti'} legend={t('situasjonenDin.omsorgMinstFemti')} />
@@ -105,7 +105,7 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <SkjemaGruppe>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
+                        <Heading size={'small'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
                     </SkjemaElement>
                     <SkjemaElement>
                         <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />

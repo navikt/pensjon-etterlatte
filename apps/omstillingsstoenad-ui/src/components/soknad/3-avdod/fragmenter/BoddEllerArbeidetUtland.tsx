@@ -8,7 +8,7 @@ import React, { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyLong, Button, Detail, Heading, HGrid, Label } from '@navikt/ds-react'
+import { BodyLong, BodyShort, Button, Heading, HGrid, Label } from '@navikt/ds-react'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { useLand } from '../../../../hooks/useLand'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
@@ -135,9 +135,9 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 <Label>
                                     {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label')}
                                 </Label>
-                                <Detail textColor={'subtle'}>
+                                <BodyShort textColor={'subtle'}>
                                     {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse')}
-                                </Detail>
+                                </BodyShort>
 
                                 <HGrid
                                     gap={'2'}

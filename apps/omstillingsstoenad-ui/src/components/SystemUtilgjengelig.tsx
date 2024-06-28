@@ -25,7 +25,7 @@ export default function SystemUtilgjengelig() {
         <div style={{ maxWidth: '500px', margin: 'auto' }}>
             <SkjemaGruppe>
                 <Veileder>
-                    <Heading size={'xsmall'} spacing>
+                    <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.veileder.tittel')}
                     </Heading>
                     <BodyShort spacing>{t('systemUtilgjengelig.veileder.beskrivelse')}</BodyShort>
@@ -67,7 +67,7 @@ export default function SystemUtilgjengelig() {
             </SkjemaGruppe>
 
             <SkjemaElement>
-                <Heading size={'xsmall'} spacing>
+                <Heading size={'small'} spacing>
                     {t('systemUtilgjengelig.tittel.engelsk')}
                 </Heading>
                 <BodyShort>

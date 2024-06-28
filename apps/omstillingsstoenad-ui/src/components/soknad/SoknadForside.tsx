@@ -43,7 +43,7 @@ const SoknadForside = () => {
             {erForGammel(brukerState.alder!!) && (
                 <SkjemaElement>
                     <Alert variant={'info'}>
-                        <Heading size={'xsmall'} spacing>
+                        <Heading size={'small'} spacing>
                             {t('forside.over67.tittel')}
                         </Heading>
                         <BodyShort spacing>{t('forside.over67.avsnitt1')}</BodyShort>
@@ -77,7 +77,7 @@ const SoknadForside = () => {
 
                 <BodyLong>{t('forside.omYtelsene.innhold')}</BodyLong>
 
-                <List size={'small'}>
+                <List>
                     <ListItemWithIndent>{t('forside.omYtelsene.innhold.li1')}</ListItemWithIndent>
                     <ListItemWithIndent>{t('forside.omYtelsene.innhold.li2')}</ListItemWithIndent>
                     <ListItemWithIndent>{t('forside.omYtelsene.innhold.li3')}</ListItemWithIndent>
@@ -103,12 +103,12 @@ const SoknadForside = () => {
                         </ExpansionCard.Title>
                     </ExpansionCard.Header>
                     <ExpansionCard.Content>
-                        <Heading size={'xsmall'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
+                        <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
                         <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
 
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
-                            <List as={'ul'} size={'small'}>
+                            <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
+                            <List as={'ul'}>
                                 <ListItemWithIndent>
                                     {t('forside.innsamlingAvInfo.innholdListe.li1')}
                                 </ListItemWithIndent>
@@ -121,10 +121,10 @@ const SoknadForside = () => {
                             </List>
                         </SkjemaElement>
 
-                        <Heading size={'xsmall'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
+                        <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                         <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
-                        <List as={'ul'} size={'small'}>
+                        <List as={'ul'}>
                             <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li1')}</ListItemWithIndent>
                             <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li2')}</ListItemWithIndent>
                             <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li3')}</ListItemWithIndent>
@@ -143,7 +143,7 @@ const SoknadForside = () => {
                         <SkjemaElement>
                             <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
 
-                            <List as={'ul'} size={'small'}>
+                            <List as={'ul'}>
                                 <ListItemWithIndent>{t('forside.personvern.tredjeperson.li1')}</ListItemWithIndent>
                                 <ListItemWithIndent>{t('forside.personvern.tredjeperson.li2')}</ListItemWithIndent>
                                 <ListItemWithIndent>{t('forside.personvern.tredjeperson.li3')}</ListItemWithIndent>
@@ -152,17 +152,17 @@ const SoknadForside = () => {
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
+                            <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
                             <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>{t('forside.lagringstid.tittel')}</Heading>
+                            <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
                             <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>{t('forside.automatiskbehandling.tittel')}</Heading>
+                            <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
                             <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
                             <SkjemaElement>
                                 <BodyLong>
@@ -180,7 +180,7 @@ const SoknadForside = () => {
                                 <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
                             </SkjemaElement>
 
-                            <List as={'ul'} size={'small'}>
+                            <List as={'ul'}>
                                 <ListItemWithIndent>
                                     {t('forside.automatiskbehandling.innholdListe.li1')}
                                 </ListItemWithIndent>
@@ -199,7 +199,7 @@ const SoknadForside = () => {
                         </SkjemaElement>
 
                         <SkjemaElement>
-                            <Heading size={'xsmall'}>{t('forside.personvern.tittel')}</Heading>
+                            <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
 
                             <BodyLong>
                                 {t('forside.personvern.innhold')}

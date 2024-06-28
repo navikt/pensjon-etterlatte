@@ -106,7 +106,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             situasjonenDin.ingress
           </p>
           <div
-            class="navds-list navds-list--small"
+            class="navds-list navds-list--medium"
           >
             <ul>
               <li
@@ -134,7 +134,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="navds-list__item-content navds-body-short navds-body-short--small"
+                  class="navds-list__item-content navds-body-short navds-body-short--medium"
                 >
                   situasjonenDin.ingress.li1
                 </div>
@@ -164,7 +164,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="navds-list__item-content navds-body-short navds-body-short--small"
+                  class="navds-list__item-content navds-body-short navds-body-short--medium"
                 >
                   situasjonenDin.ingress.li2
                 </div>
@@ -194,7 +194,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
                   </svg>
                 </div>
                 <div
-                  class="navds-list__item-content navds-body-short navds-body-short--small"
+                  class="navds-list__item-content navds-body-short navds-body-short--medium"
                 >
                   situasjonenDin.ingress.li3
                 </div>
@@ -356,7 +356,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         class="sc-brKelq epGfWk"
       >
         <h1
-          class="navds-heading navds-heading--xsmall"
+          class="navds-heading navds-heading--small"
         >
           situasjonenDin.omsorgForBarn.tittel
         </h1>
@@ -535,7 +535,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         class="sc-brKelq epGfWk"
       >
         <h1
-          class="navds-heading navds-heading--xsmall"
+          class="navds-heading navds-heading--small"
         >
           situasjonenDin.oppholdUtenforNorge.tittel
         </h1>

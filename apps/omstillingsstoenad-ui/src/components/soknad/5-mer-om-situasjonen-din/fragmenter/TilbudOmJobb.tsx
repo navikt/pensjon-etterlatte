@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
-import { Detail, Heading, HGrid, RadioProps } from '@navikt/ds-react'
+import { BodyShort, Heading, HGrid, RadioProps } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
@@ -61,10 +61,10 @@ const TilbudOmJobb = () => {
             {ansettelsesforhold === StillingType.fast && (
                 <SkjemaElement>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>
+                        <Heading size={'small'}>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
                         </Heading>
-                        <Detail>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}</Detail>
+                        <BodyShort>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}</BodyShort>
                     </SkjemaElement>
                     <RHFProsentInput
                         name={`tilbudOmJobb.arbeidsmengde.svar` as const}
@@ -78,12 +78,12 @@ const TilbudOmJobb = () => {
                 ansettelsesforhold === StillingType.tilkallingsvikar) && (
                 <SkjemaElement>
                     <SkjemaElement>
-                        <Heading size={'xsmall'}>
+                        <Heading size={'small'}>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
                         </Heading>
-                        <Detail>
+                        <BodyShort>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}
-                        </Detail>
+                        </BodyShort>
                     </SkjemaElement>
                     <SkjemaElement>
                         <HGrid

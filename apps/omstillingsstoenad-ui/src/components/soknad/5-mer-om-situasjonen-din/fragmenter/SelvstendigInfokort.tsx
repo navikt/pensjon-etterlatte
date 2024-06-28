@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, Detail, Label, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Button, Label, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { DeleteFilled } from '@navikt/ds-icons'
@@ -55,7 +55,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
 
             <SkjemaGruppe>
                 <Label>{t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}</Label>
-                <Detail textColor="subtle">{t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}</Detail>
+                <BodyShort textColor="subtle">{t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}</BodyShort>
                 <SkjemaElement>
                     <NumberSelectRad>
                         <RHFNumberInput

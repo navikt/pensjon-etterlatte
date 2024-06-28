@@ -32,7 +32,7 @@ export default function SystemUnavailable() {
         <div style={{ maxWidth: '500px', margin: 'auto' }}>
             <FormGroup>
                 <NavGuide>
-                    <Heading size={'xsmall'} spacing>
+                    <Heading size={'small'} spacing>
                         {t('title')}
                     </Heading>
                     <BodyShort spacing>{t('description')}</BodyShort>
@@ -74,7 +74,7 @@ export default function SystemUnavailable() {
             </FormGroup>
 
             <FormElement>
-                <Heading size={'xsmall'} spacing>
+                <Heading size={'small'} spacing>
                     {t('title.english')}
                 </Heading>
                 <BodyShort>
