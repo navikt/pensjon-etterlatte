@@ -1,5 +1,6 @@
 import {PortableTextBlock} from "@portabletext/react";
 import {mapPortableTextBlock, TextSpan, TextBlock} from "~utils/sanityUtil";
+import {Heading, List} from "@navikt/ds-react";
 
 
 export const AkeslPortableText = (richText: PortableTextBlock[]) => {
@@ -21,13 +22,15 @@ export const AkeslPortableText = (richText: PortableTextBlock[]) => {
 const TextBlockToAksel = (textBlock: TextBlock) => {
     switch (textBlock.style) {
         case 'h1':
-            return <h1>{SpanToAksel(textBlock.textElements)}</h1>
+            return <Heading size={"xlarge"}>{SpanToAksel(textBlock.textElements)}</Heading>
         case 'h2':
-            return <h2>{SpanToAksel(textBlock.textElements)}</h2>
+            return <Heading size={"large"}>{SpanToAksel(textBlock.textElements)}</Heading>
         case 'h3':
-            return <h3>{SpanToAksel(textBlock.textElements)}</h3>
+            return <Heading size={"medium"}>{SpanToAksel(textBlock.textElements)}</Heading>
         case 'h4':
-            return <h4>{SpanToAksel(textBlock.textElements)}</h4>
+            return <Heading size={"small"}>{SpanToAksel(textBlock.textElements)}</Heading>
+        case 'h5':
+            return <Heading size={"xsmall"}>{SpanToAksel(textBlock.textElements)}</Heading>
         default:
             return <p>{SpanToAksel(textBlock.textElements)}</p>
 
@@ -36,12 +39,12 @@ const TextBlockToAksel = (textBlock: TextBlock) => {
 
 const ListBlockToAksel = (textBlocks: TextBlock[]) => {
     const type = textBlocks[0].style
-    const listElements = textBlocks.map(li => <li>{SpanToAksel(li.textElements)}</li>)
+    const listElements = textBlocks.map(li => <List.Item>{SpanToAksel(li.textElements)}</List.Item>)
 
     if (type === 'number') {
-        return <ol>{listElements}</ol>
+        return <List as={'ol'}>{listElements}</List>
     }
-    return <ul>{listElements}</ul>
+    return <List as={'ul'}>{listElements}</List>
 
 }
 
