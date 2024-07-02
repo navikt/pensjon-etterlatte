@@ -5,6 +5,7 @@ import { useEffect, useState} from "react";
 import {PortableText} from "@portabletext/react";
 import styled from "styled-components";
 import {Heading, Select} from "@navikt/ds-react";
+import {AkeslPortableText} from "~components/common/RichTextToAksel";
 
 
 export default function FrontPage() {
@@ -39,6 +40,7 @@ export default function FrontPage() {
                 <h1>Selvbetjening</h1>
                 {text && <PortableText value={text}/>}
                 <br/><br/>---<br/><br/>
+                {text && AkeslPortableText(text)}
                 <Heading size={"large"}>Veiledning</Heading>
             </div>
         </div>
