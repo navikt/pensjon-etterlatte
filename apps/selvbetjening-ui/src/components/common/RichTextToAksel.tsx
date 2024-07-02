@@ -1,6 +1,7 @@
 import {PortableTextBlock} from "@portabletext/react";
 import {mapPortableTextBlock, TextSpan, TextBlock} from "~utils/sanityUtil";
-import {Heading, List} from "@navikt/ds-react";
+import {Heading, Link, List} from "@navikt/ds-react";
+import React from "react";
 
 
 export const AkeslPortableText = (richText: PortableTextBlock[]) => {
@@ -31,6 +32,8 @@ const TextBlockToAksel = (textBlock: TextBlock) => {
             return <Heading size={"small"}>{SpanToAksel(textBlock.textElements)}</Heading>
         case 'h5':
             return <Heading size={"xsmall"}>{SpanToAksel(textBlock.textElements)}</Heading>
+        case 'link':
+            return <Link href={textBlock.href}>{SpanToAksel(textBlock.textElements)}</Link>
         default:
             return <p>{SpanToAksel(textBlock.textElements)}</p>
 

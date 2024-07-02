@@ -1,11 +1,13 @@
-import {PortableTextBlock, PortableTextSpan } from "@portabletext/types";
+import {PortableTextBlock, PortableTextSpan} from "@portabletext/types";
+import {a} from "vitest/dist/suite-IbNSsUWN";
 
 export type TextBlock = {
     style: TextStyle,
+    href: string | undefined
     textElements: TextSpan[]
 }
 
-type TextStyle = 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'bullet' | 'number'
+type TextStyle = 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'bullet' | 'number' | 'link'
 
 export type TextSpan = {
     marks: SpanMarks[],
@@ -13,7 +15,6 @@ export type TextSpan = {
 }
 
 type SpanMarks = 'strong'
-
 
 
 export const mapPortableTextBlock = (portableBlocks: PortableTextBlock[]) => {
@@ -31,10 +32,19 @@ export const mapPortableTextBlock = (portableBlocks: PortableTextBlock[]) => {
                 main.push(tempList)
                 tempList = []
             }
-            main.push({
-                style: block.style,
-                textElements: mapPortableTextSpan(block.children)
-            })
+            const link = block.markDefs && block.markDefs.find((markDef) => markDef._type === "link")
+            if (link) {
+                main.push({
+                    style: "link",
+                    href: link && link['href'],
+                    textElements: mapPortableTextSpan(block.children)
+                })
+            } else {
+                main.push({
+                    style: block.style,
+                    textElements: mapPortableTextSpan(block.children)
+                })
+            }
         }
     })
     return main

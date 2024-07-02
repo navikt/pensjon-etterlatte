@@ -57,16 +57,25 @@ describe('RichText/PortableText from Sanity mapped to internal type', () => {
         expect(liTre.textElements[0].text).toEqual("Tre")
     })
 
-    it('Skal transformere bold', () => {
-        const bold = result[3]
-        expectTypeOf(bold).toMatchTypeOf<TextBlock>()
-        expect((bold as TextBlock).style).toEqual("normal")
-        expect((bold as TextBlock).textElements[0].text).toEqual("Tekst med ")
+    it('Tekst med bold', () => {
+        const textBlock = result[3]
+        expectTypeOf(textBlock).toMatchTypeOf<TextBlock>()
+        expect((textBlock as TextBlock).style).toEqual("normal")
+        expect((textBlock as TextBlock).textElements[0].text).toEqual("Tekst med ")
 
-        expect((bold as TextBlock).textElements[1].marks[0]).toEqual("strong")
-        expect((bold as TextBlock).textElements[1].text).toEqual("bold")
+        expect((textBlock as TextBlock).textElements[1].marks[0]).toEqual("strong")
+        expect((textBlock as TextBlock).textElements[1].text).toEqual("bold")
     })
 
+    it('Lenker', () => {
+        const textBlock = result[9]
+        expectTypeOf(textBlock).toMatchTypeOf<TextBlock>()
+
+        expect((textBlock as TextBlock).style).toEqual("link")
+        expect((textBlock as TextBlock).href).toEqual("http://localhost:3333/")
+
+        expect((textBlock as TextBlock).textElements[0].text).toEqual("Lenketekst")
+    })
 
 })
 
@@ -293,7 +302,7 @@ const json: PortableTextBlock[] = [
                 "marks": [
                     "826826e3866d"
                 ],
-                "text": "Lenke",
+                "text": "Lenketekst",
                 "_key": "31a8d8ce7031"
             }
         ],
