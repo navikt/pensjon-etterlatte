@@ -71,12 +71,39 @@ describe('RichText/PortableText from Sanity mapped to internal type', () => {
         const textBlock = result[9]
         expectTypeOf(textBlock).toMatchTypeOf<TextBlock>()
 
-        expect((textBlock as TextBlock).style).toEqual("link")
+        expect((textBlock as TextBlock).style).toEqual("normal")
         expect((textBlock as TextBlock).href).toEqual("http://localhost:3333/")
 
         expect((textBlock as TextBlock).textElements[0].text).toEqual("Lenketekst")
+        expect((textBlock as TextBlock).textElements[0].marks[0]).toEqual("link")
     })
 
+
+    it('Punktliste med innhold som bold og lenke', () => {
+        const punktListe = result[10]
+        expectTypeOf(punktListe).toMatchTypeOf<TextBlock[]>()
+
+        const liEn = punktListe[0]
+        expect(liEn.style).toEqual("bullet")
+        expect(liEn.textElements[0].text).toEqual("Punktliste flere nivå")
+
+        const liTo = punktListe[1]
+        expect(liTo.style).toEqual("bullet")
+        expect(liTo.textElements[0].text).toEqual("Nivå to")
+
+        const liTre = punktListe[2]
+        expect(liTre.style).toEqual("bullet")
+        expect(liTre.textElements[0].text).toEqual("Tekst med ")
+        expect(liTre.textElements[1].text).toEqual("bold i punktliste")
+        expect(liTre.textElements[1].marks[0]).toEqual("strong")
+
+        const liFire = punktListe[3]
+        expect(liFire.style).toEqual("bullet")
+        expect(liFire.textElements[0].text).toEqual("Tekst med ")
+        expect(liFire.textElements[1].text).toEqual("lenke")
+        expect(liFire.textElements[1].marks[0]).toEqual("link")
+        expect(liFire.href).toEqual("http://localhost:3333/")
+    })
 })
 
 
@@ -310,17 +337,89 @@ const json: PortableTextBlock[] = [
         "style": "normal"
     },
     {
-        "style": "normal",
-        "_key": "8b66bfb18a1d",
         "markDefs": [],
         "children": [
             {
-                "_key": "aa48aaaf255b",
                 "_type": "span",
                 "marks": [],
-                "text": ""
+                "text": "Punktliste flere nivå",
+                "_key": "955ab74db7fe"
             }
         ],
-        "_type": "block"
+        "level": 1,
+        "_type": "block",
+        "style": "normal",
+        "_key": "7b526ca5635d",
+        "listItem": "bullet"
+    },
+    {
+        "_type": "block",
+        "style": "normal",
+        "_key": "485d879bfe7f",
+        "listItem": "bullet",
+        "markDefs": [],
+        "children": [
+            {
+                "marks": [],
+                "text": "Nivå to",
+                "_key": "ca556974e230",
+                "_type": "span"
+            }
+        ],
+        "level": 2
+    },
+    {
+        "markDefs": [],
+        "children": [
+            {
+                "_type": "span",
+                "marks": [],
+                "text": "Tekst med ",
+                "_key": "bee2a52e8033"
+            },
+            {
+                "_type": "span",
+                "marks": [
+                    "strong"
+                ],
+                "text": "bold i punktliste",
+                "_key": "135b79fb07a9"
+            }
+        ],
+        "level": 1,
+        "_type": "block",
+        "style": "normal",
+        "_key": "8bbbaf38279e",
+        "listItem": "bullet"
+    },
+    {
+        "listItem": "bullet",
+        "markDefs": [
+            {
+                "href": "http://localhost:3333/",
+                "_key": "5570ae48e7a1",
+                "_type": "link"
+            }
+        ],
+        "children": [
+            {
+                "_type": "span",
+                "marks": [],
+                "text": "Tekst med ",
+                "_key": "8bd0d914aacf"
+            },
+            {
+                "_type": "span",
+                "marks": [
+                    "5570ae48e7a1"
+                ],
+                "text": "lenke",
+                "_key": "462df7fef0c4"
+            }
+        ],
+        "level": 1,
+        "_type": "block",
+        "style": "normal",
+        "_key": "cb448256092d"
     }
 ]

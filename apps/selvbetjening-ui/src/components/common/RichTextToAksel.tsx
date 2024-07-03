@@ -23,26 +23,24 @@ export const AkeslPortableText = (richText: PortableTextBlock[]) => {
 const TextBlockToAksel = (textBlock: TextBlock) => {
     switch (textBlock.style) {
         case 'h1':
-            return <Heading size={"xlarge"}>{SpanToAksel(textBlock.textElements)}</Heading>
+            return <Heading size={"xlarge"}>{SpanToAksel(textBlock)}</Heading>
         case 'h2':
-            return <Heading size={"large"}>{SpanToAksel(textBlock.textElements)}</Heading>
+            return <Heading size={"large"}>{SpanToAksel(textBlock)}</Heading>
         case 'h3':
-            return <Heading size={"medium"}>{SpanToAksel(textBlock.textElements)}</Heading>
+            return <Heading size={"medium"}>{SpanToAksel(textBlock)}</Heading>
         case 'h4':
-            return <Heading size={"small"}>{SpanToAksel(textBlock.textElements)}</Heading>
+            return <Heading size={"small"}>{SpanToAksel(textBlock)}</Heading>
         case 'h5':
-            return <Heading size={"xsmall"}>{SpanToAksel(textBlock.textElements)}</Heading>
-        case 'link':
-            return <Link href={textBlock.href}>{SpanToAksel(textBlock.textElements)}</Link>
+            return <Heading size={"xsmall"}>{SpanToAksel(textBlock)}</Heading>
         default:
-            return <p>{SpanToAksel(textBlock.textElements)}</p>
+            return <p>{SpanToAksel(textBlock)}</p>
 
     }
 }
 
 const ListBlockToAksel = (textBlocks: TextBlock[]) => {
     const type = textBlocks[0].style
-    const listElements = textBlocks.map(li => <List.Item>{SpanToAksel(li.textElements)}</List.Item>)
+    const listElements = textBlocks.map(li => <List.Item>{SpanToAksel(li)}</List.Item>)
 
     if (type === 'number') {
         return <List as={'ol'}>{listElements}</List>
@@ -51,9 +49,13 @@ const ListBlockToAksel = (textBlocks: TextBlock[]) => {
 
 }
 
-const SpanToAksel = (spanElements: TextSpan[]) => {
+const SpanToAksel = (block: TextBlock) => {
+    const spanElements = block.textElements
     return (
         spanElements.map((e) => {
+            if (e.marks.includes('link')) {
+                return <Link href={block.href}>{e.text}</Link>
+            }
             if (e.marks.includes('strong')) {
                 return <strong>{e.text}</strong>
             }
