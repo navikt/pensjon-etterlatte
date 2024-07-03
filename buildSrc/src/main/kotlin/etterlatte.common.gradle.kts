@@ -10,17 +10,13 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
-
     // Logging
     implementation(libs.logging.slf4j.api)
     implementation(libs.logging.logback.classic)
     implementation(libs.logging.logstash.logback.encoder)
 
     // JUnit Testing
-    testImplementation(libs.jupiter.api)
     testImplementation(libs.jupiter.params)
-    testRuntimeOnly(libs.jupiter.engine)
 }
 
 tasks {
