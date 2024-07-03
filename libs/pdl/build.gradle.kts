@@ -15,9 +15,3 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.ktor.client.mock)
 }
-
-tasks {
-    withType<Test> {
-        useJUnitPlatform()
-    }
-}

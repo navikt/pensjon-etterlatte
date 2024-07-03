@@ -10,9 +10,3 @@ dependencies {
     testRuntimeOnly(libs.jupiter.engine)
     testImplementation(libs.kotest.assertions.core)
 }
-
-tasks {
-    withType<Test> {
-        useJUnitPlatform()
-    }
-}

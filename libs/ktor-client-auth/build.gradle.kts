@@ -1,9 +1,6 @@
 plugins {
     kotlin("jvm")
-}
-
-repositories {
-    mavenCentral()
+    id("etterlatte.libs")
 }
 
 dependencies {
@@ -14,10 +11,4 @@ dependencies {
     api(libs.ktor.client.logging)
 
     api(libs.navfelles.token.client.core)
-}
-
-tasks {
-    withType<Test> {
-        useJUnitPlatform()
-    }
 }
