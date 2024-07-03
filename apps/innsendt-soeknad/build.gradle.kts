@@ -12,12 +12,7 @@ dependencies {
     implementation(libs.database.postgresql)
     implementation(libs.navfelles.token.validation.ktor)
 
-    implementation(libs.ktor.server.auth)
-    implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.serialization.jackson)
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.server.call.logging)
-    implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.cio.jvm)
 
     testImplementation(project(":libs:common-test"))
