@@ -1,5 +1,5 @@
 plugins {
-    id("etterlatte.rapids-and-rivers")
+    id("etterlatte.common")
 }
 
 dependencies {
@@ -14,6 +14,7 @@ dependencies {
 
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.client.cio.jvm)
+    implementation(libs.navfelles.rapids.and.rivers)
 
     testImplementation(project(":libs:common-test"))
     testImplementation(libs.testcontainers.junit.jupiter)
