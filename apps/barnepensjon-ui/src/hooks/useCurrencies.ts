@@ -56,7 +56,7 @@ export const useCurrencies = (): useCurrencies => {
 
     const optionsList = (currency: Currency[]): options[] => {
         const currencyList = currency.map((currency) => {
-            const tekst = currency.beskrivelse.tekst + ' (' + currency.isoKode + ')'
+            const tekst = currency.beskrivelse.term + ' (' + currency.isoKode + ')'
             return {
                 label: tekst,
                 value: tekst,
