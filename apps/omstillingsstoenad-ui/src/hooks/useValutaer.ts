@@ -59,7 +59,7 @@ export const useValutaer = (): UseValutaer => {
 
     const optionsListe = (valuta: Valuta[]): Options[] => {
         const valutaListe = valuta.map((valuta) => {
-            const tekst = valuta.beskrivelse.tekst + ' (' + valuta.isoKode + ')'
+            const tekst = valuta.beskrivelse.term + ' (' + valuta.isoKode + ')'
             return {
                 label: tekst,
                 value: tekst,
