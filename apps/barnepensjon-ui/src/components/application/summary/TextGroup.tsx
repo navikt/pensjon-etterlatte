@@ -21,7 +21,7 @@ const stringify = (content?: any) => {
     if (!content) return ''
     else if (typeof content !== 'string') return content.toString()
     else {
-        if (!!content.match(/\$\d{4}-\d{2}-\d{2}.*/)?.length) {
+        if (!!content.match(/\d{4}-\d{2}-\d{2}.*/)?.length) {
             return dtf.format(new Date(content))
         } else {
             return content
