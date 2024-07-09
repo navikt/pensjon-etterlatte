@@ -15,7 +15,7 @@ export const getAgeFromDate = (date: Date | string): number => {
 export const getAgeFromFoedselsnummer = (foedselsnummer: string): number => {
     try {
         const birthDate = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
-
+        console.log("Tester main")
         return getAgeFromDate(birthDate)
     } catch (e) {
         // navFaker støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
