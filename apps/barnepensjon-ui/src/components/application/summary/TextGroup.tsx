@@ -2,6 +2,7 @@ import { BodyShort, Label } from '@navikt/ds-react'
 import useTranslation from '../../../hooks/useTranslation'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import styled from 'styled-components'
+import { dtf } from '~utils/date'
 
 const TextGroupDiv = styled.div`
     padding-bottom: 0.5rem;
@@ -10,12 +11,6 @@ const TextGroupDiv = styled.div`
         margin: 0.2rem 0;
     }
 `
-const dtf = Intl.DateTimeFormat('no-NO', {
-    timeZone: 'Europe/Oslo',
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-})
 
 const stringify = (content?: any) => {
     if (!content) return ''

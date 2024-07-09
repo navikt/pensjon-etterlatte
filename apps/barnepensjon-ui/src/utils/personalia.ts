@@ -1,5 +1,6 @@
 import { User } from '../context/user/user'
 import { IParent } from '../context/application/application'
+import { dtf } from '~utils/date'
 
 export const fullAdresse = (person: User): string => {
     if (person.adressebeskyttelse || !person.adresse) return ''
@@ -15,5 +16,5 @@ export const fullAdresse = (person: User): string => {
 export const nameAndFnr = (parent: IParent) => {
     const dateOfBirth = !!parent.fnrDnr ? parent.fnrDnr.substring(0, 6) : parent.dateOfBirth
 
-    return `${parent.firstName} ${parent.lastName} (f. ${dateOfBirth})`
+    return `${parent.firstName} ${parent.lastName} (f. ${dtf.format(new Date(dateOfBirth!!))})`
 }
