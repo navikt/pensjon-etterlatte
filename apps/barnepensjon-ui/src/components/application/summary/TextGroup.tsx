@@ -21,8 +21,9 @@ const stringify = (content?: any) => {
     if (!content) return ''
     else if (typeof content !== 'string') return content.toString()
     else {
-        if (!!content.match(/\d{4}-\d{2}-\d{2}.*/)?.length) {
-            return dtf.format(new Date(content))
+        const textWithDate = content.match(/\d{4}-\d{2}-\d{2}/)
+        if (!!textWithDate?.length) {
+            return content.replace(textWithDate[0], dtf.format(new Date(textWithDate[0])))
         } else {
             return content
         }
