@@ -14,7 +14,7 @@ export const fullAdresse = (person: User): string => {
 }
 
 export const nameAndFnr = (parent: IParent) => {
-    const dateOfBirth = !!parent.fnrDnr ? parent.fnrDnr.substring(0, 6) : parent.dateOfBirth
+    const dateOfBirth = !!parent.fnrDnr ? parent.fnrDnr.substring(0, 6) : dtf.format(new Date(parent.dateOfBirth!!))
 
-    return `${parent.firstName} ${parent.lastName} (f. ${dtf.format(new Date(dateOfBirth!!))})`
+    return `${parent.firstName} ${parent.lastName} (f. ${dateOfBirth})`
 }
