@@ -1,14 +1,12 @@
 import { default as navFaker } from 'nav-faker'
+import { differenceInYears } from 'date-fns'
 
 const LEGAL_AGE = 18
-
-// 365.25 = antall dager i året + 0.25 for å ta høyde for skuddår
-const MILLIS_IN_YEAR = 365.25 * 24 * 60 * 60 * 1000
 
 export const isLegalAge = (age: number): boolean => age >= LEGAL_AGE
 
 export const getAgeFromDate = (date: Date | string): number => {
-    return Math.floor((Date.now() - new Date(date).getTime()) / MILLIS_IN_YEAR)
+    return differenceInYears(new Date(), new Date(date))
 }
 
 // Støtter også D-nummer.

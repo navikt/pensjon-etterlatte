@@ -7,6 +7,10 @@ describe('Navigation: "Cancel" button functionality', () => {
         cy.clickBtn(Button.Cancel)
 
         cy.get('#slett-soeknad').should('be.visible')
+
+        cy.intercept('https://www.nav.no/barnepensjon', {
+            statusCode: 200,
+        })
     })
 
     it('Should delete application and redirect to nav.no when clicking Yes, delete application', () => {

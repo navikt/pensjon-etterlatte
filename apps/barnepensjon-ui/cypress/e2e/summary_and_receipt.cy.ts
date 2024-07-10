@@ -42,6 +42,9 @@ describe('Summary and Receipt', { testIsolation: false }, () => {
     })
 
     it('should close the application', function () {
+        cy.intercept('https://www.nav.no/barnepensjon', {
+            statusCode: 200,
+        })
         cy.clickBtn(Button.Exit)
         cy.url().should('include', 'https://www.nav.no')
     })
