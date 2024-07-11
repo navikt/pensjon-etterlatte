@@ -319,6 +319,7 @@ const aboutTheDeceased = {
         'Enter the deceased’s income from self-employment from the calendar year before their death (optional)',
     incomeFromSelfEmploymentBeforeTaxes: 'Total annual income before tax',
     hadIncomeFromSelfEmployment: 'Did the deceased have any income from self-employment at the time of his/her death?',
+    occupationalInjuryTitle: 'Occupational injury or occupational illness',
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
         'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',

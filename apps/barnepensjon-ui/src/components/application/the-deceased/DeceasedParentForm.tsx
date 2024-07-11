@@ -33,7 +33,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     return (
         <>
             <FormElement>
-                <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')}/>
+                <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
             </FormElement>
             <FormGroup>
                 <FormElement>
@@ -42,14 +42,15 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             </FormGroup>
 
             <FormGroup>
+                <Heading size="small">{t('occupationalInjuryTitle')}</Heading>
+                <BodyLong>
+                    {isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')}
+                </BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'occupationalInjury'}
                         legend={t('occupationalInjury')}
                         vetIkke={true}
-                        description={
-                            isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')
-                        }
                     />
                 </FormElement>
             </FormGroup>
