@@ -564,6 +564,7 @@ export default {
         'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
     'omDenAvdoede.selvstendigNaeringsdrivende.placeholder': 'Samlet årsinntekt før skatt',
     'omDenAvdoede.annenOpptjening.tittel': 'Annet',
+    'omDenAvdoede.doedsfallAarsak.tittel': 'Yrkesskade eller yrkessykdom',
     'omDenAvdoede.doedsfallAarsak': 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
         'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',

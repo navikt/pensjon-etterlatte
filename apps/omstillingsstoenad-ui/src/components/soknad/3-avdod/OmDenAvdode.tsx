@@ -108,12 +108,15 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             maxDate={new Date()}
                         />
                     </SkjemaElement>
+                </SkjemaGruppe>
 
+                <SkjemaGruppe>
+                    <Heading size="small">{t('omDenAvdoede.doedsfallAarsak.tittel')}</Heading>
+                    <BodyLong>{t('omDenAvdoede.doedsfallAarsakHvorfor')}</BodyLong>
                     <SkjemaElement>
                         <RHFSpoersmaalRadio
                             name={'doedsfallAarsak'}
                             legend={t('omDenAvdoede.doedsfallAarsak')}
-                            description={t('omDenAvdoede.doedsfallAarsakHvorfor')}
                             vetIkke
                         />
                     </SkjemaElement>

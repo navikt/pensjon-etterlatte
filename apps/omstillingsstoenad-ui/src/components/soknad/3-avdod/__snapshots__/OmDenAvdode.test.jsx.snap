@@ -1265,6 +1265,20 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </div>
         </section>
       </div>
+    </fieldset>
+    <fieldset
+      class="sc-beqWNU hTYxft"
+    >
+      <h1
+        class="navds-heading navds-heading--small"
+      >
+        omDenAvdoede.doedsfallAarsak.tittel
+      </h1>
+      <p
+        class="navds-body-long navds-body-long--medium"
+      >
+        omDenAvdoede.doedsfallAarsakHvorfor
+      </p>
       <div
         class="sc-hAtFlw bQVbwr"
       >
@@ -1279,12 +1293,6 @@ exports[`Om den avdøde > Snapshot 1`] = `
             >
               omDenAvdoede.doedsfallAarsak
             </legend>
-            <div
-              class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-rl"
-            >
-              omDenAvdoede.doedsfallAarsakHvorfor
-            </div>
             <div
               class="navds-radio-buttons"
             >
