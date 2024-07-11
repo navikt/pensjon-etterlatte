@@ -255,7 +255,9 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 onClick={handleSubmit(addAndClose)}
                                 style={{ minWidth: '80px' }}
                             >
-                                {t('saveButton', { ns: 'btn' })}
+                                {child?.fnrDnr === undefined
+                                    ? t('addButton', { ns: 'btn' })
+                                    : t('saveButton', { ns: 'btn' })}
                             </Button>
                         </NavRow>
                     </ChangeChildPanelContent>

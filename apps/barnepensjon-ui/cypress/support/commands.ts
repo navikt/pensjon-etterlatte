@@ -92,7 +92,7 @@ Cypress.Commands.add('addChild', (gotoNext: boolean = false) => {
     cy.get('#taxWithholdAnswer').find('[type="radio"]').check({ force: true })
     cy.get('.navds-fieldset:contains("skattetrekk")').find('input').last().type('22', { force: true })
 
-    cy.clickBtn(Button.Save)
+    cy.clickBtn(Button.Add)
 
     if (gotoNext) cy.clickBtn(Button.Next)
 })
