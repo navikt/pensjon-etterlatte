@@ -121,7 +121,7 @@ export default function FrontPage() {
                 <>
                     <FormGroup>
                         <Label spacing>{t('guardianApplicantInformationLabel')}</Label>
-                        <BodyLong spacing size={'small'}>
+                        <BodyLong spacing>
                             {t('guardianApplicantInformation')}
                         </BodyLong>
                         <BodyLong>
