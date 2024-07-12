@@ -206,6 +206,8 @@ const frontPage = {
         'I søknaden må du oppgi alle barn og/eller adoptivbarn under 18 år som du har sammen med avdøde.',
     guardianApplicantInformationLabel: 'Jeg søker for ett eller flere barn jeg er verge for',
     guardianApplicantInformation: 'I søknaden må du oppgi alle avdødes barn og/eller adoptivbarn under 20 år.',
+    guardiansMustSendDocumentation:
+        'For at vi skal kunne behandle søknaden om barnepensjon må du ettersende dokumentasjon på barn du er verge for.',
     childApplicantInformation1:
         '<b>Hvis du har mistet en forelder</b>\nNår dødsfallet skyldes en yrkesskade eller yrkessykdom kan du få barnepensjon inntil du blir 21 år hvis du er under utdanning, eller er lærling eller praktikant.',
     childApplicantInformation2:

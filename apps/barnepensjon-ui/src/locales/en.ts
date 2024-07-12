@@ -211,6 +211,8 @@ const frontPage = {
     guardianApplicantInformationLabel: 'I am applying for one or more children who I am the guardian for',
     guardianApplicantInformation:
         "The application must contain the names of all the deceased's children and/or adopted children under 20 years of age.",
+    guardiansMustSendDocumentation:
+        'In order for us to process your children’s pension application, you must send us documentation on the child you are guardian for later.',
     childApplicantInformation1:
         '<b>If you have lost a parent</b> \nWhen the death was due to an occupational injury or occupational illness you are entitled to receive the children’s pension until the age of 21 if you are studying or serving as an apprentice or trainee.',
     childApplicantInformation2:
