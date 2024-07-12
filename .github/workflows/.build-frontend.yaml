@@ -153,7 +153,6 @@ jobs:
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
           build_args: |
            app_name=${{ github.workflow }}
-          dockerfile: apps/etterlatte-node-server/Dockerfile
           docker_context: apps/etterlatte-node-server
           image_suffix: ${{ github.workflow }}
           tag: ${{ env.GITHUB_REF_SLUG }}
