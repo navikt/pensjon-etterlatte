@@ -16,6 +16,7 @@ import ChildInfocard from './ChildInfocard'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
 import { ApplicantRole } from '~types/applicant'
+import FormElement from '~components/common/FormElement'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
@@ -105,9 +106,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
                         <FormGroup>
                             <GuidePanel>
-                                <BodyShort>
-                                    {isGuardian ? t('informationGuardian') : t('information')}
-                                </BodyShort>
+                                <BodyShort>{isGuardian ? t('informationGuardian') : t('information')}</BodyShort>
                             </GuidePanel>
                         </FormGroup>
 
@@ -161,14 +160,21 @@ export default function AboutChildren({ next, prev }: StepProps) {
                 )}
 
                 {activeChildIndex !== undefined && (
-                    <AddChildToForm
-                        save={updateChild}
-                        cancel={cancel}
-                        fnrRegisteredChild={fnrRegisteredChild(activeChildIndex)}
-                        child={fields[activeChildIndex] as IChild}
-                        isChild={isChild}
-                        isGuardian={isGuardian}
-                    />
+                    <>
+                        <FormElement>
+                            <GuidePanel>
+                                <BodyShort>{isGuardian ? t('informationGuardian') : t('information')}</BodyShort>
+                            </GuidePanel>
+                        </FormElement>
+                        <AddChildToForm
+                            save={updateChild}
+                            cancel={cancel}
+                            fnrRegisteredChild={fnrRegisteredChild(activeChildIndex)}
+                            child={fields[activeChildIndex] as IChild}
+                            isChild={isChild}
+                            isGuardian={isGuardian}
+                        />
+                    </>
                 )}
             </FormProvider>
         </>

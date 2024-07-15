@@ -42,7 +42,7 @@ describe('About Children', { testIsolation: false }, () => {
 
         cy.get('#above18Warning').should('exist')
         cy.get('.navds-confirmation-panel').should('not.exist')
-        cy.clickBtn(Button.Save)
+        cy.clickBtn(Button.Add)
     })
 
     it('should only be able to apply for joint children', function () {
@@ -80,7 +80,7 @@ describe('About Children', { testIsolation: false }, () => {
         cy.get('#hasGuardianQuestion').find('[value="NEI"]').check({ force: true })
         cy.get('.navds-confirmation-panel').find('[type="checkbox"]').check()
         cy.get('#accountTypeSelection').should('not.exist')
-        cy.clickBtn(Button.Save)
+        cy.clickBtn(Button.Add)
 
         cy.clickBtn(Button.Next)
         cy.url().should('include', 'skjema/forelder/steg/oppsummering')

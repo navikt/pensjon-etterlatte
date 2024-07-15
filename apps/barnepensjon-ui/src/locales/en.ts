@@ -46,6 +46,7 @@ const btn = {
     backButton: 'Back',
     nextButton: 'Next',
     saveButton: 'Save',
+    addButton: 'Add',
     cancelButton: 'Cancel',
     removeButton: 'Remove',
     deleteButton: 'Delete',

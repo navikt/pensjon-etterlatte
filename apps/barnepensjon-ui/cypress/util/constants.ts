@@ -5,6 +5,7 @@ export enum Button {
     Continue = 'Fortsett',
     StartApplication = 'Start søknad',
     Save = 'Lagre',
+    Add = 'Legg til',
     AddChild = 'Legg til barn',
     Back = 'Tilbake',
     Cancel = 'Avbryt',

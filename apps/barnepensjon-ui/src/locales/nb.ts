@@ -45,6 +45,7 @@ const btn = {
     backButton: 'Tilbake',
     nextButton: 'Neste',
     saveButton: 'Lagre',
+    addButton: 'Legg til',
     cancelButton: 'Avbryt',
     removeButton: 'Fjern',
     deleteButton: 'Slette',
