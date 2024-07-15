@@ -124,6 +124,9 @@ export default function FrontPage() {
                         <BodyLong spacing>
                             {t('guardianApplicantInformation')}
                         </BodyLong>
+                        <BodyLong spacing>
+                            <Trans value={t('guardiansMustSendDocumentation')} />
+                        </BodyLong>
                         <BodyLong>
                             <Trans value={t('fnrOrBirthdateRequired')} />
                         </BodyLong>
