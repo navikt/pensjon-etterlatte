@@ -589,6 +589,7 @@ export default {
         'Enter the deceased’s income from self-employment from the calendar year before their death (optional)',
     'omDenAvdoede.selvstendigNaeringsdrivende.placeholder': 'Total annual income before tax',
     'omDenAvdoede.annenOpptjening.tittel': 'Other',
+    'omDenAvdoede.doedsfallAarsak.tittel': 'Occupational injury or occupational illness',
     'omDenAvdoede.doedsfallAarsak': 'Was the death caused by an occupational injury or occupational illness?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
         "A death caused by an occupational injury or illness approved by NAV may be decisive as to whether you are entitled to a survivor's pension and the size of the pension.",

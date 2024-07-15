@@ -312,6 +312,7 @@ const aboutTheDeceased = {
     incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt frå kalenderåret før dødsfallet (valfri)',
     incomeFromSelfEmploymentBeforeTaxes: 'Samla årsinntekt før skatt',
     hadIncomeFromSelfEmployment: 'Hadde han eller ho næringsinntekt når dødsfallet skjedde?',
+    occupationalInjuryTitle: 'Yrkesskade eller yrkessjukdom',
     occupationalInjury: 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     whyWeAskAboutOccupationalInjury:
         'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV, kan det avgjere om barnet/barna får barnepensjon og kor mykje det/dei kan få.',
