@@ -25,34 +25,34 @@ describe('RichText/PortableText from Sanity mapped to internal type', () => {
 
     it('Punktliste', () => {
         const punktListe = result[2]
-        expectTypeOf(punktListe).toMatchTypeOf<TextBlock[]>()
+        expect(punktListe.style).toEqual("bullet")
 
-        const liEn = punktListe[0]
+        const liEn = punktListe.subBlocks[0]
         expect(liEn.style).toEqual("bullet")
         expect(liEn.textElements[0].text).toEqual("En punktliste")
 
-        const liTo = punktListe[1]
+        const liTo = punktListe.subBlocks[1]
         expect(liTo.style).toEqual("bullet")
         expect(liTo.textElements[0].text).toEqual("To")
 
-        const liTre = punktListe[2]
+        const liTre = punktListe.subBlocks[2]
         expect(liTre.style).toEqual("bullet")
         expect(liTre.textElements[0].text).toEqual("Tre")
     })
 
     it('Nummerert liste', () => {
         const liste = result[5]
-        expectTypeOf(liste).toMatchTypeOf<TextBlock[]>()
+        expect(liste.style).toEqual("number")
 
-        const liEn = liste[0]
+        const liEn = liste.subBlocks[0]
         expect(liEn.style).toEqual("number")
         expect(liEn.textElements[0].text).toEqual("En nummerert liste")
 
-        const liTo = liste[1]
+        const liTo = liste.subBlocks[1]
         expect(liTo.style).toEqual("number")
         expect(liTo.textElements[0].text).toEqual("To")
 
-        const liTre = liste[2]
+        const liTre = liste.subBlocks[2]
         expect(liTre.style).toEqual("number")
         expect(liTre.textElements[0].text).toEqual("Tre")
     })
@@ -78,26 +78,25 @@ describe('RichText/PortableText from Sanity mapped to internal type', () => {
         expect((textBlock as TextBlock).textElements[0].marks[0]).toEqual("link")
     })
 
-
     it('Punktliste med innhold som bold og lenke', () => {
         const punktListe = result[10]
-        expectTypeOf(punktListe).toMatchTypeOf<TextBlock[]>()
+        expect(punktListe.style).toEqual("bullet")
 
-        const liEn = punktListe[0]
+        const liEn = punktListe.subBlocks[0]
         expect(liEn.style).toEqual("bullet")
         expect(liEn.textElements[0].text).toEqual("Punktliste flere nivå")
 
-        const liTo = punktListe[1]
+        const liTo = punktListe.subBlocks[1]
         expect(liTo.style).toEqual("bullet")
         expect(liTo.textElements[0].text).toEqual("Nivå to")
 
-        const liTre = punktListe[2]
+        const liTre = punktListe.subBlocks[2]
         expect(liTre.style).toEqual("bullet")
         expect(liTre.textElements[0].text).toEqual("Tekst med ")
         expect(liTre.textElements[1].text).toEqual("bold i punktliste")
         expect(liTre.textElements[1].marks[0]).toEqual("strong")
 
-        const liFire = punktListe[3]
+        const liFire = punktListe.subBlocks[3]
         expect(liFire.style).toEqual("bullet")
         expect(liFire.textElements[0].text).toEqual("Tekst med ")
         expect(liFire.textElements[1].text).toEqual("lenke")

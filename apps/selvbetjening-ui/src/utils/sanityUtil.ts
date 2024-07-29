@@ -3,12 +3,13 @@ import {PortableTextBlock, PortableTextSpan} from "@portabletext/types";
 export type TextBlock = {
     style: TextStyle,
     href: string | undefined
-    textElements: TextSpan[]
+    textElements: TextElement[]
+    subBlocks: TextBlock[]
 }
 
 type TextStyle = 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'bullet' | 'number'
 
-export type TextSpan = {
+export type TextElement = {
     marks: SpanMarks[],
     text: string
 }
@@ -17,35 +18,48 @@ type SpanMarks = 'strong' | 'link'
 
 
 export const mapPortableTextBlock = (portableBlocks: PortableTextBlock[]) => {
-    let main: (TextBlock | TextBlock[])[] = []
-    let tempList: (TextBlock | TextBlock[])[] = []
+    let textBlocks: TextBlock[] = []
+    let subBlocks: TextBlock[] = []
 
     portableBlocks.forEach((block) => {
         const link = block.markDefs && block.markDefs.find((markDef) => markDef._type === "link")
+
         if (block?.listItem) {
-            tempList.push({
+            subBlocks.push({
                 style: block.listItem,
-                href: link && link['href'],
-                textElements: mapPortableTextSpan(block.children, link?._key)
+                href: link && (link['href'] as string),
+                textElements: mapPortableTextSpan(block.children, link?._key),
+                subBlocks: []
             })
         } else {
-            if (tempList.length > 0) {
-                main.push(tempList)
-                tempList = []
+            if (subBlocks.length > 0) {
+                textBlocks.push({
+                    style: subBlocks[0].style,
+                    href: undefined,
+                    textElements: [],
+                    subBlocks: subBlocks
+                })
+                subBlocks = []
             }
-            main.push({
-                style: block.style,
-                href: link && link['href'],
-                textElements: mapPortableTextSpan(block.children, link?._key)
+            textBlocks.push({
+                style: block.style as TextStyle,
+                href: link && (link['href'] as string),
+                textElements: mapPortableTextSpan(block.children, link?._key),
+                subBlocks: []
             })
         }
     })
 
-    if (tempList.length > 0) {
-        main.push(tempList)
+    if (subBlocks.length > 0) {
+        textBlocks.push({
+            style: subBlocks[0].style,
+            href: undefined,
+            textElements: [],
+            subBlocks: subBlocks
+        })
     }
 
-    return main
+    return textBlocks
 }
 
 const mapPortableTextSpan = (portableTextSpan: PortableTextSpan[], linkId?: string) => {
@@ -53,6 +67,6 @@ const mapPortableTextSpan = (portableTextSpan: PortableTextSpan[], linkId?: stri
         return {
             marks: blockChild.marks.map((mark) => mark === linkId ? 'link' : mark),
             text: blockChild.text
-        }
+        } as TextElement
     })
 }

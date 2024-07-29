@@ -1,5 +1,5 @@
 import {PortableTextBlock} from "@portabletext/react";
-import {mapPortableTextBlock, TextSpan, TextBlock} from "~utils/sanityUtil";
+import {mapPortableTextBlock, TextElement, TextBlock} from "~utils/sanityUtil";
 import {Heading, Link, List} from "@navikt/ds-react";
 import React from "react";
 
@@ -10,7 +10,8 @@ export const AkeslPortableText = (richText: PortableTextBlock[]) => {
         <div>
             {textBlocks.map(textBlock => {
                 // TODO omstrukturere istedenfor å caste?
-                if ('textElements' in textBlock) {
+
+                if (textBlock.subBlocks.length === 0) {
                     return TextBlockToAksel(textBlock)
                 } else {
                     return ListBlockToAksel(textBlock)
@@ -38,11 +39,11 @@ const TextBlockToAksel = (textBlock: TextBlock) => {
     }
 }
 
-const ListBlockToAksel = (textBlocks: TextBlock[]) => {
-    const type = textBlocks[0].style
-    const listElements = textBlocks.map(li => <List.Item>{SpanToAksel(li)}</List.Item>)
+const ListBlockToAksel = (textBlock: TextBlock) => {
+    //const type = textBlock.subBlocks[0].style
+    const listElements = textBlock.subBlocks.map(li => <List.Item>{SpanToAksel(li)}</List.Item>)
 
-    if (type === 'number') {
+    if (textBlock.style === 'number') {
         return <List as={'ol'}>{listElements}</List>
     }
     return <List as={'ul'}>{listElements}</List>
