@@ -8,6 +8,7 @@ import FrontPage from './components/FrontPage'
 import useScrollToTop from './hooks/useScrollToTop'
 import useTranslation from './hooks/useTranslation'
 import { Page } from "@navikt/ds-react";
+import Inntektsjustering from "~components/Inntektsjustering";
 
 const SoeknadWrapper = styled(Page.Block)`
     @media screen and (max-width: 650px) {
@@ -39,6 +40,7 @@ export default function App() {
                 <SoeknadWrapper>
                     <Routes>
                         <Route index element={<FrontPage />} />
+                        <Route path={'/inntektsjustering'} element={<Inntektsjustering />} />
 
                         <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 
