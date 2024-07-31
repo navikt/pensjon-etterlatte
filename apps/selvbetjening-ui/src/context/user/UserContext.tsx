@@ -1,6 +1,6 @@
-import React, { createContext, FC, useContext, useReducer } from 'react'
-import { ActionTypes, User, IBrukerAction, StegProps } from './user'
-import {FCProps} from "~context/ContextProviders";
+import React, {createContext, FC, useContext, useReducer} from 'react'
+import {ActionTypes, User, IBrukerAction, StegProps} from './user'
+import {FCProps} from '../../types/FCProps'
 
 const initialState: User = {}
 
@@ -13,21 +13,22 @@ const reducer = (state: User, action: IBrukerAction) => {
             return action.payload as User
         }
         default:
-            return { ...state }
+            return {...state}
     }
 }
 
 const UserContext = createContext<StegProps>({
     state: initialState,
-    dispatch: () => {},
+    dispatch: () => {
+    },
 })
 
 const useUserContext = () => useContext(UserContext)
 
-const UserProvider: FC<FCProps> = ({ children }) => {
+const UserProvider: FC<FCProps> = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    return <UserContext.Provider value={{ state, dispatch }}>{children}</UserContext.Provider>
+    return <UserContext.Provider value={{state, dispatch}}>{children}</UserContext.Provider>
 }
 
-export { useUserContext, UserProvider }
+export {useUserContext, UserProvider}

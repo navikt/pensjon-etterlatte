@@ -1,7 +1,7 @@
 import useTranslation from '../hooks/useTranslation'
 import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 import FormGroup from "~common/FormGroup";
-import {FormProvider, useForm} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {Button, Checkbox, Heading, Label, TextField} from "@navikt/ds-react";
 import styled from "styled-components";
 import {useState} from "react";

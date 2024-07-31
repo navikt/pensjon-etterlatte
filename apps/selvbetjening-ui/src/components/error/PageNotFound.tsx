@@ -1,12 +1,9 @@
-import useTranslation from '../../hooks/useTranslation'
 import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 
 export default function PageNotFound() {
     const location = useLocation()
-
-    const { t } = useTranslation('pageNotFound')
 
     const { logEvent } = useAmplitude()
 
