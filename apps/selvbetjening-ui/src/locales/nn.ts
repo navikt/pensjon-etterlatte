@@ -65,6 +65,13 @@ const systemUnavailable = {
     'description.english.del2': ' later.',
 }
 
+const inntektsjustering = {
+    arbeidsinntekt: "Arbeidsinntekt",
+    naeringsinntekt: "Næringsinntekt",
+    norge: "Norge",
+    utland: "Utland",
+}
+
 const texts: Record<TNamespace, Record<TKey, Translation>> = {
     app,
     aboutYou,
@@ -76,6 +83,7 @@ const texts: Record<TNamespace, Record<TKey, Translation>> = {
     radiobuttons,
     pageNotFound,
     systemUnavailable,
+    inntektsjustering,
 }
 
 export default texts

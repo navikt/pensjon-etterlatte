@@ -21,6 +21,7 @@ export type Namespace =
     | 'yourSituation'
     | 'continueApplicationModal'
     | 'invalidApplicant'
+    | 'inntektsjustering'
 
 export type TNamespace = Readonly<NonNullable<Namespace>>
 export type Translation = Readonly<NonNullable<string>>

@@ -14,7 +14,7 @@ interface IInntektsjustering {
 }
 
 export default function Inntektsjustering() {
-    const {t} = useTranslation('frontPage')
+    const {t} = useTranslation('inntektsjustering')
     const {logEvent} = useAmplitude()
 
     logEvent(LogEvents.PAGE_CHANGE)
@@ -53,12 +53,12 @@ export default function Inntektsjustering() {
                     value={true}
                     onClick={() => setValgtArbeidsinntekt(!valgtArbeidsinntekt)}
                     checked={valgtArbeidsinntekt}
-                >Arbeidsinntekt</Checkbox>
+                >{t('arbeidsinntekt')}</Checkbox>
                 <Checkbox
                     value={true}
                     onClick={() => setValgtNaeringsinntekt(!valgtNaeringsinntekt)}
                     checked={valgtNaeringsinntekt}
-                >Næringsinntekt</Checkbox>
+                >{t('naeringsinntekt')}</Checkbox>
             </InntektValg>
             <InntektValg>
                 <Label>Hvor har du inntekten fra?</Label>
@@ -66,12 +66,12 @@ export default function Inntektsjustering() {
                     value={true}
                     onClick={() => setValgtNorge(!valgtNorge)}
                     checked={valgtNorge}
-                >Norge</Checkbox>
+                >{t('norge')}</Checkbox>
                 <Checkbox
                     value={true}
                     onClick={() => setValgtUtland(!valgtUtlnad)}
                     checked={valgtUtlnad}
-                >Utland</Checkbox>
+                >{t('utland')}</Checkbox>
             </InntektValg>
             <form>
                 {(valgtArbeidsinntekt && valgtNorge) &&
