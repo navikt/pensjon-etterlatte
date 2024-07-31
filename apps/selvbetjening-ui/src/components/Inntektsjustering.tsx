@@ -2,8 +2,9 @@ import useTranslation from '../hooks/useTranslation'
 import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 import FormGroup from "~common/FormGroup";
 import {FormProvider, useForm} from "react-hook-form";
-import {Button, Heading, TextField} from "@navikt/ds-react";
+import {Button, Checkbox, Heading, Label, TextField} from "@navikt/ds-react";
 import styled from "styled-components";
+import {useState} from "react";
 
 interface IInntektsjustering {
     arbeidsinntekt?: number
@@ -18,6 +19,10 @@ export default function Inntektsjustering() {
 
     logEvent(LogEvents.PAGE_CHANGE)
 
+    const [valgtArbeidsinntekt, setValgtArbeidsinntekt] = useState(false)
+    const [valgtNaeringsinntekt, setValgtNaeringsinntekt] = useState(false)
+    const [valgtNorge, setValgtNorge] = useState(false)
+    const [valgtUtlnad, setValgtUtland] = useState(false)
 
     const methods = useForm<IInntektsjustering>({
         defaultValues: {},
@@ -42,79 +47,113 @@ export default function Inntektsjustering() {
                 <p>Paragraf 1 yada yada</p>
                 <p>Paragraf 2 yada yada</p>
             </Infotekst>
+            <InntektValg>
+                <Label>Hvilken type inntekt har du?</Label>
+                <Checkbox
+                    value={true}
+                    onClick={() => setValgtArbeidsinntekt(!valgtArbeidsinntekt)}
+                    checked={valgtArbeidsinntekt}
+                >Arbeidsinntekt</Checkbox>
+                <Checkbox
+                    value={true}
+                    onClick={() => setValgtNaeringsinntekt(!valgtNaeringsinntekt)}
+                    checked={valgtNaeringsinntekt}
+                >Næringsinntekt</Checkbox>
+            </InntektValg>
+            <InntektValg>
+                <Label>Hvor har du inntekten fra?</Label>
+                <Checkbox
+                    value={true}
+                    onClick={() => setValgtNorge(!valgtNorge)}
+                    checked={valgtNorge}
+                >Norge</Checkbox>
+                <Checkbox
+                    value={true}
+                    onClick={() => setValgtUtland(!valgtUtlnad)}
+                    checked={valgtUtlnad}
+                >Utland</Checkbox>
+            </InntektValg>
             <form>
-                <FormGroup>
-                    <Heading spacing size="small" level="3">
-                        Arbeidsinntekt Norge
-                    </Heading>
-                    <p>Beskrivelse..</p>
-                    <TekstFelt
-                        {...register('arbeidsinntekt', {
-                            required: true
-                        })}
-                        label={"Arbeidsinntekt.."}
-                        description={"Beskrivelse kommer.."}
-                        size="medium"
-                        type="tel"
-                        inputMode="numeric"
-                        disabled={false}
-                        error={errors.arbeidsinntekt?.message}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Heading spacing size="small" level="3">
-                        Arbeidsinntekt Utland
-                    </Heading>
-                    <p>Beskrivelse..</p>
-                    <TekstFelt
-                        {...register('arbeidsinntektUtland', {
-                            required: true
-                        })}
-                        label={"Arbeidsinntekt utland.."}
-                        description={"Beskrivelse kommer.."}
-                        size="medium"
-                        type="tel"
-                        inputMode="numeric"
-                        disabled={false}
-                        error={errors.arbeidsinntektUtland?.message}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Heading spacing size="small" level="3">
-                        Næringsinntekt Norge
-                    </Heading>
-                    <p>Beskrivelse..</p>
-                    <TekstFelt
-                        {...register('naeringsinntekt', {
-                            required: true
-                        })}
-                        label={"Næringsinntekt.."}
-                        description={"Beskrivelse kommer.."}
-                        size="medium"
-                        type="tel"
-                        inputMode="numeric"
-                        disabled={false}
-                        error={errors.naeringsinntekt?.message}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Heading spacing size="small" level="3">
-                        Næringsinntekt Utland
-                    </Heading>
-                    <p>Beskrivelse..</p>
-                    <TekstFelt
-                        {...register('naeringsinntektUtland', {
-                            required: true
-                        })}
-                        label={"Næringsinntekt utland.."}
-                        description={"Beskrivelse kommer.."}
-                        size="medium"
-                        type="tel"
-                        inputMode="numeric"
-                        disabled={false}
-                        error={errors.naeringsinntektUtland?.message}
-                    />
-                </FormGroup>
+                {(valgtArbeidsinntekt && valgtNorge) &&
+                    < FormGroup>
+                        < Heading spacing size="small" level="3">
+                            Arbeidsinntekt Norge
+                        </Heading>
+                        <p>Beskrivelse..</p>
+                        <TekstFelt
+                            {...register('arbeidsinntekt', {
+                                required: true
+                            })}
+                            label={"Arbeidsinntekt.."}
+                            description={"Beskrivelse kommer.."}
+                            size="medium"
+                            type="tel"
+                            inputMode="numeric"
+                            disabled={false}
+                            error={errors.arbeidsinntekt?.message}
+                        />
+                    </FormGroup>
+                }
+                {(valgtArbeidsinntekt && valgtUtlnad) &&
+                    <FormGroup>
+                        <Heading spacing size="small" level="3">
+                            Arbeidsinntekt Utland
+                        </Heading>
+                        <p>Beskrivelse..</p>
+                        <TekstFelt
+                            {...register('arbeidsinntektUtland', {
+                                required: true
+                            })}
+                            label={"Arbeidsinntekt utland.."}
+                            description={"Beskrivelse kommer.."}
+                            size="medium"
+                            type="tel"
+                            inputMode="numeric"
+                            disabled={false}
+                            error={errors.arbeidsinntektUtland?.message}
+                        />
+                    </FormGroup>
+                }
+                {(valgtNaeringsinntekt && valgtNorge) &&
+                    <FormGroup>
+                        <Heading spacing size="small" level="3">
+                            Næringsinntekt Norge
+                        </Heading>
+                        <p>Beskrivelse..</p>
+                        <TekstFelt
+                            {...register('naeringsinntekt', {
+                                required: true
+                            })}
+                            label={"Næringsinntekt.."}
+                            description={"Beskrivelse kommer.."}
+                            size="medium"
+                            type="tel"
+                            inputMode="numeric"
+                            disabled={false}
+                            error={errors.naeringsinntekt?.message}
+                        />
+                    </FormGroup>
+                }
+                {(valgtNaeringsinntekt && valgtUtlnad) &&
+                    <FormGroup>
+                        <Heading spacing size="small" level="3">
+                            Næringsinntekt Utland
+                        </Heading>
+                        <p>Beskrivelse..</p>
+                        <TekstFelt
+                            {...register('naeringsinntektUtland', {
+                                required: true
+                            })}
+                            label={"Næringsinntekt utland.."}
+                            description={"Beskrivelse kommer.."}
+                            size="medium"
+                            type="tel"
+                            inputMode="numeric"
+                            disabled={false}
+                            error={errors.naeringsinntektUtland?.message}
+                        />
+                    </FormGroup>
+                }
                 <Button size="small" loading={false} onClick={handleSubmit(onSubmit)}>
                     Send inn
                 </Button>
@@ -129,4 +168,8 @@ const TekstFelt = styled(TextField)`
 
 const Infotekst = styled.div`
     margin-bottom: 4em;
+`
+
+const InntektValg = styled.div`
+    margin-bottom: 2em;
 `
