@@ -76,6 +76,8 @@ updates:
           - "web-vitals"
           - "@types/amplitude-js"
           - "amplitude-js"
+          - "vite"
+          - "@vitest/*"
       node-server:
         patterns:
           - "@navikt/nav-dekoratoren-moduler"
