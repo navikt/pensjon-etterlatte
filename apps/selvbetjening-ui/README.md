@@ -24,7 +24,7 @@ Installere prosjektet:\
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start`
 
-Åpne [http://localhost:3000/barnepensjon/soknad](http://localhost:3000/barnepensjon/soknad) i nettleseren.
+Åpne [http://localhost:3000/selvbetjening](http://localhost:3000/selvbetjening) i nettleseren.
 
 
 ### Testing
@@ -47,7 +47,7 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
-[https://etterlatte.intern.dev.nav.no/barnepensjon/soknad](https://etterlatte.intern.dev.nav.no/barnepensjon/soknad)
+[https://etterlatte.intern.dev.nav.no/selvbetjening](https://etterlatte.intern.dev.nav.no/selvbetjening)
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 

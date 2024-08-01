@@ -1,4 +1,4 @@
-export const basePath = '/barnepensjon/soknad'
+export const basePath = '/selvbetjening'
 
 export enum Button {
     Next = 'Neste',

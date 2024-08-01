@@ -10,7 +10,7 @@ import useTranslation from './hooks/useTranslation'
 import { Page } from "@navikt/ds-react";
 import Inntektsjustering from "~components/Inntektsjustering";
 
-const SoeknadWrapper = styled(Page.Block)`
+const SelvbetjeningWrapper = styled(Page.Block)`
     @media screen and (max-width: 650px) {
         padding: 1rem;
         margin: 0 auto;
@@ -37,7 +37,7 @@ export default function App() {
             <Banner tekst={t('applicationTitle')} />
 
             <Page>
-                <SoeknadWrapper>
+                <SelvbetjeningWrapper>
                     <Routes>
                         <Route index element={<FrontPage />} />
                         <Route path={'/inntektsjustering'} element={<Inntektsjustering />} />
@@ -46,7 +46,7 @@ export default function App() {
 
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>
-                </SoeknadWrapper>
+                </SelvbetjeningWrapper>
             </Page>
         </>
     )
