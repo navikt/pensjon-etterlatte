@@ -1,0 +1,90 @@
+{
+  "name": "selvbetjening-ui-client",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "/selvbetjening",
+  "type": "module",
+  "dependencies": {
+    "@navikt/aksel-icons": "^6.11.0",
+    "@navikt/ds-css": "~6.11.0",
+    "@navikt/ds-react": "~6.11.0",
+    "@navikt/nav-dekoratoren-moduler": "^1.6.9",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "amplitude-js": "^8.21.9",
+    "axios": "1.6.8",
+    "axios-retry": "^4.1.0",
+    "react": "^18.3.1",
+    "react-cookie": "^7.1.4",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.0",
+    "react-router-dom": "^6.23.1",
+    "styled-components": "^6.1.9",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.12",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.6.0",
+    "web-vitals": "^3.5.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.7",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/amplitude-js": "^8.16.4",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.8",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "cypress": "^13.10.0",
+    "eslint": "^8.56.0",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-jest": "^28.5.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.2",
+    "license-checker-rseidelsohn": "^4.3.0",
+    "prettier": "^3.3.0"
+  },
+  "scripts": {
+    "start": "vite --base /selvbetjening",
+    "build": "tsc && eslint src --ext .ts,.tsx && vite build --outDir build --base /selvbetjening && yarn lisenssjekk",
+    "preview": "vite preview --port 5173",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest",
+    "cy:test": "TZ=Europe/Oslo cypress run",
+    "cy:open": "TZ=Europe/Oslo cypress open",
+    "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages selvbetjening-ui-client@0.1.0 --summary"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true
+  },
+  "resolutions": {
+    "**/braces": "3.0.3"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
