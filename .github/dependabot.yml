@@ -57,6 +57,8 @@ updates:
           - "@types/jest"
           - "license-checker-rseidelsohn"
           - "ts-node-dev"
+          - "vitest"
+          - "@vitest/*"
       react:
         patterns:
           - "react*"
@@ -77,7 +79,6 @@ updates:
           - "@types/amplitude-js"
           - "amplitude-js"
           - "vite"
-          - "@vitest/*"
       node-server:
         patterns:
           - "@navikt/nav-dekoratoren-moduler"
