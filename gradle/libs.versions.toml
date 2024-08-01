@@ -1,14 +1,14 @@
 [plugins]
-cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.9.2" }
+cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.10.0" }
 license = { id = 'com.github.jk1.dependency-license-report', version = '2.8' }
 
 [versions]
 token-version = "5.0.1"
 ktor-version = "2.3.12"
-jackson-version = "2.17.1"
+jackson-version = "2.17.2"
 jupiter-version = "5.10.3"
-testcontainers-version = "1.19.8"
-flyway-version = "10.15.0"
+testcontainers-version = "1.20.1"
+flyway-version = "10.17.0"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024041714471713358051.71746f05c18e"}
@@ -47,11 +47,11 @@ jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.re
 
 logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.13"}
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.6"}
-logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "7.4"}
+logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0"}
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus-simpleclient", version = "1.13.1"}
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus-simpleclient", version = "1.13.2"}
 
-mockk = { module = "io.mockk:mockk", version = "1.13.11"}
+mockk = { module = "io.mockk:mockk", version = "1.13.12"}
 
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.9.1"}
 
