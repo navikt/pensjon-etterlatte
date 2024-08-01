@@ -19,8 +19,6 @@ navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", 
 etterlatte-common = { module = "pensjon-etterlatte-libs:common", version = "2024.07.23-11.12.ae810566ac12"}
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.8.1"}
 
-ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version"}
-ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging", version.ref = "ktor-version"}
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version"}
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor-version"}
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version"}
@@ -29,9 +27,7 @@ ktor-client-cio-jvm = { module = "io.ktor:ktor-client-cio-jvm", version.ref = "k
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor-version"}
 ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer", version.ref = "ktor-version"}
 ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version"}
-ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version"}
 ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-version"}
-ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor-version"}
 
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version"}
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version"}

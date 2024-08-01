@@ -1,36 +1,21 @@
 import org.gradle.accessors.dm.LibrariesForLibs
-import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 val libs = the<LibrariesForLibs>()
 
 plugins {
     kotlin("jvm")
+    id("etterlatte.libs")
     application
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        url = uri("https://maven.pkg.github.com/navikt/pensjon-etterlatte-libs")
-        credentials {
-            username = "token"
-            password = System.getenv("GITHUB_TOKEN")
-        }
-    }
-}
-
 dependencies {
-    implementation(kotlin("stdlib"))
-
     // Logging
     implementation(libs.logging.slf4j.api)
     implementation(libs.logging.logback.classic)
     implementation(libs.logging.logstash.logback.encoder)
 
     // JUnit Testing
-    testImplementation(libs.jupiter.api)
     testImplementation(libs.jupiter.params)
-    testRuntimeOnly(libs.jupiter.engine)
 }
 
 tasks {
@@ -50,13 +35,6 @@ tasks {
                 if (!file.exists())
                     it.copyTo(file)
             }
-        }
-    }
-
-    tasks.withType<Test> {
-        useJUnitPlatform()
-        testLogging {
-            events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
         }
     }
 }
