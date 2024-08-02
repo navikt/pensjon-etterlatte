@@ -1,42 +1,62 @@
 import useTranslation from '../hooks/useTranslation'
 import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 import FormGroup from "~common/FormGroup";
-import {useForm} from "react-hook-form";
-import {Button, Checkbox, Heading, Label, TextField} from "@navikt/ds-react";
+import {FormProvider, useForm} from "react-hook-form";
+import {
+    Button,
+    Heading,
+    Label,
+    TextField
+} from "@navikt/ds-react";
 import styled from "styled-components";
-import {useState} from "react";
+import {saveInntektsjustering} from "~api/api";
+import React from "react";
+import {IInntektsjustering} from "~inntektsjustering/inntektsjustering";
+import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 
-interface IInntektsjustering {
+interface IInntektsjusteringForm {
+    skalHaArbeidsinntekt: boolean
+    skalHaNaeringsinntekt: boolean
+    skalHaInntektNorge: boolean
+    skalHaInntektUtland: boolean
+
     arbeidsinntekt?: number
     naeringsinntekt?: number
     arbeidsinntektUtland?: number
     naeringsinntektUtland?: number
 }
 
-export default function Inntektsjustering() {
+export default function InntektsjusteringForm() {
     const {t} = useTranslation('inntektsjustering')
     const {logEvent} = useAmplitude()
 
     logEvent(LogEvents.PAGE_CHANGE)
 
-    const [valgtArbeidsinntekt, setValgtArbeidsinntekt] = useState(false)
-    const [valgtNaeringsinntekt, setValgtNaeringsinntekt] = useState(false)
-    const [valgtNorge, setValgtNorge] = useState(false)
-    const [valgtUtlnad, setValgtUtland] = useState(false)
-
-    const methods = useForm<IInntektsjustering>({
+    const methods = useForm<IInntektsjusteringForm>({
         defaultValues: {},
         mode: 'onBlur',
     })
     const {
         handleSubmit,
         register,
+        watch,
         formState: {errors},
     } = methods
 
-    const onSubmit = (inntektsjustering: IInntektsjustering) => {
-        console.log(inntektsjustering)
+    const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
+        const dto: IInntektsjustering = {
+            arbeidsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
+            arbeidsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
+            naeringsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
+            naeringsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
+        }
+        saveInntektsjustering(dto)
     }
+
+    const valgtArbeidsinntekt = watch('skalHaArbeidsinntekt', false)
+    const valgtNaeringsinntekt = watch('skalHaNaeringsinntekt', false)
+    const valgtNorge = watch('skalHaInntektNorge', false)
+    const valgtUtland = watch('skalHaInntektUtland', false)
 
     return (
         <div>
@@ -47,34 +67,51 @@ export default function Inntektsjustering() {
                 <p>Paragraf 1 yada yada</p>
                 <p>Paragraf 2 yada yada</p>
             </Infotekst>
-            <InntektValg>
-                <Label>Hvilken type inntekt har du?</Label>
-                <Checkbox
-                    value={true}
-                    onClick={() => setValgtArbeidsinntekt(!valgtArbeidsinntekt)}
-                    checked={valgtArbeidsinntekt}
-                >{t('arbeidsinntekt')}</Checkbox>
-                <Checkbox
-                    value={true}
-                    onClick={() => setValgtNaeringsinntekt(!valgtNaeringsinntekt)}
-                    checked={valgtNaeringsinntekt}
-                >{t('naeringsinntekt')}</Checkbox>
-            </InntektValg>
-            <InntektValg>
-                <Label>Hvor har du inntekten fra?</Label>
-                <Checkbox
-                    value={true}
-                    onClick={() => setValgtNorge(!valgtNorge)}
-                    checked={valgtNorge}
-                >{t('norge')}</Checkbox>
-                <Checkbox
-                    value={true}
-                    onClick={() => setValgtUtland(!valgtUtlnad)}
-                    checked={valgtUtlnad}
-                >{t('utland')}</Checkbox>
-            </InntektValg>
-            <form>
-                {(valgtArbeidsinntekt && valgtNorge) &&
+
+            <FormProvider {...methods}>
+                <InntektValg>
+                    <Label>Hvilken type inntekt har du?</Label>
+                    <RHFCheckbox
+                        name={'skalHaArbeidsinntekt'}
+                        checkbox={{
+                            children: t('arbeidsinntekt'),
+                            value: false
+                        }}
+                        required={false}
+                        legend={''}
+                    />
+                    <RHFCheckbox
+                        name={'skalHaNaeringsinntekt'}
+                        checkbox={{
+                            children: t('naeringsinntekt'),
+                            value: false
+                        }}
+                        required={false}
+                        legend={''}
+                    />
+                </InntektValg>
+                <InntektValg>
+                    <Label>Hvor har du inntekten fra?</Label>
+                    <RHFCheckbox
+                        name={'skalHaInntektNorge'}
+                        checkbox={{
+                            children: t('norge'),
+                            value: false
+                        }}
+                        required={false}
+                        legend={''}
+                    />
+                    <RHFCheckbox
+                        name={'skalHaInntektUtland'}
+                        checkbox={{
+                            children: t('utland'),
+                            value: false
+                        }}
+                        required={false}
+                        legend={''}
+                    />
+                </InntektValg>
+                {valgtArbeidsinntekt && valgtNorge &&
                     < FormGroup>
                         < Heading spacing size="small" level="3">
                             Arbeidsinntekt Norge
@@ -94,7 +131,7 @@ export default function Inntektsjustering() {
                         />
                     </FormGroup>
                 }
-                {(valgtArbeidsinntekt && valgtUtlnad) &&
+                {valgtArbeidsinntekt && valgtUtland &&
                     <FormGroup>
                         <Heading spacing size="small" level="3">
                             Arbeidsinntekt Utland
@@ -114,7 +151,7 @@ export default function Inntektsjustering() {
                         />
                     </FormGroup>
                 }
-                {(valgtNaeringsinntekt && valgtNorge) &&
+                {valgtNaeringsinntekt && valgtNorge &&
                     <FormGroup>
                         <Heading spacing size="small" level="3">
                             Næringsinntekt Norge
@@ -134,7 +171,7 @@ export default function Inntektsjustering() {
                         />
                     </FormGroup>
                 }
-                {(valgtNaeringsinntekt && valgtUtlnad) &&
+                {valgtNaeringsinntekt && valgtUtland &&
                     <FormGroup>
                         <Heading spacing size="small" level="3">
                             Næringsinntekt Utland
@@ -157,7 +194,7 @@ export default function Inntektsjustering() {
                 <Button size="small" loading={false} onClick={handleSubmit(onSubmit)}>
                     Send inn
                 </Button>
-            </form>
+            </FormProvider>
         </div>
     )
 }
