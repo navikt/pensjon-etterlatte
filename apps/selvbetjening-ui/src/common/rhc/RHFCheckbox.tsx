@@ -1,4 +1,4 @@
-import {Controller, FieldPath, FieldValues, useFormContext} from "react-hook-form";
+import {Controller, FieldError, FieldPath, FieldValues, useFormContext} from "react-hook-form";
 import {
     Checkbox,
     CheckboxGroup,
@@ -7,6 +7,8 @@ import {
 } from "@navikt/ds-react";
 import useTranslation from "~hooks/useTranslation";
 import React from "react";
+import {get} from "lodash";
+import {getErrorKey} from "~utils/errors";
 
 
 interface RHFCheckboksProps extends Omit<CheckboxGroupProps, 'onChange' | 'children'> {
@@ -24,10 +26,8 @@ export function RHFCheckbox({name, checkbox, required, ...rest}: RHFCheckboksPro
         formState: {errors},
     } = useFormContext()
 
-    //const error: FieldError = get(errors, name) as FieldError
-    //const feilmelding = !!error ? t(getErrorKey(error)) : undefined
-
-    console.log(checkbox)
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -36,7 +36,7 @@ export function RHFCheckbox({name, checkbox, required, ...rest}: RHFCheckboksPro
                 control={control}
                 rules={{required}}
                 render={({field: {value, onChange}}) => (
-                    <CheckboxGroup {...rest} error={null} defaultValue={[value]}>
+                    <CheckboxGroup {...rest} error={feilmelding} defaultValue={[value]}>
                         <Checkbox
                             key={checkbox.value as string}
                             value={value || false}

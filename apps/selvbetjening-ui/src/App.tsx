@@ -8,7 +8,7 @@ import FrontPage from './components/FrontPage'
 import useScrollToTop from './hooks/useScrollToTop'
 import useTranslation from './hooks/useTranslation'
 import { Page } from "@navikt/ds-react";
-import InntektsjusteringForm from "~inntektsjustering/InntektsjusteringForm";
+import InntektsjusteringForm from "./inntektsjustering/InntektsjusteringForm";
 
 const SelvbetjeningWrapper = styled(Page.Block)`
     @media screen and (max-width: 650px) {

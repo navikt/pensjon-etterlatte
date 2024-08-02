@@ -1,5 +1,5 @@
 import {axiosInstance as api, isDev} from './axios'
-import {IInntektsjustering} from "~inntektsjustering/Inntektsjustering";
+import {IInntektsjustering} from "../inntektsjustering/inntektsjustering";
 
 
 export const getLoggedInUser = async () =>
