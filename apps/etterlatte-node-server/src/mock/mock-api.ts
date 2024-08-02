@@ -1,10 +1,10 @@
 import parser from 'body-parser'
-import { NextFunction, Request, Response } from 'express'
+import {NextFunction, Request, Response} from 'express'
 import NodeCache from 'node-cache'
 import config from '../config'
 import mockLand from './landMock'
 import mockValutaer from './valutaMock'
-import { STOR_SNERK } from './mock-user'
+import {STOR_SNERK} from './mock-user'
 
 const cache = new NodeCache()
 
@@ -43,7 +43,7 @@ export const mockApi = (app: any) => {
         const soeknad = cache.get(innloggetBruker.foedselsnummer)
 
         if (!soeknad) res.sendStatus(404)
-        else res.json({ payload: soeknad })
+        else res.json({payload: soeknad})
     })
 
     app.post(`${config.app.basePath}/api/api/kladd`, (req: Request, res: Response) => {
@@ -78,3 +78,46 @@ export const mockApi = (app: any) => {
         res.sendStatus(200)
     })
 }
+export const mockSelvbetjeningApi = (app: any) => {
+    const innloggetBruker = STOR_SNERK
+
+    app.use(parser.json())
+    app.use(function (req: Request, res: Response, next: NextFunction) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.setHeader('Access-Control-Allow-Credentials', 'true')
+
+        next()
+    })
+
+    app.get(`${config.app.basePath}/api/person/innlogget`, (req: Request, res: Response) =>
+        setTimeout(() => res.json(innloggetBruker), 1000)
+    )
+
+    app.get(`${config.app.basePath}/api/inntektsjustering`, (req: Request, res: Response) => {
+        const inntektsjustering = cache.get(innloggetBruker.foedselsnummer)
+
+        if (!inntektsjustering) res.sendStatus(404)
+        else res.json({payload: inntektsjustering})
+    })
+
+    app.post(`${config.app.basePath}/api/inntektsjustering`, (req: Request, res: Response) => {
+        const inntektsjustering = JSON.stringify(req.body)
+
+        cache.set(innloggetBruker.foedselsnummer, inntektsjustering)
+
+        res.sendStatus(200)
+    })
+
+        app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
+            const date = new Date()
+            date.setHours(date.getHours() + 1)
+            res.send(`${date.getTime()}`)
+        })
+
+        app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
+            res.sendStatus(200)
+        })
+
+    }
