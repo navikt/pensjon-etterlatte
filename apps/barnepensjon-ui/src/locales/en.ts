@@ -446,8 +446,7 @@ const error = {
     'address.required': 'Enter address',
     'phoneNumber.minLength': 'Inadequate number of digits in telephone number',
     'phoneNumber.pattern': 'Telephone number has invalid format',
-    'children.required':
-        'To submit your application, you must apply for a children’s pension for at least one child. You can make changes to your application by clicking "change" for the child you are applying for.',
+    'children.required': 'To submit your application, you must apply for a children’s pension for at least one child.',
     'children.validate':
         'To submit your application, you must apply for a children’s pension for at least one child. You can make changes to your application by clicking "change" for the child you are applying for.',
     'memberFolketrygdenAbroad.required':
