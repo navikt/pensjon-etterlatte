@@ -15,7 +15,7 @@ describe('About Children', { testIsolation: false }, () => {
         cy.clickBtn(Button.Next)
         cy.get('.navds-error-message').should(
             'have.text',
-            'For å sende inn søknaden må du søke om barnepensjon for minst ett barn. Du kan endre utfyllingen ved å klikke på "endre" ved det barnet du ønsker å søke for.'
+            'For å sende inn søknaden må du søke om barnepensjon for minst ett barn.'
         )
     })
 
