@@ -21,6 +21,8 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
@@ -56,7 +58,6 @@ fun appIsInGCP(): Boolean =
 
 fun main() {
 	val datasourceBuilder = DataSourceBuilder(System.getenv())
-	//val db = PostgresSoeknadRepository.using(datasourceBuilder.dataSource) TODO inntektsjustering
 
 	val env =
 		System.getenv().toMutableMap().apply {
@@ -68,14 +69,17 @@ fun main() {
 		} else {
 			TestProdusent()
 		}
-	//val utkastPubliserer = UtkastPubliserer(minsideProducer, env.getValue("SELVBETJENING_DOMAIN_URL")) TODO inntektsjustering
+
+	val inntektsjusteringService = InntektsjusteringService(InntektsjusteringRepository(datasourceBuilder.dataSource))
 
 	val rapidApplication =
 		RapidApplication
 			.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
-			.withKtorModule { apiModule {
-				inntektsjustering()
-			} }
+			.withKtorModule {
+				apiModule {
+					inntektsjustering(inntektsjusteringService)
+				}
+			}
 			.build {
 				datasourceBuilder.migrate()
 			}
