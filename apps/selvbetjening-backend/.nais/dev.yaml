@@ -48,11 +48,7 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
-    - name: KAFKA_UTKAST_TOPIC
-      value: min-side.aapen-utkast-v1
-    - name: SELVBETJENING_DOMAIN_URL
-      value: https://etterlatte.intern.dev.nav.no
   accessPolicy:
     inbound:
       rules:
-        - application: selvbetjening-api
+        - application: selvbetjening-ui
