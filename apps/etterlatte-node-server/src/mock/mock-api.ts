@@ -78,6 +78,7 @@ export const mockApi = (app: any) => {
         res.sendStatus(200)
     })
 }
+
 export const mockSelvbetjeningApi = (app: any) => {
     const innloggetBruker = STOR_SNERK
 
@@ -110,14 +111,14 @@ export const mockSelvbetjeningApi = (app: any) => {
         res.sendStatus(200)
     })
 
-        app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
-            const date = new Date()
-            date.setHours(date.getHours() + 1)
-            res.send(`${date.getTime()}`)
-        })
+    app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
+        const date = new Date()
+        date.setHours(date.getHours() + 1)
+        res.send(`${date.getTime()}`)
+    })
 
-        app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
-            res.sendStatus(200)
-        })
+    app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
+        res.sendStatus(200)
+    })
 
-    }
+}
