@@ -434,8 +434,7 @@ const error = {
     'address.required': 'Oppgi adresse',
     'phoneNumber.minLength': 'Telefonnummer er for kort',
     'phoneNumber.pattern': 'Telefonnummer har ugyldig format',
-    'children.required':
-        'For å sende inn søknaden må du søkje om barnepensjon for minst eitt barn. Du kan endre utfyllinga ved å klikke på «endre» ved sida av barnet du ønskjer å søkje for.',
+    'children.required': 'For å sende inn søknaden må du søkje om barnepensjon for minst eitt barn.',
     'children.validate':
         'For å sende inn søknaden må du søkje om barnepensjon for minst eitt barn. Du kan endre utfyllinga ved å klikke på «endre» ved sida av barnet du ønskjer å søkje for.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg',
