@@ -21,6 +21,7 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import no.nav.etterlatte.inntektsjustering.inntektsjustering
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
@@ -73,7 +74,7 @@ fun main() {
 		RapidApplication
 			.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
 			.withKtorModule { apiModule {
-				// TODO routes..
+				inntektsjustering()
 			} }
 			.build {
 				datasourceBuilder.migrate()
