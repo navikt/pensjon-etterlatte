@@ -1,14 +1,16 @@
 package no.nav.etterlatte.inntektsjustering
 
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+
 class InntektsjusteringService(
 	val inntektsjusteringRepository: InntektsjusteringRepository
 ) {
 
-	fun hentInntektsjustering(fnr: String): Inntektsjustering? {
+	fun hentInntektsjustering(fnr: Foedselsnummer): Inntektsjustering? {
 		return inntektsjusteringRepository.hentInntektsjustering(fnr)
 	}
 
-	fun lagreInntektsjustering(fnr: String, request: Inntektsjustering) {
+	fun lagreInntektsjustering(fnr: Foedselsnummer, request: Inntektsjustering) {
 		inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
 	}
 

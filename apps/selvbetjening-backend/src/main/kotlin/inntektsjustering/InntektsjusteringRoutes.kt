@@ -8,13 +8,14 @@ import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 import io.ktor.server.routing.post
 import io.ktor.server.routing.route
+import no.nav.etterlatte.fnrFromToken
 
 fun Route.inntektsjustering(
 	service: InntektsjusteringService
 ) {
 	route("/api/inntektsjustering") {
 		get {
-			val fnr = "123"
+			val fnr = fnrFromToken()
 			val inntektsjustering = service.hentInntektsjustering(fnr)
 			when (inntektsjustering) {
 				null -> call.respond(HttpStatusCode.NotFound)
@@ -22,7 +23,7 @@ fun Route.inntektsjustering(
 			}
 		}
 		post {
-			val fnr = "123"
+			val fnr = fnrFromToken()
 			val request = call.receive<Inntektsjustering>()
 			service.lagreInntektsjustering(fnr, request)
 			call.respond(HttpStatusCode.OK)

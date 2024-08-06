@@ -2,6 +2,7 @@ package no.nav.etterlatte.inntektsjustering
 
 import no.nav.etterlatte.inntektsjustering.Queries.HENT
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import javax.sql.DataSource
 import java.sql.ResultSet
 import java.util.UUID
@@ -12,11 +13,11 @@ class InntektsjusteringRepository(
 
 	private val connection get() = ds.connection
 
-	fun hentInntektsjustering(fnr: String) = connection.use {
+	fun hentInntektsjustering(fnr: Foedselsnummer) = connection.use {
 		it
 			.prepareStatement(HENT)
 			.apply {
-				setString(1, fnr)
+				setString(1, fnr.value)
 			}.executeQuery()
 			.singleOrNull {
 				Inntektsjustering(
@@ -28,11 +29,11 @@ class InntektsjusteringRepository(
 			}
 	}
 
-	fun lagreInntektsjustering(fnr: String, inntektsjustering: Inntektsjustering) = connection.use {
+	fun lagreInntektsjustering(fnr: Foedselsnummer, inntektsjustering: Inntektsjustering) = connection.use {
 		it.prepareStatement(LAGRE)
 			.apply {
 				setObject(1, UUID.randomUUID())
-				setString(2, fnr)
+				setString(2, fnr.value)
 				setInt(3, inntektsjustering.arbeidsinntekt)
 				setInt(4, inntektsjustering.naeringsinntekt)
 				setInt(5, inntektsjustering.arbeidsinntektUtland)

@@ -4,6 +4,7 @@ import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -42,10 +43,14 @@ class InntektsjusteringRepositoryTest {
 			naeringsinntektUtland = 400,
 		)
 
-		db.lagreInntektsjustering("fnr", ny)
-		val lagret = db.hentInntektsjustering("fnr")
+		db.lagreInntektsjustering(VAKKER_PENN, ny)
+		val lagret = db.hentInntektsjustering(VAKKER_PENN)
 		
 		lagret shouldBe ny
+	}
+
+	companion object {
+		private val VAKKER_PENN = Foedselsnummer.of(("09038520129"))
 	}
 
 }
