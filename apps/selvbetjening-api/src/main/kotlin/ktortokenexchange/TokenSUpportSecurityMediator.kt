@@ -28,10 +28,10 @@ import no.nav.security.token.support.v2.tokenValidationSupport
 
 class TokenSecurityContext(
     private val tokens: TokenValidationContext
-) : SecurityContext {
+) {
     fun tokenIssuedBy(issuer: String): JwtToken? = tokens.getJwtToken(issuer)
 
-    override fun user() =
+    fun user() =
         tokens.firstValidToken
             ?.jwtTokenClaims
             ?.get("pid")
