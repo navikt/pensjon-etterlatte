@@ -20,7 +20,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.cio.jvm)
 
-    testImplementation(project(":libs:common-test"))
+    testImplementation(testFixtures(project(":libs:utils")))
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(libs.testcontainers.postgresql)
 
