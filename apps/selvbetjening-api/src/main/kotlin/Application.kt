@@ -19,7 +19,7 @@ import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
 import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
-import no.nav.etterlatte.libs.pdl.AdressebeskyttelseKlient
+import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient

@@ -5,7 +5,6 @@ plugins {
 dependencies {
     implementation(libs.etterlatte.common)
     implementation(project(":libs:utils"))
-    implementation(project(":libs:pdl"))
     implementation(project(":libs:ktor-client-auth"))
 
     implementation(libs.ktor.server.cio)
