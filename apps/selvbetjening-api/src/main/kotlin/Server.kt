@@ -22,7 +22,6 @@ import io.micrometer.core.instrument.binder.jvm.JvmMemoryMetrics
 import io.micrometer.core.instrument.binder.logging.LogbackMetrics
 import io.micrometer.core.instrument.binder.system.ProcessorMetrics
 import io.micrometer.core.instrument.binder.system.UptimeMetrics
-import kotlinx.serialization.json.Json.Default.configuration
 import no.nav.etterlatte.common.LocalDateSerializer
 import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.internal.healthApi
