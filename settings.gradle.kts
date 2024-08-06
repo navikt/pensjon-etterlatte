@@ -9,5 +9,4 @@ include(
     "apps:selvbetjening-backend",
     "apps:innsendt-soeknad",
     "libs:utils",
-    "libs:ktor-client-auth",
 )

@@ -1,4 +1,4 @@
-package no.nav.etterlatte.security.ktor
+package no.nav.etterlatte.ktorclientauth
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature

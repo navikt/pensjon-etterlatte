@@ -1,4 +1,4 @@
-package no.nav.etterlatte.security.ktor
+package no.nav.etterlatte.ktorclientauth
 
 import com.nimbusds.oauth2.sdk.GrantType
 import com.nimbusds.oauth2.sdk.auth.ClientAuthenticationMethod
