@@ -65,12 +65,6 @@ fun main() {
 		System.getenv().toMutableMap().apply {
 			put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
 		}
-	val minsideProducer =
-		if (appIsInGCP()) {
-			GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_UTKAST_TOPIC"))
-		} else {
-			TestProdusent()
-		}
 
 	val inntektsjusteringService = InntektsjusteringService(InntektsjusteringRepository(datasourceBuilder.dataSource))
 
