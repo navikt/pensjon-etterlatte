@@ -24,6 +24,8 @@ import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
+import no.nav.etterlatte.internal.healthApi
+import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
@@ -77,6 +79,8 @@ fun main() {
 			.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
 			.withKtorModule {
 				apiModule {
+					healthApi()
+					metricsApi()
 					inntektsjustering(inntektsjusteringService)
 				}
 			}
