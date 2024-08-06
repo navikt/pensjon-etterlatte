@@ -95,21 +95,6 @@ export const hentValutaer = async () => {
         throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
     }
 }
-
-export const loggFunc = async (message: string) => {
-    if (isDev) {
-        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${message}`)
-        return
-    }
-
-    try {
-        const response = await api.post("/api/logg", {message: message});
-        return response.status;
-    } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`);
-    }
-};
-
 const getErrorMessage = (error: unknown) => {
     if (error instanceof Error) return error.message
     else return String(error)

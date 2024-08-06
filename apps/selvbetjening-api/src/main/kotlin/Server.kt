@@ -93,7 +93,6 @@ class Server(
                                 personApi(personService)
                                 soknadApi(soeknadService)
                                 kodeverkApi(kodeverkService)
-                                loggApi()
                             }
                         }
                     }
