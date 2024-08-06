@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.install
+import io.ktor.server.auth.authenticate
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
@@ -87,7 +88,8 @@ class Server(
                             healthApi()
                             metricsApi()
                             selftestApi(unsecuredSoeknadHttpClient)
-                            securityContext.secureRoute(this) {
+                            authenticate {
+                                securityContext.attachToRoute(this)
                                 personApi(personService)
                                 soknadApi(soeknadService)
                                 kodeverkApi(kodeverkService)

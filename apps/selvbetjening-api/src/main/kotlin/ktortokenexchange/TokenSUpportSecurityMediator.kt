@@ -11,7 +11,6 @@ import io.ktor.server.application.ApplicationCallPipeline
 import io.ktor.server.application.call
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
-import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
 import io.ktor.server.config.ApplicationConfig
 import io.ktor.server.routing.Route
@@ -61,7 +60,7 @@ class TokenSupportSecurityContextMediator(
             checkNotNull(ClientConfig(configuration, defaultHttpClient).clients[tokenexchangeIssuer])
         }
 
-    private fun attachToRoute(route: Route) {
+    fun attachToRoute(route: Route) {
         route.intercept(ApplicationCallPipeline.Call) {
             withContext(
                 Dispatchers.Default +
@@ -87,16 +86,6 @@ class TokenSupportSecurityContextMediator(
                     ).accessToken
             }!!
         }
-
-    fun secureRoute(
-        ctx: Route,
-        block: Route.() -> Unit
-    ) {
-        ctx.authenticate {
-            attachToRoute(this)
-            block()
-        }
-    }
 
     fun installSecurity(ktor: Application) {
         ktor.install(Authentication) {
