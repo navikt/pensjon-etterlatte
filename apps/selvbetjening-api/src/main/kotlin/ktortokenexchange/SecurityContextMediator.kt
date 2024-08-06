@@ -1,8 +1,6 @@
 package no.nav.etterlatte.ktortokenexchange
 
-import com.typesafe.config.Config
 import io.ktor.server.application.Application
-import io.ktor.server.config.HoconApplicationConfig
 import io.ktor.server.routing.Route
 
 object ThreadBoundSecCtx : ThreadLocal<SecurityContext>()
@@ -20,10 +18,6 @@ interface SecurityContextMediator {
         ctx: Route,
         block: Route.() -> Unit
     )
-}
-
-object SecurityContextMediatorFactory {
-    fun from(config: Config) = TokenSupportSecurityContextMediator(HoconApplicationConfig(config))
 }
 
 fun Route.secureRoutUsing(
