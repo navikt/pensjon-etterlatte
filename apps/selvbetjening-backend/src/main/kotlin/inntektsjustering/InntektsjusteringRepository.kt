@@ -3,6 +3,7 @@ package no.nav.etterlatte.inntektsjustering
 import no.nav.etterlatte.inntektsjustering.Queries.HENT
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.utils.database.singleOrNull
 import javax.sql.DataSource
 import java.sql.ResultSet
 import java.util.UUID
@@ -41,17 +42,6 @@ class InntektsjusteringRepository(
 			}.execute()
 	}
 
-	// TODO lib
-	private fun <T> ResultSet.singleOrNull(block: ResultSet.() -> T): T? =
-		if (next()) {
-			block().also {
-				require(!next()) { "Skal være unik" }
-			}
-		} else {
-			null
-		}
-
-	private fun ResultSet.getUUID(name: String) = getObject(name) as UUID
 }
 
 private object Queries {
