@@ -1,6 +1,5 @@
 package no.nav.etterlatte.ktortokenexchange
 
-import io.ktor.server.application.Application
 import io.ktor.server.routing.Route
 
 object ThreadBoundSecCtx : ThreadLocal<SecurityContext>()
@@ -14,8 +13,4 @@ fun Route.secureRoutUsing(
     route: Route.() -> Unit
 ) {
     ctx.secureRoute(this, route)
-}
-
-fun Application.installAuthUsing(ctx: TokenSupportSecurityContextMediator) {
-    ctx.installSecurity(this)
 }

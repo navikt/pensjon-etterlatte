@@ -26,7 +26,6 @@ import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.internal.selftestApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
-import no.nav.etterlatte.ktortokenexchange.installAuthUsing
 import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
@@ -62,7 +61,7 @@ class Server(
                                 )
                             }
                         }
-                        installAuthUsing(securityContext)
+                        securityContext.installSecurity(this)
 
                         install(CallLogging) {
                             level = Level.INFO
