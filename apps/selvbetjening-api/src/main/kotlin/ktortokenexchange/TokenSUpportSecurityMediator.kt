@@ -40,7 +40,7 @@ class TokenSecurityContext(
 
 class TokenSupportSecurityContextMediator(
     private val configuration: ApplicationConfig
-) : SecurityContextMediator {
+) {
     private val defaultHttpClient =
         HttpClient(OkHttp) {
             install(ContentNegotiation) {
@@ -51,8 +51,8 @@ class TokenSupportSecurityContextMediator(
             }
         }
 
-    val tokenexchangeIssuer = "tokenx"
-    val tokenxKlient =
+    private val tokenexchangeIssuer = "tokenx"
+    private val tokenxKlient =
         runBlocking {
             configuration.propertyOrNull("no.nav.etterlatte.app.ventmedutgaaendekall")?.getString()?.toLong()?.also {
                 println("Venter $it sekunder før kall til token-issuers")
@@ -77,7 +77,7 @@ class TokenSupportSecurityContextMediator(
         }
     }
 
-    override fun outgoingToken(audience: String) =
+    fun outgoingToken(audience: String) =
         suspend {
             (ThreadBoundSecCtx.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
                 tokenxKlient
@@ -88,7 +88,7 @@ class TokenSupportSecurityContextMediator(
             }!!
         }
 
-    override fun secureRoute(
+    fun secureRoute(
         ctx: Route,
         block: Route.() -> Unit
     ) {
@@ -98,7 +98,7 @@ class TokenSupportSecurityContextMediator(
         }
     }
 
-    override fun installSecurity(ktor: Application) {
+    fun installSecurity(ktor: Application) {
         ktor.install(Authentication) {
             tokenValidationSupport(config = configuration)
         }

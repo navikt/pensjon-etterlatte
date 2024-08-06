@@ -9,24 +9,13 @@ interface SecurityContext {
     fun user(): String?
 }
 
-interface SecurityContextMediator {
-    fun outgoingToken(audience: String): suspend () -> String
-
-    fun installSecurity(ktor: Application)
-
-    fun secureRoute(
-        ctx: Route,
-        block: Route.() -> Unit
-    )
-}
-
 fun Route.secureRoutUsing(
-    ctx: SecurityContextMediator,
+    ctx: TokenSupportSecurityContextMediator,
     route: Route.() -> Unit
 ) {
     ctx.secureRoute(this, route)
 }
 
-fun Application.installAuthUsing(ctx: SecurityContextMediator) {
+fun Application.installAuthUsing(ctx: TokenSupportSecurityContextMediator) {
     ctx.installSecurity(this)
 }
