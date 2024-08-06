@@ -21,5 +21,5 @@ dependencies {
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotlinx.coroutines.core)
     testImplementation(libs.navfelles.mock.oauth2.server)
-    testImplementation(project(":libs:common-test"))
+    testImplementation(testFixtures(project(":libs:utils")))
 }
