@@ -1,7 +1,6 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.databind.JsonNode
-import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection

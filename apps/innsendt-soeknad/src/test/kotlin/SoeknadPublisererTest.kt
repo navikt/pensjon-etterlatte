@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import no.nav.etterlatte.EventName
 import no.nav.etterlatte.SoeknadPubliserer
-import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.helse.rapids_rivers.MessageContext
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.fail
