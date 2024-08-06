@@ -104,3 +104,5 @@ class TokenSupportSecurityContextMediator(
         }
     }
 }
+
+object ThreadBoundSecCtx : ThreadLocal<TokenSecurityContext>()
