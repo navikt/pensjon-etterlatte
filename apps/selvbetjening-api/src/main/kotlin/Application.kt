@@ -17,8 +17,8 @@ import io.ktor.server.config.HoconApplicationConfig
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
+import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
 import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
-import no.nav.etterlatte.ktortokenexchange.bearerToken
 import no.nav.etterlatte.libs.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
@@ -105,9 +105,7 @@ class ApplicationContext(
             }
 
             install(Auth) {
-                bearerToken {
-                    tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
-                }
+                providers.add(BearerTokenAuthProvider(securityMediator.outgoingToken(endpointConfig.getString("audience"))))
             }
 
             defaultRequest {
