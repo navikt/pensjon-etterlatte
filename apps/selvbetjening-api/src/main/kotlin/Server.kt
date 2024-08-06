@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
@@ -21,6 +22,7 @@ import io.micrometer.core.instrument.binder.jvm.JvmMemoryMetrics
 import io.micrometer.core.instrument.binder.logging.LogbackMetrics
 import io.micrometer.core.instrument.binder.system.ProcessorMetrics
 import io.micrometer.core.instrument.binder.system.UptimeMetrics
+import kotlinx.serialization.json.Json.Default.configuration
 import no.nav.etterlatte.common.LocalDateSerializer
 import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.internal.healthApi
@@ -31,6 +33,7 @@ import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
+import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.event.Level
 import java.time.LocalDate
 import java.util.UUID
@@ -61,7 +64,10 @@ class Server(
                                 )
                             }
                         }
-                        securityContext.installSecurity(this)
+
+                        install(Authentication) {
+                            tokenValidationSupport(config = applicationContext.hoconApplicationConfig)
+                        }
 
                         install(CallLogging) {
                             level = Level.INFO

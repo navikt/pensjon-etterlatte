@@ -41,7 +41,8 @@ class ApplicationContext(
     val personService: PersonService
     val soeknadService: SoeknadService
     val kodeverkService: KodeverkService
-    val securityMediator = TokenSupportSecurityContextMediator(HoconApplicationConfig(config))
+    val hoconApplicationConfig = HoconApplicationConfig(config)
+    val securityMediator = TokenSupportSecurityContextMediator(hoconApplicationConfig)
     val unsecuredSoeknadHttpClient: HttpClient
     private val krrKlient: KrrKlient
     private val adressebeskyttelseService: AdressebeskyttelseService

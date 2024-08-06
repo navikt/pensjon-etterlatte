@@ -6,11 +6,8 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.jackson.jackson
-import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCallPipeline
 import io.ktor.server.application.call
-import io.ktor.server.application.install
-import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.principal
 import io.ktor.server.config.ApplicationConfig
 import io.ktor.server.routing.Route
@@ -23,7 +20,6 @@ import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
-import no.nav.security.token.support.v2.tokenValidationSupport
 
 class TokenSecurityContext(
     private val tokens: TokenValidationContext
@@ -87,11 +83,6 @@ class TokenSupportSecurityContextMediator(
             }!!
         }
 
-    fun installSecurity(ktor: Application) {
-        ktor.install(Authentication) {
-            tokenValidationSupport(config = configuration)
-        }
-    }
 }
 
 object ThreadBoundSecCtx : ThreadLocal<TokenSecurityContext>()
