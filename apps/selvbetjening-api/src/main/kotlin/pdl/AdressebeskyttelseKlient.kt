@@ -1,4 +1,4 @@
-package no.nav.etterlatte.libs.pdl
+package no.nav.etterlatte.pdl
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

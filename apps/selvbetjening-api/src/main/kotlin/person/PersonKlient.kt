@@ -14,10 +14,10 @@ import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.pdl.GraphqlRequest
-import no.nav.etterlatte.libs.pdl.Variables
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
+import no.nav.etterlatte.pdl.GraphqlRequest
+import no.nav.etterlatte.pdl.Variables
 import no.nav.etterlatte.person.pdl.PersonResponse
 import org.slf4j.LoggerFactory
 

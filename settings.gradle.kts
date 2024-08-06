@@ -8,6 +8,5 @@ include(
     "apps:selvbetjening-api",
     "apps:innsendt-soeknad",
     "libs:utils",
-    "libs:pdl",
     "libs:ktor-client-auth",
 )

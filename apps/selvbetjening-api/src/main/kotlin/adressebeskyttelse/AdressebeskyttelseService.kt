@@ -2,10 +2,10 @@ package no.nav.etterlatte.adressebeskyttelse
 
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.pdl.AdressebeskyttelseBolkPerson
-import no.nav.etterlatte.libs.pdl.AdressebeskyttelsePerson
-import no.nav.etterlatte.libs.pdl.Gradering
-import no.nav.etterlatte.libs.pdl.Pdl
+import no.nav.etterlatte.pdl.AdressebeskyttelseBolkPerson
+import no.nav.etterlatte.pdl.AdressebeskyttelsePerson
+import no.nav.etterlatte.pdl.Gradering
+import no.nav.etterlatte.pdl.Pdl
 import org.slf4j.LoggerFactory
 
 class AdressebeskyttelseService(
