@@ -26,7 +26,6 @@ import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.internal.selftestApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
-import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
@@ -88,7 +87,7 @@ class Server(
                             healthApi()
                             metricsApi()
                             selftestApi(unsecuredSoeknadHttpClient)
-                            secureRoutUsing(securityContext) {
+                            securityContext.secureRoute(this) {
                                 personApi(personService)
                                 soknadApi(soeknadService)
                                 kodeverkApi(kodeverkService)
