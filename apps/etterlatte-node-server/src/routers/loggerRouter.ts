@@ -18,7 +18,7 @@ function isStackInfoValid(numbers: IStackLineNoColumnNo): boolean {
     return numbers.lineno > 0 && numbers.columnno >= 0
 }
 
-const sourcemapLocation = '/app/client/assets'
+const sourcemapLocation = '/app/build/assets'
 
 async function sourceMapMapper(numbers: IStackLineNoColumnNo): Promise<NullableMappedPosition> {
     const sourcemapFile = fs.readdirSync(sourcemapLocation).find((file) => file.includes('.map')) ?? ''
