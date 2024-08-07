@@ -31,7 +31,7 @@ export const frontendLogger = createLogger({
     level: 'info',
     format: process.env.NAIS_CLUSTER_NAME ? production : dev,
     defaultMeta: {
-        service: 'bp eller oms...',
+        service: process.env.NAIS_APP_NAME,
     },
     transports: [consoleTransport, prometheusTransport],
 })
