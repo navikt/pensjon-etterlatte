@@ -11,8 +11,8 @@ const production = combine(timestamp(), json())
 /* Bruker simple() for lettlest logg (lokal stdout/stderr) */
 const dev = combine(colorize(), simple())
 
-const consoleTransport = new Console()
 const prometheusTransport = new PrometheusTransport()
+const consoleTransport = new Console()
 
 export const logger = createLogger({
     defaultMeta: {
@@ -22,7 +22,7 @@ export const logger = createLogger({
     },
     level: 'info',
     format: !!process.env.NAIS_CLUSTER_NAME ? production : dev,
-    transports: [consoleTransport, new PrometheusTransport()],
+    transports: [consoleTransport, prometheusTransport],
 })
 
 
