@@ -31,6 +31,7 @@ loggerRouter.post('/', express.json(), (req, res) => {
     const logEvent = req.body as LogEvent
     const errorData = logEvent.data
 
+    frontendLogger.info('Frontendlogging: test')
     if (logEvent.type && logEvent.type === 'info') {
         frontendLogger.info('Frontendlogging: ', JSON.stringify(logEvent))
     } else {

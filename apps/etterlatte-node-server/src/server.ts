@@ -41,10 +41,10 @@ app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
 
 logger.info('Setting up session and proxy')
 
-app.use('/api/logg', loggerRouter)
+app.use(`${basePath}/api/logg`, loggerRouter)
 app.get(`${basePath}/session`, session())
 
-app.use(`${config.app.basePath}/api`, proxy(config.app.apiUrl))
+app.use(`${basePath}/api`, proxy(config.app.apiUrl))
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
 
