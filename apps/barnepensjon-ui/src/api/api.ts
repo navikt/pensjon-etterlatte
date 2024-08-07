@@ -1,5 +1,5 @@
 import { IApplication } from '../context/application/application'
-import {axiosInstance as api, isDev} from './axios'
+import {axiosInstance as api} from './axios'
 import { SoeknadRequest, SoeknadType } from './dto/InnsendtSoeknad'
 
 export const getLoggedInUser = async (type: SoeknadType) =>
