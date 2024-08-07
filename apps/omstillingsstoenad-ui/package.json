@@ -12,6 +12,8 @@
     "@navikt/nav-dekoratoren-moduler": "^1.6.9",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "@vitest/coverage-v8": "^2.0.5",
+    "bowser": "^2.11.0",
+    "error-stack-parser": "^2.1.4",
     "amplitude-js": "^8.21.9",
     "axios": "1.7.2",
     "axios-retry": "^4.3.0",

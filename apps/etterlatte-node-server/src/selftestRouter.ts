@@ -1,6 +1,6 @@
 import express from "express";
 import config from "./config";
-import logger from "./monitoring/logger";
+import {logger} from "./monitoring/logger";
 
 export const selftestRouter = express.Router()
 

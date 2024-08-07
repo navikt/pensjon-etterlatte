@@ -17,6 +17,7 @@ import { ContinueApplicationModal } from './components/common/ContinueApplicatio
 import useTranslation from './hooks/useTranslation'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
 import { Page } from "@navikt/ds-react";
+import ErrorBoundary from "~ErrorBoundary";
 
 const SoeknadWrapper = styled(Page.Block)`
     @media screen and (max-width: 650px) {
@@ -42,9 +43,9 @@ export default function App() {
     useScrollToTop()
 
     return (
-        <>
+        <ErrorBoundary>
+            <>
             <Banner tekst={t('applicationTitle')} />
-
             <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
             <ContinueApplicationModal />
             <Page>
@@ -79,6 +80,7 @@ export default function App() {
                     </Routes>
                 </SoeknadWrapper>
             </Page>
-        </>
+            </>
+        </ErrorBoundary>
     )
 }
