@@ -44,7 +44,7 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
                     <div>
                         <ApiErrorAlert>En feil har oppstått og blitt logget.</ApiErrorAlert>
                         <HjemLink to="/" onClick={() => this.setState({ hasError: false })}>
-                            Gå til hovedskjermen
+                            Gå til startsiden
                         </HjemLink>
                     </div>
             )
