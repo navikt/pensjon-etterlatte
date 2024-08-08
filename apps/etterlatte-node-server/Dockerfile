@@ -1,4 +1,4 @@
-FROM gcr.io/distroless/nodejs20-debian12
+FROM node:bookworm-slim
 
 WORKDIR /app
 
