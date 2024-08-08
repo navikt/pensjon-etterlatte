@@ -1,7 +1,7 @@
 import InntektsjusteringForm from "~inntektsjustering/InntektsjusteringForm";
 import {Route, Routes} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import {Heading} from "@navikt/ds-react";
+import {Heading, Label} from "@navikt/ds-react";
 import {getInntektsjustering} from "~api/api";
 import {IInntektsjustering} from "~inntektsjustering/InntektsjusteringDto";
 import Navigation from "~components/Navigation";
@@ -37,7 +37,11 @@ function InntektsjusteringStart() {
             )}
             {eksisterende && (
                 <div>
-                    <Heading size={"medium"}>Allerede oppgitt inntekt for neste år</Heading>
+                    <Heading size={"medium"}>Tidligere oppgitt inntekt</Heading>
+                    <Heading size={"small"}>Inntekt for neste år 2025</Heading>
+                    <Label>Forventet brutto inntekt i Norge for 2025</Label>
+                    <p>{eksisterende.arbeidsinntekt}</p>
+                    <p>Oppgitt: {}</p>
                 </div>
             )}
             <Navigation right={{
