@@ -43,21 +43,6 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
-fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
-
-enum class GcpEnv(
-	val env: String
-) {
-	PROD("prod-gcp"),
-	DEV("dev-gcp")
-}
-
-fun appIsInGCP(): Boolean =
-	when (val naisClusterName = clusternavn()) {
-		null -> false
-		else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
-	}
-
 fun main() {
 	val datasourceBuilder = DataSourceBuilder(System.getenv())
 
@@ -123,13 +108,3 @@ fun Application.apiModule(routes: Route.() -> Unit) {
 		}
 	}
 }
-
-val shuttingDown: AtomicBoolean = AtomicBoolean(false)
-
-private fun Timer.addShutdownHook() =
-	Runtime.getRuntime().addShutdownHook(
-		Thread {
-			shuttingDown.set(true)
-			this.cancel()
-		}
-	)
