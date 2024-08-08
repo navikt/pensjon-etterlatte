@@ -16,7 +16,7 @@ export const getInntektsjustering = async () =>
         })
 
 export const saveInntektsjustering = async (application: IInntektsjustering) =>
-    api.post('/api/inntektsjustering', application).then((res) => res.data)
+    api.post('/api/api/inntektsjustering', application).then((res) => res.data)
 
 export const loggFunc = async (message: string) => {
     if (isDev) {

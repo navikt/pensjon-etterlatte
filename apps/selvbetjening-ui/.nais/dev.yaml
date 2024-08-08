@@ -58,15 +58,15 @@ spec:
     - name: BASE_PATH
       value: /selvbetjening
     - name: API_URL
-      value: http://selvbetjening-api
+      value: http://selvbetjening-backend
     - name: AUDIENCE
-      value: dev-gcp:etterlatte:selvbetjening-api
+      value: dev-gcp:etterlatte:selvbetjening-backend
   accessPolicy:
     outbound:
       external:
         - host: dekoratoren.ekstern.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
       rules:
-        - application: selvbetjening-api
+        - application: selvbetjening-backend
         - application: nav-dekoratoren
           namespace: personbruker
