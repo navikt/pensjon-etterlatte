@@ -98,7 +98,7 @@ export const hentValutaer = async () => {
 
 export const loggFunc = async (data: any) => {
     if (isDev) {
-        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${data}`)
+        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${JSON.stringify(data)}`)
         return
     }
 

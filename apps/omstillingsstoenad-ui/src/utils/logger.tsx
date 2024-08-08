@@ -70,6 +70,11 @@ export const setupWindowOnError = () => {
     addEventListener('error', (event) => {
         const { error: kanskjeError, lineno, colno, message } = event
 
+        //Ignorerer js som kræsjer fra andre domener
+        if(message === 'Script error') {
+            return true
+        }
+
         const error = kanskjeError || {}
         if (import.meta.env.MODE === 'development') {
             console.error(error.message, error.stack)

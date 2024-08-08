@@ -35,7 +35,7 @@ export interface IStackLineNoColumnNo {
 
 export const loggFunc = async (data: any) => {
     if (isDev) {
-        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${data}`)
+        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${JSON.stringify(data)}`)
         return
     }
 
@@ -82,7 +82,10 @@ export const logger = {
 export const setupWindowOnError = () => {
     addEventListener('error', (event) => {
         const { error: kanskjeError, lineno, colno, message } = event
-
+        //Ignorerer js som kræsjer fra andre domener
+        if(message === 'Script error') {
+            return true
+        }
         const error = kanskjeError || {}
         if (import.meta.env.MODE === 'development') {
             console.error(error.message, error.stack)
