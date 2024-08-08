@@ -108,5 +108,3 @@ fun Application.apiModule(routes: Route.() -> Unit) {
 		}
 	}
 }
-
-val shuttingDown: AtomicBoolean = AtomicBoolean(false)
