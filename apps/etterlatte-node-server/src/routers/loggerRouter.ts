@@ -30,10 +30,14 @@ async function sourceMapMapper(numbers: IStackLineNoColumnNo): Promise<NullableM
 loggerRouter.post('/', express.json(), (req, res) => {
     const logEvent = req.body as LogEvent
     const errorData = logEvent.data
+    console.log('logEvent: ', logEvent)
 
     if (logEvent.type && logEvent.type === 'info') {
         frontendLogger.info('Frontendlogging: ', JSON.stringify(logEvent))
     } else {
+        if(logEvent.stackInfo) {
+            console.log('isStackInfoValid(logEvent.stackInfo): ', isStackInfoValid(logEvent.stackInfo))
+        }
         if (logEvent.stackInfo && isStackInfoValid(logEvent.stackInfo)) {
             sourceMapMapper(logEvent.stackInfo!)
                     .then((position) => {
