@@ -58,7 +58,6 @@ fun main() {
 			.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
 			.withKtorModule {
 				apiModule {
-					healthApi()
 					metricsApi()
 					inntektsjustering(inntektsjusteringService)
 				}
@@ -103,6 +102,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
 	}
 
 	routing {
+		healthApi()
 		authenticate {
 			routes()
 		}
