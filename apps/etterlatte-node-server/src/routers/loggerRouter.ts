@@ -18,14 +18,13 @@ function isStackInfoValid(numbers: IStackLineNoColumnNo): boolean {
     return numbers.lineno > 0 && numbers.columnno >= 0
 }
 
-const sourcemapLocation = '/app/etterlatte-node-server/build/assets'
+const sourcemapLocation = '/app/build/assets'
 
 async function sourceMapMapper(numbers: IStackLineNoColumnNo): Promise<NullableMappedPosition> {
     const sourcemapFile = fs.readdirSync(sourcemapLocation).find((file) => file.includes('.map')) ?? ''
-    frontendLogger.error({
-        message: `Fant fil: ${sourcemapFile}`
-    })
+   console.log('fant fil: ', sourcemapFile)
     const rawSourceMap = fs.readFileSync(`${sourcemapLocation}/${sourcemapFile}`).toString()
+    console.log('rawSourceMap: ', rawSourceMap)
     const smc = await new sourceMap.SourceMapConsumer(rawSourceMap)
     return Promise.resolve(smc.originalPositionFor({ line: numbers.lineno, column: numbers.columnno }))
 }
@@ -60,6 +59,7 @@ loggerRouter.post('/', express.json(), (req, res) => {
                         })
                     })
         } else {
+            console.log('stackinfo valid')
             frontendLogger.error({
                 message: errorData?.msg || 'Ukjent feil oppsto',
                 stack_trace: errorData?.errorInfo ? JSON.stringify(errorData?.errorInfo) : JSON.stringify(logEvent),
