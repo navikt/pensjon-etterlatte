@@ -144,19 +144,20 @@ fun TestApplicationRequest.tokenFor(fnr: String) {
 		HttpHeaders.Authorization,
 		"""Bearer ${
 			PlainJWT(
-			JWTClaimsSet
-				.Builder()
-				.claim("pid", fnr)
-				.issuer("lol")
-				.build()
-		).serialize()}"""
+				JWTClaimsSet
+					.Builder()
+					.claim("pid", fnr)
+					.issuer("lol")
+					.build()
+			).serialize()
+		}"""
 	)
 }
 
-class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
+class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguration(null)) {
 	class ProviderConfiguration internal constructor(
 		name: String?
-	) : Config(name)
+	): Config(name)
 
 	private fun getTokensFromHeader(request: Headers): List<JwtToken> {
 		try {

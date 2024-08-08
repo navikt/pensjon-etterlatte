@@ -1,7 +1,7 @@
 CREATE TABLE inntektsjustering
 (
     id                     uuid                                                        NOT NULL,
-    fnr                    VARCHAR(32)                                                 NOT NULL,
+    fnr                    TEXT                                                        NOT NULL,
     innsendt               TIMESTAMP WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'UTC') NOT NULL,
     arbeidsinntekt         BIGINT                                                      NOT NULL,
     naeringsinntekt        BIGINT                                                      NOT NULL,
