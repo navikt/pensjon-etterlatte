@@ -8,7 +8,7 @@ import FrontPage from './components/FrontPage'
 import useScrollToTop from './hooks/useScrollToTop'
 import useTranslation from './hooks/useTranslation'
 import { Page } from "@navikt/ds-react";
-import InntektsjusteringForm from "./inntektsjustering/InntektsjusteringForm";
+import Inntektsjustering from "./inntektsjustering/Inntektsjustering";
 
 const SelvbetjeningWrapper = styled(Page.Block)`
     @media screen and (max-width: 650px) {
@@ -40,7 +40,7 @@ export default function App() {
                 <SelvbetjeningWrapper>
                     <Routes>
                         <Route index element={<FrontPage />} />
-                        <Route path={'/inntektsjustering'} element={<InntektsjusteringForm />} />
+                        <Route path={'/inntektsjustering/*'} element={<Inntektsjustering />} />
 
                         <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 

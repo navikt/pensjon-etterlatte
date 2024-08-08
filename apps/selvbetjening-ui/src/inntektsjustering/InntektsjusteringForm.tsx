@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 import {saveInntektsjustering} from "~api/api";
 import React from "react";
-import {IInntektsjustering} from "~inntektsjustering/inntektsjustering";
+import {IInntektsjustering} from "~inntektsjustering/InntektsjusteringDto";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 
 interface IInntektsjusteringForm {
