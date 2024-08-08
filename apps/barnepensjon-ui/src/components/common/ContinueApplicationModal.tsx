@@ -4,6 +4,7 @@ import useTranslation from '../../hooks/useTranslation'
 import { deleteDraft } from '../../api/api'
 import { ActionTypes } from '../../context/application/application'
 import { useLocation, useNavigate } from 'react-router-dom'
+import {useEffect} from "react";
 
 export const ContinueApplicationModal = () => {
     const { state, dispatch } = useApplicationContext()
@@ -25,6 +26,12 @@ export const ContinueApplicationModal = () => {
             navigate('/')
         })
     }
+    useEffect(() => {
+        setTimeout(() => {
+            throw Error('Sjekk stacken her a')
+        }, 1000)
+    }, []);
+
 
     return (
         <Modal open={shouldAsk} onClose={() => {}} aria-label={t('doYouWantToContinueWithTheApplication')}>
