@@ -103,7 +103,7 @@ export const loggFunc = async (data: any) => {
     }
 
     try {
-        const response = await api.post("/api/logg", {message: data});
+        const response = await api.post("/api/logg", data);
         return response.status;
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`);
