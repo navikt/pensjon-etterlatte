@@ -58,7 +58,6 @@ export const logger = {
     generalError: (info: object) => {
         const data = { type: 'error', data: info, jsonContent: { ...defaultContext } }
         loggFunc(data)
-                //.then(() => store.dispatch(loggError(data)))
                 .catch((err) => {
                     console.error('Unable to log error message: ', data, ' err: ', err)
                 })
