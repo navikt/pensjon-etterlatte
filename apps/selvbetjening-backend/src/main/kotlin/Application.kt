@@ -27,6 +27,7 @@ import no.nav.etterlatte.inntektsjustering.inntektsjustering
 import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.kafka.GcpKafkaConfig
+import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
@@ -43,6 +44,21 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
+fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
+
+enum class GcpEnv(
+	val env: String
+) {
+	PROD("prod-gcp"),
+	DEV("dev-gcp")
+}
+
+fun appIsInGCP(): Boolean =
+	when (val naisClusterName = clusternavn()) {
+		null -> false
+		else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
+	}
+
 fun main() {
 	val datasourceBuilder = DataSourceBuilder(System.getenv())
 
@@ -51,7 +67,17 @@ fun main() {
 			put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
 		}
 
-	val inntektsjusteringService = InntektsjusteringService(InntektsjusteringRepository(datasourceBuilder.dataSource))
+	val rapid: KafkaProdusent<String, String> =
+		if (appIsInGCP()) {
+			GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_RAPID_TOPIC"))
+		} else {
+			TestProdusent()
+		}
+
+	val inntektsjusteringService = InntektsjusteringService(
+		InntektsjusteringRepository(datasourceBuilder.dataSource),
+		rapid
+	)
 
 	val rapidApplication =
 		RapidApplication

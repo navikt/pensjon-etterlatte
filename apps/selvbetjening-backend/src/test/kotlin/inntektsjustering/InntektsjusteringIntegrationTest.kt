@@ -26,12 +26,14 @@ import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.mockk
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
+import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.mapper
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
@@ -60,13 +62,15 @@ internal class InntektsjusteringIntegrationTest {
 	private lateinit var dsbHolder: DataSourceBuilder
 	private lateinit var service: InntektsjusteringService
 
+	private val rapid = mockk<KafkaProdusent<String, String>>()
+
 	@BeforeAll
 	fun beforeAll() {
 		val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
 		dsbHolder = dsb
 		db = InntektsjusteringRepository(dsb.dataSource)
 
-		service = InntektsjusteringService(db)
+		service = InntektsjusteringService(db, rapid)
 	}
 
 	@AfterAll
