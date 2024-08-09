@@ -125,6 +125,31 @@ internal class InntektsjusteringIntegrationTest {
 		}
 	}
 
+	@Test
+	@Order(3)
+	fun `Skal hente nyligste inntektsjustering`() {
+		withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
+			handleRequest(HttpMethod.Post, "/api/inntektsjustering") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(VAKKER_PENN)
+				setBody(
+					nyInntektsjustering.copy(
+						arbeidsinntekt = 123
+					).toJson()
+				)
+			}
+
+			val call = handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(VAKKER_PENN)
+			}
+			call.response.status() shouldBe HttpStatusCode.OK
+
+			val content: Inntektsjustering = mapper.readValue(call.response.content!!)
+			content.arbeidsinntekt shouldBe 123
+		}
+	}
+
 	companion object {
 		private const val VAKKER_PENN = "09038520129"
 		private val nyInntektsjustering = InntektsjusteringLagre(

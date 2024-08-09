@@ -3,6 +3,7 @@ package no.nav.etterlatte.inntektsjustering
 import no.nav.etterlatte.inntektsjustering.Queries.HENT
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.utils.database.firstOrNull
 import no.nav.etterlatte.libs.utils.database.singleOrNull
 import java.sql.Timestamp
 import java.time.LocalDateTime
@@ -24,7 +25,7 @@ class InntektsjusteringRepository(
 			.apply {
 				setString(1, fnr.value)
 			}.executeQuery()
-			.singleOrNull {
+			.firstOrNull{
 				Inntektsjustering(
 					arbeidsinntekt = getInt("arbeidsinntekt"),
 					naeringsinntekt = getInt("naeringsinntekt"),
@@ -58,6 +59,7 @@ private object Queries {
 	val HENT = """
 		SELECT * FROM inntektsjustering
 		WHERE fnr = ?
+		ORDER BY innsendt DESC
 		""".trimIndent()
 
 	val LAGRE = """
