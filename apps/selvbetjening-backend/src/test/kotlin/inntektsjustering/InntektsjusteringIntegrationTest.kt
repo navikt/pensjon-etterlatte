@@ -26,6 +26,7 @@ import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.every
 import io.mockk.mockk
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.Inntektsjustering
@@ -62,7 +63,10 @@ internal class InntektsjusteringIntegrationTest {
 	private lateinit var dsbHolder: DataSourceBuilder
 	private lateinit var service: InntektsjusteringService
 
-	private val rapid = mockk<KafkaProdusent<String, String>>()
+	private val rapid = mockk<KafkaProdusent<String, String>>() {
+		// TODO..
+		every { publiser(any(), any()) } returns mockk()
+	}
 
 	@BeforeAll
 	fun beforeAll() {

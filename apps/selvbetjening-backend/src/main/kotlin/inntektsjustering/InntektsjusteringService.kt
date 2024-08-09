@@ -2,6 +2,9 @@ package no.nav.etterlatte.inntektsjustering
 
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.toJson
+import no.nav.helse.rapids_rivers.JsonMessage
+import java.util.UUID
 
 class InntektsjusteringService(
 	val inntektsjusteringRepository: InntektsjusteringRepository,
@@ -14,6 +17,18 @@ class InntektsjusteringService(
 
 	fun lagreInntektsjustering(fnr: Foedselsnummer, request: InntektsjusteringLagre) {
 		inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
+		val lagret = inntektsjusteringRepository.hentInntektsjustering(fnr)
+		val message =
+			JsonMessage.newMessage(
+				mapOf(
+					"@event_name" to "inntektsjustering_innsendt",
+					"@fnr_bruker" to fnr.value,
+					"@inntektsaar" to "2025",
+					"@inntektsjustering_innhold" to lagret!!.toJson()
+				)
+			)
+
+		produsent.publiser(UUID.randomUUID().toString(), message.toJson())
 	}
 
 
