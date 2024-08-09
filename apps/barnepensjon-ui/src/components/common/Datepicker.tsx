@@ -38,7 +38,7 @@ const Datepicker = ({
     name,
     label,
     description,
-    minDate = new Date(1900, 1, 1),
+    minDate = new Date(1900, 0, 1),
     maxDate = new Date(),
     valgfri,
     className,
