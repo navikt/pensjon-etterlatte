@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 import {saveInntektsjustering} from "~api/api";
 import React from "react";
-import {IInntektsjustering} from "~inntektsjustering/inntektsjustering";
+import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 
 interface IInntektsjusteringForm {
@@ -44,11 +44,12 @@ export default function InntektsjusteringForm() {
     } = methods
 
     const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
-        const dto: IInntektsjustering = {
-            arbeidsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
-            arbeidsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
-            naeringsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
-            naeringsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
+        const { skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
+        const dto: IInntektsjusteringLagre = {
+            arbeidsinntekt: skalHaArbeidsinntekt && skalHaInntektNorge ? inntektsjustering.arbeidsinntekt!! : 0,
+            arbeidsinntektUtland: skalHaArbeidsinntekt && skalHaInntektUtland ? inntektsjustering.arbeidsinntektUtland!! : 0,
+            naeringsinntekt: skalHaNaeringsinntekt && skalHaInntektNorge ? inntektsjustering.naeringsinntekt!! : 0,
+            naeringsinntektUtland: skalHaNaeringsinntekt && skalHaInntektUtland ? inntektsjustering.naeringsinntektUtland!! : 0,
         }
         saveInntektsjustering(dto)
     }

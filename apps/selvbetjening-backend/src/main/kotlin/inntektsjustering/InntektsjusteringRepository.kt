@@ -3,9 +3,12 @@ package no.nav.etterlatte.inntektsjustering
 import no.nav.etterlatte.inntektsjustering.Queries.HENT
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.utils.database.firstOrNull
 import no.nav.etterlatte.libs.utils.database.singleOrNull
+import java.sql.Timestamp
+import java.time.LocalDateTime
+import java.time.ZoneId
 import javax.sql.DataSource
-import java.sql.ResultSet
 import java.util.UUID
 
 class InntektsjusteringRepository(
@@ -14,23 +17,26 @@ class InntektsjusteringRepository(
 
 	private val connection get() = ds.connection
 
+	private val postgresTimeZone = ZoneId.of("UTC")
+
 	fun hentInntektsjustering(fnr: Foedselsnummer) = connection.use {
 		it
 			.prepareStatement(HENT)
 			.apply {
 				setString(1, fnr.value)
 			}.executeQuery()
-			.singleOrNull {
+			.firstOrNull{
 				Inntektsjustering(
 					arbeidsinntekt = getInt("arbeidsinntekt"),
 					naeringsinntekt = getInt("naeringsinntekt"),
 					arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
-					naeringsinntektUtland = getInt("naeringsinntekt_utland")
+					naeringsinntektUtland = getInt("naeringsinntekt_utland"),
+					tidspunkt = getTimestamp("innsendt").asLocalDateTime()
 				)
 			}
 	}
 
-	fun lagreInntektsjustering(fnr: Foedselsnummer, inntektsjustering: Inntektsjustering) = connection.use {
+	fun lagreInntektsjustering(fnr: Foedselsnummer, inntektsjustering: InntektsjusteringLagre) = connection.use {
 		it.prepareStatement(LAGRE)
 			.apply {
 				setObject(1, UUID.randomUUID())
@@ -42,12 +48,18 @@ class InntektsjusteringRepository(
 			}.execute()
 	}
 
+	private fun Timestamp.asLocalDateTime(): LocalDateTime =
+		toLocalDateTime()
+			.atZone(postgresTimeZone)
+			.withZoneSameInstant(ZoneId.systemDefault())
+			.toLocalDateTime()
 }
 
 private object Queries {
 	val HENT = """
 		SELECT * FROM inntektsjustering
 		WHERE fnr = ?
+		ORDER BY innsendt DESC
 		""".trimIndent()
 
 	val LAGRE = """

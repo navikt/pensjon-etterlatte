@@ -24,7 +24,7 @@ fun Route.inntektsjustering(
 		}
 		post {
 			val fnr = fnrFromToken()
-			val request = call.receive<Inntektsjustering>()
+			val request = call.receive<InntektsjusteringLagre>()
 			service.lagreInntektsjustering(fnr, request)
 			call.respond(HttpStatusCode.OK)
 		}

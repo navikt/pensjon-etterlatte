@@ -1,6 +1,7 @@
 package inntektsjustering
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.module.kotlin.readValue
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
 import io.kotest.matchers.shouldBe
@@ -27,9 +28,11 @@ import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.Inntektsjustering
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
+import no.nav.etterlatte.mapper
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
@@ -44,6 +47,7 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import java.time.LocalDateTime
 import java.util.*
 import java.util.stream.*
 
@@ -86,17 +90,11 @@ internal class InntektsjusteringIntegrationTest {
 	@Order(2)
 	fun `Skal lagre inntektjustering`() {
 		withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
-			val request = Inntektsjustering(
-				arbeidsinntekt = 300,
-				naeringsinntekt = 400,
-				arbeidsinntektUtland = 100,
-				naeringsinntektUtland = 200
-			)
 
 			val call = handleRequest(HttpMethod.Post, "/api/inntektsjustering") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(VAKKER_PENN)
-				setBody(request.toJson())
+				setBody(nyInntektsjustering.toJson())
 			}
 			call.response.status() shouldBe HttpStatusCode.OK
 		}
@@ -111,11 +109,55 @@ internal class InntektsjusteringIntegrationTest {
 				tokenFor(VAKKER_PENN)
 			}
 			call.response.status() shouldBe HttpStatusCode.OK
+
+			val content: Inntektsjustering = mapper.readValue(call.response.content!!)
+			with(content) {
+				arbeidsinntekt shouldBe nyInntektsjustering.arbeidsinntekt
+				naeringsinntekt shouldBe nyInntektsjustering.naeringsinntekt
+				arbeidsinntektUtland shouldBe nyInntektsjustering.arbeidsinntektUtland
+				naeringsinntektUtland shouldBe nyInntektsjustering.naeringsinntektUtland
+				LocalDateTime.now().let { naa ->
+					tidspunkt.year shouldBe naa.year
+					tidspunkt.hour shouldBe naa.hour
+					tidspunkt.minute shouldBe naa.minute
+				}
+			}
+		}
+	}
+
+	@Test
+	@Order(3)
+	fun `Skal hente nyligste inntektsjustering`() {
+		withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
+			handleRequest(HttpMethod.Post, "/api/inntektsjustering") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(VAKKER_PENN)
+				setBody(
+					nyInntektsjustering.copy(
+						arbeidsinntekt = 123
+					).toJson()
+				)
+			}
+
+			val call = handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(VAKKER_PENN)
+			}
+			call.response.status() shouldBe HttpStatusCode.OK
+
+			val content: Inntektsjustering = mapper.readValue(call.response.content!!)
+			content.arbeidsinntekt shouldBe 123
 		}
 	}
 
 	companion object {
 		private const val VAKKER_PENN = "09038520129"
+		private val nyInntektsjustering = InntektsjusteringLagre(
+			arbeidsinntekt = 300,
+			naeringsinntekt = 400,
+			arbeidsinntektUtland = 100,
+			naeringsinntektUtland = 200
+		)
 	}
 
 }

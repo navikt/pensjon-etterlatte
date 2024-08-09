@@ -10,3 +10,10 @@ fun <T> ResultSet.singleOrNull(block: ResultSet.() -> T): T? =
 	} else {
 		null
 	}
+
+fun <T> ResultSet.firstOrNull(block: ResultSet.() -> T): T? =
+	if (next()) {
+		block()
+	} else {
+		null
+	}
