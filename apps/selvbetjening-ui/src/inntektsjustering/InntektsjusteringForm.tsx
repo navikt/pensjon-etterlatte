@@ -44,11 +44,12 @@ export default function InntektsjusteringForm() {
     } = methods
 
     const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
+        const { skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
         const dto: IInntektsjusteringLagre = {
-            arbeidsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
-            arbeidsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
-            naeringsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
-            naeringsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
+            arbeidsinntekt: skalHaArbeidsinntekt && skalHaInntektNorge ? inntektsjustering.arbeidsinntekt!! : 0,
+            arbeidsinntektUtland: skalHaArbeidsinntekt && skalHaInntektUtland ? inntektsjustering.arbeidsinntektUtland!! : 0,
+            naeringsinntekt: skalHaNaeringsinntekt && skalHaInntektNorge ? inntektsjustering.naeringsinntekt!! : 0,
+            naeringsinntektUtland: skalHaNaeringsinntekt && skalHaInntektUtland ? inntektsjustering.naeringsinntektUtland!! : 0,
         }
         saveInntektsjustering(dto)
     }
