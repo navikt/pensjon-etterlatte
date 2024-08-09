@@ -1,7 +1,7 @@
 import { injectDecoratorServerSide, DecoratorFetchProps } from '@navikt/nav-dekoratoren-moduler/ssr'
 import { Request, RequestHandler, Response } from 'express'
-import logger from './monitoring/logger'
 import config from './config'
+import {logger} from "./monitoring/logger";
 
 const { isProdCluster } = config.env
 

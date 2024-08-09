@@ -11,7 +11,10 @@ const production = combine(timestamp(), json())
 /* Bruker simple() for lettlest logg (lokal stdout/stderr) */
 const dev = combine(colorize(), simple())
 
-const WinstonLogger = createLogger({
+const prometheusTransport = new PrometheusTransport()
+const consoleTransport = new Console()
+
+export const logger = createLogger({
     defaultMeta: {
         get x_correlation_id() {
             return rTracer.id()
@@ -19,7 +22,16 @@ const WinstonLogger = createLogger({
     },
     level: 'info',
     format: !!process.env.NAIS_CLUSTER_NAME ? production : dev,
-    transports: [new Console(), new PrometheusTransport()],
+    transports: [consoleTransport, prometheusTransport],
 })
 
-export default WinstonLogger
+
+
+export const frontendLogger = createLogger({
+    level: 'info',
+    format: process.env.NAIS_CLUSTER_NAME ? production : dev,
+    defaultMeta: {
+        service: process.env.NAIS_APP_NAME,
+    },
+    transports: [consoleTransport, prometheusTransport],
+})

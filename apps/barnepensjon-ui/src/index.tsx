@@ -5,6 +5,9 @@ import reportWebVitals from './reportWebVitals'
 import ContextProviders from './context/ContextProviders'
 import '@navikt/ds-css'
 import { BrowserRouter } from 'react-router-dom'
+import {setupWindowOnError} from "~utils/logger";
+
+setupWindowOnError()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>

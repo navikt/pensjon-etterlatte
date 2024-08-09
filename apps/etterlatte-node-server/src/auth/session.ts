@@ -1,7 +1,7 @@
 import { Request, RequestHandler, Response } from "express";
 import jwt from "jsonwebtoken";
 import { getHeaderTokenReq } from '../proxy'
-import logger from "../monitoring/logger";
+import { logger } from "../monitoring/logger";
 
 export default function session(): RequestHandler {
     return async (req: Request, res: Response) => {

@@ -1,8 +1,8 @@
 import { Request, RequestHandler, Response } from 'express'
 import fetch from 'node-fetch'
-import logger from './monitoring/logger'
 import { requestTokenxOboToken, validateIdportenToken } from '@navikt/oasis'
 import config from './config'
+import {logger} from "./monitoring/logger";
 
 const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
