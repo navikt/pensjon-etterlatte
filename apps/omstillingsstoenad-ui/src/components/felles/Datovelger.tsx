@@ -50,7 +50,7 @@ const Datovelger = ({
     name,
     label,
     description,
-    minDate = new Date('01-01-1920'),
+    minDate = new Date(1920, 1, 1),
     maxDate = new Date(addYears(new Date(), 20)),
     valgfri,
     kol = false,
