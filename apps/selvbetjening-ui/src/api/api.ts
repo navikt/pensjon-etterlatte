@@ -1,5 +1,5 @@
 import {axiosInstance as api, isDev} from './axios'
-import {IInntektsjustering} from "../inntektsjustering/InntektsjusteringDto";
+import {IInntektsjustering, IInntektsjusteringLagre} from "../inntektsjustering/InntektsjusteringDto";
 
 
 export const getLoggedInUser = async () =>
@@ -15,7 +15,7 @@ export const getInntektsjustering = async () =>
             else throw new Error('Det skjedde en feil')
         })
 
-export const saveInntektsjustering = async (application: IInntektsjustering) =>
+export const saveInntektsjustering = async (application: IInntektsjusteringLagre) =>
     api.post('/api/api/inntektsjustering', application).then((res) => res.data)
 
 export const loggFunc = async (message: string) => {

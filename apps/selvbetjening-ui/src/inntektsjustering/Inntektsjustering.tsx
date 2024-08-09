@@ -41,7 +41,7 @@ function InntektsjusteringStart() {
                     <Heading size={"small"}>Inntekt for neste år 2025</Heading>
                     <Label>Forventet brutto inntekt i Norge for 2025</Label>
                     <p>{eksisterende.arbeidsinntekt}</p>
-                    <p>Oppgitt: {}</p>
+                    <p>Oppgitt: {formaterDatoStrengTilLocaleDateTime(eksisterende.tidspunkt)}</p>
                 </div>
             )}
             <Navigation right={{
@@ -51,3 +51,6 @@ function InntektsjusteringStart() {
         </>
     )
 }
+
+const formaterDatoStrengTilLocaleDateTime = (dato: string) =>
+    new Date(dato).toISOString().replace('Z', '').replace('T', ' ')

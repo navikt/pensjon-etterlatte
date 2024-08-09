@@ -104,9 +104,12 @@ export const mockSelvbetjeningApi = (app: any) => {
     })
 
     app.post(`${config.app.basePath}/api/api/inntektsjustering`, (req: Request, res: Response) => {
-        const inntektsjustering = JSON.stringify(req.body)
+        const lagret = {
+            tidspunkt: Date.now(),
+            ...req.body
+        }
 
-        cache.set(innloggetBruker.foedselsnummer, inntektsjustering)
+        cache.set(innloggetBruker.foedselsnummer, JSON.stringify(lagret))
 
         res.sendStatus(200)
     })

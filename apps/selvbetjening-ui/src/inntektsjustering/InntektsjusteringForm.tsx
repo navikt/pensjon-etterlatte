@@ -11,7 +11,7 @@ import {
 import styled from "styled-components";
 import {saveInntektsjustering} from "~api/api";
 import React from "react";
-import {IInntektsjustering} from "~inntektsjustering/InntektsjusteringDto";
+import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 
 interface IInntektsjusteringForm {
@@ -44,7 +44,7 @@ export default function InntektsjusteringForm() {
     } = methods
 
     const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
-        const dto: IInntektsjustering = {
+        const dto: IInntektsjusteringLagre = {
             arbeidsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
             arbeidsinntektUtland: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
             naeringsinntekt: inntektsjustering.skalHaArbeidsinntekt ? inntektsjustering.arbeidsinntekt!! : 0,
