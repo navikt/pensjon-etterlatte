@@ -10,7 +10,7 @@ class InntektsjusteringService(
 		return inntektsjusteringRepository.hentInntektsjustering(fnr)
 	}
 
-	fun lagreInntektsjustering(fnr: Foedselsnummer, request: Inntektsjustering) {
+	fun lagreInntektsjustering(fnr: Foedselsnummer, request: InntektsjusteringLagre) {
 		inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
 	}
 

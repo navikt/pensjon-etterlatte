@@ -2,7 +2,7 @@ package inntektsjustering
 
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.inntektsjustering.Inntektsjustering
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import opprettInMemoryDatabase
@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import java.time.LocalDateTime
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class InntektsjusteringRepositoryTest {
@@ -36,7 +37,7 @@ class InntektsjusteringRepositoryTest {
 
 	@Test
 	fun `skal lagre inntektsjustering`() {
-		val ny = Inntektsjustering(
+		val ny = InntektsjusteringLagre(
 			arbeidsinntekt = 100,
 			naeringsinntekt = 200,
 			arbeidsinntektUtland = 300,
@@ -44,9 +45,19 @@ class InntektsjusteringRepositoryTest {
 		)
 
 		db.lagreInntektsjustering(VAKKER_PENN, ny)
-		val lagret = db.hentInntektsjustering(VAKKER_PENN)
+		val lagret = db.hentInntektsjustering(VAKKER_PENN) ?: throw Exception()
 		
-		lagret shouldBe ny
+		with(lagret) {
+			arbeidsinntekt shouldBe ny.arbeidsinntekt
+			naeringsinntekt shouldBe ny.naeringsinntekt
+			arbeidsinntektUtland shouldBe ny.arbeidsinntektUtland
+			naeringsinntektUtland shouldBe ny.naeringsinntektUtland
+			LocalDateTime.now().let { naa ->
+				tidspunkt.year shouldBe naa.year
+				tidspunkt.hour shouldBe naa.hour
+				tidspunkt.minute shouldBe naa.minute
+			}
+		}
 	}
 
 	companion object {
