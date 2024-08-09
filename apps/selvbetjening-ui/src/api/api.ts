@@ -9,7 +9,7 @@ export const getLoggedInUser = async () =>
 export const getInntektsjustering = async () =>
     api.get(`/api/api/inntektsjustering`)
         .then((res) => res.data)
-        .then((data) => (data ? JSON.parse(data) as IInntektsjustering : undefined))
+        .then((data) => data as IInntektsjustering)
         .catch((e) => {
             if (e.response.status === 404) return undefined
             else throw new Error('Det skjedde en feil')
