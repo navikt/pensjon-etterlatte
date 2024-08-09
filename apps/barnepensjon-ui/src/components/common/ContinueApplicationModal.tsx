@@ -26,12 +26,6 @@ export const ContinueApplicationModal = () => {
             navigate('/')
         })
     }
-    useEffect(() => {
-        setTimeout(() => {
-            throw Error('Sjekk stacken her a')
-        }, 1000)
-    }, []);
-
 
     return (
         <Modal open={shouldAsk} onClose={() => {}} aria-label={t('doYouWantToContinueWithTheApplication')}>
