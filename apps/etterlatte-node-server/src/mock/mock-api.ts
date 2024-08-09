@@ -100,7 +100,7 @@ export const mockSelvbetjeningApi = (app: any) => {
         const inntektsjustering = cache.get(innloggetBruker.foedselsnummer)
 
         if (!inntektsjustering) res.sendStatus(404)
-        else res.json(inntektsjustering)
+        else res.send(inntektsjustering)
     })
 
     app.post(`${config.app.basePath}/api/api/inntektsjustering`, (req: Request, res: Response) => {
