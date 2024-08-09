@@ -91,7 +91,6 @@ export const setupWindowOnError = () => {
             console.error(error.message, error.stack)
         } else {
             if (message !== 'ResizeObserver loop completed with undelivered notifications.') {
-                console.log('messageobj on error: ', JSON.stringify(message))
                 logger.error({ lineno, columnno: colno, message, error: JSON.stringify(error) })
             }
 
