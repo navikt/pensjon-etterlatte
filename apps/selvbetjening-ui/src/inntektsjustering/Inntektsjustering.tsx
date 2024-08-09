@@ -22,9 +22,7 @@ function InntektsjusteringStart() {
 
     useEffect(() => {
         getInntektsjustering().then(result => {
-            console.log(result)
             if (result) {
-                console.log(result)
                 setEksisterende(result)
             }
         })

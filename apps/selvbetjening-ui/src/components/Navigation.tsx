@@ -12,7 +12,6 @@ interface NavButtonProps {
 
 export default function Navigation({left, right}: { left?: NavButtonProps, right?: NavButtonProps }) {
     const navigate = useNavigate()
-    console.log(right)
     return (
         <NavFooter>
             <NavRow>
