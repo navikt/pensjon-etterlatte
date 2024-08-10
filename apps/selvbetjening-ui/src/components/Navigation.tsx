@@ -3,20 +3,28 @@ import {Button} from "@navikt/ds-react";
 import styled, {css} from "styled-components";
 import FormGroup from "~common/FormGroup";
 import React from "react";
+import {logEvent} from "amplitude-js";
 
 
 interface NavButtonProps {
     label?: string
     navigateTo?: string
+    onClick?: () => void
 }
 
 export default function Navigation({left, right}: { left?: NavButtonProps, right?: NavButtonProps }) {
     const navigate = useNavigate()
+
+    const onClickWrapper = (button: NavButtonProps) => {
+        if (button.onClick) button.onClick()
+        if (button.navigateTo) navigate(button.navigateTo)
+    }
+
     return (
         <NavFooter>
             <NavRow>
-                {left && <Button onClick={() => left.navigateTo ? navigate(left.navigateTo) : ''}>{left.label}</Button>}
-                {right && <Button onClick={() => right.navigateTo ? navigate(right.navigateTo) : ''}>{right.label}</Button>}
+                {left && <Button onClick={() => {onClickWrapper(left)}}>{left.label}</Button>}
+                {right && <Button onClick={() => {onClickWrapper(right)}}>{right.label}</Button>}
             </NavRow>
         </NavFooter>
     )

@@ -8,7 +8,6 @@ import {Heading} from "@navikt/ds-react";
 
 export default function InntektsjusteringOppsummering() {
 
-
     const {handleSubmit, getValues} = useFormContext()
 
     const {
@@ -57,8 +56,9 @@ export default function InntektsjusteringOppsummering() {
             </div>
             <Navigation
                 right={{
-                    label: 'Neste',
-                    navigateTo: inntektsjusteringPath.kvittering
+                    label: 'Send inn inntektsjustering',
+                    navigateTo: inntektsjusteringPath.kvittering,
+                    onClick: () => console.log("hoho")
                 }}
                 left={{
                     label: 'Forrige',
