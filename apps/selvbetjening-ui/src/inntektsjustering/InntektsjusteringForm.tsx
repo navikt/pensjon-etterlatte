@@ -1,7 +1,7 @@
 import useTranslation from '../hooks/useTranslation'
 import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 import FormGroup from "~common/FormGroup";
-import {FormProvider, useForm} from "react-hook-form";
+import {FormProvider, useForm, useFormContext} from "react-hook-form";
 import {
     Button,
     Heading,
@@ -14,36 +14,20 @@ import React from "react";
 import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 import Navigation from "~components/Navigation";
-import {inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
+import {IInntektsjusteringForm, inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
 
-interface IInntektsjusteringForm {
-    skalHaArbeidsinntekt: boolean
-    skalHaNaeringsinntekt: boolean
-    skalHaInntektNorge: boolean
-    skalHaInntektUtland: boolean
-
-    arbeidsinntekt?: number
-    naeringsinntekt?: number
-    arbeidsinntektUtland?: number
-    naeringsinntektUtland?: number
-}
-
-export default function InntektsjusteringForm() {
+export default function InntektsjusteringForm({}) {
     const {t} = useTranslation('inntektsjustering')
     const {logEvent} = useAmplitude()
 
     logEvent(LogEvents.PAGE_CHANGE)
 
-    const methods = useForm<IInntektsjusteringForm>({
-        defaultValues: {},
-        mode: 'onBlur',
-    })
     const {
         handleSubmit,
         register,
         watch,
         formState: {errors},
-    } = methods
+    } = useFormContext()
 
     const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
         const {skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
@@ -71,7 +55,7 @@ export default function InntektsjusteringForm() {
                 <p>Paragraf 2 yada yada</p>
             </Infotekst>
 
-            <FormProvider {...methods}>
+            <>
                 <InntektValg>
                     <Label>Hvilken type inntekt har du?</Label>
                     <RHFCheckbox
@@ -197,7 +181,7 @@ export default function InntektsjusteringForm() {
                 <Button size="small" loading={false} onClick={handleSubmit(onSubmit)}>
                     Send inn
                 </Button>
-            </FormProvider>
+            </>
             <Navigation
                 right={{
                     label: 'Neste',

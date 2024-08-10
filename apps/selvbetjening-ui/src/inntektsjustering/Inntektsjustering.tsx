@@ -2,10 +2,11 @@ import InntektsjusteringForm from "~inntektsjustering/InntektsjusteringForm";
 import {Route, Routes} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {Heading, Label} from "@navikt/ds-react";
-import {getInntektsjustering} from "~api/api";
-import {IInntektsjustering} from "~inntektsjustering/InntektsjusteringDto";
+import {getInntektsjustering, saveInntektsjustering} from "~api/api";
+import {IInntektsjustering, IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import Navigation from "~components/Navigation";
 import {formaterDatoStrengTilLocaleDateTime} from "~utils/dates";
+import {FormProvider, useForm} from "react-hook-form";
 
 export const inntektsjusteringPath = {
     root: '/inntektsjustering/*',
@@ -14,15 +15,34 @@ export const inntektsjusteringPath = {
     kvittering: '/inntektsjustering/kvittering',
 }
 
+export interface IInntektsjusteringForm {
+    skalHaArbeidsinntekt: boolean
+    skalHaNaeringsinntekt: boolean
+    skalHaInntektNorge: boolean
+    skalHaInntektUtland: boolean
+
+    arbeidsinntekt?: number
+    naeringsinntekt?: number
+    arbeidsinntektUtland?: number
+    naeringsinntektUtland?: number
+}
+
 export default function Inntektsjustering() {
 
+    const methods = useForm<IInntektsjusteringForm>({
+        defaultValues: {},
+        mode: 'onBlur',
+    })
+
     return (
-        <Routes>
-            <Route path={'*'} element={<InntektsjusteringStart/>}/>
-            <Route path={'inntekt'} element={<InntektsjusteringForm/>}/>
-            <Route path={'oppsummering'} element={<InntektsjusteringOppsummering/>}/>
-            <Route path={'kvittering'} element={<InntektsjusteringKvittering/>}/>
-        </Routes>
+        <FormProvider {...methods}>
+            <Routes>
+                <Route path={'*'} element={<InntektsjusteringStart/>}/>
+                <Route path={'inntekt'} element={<InntektsjusteringForm/>}/>
+                <Route path={'oppsummering'} element={<InntektsjusteringOppsummering/>}/>
+                <Route path={'kvittering'} element={<InntektsjusteringKvittering/>}/>
+            </Routes>
+        </FormProvider>
     )
 }
 
