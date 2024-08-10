@@ -2,11 +2,12 @@ import InntektsjusteringForm from "~inntektsjustering/InntektsjusteringForm";
 import {Route, Routes} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {Heading, Label} from "@navikt/ds-react";
-import {getInntektsjustering, saveInntektsjustering} from "~api/api";
-import {IInntektsjustering, IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
+import {getInntektsjustering} from "~api/api";
+import {IInntektsjustering} from "~inntektsjustering/InntektsjusteringDto";
 import Navigation from "~components/Navigation";
 import {formaterDatoStrengTilLocaleDateTime} from "~utils/dates";
 import {FormProvider, useForm} from "react-hook-form";
+import InntektsjusteringOppsummering from "~inntektsjustering/InntektsjusteringOppsummering";
 
 export const inntektsjusteringPath = {
     root: '/inntektsjustering/*',
@@ -78,29 +79,6 @@ function InntektsjusteringStart() {
                 label: 'Neste',
                 navigateTo: inntektsjusteringPath.form
             }}/>
-        </>
-    )
-}
-
-function InntektsjusteringOppsummering() {
-
-    // TODO submit onclick med feilhåndtering
-
-    return (
-        <>
-            <div>
-                InntektsjusteringOppsummering
-            </div>
-            <Navigation
-                right={{
-                    label: 'Neste',
-                    navigateTo: inntektsjusteringPath.kvittering
-                }}
-                left={{
-                    label: 'Forrige',
-                    navigateTo: inntektsjusteringPath.form
-                }}
-            />
         </>
     )
 }

@@ -41,9 +41,7 @@ export function RHFCheckbox({name, checkbox, required, ...rest}: RHFCheckboksPro
                             key={checkbox.value as string}
                             value={value || false}
                             onChange={(e) => {
-                                console.log((e.target as HTMLInputElement).checked)
                                 onChange((e.target as HTMLInputElement).checked)
-                                console.log(getValues())
                             }}
                         >
                             {checkbox.children}

@@ -1,20 +1,17 @@
 import useTranslation from '../hooks/useTranslation'
 import {LogEvents, useAmplitude} from "~hooks/useAmplitude";
 import FormGroup from "~common/FormGroup";
-import {FormProvider, useForm, useFormContext} from "react-hook-form";
+import {useFormContext} from "react-hook-form";
 import {
-    Button,
     Heading,
     Label,
     TextField
 } from "@navikt/ds-react";
 import styled from "styled-components";
-import {saveInntektsjustering} from "~api/api";
 import React from "react";
-import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 import Navigation from "~components/Navigation";
-import {IInntektsjusteringForm, inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
+import {inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
 
 export default function InntektsjusteringForm({}) {
     const {t} = useTranslation('inntektsjustering')
@@ -23,22 +20,10 @@ export default function InntektsjusteringForm({}) {
     logEvent(LogEvents.PAGE_CHANGE)
 
     const {
-        handleSubmit,
         register,
         watch,
         formState: {errors},
     } = useFormContext()
-
-    const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
-        const {skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
-        const dto: IInntektsjusteringLagre = {
-            arbeidsinntekt: skalHaArbeidsinntekt && skalHaInntektNorge ? inntektsjustering.arbeidsinntekt!! : 0,
-            arbeidsinntektUtland: skalHaArbeidsinntekt && skalHaInntektUtland ? inntektsjustering.arbeidsinntektUtland!! : 0,
-            naeringsinntekt: skalHaNaeringsinntekt && skalHaInntektNorge ? inntektsjustering.naeringsinntekt!! : 0,
-            naeringsinntektUtland: skalHaNaeringsinntekt && skalHaInntektUtland ? inntektsjustering.naeringsinntektUtland!! : 0,
-        }
-        saveInntektsjustering(dto)
-    }
 
     const valgtArbeidsinntekt = watch('skalHaArbeidsinntekt', false)
     const valgtNaeringsinntekt = watch('skalHaNaeringsinntekt', false)
@@ -178,9 +163,6 @@ export default function InntektsjusteringForm({}) {
                         />
                     </FormGroup>
                 }
-                <Button size="small" loading={false} onClick={handleSubmit(onSubmit)}>
-                    Send inn
-                </Button>
             </>
             <Navigation
                 right={{
