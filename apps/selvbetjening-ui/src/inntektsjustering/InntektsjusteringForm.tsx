@@ -13,6 +13,8 @@ import {saveInntektsjustering} from "~api/api";
 import React from "react";
 import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
+import Navigation from "~components/Navigation";
+import {inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
 
 interface IInntektsjusteringForm {
     skalHaArbeidsinntekt: boolean
@@ -44,7 +46,7 @@ export default function InntektsjusteringForm() {
     } = methods
 
     const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
-        const { skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
+        const {skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
         const dto: IInntektsjusteringLagre = {
             arbeidsinntekt: skalHaArbeidsinntekt && skalHaInntektNorge ? inntektsjustering.arbeidsinntekt!! : 0,
             arbeidsinntektUtland: skalHaArbeidsinntekt && skalHaInntektUtland ? inntektsjustering.arbeidsinntektUtland!! : 0,
@@ -196,6 +198,16 @@ export default function InntektsjusteringForm() {
                     Send inn
                 </Button>
             </FormProvider>
+            <Navigation
+                right={{
+                    label: 'Neste',
+                    navigateTo: inntektsjusteringPath.oppsummering
+                }}
+                left={{
+                    label: 'Forrige',
+                    navigateTo: inntektsjusteringPath.root
+                }}
+            />
         </div>
     )
 }

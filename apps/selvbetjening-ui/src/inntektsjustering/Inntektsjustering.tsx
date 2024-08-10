@@ -5,6 +5,14 @@ import {Heading, Label} from "@navikt/ds-react";
 import {getInntektsjustering} from "~api/api";
 import {IInntektsjustering} from "~inntektsjustering/InntektsjusteringDto";
 import Navigation from "~components/Navigation";
+import {formaterDatoStrengTilLocaleDateTime} from "~utils/dates";
+
+export const inntektsjusteringPath = {
+    root: '/inntektsjustering/*',
+    form: '/inntektsjustering/inntekt',
+    oppsummering: '/inntektsjustering/oppsummering',
+    kvittering: '/inntektsjustering/kvittering',
+}
 
 export default function Inntektsjustering() {
 
@@ -12,6 +20,8 @@ export default function Inntektsjustering() {
         <Routes>
             <Route path={'*'} element={<InntektsjusteringStart/>}/>
             <Route path={'inntekt'} element={<InntektsjusteringForm/>}/>
+            <Route path={'oppsummering'} element={<InntektsjusteringOppsummering/>}/>
+            <Route path={'kvittering'} element={<InntektsjusteringKvittering/>}/>
         </Routes>
     )
 }
@@ -46,11 +56,42 @@ function InntektsjusteringStart() {
             )}
             <Navigation right={{
                 label: 'Neste',
-                navigateTo: 'inntekt'
+                navigateTo: inntektsjusteringPath.form
             }}/>
         </>
     )
 }
 
-const formaterDatoStrengTilLocaleDateTime = (dato: string) =>
-    new Date(dato).toISOString().replace('Z', '').replace('T', ' ')
+function InntektsjusteringOppsummering() {
+
+    // TODO submit onclick med feilhåndtering
+
+    return (
+        <>
+            <div>
+                InntektsjusteringOppsummering
+            </div>
+            <Navigation
+                right={{
+                    label: 'Neste',
+                    navigateTo: inntektsjusteringPath.kvittering
+                }}
+                left={{
+                    label: 'Forrige',
+                    navigateTo: inntektsjusteringPath.form
+                }}
+            />
+        </>
+    )
+}
+
+function InntektsjusteringKvittering() {
+
+    return (
+        <>
+            <div>
+                InntektsjusteringKvittering
+            </div>
+        </>
+    )
+}
