@@ -4,11 +4,15 @@ import {IInntektsjusteringForm, inntektsjusteringPath} from "~inntektsjustering/
 import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {saveInntektsjustering} from "~api/api";
 import {useFormContext} from "react-hook-form";
-import {Heading} from "@navikt/ds-react";
+import {Alert, Heading} from "@navikt/ds-react";
+import styled from "styled-components";
 
 export default function InntektsjusteringOppsummering() {
 
-    const {handleSubmit, getValues} = useFormContext()
+    const {
+        getValues,
+        formState: {errors},
+    } = useFormContext()
 
     const {
         skalHaInntektNorge,
@@ -21,7 +25,7 @@ export default function InntektsjusteringOppsummering() {
         naeringsinntektUtland
     } = getValues() as IInntektsjusteringForm
 
-    const onSubmit = (inntektsjustering: IInntektsjusteringForm) => {
+    const onSubmit = async (inntektsjustering: IInntektsjusteringForm) => {
         const {skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
         const dto: IInntektsjusteringLagre = {
             arbeidsinntekt: skalHaArbeidsinntekt && skalHaInntektNorge ? inntektsjustering.arbeidsinntekt!! : 0,
@@ -29,9 +33,7 @@ export default function InntektsjusteringOppsummering() {
             naeringsinntekt: skalHaNaeringsinntekt && skalHaInntektNorge ? inntektsjustering.naeringsinntekt!! : 0,
             naeringsinntektUtland: skalHaNaeringsinntekt && skalHaInntektUtland ? inntektsjustering.naeringsinntektUtland!! : 0,
         }
-
-        // TODO submit onclick neste med feilhåndtering  - skal avbryte steg videre hvis feiler
-        saveInntektsjustering(dto)
+        await saveInntektsjustering(dto)
     }
 
     return (
@@ -54,11 +56,12 @@ export default function InntektsjusteringOppsummering() {
                 {skalHaInntektUtland && skalHaNaeringsinntekt &&
                     <InntektVisning label={'Næringsinntekt utland'} inntekt={naeringsinntektUtland!!}/>}
             </div>
+            {errors.serverError && <Error><Alert variant={'error'}>{errors.serverError.message}</Alert></Error>}
             <Navigation
                 right={{
                     label: 'Send inn inntektsjustering',
                     navigateTo: inntektsjusteringPath.kvittering,
-                    onClick: () => console.log("hoho")
+                    onSubmit: onSubmit
                 }}
                 left={{
                     label: 'Forrige',
@@ -80,3 +83,6 @@ const InntektVisning = ({label, inntekt}: { label: string, inntekt: number }) =>
     </div>
 )
 
+const Error = styled.div`
+    margin: 1em 0 1em 0;
+`

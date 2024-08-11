@@ -3,28 +3,42 @@ import {Button} from "@navikt/ds-react";
 import styled, {css} from "styled-components";
 import FormGroup from "~common/FormGroup";
 import React from "react";
-import {logEvent} from "amplitude-js";
+import {useFormContext} from "react-hook-form";
 
 
 interface NavButtonProps {
     label?: string
     navigateTo?: string
-    onClick?: () => void
+    onSubmit?: (form: any) => Promise<void>
 }
 
 export default function Navigation({left, right}: { left?: NavButtonProps, right?: NavButtonProps }) {
     const navigate = useNavigate()
+    const {handleSubmit, setError} = useFormContext()
 
     const onClickWrapper = (button: NavButtonProps) => {
-        if (button.onClick) button.onClick()
-        if (button.navigateTo) navigate(button.navigateTo)
+        const {navigateTo, onSubmit} = button
+        if (onSubmit) {
+            const submitOgNaviger = async (data: any) => onSubmit(data).then(() => {
+                if (navigateTo) navigate(navigateTo)
+            }).catch(() => {
+                setError("serverError", {message: "Noe gikk galt!"})
+            })
+            handleSubmit(submitOgNaviger)()
+        } else {
+            if (navigateTo) navigate(navigateTo)
+        }
     }
 
     return (
         <NavFooter>
             <NavRow>
-                {left && <Button onClick={() => {onClickWrapper(left)}}>{left.label}</Button>}
-                {right && <Button onClick={() => {onClickWrapper(right)}}>{right.label}</Button>}
+                {left && <Button onClick={() => {
+                    onClickWrapper(left)
+                }}>{left.label}</Button>}
+                {right && <Button onClick={() => {
+                    onClickWrapper(right)
+                }}>{right.label}</Button>}
             </NavRow>
         </NavFooter>
     )
@@ -42,13 +56,13 @@ export const NavRow = styled.div<{ disabled?: boolean }>`
     }
 
     ${(props) => {
-    if (props.disabled) {
-        return css`
+        if (props.disabled) {
+            return css`
                 opacity: 0.6;
                 pointer-events: none;
             `
-    }
-}}
+        }
+    }}
 `
 
 
