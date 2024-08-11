@@ -14,18 +14,20 @@ interface NavButtonProps {
 
 export default function Navigation({left, right}: { left?: NavButtonProps, right?: NavButtonProps }) {
     const navigate = useNavigate()
-    const {handleSubmit, setError} = useFormContext()
+    const {handleSubmit, setError, clearErrors} = useFormContext()
 
     const onClickWrapper = (button: NavButtonProps) => {
         const {navigateTo, onSubmit} = button
         if (onSubmit) {
             const submitOgNaviger = async (data: any) => onSubmit(data).then(() => {
                 navigate(navigateTo)
+                clearErrors("serverError")
             }).catch(() => {
                 setError("serverError", {message: "Noe gikk galt!"})
             })
             handleSubmit(submitOgNaviger)()
         } else {
+            clearErrors("serverError")
             navigate(navigateTo)
         }
     }
