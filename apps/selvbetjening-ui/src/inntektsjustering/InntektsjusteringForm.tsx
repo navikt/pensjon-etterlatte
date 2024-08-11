@@ -166,11 +166,11 @@ export default function InntektsjusteringForm({}) {
             </>
             <Navigation
                 right={{
-                    label: 'Neste',
+                    text: 'Neste',
                     navigateTo: inntektsjusteringPath.oppsummering
                 }}
                 left={{
-                    label: 'Forrige',
+                    text: 'Forrige',
                     navigateTo: inntektsjusteringPath.root
                 }}
             />

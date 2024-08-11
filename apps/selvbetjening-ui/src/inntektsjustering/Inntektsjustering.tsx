@@ -76,7 +76,7 @@ function InntektsjusteringStart() {
                 </div>
             )}
             <Navigation right={{
-                label: 'Neste',
+                text: 'Neste',
                 navigateTo: inntektsjusteringPath.form
             }}/>
         </>

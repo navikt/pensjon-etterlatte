@@ -59,12 +59,12 @@ export default function InntektsjusteringOppsummering() {
             {errors.serverError && <Error><Alert variant={'error'}>{errors.serverError.message}</Alert></Error>}
             <Navigation
                 right={{
-                    label: 'Send inn inntektsjustering',
+                    text: 'Send inn inntektsjustering',
                     navigateTo: inntektsjusteringPath.kvittering,
                     onSubmit: onSubmit
                 }}
                 left={{
-                    label: 'Forrige',
+                    text: 'Forrige',
                     navigateTo: inntektsjusteringPath.form
                 }}
             />

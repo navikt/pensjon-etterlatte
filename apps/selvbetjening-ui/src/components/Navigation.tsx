@@ -7,8 +7,8 @@ import {useFormContext} from "react-hook-form";
 
 
 interface NavButtonProps {
-    label?: string
-    navigateTo?: string
+    text: string
+    navigateTo: string
     onSubmit?: (form: any) => Promise<void>
 }
 
@@ -20,13 +20,13 @@ export default function Navigation({left, right}: { left?: NavButtonProps, right
         const {navigateTo, onSubmit} = button
         if (onSubmit) {
             const submitOgNaviger = async (data: any) => onSubmit(data).then(() => {
-                if (navigateTo) navigate(navigateTo)
+                navigate(navigateTo)
             }).catch(() => {
                 setError("serverError", {message: "Noe gikk galt!"})
             })
             handleSubmit(submitOgNaviger)()
         } else {
-            if (navigateTo) navigate(navigateTo)
+            navigate(navigateTo)
         }
     }
 
@@ -35,10 +35,10 @@ export default function Navigation({left, right}: { left?: NavButtonProps, right
             <NavRow>
                 {left && <Button onClick={() => {
                     onClickWrapper(left)
-                }}>{left.label}</Button>}
+                }}>{left.text}</Button>}
                 {right && <Button onClick={() => {
                     onClickWrapper(right)
-                }}>{right.label}</Button>}
+                }}>{right.text}</Button>}
             </NavRow>
         </NavFooter>
     )
