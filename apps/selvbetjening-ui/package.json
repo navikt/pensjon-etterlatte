@@ -7,6 +7,7 @@
     "start": "vite --base /selvbetjening",
     "build": "tsc && yarn lint && vite build --outDir build --base /selvbetjening && yarn lisenssjekk",
     "lint": "eslint .",
+    "test": "vitest",
     "preview": "vite preview",
     "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages selvbetjening-ui@0.1.0 --summary"
   },
@@ -22,7 +23,9 @@
     "react-i18next": "^15.0.1",
     "react-router-dom": "^6.26.0",
     "styled-components": "^6.1.12",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
