@@ -22,7 +22,6 @@ export function RHFCheckbox({name, checkbox, required, ...rest}: RHFCheckboksPro
 
     const {
         control,
-        getValues,
         formState: {errors},
     } = useFormContext()
 

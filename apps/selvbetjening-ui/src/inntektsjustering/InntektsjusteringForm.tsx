@@ -11,7 +11,7 @@ import styled from "styled-components";
 import React from "react";
 import {RHFCheckbox} from "~common/rhc/RHFCheckbox";
 import Navigation from "~components/Navigation";
-import {inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
+import {IInntektsjusteringForm, inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
 
 export default function InntektsjusteringForm({}) {
     const {t} = useTranslation('inntektsjustering')
@@ -23,7 +23,7 @@ export default function InntektsjusteringForm({}) {
         register,
         watch,
         formState: {errors},
-    } = useFormContext()
+    } = useFormContext<IInntektsjusteringForm>()
 
     const valgtArbeidsinntekt = watch('skalHaArbeidsinntekt', false)
     const valgtNaeringsinntekt = watch('skalHaNaeringsinntekt', false)

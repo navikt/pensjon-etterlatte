@@ -21,13 +21,13 @@ export default function Navigation({left, right}: { left?: NavButtonProps, right
         if (onSubmit) {
             const submitOgNaviger = async (data: any) => onSubmit(data).then(() => {
                 navigate(navigateTo)
-                clearErrors("serverError")
+                clearErrors("root.serverError")
             }).catch(() => {
-                setError("serverError", {message: "Noe gikk galt!"})
+                setError("root.serverError", {message: "Noe gikk galt!"})
             })
             handleSubmit(submitOgNaviger)()
         } else {
-            clearErrors("serverError")
+            clearErrors("root.serverError")
             navigate(navigateTo)
         }
     }

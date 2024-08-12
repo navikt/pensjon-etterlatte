@@ -12,7 +12,7 @@ export default function InntektsjusteringOppsummering() {
     const {
         getValues,
         formState: {errors},
-    } = useFormContext()
+    } = useFormContext<IInntektsjusteringForm>()
 
     const {
         skalHaInntektNorge,
@@ -56,7 +56,7 @@ export default function InntektsjusteringOppsummering() {
                 {skalHaInntektUtland && skalHaNaeringsinntekt &&
                     <InntektVisning label={'Næringsinntekt utland'} inntekt={naeringsinntektUtland!!}/>}
             </div>
-            {errors.serverError && <Error><Alert variant={'error'}>{errors.serverError.message}</Alert></Error>}
+            {errors.root?.serverError && <Error><Alert variant={'error'}>{errors.root.serverError.message}</Alert></Error>}
             <Navigation
                 right={{
                     text: 'Send inn inntektsjustering',
