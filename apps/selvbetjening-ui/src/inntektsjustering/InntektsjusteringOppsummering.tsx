@@ -1,7 +1,7 @@
 import Navigation from "~components/Navigation";
 import React from "react";
-import {IInntektsjusteringForm, inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
-import {IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
+import {inntektsjusteringPath} from "~inntektsjustering/Inntektsjustering";
+import {IInntektsjusteringForm, IInntektsjusteringLagre} from "~inntektsjustering/InntektsjusteringDto";
 import {saveInntektsjustering} from "~api/api";
 import {useFormContext} from "react-hook-form";
 import {Alert, Heading} from "@navikt/ds-react";
@@ -23,7 +23,7 @@ export default function InntektsjusteringOppsummering() {
         naeringsinntekt,
         arbeidsinntektUtland,
         naeringsinntektUtland
-    } = getValues() as IInntektsjusteringForm
+    } = getValues()
 
     const onSubmit = async (inntektsjustering: IInntektsjusteringForm) => {
         const {skalHaInntektNorge, skalHaInntektUtland, skalHaArbeidsinntekt, skalHaNaeringsinntekt} = inntektsjustering
