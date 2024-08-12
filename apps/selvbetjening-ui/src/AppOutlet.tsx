@@ -7,7 +7,6 @@ import { nnTranslations } from './locales/nn.ts'
 import { enTranslations } from './locales/en.ts'
 
 export const AppOutlet = () => {
-    //TODO: sette lng basert på hvor bruker er i fra
     i18n.use(initReactI18next).init({
         lng: 'nb',
         resources: {
