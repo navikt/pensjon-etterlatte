@@ -24,7 +24,8 @@ export const Inntektsjustering = (): ReactNode => {
         </VStack>
     ) : (
         <VStack gap="4" align="center">
-            <Heading size="medium">Fant ikke inntektsjustering</Heading>
+            <Heading size="medium">Fant ingen inntektsjustering</Heading>
+            <Button>Opprett inntektsjustering</Button>
         </VStack>
     )
 }
