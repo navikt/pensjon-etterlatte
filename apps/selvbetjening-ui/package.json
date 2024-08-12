@@ -15,6 +15,7 @@
     "@navikt/ds-css": "^6.15.0",
     "@navikt/ds-react": "^6.15.0",
     "i18next": "^23.12.2",
+    "license-checker-rseidelsohn": "^4.3.0",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
