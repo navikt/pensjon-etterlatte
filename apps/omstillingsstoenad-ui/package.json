@@ -15,7 +15,7 @@
     "bowser": "^2.11.0",
     "error-stack-parser": "^2.1.4",
     "amplitude-js": "^8.21.9",
-    "axios": "1.7.2",
+    "axios": "1.7.3",
     "axios-retry": "^4.3.0",
     "date-fns": "^3.6.0",
     "i18next": "23.11.5",
