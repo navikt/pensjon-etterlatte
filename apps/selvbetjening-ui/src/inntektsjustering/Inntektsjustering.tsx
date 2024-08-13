@@ -25,7 +25,7 @@ export const Inntektsjustering = (): ReactNode => {
     ) : (
         <VStack gap="4" align="center">
             <Heading size="medium">Fant ingen inntektsjustering</Heading>
-            <Button>Opprett inntektsjustering</Button>
+            <Button onClick={() => navigate('/inntektsjustering/opprett')}>Opprett inntektsjustering</Button>
         </VStack>
     )
 }

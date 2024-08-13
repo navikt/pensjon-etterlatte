@@ -6,6 +6,8 @@ import { Inntektsjustering } from './inntektsjustering/Inntektsjustering.tsx'
 import { AppOutlet } from './AppOutlet.tsx'
 import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
 import { Landing } from './Landing.tsx'
+import { OpprettInntektsjustering } from './inntektsjustering/OpprettInntektsjustering.tsx'
+import { InntektsjusteringKvittering } from './inntektsjustering/InntektsjusteringKvittering.tsx'
 
 const router = createBrowserRouter(
     [
@@ -18,6 +20,14 @@ const router = createBrowserRouter(
                 {
                     path: '/inntektsjustering',
                     element: <Inntektsjustering />,
+                },
+                {
+                    path: '/inntektsjustering/opprett',
+                    element: <OpprettInntektsjustering />,
+                },
+                {
+                    path: '/inntektsjustering/kvittering',
+                    element: <InntektsjusteringKvittering />,
                 },
             ],
         },
