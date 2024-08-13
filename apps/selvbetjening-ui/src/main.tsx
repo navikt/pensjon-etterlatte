@@ -8,6 +8,20 @@ import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
 import { Landing } from './Landing.tsx'
 import { OpprettInntektsjustering } from './inntektsjustering/OpprettInntektsjustering.tsx'
 import { InntektsjusteringKvittering } from './inntektsjustering/InntektsjusteringKvittering.tsx'
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import { nbTranslations } from './locales/nb.ts'
+import { nnTranslations } from './locales/nn.ts'
+import { enTranslations } from './locales/en.ts'
+
+i18n.use(initReactI18next).init({
+    lng: 'nb',
+    resources: {
+        nb: { translation: nbTranslations },
+        nn: { translation: nnTranslations },
+        en: { translation: enTranslations },
+    },
+})
 
 const router = createBrowserRouter(
     [
