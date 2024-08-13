@@ -7,7 +7,7 @@ export const InntektsjusteringKvittering = () => {
 
     const { inntektsjustering }: { inntektsjustering: IInntektsjustering } = useLocation().state ?? {}
 
-    return !!inntektsjustering ? (
+    return inntektsjustering ? (
         <VStack gap="4" align="center">
             <div>
                 <Label>Arbeidsinntekt i Norge</Label>
