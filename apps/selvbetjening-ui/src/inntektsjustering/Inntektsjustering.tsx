@@ -1,15 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { ReactNode } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { fetcher } from '../fetcher.ts'
 import { IInntektsjustering } from './types.ts'
 import { BodyShort, Button, Heading, Label, Skeleton, VStack } from '@navikt/ds-react'
 
 export const Inntektsjustering = (): ReactNode => {
-    const { data, isLoading, error }: SWRResponse<IInntektsjustering, boolean, boolean> = useSWR(
-        `/api/inntektsjustering`,
-        fetcher
-    )
+    const { data, isLoading, error }: SWRResponse<IInntektsjustering, boolean, boolean> =
+        useSWR(`/api/inntektsjustering`)
     const navigate = useNavigate()
 
     return isLoading ? (
