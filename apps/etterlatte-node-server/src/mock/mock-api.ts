@@ -96,13 +96,13 @@ export const mockSelvbetjeningApi = (app: any) => {
         setTimeout(() => res.json(innloggetBruker), 1000)
     )
 
-    app.get(`${config.app.basePath}/api/inntektsjustering`, (req: Request, res: Response) => {
+    app.get(`${config.app.basePath}/api/api/inntektsjustering`, (req: Request, res: Response) => {
         const inntektsjustering = cache.get(innloggetBruker.foedselsnummer)
         if (!inntektsjustering) res.sendStatus(404)
         else res.send(inntektsjustering)
     })
 
-    app.post(`${config.app.basePath}/api/inntektsjustering`, (req: Request, res: Response) => {
+    app.post(`${config.app.basePath}/api/api/inntektsjustering`, (req: Request, res: Response) => {
         const lagret = {
             tidspunkt: Date.now(),
             ...req.body,

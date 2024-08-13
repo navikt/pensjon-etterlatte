@@ -13,6 +13,8 @@ import { initReactI18next } from 'react-i18next'
 import { nbTranslations } from './locales/nb.ts'
 import { nnTranslations } from './locales/nn.ts'
 import { enTranslations } from './locales/en.ts'
+import { fetcher } from './fetcher.ts'
+import { SWRConfig } from 'swr'
 
 i18n.use(initReactI18next).init({
     lng: 'nb',
@@ -51,6 +53,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <SWRConfig value={{ fetcher: fetcher }}>
+            <RouterProvider router={router} />
+        </SWRConfig>
     </StrictMode>
 )
