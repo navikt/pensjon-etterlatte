@@ -30,8 +30,7 @@ export default {
     'knapp.nei': 'No, go back',
     'forside.tittel': 'Apply for adjustment allowance',
     'forside.ingress':
-        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how you should answer some questions about the coming months. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.\n\n' +
-        'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
+        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how you should answer some questions about the coming months. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.',
     'forside.startSoeknad': 'Start the application',
     'forside.infoOmUtvikling': 'The application may be unstable from February 9th to February 12th.',
     'forside.omYtelsene.innhold':
@@ -45,9 +44,18 @@ export default {
         'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about survivor’s pension',
-    'forside.barnepensjon.tittel': 'You can also apply for a children’s pension',
+    'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
         'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension.',
+    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden', // Trenger oversettelse
+    'forside.utfyllingAvSoeknad.innhold':
+        'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
+    'forside.klartFoerSoeknad.tittel': '',
+    'forside.klartFoerSoeknad.fnr.tittel': '',
+    'forside.klartFoerSoeknad.fnr.innhold': '',
+    'forside.klartFoerSoeknad.oppholdUtland.tittel': '',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del1': '',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del2': '',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
     'forside.slikBehandlerVi.tittel': 'How NAV processes your personal data',
     'forside.slikBehandlerVi.innhold':

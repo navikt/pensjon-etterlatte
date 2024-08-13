@@ -28,10 +28,9 @@ export default {
     'knapp.endre': 'Endre',
     'knapp.ja': 'Ja, send søknad',
     'knapp.nei': 'Nei, gå tilbake',
-    'forside.tittel': 'Søknad om omstillingsstønad',
+    'forside.tittel': 'Søk om omstillingsstønad',
     'forside.ingress':
-        'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.\n\n' +
-        'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake for å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
+        'Hei, jeg er her for å veilede deg gjennom søknaden. Jeg forstår at du kan bli usikker på hva du skal svare på noen spørsmål som handler om tiden fremover. Da svarer du så godt du kan ut fra hva situasjonen er nå, og så kan du melde fra om eventuelle endringer senere.',
     'forside.startSoeknad': 'Start søknad',
     'forside.infoOmUtvikling': 'Søknaden kan være ustabil fra 9. februar til og med 12. februar.',
     'forside.omYtelsene.innhold':
@@ -45,9 +44,21 @@ export default {
         'Lurer du på hvem som kan få, hvor mye eller annet om stønaden kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese mer om omstillingsstønad.',
-    'forside.barnepensjon.tittel': 'I denne søknaden kan du også søke om barnepensjon',
+    'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
+    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden',
+    'forside.utfyllingAvSoeknad.innhold':
+        'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake for å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
+    'forside.klartFoerSoeknad.tittel': 'Dette bør du ha klart før du søker',
+    'forside.klartFoerSoeknad.fnr.tittel': 'Fødselsnummer',
+    'forside.klartFoerSoeknad.fnr.innhold':
+        'Vi trenger navn og fødselsnummer på alle personer i søknaden. Hvis du ikke har fødselsnummer for en eller flere av personene i søknaden må du oppgi fødselsdato. Får vi kun fødselsdato, tar det lenger tid å behandle søknaden.',
+    'forside.klartFoerSoeknad.oppholdUtland.tittel': 'Avdødes opphold i utlandet',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del1':
+        'Vi trenger å vite om avdøde har oppholdt seg i andre land enn Norge. Du må svare på hvilket land avdøde har bodd og/eller arbeidet i og om avdøde var medlem av folketrygden under oppholdet.',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del2':
+        'I tillegg spør vi om hvilke perioder avdøde har bodd og/eller arbeidet i utlandet og om avdøde har hatt pensjonsutbetaling fra dette landet. Er du usikker på datoer eller beløp, fyller du ut så godt du kan.',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysninger i søknaden',
     'forside.slikBehandlerVi.tittel': 'Slik behandler NAV personopplysningene dine',
     'forside.slikBehandlerVi.innhold':

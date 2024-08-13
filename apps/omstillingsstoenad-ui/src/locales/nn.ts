@@ -30,8 +30,7 @@ export default {
     'knapp.nei': 'Nei, gå tilbake',
     'forside.tittel': 'Søk om omstillingsstønad',
     'forside.ingress':
-        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n' +
-        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
     'forside.startSoeknad': 'Start søknad',
     'forside.infoOmUtvikling': 'Søknaden kan være ustabil fra 9. februar til og med 12. februar.',
     'forside.omYtelsene.innhold':
@@ -45,9 +44,18 @@ export default {
         'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
-    'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
+    'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
+    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden', // Trenger oversettelse
+    'forside.utfyllingAvSoeknad.innhold':
+        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+    'forside.klartFoerSoeknad.tittel': '',
+    'forside.klartFoerSoeknad.fnr.tittel': '',
+    'forside.klartFoerSoeknad.fnr.innhold': '',
+    'forside.klartFoerSoeknad.oppholdUtland.tittel': '',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del1': '',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del2': '',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
     'forside.slikBehandlerVi.tittel': 'Slik behandlar NAV personopplysningane dine',
     'forside.slikBehandlerVi.innhold':
