@@ -1,37 +1,13 @@
-import { TKey, TNamespace, Translation } from '../context/language/translations'
-
 const app = {
     applicationTitle: 'Selvbetjening',
 }
 
-const common = {
-
-}
-
-const navigation = {
-
-}
-
-const btn = {
-
-}
 const radiobuttons = {
     JA: 'Ja',
     NEI: 'Nei',
     VET_IKKE: 'Vet ikke',
 }
 
-const frontPage = {
-
-}
-
-const aboutYou = {
-
-}
-
-const error = {
-
-}
 const pageNotFound = {
     title: 'Beklager vi fant ikke siden',
     description: 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
@@ -48,7 +24,7 @@ const pageNotFound = {
 const systemUnavailable = {
     title: 'Å nei, søknaden fungerer ikke...',
     description:
-        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+            'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
     'feedback.title': 'Opplever du fortsatt feil?',
     'feedback.report': 'Meld fra om feil og mangler',
     'feedback.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
@@ -58,7 +34,7 @@ const systemUnavailable = {
     tryAgainButton: 'Prøv igjen',
     'title.english': 'The application form is not currently working',
     'description.english.del1':
-        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+            'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
     'description.english.tryAgain': 'try again',
     'description.english.del2': ' later.',
 }
@@ -69,18 +45,10 @@ const inntektsjustering = {
     utland: "Utland",
 }
 
-const texts: Record<TNamespace, Record<TKey, Translation>> = {
-    app,
-    aboutYou,
-    error,
-    common,
-    frontPage,
-    navigation,
-    btn,
-    radiobuttons,
-    pageNotFound,
-    systemUnavailable,
-    inntektsjustering,
+export const nbTranslations = {
+    ...app,
+    ...radiobuttons,
+    ...pageNotFound,
+    ...systemUnavailable,
+    ...inntektsjustering
 }
-
-export default texts

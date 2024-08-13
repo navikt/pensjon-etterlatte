@@ -1,10 +1,10 @@
 import parser from 'body-parser'
-import {NextFunction, Request, Response} from 'express'
+import { NextFunction, Request, Response } from 'express'
 import NodeCache from 'node-cache'
 import config from '../config'
 import mockLand from './landMock'
 import mockValutaer from './valutaMock'
-import {STOR_SNERK} from './mock-user'
+import { STOR_SNERK } from './mock-user'
 
 const cache = new NodeCache()
 
@@ -15,7 +15,7 @@ export const mockApi = (app: any) => {
     app.use(function (req: Request, res: Response, next: NextFunction) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
         res.setHeader('Access-Control-Allow-Credentials', 'true')
 
         next()
@@ -43,7 +43,7 @@ export const mockApi = (app: any) => {
         const soeknad = cache.get(innloggetBruker.foedselsnummer)
 
         if (!soeknad) res.sendStatus(404)
-        else res.json({payload: soeknad})
+        else res.json({ payload: soeknad })
     })
 
     app.post(`${config.app.basePath}/api/api/kladd`, (req: Request, res: Response) => {
@@ -86,7 +86,7 @@ export const mockSelvbetjeningApi = (app: any) => {
     app.use(function (req: Request, res: Response, next: NextFunction) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
         res.setHeader('Access-Control-Allow-Credentials', 'true')
 
         next()
@@ -98,7 +98,6 @@ export const mockSelvbetjeningApi = (app: any) => {
 
     app.get(`${config.app.basePath}/api/api/inntektsjustering`, (req: Request, res: Response) => {
         const inntektsjustering = cache.get(innloggetBruker.foedselsnummer)
-
         if (!inntektsjustering) res.sendStatus(404)
         else res.send(inntektsjustering)
     })
@@ -106,7 +105,7 @@ export const mockSelvbetjeningApi = (app: any) => {
     app.post(`${config.app.basePath}/api/api/inntektsjustering`, (req: Request, res: Response) => {
         const lagret = {
             tidspunkt: Date.now(),
-            ...req.body
+            ...req.body,
         }
 
         cache.set(innloggetBruker.foedselsnummer, JSON.stringify(lagret))
@@ -123,5 +122,4 @@ export const mockSelvbetjeningApi = (app: any) => {
     app.get(`${config.app.basePath}/logout`, async (req: any, res: any) => {
         res.sendStatus(200)
     })
-
 }
