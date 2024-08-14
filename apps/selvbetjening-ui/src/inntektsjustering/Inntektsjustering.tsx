@@ -1,11 +1,15 @@
 import { ReactNode } from 'react'
-import { VStack } from '@navikt/ds-react'
+import { HStack, VStack } from '@navikt/ds-react'
 import { InformasjonOmInnloggetBruker } from './components/InformasjonOmInnloggetBruker.tsx'
+import { SisteInnsendteInntektsjustering } from './components/SisteInnsendteInntektsjustering.tsx'
 
 export const Inntektsjustering = (): ReactNode => {
     return (
-        <VStack gap="4" align="center" paddingBlock="8 0">
-            <InformasjonOmInnloggetBruker />
-        </VStack>
+        <HStack justify="center">
+            <VStack gap="8" align="start" paddingBlock="8 0" paddingInline="4">
+                <InformasjonOmInnloggetBruker />
+                <SisteInnsendteInntektsjustering />
+            </VStack>
+        </HStack>
     )
 }

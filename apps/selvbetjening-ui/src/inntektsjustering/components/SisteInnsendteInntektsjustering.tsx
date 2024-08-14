@@ -1,6 +1,6 @@
 import useSWR, { SWRResponse } from 'swr'
 import { IInntektsjustering } from '../../types/inntektsjustering.ts'
-import { BodyShort, Button, Heading, Label, Skeleton, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, Skeleton, VStack } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
 
 export const SisteInnsendteInntektsjustering = () => {
@@ -9,20 +9,36 @@ export const SisteInnsendteInntektsjustering = () => {
     const { data, isLoading, error }: SWRResponse<IInntektsjustering, boolean, boolean> =
         useSWR(`/api/inntektsjustering`)
 
-    return isLoading ? (
-        <Skeleton />
-    ) : !!data && !error ? (
-        <VStack gap="4" justify="center">
-            <Heading size={'medium'}>Tidligere oppgitt inntekt</Heading>
-            <Heading size={'small'}>Inntekt for neste år 2025</Heading>
-            <Label>Forventet brutto inntekt i Norge for 2025</Label>
-            <BodyShort>{data.arbeidsinntekt}</BodyShort>
-            <Button onClick={() => navigate('/')}>Tilbake</Button>
-        </VStack>
-    ) : (
-        <VStack gap="4" align="center">
-            <Heading size="medium">Fant ingen inntektsjustering</Heading>
-            <Button onClick={() => navigate('/inntektsjustering/opprett')}>Opprett inntektsjustering</Button>
-        </VStack>
+    return (
+        <div>
+            <Heading size="large" spacing>
+                Dette har du oppgitt tidligere
+            </Heading>
+            {isLoading ? (
+                <Skeleton />
+            ) : !!data && !error ? (
+                <div></div>
+            ) : (
+                <Box
+                    minWidth="fit-content"
+                    maxWidth="30rem"
+                    padding="8"
+                    background="surface-subtle"
+                    borderRadius="large"
+                >
+                    <Heading size="small" spacing>
+                        Tidligere oppgitt inntekt for neste år
+                    </Heading>
+                    <VStack gap="4">
+                        <BodyShort>Ingen inntekt for neste år er oppgitt</BodyShort>
+                        <div>
+                            <Button variant="secondary" onClick={() => navigate('/inntektsjustering/opprett')}>
+                                Oppgi inntekt
+                            </Button>
+                        </div>
+                    </VStack>
+                </Box>
+            )}
+        </div>
     )
 }
