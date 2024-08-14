@@ -15,7 +15,7 @@ export const InformasjonOmInnloggetBruker = () => {
                 Dine opplysninger
             </Heading>
             {isLoading ? (
-                <Skeleton variant="rounded" width={400} height={400} />
+                <Skeleton variant="rounded" width="100%" height={400} />
             ) : !!data && !error ? (
                 <VStack gap="4">
                     <HGrid gap={{ xs: '4', sm: '8' }} columns={{ xs: 1, sm: 2 }} align="start">
