@@ -92,7 +92,7 @@ export const mockSelvbetjeningApi = (app: any) => {
         next()
     })
 
-    app.get(`${config.app.basePath}/api/person/innlogget`, (req: Request, res: Response) =>
+    app.get(`${config.app.basePath}/api/api/person/innlogget`, (req: Request, res: Response) =>
         setTimeout(() => res.json(innloggetBruker), 1000)
     )
 

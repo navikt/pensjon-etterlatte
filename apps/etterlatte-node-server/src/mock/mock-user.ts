@@ -1,10 +1,10 @@
 const personalia = {
-    adresse: 'Adresse-mock',
+    adresse: 'Humlegården',
     husnummer: 1,
     husbokstav: null,
     postnummer: '0000',
-    poststed: 'Poststed-mock',
-    statsborgerskap: 'Statsborgerskap-mock',
+    poststed: 'Humla',
+    statsborgerskap: 'Norge',
     sivilstatus: 'GIFT',
 }
 
@@ -32,7 +32,7 @@ export const STOR_SNERK = {
     foedselsnummer: '11057523044',
     foedselsaar: 1975,
     foedselsdato: new Date(1975, 4, 11),
-    telefonnummer: '11111111',
+    telefonnummer: '+47 11111111',
     spraak: 'nb',
     ...personalia,
 }

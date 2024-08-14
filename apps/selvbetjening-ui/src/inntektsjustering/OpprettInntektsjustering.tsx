@@ -1,7 +1,7 @@
 import { Button, Checkbox, CheckboxGroup, HStack, TextField, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { IInntektsjustering } from './types.ts'
+import { IInntektsjustering } from '../types/inntektsjustering.ts'
 
 interface IOpprettInntektsjusteringSkjema {
     harArbeidsinntekt: boolean

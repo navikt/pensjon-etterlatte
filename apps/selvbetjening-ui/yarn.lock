@@ -682,6 +682,11 @@
   resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.15.0.tgz#ea7d1c03de89f35bd57e31aa3f996317f0c67cc0"
   integrity sha512-EfpZw0PcpIryOsscfEiyxj4AmeYIhzqngf0u5tJT/Iab6GhZKv3jNyqja9ZMlCpWamQu2gBoVU2PBmAJz7BgoQ==
 
+"@navikt/aksel-icons@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.16.0.tgz#ab339b42056db9cadf36315a5eeddf8658000b36"
+  integrity sha512-qJ4VXEYkLGADYMfKKn+y2UzC86aC6hN4emwJpHhU0oJQy75K70uWFgpl0opcMSknKZgOR8mrQaAQke6QRjh4Ug==
+
 "@navikt/aksel@^6.15.0":
   version "6.15.0"
   resolved "https://registry.yarnpkg.com/@navikt/aksel/-/aksel-6.15.0.tgz#fa62d5a5745dd1e87471e20c2e826115994033b4"
