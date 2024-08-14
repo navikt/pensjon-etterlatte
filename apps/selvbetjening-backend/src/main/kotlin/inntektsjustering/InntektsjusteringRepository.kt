@@ -27,6 +27,7 @@ class InntektsjusteringRepository(
 			}.executeQuery()
 			.firstOrNull{
 				Inntektsjustering(
+					id = UUID.fromString(getString("id")),
 					arbeidsinntekt = getInt("arbeidsinntekt"),
 					naeringsinntekt = getInt("naeringsinntekt"),
 					arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
@@ -39,7 +40,7 @@ class InntektsjusteringRepository(
 	fun lagreInntektsjustering(fnr: Foedselsnummer, inntektsjustering: InntektsjusteringLagre) = connection.use {
 		it.prepareStatement(LAGRE)
 			.apply {
-				setObject(1, UUID.randomUUID())
+				setObject(1, inntektsjustering.id)
 				setString(2, fnr.value)
 				setInt(3, inntektsjustering.arbeidsinntekt)
 				setInt(4, inntektsjustering.naeringsinntekt)
