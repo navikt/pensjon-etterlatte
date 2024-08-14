@@ -11,7 +11,7 @@
     "@navikt/nav-dekoratoren-moduler": "^1.6.9",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "amplitude-js": "^8.21.9",
-    "axios": "1.7.3",
+    "axios": "1.7.4",
     "axios-retry": "^4.1.0",
     "react": "^18.3.1",
     "react-cookie": "^7.1.4",
