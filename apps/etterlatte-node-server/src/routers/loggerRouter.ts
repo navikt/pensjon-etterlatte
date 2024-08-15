@@ -34,9 +34,6 @@ loggerRouter.post('/', express.json(), (req, res) => {
     if (logEvent.type && logEvent.type === 'info') {
         frontendLogger.info('Frontendlogging: ', JSON.stringify(logEvent))
     } else {
-        if(logEvent.stackInfo) {
-            console.log('isStackInfoValid(logEvent.stackInfo): ', isStackInfoValid(logEvent.stackInfo))
-        }
         if (logEvent.stackInfo && isStackInfoValid(logEvent.stackInfo)) {
             sourceMapMapper(logEvent.stackInfo!)
                     .then((position) => {
