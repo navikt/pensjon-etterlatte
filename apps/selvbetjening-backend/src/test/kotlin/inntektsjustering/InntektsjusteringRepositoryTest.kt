@@ -48,6 +48,7 @@ class InntektsjusteringRepositoryTest {
 		val lagret = db.hentInntektsjustering(VAKKER_PENN) ?: throw Exception()
 		
 		with(lagret) {
+			id shouldBe ny.id
 			arbeidsinntekt shouldBe ny.arbeidsinntekt
 			naeringsinntekt shouldBe ny.naeringsinntekt
 			arbeidsinntektUtland shouldBe ny.arbeidsinntektUtland

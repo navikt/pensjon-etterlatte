@@ -98,11 +98,16 @@ internal class InntektsjusteringIntegrationTest {
 	@Order(2)
 	fun `Skal lagre inntektjustering`() {
 		withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
-
+			val json = """{
+				"${InntektsjusteringLagre::arbeidsinntekt.name}":300,
+				"${InntektsjusteringLagre::naeringsinntekt.name}":400,
+				"${InntektsjusteringLagre::arbeidsinntektUtland.name}":100,
+				"${InntektsjusteringLagre::naeringsinntektUtland.name}":200
+				}""".trimIndent()
 			val call = handleRequest(HttpMethod.Post, "/api/inntektsjustering") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(VAKKER_PENN)
-				setBody(nyInntektsjustering.toJson())
+				setBody(json)
 			}
 			call.response.status() shouldBe HttpStatusCode.OK
 		}
