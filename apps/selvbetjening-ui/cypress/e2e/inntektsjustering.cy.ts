@@ -1,6 +1,7 @@
 describe('landingsside for inntetsjustering', () => {
     beforeEach(() => {
         cy.startInntektsjustering('user')
+        cy.url().should('include', '/')
     })
 
     it('viser informasjonen til innloged bruker', () => {
