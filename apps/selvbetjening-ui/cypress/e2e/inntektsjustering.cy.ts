@@ -7,6 +7,6 @@ describe('landingsside for inntetsjustering', () => {
         cy.findByText('Statsborgerskap-mock')
         cy.findByText('Adresse-mock 1')
         cy.findByText('0000 Poststed-mock')
-        cy.findByText('+47 11111111')
+        cy.findByText('11111111')
     })
 })
