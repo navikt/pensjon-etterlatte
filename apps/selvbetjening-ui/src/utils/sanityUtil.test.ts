@@ -1,6 +1,6 @@
 import {PortableTextBlock} from "@portabletext/react";
-import {TextBlock, mapPortableTextBlock} from "~utils/sanityUtil";
 import {describe, expect, expectTypeOf, it} from 'vitest'
+import {mapPortableTextBlock} from "./sanityUtil.ts";
 
 describe('RichText/PortableText from Sanity mapped to internal type', () => {
     const result = mapPortableTextBlock(json)

@@ -1,7 +1,7 @@
 import {PortableTextBlock} from "@portabletext/react";
-import {mapPortableTextBlock, TextElement, TextBlock} from "~utils/sanityUtil";
 import {Heading, Link, List} from "@navikt/ds-react";
 import React from "react";
+import {mapPortableTextBlock, TextBlock} from "../../utils/sanityUtil.ts";
 
 
 export const AkeslPortableText = (richText: PortableTextBlock[]) => {

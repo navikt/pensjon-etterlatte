@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import {fetchSanity} from "~locales/Sanity";
 import {Heading, Select} from "@navikt/ds-react";
 import {PortableText} from "@portabletext/react";
-import {AkeslPortableText} from "~components/common/RichTextToAksel";
 import styled from "styled-components";
+import {fetchSanity} from "../locales/Sanity.ts";
+import {AkeslPortableText} from "./common/RichTextToAksel.tsx";
 
 export enum Language {
     BOKMAAL = 'NB',
