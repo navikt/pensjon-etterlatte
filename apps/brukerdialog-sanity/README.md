@@ -1,3 +1,14 @@
+# Brukerdialog Sanity
+
+## Logg inn med SSO
+```npx sanity login --sso navikt```
+
+## Deploy til Sanity
+```yarn deploy```
+
+## Lokal kjøring
+```yarn dev```
+
 # Sanity Clean Content Studio
 
 Congratulations, you have now installed the Sanity Content Studio, an open-source real-time content editing environment connected to the Sanity backend.

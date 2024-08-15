@@ -29,4 +29,4 @@ const type = defineType({
 })
 
 
-export const schemaTypes = [type, eventType]
+export const schemaTypes = [type]

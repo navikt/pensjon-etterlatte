@@ -20,8 +20,7 @@ export default defineConfig({
   name: 'default',
   title: 'test-sanity',
 
-  projectId: 'be3kt9kl',
-  //projectId: 'u0dlg8d8',
+  projectId: 'u0dlg8d8',
 
   dataset: 'production',
 
