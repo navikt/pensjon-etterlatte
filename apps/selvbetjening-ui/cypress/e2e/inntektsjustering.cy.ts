@@ -1,12 +1,15 @@
 describe('landingsside for inntetsjustering', () => {
+    beforeEach(() => {
+        cy.startInntektsjustering('user')
+    })
+
     it('viser informasjonen til innloged bruker', () => {
-        cy.visit('http://localhost:5173/selvbetjening/inntektsjustering')
         cy.findByText('STOR SNERK')
-        cy.findByText('GIFT')
+        cy.findByText('Gift')
         cy.findByText('11057523044')
-        cy.findByText('Statsborgerskap-mock')
-        cy.findByText('Adresse-mock 1')
-        cy.findByText('0000 Poststed-mock')
-        cy.findByText('11111111')
+        cy.findByText('Norsk')
+        cy.findByText('Testveien 12')
+        cy.findByText('0539 Oslo')
+        cy.findByText('12345123')
     })
 })
