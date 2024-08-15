@@ -1,87 +1,45 @@
-import { TKey, TNamespace, Translation } from '../context/language/translations'
-
 const app = {
-    applicationTitle: 'Selvbetjening',
+    applicationTitle: 'Self-service',
 }
 
 const common = {
-
+    firstName: 'First name(s)',
+    lastName: 'Family name',
+    name: 'Name',
+    fnrDnr: 'Norwegian national identity number or D number',
+    fnrIsUnknown: 'I do not know the national identy number (optional)',
+    fnrIsUnknownHelpText:
+        'The application process will take longer if you fail to state their national identity number.',
+    dateOfBirth: 'Date of birth',
+    address: 'Residential address',
+    maritalStatus: 'Marital status',
+    citizenship: 'Nationality',
+    phoneNumber: 'Telephone number',
+    phoneNumberOptional: 'Telephone number (optional)',
+    phoneNumberHelpText: 'The telephone number has been obtained from the Contact and Reservation Register.',
+    dateFormat: '(dd.mm.yyyy)',
+    dateExample: 'For example, 01.11.2020',
+    dateSRLabel: 'Enter date',
+    chooseCountry: 'Select country',
+    chooseLanguage: 'Select language',
+    chooseCurrency: 'Select currency',
+    norway: 'Norway',
+    optional: 'optional',
+    noSensitiveData: 'Please do not write sensitive personal data.',
+    counterLeft: 'characters remaining',
+    counterTooMuch: 'characters to many',
+    whyWeAsk: 'Why do we ask about this?',
 }
 
-const navigation = {
-
+const loggedInUserInfo = {
+    incorrectInfoMustBeCorrected:
+        'If the information we have about you is incorrect, you must change it in the National Registry. \n',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/en/forms/mine-opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHrefText: 'Change your information',
 }
 
-const btn = {
-
+export const enTranslations = {
+    ...app,
+    ...common,
+    ...loggedInUserInfo,
 }
-const radiobuttons = {
-    JA: 'Yes',
-    NEI: 'No',
-    VET_IKKE: 'Don’t know',
-}
-
-const frontPage = {
-
-}
-
-const aboutYou = {
-
-}
-
-const error = {
-
-}
-const pageNotFound = {
-    title: 'Beklager vi fant ikke siden',
-    description: 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
-    'title.english': 'Page not found',
-    'description.english.part1': 'The page you requested cannot be found. \n Go to the ',
-    'description.english.part2': ', or use one of the links in the menu.',
-    'backToFrontpage.english': 'front page',
-    backToFrontpage: 'Gå til forsiden',
-    'backToFrontpage.href': 'https://nav.no',
-    errorInLink: 'Meld gjerne i fra om at lenken ikke virker',
-    'errorInLink.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
-}
-
-const systemUnavailable = {
-    title: 'Å nei, søknaden fungerer ikke...',
-    description:
-        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
-    'feedback.title': 'Opplever du fortsatt feil?',
-    'feedback.report': 'Meld fra om feil og mangler',
-    'feedback.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
-    moreAboutBenefits: 'Les mer om rettighetene dine',
-    moreAboutBenefitsLink: 'Har mistet noen i nær familie',
-    moreAboutBenefitsHref: 'https://www.nav.no/mistet-noen',
-    tryAgainButton: 'Prøv igjen',
-    'title.english': 'The application form is not currently working',
-    'description.english.del1':
-        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
-    'description.english.tryAgain': 'try again',
-    'description.english.del2': ' later.',
-}
-
-const inntektsjustering = {
-    arbeidsinntekt: "Employment income",
-    naeringsinntekt: "Business income",
-    norge: "Norway",
-    utland: "abroad",
-}
-
-const texts: Record<TNamespace, Record<TKey, Translation>> = {
-    app,
-    aboutYou,
-    error,
-    common,
-    frontPage,
-    navigation,
-    btn,
-    radiobuttons,
-    pageNotFound,
-    systemUnavailable,
-    inntektsjustering,
-}
-
-export default texts

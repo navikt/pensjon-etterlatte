@@ -1,37 +1,48 @@
-import { TKey, TNamespace, Translation } from '../context/language/translations'
-
 const app = {
     applicationTitle: 'Selvbetjening',
 }
 
 const common = {
-
+    firstName: 'Fornavn',
+    lastName: 'Etternavn',
+    name: 'Navn',
+    fnrDnr: 'Fødselsnummer / d-nummer',
+    fnrIsUnknown: 'Jeg kjenner ikke fødselsnummeret (valgfritt)',
+    fnrIsUnknownHelpText: 'Behandlingen av søknaden tar lengre tid når du ikke oppgir fødselsnummeret.',
+    dateOfBirth: 'Fødselsdato',
+    address: 'Bostedsadresse',
+    maritalStatus: 'Sivilstatus',
+    citizenship: 'Statsborgerskap',
+    phoneNumber: 'Telefonnummer',
+    phoneNumberOptional: 'Telefonnummer (valgfri)',
+    phoneNumberHelpText: 'Telefonnummeret er hentet fra Kontakt- og reservasjonsregisteret.',
+    dateFormat: '(dd.mm.åååå)',
+    dateExample: 'eks. 01.11.2020',
+    dateSRLabel: 'Oppgi dato',
+    chooseCountry: 'Velg land',
+    chooseLanguage: 'Velg språk',
+    chooseCurrency: 'Velg valuta',
+    norway: 'Norge',
+    optional: 'valgfri',
+    noSensitiveData: 'Ikke oppgi sensitive personopplysninger.',
+    counterLeft: 'tegn igjen',
+    counterTooMuch: 'tegn for mye',
+    whyWeAsk: 'Hvorfor spør vi om dette?',
 }
 
-const navigation = {
-
+const loggedInUserInfo = {
+    incorrectInfoMustBeCorrected:
+        'Hvis opplysningene vi har om deg ikke stemmer, må du endre disse hos Folkeregisteret. \n',
+    incorrectInfoMustBeCorrectedHref: 'https://www.skatteetaten.no/skjema/opplysninger-i-folkeregisteret/',
+    incorrectInfoMustBeCorrectedHrefText: 'Endre opplysningene dine',
 }
 
-const btn = {
-
-}
 const radiobuttons = {
     JA: 'Ja',
     NEI: 'Nei',
     VET_IKKE: 'Vet ikke',
 }
 
-const frontPage = {
-
-}
-
-const aboutYou = {
-
-}
-
-const error = {
-
-}
 const pageNotFound = {
     title: 'Beklager vi fant ikke siden',
     description: 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
@@ -63,24 +74,18 @@ const systemUnavailable = {
     'description.english.del2': ' later.',
 }
 const inntektsjustering = {
-    arbeidsinntekt: "Arbeidsinntekt",
-    naeringsinntekt: "Næringsinntekt",
-    norge: "Norge",
-    utland: "Utland",
+    arbeidsinntekt: 'Arbeidsinntekt',
+    naeringsinntekt: 'Næringsinntekt',
+    norge: 'Norge',
+    utland: 'Utland',
 }
 
-const texts: Record<TNamespace, Record<TKey, Translation>> = {
-    app,
-    aboutYou,
-    error,
-    common,
-    frontPage,
-    navigation,
-    btn,
-    radiobuttons,
-    pageNotFound,
-    systemUnavailable,
-    inntektsjustering,
+export const nbTranslations = {
+    ...app,
+    ...common,
+    ...loggedInUserInfo,
+    ...radiobuttons,
+    ...pageNotFound,
+    ...systemUnavailable,
+    ...inntektsjustering,
 }
-
-export default texts
