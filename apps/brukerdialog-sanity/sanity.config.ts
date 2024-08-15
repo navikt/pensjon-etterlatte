@@ -25,7 +25,7 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
-  //auth: auth,
+  auth: auth,
 
   schema: {
     types: schemaTypes,
