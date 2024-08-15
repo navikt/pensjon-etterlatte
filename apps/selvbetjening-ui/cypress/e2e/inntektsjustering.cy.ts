@@ -1,6 +1,16 @@
-describe('tester for inntektsjustering', () => {
-    it('skal ikke vise inntektsjustering når ingen er opprettet', () => {
-        cy.visit('http://localhost:5173/selvbetjening/inntektsjustering')
-        cy.findByText('Fant ingen inntektsjustering')
+describe('landingsside for inntetsjustering', () => {
+    beforeEach(() => {
+        cy.startInntektsjustering('user')
+        cy.url().should('include', '/')
+    })
+
+    it('viser informasjonen til innloged bruker', () => {
+        cy.findByText('STOR SNERK')
+        cy.findByText('Gift')
+        cy.findByText('11057523044')
+        cy.findByText('Norsk')
+        cy.findByText('Testveien 12')
+        cy.findByText('0539 Oslo')
+        cy.findByText('12345123')
     })
 })

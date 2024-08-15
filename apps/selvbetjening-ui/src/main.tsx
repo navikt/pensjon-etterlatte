@@ -33,6 +33,7 @@ const router = createBrowserRouter(
             errorElement: <SystemUtilgjengelig />,
             children: [
                 { path: '/', element: <Landing /> },
+                { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
                     path: '/inntektsjustering',
                     element: <Inntektsjustering />,
@@ -53,7 +54,13 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <SWRConfig value={{ fetcher: fetcher }}>
+        <SWRConfig
+            value={{
+                fetcher: fetcher,
+                shouldRetryOnError: false,
+                revalidateOnFocus: false,
+            }}
+        >
             <RouterProvider router={router} />
         </SWRConfig>
     </StrictMode>

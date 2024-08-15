@@ -677,17 +677,17 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@navikt/aksel-icons@^6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.15.0.tgz#ea7d1c03de89f35bd57e31aa3f996317f0c67cc0"
-  integrity sha512-EfpZw0PcpIryOsscfEiyxj4AmeYIhzqngf0u5tJT/Iab6GhZKv3jNyqja9ZMlCpWamQu2gBoVU2PBmAJz7BgoQ==
+"@navikt/aksel-icons@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.16.0.tgz#ab339b42056db9cadf36315a5eeddf8658000b36"
+  integrity sha512-qJ4VXEYkLGADYMfKKn+y2UzC86aC6hN4emwJpHhU0oJQy75K70uWFgpl0opcMSknKZgOR8mrQaAQke6QRjh4Ug==
 
-"@navikt/aksel@^6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@navikt/aksel/-/aksel-6.15.0.tgz#fa62d5a5745dd1e87471e20c2e826115994033b4"
-  integrity sha512-IbQs+XE7MXczU7r+y91i3vC1uU8zcX/JZmZdwqu3g1IkUQzkSIDo6MYSyUSbIcO2Ju58TgdIYdc6S7vzEgqdgQ==
+"@navikt/aksel@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel/-/aksel-6.16.0.tgz#79a9eafd306ea9bbad3c13dab533c951822fb06b"
+  integrity sha512-EpFps/6Uvoo5xo5w/vurnJOv7BD09dy/ZXT3OGxeAR7iQtiWm+5jXnVHmG8wB+DFBWcCPuOK604ezALlqAeI4w==
   dependencies:
-    "@navikt/ds-css" "6.15.0"
+    "@navikt/ds-css" "6.16.0"
     axios "1.6.0"
     chalk "4.1.0"
     clipboardy "^2.3.0"
@@ -701,28 +701,28 @@
     lodash "4.17.21"
     react-scanner "^1.1.0"
 
-"@navikt/ds-css@6.15.0", "@navikt/ds-css@^6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-6.15.0.tgz#b0a8d1f0a9a1404808921acdcbfa3f523985a234"
-  integrity sha512-76cHdwRlus2++UQGwcn7EBG4lHAi+2OfAuUi4ZjiE6Amnk3JYkgegM+9Zl60f4TEIEvzKVdd5qRTeaD6d8qO2Q==
+"@navikt/ds-css@6.16.0", "@navikt/ds-css@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-css/-/ds-css-6.16.0.tgz#12339eae9f3f1e1a83906450c988005910bb5b46"
+  integrity sha512-GdVAGurx4RCUDnY/R5Mtt7a4rpxV+aNnKUD2adYLD388MoLh/WGEYAml/YX1zEdPolSs2KjjnOw+rBI4IUCCrQ==
 
-"@navikt/ds-react@^6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-6.15.0.tgz#63e70c5371c5f9a83cb53bd97d31c4085b10e986"
-  integrity sha512-o4sWazfbx6IeR4PGp0/NyfDWzyjv/4m9aD707PV2ZbzCLcJ+7R6WeYBv69BelTs/dlmRA1/IGULkB95SrmLBPQ==
+"@navikt/ds-react@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-react/-/ds-react-6.16.0.tgz#0989459528fc4698be5ae1fecefcf0e16c1b3fbf"
+  integrity sha512-+GOvdGx5+qkHLJbcxpmoSbm19wsCuca3Gqv1bDpfXAH1ZbDi/cNMfGZS2dL5uOFeYf6ql9+isKoGj5tzFv3+cA==
   dependencies:
     "@floating-ui/react" "0.25.4"
     "@floating-ui/react-dom" "^2.0.9"
-    "@navikt/aksel-icons" "^6.15.0"
-    "@navikt/ds-tokens" "^6.15.0"
+    "@navikt/aksel-icons" "^6.16.0"
+    "@navikt/ds-tokens" "^6.16.0"
     clsx "^2.1.0"
     date-fns "^3.0.0"
     react-day-picker "8.10.0"
 
-"@navikt/ds-tokens@^6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-6.15.0.tgz#65fc5949515eb8b82699636f873e32f1b42a2573"
-  integrity sha512-YVPMHSCArPv7uAaW9VYWEpS5TB0VXbAE/eeNM8mFtV9TDcpfLjmim3n5j03nlBT8vkcuS8CgOzPI2wgnoltGzQ==
+"@navikt/ds-tokens@^6.16.0":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-6.16.0.tgz#225411f2d34ca90ddf12f57716b2493614032a49"
+  integrity sha512-y51UPQJNkAtPkTGmBD7uXOy3k+QyeNIODe8DzAcZYwulj4r2qqGy5oBrxE5urxW21WmN21WFvSxyDprXpqZmHg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -901,6 +901,13 @@
   integrity sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==
   dependencies:
     "@babel/types" "^7.20.7"
+
+"@types/cypress@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@types/cypress/-/cypress-1.1.3.tgz#0a700c040d53e9e12b5af98e41d4a88c39f39b6a"
+  integrity sha512-OXe0Gw8LeCflkG1oPgFpyrYWJmEKqYncBsD/J0r17r0ETx/TnIGDNLwXt/pFYSYuYTpzcq1q3g62M9DrfsBL4g==
+  dependencies:
+    cypress "*"
 
 "@types/estree@1.0.5", "@types/estree@^1.0.0":
   version "1.0.5"
@@ -1676,6 +1683,54 @@ csstype@3.1.3, csstype@^3.0.2:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
+
+cypress@*:
+  version "13.13.3"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-13.13.3.tgz#21ee054bb4e00b3858f2e33b4f8f4e69128470a9"
+  integrity sha512-hUxPrdbJXhUOTzuML+y9Av7CKoYznbD83pt8g3klgpioEha0emfx4WNIuVRx0C76r0xV2MIwAW9WYiXfVJYFQw==
+  dependencies:
+    "@cypress/request" "^3.0.1"
+    "@cypress/xvfb" "^1.2.4"
+    "@types/sinonjs__fake-timers" "8.1.1"
+    "@types/sizzle" "^2.3.2"
+    arch "^2.2.0"
+    blob-util "^2.0.2"
+    bluebird "^3.7.2"
+    buffer "^5.7.1"
+    cachedir "^2.3.0"
+    chalk "^4.1.0"
+    check-more-types "^2.24.0"
+    cli-cursor "^3.1.0"
+    cli-table3 "~0.6.1"
+    commander "^6.2.1"
+    common-tags "^1.8.0"
+    dayjs "^1.10.4"
+    debug "^4.3.4"
+    enquirer "^2.3.6"
+    eventemitter2 "6.4.7"
+    execa "4.1.0"
+    executable "^4.1.1"
+    extract-zip "2.0.1"
+    figures "^3.2.0"
+    fs-extra "^9.1.0"
+    getos "^3.2.1"
+    is-ci "^3.0.1"
+    is-installed-globally "~0.4.0"
+    lazy-ass "^1.6.0"
+    listr2 "^3.8.3"
+    lodash "^4.17.21"
+    log-symbols "^4.0.0"
+    minimist "^1.2.8"
+    ospath "^1.2.2"
+    pretty-bytes "^5.6.0"
+    process "^0.11.10"
+    proxy-from-env "1.0.0"
+    request-progress "^3.0.0"
+    semver "^7.5.3"
+    supports-color "^8.1.1"
+    tmp "~0.2.3"
+    untildify "^4.0.0"
+    yauzl "^2.10.0"
 
 cypress@^13.13.2:
   version "13.13.2"

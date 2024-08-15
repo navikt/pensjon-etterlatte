@@ -1,0 +1,15 @@
+{
+  "fornavn": "STOR",
+  "etternavn": "SNERK",
+  "foedselsnummer": "11057523044",
+  "foedselsaar": 1975,
+  "foedselsdato": "1965-04-11",
+  "adresse": "Testveien",
+  "husnummer": 12,
+  "husbokstav": null,
+  "postnummer": "0539",
+  "poststed": "Oslo",
+  "statsborgerskap": "Norsk",
+  "sivilstatus": "Gift",
+  "telefonnummer": "12345123"
+}

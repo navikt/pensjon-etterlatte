@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { IInntektsjustering } from './types.ts'
+import { IInntektsjustering } from '../types/inntektsjustering.ts'
 import { BodyShort, Button, Heading, Label, VStack } from '@navikt/ds-react'
 
 export const InntektsjusteringKvittering = () => {

@@ -4,12 +4,12 @@ import decorator from './decorator'
 import proxy from './proxy'
 import config from './config'
 import prometheus from './monitoring/prometheus'
-import {logger as logger} from './monitoring/logger'
+import { logger as logger } from './monitoring/logger'
 import parser from 'body-parser'
 import session from './auth/session'
 import rTracer from 'cls-rtracer'
-import {selftestRouter} from "./selftestRouter";
-import {loggerRouter} from "./routers/loggerRouter";
+import { selftestRouter } from './selftestRouter'
+import { loggerRouter } from './routers/loggerRouter'
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
