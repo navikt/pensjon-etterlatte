@@ -70,7 +70,7 @@ export const setupWindowOnError = () => {
         const { error: kanskjeError, lineno, colno, message } = event
 
         //Ignorerer js som kræsjer fra andre domener
-        if(message.toLowerCase().startsWith('script error')) {
+        if(message.toLowerCase().includes('script error')) {
             return true
         }
 
