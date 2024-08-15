@@ -5,3 +5,10 @@ export interface IInntektsjustering {
     naeringsinntektUtland: number
     tidspunkt: string
 }
+
+export interface IOpprettInntektsjustering {
+    arbeidsinntekt: number
+    naeringsinntekt: number
+    arbeidsinntektUtland: number
+    naeringsinntektUtland: number
+}
