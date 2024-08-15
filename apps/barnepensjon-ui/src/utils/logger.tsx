@@ -82,10 +82,12 @@ export const logger = {
 export const setupWindowOnError = () => {
     addEventListener('error', (event) => {
         const { error: kanskjeError, lineno, colno, message } = event
+
         //Ignorerer js som kræsjer fra andre domener
-        if(message.startsWith('Script error')) {
+        if(message.toLowerCase().startsWith('script error')) {
             return true
         }
+
         const error = kanskjeError || {}
         if (import.meta.env.MODE === 'development') {
             console.error(error.message, error.stack)
