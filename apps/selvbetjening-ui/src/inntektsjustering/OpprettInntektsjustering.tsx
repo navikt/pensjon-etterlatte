@@ -1,7 +1,9 @@
 import { Button, Checkbox, CheckboxGroup, HStack, TextField, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { IInntektsjustering } from '../types/inntektsjustering.ts'
+import { IOpprettInntektsjustering } from '../types/inntektsjustering.ts'
+import useSWRMutation from 'swr/mutation'
+import { poster } from '../utils/api.ts'
 
 interface IOpprettInntektsjusteringSkjema {
     harArbeidsinntekt: boolean
@@ -17,16 +19,17 @@ interface IOpprettInntektsjusteringSkjema {
 export const OpprettInntektsjustering = () => {
     const navigate = useNavigate()
 
+    const { trigger } = useSWRMutation('/api/inntektsjustering', poster)
     const { register, watch, handleSubmit } = useForm<IOpprettInntektsjusteringSkjema>()
 
-    const opprettInntektsjustering = (data: IOpprettInntektsjusteringSkjema) => {
-        const inntektsjustering: IInntektsjustering = {
+    const opprettInntektsjustering = async (data: IOpprettInntektsjusteringSkjema) => {
+        const inntektsjustering: IOpprettInntektsjustering = {
             arbeidsinntekt: data.arbeidsinntekt ?? 0,
             arbeidsinntektUtland: data.arbeidsinntektUtland ?? 0,
             naeringsinntekt: data.naeringsinntekt ?? 0,
             naeringsinntektUtland: data.naeringsinntektUtland ?? 0,
-            tidspunkt: '',
         }
+        await trigger(inntektsjustering)
         navigate('/inntektsjustering/kvittering', { state: { inntektsjustering } })
     }
 
@@ -43,28 +46,28 @@ export const OpprettInntektsjustering = () => {
                 </CheckboxGroup>
                 {watch().harArbeidsinntekt && watch().harInntektINorge && (
                     <TextField
-                        {...register('arbeidsinntekt')}
+                        {...register('arbeidsinntekt', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
                 )}
                 {watch().harArbeidsinntekt && watch().harInntektIUtlandet && (
                     <TextField
-                        {...register('arbeidsinntektUtland')}
+                        {...register('arbeidsinntektUtland', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
                 )}
                 {watch().harNaeringsinntekt && watch().harInntektINorge && (
                     <TextField
-                        {...register('naeringsinntekt')}
+                        {...register('naeringsinntekt', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
                 )}
                 {watch().harNaeringsinntekt && watch().harInntektIUtlandet && (
                     <TextField
-                        {...register('naeringsinntektUtland')}
+                        {...register('naeringsinntektUtland', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
@@ -73,7 +76,7 @@ export const OpprettInntektsjustering = () => {
                     <Button type="button" variant="secondary" onClick={() => navigate('/inntektsjustering')}>
                         Tilbake
                     </Button>
-                    <Button>Neste</Button>
+                    <Button type="submit">Opprett</Button>
                 </HStack>
             </VStack>
         </form>

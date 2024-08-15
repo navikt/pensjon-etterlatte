@@ -13,7 +13,7 @@ import { initReactI18next } from 'react-i18next'
 import { nbTranslations } from './locales/nb.ts'
 import { nnTranslations } from './locales/nn.ts'
 import { enTranslations } from './locales/en.ts'
-import { fetcher } from './fetcher.ts'
+import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
 
 i18n.use(initReactI18next).init({
