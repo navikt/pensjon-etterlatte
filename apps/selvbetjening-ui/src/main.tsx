@@ -33,6 +33,7 @@ const router = createBrowserRouter(
             errorElement: <SystemUtilgjengelig />,
             children: [
                 { path: '/', element: <Landing /> },
+                { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
                     path: '/inntektsjustering',
                     element: <Inntektsjustering />,
