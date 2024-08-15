@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { IOpprettInntektsjustering } from '../types/inntektsjustering.ts'
 import useSWRMutation from 'swr/mutation'
-import { poster } from '../fetcher.ts'
+import { poster } from '../api.ts'
 
 interface IOpprettInntektsjusteringSkjema {
     harArbeidsinntekt: boolean
