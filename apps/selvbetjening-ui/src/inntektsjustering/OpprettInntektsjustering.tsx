@@ -46,28 +46,28 @@ export const OpprettInntektsjustering = () => {
                 </CheckboxGroup>
                 {watch().harArbeidsinntekt && watch().harInntektINorge && (
                     <TextField
-                        {...register('arbeidsinntekt')}
+                        {...register('arbeidsinntekt', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
                 )}
                 {watch().harArbeidsinntekt && watch().harInntektIUtlandet && (
                     <TextField
-                        {...register('arbeidsinntektUtland')}
+                        {...register('arbeidsinntektUtland', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
                 )}
                 {watch().harNaeringsinntekt && watch().harInntektINorge && (
                     <TextField
-                        {...register('naeringsinntekt')}
+                        {...register('naeringsinntekt', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
                 )}
                 {watch().harNaeringsinntekt && watch().harInntektIUtlandet && (
                     <TextField
-                        {...register('naeringsinntektUtland')}
+                        {...register('naeringsinntektUtland', { valueAsNumber: true })}
                         label="Oppgi forventet arbeidsinntekt fra januar til og med desember"
                         description="Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt."
                     />
