@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import no.nav.etterlatte.libs.utils.kafka.EventName
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 import no.nav.helse.rapids_rivers.JsonMessage

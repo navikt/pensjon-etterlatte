@@ -19,11 +19,11 @@ import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
 import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
-import no.nav.etterlatte.libs.pdl.AdressebeskyttelseKlient
+import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient
-import no.nav.etterlatte.security.ktor.clientCredential
+import no.nav.etterlatte.ktorclientauth.clientCredential
 import no.nav.etterlatte.soknad.SoeknadService
 
 const val PDL_URL = "PDL_URL"

@@ -10,7 +10,6 @@ import io.ktor.client.request.header
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType.Application.Json
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
@@ -20,9 +19,9 @@ import libs.common.util.retry
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
-import no.nav.etterlatte.libs.pdl.Gradering
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
+import no.nav.etterlatte.pdl.Gradering
 import org.slf4j.LoggerFactory
 
 internal fun SoeknadRequest.hentSaktype() = this.soeknader.first().type

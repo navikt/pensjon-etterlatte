@@ -1,4 +1,4 @@
-package no.nav.etterlatte.libs.utils.kafka
+package no.nav.etterlatte
 
 object EventName {
     const val SOEKNAD_INNSENDT = "soeknad_innsendt"

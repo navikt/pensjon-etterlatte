@@ -16,7 +16,7 @@ dependencies {
     implementation(libs.ktor.client.cio.jvm)
     implementation(libs.navfelles.rapids.and.rivers)
 
-    testImplementation(project(":libs:common-test"))
+    testImplementation(testFixtures(project(":libs:utils")))
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(libs.testcontainers.postgresql)
 
