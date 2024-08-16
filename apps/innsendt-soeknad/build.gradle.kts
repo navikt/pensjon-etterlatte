@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation(libs.etterlatte.common)
     implementation(project(":libs:utils"))
+    implementation(project(":libs:pdl"))
     implementation(project(":libs:ktor-client-auth"))
 
     implementation(libs.database.hikari.cp)
@@ -24,4 +25,5 @@ dependencies {
     testImplementation(libs.ktor.server.tests)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.ktor.client.mock)
 }

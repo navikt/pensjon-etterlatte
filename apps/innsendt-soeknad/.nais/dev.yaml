@@ -53,6 +53,18 @@ spec:
       value: min-side.aapen-utkast-v1
     - name: SOEKNAD_DOMAIN_URL
       value: https://etterlatte.intern.dev.nav.no
+    - name: PDL_URL
+      value: https://pdl-api.dev-fss-pub.nais.io/graphql
+    - name: PDL_AZURE_SCOPE
+      value: api://dev-fss.pdl.pdl-api/.default
+    - name: PDL_AUDIENCE
+      value: "dev-fss:pdl:pdl-api"
+    - name: KRR_ENDPOINT_URL
+      value: "http://digdir-krr-proxy.team-rocket/rest/v1/"
+    - name: KRR_SCOPE
+      value: "api://dev-gcp.team-rocket.digdir-krr-proxy/.default"
+    - name: KRR_AUDIENCE
+      value: "dev-gcp:team-rocket:digdir-krr-proxy"
   accessPolicy:
     inbound:
       rules:

@@ -28,6 +28,7 @@ import no.nav.etterlatte.jobs.PubliserTilstandJobb
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
+import no.nav.etterlatte.person.personApi
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
@@ -55,6 +56,7 @@ fun main() {
 					apiModule(context) {
 
 						secureRoutUsing(securityMediator) {
+							personApi(personService)
 							soeknadApi(soeknadService)
 						}
 					}

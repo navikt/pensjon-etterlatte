@@ -64,6 +64,18 @@ spec:
       value: min-side.aapen-utkast-v1
     - name: SOEKNAD_DOMAIN_URL
       value: https://nav.no
+    - name: PDL_URL
+      value: https://pdl-api.prod-fss-pub.nais.io/graphql
+    - name: PDL_AZURE_SCOPE
+      value: api://prod-fss.pdl.pdl-api/.default
+    - name: PDL_AUDIENCE
+      value: "prod-fss:pdl:pdl-api"
+    - name: KRR_SCOPE
+      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
+    - name: KRR_SCOPE
+      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
+    - name: KRR_AUDIENCE
+      value: "prod-gcp:team-rocket:digdir-krr-proxy"
   accessPolicy:
     inbound:
       rules:
