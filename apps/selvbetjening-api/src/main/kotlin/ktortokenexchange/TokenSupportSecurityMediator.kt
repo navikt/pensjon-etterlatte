@@ -6,12 +6,8 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.jackson.jackson
-import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCallPipeline
 import io.ktor.server.application.call
-import io.ktor.server.application.install
-import io.ktor.server.auth.Authentication
-import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
 import io.ktor.server.config.ApplicationConfig
 import io.ktor.server.routing.Route
@@ -24,14 +20,13 @@ import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
-import no.nav.security.token.support.v2.tokenValidationSupport
 
 class TokenSecurityContext(
     private val tokens: TokenValidationContext
-) : SecurityContext {
+) {
     fun tokenIssuedBy(issuer: String): JwtToken? = tokens.getJwtToken(issuer)
 
-    override fun user() =
+    fun user() =
         tokens.firstValidToken
             ?.jwtTokenClaims
             ?.get("pid")
@@ -40,7 +35,7 @@ class TokenSecurityContext(
 
 class TokenSupportSecurityContextMediator(
     private val configuration: ApplicationConfig
-) : SecurityContextMediator {
+) {
     private val defaultHttpClient =
         HttpClient(OkHttp) {
             install(ContentNegotiation) {
@@ -51,8 +46,8 @@ class TokenSupportSecurityContextMediator(
             }
         }
 
-    val tokenexchangeIssuer = "tokenx"
-    val tokenxKlient =
+    private val tokenexchangeIssuer = "tokenx"
+    private val tokenxKlient =
         runBlocking {
             configuration.propertyOrNull("no.nav.etterlatte.app.ventmedutgaaendekall")?.getString()?.toLong()?.also {
                 println("Venter $it sekunder før kall til token-issuers")
@@ -61,11 +56,11 @@ class TokenSupportSecurityContextMediator(
             checkNotNull(ClientConfig(configuration, defaultHttpClient).clients[tokenexchangeIssuer])
         }
 
-    private fun attachToRoute(route: Route) {
+    fun autentiser(route: Route) {
         route.intercept(ApplicationCallPipeline.Call) {
             withContext(
                 Dispatchers.Default +
-                    ThreadBoundSecCtx.asContextElement(
+                    ThreadBoundSecurityContext.asContextElement(
                         value =
                             TokenSecurityContext(
                                 call.principal<TokenValidationContextPrincipal>()?.context!!
@@ -77,9 +72,9 @@ class TokenSupportSecurityContextMediator(
         }
     }
 
-    override fun outgoingToken(audience: String) =
+    fun outgoingToken(audience: String) =
         suspend {
-            (ThreadBoundSecCtx.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
+            (ThreadBoundSecurityContext.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
                 tokenxKlient
                     .tokenExchange(
                         it.encodedToken,
@@ -88,19 +83,6 @@ class TokenSupportSecurityContextMediator(
             }!!
         }
 
-    override fun secureRoute(
-        ctx: Route,
-        block: Route.() -> Unit
-    ) {
-        ctx.authenticate {
-            attachToRoute(this)
-            block()
-        }
-    }
-
-    override fun installSecurity(ktor: Application) {
-        ktor.install(Authentication) {
-            tokenValidationSupport(config = configuration)
-        }
-    }
 }
+
+object ThreadBoundSecurityContext : ThreadLocal<TokenSecurityContext>()
