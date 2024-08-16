@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
+import io.ktor.server.auth.authenticate
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
@@ -26,12 +28,11 @@ import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.internal.selftestApi
 import no.nav.etterlatte.kodeverk.kodeverkApi
-import no.nav.etterlatte.ktortokenexchange.installAuthUsing
-import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.soknad.soknadApi
+import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.event.Level
 import java.time.LocalDate
 import java.util.UUID
@@ -62,7 +63,10 @@ class Server(
                                 )
                             }
                         }
-                        installAuthUsing(securityContext)
+
+                        install(Authentication) {
+                            tokenValidationSupport(config = applicationContext.hoconApplicationConfig)
+                        }
 
                         install(CallLogging) {
                             level = Level.INFO
@@ -89,7 +93,8 @@ class Server(
                             healthApi()
                             metricsApi()
                             selftestApi(unsecuredSoeknadHttpClient)
-                            secureRoutUsing(securityContext) {
+                            authenticate {
+                                securityContext.autentiser(this)
                                 personApi(personService)
                                 soknadApi(soeknadService)
                                 kodeverkApi(kodeverkService)
