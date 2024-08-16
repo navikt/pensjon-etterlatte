@@ -1,6 +1,6 @@
 import { Button, Heading, VStack } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
-import SanityTest from "./components/SanityTest.tsx";
+import SanityTest from './components/SanityTest.tsx'
 
 export const Landing = () => {
     const navigate = useNavigate()
