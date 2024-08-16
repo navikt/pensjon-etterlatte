@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.ConfigFactory
+import io.ktor.auth.installAuthUsing
+import io.ktor.auth.secureRoutUsing
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCall
@@ -49,7 +51,14 @@ fun main() {
 		val rapidApplication =
 			RapidApplication
 				.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
-				.withKtorModule { apiModule { soeknadApi(soeknadService) } }
+				.withKtorModule {
+					apiModule(context) {
+
+						secureRoutUsing(securityMediator) {
+							soeknadApi(soeknadService)
+						}
+					}
+				}
 				.build {
 					datasourceBuilder.migrate()
 				}
@@ -79,10 +88,14 @@ fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
 		.toString()
 		.let { Foedselsnummer.of(it) }
 
-fun Application.apiModule(routes: Route.() -> Unit) {
+fun Application.apiModule(context: ApplicationContext, routes: Route.() -> Unit) {
+
+	installAuthUsing(context.securityMediator)
+	/*
 	install(Authentication) {
 		tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
 	}
+	*/
 	install(ContentNegotiation) {
 		jackson {
 			enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)

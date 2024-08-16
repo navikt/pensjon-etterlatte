@@ -1,5 +1,8 @@
 package no.nav.etterlatte
 
+import com.typesafe.config.Config
+import com.typesafe.config.ConfigFactory
+import io.ktor.auth.SecurityContextMediatorFactory
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
@@ -8,11 +11,15 @@ import soeknad.PostgresSoeknadRepository
 
 class ApplicationContext(env: Map<String, String>) {
 
+	private val config: Config = ConfigFactory.load()
+
 	val datasourceBuilder: DataSourceBuilder = DataSourceBuilder(System.getenv())
 	val db: PostgresSoeknadRepository = PostgresSoeknadRepository.using(datasourceBuilder.dataSource)
 
 	val utkastPubliserer: UtkastPubliserer
 	val soeknadService: SoeknadService
+
+	val securityMediator = SecurityContextMediatorFactory.from(config)
 
 	init {
 

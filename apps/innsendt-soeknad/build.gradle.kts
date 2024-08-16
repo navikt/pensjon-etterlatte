@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation(libs.etterlatte.common)
     implementation(project(":libs:utils"))
+    implementation(project(":libs:ktor-client-auth"))
 
     implementation(libs.database.hikari.cp)
     implementation(libs.database.flyway.core)
