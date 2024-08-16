@@ -94,7 +94,7 @@ class Server(
                             metricsApi()
                             selftestApi(unsecuredSoeknadHttpClient)
                             authenticate {
-                                securityContext.attachToRoute(this)
+                                securityContext.autentiser(this)
                                 personApi(personService)
                                 soknadApi(soeknadService)
                                 kodeverkApi(kodeverkService)

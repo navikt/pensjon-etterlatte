@@ -56,11 +56,11 @@ class TokenSupportSecurityContextMediator(
             checkNotNull(ClientConfig(configuration, defaultHttpClient).clients[tokenexchangeIssuer])
         }
 
-    fun attachToRoute(route: Route) {
+    fun autentiser(route: Route) {
         route.intercept(ApplicationCallPipeline.Call) {
             withContext(
                 Dispatchers.Default +
-                    ThreadBoundSecCtx.asContextElement(
+                    ThreadBoundSecurityContext.asContextElement(
                         value =
                             TokenSecurityContext(
                                 call.principal<TokenValidationContextPrincipal>()?.context!!
@@ -74,7 +74,7 @@ class TokenSupportSecurityContextMediator(
 
     fun outgoingToken(audience: String) =
         suspend {
-            (ThreadBoundSecCtx.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
+            (ThreadBoundSecurityContext.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
                 tokenxKlient
                     .tokenExchange(
                         it.encodedToken,
@@ -85,4 +85,4 @@ class TokenSupportSecurityContextMediator(
 
 }
 
-object ThreadBoundSecCtx : ThreadLocal<TokenSecurityContext>()
+object ThreadBoundSecurityContext : ThreadLocal<TokenSecurityContext>()
