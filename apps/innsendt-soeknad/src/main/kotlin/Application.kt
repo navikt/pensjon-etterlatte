@@ -3,7 +3,6 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.typesafe.config.ConfigFactory
 import io.ktor.auth.installAuthUsing
 import io.ktor.auth.secureRoutUsing
 import io.ktor.serialization.jackson.jackson
@@ -11,10 +10,8 @@ import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCall
 import io.ktor.server.application.call
 import io.ktor.server.application.install
-import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
-import io.ktor.server.config.HoconApplicationConfig
 import io.ktor.server.plugins.callloging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.request.header
@@ -31,7 +28,6 @@ import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
-import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level

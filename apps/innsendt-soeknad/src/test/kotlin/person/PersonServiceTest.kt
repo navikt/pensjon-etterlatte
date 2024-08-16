@@ -10,10 +10,9 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
-//import no.nav.etterlatte.kodeverk.KodeverkService TODO
+import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.person.KodeverkService
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.DigitalKontaktinformasjon

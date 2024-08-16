@@ -76,6 +76,8 @@ spec:
       value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
     - name: KRR_AUDIENCE
       value: "prod-gcp:team-rocket:digdir-krr-proxy"
+    - name: KODEVERK_URL
+      value: "https://kodeverk-api.nav.no/api/v1/kodeverk"
   accessPolicy:
     inbound:
       rules:

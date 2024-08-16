@@ -17,8 +17,9 @@ import io.ktor.serialization.jackson.jackson
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
+import no.nav.etterlatte.kodeverk.KodeverkKlient
+import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktortokenexchange.bearerToken
-import no.nav.etterlatte.person.KodeverkService
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient
@@ -55,7 +56,10 @@ class ApplicationContext(env: Map<String, String>) {
 
 		soeknadService = SoeknadService(db, utkastPubliserer)
 
-		kodeverkService = KodeverkService() // TODO erstatt
+		kodeverkService =
+			kodeverkHttpClient()
+				.also { closables.add(it::close) }
+				.let { KodeverkService(KodeverkKlient(it, System.getenv("KODEVERK_URL"))) }
 
 		krrKlient =
 			tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
@@ -85,6 +89,17 @@ class ApplicationContext(env: Map<String, String>) {
 
 			defaultRequest {
 				url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
+			}
+		}
+
+	private fun kodeverkHttpClient() =
+		HttpClient(OkHttp) {
+			install(ContentNegotiation) {
+				jackson {
+					configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+					setSerializationInclusion(JsonInclude.Include.NON_NULL)
+					registerModule(JavaTimeModule())
+				}
 			}
 		}
 }
