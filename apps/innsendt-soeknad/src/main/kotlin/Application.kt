@@ -22,16 +22,18 @@ import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
 import no.nav.etterlatte.jobs.PubliserTilstandJobb
+import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
+import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
-import soeknad.soeknadApi
+import soeknad.soeknadApiOld
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -53,7 +55,10 @@ fun main() {
 
 						secureRoutUsing(securityMediator) {
 							personApi(personService)
-							soeknadApi(soeknadService)
+							kodeverkApi(kodeverkService)
+							soknadApi(soeknadService2)
+
+							//soeknadApiOld(soeknadService)
 						}
 					}
 				}

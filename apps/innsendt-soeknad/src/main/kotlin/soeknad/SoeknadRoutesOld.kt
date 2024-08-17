@@ -16,7 +16,7 @@ import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.soeknad.SoeknadConflictException
 import no.nav.etterlatte.soeknad.SoeknadService
 
-fun Route.soeknadApi(service: SoeknadService) {
+fun Route.soeknadApiOld(service: SoeknadService) {
     post("/api/soeknad") {
         call.application.environment.log
             .info("SoeknadRequest mottatt i innsendt-soeknad!")

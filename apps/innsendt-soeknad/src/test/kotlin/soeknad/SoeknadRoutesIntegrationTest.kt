@@ -49,7 +49,7 @@ import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
-import soeknad.soeknadApi
+import soeknad.soeknadApiOld
 import java.util.*
 import java.util.stream.Collectors
 
@@ -92,7 +92,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for OMS`() {
-        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
             val request =
                 SoeknadRequest(
                     listOf(
@@ -113,7 +113,7 @@ internal class SoeknadApiIntegrationTest {
     fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
             val request =
                 SoeknadRequest(
                     soeknader =
@@ -156,7 +156,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
-        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
                 tokenFor(LUGUBER_MASKIN) // LUGUBER MASKIN
             }.apply {
@@ -171,7 +171,7 @@ internal class SoeknadApiIntegrationTest {
         db.finnKladd(STOR_SNERK, kilde) shouldBe null
         every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
-        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(STOR_SNERK)
@@ -193,7 +193,7 @@ internal class SoeknadApiIntegrationTest {
     fun `Skal hente kladd fra databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 
-        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
@@ -212,7 +212,7 @@ internal class SoeknadApiIntegrationTest {
         db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-        withTestApplication({ apiTestModule { soeknadApi(service) } }) {
+        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
