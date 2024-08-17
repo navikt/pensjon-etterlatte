@@ -29,6 +29,9 @@ spec:
     pool: nav-dev
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   leaderElection: true
   gcp:
     sqlInstances:
@@ -59,15 +62,25 @@ spec:
       value: api://dev-fss.pdl.pdl-api/.default
     - name: PDL_AUDIENCE
       value: "dev-fss:pdl:pdl-api"
+    - name: KODEVERK_URL
+      value: "https://kodeverk-api.nav.no/api/v1/kodeverk"
+    - name: NAV_CONSUMER_ID
+      value: "srvbarnepensjon"
     - name: KRR_ENDPOINT_URL
       value: "http://digdir-krr-proxy.team-rocket/rest/v1/"
     - name: KRR_SCOPE
       value: "api://dev-gcp.team-rocket.digdir-krr-proxy/.default"
     - name: KRR_AUDIENCE
       value: "dev-gcp:team-rocket:digdir-krr-proxy"
-    - name: KODEVERK_URL
-      value: "https://kodeverk-api.nav.no/api/v1/kodeverk"
   accessPolicy:
+    outbound:
+      rules:
+        - application: digdir-krr-proxy
+          namespace: team-rocket
+      external:
+        - host: kodeverk-api.nav.no
+        - host: pdl-api.dev-fss-pub.nais.io
     inbound:
       rules:
-        - application: selvbetjening-api
+        - application: barnepensjon-ui
+        - application: omstillingsstoenad-ui
