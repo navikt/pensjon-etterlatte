@@ -1,13 +1,8 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import { BodyShort, Heading, Link, List } from '@navikt/ds-react'
+import { Heading, Link, List } from '@navikt/ds-react'
 
 const portableTextTilAkselKomponenter: PortableTextComponents = {
     marks: {
-        em: ({ children }) => (
-            <BodyShort>
-                <em>{children}</em>
-            </BodyShort>
-        ),
         a: ({ children, value }) => (
             <Link href={value.href} target="_blank" rel="noopener noreferrer">
                 {children}
