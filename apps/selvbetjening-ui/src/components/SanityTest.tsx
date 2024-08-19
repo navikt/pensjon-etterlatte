@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Heading, Select } from '@navikt/ds-react'
+import { BodyShort, Heading, Link, List, Select } from '@navikt/ds-react'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import styled from 'styled-components'
 import { fetchSanity } from '../locales/Sanity.ts'
@@ -11,6 +11,39 @@ export enum Language {
 }
 
 const components: PortableTextComponents = {
+    marks: {
+        p: ({ children }) => <BodyShort>{children}</BodyShort>,
+        b: ({ children }) => (
+            <BodyShort>
+                <b>{children}</b>
+            </BodyShort>
+        ),
+        em: ({ children }) => (
+            <BodyShort>
+                <em>{children}</em>
+            </BodyShort>
+        ),
+        i: ({ children }) => (
+            <BodyShort>
+                <i>{children}</i>
+            </BodyShort>
+        ),
+        u: ({ children }) => (
+            <BodyShort>
+                <u>{children}</u>
+            </BodyShort>
+        ),
+        del: ({ children }) => (
+            <BodyShort>
+                <del>{children}</del>
+            </BodyShort>
+        ),
+        a: ({ children, value }) => (
+            <Link href={value.href} target="_blank" rel="noopener noreferrer">
+                {children}
+            </Link>
+        ),
+    },
     block: {
         h1: ({ children }) => (
             <Heading size="xlarge" level="1">
@@ -27,6 +60,25 @@ const components: PortableTextComponents = {
                 {children}
             </Heading>
         ),
+        h4: ({ children }) => (
+            <Heading size="small" level="4">
+                {children}
+            </Heading>
+        ),
+        h5: ({ children }) => (
+            <Heading size="xsmall" level="5">
+                {children}
+            </Heading>
+        ),
+        h6: ({ children }) => <h6>{children}</h6>,
+    },
+    list: {
+        bullet: ({ children }) => <List as="ul">{children}</List>,
+        number: ({ children }) => <List as="ol">{children}</List>,
+    },
+    listItem: {
+        bullet: ({ children }) => <List.Item>{children}</List.Item>,
+        number: ({ children }) => <List.Item>{children}</List.Item>,
     },
 }
 
