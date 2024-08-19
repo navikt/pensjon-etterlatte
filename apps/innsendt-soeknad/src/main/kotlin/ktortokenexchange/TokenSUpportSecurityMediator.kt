@@ -2,9 +2,6 @@ package no.nav.etterlatte.ktortokenexchange
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
-import io.ktor.auth.SecurityContext
-import io.ktor.auth.SecurityContextMediator
-import io.ktor.auth.ThreadBoundSecCtx
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

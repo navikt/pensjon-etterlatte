@@ -1,12 +1,10 @@
-package io.ktor.auth
+package no.nav.etterlatte.ktortokenexchange
 
 import com.typesafe.config.Config
 import io.ktor.auth.LolSecMediator
 import io.ktor.server.application.Application
 import io.ktor.server.config.HoconApplicationConfig
 import io.ktor.server.routing.Route
-import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
-
 
 object ThreadBoundSecCtx : ThreadLocal<SecurityContext>()
 
@@ -24,7 +22,6 @@ interface SecurityContextMediator {
 		block: Route.() -> Unit
 	)
 }
-
 
 object SecurityContextMediatorFactory {
 	fun from(config: Config): SecurityContextMediator =

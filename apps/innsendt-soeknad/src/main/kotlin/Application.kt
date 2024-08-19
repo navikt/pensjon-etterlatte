@@ -3,14 +3,11 @@ package no.nav.etterlatte
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import io.ktor.auth.installAuthUsing
-import io.ktor.auth.secureRoutUsing
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCall
 import io.ktor.server.application.call
 import io.ktor.server.application.install
-import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
 import io.ktor.server.plugins.callloging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
@@ -23,6 +20,8 @@ import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
 import no.nav.etterlatte.jobs.PubliserTilstandJobb
 import no.nav.etterlatte.kodeverk.kodeverkApi
+import no.nav.etterlatte.ktortokenexchange.installAuthUsing
+import no.nav.etterlatte.ktortokenexchange.secureRoutUsing
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
@@ -33,7 +32,6 @@ import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
-import soeknad.soeknadApiOld
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
