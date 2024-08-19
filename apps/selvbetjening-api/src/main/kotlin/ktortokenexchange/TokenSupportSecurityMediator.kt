@@ -74,7 +74,7 @@ class TokenSupportSecurityContextMediator(
 
     fun outgoingToken(audience: String) =
         suspend {
-            (ThreadBoundSecurityContext.get() as TokenSecurityContext).tokenIssuedBy(tokenexchangeIssuer)?.let {
+            ThreadBoundSecurityContext.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
                 tokenxKlient
                     .tokenExchange(
                         it.encodedToken,
