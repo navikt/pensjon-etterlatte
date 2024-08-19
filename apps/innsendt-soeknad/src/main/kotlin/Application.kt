@@ -116,9 +116,7 @@ fun Application.apiModule(context: ApplicationContext, routes: Route.() -> Unit)
 	}
 
 	routing {
-		authenticate {
-			routes()
-		}
+		routes()
 	}
 }
 
