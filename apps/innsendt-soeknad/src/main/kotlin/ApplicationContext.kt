@@ -13,21 +13,22 @@ import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
 import io.ktor.serialization.jackson.jackson
+import io.ktor.server.config.HoconApplicationConfig
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.ktortokenexchange.SecurityContextMediatorFactory
-import no.nav.etterlatte.ktortokenexchange.bearerToken
-import no.nav.etterlatte.libs.pdl.AdressebeskyttelseKlient
+import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
+import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
+import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient
-import no.nav.etterlatte.security.ktor.clientCredential
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.soeknad.SoeknadService2
+import no.nav.etterlatte.ktorclientauth.clientCredential
 import soeknad.PostgresSoeknadRepository
 
 class ApplicationContext(env: Map<String, String>) {
@@ -35,7 +36,8 @@ class ApplicationContext(env: Map<String, String>) {
 	private val closables = mutableListOf<() -> Unit>()
 	private val config: Config = ConfigFactory.load()
 
-	val securityMediator = SecurityContextMediatorFactory.from(config)
+	val hoconApplicationConfig = HoconApplicationConfig(config)
+	val securityMediator = TokenSupportSecurityContextMediator(hoconApplicationConfig)
 
 	val datasourceBuilder: DataSourceBuilder = DataSourceBuilder(System.getenv())
 	val db: PostgresSoeknadRepository = PostgresSoeknadRepository.using(datasourceBuilder.dataSource)
@@ -84,53 +86,67 @@ class ApplicationContext(env: Map<String, String>) {
 			.let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
 	}
 
-	private fun tokenSecuredEndpoint(endpointConfig: Config) =
-		HttpClient(OkHttp) {
-			install(ContentNegotiation) {
-				jackson {
-					configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-					setSerializationInclusion(JsonInclude.Include.NON_NULL)
-					registerModule(JavaTimeModule())
-				}
-			}
 
-			install(Auth) {
-				bearerToken {
-					tokenprovider = securityMediator.outgoingToken(endpointConfig.getString("audience"))
-				}
-			}
+    private fun unsecuredEndpoint(url: String) =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
+            }
 
-			defaultRequest {
-				url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
-			}
-		}
+            defaultRequest {
+                url(url)
+            }
+        }
 
-	private fun kodeverkHttpClient() =
-		HttpClient(OkHttp) {
-			install(ContentNegotiation) {
-				jackson {
-					configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-					setSerializationInclusion(JsonInclude.Include.NON_NULL)
-					registerModule(JavaTimeModule())
-				}
-			}
-		}
+    private fun tokenSecuredEndpoint(endpointConfig: Config) =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
+            }
 
-	// OBS: Denne klienten kaller PDL med en systembruker.
-	// Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
-	private fun systemPdlHttpClient() =
-		HttpClient(OkHttp) {
-			install(ContentNegotiation) { jackson() }
-			install(Auth) {
-				clientCredential {
-					config =
-						System
-							.getenv()
-							.toMutableMap()
-							.apply { put("AZURE_APP_OUTBOUND_SCOPE", requireNotNull(get("PDL_AZURE_SCOPE"))) }
-				}
-			}
-		}
+            install(Auth) {
+                providers.add(BearerTokenAuthProvider(securityMediator.outgoingToken(endpointConfig.getString("audience"))))
+            }
+
+            defaultRequest {
+                url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
+            }
+        }
+
+    private fun kodeverkHttpClient() =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) {
+                jackson {
+                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    registerModule(JavaTimeModule())
+                }
+            }
+        }
+
+    // OBS: Denne klienten kaller PDL med en systembruker.
+    // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
+    private fun systemPdlHttpClient() =
+        HttpClient(OkHttp) {
+            install(ContentNegotiation) { jackson() }
+            install(Auth) {
+                clientCredential {
+                    config =
+                        System
+                            .getenv()
+                            .toMutableMap()
+                            .apply { put("AZURE_APP_OUTBOUND_SCOPE", requireNotNull(get("PDL_AZURE_SCOPE"))) }
+                }
+            }
+        }
 }
 
 

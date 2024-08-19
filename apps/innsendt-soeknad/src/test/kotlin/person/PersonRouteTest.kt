@@ -1,18 +1,9 @@
 package person
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.serialization.jackson.jackson
-import io.ktor.server.application.Application
-import io.ktor.server.application.install
-import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.server.routing.Route
-import io.ktor.server.routing.routing
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.withTestApplication
 import io.mockk.clearMocks
@@ -33,6 +24,7 @@ import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.fail
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.EnumSource
+import soeknad.testModule
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class PersonRouteTest {
@@ -92,20 +84,5 @@ internal class PersonRouteTest {
 
     companion object {
         private const val STOR_SNERK = "11057523044"
-    }
-}
-
-fun Application.testModule(routes: Route.() -> Unit) {
-    install(ContentNegotiation) {
-        jackson {
-            enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
-            disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            registerModule(JavaTimeModule())
-        }
-    }
-
-    routing {
-        routes()
     }
 }

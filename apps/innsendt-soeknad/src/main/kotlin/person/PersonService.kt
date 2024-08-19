@@ -2,11 +2,10 @@ package no.nav.etterlatte.person
 
 import io.ktor.server.plugins.NotFoundException
 import no.nav.etterlatte.kodeverk.KodeverkService
-//import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.pdl.Gradering
-import no.nav.etterlatte.libs.pdl.ResponseError
+import no.nav.etterlatte.pdl.Gradering
+import no.nav.etterlatte.pdl.ResponseError
 import no.nav.etterlatte.person.krr.Krr
 import no.nav.etterlatte.person.pdl.HentPerson
 import org.slf4j.LoggerFactory

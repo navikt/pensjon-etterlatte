@@ -1,4 +1,4 @@
-package no.nav.etterlatte.kodeverk
+package kodeverk
 
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -6,6 +6,9 @@ import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.common.mapJsonToAny
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.kodeverk.KodeverkKlient
+import no.nav.etterlatte.kodeverk.KodeverkResponse
+import no.nav.etterlatte.kodeverk.KodeverkService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Nested

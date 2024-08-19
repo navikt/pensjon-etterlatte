@@ -10,7 +10,7 @@ import no.nav.etterlatte.adressebeskyttelse.fjernStedslokaliserendeInfo
 //import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.pdl.Gradering
+import no.nav.etterlatte.pdl.Gradering
 import org.slf4j.LoggerFactory
 import soeknad.Status
 
