@@ -6,7 +6,7 @@ import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
 import Datepicker from '~components/common/Datepicker'
-import { Alert, VStack } from '@navikt/ds-react'
+import { Alert, Box, VStack } from '@navikt/ds-react'
 
 interface Props {
     duplicateList?: string[]
@@ -19,13 +19,15 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
 
     return (
         <>
-            <FormElement>
-                <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
-            </FormElement>
+            <Box maxWidth="22rem">
+                <FormElement>
+                    <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} />
+                </FormElement>
 
-            <FormElement>
-                <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} htmlSize={40} />
-            </FormElement>
+                <FormElement>
+                    <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} />
+                </FormElement>
+            </Box>
 
             <FormElement>
                 <StandardBreddeRHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
