@@ -58,15 +58,15 @@ spec:
     - name: BASE_PATH
       value: /barnepensjon/soknad
     - name: API_URL
-      value: http://selvbetjening-api
+      value: http://innsendt-soeknad
     - name: AUDIENCE
-      value: dev-gcp:etterlatte:selvbetjening-api
+      value: dev-gcp:etterlatte:innsendt-soeknad
   accessPolicy:
     outbound:
       external:
         - host: dekoratoren.ekstern.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
       rules:
-        - application: selvbetjening-api
+        - application: innsendt-soeknad
         - application: nav-dekoratoren
           namespace: personbruker
