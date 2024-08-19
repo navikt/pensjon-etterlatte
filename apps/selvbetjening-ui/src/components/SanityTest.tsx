@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Select } from '@navikt/ds-react'
-import styled from 'styled-components'
+import { Select, VStack } from '@navikt/ds-react'
 import { fetchSanity } from '../locales/Sanity.ts'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 
@@ -24,21 +23,15 @@ export default function SanityTest() {
     return (
         <div>
             <div>
-                <SelectWrapper>
+                <VStack gap="4" maxWidth="20rem" justify="center">
                     <Select onChange={(e) => setLang(e.target.value as Language)} value={lang} label={'Velg språk'}>
                         <option value={Language.BOKMAAL}>Bokmål</option>
                         <option value={Language.NYNORSK}>Nynorsk</option>
                         <option value={Language.ENGELSK}>English</option>
                     </Select>
-                </SelectWrapper>
+                    <div>{text && <SanityRikTekst text={text} />}</div>
+                </VStack>
             </div>
-            <div>{text && <SanityRikTekst text={text} />}</div>
         </div>
     )
 }
-
-const SelectWrapper = styled.div`
-    max-width: 200px;
-    text-align: center;
-    margin: 0 auto;
-`
