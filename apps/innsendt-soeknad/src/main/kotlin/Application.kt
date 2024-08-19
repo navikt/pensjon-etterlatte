@@ -21,6 +21,8 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import no.nav.etterlatte.internal.healthApi
+import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
 import no.nav.etterlatte.jobs.PubliserTilstandJobb
 import no.nav.etterlatte.kodeverk.kodeverkApi
@@ -54,6 +56,8 @@ fun main() {
 				.withKtorModule {
 					apiModule(context) {
 						// TODO health and metrics
+						healthApi()
+						metricsApi()
 						authenticate {
 							context.securityMediator.autentiser(this)
 							personApi(personService)
