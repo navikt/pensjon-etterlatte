@@ -74,13 +74,13 @@ class TokenSupportSecurityContextMediator(
 
     fun outgoingToken(audience: String) =
         suspend {
-            ThreadBoundSecurityContext.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
-                tokenxKlient
+            requireNotNull(ThreadBoundSecurityContext.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
+                requireNotNull(tokenxKlient
                     .tokenExchange(
                         it.encodedToken,
                         audience
-                    ).accessToken
-            }!!
+                    ).accessToken) { "AccessToken må være definert, var null. Audience: $audience" }
+            }) { "Innbytta token må være definert, var null. Audience: $audience" }
         }
 
 }
