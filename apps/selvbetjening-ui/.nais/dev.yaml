@@ -54,6 +54,8 @@ spec:
       autoLogin: true
       autoLoginIgnorePaths:
         - /selvbetjening/internal/**
+  envFrom:
+    - secret: brukerdialog-sanity
   env:
     - name: BASE_PATH
       value: /selvbetjening
