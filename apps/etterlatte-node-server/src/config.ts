@@ -1,6 +1,6 @@
 const env = {
     isProdCluster: process.env.NAIS_CLUSTER_NAME === 'prod-gcp',
-    isSelvbetjeningApp: process.env.NAIS_CLUSTER_NAME === 'selvbetjening-ui',
+    isSelvbetjeningUIApp: process.env.NAIS_APP_NAME === 'selvbetjening-ui',
 }
 
 const app = {

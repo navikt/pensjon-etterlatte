@@ -47,7 +47,7 @@ app.get(`${basePath}/session`, session())
 
 app.use(`${basePath}/api`, proxy(config.app.apiUrl))
 
-if (config.env.isSelvbetjeningApp) {
+if (config.env.isSelvbetjeningUIApp) {
     app.use(`${basePath}/sanity`, sanityProxy())
 }
 
