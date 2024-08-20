@@ -69,6 +69,7 @@ spec:
         - host: dekoratoren.ekstern.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
         - host: u0dlg8d8.api.sanity.io
+        - host: u0dlg8d8.apicdn.sanity.io
       rules:
         - application: selvbetjening-backend
         - application: nav-dekoratoren
