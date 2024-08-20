@@ -48,7 +48,18 @@ app.get(`${basePath}/session`, session())
 app.use(`${basePath}/api`, proxy(config.app.apiUrl))
 
 if (config.env.isSelvbetjeningUIApp) {
-    app.use(`${basePath}/sanity`, sanityProxy())
+    Promise.all([import('@sanity/client'), import('./config')]).then(([{createClient}, config]) => {
+        const sanityConfig = config.default.sanity
+
+        const sanityClient = createClient({
+            projectId: sanityConfig.projectId,
+            dataset: sanityConfig.dataset,
+            token: sanityConfig.token,
+            useCdn: true,
+            apiVersion: '2024-06-27',
+        })
+        app.use(`${basePath}/sanity`, sanityProxy(sanityClient))
+    })
 }
 
 app.use(/^(?!.*\/(internal|static)\/).*$/, decorator(`${buildPath}/index.html`))
