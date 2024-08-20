@@ -65,7 +65,7 @@ class ApplicationContext(
         adressebeskyttelseService =
             systemPdlHttpClient()
                 .also { closables.add(it::close) }
-                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, config.getString("pdl.url"))) }
+                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, config.getString("no.nav.etterlatte.tjenester.pdl.url"))) }
 
         soeknadService =
             tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
