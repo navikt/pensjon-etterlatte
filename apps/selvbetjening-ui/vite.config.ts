@@ -4,19 +4,20 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
+    base: '/selvbetjening/',
     server: {
         proxy: {
-            '/api': {
+            '/selvbetjening/api': {
                 target: 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
-                rewrite: (path) => path.replace(/^\/api/, '/selvbetjening/api/api'),
+                rewrite: (path) => path.replace(/^\/selvbetjening\/api/, '/selvbetjening/api/api'),
             },
-            '/sanity': {
+            '/selvbetjening/sanity': {
                 target: 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
-                rewrite: (path) => path.replace(/^\/sanity/, '/selvbetjening/sanity'),
+                rewrite: (path) => path.replace(/^\/selvbetjening\/sanity/, '/selvbetjening/sanity'),
             },
         },
     },
