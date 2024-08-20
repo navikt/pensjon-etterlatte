@@ -10,7 +10,6 @@ import session from './auth/session'
 import rTracer from 'cls-rtracer'
 import { selftestRouter } from './selftestRouter'
 import { loggerRouter } from './routers/loggerRouter'
-import sanityProxy from './sanityProxy'
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -48,17 +47,8 @@ app.get(`${basePath}/session`, session())
 app.use(`${basePath}/api`, proxy(config.app.apiUrl))
 
 if (config.env.isSelvbetjeningUIApp) {
-    Promise.all([import('@sanity/client'), import('./config')]).then(([{createClient}, config]) => {
-        const sanityConfig = config.default.sanity
-
-        const sanityClient = createClient({
-            projectId: sanityConfig.projectId,
-            dataset: sanityConfig.dataset,
-            token: sanityConfig.token,
-            useCdn: true,
-            apiVersion: '2024-06-27',
-        })
-        app.use(`${basePath}/sanity`, sanityProxy(sanityClient))
+    import('./sanityProxy').then((sanityProxy) => {
+        app.use(`${basePath}/sanity`, sanityProxy.default())
     })
 }
 
