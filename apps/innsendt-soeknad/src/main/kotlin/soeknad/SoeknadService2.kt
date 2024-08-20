@@ -7,6 +7,7 @@ import libs.common.util.retry
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.adressebeskyttelse.finnUnikeBarn
 import no.nav.etterlatte.adressebeskyttelse.fjernStedslokaliserendeInfo
+import no.nav.etterlatte.internal.Metrikker
 //import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
@@ -17,7 +18,6 @@ import soeknad.Status
 internal fun SoeknadRequest.hentSaktype() = this.soeknader.first().type
 
 class SoeknadService2(
-	//private val innsendtSoeknadKlient: HttpClient,
 	private val service: SoeknadService,
 	private val adressebeskyttelseService: AdressebeskyttelseService
 ) {
@@ -30,12 +30,9 @@ class SoeknadService2(
 	): HttpStatusCode {
 		logger.info("Mottatt fullført søknad. Forsøker å sende til lagring.")
 
-		/*
-		 TODO Metrics
 		request.soeknader.forEach {
 			Metrikker.soeknadTotal.labels(it.type.name).inc()
 		}
-		*/
 
 		try {
 			val ferdigstiltOK = service.sendSoeknad(fnr, vurderAdressebeskyttelse(request), kilde)
@@ -57,7 +54,7 @@ class SoeknadService2(
 				.filter { listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND).contains(it.value) }
 				.map { it.key }
 
-		//Metrikker.soeknadGradertTotal.inc(barnMedAdressebeskyttelse.size.toDouble()) TODO Metrics
+		Metrikker.soeknadGradertTotal.inc(barnMedAdressebeskyttelse.size.toDouble())
 
 		return if (barnMedAdressebeskyttelse.isNotEmpty()) {
 			logger.info("Fjerner informasjon om utenlandsadresse før søknaden(e) sendes til lagring.")
