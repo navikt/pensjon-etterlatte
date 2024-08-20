@@ -29,11 +29,21 @@ tasks {
             }
         }
 
+        val configuration =
+            configurations.runtimeClasspath.get().map {
+                it.toPath().toFile()
+            }
+        val buildDirectory = layout.buildDirectory
         doLast {
-            configurations.runtimeClasspath.get().forEach {
-                val file = File("$buildDir/libs/${it.name}")
-                if (!file.exists())
+            configuration.forEach {
+                val file =
+                    buildDirectory
+                        .file("libs/${it.name}")
+                        .get()
+                        .asFile
+                if (!file.exists()) {
                     it.copyTo(file)
+                }
             }
         }
     }
