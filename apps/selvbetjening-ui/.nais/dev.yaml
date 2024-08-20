@@ -68,7 +68,7 @@ spec:
       external:
         - host: dekoratoren.ekstern.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
-        - host: https://api.sanity.io
+        - host: api.sanity.io
       rules:
         - application: selvbetjening-backend
         - application: nav-dekoratoren
