@@ -26,14 +26,19 @@ import io.ktor.server.testing.TestApplicationRequest
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.UtkastPubliserer
+import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.pdl.Adressebeskyttelse
 import no.nav.etterlatte.soeknad.SoeknadService
+import no.nav.etterlatte.soeknad.SoeknadService2
+import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
@@ -49,7 +54,6 @@ import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
-import soeknad.soeknadApiOld
 import java.util.*
 import java.util.stream.Collectors
 
@@ -68,12 +72,19 @@ internal class SoeknadApiIntegrationTest {
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
     private lateinit var db: PostgresSoeknadRepository
     private lateinit var dsbHolder: DataSourceBuilder
+
     private lateinit var service: SoeknadService
+    private lateinit var service2: SoeknadService2
 
     private val kilde = "omstillingsstoenad-ui"
     private val dummyKladd = """{"harSamtykket":"true"}"""
     private val mapper = jacksonObjectMapper()
     private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
+
+    // TODO mock klient istedet for å teste AdressebeskyttelseService
+    private val adressebeskyttelse =  mockk<AdressebeskyttelseService>().apply {
+        coEvery { hentGradering(any(), any()) } returns emptyMap()
+    }
 
     @BeforeAll
     fun beforeAll() {
@@ -82,6 +93,7 @@ internal class SoeknadApiIntegrationTest {
         db = PostgresSoeknadRepository.using(dsb.dataSource)
 
         service = SoeknadService(db, mockUtkastPubliserer)
+        service2 = SoeknadService2(service, adressebeskyttelse)
     }
 
     @AfterAll
@@ -89,10 +101,14 @@ internal class SoeknadApiIntegrationTest {
         postgreSQLContainer.stop()
     }
 
+    // TODO skal filtrere basert på adressbeskyttelse..
+
+    // TODO Skal publisere slett fra min side
+
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for OMS`() {
-        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
+        withTestApplication({ apiTestModule { soknadApi(service2) } }) {
             val request =
                 SoeknadRequest(
                     listOf(
@@ -108,12 +124,16 @@ internal class SoeknadApiIntegrationTest {
         }
     }
 
+    // TODO skal feile hvis søknad allerede sendt inn
+
+    // TODO skal kaste 500 ??
+
     @Test
     @Order(1)
     fun `Skal opprette soeknad i databasen for gjenlevende og barn`() {
-        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+        //every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
+        withTestApplication({ apiTestModule { soknadApi(service2) } }) {
             val request =
                 SoeknadRequest(
                     soeknader =
@@ -156,7 +176,7 @@ internal class SoeknadApiIntegrationTest {
     @Test
     @Order(1)
     fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
-        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
+        withTestApplication({ apiTestModule { soknadApi(service2) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
                 tokenFor(LUGUBER_MASKIN) // LUGUBER MASKIN
             }.apply {
@@ -165,13 +185,15 @@ internal class SoeknadApiIntegrationTest {
         }
     }
 
+    // TODO skal returnere conflict om allerede innsendt
+
     @Test
     @Order(2)
     fun `Skal lagre kladd ned i databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldBe null
         every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
-        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
+        withTestApplication({ apiTestModule { soknadApi(service2) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(STOR_SNERK)
@@ -188,12 +210,14 @@ internal class SoeknadApiIntegrationTest {
         }
     }
 
+    // TODO skal man få lagre hvis allerede innsendt??
+
     @Test
     @Order(3)
     fun `Skal hente kladd fra databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 
-        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
+        withTestApplication({ apiTestModule { soknadApi(service2) } }) {
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
@@ -210,9 +234,9 @@ internal class SoeknadApiIntegrationTest {
     @Order(4)
     fun `Skal slette kladd fra databasen`() {
         db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
-        every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+        //every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-        withTestApplication({ apiTestModule { soeknadApiOld(service) } }) {
+        withTestApplication({ apiTestModule { soknadApi(service2) } }) {
             handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
                 tokenFor(STOR_SNERK)
             }.apply {
