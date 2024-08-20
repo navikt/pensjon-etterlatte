@@ -6,11 +6,17 @@ export default defineConfig({
     plugins: [react()],
     server: {
         proxy: {
-            '/api': {
+            '/selvbetjening/api': {
                 target: 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
-                rewrite: (path) => path.replace(/^\/api/, '/selvbetjening/api/api'),
+                rewrite: (path) => path.replace(/^\/selvbetjening\/api/, '/selvbetjening/api/api'),
+            },
+            '/selvbetjening/sanity': {
+                target: 'http://localhost:8080',
+                changeOrigin: true,
+                secure: false,
+                rewrite: (path) => path.replace(/^\/selvbetjening\/sanity/, '/selvbetjening/sanity'),
             },
         },
     },

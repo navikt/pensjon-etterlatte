@@ -1,5 +1,6 @@
 const env = {
     isProdCluster: process.env.NAIS_CLUSTER_NAME === 'prod-gcp',
+    isSelvbetjeningUIApp: process.env.NAIS_APP_NAME === 'selvbetjening-ui',
 }
 
 const app = {
@@ -9,7 +10,14 @@ const app = {
     targetAudience: process.env.AUDIENCE,
 }
 
+const sanity = {
+    token: process.env.SANITY_API_TOKEN,
+    dataset: process.env.SANITY_DATASET_NAME,
+    projectId: process.env.SANITY_PROJECT_ID,
+}
+
 export default {
     app,
     env,
+    sanity,
 }
