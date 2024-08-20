@@ -49,9 +49,9 @@ class ApplicationContext(
 
     init {
         kodeverkService =
-            kodeverkHttpClient()
+            kodeverkHttpClient(config)
                 .also { closables.add(it::close) }
-                .let { KodeverkService(KodeverkKlient(it, System.getenv("KODEVERK_URL"))) }
+                .let { KodeverkService(KodeverkKlient(it, config.getString("kodeverk.resource.url"))) }
 
         krrKlient =
             tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
@@ -66,7 +66,7 @@ class ApplicationContext(
         adressebeskyttelseService =
             systemPdlHttpClient()
                 .also { closables.add(it::close) }
-                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv(PDL_URL))) }
+                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, config.getString("pdl.url"))) }
 
         soeknadService =
             tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
@@ -113,7 +113,7 @@ class ApplicationContext(
             }
         }
 
-    private fun kodeverkHttpClient() =
+    private fun kodeverkHttpClient(appConfig: Config) =
         HttpClient(OkHttp) {
             install(ContentNegotiation) {
                 jackson {
@@ -122,7 +122,12 @@ class ApplicationContext(
                     registerModule(JavaTimeModule())
                 }
             }
-        }
+            install(Auth) {
+                clientCredential {
+                    config = mapOf("AZURE_APP_OUTBOUND_SCOPE" to "api://${appConfig.getString("kodeverk.client.id")}/.default") }
+                }
+            }
+
 
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
