@@ -1,5 +1,5 @@
 import express from 'express'
-import {mockSelvbetjeningApi} from './mock-api'
+import { mockSelvbetjeningApi } from './mock-selvbetjening-api'
 
 const app = express()
 

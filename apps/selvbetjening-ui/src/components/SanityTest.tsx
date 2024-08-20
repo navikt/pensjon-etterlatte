@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Select, VStack } from '@navikt/ds-react'
 import { fetchSanity } from '../locales/Sanity.ts'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
+import useSWR, { SWRResponse } from 'swr'
 
 export enum Language {
     BOKMAAL = 'NB',
@@ -10,15 +11,16 @@ export enum Language {
 }
 
 export default function SanityTest() {
-    const [text, setText] = useState(undefined)
     const [lang, setLang] = useState(Language.BOKMAAL)
 
-    useEffect(() => {
-        fetchSanity().then((res) => {
-            console.log(res)
-            setText(res[0][lang])
-        })
-    }, [lang])
+    const { data }: SWRResponse<never[], boolean, boolean> = useSWR('/sanity')
+
+    // useEffect(() => {
+    //     fetchSanity().then((res) => {
+    //         console.log(JSON.stringify(res))
+    //         setText(res[0][lang])
+    //     })
+    // }, [lang])
 
     return (
         <div>
@@ -29,7 +31,7 @@ export default function SanityTest() {
                         <option value={Language.NYNORSK}>Nynorsk</option>
                         <option value={Language.ENGELSK}>English</option>
                     </Select>
-                    <div>{text && <SanityRikTekst text={text} />}</div>
+                    <div>{!!data?.length && <SanityRikTekst text={data[0][lang]} />}</div>
                 </VStack>
             </div>
         </div>
