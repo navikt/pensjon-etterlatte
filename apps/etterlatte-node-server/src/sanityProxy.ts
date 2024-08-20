@@ -17,7 +17,7 @@ export default function sanityProxy(): RequestHandler {
             // TODO legge inn håndtering for fine grained sanity spørringer i URL params
             const response = await sanityClient.fetch(`*[_type == "veiledningstekst"]`)
             // TODO se på om vi kan få mer fine grained response fra sanity API'et
-            return res.status(200).send(await response.text())
+            return res.status(200).send(JSON.stringify(response))
         } catch (error) {
             logger.error('Feilet i kall mot sanity', error)
 
