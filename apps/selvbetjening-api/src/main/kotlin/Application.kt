@@ -2,7 +2,6 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
@@ -140,16 +139,16 @@ fun httpClientClientCredentials(
         clientCredential {
             config =
                 mapOf(
-                    AzureEnums.AZURE_APP_CLIENT_ID.name to env[AzureEnums.AZURE_APP_CLIENT_ID.name]!!,
-                    AzureEnums.AZURE_APP_JWK.name to env[AzureEnums.AZURE_APP_JWK.name]!!,
-                    AzureEnums.AZURE_APP_WELL_KNOWN_URL.name to env[AzureEnums.AZURE_APP_WELL_KNOWN_URL.name]!!,
-                    AzureEnums.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                    AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_JWK.name to env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
                 )
         }
     }
 }
 
-enum class AzureEnums {
+enum class AzureDefaultEnvVariables {
     AZURE_APP_CLIENT_ID,
     AZURE_APP_JWK,
     AZURE_APP_WELL_KNOWN_URL,
