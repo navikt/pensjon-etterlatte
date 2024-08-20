@@ -2,6 +2,7 @@ package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
@@ -112,36 +113,50 @@ class ApplicationContext(
         }
 
     private fun kodeverkHttpClient(appConfig: Config) =
-        HttpClient(OkHttp) {
-            install(ContentNegotiation) {
-                jackson {
-                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                    registerModule(JavaTimeModule())
-                }
-            }
-            install(Auth) {
-                clientCredential {
-                    config = mapOf("AZURE_APP_OUTBOUND_SCOPE" to "api://${appConfig.getString("kodeverk.client.id")}/.default") }
-                }
-            }
+        httpClientClientCredentials(
+            azureAppScope = "api://${appConfig.getString("kodeverk.client.id")}/.default"
+        )
 
 
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
     private fun systemPdlHttpClient() =
-        HttpClient(OkHttp) {
-            install(ContentNegotiation) { jackson() }
-            install(Auth) {
-                clientCredential {
-                    config =
-                        System
-                            .getenv()
-                            .toMutableMap()
-                            .apply { put("AZURE_APP_OUTBOUND_SCOPE", requireNotNull(get("PDL_AZURE_SCOPE"))) }
-                }
-            }
+        httpClientClientCredentials(azureAppScope = System.getenv()["PDL_AZURE_SCOPE"]!!)
+}
+
+fun httpClientClientCredentials(
+    azureAppScope: String,
+) = HttpClient(OkHttp) {
+    install(ContentNegotiation) {
+        jackson {
+            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            registerModule(JavaTimeModule())
         }
+    }
+    val env = System.getenv()
+
+    install(Auth) {
+        clientCredential {
+            config =
+                mapOf(
+                    AzureEnums.AZURE_APP_CLIENT_ID.name to env[AzureEnums.AZURE_APP_CLIENT_ID.name]!!,
+                    AzureEnums.AZURE_APP_JWK.name to env[AzureEnums.AZURE_APP_JWK.name]!!,
+                    AzureEnums.AZURE_APP_WELL_KNOWN_URL.name to env[AzureEnums.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                    AzureEnums.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                )
+        }
+    }
+}
+
+enum class AzureEnums {
+    AZURE_APP_CLIENT_ID,
+    AZURE_APP_JWK,
+    AZURE_APP_WELL_KNOWN_URL,
+    AZURE_APP_OUTBOUND_SCOPE,
+    ;
+
+    fun key() = name
 }
 
 fun main() {

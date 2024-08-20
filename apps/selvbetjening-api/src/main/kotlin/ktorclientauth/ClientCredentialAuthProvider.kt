@@ -15,6 +15,8 @@ import no.nav.security.token.support.client.core.oauth2.OnBehalfOfTokenClient
 import no.nav.security.token.support.client.core.oauth2.TokenExchangeClient
 import java.net.URI
 
+
+
 fun Auth.clientCredential(block: ClientCredentialAuthConfig.() -> Unit) {
     with(ClientCredentialAuthConfig().apply(block)) {
         providers.add(ClientCredentialAuthProvider(config))
