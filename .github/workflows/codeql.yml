@@ -40,7 +40,7 @@ jobs:
           cache-encryption-key: ${{ secrets.gradlekey }}
 
       - name: Assemble
-        run: ./gradlew assemble --configuration-cache
+        run: ./gradlew assemble --configuration-cache -Dorg.gradle.jvmargs="-Dkotlin.daemon.jvmargs=-Xmx16g"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
