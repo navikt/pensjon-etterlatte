@@ -33,10 +33,8 @@ class PersonKlient(
 ) : Pdl {
     private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
-    companion object {
-        private const val TEMA = "PEN"
-        private const val BEHANDLINGSNUMMER = "behandlingsnummer"
-    }
+    private val TEMA = "PEN"
+    private val BEHANDLINGSNUMMER = "behandlingsnummer"
 
     override suspend fun hentPerson(
         fnr: Foedselsnummer,

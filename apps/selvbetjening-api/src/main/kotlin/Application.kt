@@ -26,8 +26,6 @@ import no.nav.etterlatte.person.krr.KrrKlient
 import no.nav.etterlatte.ktorclientauth.clientCredential
 import no.nav.etterlatte.soknad.SoeknadService
 
-const val PDL_URL = "PDL_URL"
-
 class ApplicationContext(
     configLocation: String? = null
 ) {
@@ -49,9 +47,9 @@ class ApplicationContext(
 
     init {
         kodeverkService =
-            kodeverkHttpClient()
+            kodeverkHttpClient(config)
                 .also { closables.add(it::close) }
-                .let { KodeverkService(KodeverkKlient(it, System.getenv("KODEVERK_URL"))) }
+                .let { KodeverkService(KodeverkKlient(it, config.getString("kodeverk.resource.url"))) }
 
         krrKlient =
             tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
@@ -66,7 +64,7 @@ class ApplicationContext(
         adressebeskyttelseService =
             systemPdlHttpClient()
                 .also { closables.add(it::close) }
-                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv(PDL_URL))) }
+                .let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, config.getString("no.nav.etterlatte.tjenester.pdl.url"))) }
 
         soeknadService =
             tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.innsendtsoeknad"))
@@ -113,32 +111,51 @@ class ApplicationContext(
             }
         }
 
-    private fun kodeverkHttpClient() =
-        HttpClient(OkHttp) {
-            install(ContentNegotiation) {
-                jackson {
-                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                    registerModule(JavaTimeModule())
-                }
-            }
-        }
+    private fun kodeverkHttpClient(appConfig: Config) =
+        httpClientClientCredentials(
+            azureAppScope = "api://${appConfig.getString("kodeverk.client.id")}/.default"
+        )
+
 
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
     private fun systemPdlHttpClient() =
-        HttpClient(OkHttp) {
-            install(ContentNegotiation) { jackson() }
-            install(Auth) {
-                clientCredential {
-                    config =
-                        System
-                            .getenv()
-                            .toMutableMap()
-                            .apply { put("AZURE_APP_OUTBOUND_SCOPE", requireNotNull(get("PDL_AZURE_SCOPE"))) }
-                }
-            }
+        httpClientClientCredentials(azureAppScope = System.getenv()["PDL_AZURE_SCOPE"]!!)
+}
+
+fun httpClientClientCredentials(
+    azureAppScope: String,
+) = HttpClient(OkHttp) {
+    install(ContentNegotiation) {
+        jackson {
+            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            registerModule(JavaTimeModule())
         }
+    }
+    val env = System.getenv()
+
+    install(Auth) {
+        clientCredential {
+            config =
+                mapOf(
+                    AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_JWK.name to env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                )
+        }
+    }
+}
+
+enum class AzureDefaultEnvVariables {
+    AZURE_APP_CLIENT_ID,
+    AZURE_APP_JWK,
+    AZURE_APP_WELL_KNOWN_URL,
+    AZURE_APP_OUTBOUND_SCOPE,
+    ;
+
+    fun key() = name
 }
 
 fun main() {

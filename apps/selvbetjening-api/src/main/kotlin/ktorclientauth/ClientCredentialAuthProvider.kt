@@ -15,6 +15,8 @@ import no.nav.security.token.support.client.core.oauth2.OnBehalfOfTokenClient
 import no.nav.security.token.support.client.core.oauth2.TokenExchangeClient
 import java.net.URI
 
+
+
 fun Auth.clientCredential(block: ClientCredentialAuthConfig.() -> Unit) {
     with(ClientCredentialAuthConfig().apply(block)) {
         providers.add(ClientCredentialAuthProvider(config))
@@ -31,7 +33,7 @@ class ClientCredentialAuthProvider(
     override val sendWithoutRequest: Boolean = true
     private val clientPropertiesConfig =
         ClientProperties(
-            tokenEndpointUrl = null, // URI(conf["token_endpoint_url"]!!),
+            tokenEndpointUrl = null,
             wellKnownUrl = config["AZURE_APP_WELL_KNOWN_URL"]?.let { URI(it) },
             grantType = GrantType.CLIENT_CREDENTIALS,
             scope = config["AZURE_APP_OUTBOUND_SCOPE"]?.split(",") ?: emptyList(),
@@ -42,7 +44,7 @@ class ClientCredentialAuthProvider(
                         clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT
                     ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
                     .build(),
-            resourceUrl = null, // conf["resource_url"]?.let { URI(it) },
+            resourceUrl = null,
             tokenExchange = null
         )
 
@@ -59,7 +61,7 @@ class ClientCredentialAuthProvider(
         request: HttpRequestBuilder,
         authHeader: HttpAuthHeader?
     ) {
-        accessTokenService.getAccessToken(clientPropertiesConfig)?.accessToken.also {
+        accessTokenService.getAccessToken(clientPropertiesConfig).accessToken.also {
             request.headers[HttpHeaders.Authorization] = "Bearer $it"
         }
     }
