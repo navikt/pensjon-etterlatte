@@ -25,13 +25,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-          cache: gradle
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          cache-encryption-key: ${{ secrets.gradlekey }}
-          cache-read-only: false
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
@@ -39,6 +32,12 @@ jobs:
         with:
           languages: java
           queries: security-and-quality
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-encryption-key: ${{ secrets.gradlekey }}
+          cache-read-only: false
 
       - name: Assemble
         run: ./gradlew assemble --configuration-cache -Dorg.gradle.jvmargs="-Dkotlin.daemon.jvmargs=-Xmx16g"
