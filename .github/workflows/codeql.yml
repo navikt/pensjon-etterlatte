@@ -20,13 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Initializes the CodeQL tools for scanning.
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: java
-          queries: security-and-quality
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -38,6 +31,14 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           cache-encryption-key: ${{ secrets.gradlekey }}
+          cache-read-only: false
+
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: java
+          queries: security-and-quality
 
       - name: Assemble
         run: ./gradlew assemble --configuration-cache -Dorg.gradle.jvmargs="-Dkotlin.daemon.jvmargs=-Xmx16g"
