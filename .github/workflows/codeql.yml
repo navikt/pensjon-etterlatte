@@ -35,10 +35,12 @@ jobs:
           cache: gradle
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-encryption-key: ${{ secrets.gradlekey }}
 
       - name: Assemble
-        run: ./gradlew assemble --no-build-cache --no-configuration-cache
+        run: ./gradlew assemble --configuration-cache -Dorg.gradle.jvmargs="-Dkotlin.daemon.jvmargs=-Xmx16g"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -54,7 +56,7 @@ jobs:
     timeout-minutes: 360
     permissions:
       actions: read
-      contents: read
+      contents: write
       security-events: write
 
     steps:
