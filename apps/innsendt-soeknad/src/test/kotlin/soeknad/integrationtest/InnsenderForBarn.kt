@@ -1,0 +1,97 @@
+package soeknad.integrationtest
+
+import SoeknadIntegrationTest
+import apiTestModule
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import io.ktor.http.ContentType
+import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpMethod
+import io.ktor.server.testing.handleRequest
+import io.ktor.server.testing.setBody
+import io.ktor.server.testing.withTestApplication
+import io.mockk.every
+import io.mockk.verify
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.soeknad.soknadApi
+import no.nav.etterlatte.toJson
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Order
+import org.junit.jupiter.api.Test
+import tokenFor
+
+@DisplayName("Innsender av søknad er ikke søker")
+internal class KunBarnepensjon: SoeknadIntegrationTest() {
+
+	companion object {
+		val INNSENDER = "19468741094"
+		val BARN = "21461297037"
+		val AVDOED = "16448705149"
+	}
+
+	@Test
+	@Order(1)
+	fun `Skal opprette kladd for innsender`() {
+		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(INNSENDER)
+				setBody(dummyKladd)
+			}
+
+			db.finnKladd(INNSENDER, kilde) shouldNotBe null
+			db.finnKladd(BARN, kilde) shouldBe null
+		}
+	}
+
+	@Test
+	@Order(2)
+	fun `Skal opprette soeknad for barn`() {
+		val soeknadRequest =
+			SoeknadRequest(
+				listOf(
+					InnsendtSoeknadFixtures.barnepensjon(
+						innsenderFnr = Foedselsnummer.of(INNSENDER),
+						soekerFnr = Foedselsnummer.of(BARN),
+						avdoed = Foedselsnummer.of(AVDOED)
+					)
+				)
+			)
+
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(INNSENDER)
+				setBody(soeknadRequest.toJson())
+			}
+		}
+
+		val barnepensjonRow =
+			dsbHolder.dataSource.connection
+				.createStatement()
+				.executeQuery("SELECT * FROM innhold WHERE fnr = '$BARN'")
+		barnepensjonRow.next()
+
+		barnepensjonRow.getString("fnr") shouldBe BARN
+		barnepensjonRow.getString("payload") shouldBe soeknadRequest.soeknader.last().toJson()
+	}
+
+	@Test
+	@Order(3)
+	fun `Utkast fra MinSide og kladd i database skal slettes for innsender som ikker er søker`() {
+		verify { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(INNSENDER, any()) }
+		db.finnKladd(INNSENDER, kilde) shouldBe null
+	}
+
+	@Test
+	@Order(4)
+	fun `Barn har ingen kladd eller utkast i MinSide`() {
+		verify(exactly = 0) { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(BARN, any()) }
+		db.finnKladd(BARN, kilde) shouldNotBe null
+	}
+
+}

@@ -46,7 +46,8 @@ object InnsendtSoeknadFixtures {
         // STOR SNERK
         innsenderFnr: Foedselsnummer = Foedselsnummer.of("11057523044"),
         // BLÅØYD SAKS
-        soekerFnr: Foedselsnummer = Foedselsnummer.of("05111850870")
+        soekerFnr: Foedselsnummer = Foedselsnummer.of("05111850870"),
+        avdoed: Foedselsnummer? = null
     ) = Barnepensjon(
         imageTag = UUID.randomUUID().toString(),
         spraak = Spraak.NB,
@@ -79,7 +80,7 @@ object InnsendtSoeknadFixtures {
                             telefonnummer = Opplysning(FritekstSvar("12345678"))
                         )
                 ),
-                avdoedMedUtenlandsopphold()
+                avdoedMedUtenlandsopphold(avdoed)
             ),
         soesken = listOf(eksempelBarn(Foedselsnummer.of("29080775995")))
     )
@@ -87,7 +88,7 @@ object InnsendtSoeknadFixtures {
     fun omstillingsSoeknad(
         innsenderFnr: Foedselsnummer = Foedselsnummer.of("11057523044"), // STOR SNERK
         soekerFnr: Foedselsnummer = innsenderFnr,
-        avdoed: Avdoed? = null,
+        avdoed: Foedselsnummer? = null,
         barn: List<Barn> = emptyList()
     ): Omstillingsstoenad =
         Omstillingsstoenad(
@@ -295,12 +296,12 @@ object InnsendtSoeknadFixtures {
                         )
                 ),
             avdoed =
-                avdoed ?: Avdoed(
+                Avdoed(
                     fornavn = Opplysning(svar = "Bernt", spoersmaal = null),
                     etternavn = Opplysning(svar = "Jakobsen", spoersmaal = null),
                     foedselsnummer =
                         Opplysning(
-                            svar = Foedselsnummer.of("22128202440"),
+                            svar = avdoed ?: Foedselsnummer.of("22128202440"),
                             spoersmaal = "Barnets fødselsnummer / d-nummer"
                         ),
                     datoForDoedsfallet =
@@ -396,11 +397,11 @@ fun eksempelBarn(
         )
 )
 
-fun avdoedMedUtenlandsopphold() =
+fun avdoedMedUtenlandsopphold(foedselsnummer: Foedselsnummer? = null) =
     Avdoed(
         fornavn = Opplysning("Petter"),
         etternavn = Opplysning("Hansen"),
-        foedselsnummer = Opplysning(Foedselsnummer.of("24014021406")),
+        foedselsnummer = Opplysning(foedselsnummer ?: Foedselsnummer.of("24014021406")),
         datoForDoedsfallet = Opplysning(DatoSvar(LocalDate.now())),
         statsborgerskap = Opplysning(FritekstSvar("Norsk")),
         utenlandsopphold =
