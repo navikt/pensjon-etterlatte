@@ -103,25 +103,6 @@ internal abstract class SoeknadIntegrationTest {
 	}
 }
 
-internal class SoeknadApiIntegrationTest : SoeknadIntegrationTest() {
-
-	// TODO skal filtrere basert på adressbeskyttelse..
-
-	// TODO Skal publisere slett fra min side
-
-	// TODO skal feile hvis søknad allerede sendt inn
-
-	// TODO skal kaste 500 ??
-
-	// TODO feile hvis innsender ikke er innlogget
-
-	// TODO skal returnere conflict om allerede innsendt
-
-	// TODO skal man få lagre hvis allerede innsendt??
-
-
-}
-
 fun Application.apiTestModule(routes: Route.() -> Unit) {
 	install(ContentNegotiation) {
 		jackson {

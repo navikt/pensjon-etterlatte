@@ -13,17 +13,21 @@ import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
 import io.mockk.every
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.soknadApi
+import no.nav.etterlatte.toJson
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import soeknad.LagretSoeknad
 import tokenFor
 
-@DisplayName("Som innsender av søknad skal jeg bruke kladd")
-internal class KladdIntegrationTest : SoeknadIntegrationTest() {
+internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	companion object {
 		private const val STOR_SNERK = "11057523044"
+		private const val UKJENT = "16448705149"
 	}
 
 	@Test
@@ -94,5 +98,69 @@ internal class KladdIntegrationTest : SoeknadIntegrationTest() {
 			}
 		}
 	}
+
+	@Test
+	@Order(5)
+	fun `Kladd som sendes inn som soeknad maa tilhoere innlogget bruker`() {
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(UKJENT)
+				setBody(
+					SoeknadRequest(
+						soeknader = listOf(
+							InnsendtSoeknadFixtures.omstillingsSoeknad(
+								innsenderFnr = Foedselsnummer.of(STOR_SNERK),
+							)
+						)
+					).toJson()
+				)
+			}.apply {
+				response.status() shouldBe HttpStatusCode.InternalServerError
+			}
+		}
+	}
+
+	@Test
+	@Order(6)
+	fun `Skal ikke hente kladd etter soeknad er sendt inn`() {
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(STOR_SNERK)
+				setBody(
+					SoeknadRequest(
+						soeknader = listOf(
+							InnsendtSoeknadFixtures.omstillingsSoeknad(
+								innsenderFnr = Foedselsnummer.of(STOR_SNERK),
+							)
+						)
+					).toJson()
+				)
+			}
+
+			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
+				tokenFor(STOR_SNERK)
+			}.apply {
+				response.status() shouldBe HttpStatusCode.Conflict
+			}
+		}
+	}
+
+	@Test
+	@Order(7)
+	fun `Skal ikke kunne lagre endringer på kladd etter soeknad er sendt inn`() {
+
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(STOR_SNERK)
+				setBody(dummyKladd)
+			}.apply {
+				response.status() shouldBe HttpStatusCode.InternalServerError
+			}
+		}
+	}
+
 
 }

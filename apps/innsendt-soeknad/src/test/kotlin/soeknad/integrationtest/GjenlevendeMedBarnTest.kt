@@ -7,6 +7,7 @@ import io.kotest.matchers.shouldNotBe
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
@@ -26,13 +27,30 @@ import soeknad.Status
 import tokenFor
 
 @DisplayName("Gjenlevende søker for seg selv og barn")
-internal class GjenlevendeMedBarn: SoeknadIntegrationTest() {
+internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
 
 	companion object {
-		val GJENLEVENDE = "04117120886"
-		val BARN = "05111850870"
-		val AVDOED = "10459829453"
+		private const val GJENLEVENDE = "04117120886"
+		private const val BARN = "05111850870"
+		private const val AVDOED = "10459829453"
 	}
+
+	val request =
+		SoeknadRequest(
+			soeknader =
+			listOf(
+				InnsendtSoeknadFixtures.omstillingsSoeknad(
+					innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
+					avdoed = Foedselsnummer.of(AVDOED),
+				),
+				InnsendtSoeknadFixtures.barnepensjon(
+					innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
+					soekerFnr = Foedselsnummer.of(BARN),
+					avdoed = Foedselsnummer.of(AVDOED),
+				)
+
+			)
+		)
 
 	@Test
 	@Order(1)
@@ -45,34 +63,15 @@ internal class GjenlevendeMedBarn: SoeknadIntegrationTest() {
 				tokenFor(GJENLEVENDE)
 				setBody(dummyKladd)
 			}
-
-			db.finnKladd(GJENLEVENDE, kilde) shouldNotBe null
-			db.finnKladd(BARN, kilde) shouldBe null
 		}
+		db.finnKladd(GJENLEVENDE, kilde) shouldNotBe null
+		db.finnKladd(BARN, kilde) shouldBe null
 	}
-
 
 	@Test
 	@Order(2)
 	fun `Skal opprette soeknad for gjenlevende og for barn`() {
 		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } just Runs
-
-		val request =
-			SoeknadRequest(
-				soeknader =
-				listOf(
-					InnsendtSoeknadFixtures.omstillingsSoeknad(
-						innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
-						avdoed = Foedselsnummer.of(AVDOED),
-					),
-					InnsendtSoeknadFixtures.barnepensjon(
-						innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
-						soekerFnr = Foedselsnummer.of(BARN),
-						avdoed = Foedselsnummer.of(AVDOED),
-					)
-
-				)
-			)
 
 		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
@@ -116,7 +115,21 @@ internal class GjenlevendeMedBarn: SoeknadIntegrationTest() {
 	@Order(4)
 	fun `Barn skal ikke ha kladd`() {
 		verify(exactly = 0) { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(BARN, any()) }
-		db.finnKladd(BARN, kilde) shouldBe null
+		db.finnKladd(BARN, kilde)!!.status shouldNotBe Status.LAGRETKLADD
+	}
+
+	@Test
+	@Order(5)
+	fun `Skal ikke kunne sende inn soeknad om det allerede finnes en innsendt`() {
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(GJENLEVENDE)
+				setBody(request.toJson())
+			}.apply {
+				response.status() shouldBe HttpStatusCode.Conflict
+			}
+		}
 	}
 
 }

@@ -7,6 +7,7 @@ import io.kotest.matchers.shouldNotBe
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
@@ -20,16 +21,28 @@ import no.nav.etterlatte.toJson
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import soeknad.Status
 import tokenFor
 
 @DisplayName("Innsender av søknad er ikke søker")
 internal class KunBarnepensjon: SoeknadIntegrationTest() {
 
 	companion object {
-		val INNSENDER = "19468741094"
-		val BARN = "21461297037"
-		val AVDOED = "16448705149"
+		private const val INNSENDER = "19468741094"
+		private const val BARN = "21461297037"
+		private const val AVDOED = "16448705149"
 	}
+
+	val soeknadRequest =
+		SoeknadRequest(
+			listOf(
+				InnsendtSoeknadFixtures.barnepensjon(
+					innsenderFnr = Foedselsnummer.of(INNSENDER),
+					soekerFnr = Foedselsnummer.of(BARN),
+					avdoed = Foedselsnummer.of(AVDOED)
+				)
+			)
+		)
 
 	@Test
 	@Order(1)
@@ -51,17 +64,6 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
 	@Test
 	@Order(2)
 	fun `Skal opprette soeknad for barn`() {
-		val soeknadRequest =
-			SoeknadRequest(
-				listOf(
-					InnsendtSoeknadFixtures.barnepensjon(
-						innsenderFnr = Foedselsnummer.of(INNSENDER),
-						soekerFnr = Foedselsnummer.of(BARN),
-						avdoed = Foedselsnummer.of(AVDOED)
-					)
-				)
-			)
-
 		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
@@ -91,7 +93,22 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
 	@Order(4)
 	fun `Barn har ingen kladd eller utkast i MinSide`() {
 		verify(exactly = 0) { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(BARN, any()) }
-		db.finnKladd(BARN, kilde) shouldNotBe null
+		db.finnKladd(BARN, kilde)!!.status shouldNotBe Status.LAGRETKLADD
 	}
+
+	@Test
+	@Order(5)
+	fun `Skal ikke kunne sende inn soeknad om det allerede finnes en innsendt`() {
+		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
+				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+				tokenFor(INNSENDER)
+				setBody(soeknadRequest.toJson())
+			}.apply {
+				response.status() shouldBe HttpStatusCode.Conflict
+			}
+		}
+	}
+
 
 }
