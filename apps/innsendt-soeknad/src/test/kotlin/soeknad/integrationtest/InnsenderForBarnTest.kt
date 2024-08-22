@@ -49,7 +49,7 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
 	fun `Skal opprette kladd for innsender`() {
 		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(INNSENDER)
@@ -64,7 +64,7 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
 	@Test
 	@Order(2)
 	fun `Skal opprette soeknad for barn`() {
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(INNSENDER)
@@ -99,7 +99,7 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
 	@Test
 	@Order(5)
 	fun `Skal ikke kunne sende inn soeknad om det allerede finnes en innsendt`() {
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(INNSENDER)

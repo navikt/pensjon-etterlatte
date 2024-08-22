@@ -67,7 +67,7 @@ fun main() {
 							context.securityMediator.autentiser(this)
 							personApi(personService)
 							kodeverkApi(kodeverkService)
-							soknadApi(soeknadService2)
+							soknadApi(soeknadService)
 						}
 					}
 				}

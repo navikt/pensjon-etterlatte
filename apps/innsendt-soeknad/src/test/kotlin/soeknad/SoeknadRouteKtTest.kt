@@ -31,7 +31,7 @@ import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.deserialize
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
-import no.nav.etterlatte.soeknad.SoeknadService2
+import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
@@ -43,7 +43,7 @@ import java.util.*
 import java.util.stream.*
 
 internal class SoeknadRouteKtTest {
-	private val service = mockk<SoeknadService2>()
+	private val service = mockk<SoeknadService>()
 	private val dummyJson = """{"dummy":"json"}"""
 	private val kilde = "omstillingsstoenad-ui"
 	private val STOR_SNERK = "11057523044"
@@ -58,14 +58,14 @@ internal class SoeknadRouteKtTest {
 			)
 
 		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.sendSoeknader(any(), any(), kilde) } returns true
+			coEvery { service.sendSoeknad(any(), any(), kilde) } returns true
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(STOR_SNERK)
 				setBody(soeknad.toJson())
 			}.apply {
 				assertEquals(HttpStatusCode.OK, response.status())
-				coVerify(exactly = 1) { service.sendSoeknader(any(), any(), kilde) }
+				coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
 			}
 		}
 	}

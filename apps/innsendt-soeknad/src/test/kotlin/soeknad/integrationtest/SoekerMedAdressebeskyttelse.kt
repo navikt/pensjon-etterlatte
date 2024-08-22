@@ -89,7 +89,7 @@ internal class SoekerMedAdressebeskyttelse: SoeknadIntegrationTest() {
 			Foedselsnummer.of(BARN_UGRADERT) to Gradering.UGRADERT,
 		)
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(INNSENDER)
@@ -178,7 +178,7 @@ internal class SoekerMedAdressebeskyttelse: SoeknadIntegrationTest() {
 			Foedselsnummer.of(BARN_UGRADERT) to Gradering.UGRADERT,
 		)
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(SOEKER)

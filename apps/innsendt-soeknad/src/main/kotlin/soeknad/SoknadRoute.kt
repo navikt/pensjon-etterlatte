@@ -10,13 +10,11 @@ import io.ktor.server.routing.delete
 import io.ktor.server.routing.get
 import io.ktor.server.routing.post
 import io.ktor.server.routing.route
-import libs.common.util.RetryResult.Failure
-import libs.common.util.RetryResult.Success
 import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import soeknad.Status
 
-fun Route.soknadApi(service: SoeknadService2) {
+fun Route.soknadApi(service: SoeknadService) {
     route("/api/soeknad") {
         post {
             try {
@@ -26,7 +24,7 @@ fun Route.soknadApi(service: SoeknadService2) {
                 val request = call.receive<SoeknadRequest>()
                 val kilde = call.request.queryParameters["kilde"]!!
 
-                val ferdigstiltOK  = service.sendSoeknader(fnrFromToken(), request, kilde)
+                val ferdigstiltOK  = service.sendSoeknad(fnrFromToken(), request, kilde)
 
                 call.application.environment.log.info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
                 call.respond(HttpStatusCode.OK)

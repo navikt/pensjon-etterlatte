@@ -57,7 +57,7 @@ internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
 	fun `Skal opprette kladd for gjenlevende`() {
 		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(GJENLEVENDE)
@@ -73,7 +73,7 @@ internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
 	fun `Skal opprette soeknad for gjenlevende og for barn`() {
 		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } just Runs
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(GJENLEVENDE)
@@ -121,7 +121,7 @@ internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
 	@Test
 	@Order(5)
 	fun `Skal ikke kunne sende inn soeknad om det allerede finnes en innsendt`() {
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(GJENLEVENDE)

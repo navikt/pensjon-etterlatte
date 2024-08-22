@@ -1,15 +1,9 @@
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
-import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
-import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpMethod
-import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
@@ -22,46 +16,24 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
-import io.ktor.server.testing.TestApplicationCall
 import io.ktor.server.testing.TestApplicationRequest
-import io.ktor.server.testing.TestApplicationResponse
-import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.setBody
-import io.ktor.server.testing.withTestApplication
-import io.mockk.Runs
 import io.mockk.coEvery
-import io.mockk.every
-import io.mockk.just
 import io.mockk.mockk
-import io.mockk.verify
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
-import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.SoeknadService
-import no.nav.etterlatte.soeknad.SoeknadService2
-import no.nav.etterlatte.soeknad.soknadApi
-import no.nav.etterlatte.toJson
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
-import org.junit.jupiter.api.Nested
-import org.junit.jupiter.api.Order
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
-import soeknad.LagretSoeknad
 import soeknad.PostgresSoeknadRepository
-import soeknad.Status
 import java.util.*
 import java.util.stream.Collectors
 
@@ -75,7 +47,6 @@ internal abstract class SoeknadIntegrationTest {
 	lateinit var dsbHolder: DataSourceBuilder
 
 	lateinit var service: SoeknadService
-	lateinit var service2: SoeknadService2
 
 	val kilde = "omstillingsstoenad-ui"
 	val dummyKladd = """{"harSamtykket":"true"}"""
@@ -94,7 +65,6 @@ internal abstract class SoeknadIntegrationTest {
 		db = PostgresSoeknadRepository.using(dsb.dataSource)
 
 		service = SoeknadService(db, mockUtkastPubliserer, adressebeskyttelse)
-		service2 = SoeknadService2(service)
 	}
 
 	@AfterAll

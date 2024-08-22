@@ -27,7 +27,6 @@ import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient
 import no.nav.etterlatte.soeknad.SoeknadService
-import no.nav.etterlatte.soeknad.SoeknadService2
 import no.nav.etterlatte.ktorclientauth.clientCredential
 import soeknad.PostgresSoeknadRepository
 
@@ -44,7 +43,6 @@ class ApplicationContext(env: Map<String, String>) {
 
 	val utkastPubliserer: UtkastPubliserer
 
-	val soeknadService2: SoeknadService2
 	val soeknadService: SoeknadService
 
 	val kodeverkService: KodeverkService
@@ -69,7 +67,6 @@ class ApplicationContext(env: Map<String, String>) {
 				.let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv("PDL_URL"))) }
 
 		soeknadService = SoeknadService(db, utkastPubliserer, adressebeskyttelseService)
-		soeknadService2 = SoeknadService2(soeknadService)
 
 		kodeverkService =
 			kodeverkHttpClient()

@@ -33,7 +33,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	@Test
 	@Order(1)
 	fun `Skal returnere not found hvis en kladd ikke eksisterer`() {
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
 				tokenFor(STOR_SNERK) // LUGUBER MASKIN
 			}.apply {
@@ -48,7 +48,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 		db.finnKladd(STOR_SNERK, kilde) shouldBe null
 		every { mockUtkastPubliserer.publiserOpprettUtkastTilMinSide(any(), any()) } returns Unit
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(STOR_SNERK)
@@ -70,7 +70,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	fun `Skal hente kladd fra databasen`() {
 		db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
 				tokenFor(STOR_SNERK)
 			}.apply {
@@ -89,7 +89,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 		db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
 		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
 				tokenFor(STOR_SNERK)
 			}.apply {
@@ -103,7 +103,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	@Test
 	@Order(5)
 	fun `Kladd som sendes inn som soeknad maa tilhoere innlogget bruker`() {
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(UKJENT)
@@ -125,7 +125,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	@Test
 	@Order(6)
 	fun `Skal ikke hente kladd etter soeknad er sendt inn`() {
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(STOR_SNERK)
@@ -152,7 +152,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	@Order(7)
 	fun `Skal ikke kunne lagre endringer på kladd etter soeknad er sendt inn`() {
 
-		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
+		withTestApplication({ apiTestModule { soknadApi(service) } }) {
 			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(STOR_SNERK)
