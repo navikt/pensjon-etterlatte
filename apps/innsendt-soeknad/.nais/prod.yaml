@@ -9,11 +9,15 @@ spec:
   image: {{image}}
   port: 8080
   liveness:
-    initialDelay: 5
     path: internal/isalive
+    initialDelay: 60
+    timeout: 1
+    periodSeconds: 5
+    failureThreshold: 10
   readiness:
-    initialDelay: 5
     path: internal/isready
+    initialDelay: 60
+    timeout: 1
   prometheus:
     enabled: true
     path: internal/metrics
@@ -54,7 +58,7 @@ spec:
             value: "100"
   resources:
     requests:
-      cpu: 20m
+      cpu: 25m
       memory: 320Mi
   replicas:
     cpuThresholdPercentage: 90
