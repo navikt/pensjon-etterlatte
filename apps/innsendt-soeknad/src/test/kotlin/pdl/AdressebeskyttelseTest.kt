@@ -114,8 +114,8 @@ internal class AdressebeskyttelseTest {
         AdressebeskyttelseBolkPerson(
             ident = "12345678910",
             person =
-                AdressebeskyttelsePerson(
-                    gradering.filterNotNull().map { Adressebeskyttelse(it) }
-                )
+            AdressebeskyttelsePerson(
+                gradering.filterNotNull().map { Adressebeskyttelse(it) }
+            )
         )
 }

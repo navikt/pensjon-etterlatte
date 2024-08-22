@@ -19,10 +19,10 @@ internal class AdressebeskyttelseUtilsKtTest {
             InnsendtSoeknadFixtures.omstillingsSoeknad(
                 innsenderFnr = Foedselsnummer.of("24014021406"),
                 barn =
-                    listOf(
-                        eksempelBarn(Foedselsnummer.of("29080775995")),
-                        eksempelBarn(Foedselsnummer.of("03081375711"))
-                    )
+                listOf(
+                    eksempelBarn(Foedselsnummer.of("29080775995")),
+                    eksempelBarn(Foedselsnummer.of("03081375711"))
+                )
             )
         val barnepensjon =
             InnsendtSoeknadFixtures.barnepensjon(
@@ -61,6 +61,7 @@ internal class AdressebeskyttelseUtilsKtTest {
                 is Omstillingsstoenad -> {
                     soeknad.barn.map { it.utenlandsAdresse shouldBe null }
                 }
+
                 is Barnepensjon -> {
                     (soeknad.soesken + soeknad.soeker).map { it.utenlandsAdresse shouldBe null }
                     soeknad.utbetalingsInformasjon shouldBe null

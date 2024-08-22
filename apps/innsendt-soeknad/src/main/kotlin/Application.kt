@@ -56,7 +56,7 @@ fun main() {
                         healthApi()
                         metricsApi()
                         authenticate {
-                            context.securityMediator.autentiser(this)
+                            securityMediator.autentiser(this)
                             personApi(personService)
                             kodeverkApi(kodeverkService)
                             soknadApi(soeknadService)

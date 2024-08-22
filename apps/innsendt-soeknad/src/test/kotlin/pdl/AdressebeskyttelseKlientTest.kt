@@ -42,6 +42,7 @@ internal class AdressebeskyttelseKlientTest {
                                     headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
                                 respond(response, headers = responseHeaders)
                             }
+
                             else -> error("Unhandled ${request.url.fullPath}")
                         }
                     }

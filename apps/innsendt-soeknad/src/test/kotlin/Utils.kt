@@ -30,7 +30,7 @@ fun testMessage(
     dokumentInfoId: Long? = null
 ) = jsonTestMessage(journalpost, soeknad, dokumentInfoId).toJson()
 
-class TestRepo : SoeknadRepository {
+class TestRepo: SoeknadRepository {
     val arkiveringOk = mutableListOf<SoeknadID>()
     val arkiveringFeilet = mutableListOf<SoeknadID>()
     val venterPaaBehandlingDoffen = mutableListOf<SoeknadID>()

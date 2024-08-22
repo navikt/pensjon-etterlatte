@@ -43,158 +43,158 @@ import java.util.*
 import java.util.stream.*
 
 internal class SoeknadRouteKtTest {
-	private val service = mockk<SoeknadService>()
-	private val dummyJson = """{"dummy":"json"}"""
-	private val kilde = "omstillingsstoenad-ui"
-	private val STOR_SNERK = "11057523044"
+    private val service = mockk<SoeknadService>()
+    private val dummyJson = """{"dummy":"json"}"""
+    private val kilde = "omstillingsstoenad-ui"
+    private val STOR_SNERK = "11057523044"
 
-	@Test
-	fun `Skal lagre søknader`() {
-		val soeknad =
-			SoeknadRequest(
-				listOf(
-					InnsendtSoeknadFixtures.omstillingsSoeknad()
-				)
-			)
+    @Test
+    fun `Skal lagre søknader`() {
+        val soeknad =
+            SoeknadRequest(
+                listOf(
+                    InnsendtSoeknadFixtures.omstillingsSoeknad()
+                )
+            )
 
-		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.sendSoeknad(any(), any(), kilde) } returns true
-			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
-				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-				tokenFor(STOR_SNERK)
-				setBody(soeknad.toJson())
-			}.apply {
-				assertEquals(HttpStatusCode.OK, response.status())
-				coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
-			}
-		}
-	}
+        withTestApplication({ testModule { soknadApi(service) } }) {
+            coEvery { service.sendSoeknad(any(), any(), kilde) } returns true
+            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
+                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                tokenFor(STOR_SNERK)
+                setBody(soeknad.toJson())
+            }.apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
+            }
+        }
+    }
 
-	@Test
-	fun `Skal lagre kladd`() {
-		withTestApplication({ testModule { soknadApi(service) } }) {
-			every { service.lagreKladd(any(), any(), kilde) } returns 1L
-			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
-				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-				tokenFor(STOR_SNERK)
-				setBody(dummyJson)
-			}.apply {
-				assertEquals(HttpStatusCode.OK, response.status())
-				assertEquals("1", response.content)
-				coVerify(exactly = 1) { service.lagreKladd(any(), any(), kilde) }
-			}
-		}
-	}
+    @Test
+    fun `Skal lagre kladd`() {
+        withTestApplication({ testModule { soknadApi(service) } }) {
+            every { service.lagreKladd(any(), any(), kilde) } returns 1L
+            handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
+                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                tokenFor(STOR_SNERK)
+                setBody(dummyJson)
+            }.apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                assertEquals("1", response.content)
+                coVerify(exactly = 1) { service.lagreKladd(any(), any(), kilde) }
+            }
+        }
+    }
 
-	@Test
-	fun `Skal hente kladd`() {
-		withTestApplication({ testModule { soknadApi(service) } }) {
-			val kladd = LagretSoeknad(1L, "", "").apply {
-				status = Status.LAGRETKLADD
-			}
-			coEvery { service.hentKladd(any(), kilde) } returns kladd
+    @Test
+    fun `Skal hente kladd`() {
+        withTestApplication({ testModule { soknadApi(service) } }) {
+            val kladd = LagretSoeknad(1L, "", "").apply {
+                status = Status.LAGRETKLADD
+            }
+            coEvery { service.hentKladd(any(), kilde) } returns kladd
 
-			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
-				tokenFor(STOR_SNERK)
-			}.apply {
-				assertEquals(HttpStatusCode.OK, response.status())
-				assertEquals(kladd, deserialize<LagretSoeknad>(response.content!!))
-				coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
-			}
-		}
-	}
+            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
+                tokenFor(STOR_SNERK)
+            }.apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                assertEquals(kladd, deserialize<LagretSoeknad>(response.content!!))
+                coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
+            }
+        }
+    }
 
-	@Test
-	fun `Skal håndtere at kladd ikke finnes`() {
-		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.hentKladd(any(), kilde) } returns null
-			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
-				tokenFor(STOR_SNERK)
-			}.apply {
-				assertEquals(HttpStatusCode.NotFound, response.status())
-				coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
-			}
-		}
-	}
+    @Test
+    fun `Skal håndtere at kladd ikke finnes`() {
+        withTestApplication({ testModule { soknadApi(service) } }) {
+            coEvery { service.hentKladd(any(), kilde) } returns null
+            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
+                tokenFor(STOR_SNERK)
+            }.apply {
+                assertEquals(HttpStatusCode.NotFound, response.status())
+                coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
+            }
+        }
+    }
 
-	@Test
-	fun `Skal slette kladd`() {
-		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.slettKladd(any(), kilde) } just Runs
-			handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
-				tokenFor(STOR_SNERK)
-			}.apply {
-				assertEquals(HttpStatusCode.OK, response.status())
-				coVerify(exactly = 1) { service.slettKladd(any(), kilde) }
-			}
-		}
-	}
+    @Test
+    fun `Skal slette kladd`() {
+        withTestApplication({ testModule { soknadApi(service) } }) {
+            coEvery { service.slettKladd(any(), kilde) } just Runs
+            handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
+                tokenFor(STOR_SNERK)
+            }.apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                coVerify(exactly = 1) { service.slettKladd(any(), kilde) }
+            }
+        }
+    }
 }
 
 fun Application.testModule(routes: Route.() -> Unit) {
-	install(ContentNegotiation) {
-		jackson {
-			registerModule(JavaTimeModule())
-		}
-	}
-	install(IgnoreTrailingSlash)
-	install(Authentication) {
-		tokenTestSupportAcceptsAllTokens()
-	}
+    install(ContentNegotiation) {
+        jackson {
+            registerModule(JavaTimeModule())
+        }
+    }
+    install(IgnoreTrailingSlash)
+    install(Authentication) {
+        tokenTestSupportAcceptsAllTokens()
+    }
 
-	routing {
-		authenticate {
-			routes()
-		}
-	}
+    routing {
+        authenticate {
+            routes()
+        }
+    }
 }
 
 class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguration(null)) {
-	class ProviderConfiguration internal constructor(
-		name: String?
-	): Config(name)
+    class ProviderConfiguration internal constructor(
+        name: String?
+    ): Config(name)
 
-	private fun getTokensFromHeader(request: Headers): List<JwtToken> {
-		try {
-			val authorization = request["Authorization"]
-			if (authorization != null) {
-				val headerValues = authorization.split(",".toRegex()).toTypedArray()
-				return extractBearerTokens(*headerValues)
-					.map { encodedToken: String ->
-						JwtToken(
-							encodedToken
-						)
-					}
-			}
-		} catch (_: Exception) {
-		}
-		return emptyList()
-	}
+    private fun getTokensFromHeader(request: Headers): List<JwtToken> {
+        try {
+            val authorization = request["Authorization"]
+            if (authorization != null) {
+                val headerValues = authorization.split(",".toRegex()).toTypedArray()
+                return extractBearerTokens(*headerValues)
+                    .map { encodedToken: String ->
+                        JwtToken(
+                            encodedToken
+                        )
+                    }
+            }
+        } catch (_: Exception) {
+        }
+        return emptyList()
+    }
 
-	private fun extractBearerTokens(vararg headerValues: String): List<String> =
-		Arrays
-			.stream(headerValues)
-			.map { s: String ->
-				s
-					.split(
-						" ".toRegex()
-					).toTypedArray()
-			}.filter { pair: Array<String> -> pair.size == 2 }
-			.filter { pair: Array<String> ->
-				pair[0]
-					.trim { it <= ' ' }
-					.equals("Bearer", ignoreCase = true)
-			}.map { pair: Array<String> ->
-				pair[1].trim { it <= ' ' }
-			}.collect(Collectors.toList())
+    private fun extractBearerTokens(vararg headerValues: String): List<String> =
+        Arrays
+            .stream(headerValues)
+            .map { s: String ->
+                s
+                    .split(
+                        " ".toRegex()
+                    ).toTypedArray()
+            }.filter { pair: Array<String> -> pair.size == 2 }
+            .filter { pair: Array<String> ->
+                pair[0]
+                    .trim { it <= ' ' }
+                    .equals("Bearer", ignoreCase = true)
+            }.map { pair: Array<String> ->
+                pair[1].trim { it <= ' ' }
+            }.collect(Collectors.toList())
 
-	override suspend fun onAuthenticate(context: AuthenticationContext) {
-		context.principal(
-			TokenValidationContextPrincipal(
-				TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
-			)
-		)
-	}
+    override suspend fun onAuthenticate(context: AuthenticationContext) {
+        context.principal(
+            TokenValidationContextPrincipal(
+                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
+            )
+        )
+    }
 }
 
 fun AuthenticationConfig.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())

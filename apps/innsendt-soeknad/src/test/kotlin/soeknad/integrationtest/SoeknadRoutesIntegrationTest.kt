@@ -35,123 +35,123 @@ import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import soeknad.PostgresSoeknadRepository
 import java.util.*
-import java.util.stream.Collectors
+import java.util.stream.*
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation::class)
 internal abstract class SoeknadIntegrationTest {
-	@Container
-	val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
-	lateinit var db: PostgresSoeknadRepository
-	lateinit var dsbHolder: DataSourceBuilder
+    @Container
+    val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
+    lateinit var db: PostgresSoeknadRepository
+    lateinit var dsbHolder: DataSourceBuilder
 
-	lateinit var service: SoeknadService
+    lateinit var service: SoeknadService
 
-	val kilde = "omstillingsstoenad-ui"
-	val dummyKladd = """{"harSamtykket":"true"}"""
-	val mapper = jacksonObjectMapper()
-	val mockUtkastPubliserer = mockk<UtkastPubliserer>()
+    val kilde = "omstillingsstoenad-ui"
+    val dummyKladd = """{"harSamtykket":"true"}"""
+    val mapper = jacksonObjectMapper()
+    val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
-	// TODO mock klient istedet for å teste AdressebeskyttelseService
-	val adressebeskyttelse = mockk<AdressebeskyttelseService>().apply {
-		coEvery { hentGradering(any(), any()) } returns emptyMap()
-	}
+    // TODO mock klient istedet for å teste AdressebeskyttelseService
+    val adressebeskyttelse = mockk<AdressebeskyttelseService>().apply {
+        coEvery { hentGradering(any(), any()) } returns emptyMap()
+    }
 
-	@BeforeAll
-	fun beforeAll() {
-		val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
-		dsbHolder = dsb
-		db = PostgresSoeknadRepository.using(dsb.dataSource)
+    @BeforeAll
+    fun beforeAll() {
+        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
+        dsbHolder = dsb
+        db = PostgresSoeknadRepository.using(dsb.dataSource)
 
-		service = SoeknadService(db, mockUtkastPubliserer, adressebeskyttelse)
-	}
+        service = SoeknadService(db, mockUtkastPubliserer, adressebeskyttelse)
+    }
 
-	@AfterAll
-	fun afterAll() {
-		postgreSQLContainer.stop()
-	}
+    @AfterAll
+    fun afterAll() {
+        postgreSQLContainer.stop()
+    }
 }
 
 fun Application.apiTestModule(routes: Route.() -> Unit) {
-	install(ContentNegotiation) {
-		jackson {
-			registerModule(JavaTimeModule())
-		}
-	}
-	install(IgnoreTrailingSlash)
-	install(Authentication) {
-		tokenTestSupportAcceptsAllTokens()
-	}
+    install(ContentNegotiation) {
+        jackson {
+            registerModule(JavaTimeModule())
+        }
+    }
+    install(IgnoreTrailingSlash)
+    install(Authentication) {
+        tokenTestSupportAcceptsAllTokens()
+    }
 
-	routing {
-		authenticate {
-			routes()
-		}
-	}
+    routing {
+        authenticate {
+            routes()
+        }
+    }
 }
 
 fun TestApplicationRequest.tokenFor(fnr: String) {
-	addHeader(
-		HttpHeaders.Authorization,
-		"""Bearer ${
-			PlainJWT(
-				JWTClaimsSet
-					.Builder()
-					.claim("pid", fnr)
-					.issuer("lol")
-					.build()
-			).serialize()
-		}"""
-	)
+    addHeader(
+        HttpHeaders.Authorization,
+        """Bearer ${
+            PlainJWT(
+                JWTClaimsSet
+                    .Builder()
+                    .claim("pid", fnr)
+                    .issuer("lol")
+                    .build()
+            ).serialize()
+        }"""
+    )
 }
 
 class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguration(null)) {
-	class ProviderConfiguration internal constructor(
-		name: String?
-	): Config(name)
+    class ProviderConfiguration internal constructor(
+        name: String?
+    ): Config(name)
 
-	private fun getTokensFromHeader(request: Headers): List<JwtToken> {
-		try {
-			val authorization = request["Authorization"]
-			if (authorization != null) {
-				val headerValues = authorization.split(",".toRegex()).toTypedArray()
-				return extractBearerTokens(*headerValues)
-					.map { encodedToken: String ->
-						JwtToken(
-							encodedToken
-						)
-					}
-			}
-		} catch (_: Exception) {
-		}
-		return emptyList()
-	}
+    private fun getTokensFromHeader(request: Headers): List<JwtToken> {
+        try {
+            val authorization = request["Authorization"]
+            if (authorization != null) {
+                val headerValues = authorization.split(",".toRegex()).toTypedArray()
+                return extractBearerTokens(*headerValues)
+                    .map { encodedToken: String ->
+                        JwtToken(
+                            encodedToken
+                        )
+                    }
+            }
+        } catch (_: Exception) {
+        }
+        return emptyList()
+    }
 
-	private fun extractBearerTokens(vararg headerValues: String): List<String> =
-		Arrays
-			.stream(headerValues)
-			.map { s: String ->
-				s
-					.split(
-						" ".toRegex()
-					).toTypedArray()
-			}.filter { pair: Array<String> -> pair.size == 2 }
-			.filter { pair: Array<String> ->
-				pair[0]
-					.trim { it <= ' ' }
-					.equals("Bearer", ignoreCase = true)
-			}.map { pair: Array<String> ->
-				pair[1].trim { it <= ' ' }
-			}.collect(Collectors.toList())
+    private fun extractBearerTokens(vararg headerValues: String): List<String> =
+        Arrays
+            .stream(headerValues)
+            .map { s: String ->
+                s
+                    .split(
+                        " ".toRegex()
+                    ).toTypedArray()
+            }.filter { pair: Array<String> -> pair.size == 2 }
+            .filter { pair: Array<String> ->
+                pair[0]
+                    .trim { it <= ' ' }
+                    .equals("Bearer", ignoreCase = true)
+            }.map { pair: Array<String> ->
+                pair[1].trim { it <= ' ' }
+            }.collect(Collectors.toList())
 
-	override suspend fun onAuthenticate(context: AuthenticationContext) {
-		context.principal(
-			TokenValidationContextPrincipal(
-				TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
-			)
-		)
-	}
+    override suspend fun onAuthenticate(context: AuthenticationContext) {
+        context.principal(
+            TokenValidationContextPrincipal(
+                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
+            )
+        )
+    }
 }
 
 fun AuthenticationConfig.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())

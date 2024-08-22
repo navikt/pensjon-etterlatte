@@ -73,7 +73,8 @@ internal class KodeverkServiceTest {
 
                 assertEquals(5, land.size)
 
-                val forventedeLand = "[{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"CUBA\",\"tekst\":\"CUBA\"},\"nb\":{\"term\":\"CUBA\",\"tekst\":\"CUBA\"},\"en\":{\"term\":\"CUBA\",\"tekst\":\"CUBA\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"POLEN\",\"tekst\":\"POLEN\"},\"nb\":{\"term\":\"POLEN\",\"tekst\":\"POLEN\"},\"en\":{\"term\":\"POLEN\",\"tekst\":\"POLEN\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"SVERIGE\",\"tekst\":\"SVERIGE\"},\"nb\":{\"term\":\"SVERIGE\",\"tekst\":\"SVERIGE\"},\"en\":{\"term\":\"SVERIGE\",\"tekst\":\"SVERIGE\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"ISLAND\",\"tekst\":\"ISLAND\"},\"nb\":{\"term\":\"ISLAND\",\"tekst\":\"ISLAND\"},\"en\":{\"term\":\"ISLAND\",\"tekst\":\"ISLAND\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"NORGE\",\"tekst\":\"NORGE\"},\"nb\":{\"term\":\"NORGE\",\"tekst\":\"NORGE\"},\"en\":{\"term\":\"NORGE\",\"tekst\":\"NORGE\"}}}]"
+                val forventedeLand =
+                    "[{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"CUBA\",\"tekst\":\"CUBA\"},\"nb\":{\"term\":\"CUBA\",\"tekst\":\"CUBA\"},\"en\":{\"term\":\"CUBA\",\"tekst\":\"CUBA\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"POLEN\",\"tekst\":\"POLEN\"},\"nb\":{\"term\":\"POLEN\",\"tekst\":\"POLEN\"},\"en\":{\"term\":\"POLEN\",\"tekst\":\"POLEN\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"SVERIGE\",\"tekst\":\"SVERIGE\"},\"nb\":{\"term\":\"SVERIGE\",\"tekst\":\"SVERIGE\"},\"en\":{\"term\":\"SVERIGE\",\"tekst\":\"SVERIGE\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"ISLAND\",\"tekst\":\"ISLAND\"},\"nb\":{\"term\":\"ISLAND\",\"tekst\":\"ISLAND\"},\"en\":{\"term\":\"ISLAND\",\"tekst\":\"ISLAND\"}}},{\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelser\":{\"nn\":{\"term\":\"NORGE\",\"tekst\":\"NORGE\"},\"nb\":{\"term\":\"NORGE\",\"tekst\":\"NORGE\"},\"en\":{\"term\":\"NORGE\",\"tekst\":\"NORGE\"}}}]"
                 assertEquals(forventedeLand, land.toJson())
             }
         }
@@ -135,7 +136,8 @@ internal class KodeverkServiceTest {
 
                 assertEquals(3, valutaer.size)
 
-                val forventedeValutaer = "[{\"isoKode\":\"FJD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}},{\"isoKode\":\"STD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dobras SÒo Tomeand Principe\",\"tekst\":\"Dobras SÒo Tomeand Principe\"}},{\"isoKode\":\"SCR\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}]"
+                val forventedeValutaer =
+                    "[{\"isoKode\":\"FJD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}},{\"isoKode\":\"STD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dobras SÒo Tomeand Principe\",\"tekst\":\"Dobras SÒo Tomeand Principe\"}},{\"isoKode\":\"SCR\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}]"
                 assertEquals(forventedeValutaer, valutaer.toJson())
             }
         }
@@ -143,7 +145,8 @@ internal class KodeverkServiceTest {
         @Test
         fun `Cache for valutaer fungerer`() {
             coEvery { mockKlient.hentValutaer() } returns opprettValutaerResponse()
-            val forventedeValutaer = "[{\"isoKode\":\"FJD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}},{\"isoKode\":\"STD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dobras SÒo Tomeand Principe\",\"tekst\":\"Dobras SÒo Tomeand Principe\"}},{\"isoKode\":\"SCR\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}]"
+            val forventedeValutaer =
+                "[{\"isoKode\":\"FJD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dollars Fiji\",\"tekst\":\"Dollars Fiji\"}},{\"isoKode\":\"STD\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Dobras SÒo Tomeand Principe\",\"tekst\":\"Dobras SÒo Tomeand Principe\"}},{\"isoKode\":\"SCR\",\"gyldigFra\":\"1900-01-01\",\"gyldigTil\":\"9999-12-31\",\"beskrivelse\":{\"term\":\"Rupees Seychelles\",\"tekst\":\"Rupees Seychelles\"}}]"
 
             runBlocking {
                 val alleValutaer = service.hentValutaer()

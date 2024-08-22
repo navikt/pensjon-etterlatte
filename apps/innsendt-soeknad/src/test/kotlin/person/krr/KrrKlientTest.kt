@@ -36,6 +36,7 @@ internal class KrrKlientTest {
                                     )
                                 )
                             }
+
                             else -> error("Unhandled ${request.url.fullPath}")
                         }
                     }
