@@ -6,7 +6,7 @@ import com.github.benmanes.caffeine.cache.Expiry
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.future.future
 import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenResponse
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.*
 
 data class OAuth2CacheConfig(
     val enabled: Boolean,
@@ -28,7 +28,7 @@ data class OAuth2CacheConfig(
             }
 
     private fun evictOnResponseExpiresIn(skewInSeconds: Long): Expiry<GrantRequest, OAuth2AccessTokenResponse> {
-        return object : Expiry<GrantRequest, OAuth2AccessTokenResponse> {
+        return object: Expiry<GrantRequest, OAuth2AccessTokenResponse> {
             override fun expireAfterCreate(
                 key: GrantRequest,
                 response: OAuth2AccessTokenResponse,

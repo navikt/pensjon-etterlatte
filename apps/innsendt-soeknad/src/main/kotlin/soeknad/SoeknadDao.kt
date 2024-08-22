@@ -32,7 +32,7 @@ import java.sql.ResultSet
 import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.UUID
+import java.util.*
 import javax.sql.DataSource
 
 interface SoeknadRepository {
@@ -101,7 +101,7 @@ interface StatistikkRepository {
 
 class PostgresSoeknadRepository private constructor(
     private val ds: DataSource
-) : SoeknadRepository,
+): SoeknadRepository,
     StatistikkRepository {
     private val logger = LoggerFactory.getLogger(PostgresSoeknadRepository::class.java)
 

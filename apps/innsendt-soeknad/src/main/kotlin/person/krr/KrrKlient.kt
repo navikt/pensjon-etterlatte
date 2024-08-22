@@ -23,7 +23,7 @@ interface Krr {
 
 class KrrKlient(
     private val client: HttpClient
-) : Krr {
+): Krr {
     private val logger: Logger = LoggerFactory.getLogger(KrrKlient::class.java)
 
     override suspend fun hentDigitalKontaktinformasjon(fnr: Foedselsnummer): DigitalKontaktinformasjon? {
@@ -53,7 +53,7 @@ class KrrKlient(
 
 class KrrException(
     cause: Throwable
-) : Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
+): Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
 
 val HttpHeaders.NavConsumerId: String
     get() = "Nav-Consumer-Id"

@@ -19,72 +19,72 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 internal class AdressebeskyttelseServiceTest {
-    private val adressebeskyttelseKlientMock = mockk<AdressebeskyttelseKlient>()
-    private val adressebeskyttelseService = AdressebeskyttelseService(adressebeskyttelseKlientMock)
+	private val adressebeskyttelseKlientMock = mockk<AdressebeskyttelseKlient>()
+	private val adressebeskyttelseService = AdressebeskyttelseService(adressebeskyttelseKlientMock)
 
-    @Test
-    fun `Skal gi gradering per person`() {
-        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns
-		        AdressebeskyttelseResponse(
-			        HentAdressebeskyttelse(
-				        listOf(
-					        adressebeskyttelse.mockAdressebeskyttetPerson("11057523044", Gradering.STRENGT_FORTROLIG),
-					        adressebeskyttelse.mockAdressebeskyttetPerson("26117512737", Gradering.UGRADERT),
-					        adressebeskyttelse.mockAdressebeskyttetPerson(
-						        "26104500284",
-						        Gradering.STRENGT_FORTROLIG_UTLAND
-					        ),
-					        adressebeskyttelse.mockAdressebeskyttetPerson("24116324268", null)
-				        )
-			        )
-		        )
+	@Test
+	fun `Skal gi gradering per person`() {
+		coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns
+			AdressebeskyttelseResponse(
+				HentAdressebeskyttelse(
+					listOf(
+						mockAdressebeskyttetPerson("11057523044", Gradering.STRENGT_FORTROLIG),
+						mockAdressebeskyttetPerson("26117512737", Gradering.UGRADERT),
+						mockAdressebeskyttetPerson(
+							"26104500284",
+							Gradering.STRENGT_FORTROLIG_UTLAND
+						),
+						mockAdressebeskyttetPerson("24116324268", null)
+					)
+				)
+			)
 
-	    runBlocking {
-		    val graderinger =
-			    adressebeskyttelseService.hentGradering(
-				    listOf(
-					    Foedselsnummer.of("11057523044"),
-					    Foedselsnummer.of("26117512737"),
-					    Foedselsnummer.of("26104500284"),
-					    Foedselsnummer.of("24116324268")
-				    ),
-				    SoeknadType.BARNEPENSJON
-			    )
+		runBlocking {
+			val graderinger =
+				adressebeskyttelseService.hentGradering(
+					listOf(
+						Foedselsnummer.of("11057523044"),
+						Foedselsnummer.of("26117512737"),
+						Foedselsnummer.of("26104500284"),
+						Foedselsnummer.of("24116324268")
+					),
+					SoeknadType.BARNEPENSJON
+				)
 
-		    assertEquals(4, graderinger.size)
-		    assertTrue(graderinger[Foedselsnummer.of("11057523044")] == Gradering.STRENGT_FORTROLIG)
-		    assertTrue(graderinger[Foedselsnummer.of("26117512737")] == Gradering.UGRADERT)
-		    assertTrue(graderinger[Foedselsnummer.of("26104500284")] == Gradering.STRENGT_FORTROLIG_UTLAND)
-		    assertTrue(graderinger[Foedselsnummer.of("24116324268")] == Gradering.UGRADERT)
-	    }
-    }
+			assertEquals(4, graderinger.size)
+			assertTrue(graderinger[Foedselsnummer.of("11057523044")] == Gradering.STRENGT_FORTROLIG)
+			assertTrue(graderinger[Foedselsnummer.of("26117512737")] == Gradering.UGRADERT)
+			assertTrue(graderinger[Foedselsnummer.of("26104500284")] == Gradering.STRENGT_FORTROLIG_UTLAND)
+			assertTrue(graderinger[Foedselsnummer.of("24116324268")] == Gradering.UGRADERT)
+		}
+	}
 
-    @Test
-    fun `Skal håndtere tom fnrListe`() {
-	    runBlocking {
-		    assertEquals(
-			    emptyMap<String, Gradering>(),
-			    adressebeskyttelseService.hentGradering(emptyList(), SoeknadType.BARNEPENSJON)
-		    )
-	    }
-    }
+	@Test
+	fun `Skal håndtere tom fnrListe`() {
+		runBlocking {
+			assertEquals(
+				emptyMap<String, Gradering>(),
+				adressebeskyttelseService.hentGradering(emptyList(), SoeknadType.BARNEPENSJON)
+			)
+		}
+	}
 
-    @Test
-    fun `Skal kaste exception dersom man ikke får noen person fra PDL`() {
-        coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns
-		        AdressebeskyttelseResponse(HentAdressebeskyttelse())
+	@Test
+	fun `Skal kaste exception dersom man ikke får noen person fra PDL`() {
+		coEvery { adressebeskyttelseKlientMock.finnAdressebeskyttelseForFnr(any(), any()) } returns
+			AdressebeskyttelseResponse(HentAdressebeskyttelse())
 
-	    runBlocking {
-		    val exception =
-			    assertThrows<Exception> {
-				    adressebeskyttelseService.hentGradering(
-					    listOf(Foedselsnummer.of("11057523044")),
-					    SoeknadType.BARNEPENSJON
-				    )
-			    }
-		    assertEquals("Fant ingen personer i PDL", exception.message)
-	    }
-    }
+		runBlocking {
+			val exception =
+				assertThrows<Exception> {
+					adressebeskyttelseService.hentGradering(
+						listOf(Foedselsnummer.of("11057523044")),
+						SoeknadType.BARNEPENSJON
+					)
+				}
+			assertEquals("Fant ingen personer i PDL", exception.message)
+		}
+	}
 }
 
 private fun mockAdressebeskyttetPerson(

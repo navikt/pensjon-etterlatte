@@ -8,7 +8,7 @@ import io.ktor.http.auth.HttpAuthHeader
 
 class BearerTokenAuthProvider(
     private val tokenAuthProvider: suspend () -> String?
-) : AuthProvider {
+): AuthProvider {
     override val sendWithoutRequest: Boolean = true
 
     override fun isApplicable(auth: HttpAuthHeader): Boolean = true

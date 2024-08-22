@@ -22,49 +22,49 @@ import no.nav.etterlatte.person.pdl.PersonResponse
 import org.slf4j.LoggerFactory
 
 interface Pdl {
-	suspend fun hentPerson(
-		fnr: Foedselsnummer,
-		soeknadType: SoeknadType
-	): PersonResponse
+    suspend fun hentPerson(
+        fnr: Foedselsnummer,
+        soeknadType: SoeknadType
+    ): PersonResponse
 }
 
 class PersonKlient(
-	private val httpClient: HttpClient
+    private val httpClient: HttpClient
 ): Pdl {
-	private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
+    private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
-	private val TEMA = "PEN"
-	private val BEHANDLINGSNUMMER = "behandlingsnummer"
+    private val TEMA = "PEN"
+    private val BEHANDLINGSNUMMER = "behandlingsnummer"
 
-	override suspend fun hentPerson(
-		fnr: Foedselsnummer,
-		soeknadType: SoeknadType
-	): PersonResponse {
-		val query =
-			javaClass
-				.getResource("/pdl/hentPerson.graphql")!!
-				.readText()
-				.replace(Regex("[\n\t]"), "")
+    override suspend fun hentPerson(
+        fnr: Foedselsnummer,
+        soeknadType: SoeknadType
+    ): PersonResponse {
+        val query =
+            javaClass
+                .getResource("/pdl/hentPerson.graphql")!!
+                .readText()
+                .replace(Regex("[\n\t]"), "")
 
-		val request = GraphqlRequest(query, Variables(ident = fnr.value)).toJson()
+        val request = GraphqlRequest(query, Variables(ident = fnr.value)).toJson()
 
-		val responseNode =
-			unsafeRetry {
-				httpClient
-					.post {
-						header("Tema", TEMA)
-						header(X_CORRELATION_ID, getCorrelationId())
-						header(BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
-						accept(Json)
-						setBody(TextContent(request, Json))
-					}.body<ObjectNode>()
-			}
+        val responseNode =
+            unsafeRetry {
+                httpClient
+                    .post {
+                        header("Tema", TEMA)
+                        header(X_CORRELATION_ID, getCorrelationId())
+                        header(BEHANDLINGSNUMMER, soeknadType.behandlingsnummer.verdi)
+                        accept(Json)
+                        setBody(TextContent(request, Json))
+                    }.body<ObjectNode>()
+            }
 
-		return try {
-			mapJsonToAny(responseNode!!.toJson())
-		} catch (e: Exception) {
-			logger.error("Error under deserialisering av pdl person", e)
-			throw e
-		}
-	}
+        return try {
+            mapJsonToAny(responseNode!!.toJson())
+        } catch (e: Exception) {
+            logger.error("Error under deserialisering av pdl person", e)
+            throw e
+        }
+    }
 }

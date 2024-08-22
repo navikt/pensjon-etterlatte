@@ -22,7 +22,7 @@ interface Pdl {
 class AdressebeskyttelseKlient(
     private val client: HttpClient,
     private val apiUrl: String
-) : Pdl {
+): Pdl {
     private val logger = LoggerFactory.getLogger(AdressebeskyttelseKlient::class.java)
 
     /**

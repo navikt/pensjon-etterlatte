@@ -20,6 +20,7 @@ import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
+import no.nav.etterlatte.ktorclientauth.clientCredential
 import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
 import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
@@ -27,61 +28,67 @@ import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient
 import no.nav.etterlatte.soeknad.SoeknadService
-import no.nav.etterlatte.ktorclientauth.clientCredential
 import soeknad.PostgresSoeknadRepository
 
 class ApplicationContext(env: Map<String, String>) {
 
-	private val closables = mutableListOf<() -> Unit>()
-	private val config: Config = ConfigFactory.load()
+    private val closables = mutableListOf<() -> Unit>()
+    private val config: Config = ConfigFactory.load()
 
-	val hoconApplicationConfig = HoconApplicationConfig(config)
-	val securityMediator = TokenSupportSecurityContextMediator(hoconApplicationConfig)
+    val hoconApplicationConfig = HoconApplicationConfig(config)
+    val securityMediator = TokenSupportSecurityContextMediator(hoconApplicationConfig)
 
-	val datasourceBuilder: DataSourceBuilder = DataSourceBuilder(System.getenv())
-	val db: PostgresSoeknadRepository = PostgresSoeknadRepository.using(datasourceBuilder.dataSource)
+    val datasourceBuilder: DataSourceBuilder = DataSourceBuilder(System.getenv())
+    val db: PostgresSoeknadRepository = PostgresSoeknadRepository.using(datasourceBuilder.dataSource)
 
-	val utkastPubliserer: UtkastPubliserer
+    val utkastPubliserer: UtkastPubliserer
 
-	val soeknadService: SoeknadService
+    val soeknadService: SoeknadService
 
-	val kodeverkService: KodeverkService
+    val kodeverkService: KodeverkService
 
-	val personService: PersonService
+    val personService: PersonService
 
-	private val krrKlient: KrrKlient
-	private val adressebeskyttelseService: AdressebeskyttelseService
+    private val krrKlient: KrrKlient
+    private val adressebeskyttelseService: AdressebeskyttelseService
 
-	init {
+    init {
 
-		val minsideProducer = if (appIsInGCP()) {
-			GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_UTKAST_TOPIC"))
-		} else {
-			TestProdusent()
-		}
-		utkastPubliserer = UtkastPubliserer(minsideProducer, env.getValue("SOEKNAD_DOMAIN_URL"))
+        val minsideProducer = if (appIsInGCP()) {
+            GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_UTKAST_TOPIC"))
+        } else {
+            TestProdusent()
+        }
+        utkastPubliserer = UtkastPubliserer(minsideProducer, env.getValue("SOEKNAD_DOMAIN_URL"))
 
-		adressebeskyttelseService =
-			systemPdlHttpClient()
-				.also { closables.add(it::close) }
-				.let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, config.getString("no.nav.etterlatte.tjenester.pdl.url"))) }
+        adressebeskyttelseService =
+            systemPdlHttpClient()
+                .also { closables.add(it::close) }
+                .let {
+                    AdressebeskyttelseService(
+                        AdressebeskyttelseKlient(
+                            it,
+                            config.getString("no.nav.etterlatte.tjenester.pdl.url")
+                        )
+                    )
+                }
 
-		soeknadService = SoeknadService(db, utkastPubliserer, adressebeskyttelseService)
+        soeknadService = SoeknadService(db, utkastPubliserer, adressebeskyttelseService)
 
-		kodeverkService =
+        kodeverkService =
             kodeverkHttpClient(config)
                 .also { closables.add(it::close) }
                 .let { KodeverkService(KodeverkKlient(it, config.getString("kodeverk.resource.url"))) }
 
-		krrKlient =
-			tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
-				.also { closables.add(it::close) }
-				.let { KrrKlient(it) }
+        krrKlient =
+            tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.krr"))
+                .also { closables.add(it::close) }
+                .let { KrrKlient(it) }
 
-		personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
-			.also { closables.add(it::close) }
-			.let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
-	}
+        personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
+            .also { closables.add(it::close) }
+            .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
+    }
 
 
     private fun unsecuredEndpoint(url: String) =
@@ -126,56 +133,57 @@ class ApplicationContext(env: Map<String, String>) {
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
     private fun systemPdlHttpClient() =
-	    httpClientClientCredentials(azureAppScope = System.getenv()["PDL_AZURE_SCOPE"]!!)
+        httpClientClientCredentials(azureAppScope = System.getenv()["PDL_AZURE_SCOPE"]!!)
 
 }
-fun httpClientClientCredentials(
-	azureAppScope: String,
-) = HttpClient(OkHttp) {
-	install(ContentNegotiation) {
-		jackson {
-			configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-			setSerializationInclusion(JsonInclude.Include.NON_NULL)
-			registerModule(JavaTimeModule())
-		}
-	}
-	val env = System.getenv()
 
-	install(Auth) {
-		clientCredential {
-			config =
-				mapOf(
-					AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
-					AzureDefaultEnvVariables.AZURE_APP_JWK.name to env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
-					AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
-					AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
-				)
-		}
-	}
+fun httpClientClientCredentials(
+    azureAppScope: String,
+) = HttpClient(OkHttp) {
+    install(ContentNegotiation) {
+        jackson {
+            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            registerModule(JavaTimeModule())
+        }
+    }
+    val env = System.getenv()
+
+    install(Auth) {
+        clientCredential {
+            config =
+                mapOf(
+                    AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_JWK.name to env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                )
+        }
+    }
 }
 
 enum class AzureDefaultEnvVariables {
-	AZURE_APP_CLIENT_ID,
-	AZURE_APP_JWK,
-	AZURE_APP_WELL_KNOWN_URL,
-	AZURE_APP_OUTBOUND_SCOPE,
-	;
+    AZURE_APP_CLIENT_ID,
+    AZURE_APP_JWK,
+    AZURE_APP_WELL_KNOWN_URL,
+    AZURE_APP_OUTBOUND_SCOPE,
+    ;
 
-	fun key() = name
+    fun key() = name
 }
 
 
 fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
 
 enum class GcpEnv(
-	val env: String
+    val env: String
 ) {
-	PROD("prod-gcp"),
-	DEV("dev-gcp")
+    PROD("prod-gcp"),
+    DEV("dev-gcp")
 }
 
 fun appIsInGCP(): Boolean =
-	when (val naisClusterName = clusternavn()) {
-		null -> false
-		else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
-	}
+    when (val naisClusterName = clusternavn()) {
+        null -> false
+        else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
+    }

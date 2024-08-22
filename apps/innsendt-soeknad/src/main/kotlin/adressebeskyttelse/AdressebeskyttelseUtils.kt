@@ -23,27 +23,30 @@ internal fun SoeknadRequest.finnUnikeBarn() =
 internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsnummer>): SoeknadRequest =
     this.copy(
         soeknader =
-            this.soeknader.map { soeknad ->
-                when (soeknad) {
-                    is Omstillingsstoenad ->
-                        soeknad.copy(
-                            barn = soeknad.barn.map { it.utenAdresseFor(fnrListe) }
-                        )
-                    is Barnepensjon ->
-                        soeknad.copy(
-                            soeker = soeknad.soeker.utenAdresseFor(fnrListe),
-                            soesken = soeknad.soesken.map { it.utenAdresseFor(fnrListe) },
-                            utbetalingsInformasjon =
-                                if (soeknad.soeker.foedselsnummer == null
-                                    || soeknad.soeker.foedselsnummer?.svar in fnrListe) {
-                                    null
-                                } else {
-                                    soeknad.utbetalingsInformasjon
-                                }
-                        )
-                    else -> throw Exception("Ukjent søknadstype")
-                }
+        this.soeknader.map { soeknad ->
+            when (soeknad) {
+                is Omstillingsstoenad ->
+                    soeknad.copy(
+                        barn = soeknad.barn.map { it.utenAdresseFor(fnrListe) }
+                    )
+
+                is Barnepensjon ->
+                    soeknad.copy(
+                        soeker = soeknad.soeker.utenAdresseFor(fnrListe),
+                        soesken = soeknad.soesken.map { it.utenAdresseFor(fnrListe) },
+                        utbetalingsInformasjon =
+                        if (soeknad.soeker.foedselsnummer == null
+                            || soeknad.soeker.foedselsnummer?.svar in fnrListe
+                        ) {
+                            null
+                        } else {
+                            soeknad.utbetalingsInformasjon
+                        }
+                    )
+
+                else -> throw Exception("Ukjent søknadstype")
             }
+        }
     )
 
 private fun Barn.utenAdresseFor(fnrListe: List<Foedselsnummer>) =

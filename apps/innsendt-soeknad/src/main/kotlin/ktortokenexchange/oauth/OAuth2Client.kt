@@ -84,11 +84,11 @@ data class GrantRequest(
             GrantRequest(
                 grantType = GrantType.TOKEN_EXCHANGE,
                 params =
-                    mapOf(
-                        OAuth2ParameterNames.SUBJECT_TOKEN_TYPE to "urn:ietf:params:oauth:token-type:jwt",
-                        OAuth2ParameterNames.SUBJECT_TOKEN to token,
-                        OAuth2ParameterNames.AUDIENCE to audience
-                    )
+                mapOf(
+                    OAuth2ParameterNames.SUBJECT_TOKEN_TYPE to "urn:ietf:params:oauth:token-type:jwt",
+                    OAuth2ParameterNames.SUBJECT_TOKEN to token,
+                    OAuth2ParameterNames.AUDIENCE to audience
+                )
             )
 
         fun onBehalfOf(
@@ -98,20 +98,20 @@ data class GrantRequest(
             GrantRequest(
                 grantType = GrantType.JWT_BEARER,
                 params =
-                    mapOf(
-                        OAuth2ParameterNames.SCOPE to scope,
-                        OAuth2ParameterNames.REQUESTED_TOKEN_USE to "on_behalf_of",
-                        OAuth2ParameterNames.ASSERTION to token
-                    )
+                mapOf(
+                    OAuth2ParameterNames.SCOPE to scope,
+                    OAuth2ParameterNames.REQUESTED_TOKEN_USE to "on_behalf_of",
+                    OAuth2ParameterNames.ASSERTION to token
+                )
             )
 
         fun clientCredentials(scope: String): GrantRequest =
             GrantRequest(
                 grantType = GrantType.CLIENT_CREDENTIALS,
                 params =
-                    mapOf(
-                        OAuth2ParameterNames.SCOPE to scope
-                    )
+                mapOf(
+                    OAuth2ParameterNames.SCOPE to scope
+                )
             )
     }
 }
@@ -124,16 +124,16 @@ internal suspend fun HttpClient.tokenRequest(
     submitForm(
         url = tokenEndpointUrl,
         formParameters =
-            Parameters.build {
-                appendClientAuthParams(
-                    tokenEndpointUrl = tokenEndpointUrl,
-                    clientAuthProperties = clientAuthProperties
-                )
-                append(OAuth2ParameterNames.GRANT_TYPE, grantRequest.grantType.value)
-                grantRequest.params.forEach {
-                    append(it.key, it.value)
-                }
+        Parameters.build {
+            appendClientAuthParams(
+                tokenEndpointUrl = tokenEndpointUrl,
+                clientAuthProperties = clientAuthProperties
+            )
+            append(OAuth2ParameterNames.GRANT_TYPE, grantRequest.grantType.value)
+            grantRequest.params.forEach {
+                append(it.key, it.value)
             }
+        }
     ) {
         if (clientAuthProperties.clientAuthMethod == ClientAuthenticationMethod.CLIENT_SECRET_BASIC) {
             clientAuthProperties.clientSecret?.let {
@@ -157,6 +157,7 @@ private fun ParametersBuilder.appendClientAuthParams(
                 clientAuthProperties.clientSecret ?: throw IllegalArgumentException("Client secret ikke satt")
             )
         }
+
         ClientAuthenticationMethod.PRIVATE_KEY_JWT -> {
             val clientAssertion = ClientAssertion(URI.create(tokenEndpointUrl), clientAuthProperties)
             append(OAuth2ParameterNames.CLIENT_ID, clientAuthProperties.clientId)

@@ -7,7 +7,7 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.time.ZonedDateTime
 
-class LocalDateSerializer : JsonDeserializer<LocalDate?>() {
+class LocalDateSerializer: JsonDeserializer<LocalDate?>() {
     override fun deserialize(
         p: JsonParser?,
         ctxt: DeserializationContext?

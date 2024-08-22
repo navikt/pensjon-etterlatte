@@ -10,7 +10,7 @@ import io.ktor.http.HttpHeaders
 import no.nav.etterlatte.person.krr.NavCallId
 import no.nav.etterlatte.person.krr.NavConsumerId
 import org.slf4j.LoggerFactory
-import java.util.UUID
+import java.util.*
 
 interface Kodeverk {
     suspend fun hentPostnummer(): KodeverkResponse
@@ -26,7 +26,7 @@ interface Kodeverk {
 class KodeverkKlient(
     private val httpClient: HttpClient,
     private val url: String
-) : Kodeverk {
+): Kodeverk {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
     override suspend fun hentPostnummer(): KodeverkResponse =

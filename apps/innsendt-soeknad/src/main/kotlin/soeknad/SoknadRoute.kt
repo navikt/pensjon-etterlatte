@@ -24,7 +24,7 @@ fun Route.soknadApi(service: SoeknadService) {
                 val request = call.receive<SoeknadRequest>()
                 val kilde = call.request.queryParameters["kilde"]!!
 
-                val ferdigstiltOK  = service.sendSoeknad(fnrFromToken(), request, kilde)
+                val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), request, kilde)
 
                 call.application.environment.log.info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
                 call.respond(HttpStatusCode.OK)

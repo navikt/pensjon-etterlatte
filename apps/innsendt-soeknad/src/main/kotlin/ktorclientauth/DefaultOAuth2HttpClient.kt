@@ -14,7 +14,7 @@ import no.nav.security.token.support.client.core.http.OAuth2HttpClient
 import no.nav.security.token.support.client.core.http.OAuth2HttpRequest
 import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenResponse
 
-class DefaultOAuth2HttpClient : OAuth2HttpClient {
+class DefaultOAuth2HttpClient: OAuth2HttpClient {
     private val defaultHttpClient =
         HttpClient(OkHttp) {
             install(ContentNegotiation) {
@@ -32,11 +32,11 @@ class DefaultOAuth2HttpClient : OAuth2HttpClient {
                 .submitForm(
                     url = request.tokenEndpointUrl.toString(),
                     formParameters =
-                        Parameters.build {
-                            request.formParameters.forEach {
-                                append(it.key, it.value)
-                            }
+                    Parameters.build {
+                        request.formParameters.forEach {
+                            append(it.key, it.value)
                         }
+                    }
                 ).body()
         }
 }

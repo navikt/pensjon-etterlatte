@@ -27,7 +27,7 @@ class ClientCredentialAuthConfig {
 
 class ClientCredentialAuthProvider(
     config: Map<String, String>
-) : AuthProvider {
+): AuthProvider {
     override val sendWithoutRequest: Boolean = true
     private val clientPropertiesConfig =
         ClientProperties(
@@ -36,12 +36,12 @@ class ClientCredentialAuthProvider(
             grantType = GrantType.CLIENT_CREDENTIALS,
             scope = config["AZURE_APP_OUTBOUND_SCOPE"]?.split(",") ?: emptyList(),
             authentication =
-                ClientAuthenticationProperties
-                    .builder(
-                        clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
-                        clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT
-                    ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
-                    .build(),
+            ClientAuthenticationProperties
+                .builder(
+                    clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
+                    clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT
+                ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
+                .build(),
             resourceUrl = null,
             tokenExchange = null
         )
