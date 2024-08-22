@@ -10,13 +10,13 @@ spec:
   port: 8080
   liveness:
     initialDelay: 5
-    path: /isalive
+    path: internal/isalive
   readiness:
     initialDelay: 5
-    path: /isready
+    path: internal/isready
   prometheus:
     enabled: true
-    path: /metrics
+    path: internal/metrics
   observability:
     autoInstrumentation:
       enabled: true
@@ -29,6 +29,9 @@ spec:
     pool: nav-prod
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   leaderElection: true
   gcp:
     sqlInstances:
@@ -70,16 +73,18 @@ spec:
       value: api://prod-fss.pdl.pdl-api/.default
     - name: PDL_AUDIENCE
       value: "prod-fss:pdl:pdl-api"
-    - name: KRR_SCOPE
-      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
-    - name: KRR_SCOPE
-      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
-    - name: KRR_AUDIENCE
-      value: "prod-gcp:team-rocket:digdir-krr-proxy"
     - name: KODEVERK_URL
       value: "http://kodeverk-api.team-rocket/api/v1/kodeverk"
     - name: KODEVERK_CLIENT_ID
       value: prod-gcp.team-rocket.kodeverk-api
+    - name: KRR_ENDPOINT_URL
+      value: "http://digdir-krr-proxy.team-rocket/rest/v1/"
+    - name: KRR_SCOPE
+      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
+    - name: KRR_AUDIENCE
+      value: "prod-gcp:team-rocket:digdir-krr-proxy"
+    - name: NAV_CONSUMER_ID
+      value: "srvbarnepensjon"
   accessPolicy:
     outbound:
       rules:
