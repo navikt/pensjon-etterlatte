@@ -64,6 +64,8 @@ spec:
       value: "dev-fss:pdl:pdl-api"
     - name: KODEVERK_URL
       value: "https://kodeverk-api.nav.no/api/v1/kodeverk"
+    - name: KODEVERK_CLIENT_ID
+      value: dev-gcp.team-rocket.kodeverk-api
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
     - name: KRR_ENDPOINT_URL
@@ -77,9 +79,11 @@ spec:
       rules:
         - application: digdir-krr-proxy
           namespace: team-rocket
+        - application: kodeverk-api
+          namespace: team-rocket
       external:
-        - host: kodeverk-api.nav.no
         - host: pdl-api.dev-fss-pub.nais.io
+        - host: kodeverk-api.nav.no # må gå mot prod i dev se https://nav-it.slack.com/archives/C06FK6V74JE/p1723795352459339?thread_ts=1723788766.141209&cid=C06FK6V74JE
     inbound:
       rules:
         - application: barnepensjon-ui
