@@ -12,7 +12,6 @@ import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
-import io.ktor.server.config.HoconApplicationConfig
 import io.ktor.server.metrics.micrometer.MicrometerMetrics
 import io.ktor.server.plugins.callloging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
@@ -121,17 +120,6 @@ fun Application.apiModule(context: ApplicationContext, routes: Route.() -> Unit)
 		disableDefaultColors()
 		filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive|.*/metrics")) }
 		mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
-	}
-
-	install(MicrometerMetrics) {
-		registry = Metrikker.registry
-		meterBinders =
-			listOf(
-				LogbackMetrics(),
-				JvmMemoryMetrics(),
-				ProcessorMetrics(),
-				UptimeMetrics()
-			)
 	}
 
 	routing {
