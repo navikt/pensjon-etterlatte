@@ -68,8 +68,8 @@ class ApplicationContext(env: Map<String, String>) {
 				.also { closables.add(it::close) }
 				.let { AdressebeskyttelseService(AdressebeskyttelseKlient(it, System.getenv("PDL_URL"))) }
 
-		soeknadService = SoeknadService(db, utkastPubliserer)
-		soeknadService2 = SoeknadService2(soeknadService, adressebeskyttelseService)
+		soeknadService = SoeknadService(db, utkastPubliserer, adressebeskyttelseService)
+		soeknadService2 = SoeknadService2(soeknadService)
 
 		kodeverkService =
 			kodeverkHttpClient()

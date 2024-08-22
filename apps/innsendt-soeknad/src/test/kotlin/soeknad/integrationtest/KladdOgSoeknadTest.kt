@@ -12,13 +12,13 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.coVerify
 import io.mockk.every
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.etterlatte.toJson
-import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import soeknad.LagretSoeknad
@@ -87,7 +87,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 	@Order(4)
 	fun `Skal slette kladd fra databasen`() {
 		db.finnKladd(STOR_SNERK, kilde) shouldNotBe null
-		//every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+		every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
 
 		withTestApplication({ apiTestModule { soknadApi(service2) } }) {
 			handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
@@ -95,6 +95,7 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
 			}.apply {
 				response.status() shouldBe HttpStatusCode.OK
 				db.finnKladd(STOR_SNERK, kilde) shouldBe null
+				coVerify { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(STOR_SNERK, 1L) }
 			}
 		}
 	}

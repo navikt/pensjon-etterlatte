@@ -1,10 +1,6 @@
 package soeknad
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
@@ -25,11 +21,14 @@ import io.ktor.server.routing.routing
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import io.ktor.server.testing.withTestApplication
+import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
-import libs.common.util.RetryResult
 import no.nav.etterlatte.common.toJson
+import no.nav.etterlatte.deserialize
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.SoeknadService2
@@ -59,7 +58,7 @@ internal class SoeknadRouteKtTest {
 			)
 
 		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.sendSoeknader(any(), any(), kilde) } returns HttpStatusCode.OK
+			coEvery { service.sendSoeknader(any(), any(), kilde) } returns true
 			handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(STOR_SNERK)
@@ -74,7 +73,7 @@ internal class SoeknadRouteKtTest {
 	@Test
 	fun `Skal lagre kladd`() {
 		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.lagreKladd(any(), any(), kilde) } returns RetryResult.Success(1)
+			every { service.lagreKladd(any(), any(), kilde) } returns 1L
 			handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
 				addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
 				tokenFor(STOR_SNERK)
@@ -90,16 +89,16 @@ internal class SoeknadRouteKtTest {
 	@Test
 	fun `Skal hente kladd`() {
 		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.hentKladd(any(), kilde) } returns RetryResult.Success(
-				jacksonObjectMapper().readTree(
-					dummyJson
-				)
-			)
+			val kladd = LagretSoeknad(1L, "", "").apply {
+				status = Status.LAGRETKLADD
+			}
+			coEvery { service.hentKladd(any(), kilde) } returns kladd
+
 			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
 				tokenFor(STOR_SNERK)
 			}.apply {
 				assertEquals(HttpStatusCode.OK, response.status())
-				assertEquals(dummyJson, response.content)
+				assertEquals(kladd, deserialize<LagretSoeknad>(response.content!!))
 				coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
 			}
 		}
@@ -108,7 +107,7 @@ internal class SoeknadRouteKtTest {
 	@Test
 	fun `Skal håndtere at kladd ikke finnes`() {
 		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.hentKladd(any(), kilde) } returns RetryResult.Success(HttpStatusCode.NotFound)
+			coEvery { service.hentKladd(any(), kilde) } returns null
 			handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
 				tokenFor(STOR_SNERK)
 			}.apply {
@@ -121,7 +120,7 @@ internal class SoeknadRouteKtTest {
 	@Test
 	fun `Skal slette kladd`() {
 		withTestApplication({ testModule { soknadApi(service) } }) {
-			coEvery { service.slettKladd(any(), kilde) } returns RetryResult.Success(HttpStatusCode.OK)
+			coEvery { service.slettKladd(any(), kilde) } just Runs
 			handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
 				tokenFor(STOR_SNERK)
 			}.apply {

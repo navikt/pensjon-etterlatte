@@ -93,8 +93,8 @@ internal abstract class SoeknadIntegrationTest {
 		dsbHolder = dsb
 		db = PostgresSoeknadRepository.using(dsb.dataSource)
 
-		service = SoeknadService(db, mockUtkastPubliserer)
-		service2 = SoeknadService2(service, adressebeskyttelse)
+		service = SoeknadService(db, mockUtkastPubliserer, adressebeskyttelse)
+		service2 = SoeknadService2(service)
 	}
 
 	@AfterAll
