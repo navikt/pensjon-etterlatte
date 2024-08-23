@@ -3,8 +3,8 @@ import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { RHFNumberInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { IDeceasedParent, IStaysAbroad } from '../../../context/application/application'
-import { BodyShort, Button, HGrid, Label, Panel } from '@navikt/ds-react'
-import { RHFSelect, StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
+import { BodyShort, Box, Button, HGrid, Label, Panel } from '@navikt/ds-react'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { OppholdUtlandType } from '../../../api/dto/FellesOpplysninger'
@@ -13,6 +13,7 @@ import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
 import styled from 'styled-components'
 import { GridColumns, GridGap } from '../../../utils/grid'
+import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 
 const StaysAbroadCheckboxDiv = styled.div`
     .skjemagruppe {
@@ -57,13 +58,13 @@ export default function StaysAbroad({ countries, currencies }: { countries: any;
             {fields.map((field: FieldArrayWithId, index: number) => (
                 <FormElement key={field.id}>
                     <Panel border>
-                        <FormElement>
-                            <StandardBreddeRHFSelect
+                        <Box maxWidth="14rem">
+                            <RHFCombobox
                                 name={`staysAbroad.abroadStays[${index}].country`}
                                 label={t('abroadInWhichCountry')}
-                                children={countries}
+                                options={countries.map((country: any) => country.label)}
                             />
-                        </FormElement>
+                        </Box>
                         <FormElement>
                             <StaysAbroadCheckboxDiv>
                                 <RHFCheckboksGruppe

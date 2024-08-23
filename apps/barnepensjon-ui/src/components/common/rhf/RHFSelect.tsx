@@ -58,7 +58,3 @@ export const RHFSelect = ({ name, label, children, rules, required = true, ...re
         </div>
     )
 }
-
-export const StandardBreddeRHFSelect = styled(RHFSelect)`
-    width: 14rem;
-`
