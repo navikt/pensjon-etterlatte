@@ -2,8 +2,8 @@
 
 Monorepo for ny løsning for ytelser til etterlatte.
 
-Hvordan appene henger sammen kan du se her: [Arkitekturskisse - Confluence](https://confluence.adeo.no/display/TE/Arkitektur)
-
+Hvordan appene henger sammen kan du se
+her: [Arkitekturskisse - Confluence](https://confluence.adeo.no/display/TE/Arkitektur)
 
 # Apper
 
@@ -14,18 +14,15 @@ Brukergrensesnittet for "Søknad om barnepensjon".
 Felles node backend for søknadsdialogene (omstillingsstønad og barnepensjon).
 
 [innsendt-soeknad](apps/innsendt-soeknad) \
-Database app for håndtering av søknader (lagring, uthenting, sending, m.m.).
+Baksystemapplikasjon for håndtering av søknader (lagring, uthenting, sending, hente data fra pdl og kodeverk, m.m.).
 
 [omstillingsstoenad-ui](apps/omstillingsstoenad-ui) \
 Brukergrensesnittet for "Søknad om omstillingsstønad".
 
-[selvbetjening-api](apps/selvbetjening-api) \
-API som tilgjengeliggjør data for frontend å kommunisere med diverse apper. 
-
-
 # Flyt
 
 ### Søknad mottatt
+
 ```mermaid
 flowchart LR
 
@@ -34,22 +31,19 @@ classDef river fill:#88AACC,color:#000,stroke:#335577
 classDef db fill:#ccc,color:#000,stroke:#777
 classDef text fill:none,color:#ddd
 
-barnepensjon-ui --> selvbetjening-api
-omstillingsstonad-ui --> selvbetjening-api
+barnepensjon-ui --> innsendt-soeknad
+omstillingsstonad-ui --> innsendt-soeknad
 
 innsendt-soeknad <-.-> etterlatte-gyldig-soeknad
 etterlatte-gyldig-soeknad --> etterlatte-behandling
 
-selvbetjening-api --> pdl
-selvbetjening-api --> kodeverk
-
-selvbetjening-api --> innsendt-soeknad
+innsendt-soeknad --> pdl
+innsendt-soeknad --> kodeverk
 innsendt-soeknad <--> innsendt-soeknad-v2[(soeknad\ndatabase)]
 
 subgraph frontend["Søknadsdialog"]
     barnepensjon-ui:::app
     omstillingsstonad-ui:::app
-    selvbetjening-api:::app
     innsendt-soeknad:::app
     innsendt-soeknad-v2:::db
 end
@@ -67,16 +61,19 @@ end
 
 # Kom i gang
 
-Noen avhengigheter i prosjektet ligger i Github Package Registry som krever autentisering. Det enkleste er å lage en [PAT (Personal Access Token)](https://github.com/settings/tokens). 
+Noen avhengigheter i prosjektet ligger i Github Package Registry som krever autentisering. Det enkleste er å lage
+en [PAT (Personal Access Token)](https://github.com/settings/tokens).
 
-1. [Opprett PAT her](https://github.com/settings/tokens). I tilfelle lenken ikke fungerer går man til `Github -> Settings -> Developer settings -> Personal access tokens`
+1. [Opprett PAT her](https://github.com/settings/tokens). I tilfelle lenken ikke fungerer går man
+   til `Github -> Settings -> Developer settings -> Personal access tokens`
 2. Huk av `read:packages`. Ikke legg til flere scopes enn nødvendig.
 3. Autoriser navikt-organisasjonen for SSO ved å velge "Configure SSO" på tokenet
 4. Tokenet legges i `.zshrc` med `export GITHUB_TOKEN=<token>`
 
 # Felles apper
 
-Alle apper som er felles for Team Etterlatte ligger i [etterlatte-pensjon-felles](https://github.com/navikt/pensjon-etterlatte-felles).  
+Alle apper som er felles for Team Etterlatte ligger
+i [etterlatte-pensjon-felles](https://github.com/navikt/pensjon-etterlatte-felles).
 
 # Kafka / Rapids & Rivers
 
@@ -84,18 +81,18 @@ Topic.yaml-filer er flyttet til [etterlatte-pensjon-felles](https://github.com/n
 
 # Bygg og deploy
 
-En app bygges og deployes automatisk når en endring legges til i `main`. 
+En app bygges og deployes automatisk når en endring legges til i `main`.
 
 For å trigge **manuell deploy** kan du gå til `Actions -> (velg workflow) -> Run workflow from <branch>`
 
 # Sjekker
 
-I frontend bruker vi `license-checker-rseidelsohn`, som kjøres automatisk i GitHub-actions-byggejobben, og som kan køyrast manuelt med `yarn lisenssjekk`
+I frontend bruker vi `license-checker-rseidelsohn`, som kjøres automatisk i GitHub-actions-byggejobben, og som kan
+køyrast manuelt med `yarn lisenssjekk`
 
 # Henvendelser
 
 Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på GitHub.
-
 
 ## For NAV-ansatte
 
