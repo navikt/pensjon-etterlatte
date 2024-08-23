@@ -21,6 +21,7 @@ import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
+import no.nav.etterlatte.internal.selftestApi
 import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
 import no.nav.etterlatte.jobs.PubliserTilstandJobb
 import no.nav.etterlatte.kodeverk.kodeverkApi
@@ -55,6 +56,7 @@ fun main() {
                     apiModule(context) {
                         healthApi()
                         metricsApi()
+                        selftestApi()
                         authenticate {
                             securityMediator.autentiser(this)
                             personApi(personService)
