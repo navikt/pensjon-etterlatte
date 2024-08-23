@@ -90,22 +90,6 @@ class ApplicationContext(env: Map<String, String>) {
             .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
     }
 
-
-    private fun unsecuredEndpoint(url: String) =
-        HttpClient(OkHttp) {
-            install(ContentNegotiation) {
-                jackson {
-                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                    registerModule(JavaTimeModule())
-                }
-            }
-
-            defaultRequest {
-                url(url)
-            }
-        }
-
     private fun tokenSecuredEndpoint(endpointConfig: Config) =
         HttpClient(OkHttp) {
             install(ContentNegotiation) {

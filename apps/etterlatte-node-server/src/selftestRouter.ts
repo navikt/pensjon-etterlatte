@@ -1,26 +1,25 @@
-import express from "express";
-import config from "./config";
-import {logger} from "./monitoring/logger";
+import express from 'express'
+import config from './config'
+import { logger } from './monitoring/logger'
 
 export const selftestRouter = express.Router()
 
 selftestRouter.get('/', express.json(), async (req, res) => {
     try {
-        logger.info('selftesqrqwwqt')
-        const applicationName = config.app.basePath.includes("/barnepensjon/soknad") ? 'barnepensjon-ui' : 'omstillingsstoenad-ui'
-        logger.info('applicationName: ', applicationName)
+        const applicationName = process.env.NAIS_APP_NAME
+        logger.info('Selftest - applicationName: ', applicationName)
         const statuscode = await fetch(`${config.app.apiUrl}/internal/selftest`)
-                .then((res) => res.status)
-                .catch((err) => {
-                    logger.warn(`selvbetjening-api is down.`, err)
-                    return 500
-                })
+            .then((res) => res.status)
+            .catch((err) => {
+                logger.warn(`Innsendt-soeknad is down.`, err)
+                return 500
+            })
 
         const result: IPingResult = {
-            serviceName: 'selvbetjening-api',
+            serviceName: 'innsendt-soeknad',
             result: statuscode === 200 ? ServiceStatus.UP : ServiceStatus.DOWN,
             endpoint: config.app.apiUrl,
-            description: 'selvbetjening-api',
+            description: 'innsendt-soeknad',
         }
 
         const selfTestReport = {
@@ -31,7 +30,7 @@ selftestRouter.get('/', express.json(), async (req, res) => {
         }
         res.json(selfTestReport)
     } catch (err) {
-        logger.error("Got error on selftest mot selvbetjening-api", err)
+        logger.error('Got error on selftest mot innsendt-soeknad', err)
         res.sendStatus(500)
     }
 })
