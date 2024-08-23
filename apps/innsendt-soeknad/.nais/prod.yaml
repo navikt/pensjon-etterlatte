@@ -97,7 +97,7 @@ spec:
         - application: kodeverk-api
           namespace: team-rocket
       external:
-        - host: pdl-api.dev-fss-pub.nais.io
+        - host: pdl-api.prod-fss-pub.nais.io
     inbound:
       rules:
         - application: barnepensjon-ui
