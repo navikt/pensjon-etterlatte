@@ -13,56 +13,59 @@ import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import java.time.LocalDateTime
+import java.time.ZoneId
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class InntektsjusteringRepositoryTest {
 
-	@Container
-	private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
-	private lateinit var db: InntektsjusteringRepository
-	private lateinit var dsbHolder: DataSourceBuilder
+    @Container
+    private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
+    private lateinit var db: InntektsjusteringRepository
+    private lateinit var dsbHolder: DataSourceBuilder
 
-	@BeforeAll
-	fun beforeAll() {
-		val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
-		dsbHolder = dsb
-		dsb.migrate()
-		db = InntektsjusteringRepository(dsb.dataSource)
-	}
+    @BeforeAll
+    fun beforeAll() {
+        val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
+        dsbHolder = dsb
+        dsb.migrate()
+        db = InntektsjusteringRepository(dsb.dataSource)
+    }
 
-	@AfterAll
-	fun afterAll() {
-		postgreSQLContainer.stop()
-	}
+    @AfterAll
+    fun afterAll() {
+        postgreSQLContainer.stop()
+    }
 
-	@Test
-	fun `skal lagre inntektsjustering`() {
-		val ny = InntektsjusteringLagre(
-			arbeidsinntekt = 100,
-			naeringsinntekt = 200,
-			arbeidsinntektUtland = 300,
-			naeringsinntektUtland = 400,
-		)
+    @Test
+    fun `skal lagre inntektsjustering`() {
+        val ny = InntektsjusteringLagre(
+            arbeidsinntekt = 100,
+            naeringsinntekt = 200,
+            arbeidsinntektUtland = 300,
+            naeringsinntektUtland = 400,
+        )
 
-		db.lagreInntektsjustering(VAKKER_PENN, ny)
-		val lagret = db.hentInntektsjustering(VAKKER_PENN) ?: throw Exception()
-		
-		with(lagret) {
-			id shouldBe ny.id
-			arbeidsinntekt shouldBe ny.arbeidsinntekt
-			naeringsinntekt shouldBe ny.naeringsinntekt
-			arbeidsinntektUtland shouldBe ny.arbeidsinntektUtland
-			naeringsinntektUtland shouldBe ny.naeringsinntektUtland
-			LocalDateTime.now().let { naa ->
-				tidspunkt.year shouldBe naa.year
-				tidspunkt.hour shouldBe naa.hour
-				tidspunkt.minute shouldBe naa.minute
-			}
-		}
-	}
+        db.lagreInntektsjustering(VAKKER_PENN, ny)
+        val lagret = db.hentInntektsjustering(VAKKER_PENN) ?: throw Exception()
 
-	companion object {
-		private val VAKKER_PENN = Foedselsnummer.of(("09038520129"))
-	}
+        with(lagret) {
+            id shouldBe ny.id
+            arbeidsinntekt shouldBe ny.arbeidsinntekt
+            naeringsinntekt shouldBe ny.naeringsinntekt
+            arbeidsinntektUtland shouldBe ny.arbeidsinntektUtland
+            naeringsinntektUtland shouldBe ny.naeringsinntektUtland
+            LocalDateTime.now().let { naa ->
+                tidspunkt.atZone(ZoneId.of("UTC")).let {
+                    it.year shouldBe naa.year
+                    it.month shouldBe naa.month
+                    it.dayOfMonth shouldBe naa.dayOfMonth
+                }
+            }
+        }
+    }
+
+    companion object {
+        private val VAKKER_PENN = Foedselsnummer.of(("09038520129"))
+    }
 
 }
