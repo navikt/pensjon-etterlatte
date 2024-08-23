@@ -14,7 +14,7 @@ Brukergrensesnittet for "Søknad om barnepensjon".
 Felles node backend for søknadsdialogene (omstillingsstønad og barnepensjon).
 
 [innsendt-soeknad](apps/innsendt-soeknad) \
-Backend app for håndtering av søknader (lagring, uthenting, sending, hente data fra pdl og kodeverk, m.m.).
+Baksystemapplikasjon for håndtering av søknader (lagring, uthenting, sending, hente data fra pdl og kodeverk, m.m.).
 
 [omstillingsstoenad-ui](apps/omstillingsstoenad-ui) \
 Brukergrensesnittet for "Søknad om omstillingsstønad".
