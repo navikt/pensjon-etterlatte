@@ -6,11 +6,8 @@ export const selftestRouter = express.Router()
 
 selftestRouter.get('/', express.json(), async (req, res) => {
     try {
-        logger.info('selftest')
-        const applicationName = config.app.basePath.includes('/barnepensjon/soknad')
-            ? 'barnepensjon-ui'
-            : 'omstillingsstoenad-ui'
-        logger.info('applicationName: ', applicationName)
+        const applicationName = process.env.NAIS_APP_NAME
+        logger.info('Selftest - applicationName: ', applicationName)
         const statuscode = await fetch(`${config.app.apiUrl}/internal/selftest`)
             .then((res) => res.status)
             .catch((err) => {
