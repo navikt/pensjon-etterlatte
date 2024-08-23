@@ -13,7 +13,7 @@ import java.time.OffsetDateTime
 internal class JournalpostSkrevet(
     rapidsConnection: RapidsConnection,
     private val soeknader: SoeknadRepository
-) : River.PacketListener {
+): River.PacketListener {
     private val logger = LoggerFactory.getLogger(JournalpostSkrevet::class.java)
 
     init {

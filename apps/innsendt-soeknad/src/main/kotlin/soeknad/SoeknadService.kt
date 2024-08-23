@@ -2,8 +2,13 @@ package no.nav.etterlatte.soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
 import no.nav.etterlatte.UtkastPubliserer
+import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
+import no.nav.etterlatte.adressebeskyttelse.finnUnikeBarn
+import no.nav.etterlatte.adressebeskyttelse.fjernStedslokaliserendeInfo
+import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.pdl.Gradering
 import no.nav.etterlatte.sikkerLogg
 import no.nav.etterlatte.toJson
 import org.slf4j.LoggerFactory
@@ -16,11 +21,12 @@ import java.util.*
 
 class SoeknadService(
     private val db: SoeknadRepository,
-    private val publiserUtkast: UtkastPubliserer
+    private val publiserUtkast: UtkastPubliserer,
+    private val adressebeskyttelseService: AdressebeskyttelseService
 ) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
-    fun sendSoeknad(
+    suspend fun sendSoeknad(
         innloggetBrukerFnr: Foedselsnummer,
         request: SoeknadRequest,
         kilde: String
@@ -28,14 +34,22 @@ class SoeknadService(
         sikkerLogg.info("Mottok ${request.soeknader.size} søknad(er) fra bruker $innloggetBrukerFnr")
         logger.info("Forsøker lagring av mottatte søknader (antall=${request.soeknader.size})")
         // Verifisere at det er innlogget bruker som er registrert som innsender
-        validerInnsender(innloggetBrukerFnr, request)
 
-        val ider = validerOgFerdigstillSoeknader(request, kilde)
+        request.soeknader.forEach {
+            Metrikker.soeknadTotal.labels(it.type.name).inc()
+        }
 
-        return if (ider.size == request.soeknader.size) {
+        val sikretRequest = vurderAdressebeskyttelse(request)
+
+        validerInnsender(innloggetBrukerFnr, sikretRequest)
+
+        val ider = validerOgFerdigstillSoeknader(sikretRequest, kilde)
+
+        return if (ider.size == sikretRequest.soeknader.size) {
             logger.info("Lagret alle (${ider.size}) innsendte søknader.")
 
-            val innsenderSoekerIkke = request.soeknader.none { it.soeker.foedselsnummer?.svar == innloggetBrukerFnr }
+            val innsenderSoekerIkke =
+                sikretRequest.soeknader.none { it.soeker.foedselsnummer?.svar == innloggetBrukerFnr }
             if (innsenderSoekerIkke) {
                 db.slettOgKonverterKladd(innloggetBrukerFnr.value, kilde)?.also {
                     publiserUtkast.publiserSlettUtkastFraMinSide(innloggetBrukerFnr.value, it)
@@ -44,9 +58,26 @@ class SoeknadService(
 
             true
         } else {
-            logger.error("Kun ${ider.size} av ${request.soeknader.size} ble lagret.")
-            sikkerLogg.error("Feil ved lagring av søknad: \n${request.toJson()}")
+            logger.error("Kun ${ider.size} av ${sikretRequest.soeknader.size} ble lagret.")
+            sikkerLogg.error("Feil ved lagring av søknad: \n${sikretRequest.toJson()}")
             false
+        }
+    }
+
+    private suspend fun vurderAdressebeskyttelse(request: SoeknadRequest): SoeknadRequest {
+        val barnMedAdressebeskyttelse =
+            adressebeskyttelseService
+                .hentGradering(request.finnUnikeBarn(), request.hentSaktype())
+                .filter { listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND).contains(it.value) }
+                .map { it.key }
+
+        Metrikker.soeknadGradertTotal.inc(barnMedAdressebeskyttelse.size.toDouble())
+
+        return if (barnMedAdressebeskyttelse.isNotEmpty()) {
+            logger.info("Fjerner informasjon om utenlandsadresse før søknaden(e) sendes til lagring.")
+            request.fjernStedslokaliserendeInfo(barnMedAdressebeskyttelse)
+        } else {
+            request
         }
     }
 
@@ -103,10 +134,12 @@ class SoeknadService(
     fun hentKladd(
         innloggetBruker: Foedselsnummer,
         kilde: String
-    ): LagretSoeknad? =
-        db
-            .finnKladd(innloggetBruker.value, kilde)
-            ?.also { logger.info("Fant kladd (id=${it.id})") }
+    ): LagretSoeknad? {
+        logger.info("Henter kladd for innlogget bruker.")
+        return db.finnKladd(innloggetBruker.value, kilde)?.also {
+            logger.info("Fant kladd (id=${it.id})")
+        }
+    }
 
     fun lagreKladd(
         innloggetBruker: Foedselsnummer,
@@ -130,6 +163,7 @@ class SoeknadService(
         innloggetBruker: Foedselsnummer,
         kilde: String
     ) {
+        logger.info("Sletter kladd for innlogget bruker.")
         db
             .slettKladd(innloggetBruker.value, kilde)
             ?.also {
@@ -139,4 +173,6 @@ class SoeknadService(
     }
 }
 
-class SoeknadConflictException : RuntimeException("Bruker")
+internal fun SoeknadRequest.hentSaktype() = this.soeknader.first().type
+
+class SoeknadConflictException: RuntimeException("Bruker")

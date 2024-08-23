@@ -1,0 +1,40 @@
+{
+  "betydninger" : {
+    "FJD" : [
+      {
+        "gyldigFra" : "1900-01-01",
+        "gyldigTil" : "9999-12-31",
+        "beskrivelser" : {
+          "nb" : {
+            "term" : "Dollars Fiji",
+            "tekst" : "Dollars Fiji"
+          }
+        }
+      }
+    ],
+    "STD" : [
+      {
+        "gyldigFra" : "1900-01-01",
+        "gyldigTil" : "9999-12-31",
+        "beskrivelser" : {
+          "nb" : {
+            "term" : "Dobras SÒo Tomeand Principe",
+            "tekst" : "Dobras SÒo Tomeand Principe"
+          }
+        }
+      }
+    ],
+    "SCR" : [
+      {
+        "gyldigFra" : "1900-01-01",
+        "gyldigTil" : "9999-12-31",
+        "beskrivelser" : {
+          "nb" : {
+            "term" : "Rupees Seychelles",
+            "tekst" : "Rupees Seychelles"
+          }
+        }
+      }
+    ]
+  }
+}
