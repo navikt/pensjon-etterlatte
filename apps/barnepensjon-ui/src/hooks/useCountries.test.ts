@@ -74,7 +74,7 @@ describe('Test of moveMostUsedCountriesToBeginning', () => {
         const norgeInSortedCountries = sortedCountries.filter((country) => country.beskrivelser.nb.tekst === 'NORGE')
 
         expect(sortedCountries[0].beskrivelser.nb.tekst).toBe('NORGE')
-        expect(norgeInSortedCountries.length).toBe(2)
+        expect(norgeInSortedCountries.length).toBe(1)
     })
 
     it('Vil returnere listen vis landene ikke finnes', () => {
