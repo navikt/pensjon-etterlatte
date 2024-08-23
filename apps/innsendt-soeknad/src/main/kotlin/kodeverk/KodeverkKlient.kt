@@ -32,11 +32,10 @@ class KodeverkKlient(
     override suspend fun hentPostnummer(): KodeverkResponse =
         try {
             logger.info("Henter alle postnummer fra Kodeverk")
-
             httpClient
                 .get("$url/Postnummer/koder/betydninger?ekskluderUgyldige=true&spraak=nb") {
                     accept(ContentType.Application.Json)
-                    header(HttpHeaders.NavConsumerId, "etterlatte-selvbetjening-api")
+                    header(HttpHeaders.NavConsumerId, System.getenv("NAIS_APP_NAME"))
                     header(HttpHeaders.NavCallId, UUID.randomUUID())
                 }.body()
         } catch (e: Exception) {
@@ -51,7 +50,7 @@ class KodeverkKlient(
             httpClient
                 .get("$url/Landkoder/koder/betydninger?ekskluderUgyldige=false&spraak=nb") {
                     accept(ContentType.Application.Json)
-                    header(HttpHeaders.NavConsumerId, "etterlatte-selvbetjening-api")
+                    header(HttpHeaders.NavConsumerId, System.getenv("NAIS_APP_NAME"))
                     header(HttpHeaders.NavCallId, UUID.randomUUID())
                 }.body()
         } catch (e: Exception) {
@@ -66,7 +65,7 @@ class KodeverkKlient(
             httpClient
                 .get("$url/Valutaer/koder/betydninger?ekskluderUgyldige=true&spraak=nb") {
                     accept(ContentType.Application.Json)
-                    header(HttpHeaders.NavConsumerId, "etterlatte-selvbetjening-api")
+                    header(HttpHeaders.NavConsumerId, System.getenv("NAIS_APP_NAME"))
                     header(HttpHeaders.NavCallId, UUID.randomUUID())
                 }.body()
         } catch (e: Exception) {
