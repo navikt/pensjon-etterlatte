@@ -1,9 +1,8 @@
-import { moveMostUsedCountriesToBeginning } from './useCountries'
+import { moveNorwayToBeginning } from './useCountries'
 import { describe, expect, it } from 'vitest'
 /**
  * @vitest-environment jsdom
  */
-
 
 describe('Test of moveMostUsedCountriesToBeginning', () => {
     it('Sjekk mest brukte land ender på først i listen', () => {
@@ -70,9 +69,9 @@ describe('Test of moveMostUsedCountriesToBeginning', () => {
                 },
             },
         ]
-        const sortedCountries = moveMostUsedCountriesToBeginning(countries)
+        const sortedCountries = moveNorwayToBeginning(countries)
 
-        const norgeInSortedCountries = sortedCountries.filter(country => country.beskrivelser.nb.tekst === 'NORGE')
+        const norgeInSortedCountries = sortedCountries.filter((country) => country.beskrivelser.nb.tekst === 'NORGE')
 
         expect(sortedCountries[0].beskrivelser.nb.tekst).toBe('NORGE')
         expect(norgeInSortedCountries.length).toBe(2)
@@ -101,7 +100,7 @@ describe('Test of moveMostUsedCountriesToBeginning', () => {
                 },
             },
         ]
-        const sortedContries = moveMostUsedCountriesToBeginning(countries)
+        const sortedContries = moveNorwayToBeginning(countries)
 
         expect(sortedContries[0].beskrivelser.nb.tekst).toBe('FINLAND')
         expect(sortedContries[1].beskrivelser.nb.tekst).toBe('FÆRØYENE')

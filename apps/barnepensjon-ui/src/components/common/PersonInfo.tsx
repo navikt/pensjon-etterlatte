@@ -7,6 +7,7 @@ import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
 import Datepicker from '~components/common/Datepicker'
 import { Alert, Box, VStack } from '@navikt/ds-react'
+import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 
 interface Props {
     duplicateList?: string[]
@@ -29,9 +30,15 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                 </FormElement>
             </Box>
 
-            <FormElement>
-                <StandardBreddeRHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
-            </FormElement>
+            <Box maxWidth="14rem">
+                <FormElement>
+                    <RHFCombobox
+                        name={'citizenship'}
+                        label={t('citizenship')}
+                        options={countries.map((country: any) => country.label)}
+                    />
+                </FormElement>
+            </Box>
 
             <FormElement>
                 {!fnrIsUnknown && (

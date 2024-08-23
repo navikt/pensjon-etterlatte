@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { getAllCountries } from '../api/api'
-import useTranslation from './useTranslation'
 
 interface UseCountries {
     countries: Options[]
@@ -22,34 +21,32 @@ interface Country {
     }
 }
 
-export const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
-    const frequentlyUsed = ['NORGE']
+export const moveNorwayToBeginning = (allCountries: Country[]) => {
+    const norway = allCountries.find((country) => country.beskrivelser.nb.tekst === 'NORGE')
 
-    const countries = allCountries.filter((country) => frequentlyUsed.includes(country.beskrivelser.nb.tekst))
+    const norwayRemoved = [...allCountries].filter((country) => country.beskrivelser.nb.tekst !== 'NORGE')
 
-    if (countries) countries.forEach((country) => allCountries.unshift(country))
+    if (norway) norwayRemoved.unshift(norway)
 
-    return allCountries
+    return norwayRemoved
 }
 
 export default function useCountries(): UseCountries {
-    const { t } = useTranslation('common')
-
     const [countries, setCountries] = useState<Country[]>([])
     const [allCountries, setAllCountries] = useState<Country[]>([])
 
     useEffect(() => {
-        (async () => {
+        ;(async () => {
             try {
                 const allCountries = await getAllCountries()
                 allCountries.sort((a: Country, b: Country) =>
                     a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst ? 1 : -1
                 )
 
-                setAllCountries(moveMostUsedCountriesToBeginning(allCountries))
+                setAllCountries(allCountries)
 
                 const validCountries = allCountries.filter((land: Country) => new Date(land.gyldigTil) > new Date())
-                setCountries(validCountries)
+                setCountries(moveNorwayToBeginning(validCountries))
             } catch (e) {
                 console.log(e)
                 // TODO: Navigate to error page
@@ -67,10 +64,6 @@ export default function useCountries(): UseCountries {
             }
         })
 
-        landliste.unshift({
-            label: t('chooseCountry'),
-            value: t(''),
-        })
         return landliste
     }
 
