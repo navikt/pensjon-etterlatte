@@ -5,7 +5,6 @@ plugins {
 }
 
 include(
-    "apps:selvbetjening-api",
     "apps:selvbetjening-backend",
     "apps:innsendt-soeknad",
     "libs:utils",
