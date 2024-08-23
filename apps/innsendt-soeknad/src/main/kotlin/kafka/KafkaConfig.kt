@@ -4,8 +4,7 @@ import org.apache.kafka.clients.CommonClientConfigs
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.config.SslConfigs
 import java.net.InetAddress
-import java.util.Properties
-import java.util.UUID
+import java.util.*
 
 interface KafkaConfig {
     fun producerConfig(): Properties
@@ -18,7 +17,7 @@ class GcpKafkaConfig(
     private val keystoreLocation: String,
     private val keystorePassword: String,
     private val clientId: String
-) : KafkaConfig {
+): KafkaConfig {
     companion object {
         private fun generateInstanceId(env: Map<String, String>): String {
             if (env.containsKey("NAIS_APP_NAME")) return InetAddress.getLocalHost().hostName
@@ -59,7 +58,7 @@ class GcpKafkaConfig(
 
 class LocalKafkaConfig(
     private val brokersURL: String
-) : KafkaConfig {
+): KafkaConfig {
     override fun producerConfig() =
         kafkaBaseConfig().apply {
             put(ProducerConfig.ACKS_CONFIG, "1")

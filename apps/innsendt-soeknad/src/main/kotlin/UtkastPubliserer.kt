@@ -30,6 +30,7 @@ class UtkastPubliserer(
                         "Søknad om barnepensjon",
                         "Application for children’s pension"
                     )
+
                 "omstillingsstoenad-ui" ->
                     SoeknadData(
                         "$url/omstillingsstonad/soknad",
@@ -37,6 +38,7 @@ class UtkastPubliserer(
                         "Søknad om omstillingsstønad",
                         "Application for adjustment allowance"
                     )
+
                 else -> throw Exception("Søknad mangler kilde")
             }
 

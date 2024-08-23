@@ -369,6 +369,7 @@ internal class SoeknadDaoIntegrationTest {
         }
     }
 
+    // TODO denne testen feiler sporadisk
     @Test
     fun `Kladder skal slettes etter 72 timer`() {
         val nowUTC = ZonedDateTime.now(ZoneOffset.UTC)

@@ -25,7 +25,7 @@ class SoeknadPublisererTest {
         val publieserteSoeknader = mutableListOf<SoeknadID>()
 
         val dbStub =
-            object : SoeknadRepository by SoeknadRepositoryNoOp({ fail() }) {
+            object: SoeknadRepository by SoeknadRepositoryNoOp({ fail() }) {
                 override fun soeknadSendt(id: SoeknadID) {
                     publieserteSoeknader += id
                 }
@@ -72,7 +72,7 @@ class SoeknadPublisererTest {
     }
 }
 
-internal class MessageContextStub : MessageContext {
+internal class MessageContextStub: MessageContext {
     val publishedMessages = mutableListOf<Pair<String?, String>>()
 
     override fun publish(message: String) {
@@ -93,7 +93,7 @@ internal class MessageContextStub : MessageContext {
 
 class SoeknadRepositoryNoOp(
     private val op: () -> Unit = {}
-) : SoeknadRepository {
+): SoeknadRepository {
     override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
         TODO("Not yet implemented")
     }

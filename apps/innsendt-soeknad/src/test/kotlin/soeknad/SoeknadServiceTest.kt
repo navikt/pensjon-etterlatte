@@ -4,10 +4,13 @@ import com.fasterxml.jackson.databind.JsonNode
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.beInstanceOf
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.UtkastPubliserer
+import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
@@ -21,8 +24,11 @@ import kotlin.random.Random
 internal class SoeknadServiceTest {
     private val mockRepository = mockk<SoeknadRepository>()
     private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
+    private val mockAdressebeskyttelseService = mockk<AdressebeskyttelseService>().apply {
+        coEvery { hentGradering(any(), any()) } returns emptyMap()
+    }
 
-    private val service = SoeknadService(mockRepository, mockUtkastPubliserer)
+    private val service = SoeknadService(mockRepository, mockUtkastPubliserer, mockAdressebeskyttelseService)
     private val kilde = "barnepensjon-ui"
 
     @Test
@@ -39,7 +45,9 @@ internal class SoeknadServiceTest {
                 )
             )
 
-        val lagretOK = service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
+        val lagretOK = runBlocking {
+            service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
+        }
 
         lagretOK shouldBe true
 
@@ -98,7 +106,9 @@ internal class SoeknadServiceTest {
                 )
             )
 
-        val isSuccess = service.sendSoeknad(gjenlevFnr, request, kilde)
+        val isSuccess = runBlocking {
+            service.sendSoeknad(gjenlevFnr, request, kilde)
+        }
 
         verify(exactly = 2) {
             mockRepository.finnKladd("24014021406", any())
@@ -129,7 +139,9 @@ internal class SoeknadServiceTest {
                 )
             )
 
-        val isSuccess = service.sendSoeknad(fnr, request, kilde)
+        val isSuccess = runBlocking {
+            service.sendSoeknad(fnr, request, kilde)
+        }
 
         verify(exactly = 2) { mockRepository.finnKladd("11057523044", any()) }
         verify(exactly = 2) { mockRepository.finnKladd("05111850870", any()) }
@@ -159,7 +171,9 @@ internal class SoeknadServiceTest {
             )
 
         try {
-            service.sendSoeknad(fnr, request, kilde)
+            runBlocking {
+                service.sendSoeknad(fnr, request, kilde)
+            }
             fail()
         } catch (e: Exception) {
             e should beInstanceOf<SoeknadConflictException>()

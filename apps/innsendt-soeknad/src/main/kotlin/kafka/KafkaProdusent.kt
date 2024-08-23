@@ -23,7 +23,7 @@ fun KafkaConfig.standardProducer(topic: String): KafkaProdusent<String, String> 
 class KafkaProdusentImpl<K, V>(
     private val kafka: KafkaProducer<K, V>,
     private val topic: String
-) : KafkaProdusent<K, V> {
+): KafkaProdusent<K, V> {
     override fun publiser(
         noekkel: K,
         verdi: V,
@@ -46,7 +46,7 @@ class KafkaProdusentImpl<K, V>(
     }
 }
 
-class TestProdusent<K, V> : KafkaProdusent<K, V> {
+class TestProdusent<K, V>: KafkaProdusent<K, V> {
     data class Record<K, V>(
         val noekkel: K,
         val verdi: V,

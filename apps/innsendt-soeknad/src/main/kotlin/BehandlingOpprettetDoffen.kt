@@ -8,12 +8,12 @@ import no.nav.helse.rapids_rivers.isMissingOrNull
 import org.slf4j.LoggerFactory
 import soeknad.SoeknadRepository
 import java.time.OffsetDateTime
-import java.util.UUID
+import java.util.*
 
 internal class BehandlingOpprettetDoffen(
     rapidsConnection: RapidsConnection,
     private val soeknader: SoeknadRepository
-) : River.PacketListener {
+): River.PacketListener {
     private val logger = LoggerFactory.getLogger(BehandlingOpprettetDoffen::class.java)
 
     init {

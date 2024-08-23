@@ -9,14 +9,18 @@ spec:
   image: {{image}}
   port: 8080
   liveness:
-    initialDelay: 5
-    path: /isalive
+    path: internal/isalive
+    initialDelay: 60
+    timeout: 1
+    periodSeconds: 5
+    failureThreshold: 10
   readiness:
-    initialDelay: 5
-    path: /isready
+    path: internal/isready
+    initialDelay: 60
+    timeout: 1
   prometheus:
     enabled: true
-    path: /metrics
+    path: internal/metrics
   observability:
     autoInstrumentation:
       enabled: true
@@ -29,6 +33,9 @@ spec:
     pool: nav-prod
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   leaderElection: true
   gcp:
     sqlInstances:
@@ -51,7 +58,7 @@ spec:
             value: "100"
   resources:
     requests:
-      cpu: 20m
+      cpu: 25m
       memory: 320Mi
   replicas:
     cpuThresholdPercentage: 90
@@ -64,7 +71,34 @@ spec:
       value: min-side.aapen-utkast-v1
     - name: SOEKNAD_DOMAIN_URL
       value: https://nav.no
+    - name: PDL_URL
+      value: https://pdl-api.prod-fss-pub.nais.io/graphql
+    - name: PDL_AZURE_SCOPE
+      value: api://prod-fss.pdl.pdl-api/.default
+    - name: PDL_AUDIENCE
+      value: "prod-fss:pdl:pdl-api"
+    - name: KODEVERK_URL
+      value: "http://kodeverk-api.team-rocket/api/v1/kodeverk"
+    - name: KODEVERK_CLIENT_ID
+      value: prod-gcp.team-rocket.kodeverk-api
+    - name: KRR_ENDPOINT_URL
+      value: "http://digdir-krr-proxy.team-rocket/rest/v1/"
+    - name: KRR_SCOPE
+      value: "api://prod-gcp.team-rocket.digdir-krr-proxy/.default"
+    - name: KRR_AUDIENCE
+      value: "prod-gcp:team-rocket:digdir-krr-proxy"
+    - name: NAV_CONSUMER_ID
+      value: "srvbarnepensjon"
   accessPolicy:
+    outbound:
+      rules:
+        - application: digdir-krr-proxy
+          namespace: team-rocket
+        - application: kodeverk-api
+          namespace: team-rocket
+      external:
+        - host: pdl-api.dev-fss-pub.nais.io
     inbound:
       rules:
-        - application: selvbetjening-api
+        - application: barnepensjon-ui
+        - application: omstillingsstoenad-ui

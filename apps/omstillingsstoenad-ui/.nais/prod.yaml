@@ -59,15 +59,15 @@ spec:
     - name: BASE_PATH
       value: /omstillingsstonad/soknad
     - name: API_URL
-      value: http://selvbetjening-api
+      value: http://innsendt-soeknad
     - name: AUDIENCE
-      value: prod-gcp:etterlatte:selvbetjening-api
+      value: prod-gcp:etterlatte:innsendt-soeknad
   accessPolicy:
     outbound:
       external:
         - host: www.nav.no
         - host: tokendings.prod-gcp.nais.io
       rules:
-        - application: selvbetjening-api
+        - application: innsendt-soeknad
         - application: nav-dekoratoren
           namespace: personbruker
