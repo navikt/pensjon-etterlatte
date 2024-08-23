@@ -1,6 +1,5 @@
 import useTranslation from '../../hooks/useTranslation'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
-import { StandardBreddeRHFSelect } from './rhf/RHFSelect'
 import useCountries from '../../hooks/useCountries'
 import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
