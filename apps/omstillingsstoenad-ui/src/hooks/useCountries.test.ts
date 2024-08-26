@@ -1,4 +1,5 @@
 import { moveNorwayToBeginning } from './useCountries'
+import { expect } from 'vitest'
 
 describe('Test of moveMostUsedCountriesToBeginning', () => {
     it('Sjekk mest brukte land ender på først i listen', () => {
