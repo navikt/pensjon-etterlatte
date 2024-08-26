@@ -55,7 +55,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('etternavn').type(omDenAvdoede.etternavn)
         getById('datoForDoedsfallet').type(foersteDagIAaret)
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
-        getById('statsborgerskap').type('{downArrow}').type('{enter}')
+        getById('statsborgerskap').type(omDenAvdoede.statsborgerskap).type('{enter}')
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
 
         // Legg til land
@@ -63,8 +63,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             const baseId = `boddEllerJobbetUtland\.oppholdUtland\[${idx}\].`
 
             getById(baseId + 'land')
-                .find('select')
-                .select(oppholdUtland.land)
+                .type('{downArrow}')
+                .type('{downArrow}')
+                .type('{enter}')
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)) // Bodd/Arbeidet checkbox
             getById(baseId + 'fraDato').type(format(oppholdUtland.fraDato, 'dd.MM.yyyy'))
             getById(baseId + 'tilDato').type(format(oppholdUtland.tilDato, 'dd.MM.yyyy'))
@@ -236,7 +237,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         )
 
         // Pensjon fra utlandet
-        getById('pensjonEllerUfoere.utland.land').find('select').select(inntektenDin.pensjonEllerUfoere.utland.land)
+        getById('pensjonEllerUfoere.utland.land').type(inntektenDin.pensjonEllerUfoere.utland.land).type('{enter}')
         getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
         getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
@@ -274,7 +275,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('fornavn').type(barn.fornavn)
             getById('etternavn').type(barn.etternavn)
             getById('foedselsnummer').type(barn.foedselsnummer)
-            getById('statsborgerskap').type('{downArrow}').type('{enter}')
+            getById('statsborgerskap').type(barn.statsborgerskap).type('{enter}')
             selectValueForId('bosattUtland.svar', barn.bosattUtland.svar)
             if (barn.foedselsnummer === '07010776133') {
                 // under 18 år
