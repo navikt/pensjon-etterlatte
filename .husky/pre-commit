@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd ./apps/etterlatte-saksbehandling-ui && yarn lint-staged
+changedKotlinFiles=$(git diff --name-only --cached | grep '\.kt[s"]\?$' || true)
+
+if [ -n "${changedKotlinFiles-unset}" ]; then
+    kotlinversion=$(ktlint -v)
+    expectedVersion="ktlint version 1.3.1"
+    if [ "$kotlinversion" != "$expectedVersion" ]; then
+      echo "Running version $kotlinversion needs to be $expectedVersion"
+      exit 1
+    fi
+
+    echo "🛠 Running ktlint"
+
+    #store the result of the commit in a variable and split into array items with newline
+    cd ../../
+    committedFiles=$(git diff --name-only --cached --diff-filter=d)
+    files=$(echo $committedFiles | tr ";" "\\n")
+
+    # https://github.com/pinterest/ktlint pre-commit hook
+    git diff --name-only --cached | grep '\.kt[s"]\?$' | xargs ktlint -F
+    echo "✍️ Formatted kotlin files"
+
+    #replay items in the commits array and add only those files
+    for file in $files
+    do
+        git add $file
+    done
+fi
+
+echo "🏆 Files staged"
+
+exit 0
