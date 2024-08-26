@@ -43,16 +43,17 @@ export default function useCountries(): UseCountries {
                     a.beskrivelser.nb.term > b.beskrivelser.nb.term ? 1 : -1
                 )
 
-                // Fjern "Ukjent" eller "Ukjent/uoppgitt" fra lista over land
-                console.log(allCountries.filter((country: Country) => country.beskrivelser.nb.term.includes('Uop')))
-                console.log(allCountries.filter((country: Country) => country.beskrivelser.nb.term.includes('ukj')))
-                allCountries.filter(
-                    (country: Country) => !['Uoppgitt', 'Uoppgitt/ukjent'].includes(country.beskrivelser.nb.term)
+                const unknownCountriesRemoved = allCountries.filter(
+                    (country: Country) =>
+                        'Uoppgitt' !== country.beskrivelser.nb.term &&
+                        'uoppgitt/ukjent' !== country.beskrivelser.nb.term
                 )
 
-                setAllCountries(allCountries)
+                setAllCountries(unknownCountriesRemoved)
 
-                const validCountries = allCountries.filter((land: Country) => new Date(land.gyldigTil) > new Date())
+                const validCountries = unknownCountriesRemoved.filter(
+                    (land: Country) => new Date(land.gyldigTil) > new Date()
+                )
                 setCountries(moveNorwayToBeginning(validCountries))
             } catch (e) {
                 console.log(e)
