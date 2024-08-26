@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { IOpprettInntektsjustering } from '../types/inntektsjustering.ts'
 import useSWRMutation from 'swr/mutation'
-import { poster } from '../utils/api.ts'
+import { apiBase, poster } from '../utils/api.ts'
 
 interface IOpprettInntektsjusteringSkjema {
     harArbeidsinntekt: boolean
@@ -19,7 +19,7 @@ interface IOpprettInntektsjusteringSkjema {
 export const OpprettInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const { trigger } = useSWRMutation('/selvbetjening/api/inntektsjustering', poster)
+    const { trigger } = useSWRMutation(`${apiBase}/api/inntektsjustering`, poster)
     const { register, watch, handleSubmit } = useForm<IOpprettInntektsjusteringSkjema>()
 
     const opprettInntektsjustering = async (data: IOpprettInntektsjusteringSkjema) => {
