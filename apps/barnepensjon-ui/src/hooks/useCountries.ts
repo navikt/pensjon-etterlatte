@@ -44,7 +44,7 @@ export default function useCountries(): UseCountries {
                 )
 
                 // Fjern "Ukjent" eller "Ukjent/uoppgitt" fra lista over land
-                console.log(allCountries.some((country: Country) => country.beskrivelser.nb.term.includes('Uop')))
+                console.log(allCountries.filter((country: Country) => country.beskrivelser.nb.term.includes('Uop')))
                 allCountries.filter(
                     (country: Country) => !['Uoppgitt', 'Uoppgitt/ukjent'].includes(country.beskrivelser.nb.term)
                 )
