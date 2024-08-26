@@ -43,6 +43,11 @@ export default function useCountries(): UseCountries {
                     a.beskrivelser.nb.term > b.beskrivelser.nb.term ? 1 : -1
                 )
 
+                // Fjern "Ukjent" eller "Ukjent/uoppgitt" fra lista over land
+                allCountries.filter(
+                    (country: Country) => !['Ukjent', 'Uoppgitt/ukjent'].includes(country.beskrivelser.nb.term)
+                )
+
                 setAllCountries(allCountries)
 
                 const validCountries = allCountries.filter((land: Country) => new Date(land.gyldigTil) > new Date())
