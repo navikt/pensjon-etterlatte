@@ -1,25 +1,18 @@
 import React from 'react'
-import { Select, SelectProps } from '@navikt/ds-react'
-import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import { ComboboxProps, UNSAFE_Combobox } from '@navikt/ds-react'
 import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { get } from 'lodash'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
-import { v4 as uuid } from 'uuid'
-import useTranslation from '../../../hooks/useTranslation'
-import { getErrorKey } from '../../../utils/errors'
+import useTranslation from '~hooks/useTranslation'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import { get } from 'lodash'
+import { getErrorKey } from '~utils/errors'
 
-interface SelectOption {
-    value?: string
-    label: string
-}
-
-interface RHFProps extends Omit<SelectProps, 'name' | 'children'> {
+interface RHFProps extends Omit<ComboboxProps, 'name'> {
     name: FieldPath<FieldValues>
-    children: SelectOption[]
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
 }
 
-export const RHFSelect = ({ name, label, children, rules, required = true, ...rest }: RHFProps) => {
+export const RHFCombobox = ({ name, label, options, rules, required = true, ...rest }: RHFProps) => {
     const { t } = useTranslation('error')
 
     const {
@@ -38,20 +31,18 @@ export const RHFSelect = ({ name, label, children, rules, required = true, ...re
                 control={control}
                 rules={{ required, ...rules }}
                 render={({ field: { value, onChange, onBlur } }) => (
-                    <Select
+                    <UNSAFE_Combobox
                         {...rest}
-                        value={value || ''}
-                        onChange={(e) => onChange((e.target as HTMLSelectElement).value)}
-                        onBlur={onBlur}
                         label={labelWithOptional}
+                        options={options}
+                        selectedOptions={value ? [value] : ['']}
+                        onToggleSelected={(option, isSelected) => {
+                            isSelected ? onChange(option) : onChange('')
+                        }}
+                        onBlur={onBlur}
                         error={errorMsg}
-                    >
-                        {children.map((option) => (
-                            <option key={uuid()} value={option.value}>
-                                {option.label}
-                            </option>
-                        ))}
-                    </Select>
+                        shouldAutocomplete
+                    />
                 )}
             />
         </div>

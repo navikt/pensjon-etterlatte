@@ -1,7 +1,9 @@
 import { basePath, Button } from '../util/constants'
 
 Cypress.Commands.add('startApplication', (userFixture: string) => {
-    cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: userFixture }).as('loggedInUser')
+    cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: userFixture }).as(
+        'loggedInUser'
+    )
     cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
     cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
 
@@ -48,7 +50,7 @@ Cypress.Commands.add('useSimpleDeceased', (gotoNext: boolean = true) => {
     cy.get('#firstName').type('Ola')
     cy.get('#lastName').type('Nordmann')
     cy.get('#fnrDnr').type('11057523044')
-    cy.get('#citizenship').get('select').first().select(1)
+    cy.get('#citizenship').type('{downArrow}').type('{enter}')
     cy.get('#dateOfDeath').type('010120')
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
     cy.get('#staysAbroad\\.hasStaysAbroad').find(`[value="NEI"]`).check({ force: true })
@@ -63,7 +65,7 @@ Cypress.Commands.add('useAdvancedDeceased', (gotoNext: boolean = true) => {
     cy.get('#firstName').type('Ola')
     cy.get('#lastName').type('Nordmann')
     cy.get('#fnrDnr').type('11057523044')
-    cy.get('#citizenship').get('select').first().select(1)
+    cy.get('#citizenship').type('{downArrow}').type('{enter}')
     cy.get('#dateOfDeath').type('010120')
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
     cy.get('#staysAbroad\\.hasStaysAbroad').find(`[value="NEI"]`).check({ force: true })
@@ -81,7 +83,7 @@ Cypress.Commands.add('addChild', (gotoNext: boolean = false) => {
     cy.get('#firstName').type('Lite')
     cy.get('#lastName').type('Barn')
     cy.get('#fnrDnr').type('09011350027')
-    cy.get('#citizenship').get('select').select(1)
+    cy.get('#citizenship').type('{downArrow}').type('{enter}')
     cy.get('[type="radio"]').first().check({ force: true })
     cy.get('#staysAbroadAnswer').find('[value="NEI"]').check({ force: true })
     cy.get('#hasGuardianQuestion').find('[value="NEI"]').check({ force: true })

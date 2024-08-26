@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { getAllCountries } from '../api/api'
-import useTranslation from './useTranslation'
 
 interface UseCountries {
     countries: Options[]
     allCountries: Options[]
 }
-interface Options {
-    label?: string | undefined
+export interface Options {
+    label: string
     value: string
 }
 
@@ -22,34 +21,38 @@ interface Country {
     }
 }
 
-export const moveMostUsedCountriesToBeginning = (allCountries: Country[]) => {
-    const frequentlyUsed = ['NORGE']
+export const moveNorwayToBeginning = (allCountries: Country[]) => {
+    const norway = allCountries.find((country) => country.beskrivelser.nb.tekst === 'NORGE')
 
-    const countries = allCountries.filter((country) => frequentlyUsed.includes(country.beskrivelser.nb.tekst))
+    const norwayRemoved = [...allCountries].filter((country) => country.beskrivelser.nb.tekst !== 'NORGE')
 
-    if (countries) countries.forEach((country) => allCountries.unshift(country))
+    if (norway) norwayRemoved.unshift(norway)
 
-    return allCountries
+    return norwayRemoved
 }
 
 export default function useCountries(): UseCountries {
-    const { t } = useTranslation('common')
-
     const [countries, setCountries] = useState<Country[]>([])
     const [allCountries, setAllCountries] = useState<Country[]>([])
 
     useEffect(() => {
-        (async () => {
+        ;(async () => {
             try {
                 const allCountries = await getAllCountries()
                 allCountries.sort((a: Country, b: Country) =>
-                    a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst ? 1 : -1
+                    a.beskrivelser.nb.term > b.beskrivelser.nb.term ? 1 : -1
                 )
 
-                setAllCountries(moveMostUsedCountriesToBeginning(allCountries))
+                const unknownCountriesRemoved = allCountries.filter(
+                    (country: Country) => !country.beskrivelser.nb.term.toLowerCase().includes('uoppgitt')
+                )
 
-                const validCountries = allCountries.filter((land: Country) => new Date(land.gyldigTil) > new Date())
-                setCountries(validCountries)
+                setAllCountries(unknownCountriesRemoved)
+
+                const validCountries = unknownCountriesRemoved.filter(
+                    (land: Country) => new Date(land.gyldigTil) > new Date()
+                )
+                setCountries(moveNorwayToBeginning(validCountries))
             } catch (e) {
                 console.log(e)
                 // TODO: Navigate to error page
@@ -59,7 +62,7 @@ export default function useCountries(): UseCountries {
 
     const optionsListe = (countries: Country[]): Options[] => {
         const landliste = countries.map((l) => {
-            const str = l.beskrivelser['nb'].tekst.toLowerCase()
+            const str = l.beskrivelser['nb'].term.toLowerCase()
             const text = str.charAt(0).toUpperCase() + str.slice(1)
             return {
                 label: text,
@@ -67,10 +70,6 @@ export default function useCountries(): UseCountries {
             }
         })
 
-        landliste.unshift({
-            label: t('chooseCountry'),
-            value: t(''),
-        })
         return landliste
     }
 

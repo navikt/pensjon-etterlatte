@@ -1,12 +1,12 @@
 import useTranslation from '../../hooks/useTranslation'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
-import { StandardBreddeRHFSelect } from './rhf/RHFSelect'
-import useCountries from '../../hooks/useCountries'
+import useCountries, { Options } from '../../hooks/useCountries'
 import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
 import Datepicker from '~components/common/Datepicker'
 import { Alert, Box, VStack } from '@navikt/ds-react'
+import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 
 interface Props {
     duplicateList?: string[]
@@ -15,7 +15,7 @@ interface Props {
 
 export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
     const { t } = useTranslation('common')
-    const { countries }: { countries: any } = useCountries()
+    const { countries }: { countries: Options[] } = useCountries()
 
     return (
         <>
@@ -29,9 +29,15 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                 </FormElement>
             </Box>
 
-            <FormElement>
-                <StandardBreddeRHFSelect name={`citizenship`} label={t('citizenship')} children={countries} />
-            </FormElement>
+            <Box maxWidth="14rem">
+                <FormElement>
+                    <RHFCombobox
+                        name={'citizenship'}
+                        label={t('citizenship')}
+                        options={countries.map((country) => country.label)}
+                    />
+                </FormElement>
+            </Box>
 
             <FormElement>
                 {!fnrIsUnknown && (

@@ -36,8 +36,8 @@ describe('About Children', { testIsolation: false }, () => {
 
         cy.get('#firstName').type('Stort')
         cy.get('#lastName').type('Barn')
+        cy.get('#citizenship').type('{downArrow}').type('{enter}')
         cy.get('#fnrDnr').type('11058019471')
-        cy.get('#citizenship').get('select').select(1)
         cy.get('[type="radio"]').first().check({ force: true })
 
         cy.get('#above18Warning').should('exist')
@@ -74,7 +74,7 @@ describe('About Children', { testIsolation: false }, () => {
         cy.get('#firstName').type('Lite')
         cy.get('#lastName').type('Barn')
         cy.get('#fnrDnr').type('09011350027')
-        cy.get('#citizenship').get('select').select(1)
+        cy.get('#citizenship').type('{downArrow}').type('{enter}')
         cy.get('[type="radio"]').first().check({ force: true })
         cy.get('#staysAbroadAnswer').should('not.exist')
         cy.get('#hasGuardianQuestion').find('[value="NEI"]').check({ force: true })

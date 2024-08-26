@@ -14,20 +14,20 @@ import LoggedInUserInfo from './LoggedInUserInfo'
 import FormElement from '../../common/FormElement'
 import { IAboutYou } from '../../../types/person'
 import PaymentDetails from '../../common/PaymentDetails'
-import { StandardBreddeRHFSelect } from '../../common/rhf/RHFSelect'
-import useCountries from '../../../hooks/useCountries'
+import useCountries, { Options } from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
 import Datepicker from '../../common/Datepicker'
-import { Heading, HGrid, ReadMore } from '@navikt/ds-react'
+import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import FormGroup from '../../common/FormGroup'
 import { ApplicantRole } from '../../../types/applicant'
+import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
-    const { countries }: { countries: any } = useCountries()
+    const { countries }: { countries: Options[] } = useCountries()
 
     const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
@@ -75,14 +75,16 @@ export default function AboutYou({ next }: StepProps) {
 
                                 {stayedAbroad === JaNeiVetIkke.JA && (
                                     <>
-                                        <FormElement>
-                                            <StandardBreddeRHFSelect
-                                                id={'stayedAbroadCountry'}
-                                                name={'stayedAbroadCountry'}
-                                                label={t('stayedAbroadCountry')}
-                                                children={countries}
-                                            />
-                                        </FormElement>
+                                        <Box maxWidth="14rem">
+                                            <FormElement>
+                                                <RHFCombobox
+                                                    id={'stayedAbroadCountry'}
+                                                    name={'stayedAbroadCountry'}
+                                                    label={t('stayedAbroadCountry')}
+                                                    options={countries.map((country) => country.label)}
+                                                />
+                                            </FormElement>
+                                        </Box>
                                         <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
                                             <Datepicker
                                                 name={'stayedAbroadFromDate'}
@@ -101,14 +103,16 @@ export default function AboutYou({ next }: StepProps) {
                                 )}
 
                                 {residesInNorway === JaNeiVetIkke.NEI && (
-                                    <FormElement>
-                                        <StandardBreddeRHFSelect
-                                            id={'countryOfResidence'}
-                                            name={'countryOfResidence'}
-                                            label={t('countryOfResidence')}
-                                            children={countries}
-                                        />
-                                    </FormElement>
+                                    <Box maxWidth="14rem">
+                                        <FormElement>
+                                            <RHFCombobox
+                                                id={'countryOfResidence'}
+                                                name={'countryOfResidence'}
+                                                label={t('countryOfResidence')}
+                                                options={countries.map((country) => country.label)}
+                                            />
+                                        </FormElement>
+                                    </Box>
                                 )}
                             </FormGroup>
                         )}

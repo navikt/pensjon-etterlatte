@@ -2,7 +2,7 @@ import { BodyLong, Heading } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { IDeceasedParent } from '../../../context/application/application'
-import useCountries from '../../../hooks/useCountries'
+import useCountries, { Options } from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
 import Datepicker from '../../common/Datepicker'
 import FormElement from '../../common/FormElement'
@@ -21,7 +21,7 @@ interface Props {
 
 export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { t } = useTranslation('aboutTheDeceased')
-    const { countries }: { countries: any } = useCountries()
+    const { countries }: { countries: Options[] } = useCountries()
     const { currencies }: { currencies: any } = useCurrencies()
     const { state } = useApplicationContext()
 
