@@ -50,7 +50,7 @@ export default function useCountries(): UseCountries {
                 setAllCountries(moveNorwayToBeginning(unknownCountriesRemoved))
 
                 const validCountries = unknownCountriesRemoved.filter(
-                    (land: Country) => new Date(land.gyldigTil) > new Date()
+                    (country: Country) => new Date(country.gyldigTil) > new Date()
                 )
                 setCountries(moveNorwayToBeginning(validCountries))
             } catch (e) {
