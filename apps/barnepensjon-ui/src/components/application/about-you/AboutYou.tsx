@@ -103,18 +103,16 @@ export default function AboutYou({ next }: StepProps) {
                                 )}
 
                                 {residesInNorway === JaNeiVetIkke.NEI && (
-                                    <>
-                                        <Box maxWidth="14rem">
-                                            <FormElement>
-                                                <RHFCombobox
-                                                    id={'countryOfResidence'}
-                                                    name={'countryOfResidence'}
-                                                    label={t('countryOfResidence')}
-                                                    options={countries.map((country) => country.label)}
-                                                />
-                                            </FormElement>
-                                        </Box>
-                                    </>
+                                    <Box maxWidth="14rem">
+                                        <FormElement>
+                                            <RHFCombobox
+                                                id={'countryOfResidence'}
+                                                name={'countryOfResidence'}
+                                                label={t('countryOfResidence')}
+                                                options={countries.map((country) => country.label)}
+                                            />
+                                        </FormElement>
+                                    </Box>
                                 )}
                             </FormGroup>
                         )}
