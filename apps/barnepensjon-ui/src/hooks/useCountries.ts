@@ -44,9 +44,7 @@ export default function useCountries(): UseCountries {
                 )
 
                 const unknownCountriesRemoved = allCountries.filter(
-                    (country: Country) =>
-                        'Uoppgitt' !== country.beskrivelser.nb.term &&
-                        'uoppgitt/ukjent' !== country.beskrivelser.nb.term
+                    (country: Country) => !country.beskrivelser.nb.term.toLowerCase().includes('uoppgitt')
                 )
 
                 setAllCountries(unknownCountriesRemoved)
