@@ -19,7 +19,7 @@ interface IOpprettInntektsjusteringSkjema {
 export const OpprettInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const { trigger } = useSWRMutation('/api/inntektsjustering', poster)
+    const { trigger } = useSWRMutation('/selvbetjening/api/inntektsjustering', poster)
     const { register, watch, handleSubmit } = useForm<IOpprettInntektsjusteringSkjema>()
 
     const opprettInntektsjustering = async (data: IOpprettInntektsjusteringSkjema) => {
