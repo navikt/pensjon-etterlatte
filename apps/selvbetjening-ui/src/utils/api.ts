@@ -1,6 +1,10 @@
-export const apiBase = import.meta.env.DEV
-    ? `http://localhost:8080${import.meta.env.BASE_URL}`
-    : import.meta.env.BASE_URL
+export const apiURL = import.meta.env.DEV
+    ? `http://localhost:8080${import.meta.env.BASE_URL}/api`
+    : `${import.meta.env.BASE_URL}/api`
+
+export const sanityURL = import.meta.env.DEV
+    ? `http://localhost:8080${import.meta.env.BASE_URL}/sanity`
+    : `${import.meta.env.BASE_URL}/sanity`
 
 export const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
