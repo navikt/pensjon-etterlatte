@@ -60,7 +60,7 @@ export default function useCountries(): UseCountries {
         })()
     }, [])
 
-    const optionsListe = (countries: Country[]): Options[] => {
+    const optionsList = (countries: Country[]): Options[] => {
         const landliste = countries.map((l) => {
             const str = l.beskrivelser['nb'].term.toLowerCase()
             const text = str.charAt(0).toUpperCase() + str.slice(1)
@@ -73,5 +73,5 @@ export default function useCountries(): UseCountries {
         return landliste
     }
 
-    return { countries: optionsListe(countries), allCountries: optionsListe(allCountries) }
+    return { countries: optionsList(countries), allCountries: optionsList(allCountries) }
 }
