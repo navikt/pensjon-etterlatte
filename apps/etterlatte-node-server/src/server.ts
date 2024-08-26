@@ -49,7 +49,7 @@ app.use(`${basePath}/api`, proxy(config.app.apiUrl))
 if (config.env.isSelvbetjeningUIApp) {
     // Sanity er ikke definert for annet selvbetjening-ui må derfor importeres dynamisk ellers eksekveres innholdet i filen
     import('./sanityProxy').then((sanityProxy) => {
-        app.use(`${basePath}/sanity`, sanityProxy.default())
+        app.use(`${basePath}/api/sanity`, sanityProxy.default())
     })
 }
 
