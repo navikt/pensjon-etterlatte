@@ -22,7 +22,7 @@ export const RHFCombobox = ({ name, label, options, rules, required = true, ...r
 
     const error: FieldError = get(errors, name) as FieldError
     const errorMsg = !!error ? t(getTransKey(error)) : undefined
-    const labelWithOptional = required ? `${label} (${t('felles.valgfri')})` : label
+    const labelWithOptional = required ? label : `${label} (${t('felles.valgfri')})`
 
     return (
         <div id={name}>

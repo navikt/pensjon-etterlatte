@@ -47,7 +47,7 @@ export default function useCountries(): UseCountries {
                     (country: Country) => !country.beskrivelser.nb.term.toLowerCase().includes('uoppgitt')
                 )
 
-                setAllCountries(unknownCountriesRemoved)
+                setAllCountries(moveNorwayToBeginning(unknownCountriesRemoved))
 
                 const validCountries = unknownCountriesRemoved.filter(
                     (land: Country) => new Date(land.gyldigTil) > new Date()

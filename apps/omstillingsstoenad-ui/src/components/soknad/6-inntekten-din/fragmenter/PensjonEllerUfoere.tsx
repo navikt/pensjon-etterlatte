@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading, ReadMore, HGrid } from '@navikt/ds-react'
+import { Heading, ReadMore, HGrid, Box } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
@@ -8,9 +8,10 @@ import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/i
 import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { useCountries } from '../../../../hooks/useCountries'
+import useCountries from '../../../../hooks/useCountries'
 import Bredde from '../../../../typer/bredde'
 import { useValutaer } from '../../../../hooks/useValutaer'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
@@ -88,13 +89,15 @@ const PensjonEllerUfoere = () => {
                             htmlSize={Bredde.S}
                         />
                     </SkjemaElement>
-                    <SkjemaElement>
-                        <RHFSelect
-                            name={'pensjonEllerUfoere.utland.land'}
-                            label={t('inntektenDin.pensjonEllerUfoere.utland.land')}
-                            selectOptions={alleLand}
-                        />
-                    </SkjemaElement>
+                    <Box maxWidth="14rem">
+                        <SkjemaElement>
+                            <RHFCombobox
+                                name={'pensjonEllerUfoere.utland.land'}
+                                label={t('inntektenDin.pensjonEllerUfoere.utland.land')}
+                                options={allCountries}
+                            />
+                        </SkjemaElement>
+                    </Box>
 
                     <HGrid gap={'2'} columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }} align={'start'}>
                         <SkjemaElement>
