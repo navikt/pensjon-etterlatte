@@ -18,7 +18,7 @@ import { fnr } from '@navikt/fnrvalidator'
 import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Link, RadioProps, VStack } from '@navikt/ds-react'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import { useCountries } from '../../../hooks/useCountries'
 import ikon from '../../../assets/ikoner/barn1.svg'
 import React, { useEffect } from 'react'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
@@ -94,7 +94,7 @@ interface Props {
 
 const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbruttNyttBarn }: Props) => {
     const { t } = useTranslation()
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: any } = useCountries()
     const { state: bruker } = useBrukerContext()
     const { state: soeknad } = useSoknadContext()
 

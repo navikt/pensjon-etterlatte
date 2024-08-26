@@ -14,7 +14,7 @@ import Navigasjon from '../../felles/Navigasjon'
 import { Alert, BodyLong, Heading, HGrid, VStack } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import { useCountries } from '../../../hooks/useCountries'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import Datovelger from '../../felles/Datovelger'
@@ -24,7 +24,7 @@ import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: any } = useCountries()
     const methods = useForm<IAvdoed>({
         defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap },
         shouldUnregister: true,

@@ -14,7 +14,7 @@ import { IValg } from '../../../typer/Spoersmaal'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import { useCountries } from '../../../hooks/useCountries'
 import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { isDev } from '../../../api/axios'
@@ -22,7 +22,7 @@ import { isDev } from '../../../api/axios'
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: any } = useCountries()
 
     const methods = useForm<ISituasjonenDin>({
         defaultValues: state.situasjonenDin || {},

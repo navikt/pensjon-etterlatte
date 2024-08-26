@@ -8,14 +8,14 @@ import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/i
 import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { useLand } from '../../../../hooks/useLand'
+import { useCountries } from '../../../../hooks/useCountries'
 import Bredde from '../../../../typer/bredde'
 import { useValutaer } from '../../../../hooks/useValutaer'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
 
-    const { alleLand }: { alleLand: any } = useLand()
+    const { allCountries }: { allCountries: any } = useCountries()
     const { valutaer }: { valutaer: any } = useValutaer()
 
     const { watch } = useFormContext<IInntekt>()

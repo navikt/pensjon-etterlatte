@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
 import { BodyLong, BodyShort, Button, Heading, HGrid, Label } from '@navikt/ds-react'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { useLand } from '../../../../hooks/useLand'
+import { useCountries } from '../../../../hooks/useCountries'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import styled from 'styled-components'
@@ -39,7 +39,7 @@ interface Props {
 
 const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation()
-    const { alleLand }: { land: any; alleLand: any } = useLand()
+    const { allCountries }: { land: any; allCountries: any } = useCountries()
     const { valutaer }: { valutaer: any } = useValutaer()
 
     const { control, watch } = useFormContext<IAvdoed>()

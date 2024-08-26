@@ -1,4 +1,4 @@
-import { moveMostUsedCountriesToBeginning } from './useLand'
+import { moveMostUsedCountriesToBeginning } from './useCountries.js'
 
 describe('Test of moveMostUsedCountriesToBeginning', () => {
     it('Sjekk mest brukte land ender på først i listen', () => {
