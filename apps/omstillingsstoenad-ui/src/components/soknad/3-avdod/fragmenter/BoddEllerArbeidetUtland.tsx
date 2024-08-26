@@ -8,14 +8,15 @@ import React, { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Button, Heading, HGrid, Label } from '@navikt/ds-react'
+import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label } from '@navikt/ds-react'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { useLand } from '../../../../hooks/useLand'
+import useCountries from '../../../../hooks/useCountries'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import styled from 'styled-components'
 import { Panel } from '../../../felles/Panel'
 import { useValutaer } from '../../../../hooks/useValutaer'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const Rad = styled.div`
     width: 100%;
@@ -39,7 +40,7 @@ interface Props {
 
 const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation()
-    const { alleLand }: { land: any; alleLand: any } = useLand()
+    const { allCountries }: { allCountries: any } = useCountries()
     const { valutaer }: { valutaer: any } = useValutaer()
 
     const { control, watch } = useFormContext<IAvdoed>()
@@ -75,13 +76,16 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                 <>
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <ArbeidIUtlandPanel border key={field.id} className={'luft-under'}>
-                            <SkjemaElement>
-                                <RHFSelect
-                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].land` as const}
-                                    label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
-                                    selectOptions={alleLand}
-                                />
-                            </SkjemaElement>
+                            <Box maxWidth="14rem">
+                                <SkjemaElement>
+                                    <RHFCombobox
+                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].land`}
+                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
+                                        options={allCountries}
+                                    />
+                                </SkjemaElement>
+                            </Box>
+
                             <SkjemaElement>
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}

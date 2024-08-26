@@ -311,8 +311,9 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-popover navds-help-text__popover navds-popover--hidden"
+                  data-index="0"
                   data-placement="top"
-                  style="position: absolute; top: 0px; left: 0px;"
+                  style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
                 >
                   <div
                     class="navds-popover__content navds-body-short"
@@ -431,8 +432,9 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-popover navds-help-text__popover navds-popover--hidden"
+                  data-index="0"
                   data-placement="top"
-                  style="position: absolute; top: 0px; left: 0px;"
+                  style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
                 >
                   <div
                     class="navds-popover__content navds-body-short"
@@ -528,7 +530,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                 Lukk
               </title>
               <path
-                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94z"
                 fill="currentColor"
               />
             </svg>

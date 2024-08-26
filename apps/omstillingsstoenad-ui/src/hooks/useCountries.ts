@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getAllCountries } from '../api/api'
+import { hentLand } from '~api/api'
 
 interface UseCountries {
     countries: Options[]
@@ -38,7 +38,7 @@ export default function useCountries(): UseCountries {
     useEffect(() => {
         ;(async () => {
             try {
-                const allCountries = await getAllCountries()
+                const allCountries = await hentLand()
                 allCountries.sort((a: Country, b: Country) =>
                     a.beskrivelser.nb.term > b.beskrivelser.nb.term ? 1 : -1
                 )
@@ -47,10 +47,10 @@ export default function useCountries(): UseCountries {
                     (country: Country) => !country.beskrivelser.nb.term.toLowerCase().includes('uoppgitt')
                 )
 
-                setAllCountries(unknownCountriesRemoved)
+                setAllCountries(moveNorwayToBeginning(unknownCountriesRemoved))
 
                 const validCountries = unknownCountriesRemoved.filter(
-                    (land: Country) => new Date(land.gyldigTil) > new Date()
+                    (country: Country) => new Date(country.gyldigTil) > new Date()
                 )
                 setCountries(moveNorwayToBeginning(validCountries))
             } catch (e) {

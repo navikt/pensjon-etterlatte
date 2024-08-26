@@ -18,7 +18,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       class="sc-beqWNU hTYxft"
     >
       <div
-        class="navds-hgrid"
+        class="navds-hgrid navds-hgrid-gap navds-hgrid-align"
         style="--__ac-hgrid-align: start; --__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-xs: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-sm: repeat(2, minmax(0, 1fr));"
       >
         <div>
@@ -165,59 +165,110 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hAtFlw bQVbwr"
+        class="navds-r-maxw navds-box"
+        style="--__ac-r-maxw-xs: 14rem;"
       >
         <div
-          class="sc-ktEKgv bDsUzF"
-          id="statsborgerskap"
+          class="sc-hAtFlw bQVbwr"
         >
           <div
-            class="navds-form-field navds-form-field--medium"
+            id="statsborgerskap"
           >
-            <label
-              class="navds-form-field__label navds-label"
-              for="select-r7"
-            >
-              omDenAvdoede.statsborgerskap
-            </label>
             <div
-              class="navds-select__container"
+              class="navds-form-field navds-form-field--medium"
             >
-              <select
-                class="navds-select__input navds-body-short navds-body-short--medium"
-                id="select-r7"
+              <label
+                class="navds-form-field__label navds-label"
+                for="comboboxfield-r7"
               >
-                <option
-                  value=""
+                omDenAvdoede.statsborgerskap
+              </label>
+              <div
+                class="navds-combobox__wrapper"
+              >
+                <div
+                  class="navds-combobox__wrapper-inner navds-text-field__input"
                 >
-                  felles.velgLand
-                </option>
-              </select>
-              <svg
-                aria-hidden="true"
-                class="navds-select__chevron"
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
+                  <ul
+                    class="navds-chips navds-combobox__selected-options navds-chips--medium navds-body-short navds-body-short--small"
+                  >
+                    <li>
+                      <div
+                        class="navds-combobox__selected-options--no-bg"
+                      />
+                    </li>
+                    <li>
+                      <input
+                        aria-autocomplete="both"
+                        aria-controls="comboboxfield-r7-filtered-options"
+                        aria-describedby="comboboxfield-r7-no-hits"
+                        aria-expanded="false"
+                        autocomplete="off"
+                        class="navds-combobox__input navds-body-short navds-body-short--medium"
+                        id="comboboxfield-r7"
+                        role="combobox"
+                        type="text"
+                        value=""
+                      />
+                    </li>
+                  </ul>
+                  <div>
+                    <button
+                      aria-expanded="false"
+                      class="navds-combobox__button-toggle-list"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="navds-sr-only"
+                      >
+                        Alternativer
+                      </span>
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="navds-combobox__list navds-combobox__list--closed"
+                  id="comboboxfield-r7-filtered-options"
+                  tabindex="-1"
+                >
+                  <div
+                    class="navds-combobox__list_non-selectables"
+                    role="status"
+                  >
+                    <div
+                      class="navds-combobox__list-item--no-options"
+                      id="comboboxfield-r7-no-hits"
+                    >
+                      Ingen søketreff
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="comboboxfield-error-r7"
+              />
             </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-form-field__error"
-              id="select-error-r7"
-            />
           </div>
         </div>
       </div>
@@ -279,7 +330,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                     </title>
                     <path
                       clip-rule="evenodd"
-                      d="M9 2.25a.75.75 0 0 1 .75.75v1.25h4.5V3a.75.75 0 0 1 1.5 0v1.25h3.75c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-15c-.69 0-1.25-.56-1.25-1.25v-13c0-.69.56-1.25 1.25-1.25h3.75V3A.75.75 0 0 1 9 2.25ZM15.75 7a.75.75 0 0 1-1.5 0V5.75h-4.5V7a.75.75 0 0 1-1.5 0V5.75h-3.5v3.5h14.5v-3.5h-3.5V7Zm-11 11.25v-7.5h14.5v7.5H4.75Zm2-5.25a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75Zm4 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75Zm4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5h-1ZM10.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75Zm4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5h-1ZM6.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75Z"
+                      d="M9 2.25a.75.75 0 0 1 .75.75v1.25h4.5V3a.75.75 0 0 1 1.5 0v1.25h3.75c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-15c-.69 0-1.25-.56-1.25-1.25v-13c0-.69.56-1.25 1.25-1.25h3.75V3A.75.75 0 0 1 9 2.25M15.75 7a.75.75 0 0 1-1.5 0V5.75h-4.5V7a.75.75 0 0 1-1.5 0V5.75h-3.5v3.5h14.5v-3.5h-3.5zm-11 11.25v-7.5h14.5v7.5zm2-5.25a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5zM10.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5zM6.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75"
                       fill="currentColor"
                       fill-rule="evenodd"
                     />
@@ -296,10 +347,11 @@ exports[`Om den avdøde > Snapshot 1`] = `
             <div
               aria-hidden="true"
               class="navds-popover navds-date__popover navds-popover--hidden"
+              data-index="0"
               data-placement="bottom-start"
               id="r9"
               role="dialog"
-              style="position: absolute; top: 0px; left: 0px;"
+              style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
             >
               <div
                 class="rdp navds-date"
@@ -344,7 +396,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                               Gå til forrige måned
                             </title>
                             <path
-                              d="M4.47 11.47a.75.75 0 0 0 0 1.06l4.5 4.5a.75.75 0 0 0 1.06-1.06l-3.22-3.22H19a.75.75 0 0 0 0-1.5H6.81l3.22-3.22a.75.75 0 1 0-1.06-1.06l-4.5 4.5Z"
+                              d="M4.47 11.47a.75.75 0 0 0 0 1.06l4.5 4.5a.75.75 0 0 0 1.06-1.06l-3.22-3.22H19a.75.75 0 0 0 0-1.5H6.81l3.22-3.22a.75.75 0 1 0-1.06-1.06z"
                               fill="currentColor"
                             />
                           </svg>
@@ -388,7 +440,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                             >
                               <path
                                 clip-rule="evenodd"
-                                d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                                d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
                                 fill="currentColor"
                                 fill-rule="evenodd"
                               />
@@ -418,44 +470,9 @@ exports[`Om den avdøde > Snapshot 1`] = `
                               id="select-rg"
                             >
                               <option
-                                value="2015"
+                                value="2024"
                               >
-                                2015
-                              </option>
-                              <option
-                                value="2016"
-                              >
-                                2016
-                              </option>
-                              <option
-                                value="2017"
-                              >
-                                2017
-                              </option>
-                              <option
-                                value="2018"
-                              >
-                                2018
-                              </option>
-                              <option
-                                value="2019"
-                              >
-                                2019
-                              </option>
-                              <option
-                                value="2020"
-                              >
-                                2020
-                              </option>
-                              <option
-                                value="2021"
-                              >
-                                2021
-                              </option>
-                              <option
-                                value="2022"
-                              >
-                                2022
+                                2024
                               </option>
                               <option
                                 value="2023"
@@ -463,9 +480,44 @@ exports[`Om den avdøde > Snapshot 1`] = `
                                 2023
                               </option>
                               <option
-                                value="2024"
+                                value="2022"
                               >
-                                2024
+                                2022
+                              </option>
+                              <option
+                                value="2021"
+                              >
+                                2021
+                              </option>
+                              <option
+                                value="2020"
+                              >
+                                2020
+                              </option>
+                              <option
+                                value="2019"
+                              >
+                                2019
+                              </option>
+                              <option
+                                value="2018"
+                              >
+                                2018
+                              </option>
+                              <option
+                                value="2017"
+                              >
+                                2017
+                              </option>
+                              <option
+                                value="2016"
+                              >
+                                2016
+                              </option>
+                              <option
+                                value="2015"
+                              >
+                                2015
                               </option>
                             </select>
                             <svg
@@ -481,7 +533,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                             >
                               <path
                                 clip-rule="evenodd"
-                                d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                                d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
                                 fill="currentColor"
                                 fill-rule="evenodd"
                               />
@@ -519,7 +571,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                               Gå til neste måned
                             </title>
                             <path
-                              d="M14.087 6.874a.752.752 0 0 0-.117 1.156l3.22 3.22H5a.75.75 0 0 0 0 1.5h12.19l-3.22 3.22a.75.75 0 0 0 1.06 1.06l4.5-4.5a.75.75 0 0 0 0-1.06l-4.5-4.5a.75.75 0 0 0-.943-.096Z"
+                              d="M14.087 6.874a.752.752 0 0 0-.117 1.156l3.22 3.22H5a.75.75 0 0 0 0 1.5h12.19l-3.22 3.22a.75.75 0 0 0 1.06 1.06l4.5-4.5a.75.75 0 0 0 0-1.06l-4.5-4.5a.75.75 0 0 0-.943-.096"
                               fill="currentColor"
                             />
                           </svg>
@@ -1715,7 +1767,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                 Lukk
               </title>
               <path
-                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94z"
                 fill="currentColor"
               />
             </svg>

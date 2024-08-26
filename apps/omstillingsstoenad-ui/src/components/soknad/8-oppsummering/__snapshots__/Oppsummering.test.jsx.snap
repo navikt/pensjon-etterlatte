@@ -53,7 +53,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -70,8 +70,8 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -106,8 +106,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         />
         <a
           class=""
@@ -167,7 +167,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -184,8 +184,8 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -254,8 +254,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -276,8 +276,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -355,7 +355,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -372,8 +372,8 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         />
         <a
           class=""
@@ -433,7 +433,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -450,12 +450,12 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         />
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -488,8 +488,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -567,7 +567,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -584,8 +584,8 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -606,8 +606,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -685,7 +685,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -702,8 +702,8 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -724,8 +724,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -746,8 +746,8 @@ exports[`Oppsummering > Snapshot 1`] = `
           </div>
         </div>
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <h1
             class="navds-heading navds-heading--small"
@@ -825,7 +825,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             </title>
             <path
               clip-rule="evenodd"
-              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+              d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
               fill="currentColor"
               fill-rule="evenodd"
             />
@@ -842,8 +842,8 @@ exports[`Oppsummering > Snapshot 1`] = `
         class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
       >
         <div
-          class="navds-box"
-          style="--__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px; --__ac-box-padding-xs: var(--a-spacing-4);"
+          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
+          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -956,7 +956,7 @@ exports[`Oppsummering > Snapshot 1`] = `
               Lukk
             </title>
             <path
-              d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+              d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94z"
               fill="currentColor"
             />
           </svg>
@@ -1058,7 +1058,7 @@ exports[`Oppsummering > Snapshot 1`] = `
               Lukk
             </title>
             <path
-              d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+              d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94z"
               fill="currentColor"
             />
           </svg>

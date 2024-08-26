@@ -5,7 +5,7 @@ import { ISituasjonenDin } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import Navigasjon from '../../felles/Navigasjon'
-import { Alert, BodyShort, GuidePanel, Heading, HGrid, List } from '@navikt/ds-react'
+import { Alert, BodyShort, Box, GuidePanel, Heading, HGrid, List } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
@@ -13,16 +13,16 @@ import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import { IValg } from '../../../typer/Spoersmaal'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
-import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import useCountries from '../../../hooks/useCountries'
 import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { isDev } from '../../../api/axios'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: any } = useCountries()
 
     const methods = useForm<ISituasjonenDin>({
         defaultValues: state.situasjonenDin || {},
@@ -122,14 +122,15 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                             </SkjemaElement>
                             {oppholderSegIUtlandet === IValg.JA && (
                                 <>
-                                    <SkjemaGruppe>
-                                        <RHFSelect
-                                            className="kol-50"
-                                            name={`oppholderSegIUtlandet.oppholdsland`}
-                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
-                                            selectOptions={land}
-                                        />
-                                    </SkjemaGruppe>
+                                    <Box maxWidth="14rem">
+                                        <SkjemaGruppe>
+                                            <RHFCombobox
+                                                name={`oppholderSegIUtlandet.oppholdsland`}
+                                                label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
+                                                options={countries}
+                                            />
+                                        </SkjemaGruppe>
+                                    </Box>
 
                                     <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                                         <Datovelger
@@ -153,14 +154,15 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                     )}
 
                     {bosattINorge === IValg.NEI && (
-                        <SkjemaGruppe>
-                            <RHFSelect
-                                className="kol-50"
-                                name={`bosattLand`}
-                                label={t('situasjonenDin.bosattLand')}
-                                selectOptions={land}
-                            />
-                        </SkjemaGruppe>
+                        <Box maxWidth="14rem">
+                            <SkjemaGruppe>
+                                <RHFCombobox
+                                    name={`bosattLand`}
+                                    label={t('situasjonenDin.bosattLand')}
+                                    options={countries}
+                                />
+                            </SkjemaGruppe>
+                        </Box>
                     )}
                 </SkjemaGruppe>
 

@@ -11,20 +11,20 @@ import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 import Navigasjon from '../../felles/Navigasjon'
-import { Alert, BodyLong, Heading, HGrid, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, Heading, HGrid, VStack } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
-import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import useCountries, { Options } from '../../../hooks/useCountries'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import Datovelger from '../../felles/Datovelger'
 import { isDev } from '../../../api/axios'
 import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: Options[] } = useCountries()
     const methods = useForm<IAvdoed>({
         defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap },
         shouldUnregister: true,
@@ -92,13 +92,16 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                             </VStack>
                         )}
                     </SkjemaElement>
-                    <SkjemaElement>
-                        <RHFSelect
-                            name={`statsborgerskap`}
-                            label={t('omDenAvdoede.statsborgerskap')}
-                            selectOptions={land}
-                        />
-                    </SkjemaElement>
+
+                    <Box maxWidth="14rem">
+                        <SkjemaElement>
+                            <RHFCombobox
+                                name={`statsborgerskap`}
+                                label={t('omDenAvdoede.statsborgerskap')}
+                                options={countries}
+                            />
+                        </SkjemaElement>
+                    </Box>
 
                     <SkjemaElement>
                         <Datovelger

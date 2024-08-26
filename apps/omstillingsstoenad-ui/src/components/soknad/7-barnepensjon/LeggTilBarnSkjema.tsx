@@ -15,10 +15,21 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import { Alert, BodyShort, Button, GuidePanel, Heading, HGrid, Label, Link, RadioProps, VStack } from '@navikt/ds-react'
+import {
+    Alert,
+    BodyShort,
+    Box,
+    Button,
+    GuidePanel,
+    Heading,
+    HGrid,
+    Label,
+    Link,
+    RadioProps,
+    VStack,
+} from '@navikt/ds-react'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
-import { RHFSelect } from '../../felles/rhf/RHFSelect'
-import { useLand } from '../../../hooks/useLand'
+import useCountries, { Options } from '../../../hooks/useCountries'
 import ikon from '../../../assets/ikoner/barn1.svg'
 import React, { useEffect } from 'react'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
@@ -26,13 +37,13 @@ import styled from 'styled-components'
 import { NavigasjonsRad } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
-import bredde from '../../../typer/bredde'
 import { isDev } from '../../../api/axios'
 import { Panel } from '../../felles/Panel'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { BankkontoType, KronerEllerProsentType } from '../../../typer/utbetaling'
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 import Datovelger from '~components/felles/Datovelger'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -94,7 +105,7 @@ interface Props {
 
 const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbruttNyttBarn }: Props) => {
     const { t } = useTranslation()
-    const { land }: { land: any } = useLand()
+    const { countries }: { countries: Options[] } = useCountries()
     const { state: bruker } = useBrukerContext()
     const { state: soeknad } = useSoknadContext()
 
@@ -234,14 +245,15 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
                                         </VStack>
                                     )}
                                 </SkjemaElement>
-                                <SkjemaElement>
-                                    <RHFSelect
-                                        name={`statsborgerskap`}
-                                        label={t('omBarn.statsborgerskap')}
-                                        value={'Norge'}
-                                        selectOptions={land}
-                                    />
-                                </SkjemaElement>
+                                <Box maxWidth="14rem">
+                                    <SkjemaElement>
+                                        <RHFCombobox
+                                            name={`statsborgerskap`}
+                                            label={t('omBarn.statsborgerskap')}
+                                            options={countries}
+                                        />
+                                    </SkjemaElement>
+                                </Box>
 
                                 {visDuplikatFeilmelding() && (
                                     <SkjemaElement>
@@ -255,15 +267,15 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
 
                                 {bosattUtlandSvar === IValg.JA && (
                                     <>
-                                        <SkjemaElement>
-                                            <RHFSelect
-                                                name={'bosattUtland.land'}
-                                                label={t('omBarn.bosattUtland.land')}
-                                                value={'Norge'}
-                                                selectOptions={land}
-                                                bredde={bredde.S}
-                                            />
-                                        </SkjemaElement>
+                                        <Box maxWidth="14rem">
+                                            <SkjemaElement>
+                                                <RHFCombobox
+                                                    name={'bosattUtland.land'}
+                                                    label={t('omBarn.bosattUtland.land')}
+                                                    options={countries}
+                                                />
+                                            </SkjemaElement>
+                                        </Box>
                                         <RHFInput
                                             name={'bosattUtland.adresse'}
                                             label={t('omBarn.bosattUtland.adresse')}
