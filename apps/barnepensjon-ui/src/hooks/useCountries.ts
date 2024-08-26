@@ -40,7 +40,7 @@ export default function useCountries(): UseCountries {
             try {
                 const allCountries = await getAllCountries()
                 allCountries.sort((a: Country, b: Country) =>
-                    a.beskrivelser.nb.tekst > b.beskrivelser.nb.tekst ? 1 : -1
+                    a.beskrivelser.nb.term > b.beskrivelser.nb.term ? 1 : -1
                 )
 
                 setAllCountries(allCountries)
@@ -56,7 +56,7 @@ export default function useCountries(): UseCountries {
 
     const optionsListe = (countries: Country[]): Options[] => {
         const landliste = countries.map((l) => {
-            const str = l.beskrivelser['nb'].tekst.toLowerCase()
+            const str = l.beskrivelser['nb'].term.toLowerCase()
             const text = str.charAt(0).toUpperCase() + str.slice(1)
             return {
                 label: text,
