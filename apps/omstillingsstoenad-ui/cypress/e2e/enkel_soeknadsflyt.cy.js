@@ -4,7 +4,9 @@ import { format } from 'date-fns'
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal åpne startsiden og starte en søknad', () => {
-        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, { fixture: 'testbruker' }).as('hentInnloggetPerson')
+        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {
+            fixture: 'testbruker',
+        }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, {}).as('hentSoeknad') // Ingen kladd eksisterer
         cy.intercept('POST', `${basePath}/api/api/kladd`, {})
         cy.visit('localhost:5173/omstillingsstonad/soknad', {
@@ -53,7 +55,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('etternavn').type(omDenAvdoede.etternavn)
         getById('datoForDoedsfallet').type(foersteDagIAaret)
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
-        getById('statsborgerskap').find('select').select(omDenAvdoede.statsborgerskap)
+        getById('statsborgerskap').type('{downArrow}').type('{enter}')
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
 
         // Legg til land
@@ -272,7 +274,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('fornavn').type(barn.fornavn)
             getById('etternavn').type(barn.etternavn)
             getById('foedselsnummer').type(barn.foedselsnummer)
-            getById('statsborgerskap').find('select').select(barn.statsborgerskap)
+            getById('statsborgerskap').type('{downArrow}').type('{enter}')
             selectValueForId('bosattUtland.svar', barn.bosattUtland.svar)
             if (barn.foedselsnummer === '07010776133') {
                 // under 18 år
