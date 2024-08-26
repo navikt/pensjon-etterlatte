@@ -10,7 +10,7 @@ export default defineConfig({
                 target: 'http://localhost:8080',
                 changeOrigin: true,
                 secure: false,
-                rewrite: (path) => path.replace(/^\/selvbetjening\/api/, '/selvbetjening/api/api'),
+                rewrite: (path) => path.replace(/^\/selvbetjening\/api/, '/selvbetjening/api'),
             },
             '/selvbetjening/sanity': {
                 target: 'http://localhost:8080',
