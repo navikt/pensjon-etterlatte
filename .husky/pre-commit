@@ -2,6 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 cd ./apps/etterlatte-node-server && yarn lint-staged
+cd ./apps/barnepensjon-ui && yarn lint-staged
+cd ./apps/omstillingsstoenad-ui && yarn lint-staged
+cd ./apps/selvbetjening-ui && yarn lint-staged
 changedKotlinFiles=$(git diff --name-only --cached | grep '\.kt[s"]\?$' || true)
 
 if [ -n "${changedKotlinFiles-unset}" ]; then
