@@ -14,7 +14,7 @@ import LoggedInUserInfo from './LoggedInUserInfo'
 import FormElement from '../../common/FormElement'
 import { IAboutYou } from '../../../types/person'
 import PaymentDetails from '../../common/PaymentDetails'
-import useCountries from '../../../hooks/useCountries'
+import useCountries, { Options } from '../../../hooks/useCountries'
 import { Bredde } from '../../../utils/bredde'
 import Datepicker from '../../common/Datepicker'
 import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
@@ -27,7 +27,7 @@ export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
-    const { countries }: { countries: any } = useCountries()
+    const { countries }: { countries: Options[] } = useCountries()
 
     const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
@@ -81,7 +81,7 @@ export default function AboutYou({ next }: StepProps) {
                                                     id={'stayedAbroadCountry'}
                                                     name={'stayedAbroadCountry'}
                                                     label={t('stayedAbroadCountry')}
-                                                    options={countries.map((country: any) => country.label)}
+                                                    options={countries.map((country) => country.label)}
                                                 />
                                             </FormElement>
                                         </Box>
@@ -110,7 +110,7 @@ export default function AboutYou({ next }: StepProps) {
                                                     id={'countryOfResidence'}
                                                     name={'countryOfResidence'}
                                                     label={t('countryOfResidence')}
-                                                    options={countries.map((country: any) => country.label)}
+                                                    options={countries.map((country) => country.label)}
                                                 />
                                             </FormElement>
                                         </Box>

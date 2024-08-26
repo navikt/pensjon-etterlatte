@@ -5,8 +5,8 @@ interface UseCountries {
     countries: Options[]
     allCountries: Options[]
 }
-interface Options {
-    label?: string | undefined
+export interface Options {
+    label: string
     value: string
 }
 

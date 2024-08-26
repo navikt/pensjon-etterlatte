@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import styled from 'styled-components'
 import ikon from '../../../../assets/barn1.svg'
-import useCountries from '../../../../hooks/useCountries'
+import useCountries, { Options } from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
 import { IChild, ParentRelationType } from '~types/person'
 import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
@@ -86,7 +86,7 @@ const checkFnr = (fnr?: string): boolean => {
 
 const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
     const { t } = useTranslation('aboutChildren')
-    const { countries }: { countries: any } = useCountries()
+    const { countries }: { countries: Options[] } = useCountries()
     const { state: user } = useUserContext()
 
     const methods = useForm<IChild>({

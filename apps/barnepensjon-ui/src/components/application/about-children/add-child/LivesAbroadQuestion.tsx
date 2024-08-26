@@ -5,10 +5,11 @@ import { RHFInput } from '../../../common/rhf/RHFInput'
 import useTranslation from '../../../../hooks/useTranslation'
 import { Box } from '@navikt/ds-react'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
+import { Options } from '~hooks/useCountries'
 
 interface Props {
     isChild: boolean
-    countries: any
+    countries: Options[]
     livesAbroadAnswer?: JaNeiVetIkke
 }
 
@@ -32,7 +33,7 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
                             <RHFCombobox
                                 name={'staysAbroad.country'}
                                 label={t('stayAbroadCountry')}
-                                options={countries.map((country: any) => country.label)}
+                                options={countries.map((country) => country.label)}
                             />
                         </FormElement>
                     </Box>

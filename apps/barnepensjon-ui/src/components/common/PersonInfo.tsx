@@ -1,6 +1,6 @@
 import useTranslation from '../../hooks/useTranslation'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
-import useCountries from '../../hooks/useCountries'
+import useCountries, { Options } from '../../hooks/useCountries'
 import FormElement from './FormElement'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
@@ -15,7 +15,7 @@ interface Props {
 
 export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
     const { t } = useTranslation('common')
-    const { countries }: { countries: any } = useCountries()
+    const { countries }: { countries: Options[] } = useCountries()
 
     return (
         <>
@@ -34,7 +34,7 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                     <RHFCombobox
                         name={'citizenship'}
                         label={t('citizenship')}
-                        options={countries.map((country: any) => country.label)}
+                        options={countries.map((country) => country.label)}
                     />
                 </FormElement>
             </Box>

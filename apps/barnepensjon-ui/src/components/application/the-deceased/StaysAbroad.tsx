@@ -14,6 +14,7 @@ import FormElement from '../../common/FormElement'
 import styled from 'styled-components'
 import { GridColumns, GridGap } from '../../../utils/grid'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
+import { Options } from '~hooks/useCountries'
 
 const StaysAbroadCheckboxDiv = styled.div`
     .skjemagruppe {
@@ -25,7 +26,7 @@ const StaysAbroadCheckboxDiv = styled.div`
     }
 `
 
-export default function StaysAbroad({ countries, currencies }: { countries: any; currencies: any }) {
+export default function StaysAbroad({ countries, currencies }: { countries: Options[]; currencies: any }) {
     const { t } = useTranslation('aboutTheDeceased')
     const { control, watch } = useFormContext<IDeceasedParent>()
 
@@ -62,7 +63,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: any;
                             <RHFCombobox
                                 name={`staysAbroad.abroadStays[${index}].country`}
                                 label={t('abroadInWhichCountry')}
-                                options={countries.map((country: any) => country.label)}
+                                options={countries.map((country) => country.label)}
                             />
                         </Box>
                         <FormElement>
