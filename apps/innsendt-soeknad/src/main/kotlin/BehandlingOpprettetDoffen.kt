@@ -8,12 +8,12 @@ import no.nav.helse.rapids_rivers.isMissingOrNull
 import org.slf4j.LoggerFactory
 import soeknad.SoeknadRepository
 import java.time.OffsetDateTime
-import java.util.*
+import java.util.UUID
 
 internal class BehandlingOpprettetDoffen(
     rapidsConnection: RapidsConnection,
-    private val soeknader: SoeknadRepository
-): River.PacketListener {
+    private val soeknader: SoeknadRepository,
+) : River.PacketListener {
     private val logger = LoggerFactory.getLogger(BehandlingOpprettetDoffen::class.java)
 
     init {
@@ -29,7 +29,7 @@ internal class BehandlingOpprettetDoffen(
 
     override fun onPacket(
         packet: JsonMessage,
-        context: MessageContext
+        context: MessageContext,
     ) {
         val sakId = packet["sakId"].longValue()
         val behandlingId =
@@ -49,7 +49,7 @@ internal class BehandlingOpprettetDoffen(
                 if (it.isBefore(OffsetDateTime.now())) {
                     logger.info(
                         "${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadId.asLong()} har " +
-                            "behandling, men hendelsen gikk ut på dato $it"
+                            "behandling, men hendelsen gikk ut på dato $it",
                     )
                 }
             }

@@ -36,8 +36,9 @@ import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
-import java.util.*
-import java.util.concurrent.atomic.*
+import java.util.Timer
+import java.util.UUID
+import java.util.concurrent.atomic.AtomicBoolean
 
 val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
@@ -64,11 +65,9 @@ fun main() {
                             soknadApi(soeknadService)
                         }
                     }
-                }
-                .build {
+                }.build {
                     datasourceBuilder.migrate()
-                }
-                .also { rapidConnection ->
+                }.also { rapidConnection ->
                     JournalpostSkrevet(rapidConnection, db)
                     BehandlingOpprettetDoffen(rapidConnection, db)
 
@@ -94,9 +93,10 @@ fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
         .toString()
         .let { Foedselsnummer.of(it) }
 
-fun Application.apiModule(context: ApplicationContext, routes: Route.() -> Unit) {
-
-
+fun Application.apiModule(
+    context: ApplicationContext,
+    routes: Route.() -> Unit,
+) {
     install(Authentication) {
         tokenValidationSupport(config = context.hoconApplicationConfig)
     }
@@ -129,5 +129,5 @@ private fun Timer.addShutdownHook() =
         Thread {
             shuttingDown.set(true)
             this.cancel()
-        }
+        },
     )

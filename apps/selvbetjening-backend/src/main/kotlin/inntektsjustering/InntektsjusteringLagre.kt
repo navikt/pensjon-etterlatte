@@ -8,5 +8,5 @@ data class InntektsjusteringLagre(
     val arbeidsinntekt: Int,
     val naeringsinntekt: Int,
     val arbeidsinntektUtland: Int,
-    val naeringsinntektUtland: Int
+    val naeringsinntektUtland: Int,
 )

@@ -4,30 +4,30 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 data class Beskrivelse(
     val term: String,
-    val tekst: String
+    val tekst: String,
 )
 
 data class Betydning(
     val gyldigFra: String,
     val gyldigTil: String,
-    val beskrivelser: Map<String, Beskrivelse>
+    val beskrivelser: Map<String, Beskrivelse>,
 )
 
 data class BetydningMedIsoKode(
     val gyldigFra: String,
     val gyldigTil: String,
     val beskrivelser: Map<String, Beskrivelse>,
-    val isoKode: String
+    val isoKode: String,
 )
 
 data class Valuta(
     val isoKode: String,
     val gyldigFra: String,
     val gyldigTil: String,
-    val beskrivelse: Beskrivelse
+    val beskrivelse: Beskrivelse,
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class KodeverkResponse(
-    val betydninger: Map<String, List<Betydning>>
+    val betydninger: Map<String, List<Betydning>>,
 )

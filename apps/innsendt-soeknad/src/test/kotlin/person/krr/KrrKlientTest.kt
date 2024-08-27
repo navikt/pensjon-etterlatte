@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test
 internal class KrrKlientTest {
     private fun opprettKlient(
         responseContent: DigitalKontaktinformasjon,
-        status: HttpStatusCode
+        status: HttpStatusCode,
     ): KrrKlient {
         val httpClient =
             HttpClient(MockEngine) {
@@ -32,8 +32,8 @@ internal class KrrKlientTest {
                                     responseContent.toJson(),
                                     status,
                                     headersOf(
-                                        "Content-Type" to listOf(ContentType.Application.Json.toString())
-                                    )
+                                        "Content-Type" to listOf(ContentType.Application.Json.toString()),
+                                    ),
                                 )
                             }
 
@@ -84,6 +84,6 @@ internal class KrrKlientTest {
             spraak = "nb",
             epostadresse = "noreply@nav.no",
             mobiltelefonnummer = "11111111",
-            sikkerDigitalPostkasse = null
+            sikkerDigitalPostkasse = null,
         )
 }

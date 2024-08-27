@@ -17,19 +17,19 @@ import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.Status
 import soeknad.UlagretSoeknad
-import java.util.*
+import java.util.UUID
 
 class SoeknadService(
     private val db: SoeknadRepository,
     private val publiserUtkast: UtkastPubliserer,
-    private val adressebeskyttelseService: AdressebeskyttelseService
+    private val adressebeskyttelseService: AdressebeskyttelseService,
 ) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
     suspend fun sendSoeknad(
         innloggetBrukerFnr: Foedselsnummer,
         request: SoeknadRequest,
-        kilde: String
+        kilde: String,
     ): Boolean {
         sikkerLogg.info("Mottok ${request.soeknader.size} søknad(er) fra bruker $innloggetBrukerFnr")
         logger.info("Forsøker lagring av mottatte søknader (antall=${request.soeknader.size})")
@@ -83,7 +83,7 @@ class SoeknadService(
 
     private fun validerInnsender(
         innloggetBrukerFnr: Foedselsnummer,
-        request: SoeknadRequest
+        request: SoeknadRequest,
     ) {
         val innsenderErInnlogget = request.soeknader.all { innloggetBrukerFnr == it.innsender.foedselsnummer.svar }
 
@@ -94,7 +94,7 @@ class SoeknadService(
             sikkerLogg.error(
                 "Innsender er ikke samme som innlogget bruker ($innloggetBrukerFnr): \n" +
                     "${request.soeknader.size} søknad(er) med innsendere: $innsenderListe \n" +
-                    request.toJson()
+                    request.toJson(),
             )
             throw RuntimeException("Ugyldig innsender")
         }
@@ -102,12 +102,15 @@ class SoeknadService(
 
     private fun validerOgFerdigstillSoeknader(
         request: SoeknadRequest,
-        kilde: String
+        kilde: String,
     ): List<SoeknadID> {
         val soeknader =
             request.soeknader
                 .map {
-                    val fnr = it.soeker.foedselsnummer?.svar?.value ?: UUID.randomUUID().toString()
+                    val fnr =
+                        it.soeker.foedselsnummer
+                            ?.svar
+                            ?.value ?: UUID.randomUUID().toString()
                     UlagretSoeknad(fnr, it.toJson(), kilde, it.type)
                 }
 
@@ -133,7 +136,7 @@ class SoeknadService(
 
     fun hentKladd(
         innloggetBruker: Foedselsnummer,
-        kilde: String
+        kilde: String,
     ): LagretSoeknad? {
         logger.info("Henter kladd for innlogget bruker.")
         return db.finnKladd(innloggetBruker.value, kilde)?.also {
@@ -144,7 +147,7 @@ class SoeknadService(
     fun lagreKladd(
         innloggetBruker: Foedselsnummer,
         soeknad: JsonNode,
-        kilde: String
+        kilde: String,
     ): SoeknadID {
         val harKladd = db.finnKladd(innloggetBruker.value, kilde)
 
@@ -161,7 +164,7 @@ class SoeknadService(
 
     fun slettKladd(
         innloggetBruker: Foedselsnummer,
-        kilde: String
+        kilde: String,
     ) {
         logger.info("Sletter kladd for innlogget bruker.")
         db
@@ -175,4 +178,4 @@ class SoeknadService(
 
 internal fun SoeknadRequest.hentSaktype() = this.soeknader.first().type
 
-class SoeknadConflictException: RuntimeException("Bruker")
+class SoeknadConflictException : RuntimeException("Bruker")

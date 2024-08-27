@@ -9,11 +9,11 @@ import java.time.LocalDateTime
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class PersonResponse(
     val data: PersonResponseData? = null,
-    val errors: List<ResponseError>? = null
+    val errors: List<ResponseError>? = null,
 )
 
 data class PersonResponseData(
-    val hentPerson: HentPerson? = null
+    val hentPerson: HentPerson? = null,
 )
 
 data class HentPerson(
@@ -22,7 +22,7 @@ data class HentPerson(
     val navn: List<Navn>,
     val statsborgerskap: List<Statsborgerskap>,
     val foedsel: List<Foedsel>,
-    val sivilstand: List<Sivilstand>
+    val sivilstand: List<Sivilstand>,
 )
 
 data class Navn(
@@ -32,14 +32,14 @@ data class Navn(
     val forkortetNavn: String? = null,
     val gyldigFraOgMed: LocalDate? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,
-    val metadata: Metadata
+    val metadata: Metadata,
 )
 
 data class Statsborgerskap(
     val land: String,
     val gyldigFraOgMed: LocalDate? = null,
     val gyldigTilOgMed: LocalDate? = null,
-    val metadata: Metadata
+    val metadata: Metadata,
 )
 
 data class Foedsel(
@@ -48,18 +48,18 @@ data class Foedsel(
     val foedested: String? = null,
     val foedselsaar: Int? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,
-    val metadata: Metadata
+    val metadata: Metadata,
 )
 
 data class Folkeregistermetadata(
-    val gyldighetstidspunkt: LocalDateTime? = null
+    val gyldighetstidspunkt: LocalDateTime? = null,
 )
 
 data class Metadata(
     val endringer: List<Endring>,
     val historisk: Boolean,
     val master: String,
-    val opplysningsId: String
+    val opplysningsId: String,
 ) {
     fun sisteRegistrertDato(): LocalDateTime = endringer.maxByOrNull { it.registrert }?.registrert!!
 }
@@ -69,13 +69,13 @@ data class Endring(
     val registrert: LocalDateTime,
     val registrertAv: String,
     val systemkilde: String,
-    val type: Endringstype
+    val type: Endringstype,
 )
 
 enum class Endringstype {
     KORRIGER,
     OPPHOER,
-    OPPRETT
+    OPPRETT,
 }
 
 enum class Sivilstandstype {
@@ -88,12 +88,12 @@ enum class Sivilstandstype {
     REGISTRERT_PARTNER,
     SEPARERT_PARTNER,
     SKILT_PARTNER,
-    GJENLEVENDE_PARTNER
+    GJENLEVENDE_PARTNER,
 }
 
 data class Sivilstand(
     val type: Sivilstandstype,
     val gyldigFraOgMed: LocalDate? = null,
     val relatertVedSivilstand: String? = null,
-    val metadata: Metadata
+    val metadata: Metadata,
 )

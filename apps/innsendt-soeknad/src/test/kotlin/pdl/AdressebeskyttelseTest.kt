@@ -32,7 +32,7 @@ internal class AdressebeskyttelseTest {
                 Gradering.UGRADERT,
                 Gradering.STRENGT_FORTROLIG,
                 Gradering.STRENGT_FORTROLIG_UTLAND,
-                Gradering.FORTROLIG
+                Gradering.FORTROLIG,
             )
         assertEquals(Gradering.STRENGT_FORTROLIG_UTLAND, graderinger1.minOrNull())
 
@@ -40,20 +40,20 @@ internal class AdressebeskyttelseTest {
             listOf(
                 Gradering.FORTROLIG,
                 Gradering.STRENGT_FORTROLIG,
-                Gradering.UGRADERT
+                Gradering.UGRADERT,
             )
         assertEquals(Gradering.STRENGT_FORTROLIG, graderinger2.minOrNull())
 
         val graderinger3 =
             listOf(
                 Gradering.FORTROLIG,
-                Gradering.UGRADERT
+                Gradering.UGRADERT,
             )
         assertEquals(Gradering.FORTROLIG, graderinger3.minOrNull())
 
         val graderinger4 =
             listOf(
-                Gradering.UGRADERT
+                Gradering.UGRADERT,
             )
         assertEquals(Gradering.UGRADERT, graderinger4.minOrNull())
 
@@ -89,9 +89,9 @@ internal class AdressebeskyttelseTest {
                 HentAdressebeskyttelse(
                     listOfNotNull(
                         mockPerson(Gradering.FORTROLIG),
-                        mockPerson(Gradering.STRENGT_FORTROLIG_UTLAND, Gradering.STRENGT_FORTROLIG)
-                    )
-                )
+                        mockPerson(Gradering.STRENGT_FORTROLIG_UTLAND, Gradering.STRENGT_FORTROLIG),
+                    ),
+                ),
             )
 
         val serialized = mapper.writeValueAsString(response)
@@ -114,8 +114,8 @@ internal class AdressebeskyttelseTest {
         AdressebeskyttelseBolkPerson(
             ident = "12345678910",
             person =
-            AdressebeskyttelsePerson(
-                gradering.filterNotNull().map { Adressebeskyttelse(it) }
-            )
+                AdressebeskyttelsePerson(
+                    gradering.filterNotNull().map { Adressebeskyttelse(it) },
+                ),
         )
 }

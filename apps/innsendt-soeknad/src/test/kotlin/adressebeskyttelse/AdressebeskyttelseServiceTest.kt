@@ -32,11 +32,11 @@ internal class AdressebeskyttelseServiceTest {
                         mockAdressebeskyttetPerson("26117512737", Gradering.UGRADERT),
                         mockAdressebeskyttetPerson(
                             "26104500284",
-                            Gradering.STRENGT_FORTROLIG_UTLAND
+                            Gradering.STRENGT_FORTROLIG_UTLAND,
                         ),
-                        mockAdressebeskyttetPerson("24116324268", null)
-                    )
-                )
+                        mockAdressebeskyttetPerson("24116324268", null),
+                    ),
+                ),
             )
 
         runBlocking {
@@ -46,9 +46,9 @@ internal class AdressebeskyttelseServiceTest {
                         Foedselsnummer.of("11057523044"),
                         Foedselsnummer.of("26117512737"),
                         Foedselsnummer.of("26104500284"),
-                        Foedselsnummer.of("24116324268")
+                        Foedselsnummer.of("24116324268"),
                     ),
-                    SoeknadType.BARNEPENSJON
+                    SoeknadType.BARNEPENSJON,
                 )
 
             assertEquals(4, graderinger.size)
@@ -64,7 +64,7 @@ internal class AdressebeskyttelseServiceTest {
         runBlocking {
             assertEquals(
                 emptyMap<String, Gradering>(),
-                adressebeskyttelseService.hentGradering(emptyList(), SoeknadType.BARNEPENSJON)
+                adressebeskyttelseService.hentGradering(emptyList(), SoeknadType.BARNEPENSJON),
             )
         }
     }
@@ -79,7 +79,7 @@ internal class AdressebeskyttelseServiceTest {
                 assertThrows<Exception> {
                     adressebeskyttelseService.hentGradering(
                         listOf(Foedselsnummer.of("11057523044")),
-                        SoeknadType.BARNEPENSJON
+                        SoeknadType.BARNEPENSJON,
                     )
                 }
             assertEquals("Fant ingen personer i PDL", exception.message)
@@ -89,8 +89,8 @@ internal class AdressebeskyttelseServiceTest {
 
 private fun mockAdressebeskyttetPerson(
     ident: String,
-    gradering: Gradering?
+    gradering: Gradering?,
 ) = AdressebeskyttelseBolkPerson(
     ident,
-    person = AdressebeskyttelsePerson(listOf(Adressebeskyttelse(gradering)))
+    person = AdressebeskyttelsePerson(listOf(Adressebeskyttelse(gradering))),
 )

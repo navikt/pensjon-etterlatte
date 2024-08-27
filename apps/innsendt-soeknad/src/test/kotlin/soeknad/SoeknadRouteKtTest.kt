@@ -39,22 +39,25 @@ import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import tokenFor
-import java.util.*
-import java.util.stream.*
+import java.util.Arrays
+import java.util.stream.Collectors
 
 internal class SoeknadRouteKtTest {
     private val service = mockk<SoeknadService>()
     private val dummyJson = """{"dummy":"json"}"""
     private val kilde = "omstillingsstoenad-ui"
-    private val STOR_SNERK = "11057523044"
+
+    companion object {
+        private const val STOR_SNERK = "11057523044"
+    }
 
     @Test
     fun `Skal lagre søknader`() {
         val soeknad =
             SoeknadRequest(
                 listOf(
-                    InnsendtSoeknadFixtures.omstillingsSoeknad()
-                )
+                    InnsendtSoeknadFixtures.omstillingsSoeknad(),
+                ),
             )
 
         withTestApplication({ testModule { soknadApi(service) } }) {
@@ -89,9 +92,10 @@ internal class SoeknadRouteKtTest {
     @Test
     fun `Skal hente kladd`() {
         withTestApplication({ testModule { soknadApi(service) } }) {
-            val kladd = LagretSoeknad(1L, "", "").apply {
-                status = Status.LAGRETKLADD
-            }
+            val kladd =
+                LagretSoeknad(1L, "", "").apply {
+                    status = Status.LAGRETKLADD
+                }
             coEvery { service.hentKladd(any(), kilde) } returns kladd
 
             handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
@@ -149,10 +153,10 @@ fun Application.testModule(routes: Route.() -> Unit) {
     }
 }
 
-class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguration(null)) {
+class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
     class ProviderConfiguration internal constructor(
-        name: String?
-    ): Config(name)
+        name: String?,
+    ) : Config(name)
 
     private fun getTokensFromHeader(request: Headers): List<JwtToken> {
         try {
@@ -162,7 +166,7 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
                 return extractBearerTokens(*headerValues)
                     .map { encodedToken: String ->
                         JwtToken(
-                            encodedToken
+                            encodedToken,
                         )
                     }
             }
@@ -177,7 +181,7 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
             .map { s: String ->
                 s
                     .split(
-                        " ".toRegex()
+                        " ".toRegex(),
                     ).toTypedArray()
             }.filter { pair: Array<String> -> pair.size == 2 }
             .filter { pair: Array<String> ->
@@ -191,8 +195,8 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
     override suspend fun onAuthenticate(context: AuthenticationContext) {
         context.principal(
             TokenValidationContextPrincipal(
-                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
-            )
+                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer }),
+            ),
         )
     }
 }

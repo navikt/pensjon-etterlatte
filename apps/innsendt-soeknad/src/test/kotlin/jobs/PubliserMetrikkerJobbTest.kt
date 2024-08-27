@@ -45,23 +45,23 @@ internal class PubliserMetrikkerJobbTest {
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand", "kilde"),
-            arrayOf(Status.FERDIGSTILT.name, kildeBP)
+            arrayOf(Status.FERDIGSTILT.name, kildeBP),
         ) shouldBe 12.0
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_tilstand",
             arrayOf("tilstand", "kilde"),
-            arrayOf(Status.SENDT.name, kildeOMS)
+            arrayOf(Status.SENDT.name, kildeOMS),
         ) shouldBe 34.0
         verify(exactly = 1) { dbMock.kilder() }
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_kilde",
             arrayOf("kilde"),
-            arrayOf(kildeBP)
+            arrayOf(kildeBP),
         ) shouldBe 40.0
         CollectorRegistry.defaultRegistry.getSampleValue(
             "soknad_kilde",
             arrayOf("kilde"),
-            arrayOf(kildeOMS)
+            arrayOf(kildeOMS),
         ) shouldBe 25.0
         verify(exactly = 1) { dbMock.ukategorisert() }
     }

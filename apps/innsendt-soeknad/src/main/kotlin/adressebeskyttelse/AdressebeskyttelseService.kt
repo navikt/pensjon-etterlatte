@@ -9,7 +9,7 @@ import no.nav.etterlatte.pdl.Pdl
 import org.slf4j.LoggerFactory
 
 class AdressebeskyttelseService(
-    private val klient: Pdl
+    private val klient: Pdl,
 ) {
     private val logger = LoggerFactory.getLogger(AdressebeskyttelseService::class.java)
 
@@ -23,7 +23,7 @@ class AdressebeskyttelseService(
      */
     suspend fun hentGradering(
         fnrListe: List<Foedselsnummer>,
-        type: SoeknadType
+        type: SoeknadType,
     ): Map<Foedselsnummer, Gradering> {
         if (fnrListe.isEmpty()) return emptyMap()
 

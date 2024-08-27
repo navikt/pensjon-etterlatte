@@ -19,7 +19,7 @@ class DatasourceBuilderTest {
             opprettInMemoryDatabase(
                 postgreSQLContainer,
                 mapOf("NAIS_CLUSTER_NAME" to "integrationtest"),
-                shouldMigrate = false
+                shouldMigrate = false,
             )
 
         dsb.dataSource.createGcpPersonalRole()
@@ -65,8 +65,8 @@ class DatasourceBuilderTest {
                 "DB_PORT" to postgreSQLContainer.firstMappedPort.toString(),
                 "DB_DATABASE" to postgreSQLContainer.databaseName,
                 "DB_USERNAME" to "personaluser",
-                "DB_PASSWORD" to "password"
-            )
+                "DB_PASSWORD" to "password",
+            ),
         ).dataSource.let(PostgresSoeknadRepository::using).eldsteUarkiverte()
     }
 }

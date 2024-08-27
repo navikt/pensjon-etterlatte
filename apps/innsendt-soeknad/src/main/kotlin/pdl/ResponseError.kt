@@ -12,22 +12,22 @@ data class ResponseError(
     val message: String?,
     val locations: List<ErrorLocation>? = null,
     val path: List<String>? = null,
-    val extensions: ErrorExtension? = null
+    val extensions: ErrorExtension? = null,
 )
 
 data class ErrorLocation(
     val line: String?,
-    val column: String?
+    val column: String?,
 )
 
 data class ErrorExtension(
     val code: String?,
     val details: ErrorDetails?,
-    val classification: String?
+    val classification: String?,
 )
 
 data class ErrorDetails(
     val type: String? = null,
     val cause: String? = null,
-    val policy: String? = null
+    val policy: String? = null,
 )

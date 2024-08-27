@@ -35,7 +35,7 @@ internal class AdressebeskyttelseKlientTest {
                                 val response =
                                     javaClass
                                         .getResource(
-                                            "/pdl/pdlMock1.json"
+                                            "/pdl/pdlMock1.json",
                                         ).readText()
                                         .replace(Regex("[\n\t]"), "")
                                 val responseHeaders =
@@ -53,7 +53,7 @@ internal class AdressebeskyttelseKlientTest {
         runBlocking {
             AdressebeskyttelseKlient(
                 httpClient,
-                "https://pdl.no/"
+                "https://pdl.no/",
             ).finnAdressebeskyttelseForFnr(listOf(fnr), SoeknadType.BARNEPENSJON).also {
                 assertEquals(
                     Gradering.FORTROLIG,
@@ -63,14 +63,14 @@ internal class AdressebeskyttelseKlientTest {
                         ?.person
                         ?.adressebeskyttelse
                         ?.get(0)
-                        ?.gradering
+                        ?.gradering,
                 )
                 assertEquals(
                     "12345678910",
                     it.data
                         ?.hentPersonBolk
                         ?.get(0)
-                        ?.ident
+                        ?.ident,
                 )
             }
         }

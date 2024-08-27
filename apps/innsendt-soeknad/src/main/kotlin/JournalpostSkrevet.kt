@@ -12,8 +12,8 @@ import java.time.OffsetDateTime
 
 internal class JournalpostSkrevet(
     rapidsConnection: RapidsConnection,
-    private val soeknader: SoeknadRepository
-): River.PacketListener {
+    private val soeknader: SoeknadRepository,
+) : River.PacketListener {
     private val logger = LoggerFactory.getLogger(JournalpostSkrevet::class.java)
 
     init {
@@ -29,7 +29,7 @@ internal class JournalpostSkrevet(
 
     override fun onPacket(
         packet: JsonMessage,
-        context: MessageContext
+        context: MessageContext,
     ) {
         val dokumentInfoId = dokarkivRetur(packet).path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
 
@@ -58,7 +58,7 @@ internal class JournalpostSkrevet(
                 if (it.isBefore(OffsetDateTime.now())) {
                     logger.info(
                         "${OffsetDateTime.now()}: Fikk melding om at søknad ${soeknadIdAsLong(packet)} " +
-                            "er arkivert, men hendelsen gikk ut på dato $it"
+                            "er arkivert, men hendelsen gikk ut på dato $it",
                     )
                 }
             }
@@ -69,7 +69,7 @@ internal class JournalpostSkrevet(
         if (!erTestSoeknad(packet)) {
             soeknader.soeknadFeiletArkivering(
                 soeknadIdAsLong(packet),
-                dokarkivRetur(packet).toJson()
+                dokarkivRetur(packet).toJson(),
             )
         }
     }

@@ -15,11 +15,11 @@ import java.time.LocalDate
 
 internal class LocalDateSerializerTest {
     private data class TestClassOptionalDate(
-        val date: LocalDate?
+        val date: LocalDate?,
     )
 
     private data class TestClassRequiredDate(
-        val date: LocalDate
+        val date: LocalDate,
     )
 
     private val jacksonObjectMapper =

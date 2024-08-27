@@ -9,14 +9,15 @@ import java.util.UUID
 
 class InntektsjusteringService(
     val inntektsjusteringRepository: InntektsjusteringRepository,
-    val produsent: KafkaProdusent<String, String>
+    val produsent: KafkaProdusent<String, String>,
 ) {
+    fun hentInntektsjustering(fnr: Foedselsnummer): Inntektsjustering? =
+        inntektsjusteringRepository.hentInntektsjustering(fnr)
 
-    fun hentInntektsjustering(fnr: Foedselsnummer): Inntektsjustering? {
-        return inntektsjusteringRepository.hentInntektsjustering(fnr)
-    }
-
-    fun lagreInntektsjustering(fnr: Foedselsnummer, request: InntektsjusteringLagre) {
+    fun lagreInntektsjustering(
+        fnr: Foedselsnummer,
+        request: InntektsjusteringLagre,
+    ) {
         inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
         val lagret = inntektsjusteringRepository.hentInntektsjustering(fnr)
         val message =
@@ -24,12 +25,10 @@ class InntektsjusteringService(
                 mapOf(
                     "@event_name" to "inntektsjustering_innsendt",
                     "@fnr_bruker" to fnr.value,
-                    "@inntektsjustering_innhold" to lagret!!.toJson()
-                )
+                    "@inntektsjustering_innhold" to lagret!!.toJson(),
+                ),
             )
 
         produsent.publiser(UUID.randomUUID().toString(), message.toJson())
     }
-
-
 }

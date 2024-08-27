@@ -6,7 +6,7 @@ import org.flywaydb.core.Flyway
 import javax.sql.DataSource
 
 class DataSourceBuilder(
-    private val env: Map<String, String>
+    private val env: Map<String, String>,
 ) {
     private val hikariConfig =
         HikariConfig().apply {
@@ -15,7 +15,7 @@ class DataSourceBuilder(
                 requireNotNull(env["DB_HOST"]) { "database host must be set if jdbc url is not provided" },
                 requireNotNull(env["DB_PORT"]) { "database port must be set if jdbc url is not provided" },
                 requireNotNull(env["DB_DATABASE"]) { "database name must be set if jdbc url is not provided" },
-                env["DB_USERNAME"]?.let { "?user=$it" } ?: ""
+                env["DB_USERNAME"]?.let { "?user=$it" } ?: "",
             )
 
             env["DB_USERNAME"]?.let { this.username = it }

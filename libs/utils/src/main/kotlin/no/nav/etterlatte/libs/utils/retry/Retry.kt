@@ -6,11 +6,11 @@ import libs.common.util.RetryResult.Success
 sealed class RetryResult {
     data class Success(
         val content: Any? = null,
-        val previousExceptions: List<Exception> = emptyList()
+        val previousExceptions: List<Exception> = emptyList(),
     ) : RetryResult()
 
     data class Failure(
-        val exceptions: List<Exception> = emptyList()
+        val exceptions: List<Exception> = emptyList(),
     ) : RetryResult() {
         fun lastError() = exceptions.last()
     }
@@ -18,7 +18,7 @@ sealed class RetryResult {
 
 suspend fun <T> unsafeRetry(
     times: Int = 2,
-    block: suspend () -> T
+    block: suspend () -> T,
 ) = retry(times, block).let {
     when (it) {
         is Success -> it.content
@@ -28,13 +28,13 @@ suspend fun <T> unsafeRetry(
 
 suspend fun <T> retry(
     times: Int = 2,
-    block: suspend () -> T
+    block: suspend () -> T,
 ) = retryInner(times, emptyList(), block)
 
 private suspend fun <T> retryInner(
     times: Int,
     exceptions: List<Exception>,
-    block: suspend () -> T
+    block: suspend () -> T,
 ): RetryResult =
     try {
         Success(block(), exceptions)

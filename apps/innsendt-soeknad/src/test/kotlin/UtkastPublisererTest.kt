@@ -9,7 +9,7 @@ import no.nav.etterlatte.toJson
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import soeknad.LagretSoeknad
-import java.util.*
+import java.util.UUID
 
 class UtkastPublisererTest {
     private val kafkaProduser: KafkaProdusent<String, String> = mockk()
@@ -68,12 +68,12 @@ class UtkastPublisererTest {
                     mapOf(
                         "nb" to "Søknad om barnepensjon",
                         "nn" to "Søknad om barnepensjon",
-                        "en" to "Application for children’s pension"
+                        "en" to "Application for children’s pension",
                     ),
                 "metrics" to
                     mapOf(
-                        "skjemanavn" to "Søknad om barnepensjon"
-                    )
+                        "skjemanavn" to "Søknad om barnepensjon",
+                    ),
             )
 
         every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
@@ -112,7 +112,7 @@ class UtkastPublisererTest {
         Assertions.assertEquals("deleted", message["@event_name"].textValue())
         Assertions.assertEquals(
             UUID.nameUUIDFromBytes("fnr123".toByteArray()).toString(),
-            message["utkastId"].textValue()
+            message["utkastId"].textValue(),
         )
     }
 }

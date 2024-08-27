@@ -22,7 +22,8 @@ import org.testcontainers.junit.jupiter.Container
 import java.sql.Timestamp
 import java.time.ZoneOffset
 import java.time.ZonedDateTime
-import java.util.*
+import java.util.Date
+import java.util.UUID
 import javax.sql.DataSource
 import kotlin.random.Random
 
@@ -384,7 +385,7 @@ internal class SoeknadDaoIntegrationTest {
                 SoeknadTest(1000, fnr1, """{}""", nowUTC.minusDays(5), kildeBarnepensjon),
                 SoeknadTest(1111, fnr2, """{}""", nowUTC.minusHours(72), kildeBarnepensjon),
                 SoeknadTest(2222, fnr3, """{}""", nowUTC.minusHours(71).plusMinutes(59), kildeBarnepensjon),
-                SoeknadTest(3333, fnr4, """{}""", nowUTC, kildeBarnepensjon)
+                SoeknadTest(3333, fnr4, """{}""", nowUTC, kildeBarnepensjon),
             )
         lagreSoeknaderMedOpprettetTidspunkt(soeknader, true)
 
@@ -471,7 +472,7 @@ internal class SoeknadDaoIntegrationTest {
                     soeknad1.fnr,
                     soeknad1.payload,
                     ZonedDateTime.now().minusHours(6),
-                    kildeBarnepensjon
+                    kildeBarnepensjon,
                 ),
                 SoeknadTest(soeknad2.id, soeknad2.fnr, soeknad2.payload, ZonedDateTime.now(), kildeBarnepensjon),
                 SoeknadTest(
@@ -479,9 +480,9 @@ internal class SoeknadDaoIntegrationTest {
                     soeknad3.fnr,
                     soeknad3.payload,
                     ZonedDateTime.now().minusHours(12),
-                    kildeBarnepensjon
-                )
-            )
+                    kildeBarnepensjon,
+                ),
+            ),
         )
         db.ferdigstillSoeknad(UlagretSoeknad(soeknad1.fnr, soeknad1.payload, kildeBarnepensjon))
         db.ferdigstillSoeknad(UlagretSoeknad(soeknad2.fnr, soeknad2.payload, kildeBarnepensjon))
@@ -494,7 +495,7 @@ internal class SoeknadDaoIntegrationTest {
     fun `Ukategoriserte søknader skal plukkes opp`() {
         val soeknad = LagretSoeknad(2004, "Ukategorisert", "{}")
         lagreSoeknaderMedOpprettetTidspunkt(
-            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now(), kildeBarnepensjon))
+            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now(), kildeBarnepensjon)),
         )
 
         db.ukategorisert() shouldContain soeknad.id
@@ -523,7 +524,7 @@ internal class SoeknadDaoIntegrationTest {
                 Status.ARKIVERT,
                 Status.ARKIVERINGSFEIL,
                 Status.VENTERBEHANDLING,
-                Status.BEHANDLINGLAGRET
+                Status.BEHANDLINGLAGRET,
             )
     }
 
@@ -712,7 +713,7 @@ internal class SoeknadDaoIntegrationTest {
                 FerdigstiltSoeknad(
                     rs.getLong("id"),
                     rs.getString("type")?.let { SoeknadType.valueOf(it) },
-                    rs.getString("kilde")
+                    rs.getString("kilde"),
                 )
             } else {
                 null
@@ -721,7 +722,7 @@ internal class SoeknadDaoIntegrationTest {
 
     private fun lagreSoeknaderMedOpprettetTidspunkt(
         soeknader: List<SoeknadTest>,
-        opprettKladdHendelse: Boolean = false
+        opprettKladdHendelse: Boolean = false,
     ) {
         soeknader.forEachIndexed { index, soeknad ->
             dataSource.connection.use {
@@ -731,7 +732,7 @@ internal class SoeknadDaoIntegrationTest {
                         WITH soeknad_id AS (
                             INSERT INTO soeknad(id, opprettet, kilde) VALUES(${soeknad.id}, ?, ?) RETURNING id
                         ) INSERT INTO innhold(soeknad_id, fnr, payload) VALUES(${soeknad.id}, ?, ?) RETURNING soeknad_id
-                        """.trimIndent()
+                        """.trimIndent(),
                     ).apply {
                         setTimestamp(1, Timestamp(Date.from(soeknad.opprettet.toInstant()).time))
                         setString(2, soeknad.kilde)
@@ -746,12 +747,12 @@ internal class SoeknadDaoIntegrationTest {
 
     private fun nyKladdHendelse(
         soeknad: SoeknadTest,
-        hendelseId: Long
+        hendelseId: Long,
     ) {
         dataSource.connection.use {
             it
                 .prepareStatement(
-                    "INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)"
+                    "INSERT INTO hendelse(id, soeknad_id, status_id, payload, opprettet) VALUES(?, ?, ?, ?, ?)",
                 ).apply {
                     setLong(1, hendelseId)
                     setLong(2, soeknad.id)
@@ -799,7 +800,7 @@ internal class SoeknadDaoIntegrationTest {
 
     private fun finnSoeknad(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): LagretSoeknad? =
         dataSource.connection.use {
             val pstmt =
@@ -808,7 +809,7 @@ internal class SoeknadDaoIntegrationTest {
                     SELECT * FROM innhold i 
                     INNER JOIN soeknad s on s.id = i.soeknad_id 
                     WHERE i.fnr = ? AND s.kilde = ?
-                    """.trimIndent()
+                    """.trimIndent(),
                 )
             pstmt.setString(1, fnr)
             pstmt.setString(2, kilde)
@@ -832,7 +833,7 @@ internal class SoeknadDaoIntegrationTest {
                         WHERE h.soeknad_id = ?
                         ORDER BY h.opprettet DESC
                         LIMIT 1;
-                        """.trimIndent()
+                        """.trimIndent(),
                     ).apply { setLong(1, id) }
                     .executeQuery()
 
@@ -864,6 +865,6 @@ internal class SoeknadDaoIntegrationTest {
         val fnr: String,
         val data: String,
         val opprettet: ZonedDateTime,
-        val kilde: String
+        val kilde: String,
     )
 }

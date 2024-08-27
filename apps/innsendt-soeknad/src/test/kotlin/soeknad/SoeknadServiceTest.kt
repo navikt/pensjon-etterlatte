@@ -24,9 +24,10 @@ import kotlin.random.Random
 internal class SoeknadServiceTest {
     private val mockRepository = mockk<SoeknadRepository>()
     private val mockUtkastPubliserer = mockk<UtkastPubliserer>()
-    private val mockAdressebeskyttelseService = mockk<AdressebeskyttelseService>().apply {
-        coEvery { hentGradering(any(), any()) } returns emptyMap()
-    }
+    private val mockAdressebeskyttelseService =
+        mockk<AdressebeskyttelseService>().apply {
+            coEvery { hentGradering(any(), any()) } returns emptyMap()
+        }
 
     private val service = SoeknadService(mockRepository, mockUtkastPubliserer, mockAdressebeskyttelseService)
     private val kilde = "barnepensjon-ui"
@@ -41,13 +42,14 @@ internal class SoeknadServiceTest {
             SoeknadRequest(
                 listOf(
                     InnsendtSoeknadFixtures.omstillingsSoeknad(),
-                    InnsendtSoeknadFixtures.barnepensjon()
-                )
+                    InnsendtSoeknadFixtures.barnepensjon(),
+                ),
             )
 
-        val lagretOK = runBlocking {
-            service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
-        }
+        val lagretOK =
+            runBlocking {
+                service.sendSoeknad(Foedselsnummer.of("11057523044"), request, kilde)
+            }
 
         lagretOK shouldBe true
 
@@ -102,13 +104,14 @@ internal class SoeknadServiceTest {
             SoeknadRequest(
                 listOf(
                     InnsendtSoeknadFixtures.omstillingsSoeknad(gjenlevFnr),
-                    InnsendtSoeknadFixtures.barnepensjon(gjenlevFnr, Foedselsnummer.of("05111850870"))
-                )
+                    InnsendtSoeknadFixtures.barnepensjon(gjenlevFnr, Foedselsnummer.of("05111850870")),
+                ),
             )
 
-        val isSuccess = runBlocking {
-            service.sendSoeknad(gjenlevFnr, request, kilde)
-        }
+        val isSuccess =
+            runBlocking {
+                service.sendSoeknad(gjenlevFnr, request, kilde)
+            }
 
         verify(exactly = 2) {
             mockRepository.finnKladd("24014021406", any())
@@ -135,13 +138,14 @@ internal class SoeknadServiceTest {
             SoeknadRequest(
                 listOf(
                     InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
-                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
-                )
+                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870")),
+                ),
             )
 
-        val isSuccess = runBlocking {
-            service.sendSoeknad(fnr, request, kilde)
-        }
+        val isSuccess =
+            runBlocking {
+                service.sendSoeknad(fnr, request, kilde)
+            }
 
         verify(exactly = 2) { mockRepository.finnKladd("11057523044", any()) }
         verify(exactly = 2) { mockRepository.finnKladd("05111850870", any()) }
@@ -166,8 +170,8 @@ internal class SoeknadServiceTest {
             SoeknadRequest(
                 listOf(
                     InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("11057523044")),
-                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870"))
-                )
+                    InnsendtSoeknadFixtures.barnepensjon(fnr, Foedselsnummer.of("05111850870")),
+                ),
             )
 
         try {

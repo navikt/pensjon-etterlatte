@@ -17,7 +17,6 @@ import java.time.ZoneId
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class InntektsjusteringRepositoryTest {
-
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
     private lateinit var db: InntektsjusteringRepository
@@ -38,12 +37,13 @@ class InntektsjusteringRepositoryTest {
 
     @Test
     fun `skal lagre inntektsjustering`() {
-        val ny = InntektsjusteringLagre(
-            arbeidsinntekt = 100,
-            naeringsinntekt = 200,
-            arbeidsinntektUtland = 300,
-            naeringsinntektUtland = 400,
-        )
+        val ny =
+            InntektsjusteringLagre(
+                arbeidsinntekt = 100,
+                naeringsinntekt = 200,
+                arbeidsinntektUtland = 300,
+                naeringsinntektUtland = 400,
+            )
 
         db.lagreInntektsjustering(VAKKER_PENN, ny)
         val lagret = db.hentInntektsjustering(VAKKER_PENN) ?: throw Exception()
@@ -67,5 +67,4 @@ class InntektsjusteringRepositoryTest {
     companion object {
         private val VAKKER_PENN = Foedselsnummer.of(("09038520129"))
     }
-
 }

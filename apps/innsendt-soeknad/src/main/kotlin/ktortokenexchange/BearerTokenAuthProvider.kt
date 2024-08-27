@@ -7,15 +7,15 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.auth.HttpAuthHeader
 
 class BearerTokenAuthProvider(
-    private val tokenAuthProvider: suspend () -> String?
-): AuthProvider {
+    private val tokenAuthProvider: suspend () -> String?,
+) : AuthProvider {
     override val sendWithoutRequest: Boolean = true
 
     override fun isApplicable(auth: HttpAuthHeader): Boolean = true
 
     override suspend fun addRequestHeaders(
         request: HttpRequestBuilder,
-        authHeader: HttpAuthHeader?
+        authHeader: HttpAuthHeader?,
     ) {
         tokenAuthProvider().also { request.header(HttpHeaders.Authorization, "Bearer $it") }
     }

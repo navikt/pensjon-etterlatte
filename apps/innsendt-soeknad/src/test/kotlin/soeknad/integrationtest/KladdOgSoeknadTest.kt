@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test
 import soeknad.LagretSoeknad
 import tokenFor
 
-internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
+internal class KladdOgSoeknadTest : SoeknadIntegrationTest() {
     companion object {
         private const val STOR_SNERK = "11057523044"
         private const val UKJENT = "16448705149"
@@ -109,12 +109,13 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
                 tokenFor(UKJENT)
                 setBody(
                     SoeknadRequest(
-                        soeknader = listOf(
-                            InnsendtSoeknadFixtures.omstillingsSoeknad(
-                                innsenderFnr = Foedselsnummer.of(STOR_SNERK),
-                            )
-                        )
-                    ).toJson()
+                        soeknader =
+                            listOf(
+                                InnsendtSoeknadFixtures.omstillingsSoeknad(
+                                    innsenderFnr = Foedselsnummer.of(STOR_SNERK),
+                                ),
+                            ),
+                    ).toJson(),
                 )
             }.apply {
                 response.status() shouldBe HttpStatusCode.InternalServerError
@@ -131,12 +132,13 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
                 tokenFor(STOR_SNERK)
                 setBody(
                     SoeknadRequest(
-                        soeknader = listOf(
-                            InnsendtSoeknadFixtures.omstillingsSoeknad(
-                                innsenderFnr = Foedselsnummer.of(STOR_SNERK),
-                            )
-                        )
-                    ).toJson()
+                        soeknader =
+                            listOf(
+                                InnsendtSoeknadFixtures.omstillingsSoeknad(
+                                    innsenderFnr = Foedselsnummer.of(STOR_SNERK),
+                                ),
+                            ),
+                    ).toJson(),
                 )
             }
 
@@ -151,7 +153,6 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
     @Test
     @Order(7)
     fun `Skal ikke kunne lagre endringer på kladd etter soeknad er sendt inn`() {
-
         withTestApplication({ apiTestModule { soknadApi(service) } }) {
             handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
@@ -162,6 +163,4 @@ internal class KladdOgSoeknadTest: SoeknadIntegrationTest() {
             }
         }
     }
-
-
 }

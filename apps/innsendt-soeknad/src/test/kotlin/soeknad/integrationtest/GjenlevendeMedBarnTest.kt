@@ -27,8 +27,7 @@ import soeknad.Status
 import tokenFor
 
 @DisplayName("Gjenlevende søker for seg selv og barn")
-internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
-
+internal class GjenlevendeMedBarnTest : SoeknadIntegrationTest() {
     companion object {
         private const val GJENLEVENDE = "04117120886"
         private const val BARN = "05111850870"
@@ -38,18 +37,17 @@ internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
     val request =
         SoeknadRequest(
             soeknader =
-            listOf(
-                InnsendtSoeknadFixtures.omstillingsSoeknad(
-                    innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
-                    avdoed = Foedselsnummer.of(AVDOED),
+                listOf(
+                    InnsendtSoeknadFixtures.omstillingsSoeknad(
+                        innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
+                        avdoed = Foedselsnummer.of(AVDOED),
+                    ),
+                    InnsendtSoeknadFixtures.barnepensjon(
+                        innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
+                        soekerFnr = Foedselsnummer.of(BARN),
+                        avdoed = Foedselsnummer.of(AVDOED),
+                    ),
                 ),
-                InnsendtSoeknadFixtures.barnepensjon(
-                    innsenderFnr = Foedselsnummer.of(GJENLEVENDE),
-                    soekerFnr = Foedselsnummer.of(BARN),
-                    avdoed = Foedselsnummer.of(AVDOED),
-                )
-
-            )
         )
 
     @Test
@@ -100,7 +98,6 @@ internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
 
         barnepensjonRow.getString("fnr") shouldBe BARN
         barnepensjonRow.getString("payload") shouldBe request.soeknader.last().toJson()
-
     }
 
     @Test
@@ -131,5 +128,4 @@ internal class GjenlevendeMedBarnTest: SoeknadIntegrationTest() {
             }
         }
     }
-
 }

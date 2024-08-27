@@ -16,9 +16,9 @@ val objectMapper: ObjectMapper =
 
 fun Any.toJson(): String = objectMapper.writeValueAsString(this)
 
-inline fun <reified T: Any> mapJsonToAny(
+inline fun <reified T : Any> mapJsonToAny(
     json: String,
-    failonunknown: Boolean = false
+    failonunknown: Boolean = false,
 ): T =
     objectMapper
         .let {

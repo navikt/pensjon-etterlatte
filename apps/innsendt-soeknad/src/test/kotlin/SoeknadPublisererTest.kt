@@ -16,7 +16,7 @@ import java.time.Month
 import java.time.OffsetDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
-import java.util.*
+import java.util.UUID
 
 class SoeknadPublisererTest {
     @Test
@@ -25,7 +25,7 @@ class SoeknadPublisererTest {
         val publieserteSoeknader = mutableListOf<SoeknadID>()
 
         val dbStub =
-            object: SoeknadRepository by SoeknadRepositoryNoOp({ fail() }) {
+            object : SoeknadRepository by SoeknadRepositoryNoOp({ fail() }) {
                 override fun soeknadSendt(id: SoeknadID) {
                     publieserteSoeknader += id
                 }
@@ -50,7 +50,7 @@ class SoeknadPublisererTest {
         val clock: Clock =
             Clock.fixed(
                 LocalDateTime.of(2020, Month.MAY, 5, 14, 5, 2).toInstant(ZoneOffset.UTC),
-                ZoneId.of("UTC")
+                ZoneId.of("UTC"),
             )
         val subject = SoeknadPubliserer(rapidStub, dbStub, clock)
         val soeknadSomSkalPubliseres = LagretSoeknad(123, "fnr", "{}")
@@ -67,12 +67,12 @@ class SoeknadPublisererTest {
         assertEquals(soeknadSomSkalPubliseres.fnr, message["@fnr_soeker"].textValue())
         assertEquals(
             OffsetDateTime.of(LocalDateTime.of(2020, Month.MAY, 5, 14, 35, 2), ZoneOffset.UTC),
-            OffsetDateTime.parse(message["@hendelse_gyldig_til"].textValue())
+            OffsetDateTime.parse(message["@hendelse_gyldig_til"].textValue()),
         )
     }
 }
 
-internal class MessageContextStub: MessageContext {
+internal class MessageContextStub : MessageContext {
     val publishedMessages = mutableListOf<Pair<String?, String>>()
 
     override fun publish(message: String) {
@@ -81,7 +81,7 @@ internal class MessageContextStub: MessageContext {
 
     override fun publish(
         key: String,
-        message: String
+        message: String,
     ) {
         publishedMessages += key to message
     }
@@ -92,8 +92,8 @@ internal class MessageContextStub: MessageContext {
 }
 
 class SoeknadRepositoryNoOp(
-    private val op: () -> Unit = {}
-): SoeknadRepository {
+    private val op: () -> Unit = {},
+) : SoeknadRepository {
     override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
         TODO("Not yet implemented")
     }
@@ -106,23 +106,23 @@ class SoeknadRepositoryNoOp(
 
     override fun soeknadArkivert(
         id: SoeknadID,
-        payload: String?
+        payload: String?,
     ) = op()
 
     override fun soeknadTilDoffenArkivert(
         id: SoeknadID,
-        payload: String?
+        payload: String?,
     ) = op()
 
     override fun soeknadHarBehandling(
         id: SoeknadID,
         sakId: Long,
-        behandlingId: UUID
+        behandlingId: UUID,
     ) = op()
 
     override fun soeknadFeiletArkivering(
         id: SoeknadID,
-        jsonFeil: String
+        jsonFeil: String,
     ) = op()
 
     override fun usendteSoeknader(): List<LagretSoeknad> {
@@ -137,21 +137,21 @@ class SoeknadRepositoryNoOp(
 
     override fun finnKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): LagretSoeknad? {
         TODO("Not yet implemented")
     }
 
     override fun slettKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID? {
         TODO("Not yet implemented")
     }
 
     override fun slettOgKonverterKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID? {
         TODO("Not yet implemented")
     }

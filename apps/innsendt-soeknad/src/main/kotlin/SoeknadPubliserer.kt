@@ -13,7 +13,7 @@ import java.time.OffsetDateTime
 class SoeknadPubliserer(
     private val rapid: MessageContext,
     private val db: SoeknadRepository,
-    private val klokke: Clock = Clock.systemUTC()
+    private val klokke: Clock = Clock.systemUTC(),
 ) {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -27,8 +27,8 @@ class SoeknadPubliserer(
                     "@template" to "soeknad",
                     "@fnr_soeker" to soeknad.fnr,
                     "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString(),
-                    CORRELATION_ID to getCorrelationId()
-                )
+                    CORRELATION_ID to getCorrelationId(),
+                ),
             )
 
         rapid.publish(soeknad.id.toString(), message.toJson())
@@ -39,7 +39,7 @@ class SoeknadPubliserer(
     fun publiserBehandlingsbehov(soeknad: LagretSoeknad) {
         logger.info(
             "Publiserer soeknad_journfoert for søknaden med id=${soeknad.id}, " +
-                "for å få opprettet en behandling på saken."
+                "for å få opprettet en behandling på saken.",
         )
         val message =
             JsonMessage.newMessage(
@@ -50,8 +50,8 @@ class SoeknadPubliserer(
                     "@template" to "soeknad",
                     "@fnr_soeker" to soeknad.fnr,
                     "@hendelse_gyldig_til" to OffsetDateTime.now(klokke).plusMinutes(30L).toString(),
-                    CORRELATION_ID to getCorrelationId()
-                )
+                    CORRELATION_ID to getCorrelationId(),
+                ),
             )
         rapid.publish(soeknad.id.toString(), message.toJson())
 

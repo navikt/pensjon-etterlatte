@@ -6,12 +6,12 @@ import soeknad.SlettetSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.UlagretSoeknad
-import java.util.*
+import java.util.UUID
 
 fun jsonTestMessage(
     journalpost: Long,
     soeknad: Long,
-    dokumentInfoId: Long? = null
+    dokumentInfoId: Long? = null,
 ) = JsonMessage("{}", MessageProblems("{}")).apply {
     this["@dokarkivRetur"] =
         mapper.createObjectNode().also {
@@ -27,10 +27,10 @@ fun jsonTestMessage(
 fun testMessage(
     journalpost: Long,
     soeknad: Long,
-    dokumentInfoId: Long? = null
+    dokumentInfoId: Long? = null,
 ) = jsonTestMessage(journalpost, soeknad, dokumentInfoId).toJson()
 
-class TestRepo: SoeknadRepository {
+class TestRepo : SoeknadRepository {
     val arkiveringOk = mutableListOf<SoeknadID>()
     val arkiveringFeilet = mutableListOf<SoeknadID>()
     val venterPaaBehandlingDoffen = mutableListOf<SoeknadID>()
@@ -50,14 +50,14 @@ class TestRepo: SoeknadRepository {
 
     override fun soeknadArkivert(
         id: SoeknadID,
-        payload: String?
+        payload: String?,
     ) {
         arkiveringOk += id
     }
 
     override fun soeknadTilDoffenArkivert(
         id: SoeknadID,
-        payload: String?
+        payload: String?,
     ) {
         arkiveringOk += id
         venterPaaBehandlingDoffen += id
@@ -66,7 +66,7 @@ class TestRepo: SoeknadRepository {
     override fun soeknadHarBehandling(
         id: SoeknadID,
         sakId: Long,
-        behandlingId: UUID
+        behandlingId: UUID,
     ) {
         arkiveringOk += id
         harBehandlingDoffen += id
@@ -74,7 +74,7 @@ class TestRepo: SoeknadRepository {
 
     override fun soeknadFeiletArkivering(
         id: SoeknadID,
-        jsonFeil: String
+        jsonFeil: String,
     ) {
         arkiveringFeilet += id
     }
@@ -89,21 +89,21 @@ class TestRepo: SoeknadRepository {
 
     override fun finnKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): LagretSoeknad? {
         TODO("Not yet implemented")
     }
 
     override fun slettKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID? {
         TODO("Not yet implemented")
     }
 
     override fun slettOgKonverterKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID? {
         TODO("Not yet implemented")
     }

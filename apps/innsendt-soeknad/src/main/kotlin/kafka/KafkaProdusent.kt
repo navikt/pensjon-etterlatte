@@ -8,7 +8,7 @@ interface KafkaProdusent<K, V> {
     fun publiser(
         noekkel: K,
         verdi: V,
-        headers: Map<String, ByteArray>? = emptyMap()
+        headers: Map<String, ByteArray>? = emptyMap(),
     ): Pair<Int, Long>
 
     fun close() = Unit
@@ -17,17 +17,17 @@ interface KafkaProdusent<K, V> {
 fun KafkaConfig.standardProducer(topic: String): KafkaProdusent<String, String> =
     KafkaProdusentImpl(
         KafkaProducer(producerConfig(), StringSerializer(), StringSerializer()),
-        topic
+        topic,
     )
 
 class KafkaProdusentImpl<K, V>(
     private val kafka: KafkaProducer<K, V>,
-    private val topic: String
-): KafkaProdusent<K, V> {
+    private val topic: String,
+) : KafkaProdusent<K, V> {
     override fun publiser(
         noekkel: K,
         verdi: V,
-        headers: Map<String, ByteArray>?
+        headers: Map<String, ByteArray>?,
     ): Pair<Int, Long> =
         kafka
             .send(
@@ -35,7 +35,7 @@ class KafkaProdusentImpl<K, V>(
                     headers?.forEach { h ->
                         it.headers().add(h.key, h.value)
                     }
-                }
+                },
             ).get()
             .let {
                 it.partition() to it.offset()
@@ -46,11 +46,11 @@ class KafkaProdusentImpl<K, V>(
     }
 }
 
-class TestProdusent<K, V>: KafkaProdusent<K, V> {
+class TestProdusent<K, V> : KafkaProdusent<K, V> {
     data class Record<K, V>(
         val noekkel: K,
         val verdi: V,
-        val headers: Map<String, ByteArray>?
+        val headers: Map<String, ByteArray>?,
     )
 
     var closed = false
@@ -60,7 +60,7 @@ class TestProdusent<K, V>: KafkaProdusent<K, V> {
     override fun publiser(
         noekkel: K,
         verdi: V,
-        headers: Map<String, ByteArray>?
+        headers: Map<String, ByteArray>?,
     ): Pair<Int, Long> {
         require(!closed)
         return publiserteMeldinger.let {

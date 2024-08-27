@@ -64,10 +64,11 @@ internal class InntektsjusteringIntegrationTest {
     private lateinit var dsbHolder: DataSourceBuilder
     private lateinit var service: InntektsjusteringService
 
-    private val rapid = mockk<KafkaProdusent<String, String>>() {
-        // TODO..
-        every { publiser(any(), any()) } returns mockk()
-    }
+    private val rapid =
+        mockk<KafkaProdusent<String, String>> {
+            // TODO..
+            every { publiser(any(), any()) } returns mockk()
+        }
 
     @BeforeAll
     fun beforeAll() {
@@ -87,10 +88,11 @@ internal class InntektsjusteringIntegrationTest {
     @Order(1)
     fun `Skal hente inntektsjustering og få 404`() {
         withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
-            val call = handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(VAKKER_PENN)
-            }
+            val call =
+                handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
+                    addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    tokenFor(VAKKER_PENN)
+                }
             call.response.status() shouldBe HttpStatusCode.NotFound
         }
     }
@@ -99,17 +101,21 @@ internal class InntektsjusteringIntegrationTest {
     @Order(2)
     fun `Skal lagre inntektjustering`() {
         withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
-            val json = """{
-				"${InntektsjusteringLagre::arbeidsinntekt.name}":300,
-				"${InntektsjusteringLagre::naeringsinntekt.name}":400,
-				"${InntektsjusteringLagre::arbeidsinntektUtland.name}":100,
-				"${InntektsjusteringLagre::naeringsinntektUtland.name}":200
-				}""".trimIndent()
-            val call = handleRequest(HttpMethod.Post, "/api/inntektsjustering") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(VAKKER_PENN)
-                setBody(json)
-            }
+            val json =
+                """
+                {
+                "${InntektsjusteringLagre::arbeidsinntekt.name}":300,
+                "${InntektsjusteringLagre::naeringsinntekt.name}":400,
+                "${InntektsjusteringLagre::arbeidsinntektUtland.name}":100,
+                "${InntektsjusteringLagre::naeringsinntektUtland.name}":200
+                }
+                """.trimIndent()
+            val call =
+                handleRequest(HttpMethod.Post, "/api/inntektsjustering") {
+                    addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    tokenFor(VAKKER_PENN)
+                    setBody(json)
+                }
             call.response.status() shouldBe HttpStatusCode.OK
         }
     }
@@ -118,10 +124,11 @@ internal class InntektsjusteringIntegrationTest {
     @Order(2)
     fun `Skal hente lagret inntektsjustering`() {
         withTestApplication({ apiTestModule { inntektsjustering(service) } }) {
-            val call = handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(VAKKER_PENN)
-            }
+            val call =
+                handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
+                    addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    tokenFor(VAKKER_PENN)
+                }
             call.response.status() shouldBe HttpStatusCode.OK
 
             val content: Inntektsjustering = mapper.readValue(call.response.content!!)
@@ -149,16 +156,18 @@ internal class InntektsjusteringIntegrationTest {
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 tokenFor(VAKKER_PENN)
                 setBody(
-                    nyInntektsjustering.copy(
-                        arbeidsinntekt = 123
-                    ).toJson()
+                    nyInntektsjustering
+                        .copy(
+                            arbeidsinntekt = 123,
+                        ).toJson(),
                 )
             }
 
-            val call = handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(VAKKER_PENN)
-            }
+            val call =
+                handleRequest(HttpMethod.Get, "/api/inntektsjustering") {
+                    addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    tokenFor(VAKKER_PENN)
+                }
             call.response.status() shouldBe HttpStatusCode.OK
 
             val content: Inntektsjustering = mapper.readValue(call.response.content!!)
@@ -168,16 +177,15 @@ internal class InntektsjusteringIntegrationTest {
 
     companion object {
         private const val VAKKER_PENN = "09038520129"
-        private val nyInntektsjustering = InntektsjusteringLagre(
-            arbeidsinntekt = 300,
-            naeringsinntekt = 400,
-            arbeidsinntektUtland = 100,
-            naeringsinntektUtland = 200
-        )
+        private val nyInntektsjustering =
+            InntektsjusteringLagre(
+                arbeidsinntekt = 300,
+                naeringsinntekt = 400,
+                arbeidsinntektUtland = 100,
+                naeringsinntektUtland = 200,
+            )
     }
-
 }
-
 
 fun Application.apiTestModule(routes: Route.() -> Unit) {
     install(ContentNegotiation) {
@@ -206,16 +214,16 @@ fun TestApplicationRequest.tokenFor(fnr: String) {
                     .Builder()
                     .claim("pid", fnr)
                     .issuer("lol")
-                    .build()
+                    .build(),
             ).serialize()
-        }"""
+        }""",
     )
 }
 
-class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguration(null)) {
+class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
     class ProviderConfiguration internal constructor(
-        name: String?
-    ): Config(name)
+        name: String?,
+    ) : Config(name)
 
     private fun getTokensFromHeader(request: Headers): List<JwtToken> {
         try {
@@ -225,7 +233,7 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
                 return extractBearerTokens(*headerValues)
                     .map { encodedToken: String ->
                         JwtToken(
-                            encodedToken
+                            encodedToken,
                         )
                     }
             }
@@ -240,7 +248,7 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
             .map { s: String ->
                 s
                     .split(
-                        " ".toRegex()
+                        " ".toRegex(),
                     ).toTypedArray()
             }.filter { pair: Array<String> -> pair.size == 2 }
             .filter { pair: Array<String> ->
@@ -254,8 +262,8 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
     override suspend fun onAuthenticate(context: AuthenticationContext) {
         context.principal(
             TokenValidationContextPrincipal(
-                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
-            )
+                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer }),
+            ),
         )
     }
 }
