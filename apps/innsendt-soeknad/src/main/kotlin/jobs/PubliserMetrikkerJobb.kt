@@ -1,6 +1,8 @@
 package no.nav.etterlatte.jobs
 
-import io.prometheus.client.Gauge
+import io.micrometer.core.instrument.Gauge
+import io.micrometer.prometheusmetrics.PrometheusConfig
+import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.shuttingDown
 import org.slf4j.LoggerFactory
@@ -13,14 +15,8 @@ import kotlin.concurrent.fixedRateTimer
 
 class PubliserMetrikkerJobb(
     private val db: StatistikkRepository,
+    private val registry: PrometheusMeterRegistry = PrometheusMeterRegistry(PrometheusConfig.DEFAULT),
 ) {
-    private val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
-    private val ikkeJournalfoertAlder =
-        Gauge.build("alder_eldste_uarkiverte", "Alder på eldste ikke-arkiverte søknad").register()
-    private val soknadTilstand =
-        Gauge.build("soknad_tilstand", "Tilstanden søknader er i").labelNames("tilstand", "kilde").register()
-    private val soknadsKilder = Gauge.build("soknad_kilde", "Kilden søknadene er fra").labelNames("kilde").register()
-
     private val logger = LoggerFactory.getLogger(PubliserMetrikkerJobb::class.java)
 
     fun schedule(): Timer {
@@ -45,21 +41,40 @@ class PubliserMetrikkerJobb(
 
     internal fun publiserMetrikker() {
         db.eldsteUsendte()?.apply {
-            usendtAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
+            Gauge
+                .builder("alder_eldste_usendte") { ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble() }
+                .description("Alder på elste usendte søknad")
+                .register(registry)
         }
         db.eldsteUarkiverte()?.apply {
-            ikkeJournalfoertAlder.set(ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble())
+            Gauge
+                .builder("alder_eldste_uarkiverte") { ChronoUnit.MINUTES.between(this, LocalDateTime.now()).toDouble() }
+                .description("Alder på eldste ikke-arkiverte søknad")
+                .register(registry)
         }
 
         db
             .rapport()
             .also { rapport -> logger.info(rapport.toString()) }
-            .forEach { (status, kilde, antall) -> soknadTilstand.labels(status.name, kilde).set(antall.toDouble()) }
+            .forEach { (status, kilde, antall) ->
+                Gauge
+                    .builder("soknad_tilstand") { antall.toDouble() }
+                    .description("Tilstanden søknader er i")
+                    .tag("tilstand", status.name)
+                    .tag("kilde", kilde)
+                    .register(registry)
+            }
 
         db
             .kilder()
             .also { kilde -> logger.info(kilde.toString()) }
-            .forEach { (kilde, antall) -> soknadsKilder.labels(kilde).set(antall.toDouble()) }
+            .forEach { (kilde, antall) ->
+                Gauge
+                    .builder("soknad_kilde") { antall.toDouble() }
+                    .description("Kilden søknadene er fra")
+                    .tag("kilde", kilde)
+                    .register(registry)
+            }
 
         logger.info("Ukategoriserte søknader: " + db.ukategorisert().toString())
     }
