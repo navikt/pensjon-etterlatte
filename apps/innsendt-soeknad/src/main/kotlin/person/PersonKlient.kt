@@ -24,21 +24,23 @@ import org.slf4j.LoggerFactory
 interface Pdl {
     suspend fun hentPerson(
         fnr: Foedselsnummer,
-        soeknadType: SoeknadType
+        soeknadType: SoeknadType,
     ): PersonResponse
 }
 
 class PersonKlient(
-    private val httpClient: HttpClient
-): Pdl {
+    private val httpClient: HttpClient,
+) : Pdl {
     private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
-    private val TEMA = "PEN"
-    private val BEHANDLINGSNUMMER = "behandlingsnummer"
+    companion object {
+        private const val TEMA = "PEN"
+        private const val BEHANDLINGSNUMMER = "behandlingsnummer"
+    }
 
     override suspend fun hentPerson(
         fnr: Foedselsnummer,
-        soeknadType: SoeknadType
+        soeknadType: SoeknadType,
     ): PersonResponse {
         val query =
             javaClass

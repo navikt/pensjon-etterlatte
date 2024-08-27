@@ -16,7 +16,7 @@ class BehandlingOpprettetDoffenTest {
                 "@lagret_soeknad_id" to 1337,
                 "sakId" to 123,
                 "behandlingId" to UUID.randomUUID(),
-                "@event_name" to EventName.TRENGER_BEHANDLING
+                "@event_name" to EventName.TRENGER_BEHANDLING,
             ).toJson()
 
         val db = spyk<TestRepo>()

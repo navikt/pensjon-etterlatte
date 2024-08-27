@@ -49,7 +49,7 @@ internal class PersonRouteTest {
                     fornavn = "STOR",
                     etternavn = "SNERK",
                     foedselsnummer = Foedselsnummer.of(STOR_SNERK),
-                    adressebeskyttelse = false
+                    adressebeskyttelse = false,
                 )
 
             handleRequest(HttpMethod.Get, "/person/innlogget?soeknadType=$type") {
@@ -75,7 +75,7 @@ internal class PersonRouteTest {
                 onSuccess = { fail { "Feil i kodeverk skal propagere til frontend" } },
                 onFailure = {
                     Assertions.assertNotNull(it)
-                }
+                },
             )
 
             coVerify(exactly = 1) { service.hentPerson(any(), type) }

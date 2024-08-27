@@ -143,6 +143,6 @@ internal class PersonServiceTest {
             spraak = "nb",
             epostadresse = "noreply@nav.no",
             mobiltelefonnummer = "11111111",
-            sikkerDigitalPostkasse = null
+            sikkerDigitalPostkasse = null,
         )
 }

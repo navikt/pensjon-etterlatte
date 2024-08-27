@@ -8,13 +8,13 @@ typealias SoeknadID = Long
 data class FerdigstiltSoeknad(
     val id: SoeknadID,
     val type: SoeknadType? = null,
-    val kilde: String? = null
+    val kilde: String? = null,
 )
 
 data class LagretSoeknad(
     val id: SoeknadID,
     val fnr: String,
-    val payload: String
+    val payload: String,
 ) {
     @JsonIgnore
     var status: Status? = null
@@ -24,18 +24,18 @@ data class UlagretSoeknad(
     val fnr: String,
     val payload: String,
     val kilde: String,
-    val type: SoeknadType? = null
+    val type: SoeknadType? = null,
 )
 
 data class RapportLinje(
     val status: Status,
     val kilde: String,
-    val count: String
+    val count: String,
 )
 
 data class SlettetSoeknad(
     val id: Long,
-    val fnr: String
+    val fnr: String,
 )
 
 enum class Status {
@@ -48,7 +48,7 @@ enum class Status {
     SLETTET,
     UTGAATT,
     VENTERBEHANDLING,
-    BEHANDLINGLAGRET
+    BEHANDLINGLAGRET,
     ;
 
     companion object {

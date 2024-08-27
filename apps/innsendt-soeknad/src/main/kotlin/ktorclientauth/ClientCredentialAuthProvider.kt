@@ -26,8 +26,8 @@ class ClientCredentialAuthConfig {
 }
 
 class ClientCredentialAuthProvider(
-    config: Map<String, String>
-): AuthProvider {
+    config: Map<String, String>,
+) : AuthProvider {
     override val sendWithoutRequest: Boolean = true
     private val clientPropertiesConfig =
         ClientProperties(
@@ -36,14 +36,14 @@ class ClientCredentialAuthProvider(
             grantType = GrantType.CLIENT_CREDENTIALS,
             scope = config["AZURE_APP_OUTBOUND_SCOPE"]?.split(",") ?: emptyList(),
             authentication =
-            ClientAuthenticationProperties
-                .builder(
-                    clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
-                    clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT
-                ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
-                .build(),
+                ClientAuthenticationProperties
+                    .builder(
+                        clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
+                        clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT,
+                    ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
+                    .build(),
             resourceUrl = null,
-            tokenExchange = null
+            tokenExchange = null,
         )
 
     private fun Map<String, String>.getOrThrow(key: String) =
@@ -57,7 +57,7 @@ class ClientCredentialAuthProvider(
 
     override suspend fun addRequestHeaders(
         request: HttpRequestBuilder,
-        authHeader: HttpAuthHeader?
+        authHeader: HttpAuthHeader?,
     ) {
         accessTokenService.getAccessToken(clientPropertiesConfig).accessToken.also {
             request.headers[HttpHeaders.Authorization] = "Bearer $it"
@@ -70,5 +70,5 @@ internal fun setupOAuth2AccessTokenService(httpClient: DefaultOAuth2HttpClient):
         tokenResolver = { throw IllegalArgumentException("Ikke i bruk") },
         onBehalfOfTokenClient = OnBehalfOfTokenClient(httpClient),
         clientCredentialsTokenClient = ClientCredentialsTokenClient(httpClient),
-        tokenExchangeClient = TokenExchangeClient(httpClient)
+        tokenExchangeClient = TokenExchangeClient(httpClient),
     )

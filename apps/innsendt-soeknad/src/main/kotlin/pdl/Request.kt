@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude
 
 data class GraphqlRequest(
     val query: String,
-    val variables: Variables
+    val variables: Variables,
 )
 
 /**
@@ -17,5 +17,5 @@ data class GraphqlRequest(
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Variables(
     val ident: String? = null,
-    val identer: List<String>? = null
+    val identer: List<String>? = null,
 )

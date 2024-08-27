@@ -30,8 +30,9 @@ import no.nav.etterlatte.person.krr.KrrKlient
 import no.nav.etterlatte.soeknad.SoeknadService
 import soeknad.PostgresSoeknadRepository
 
-class ApplicationContext(env: Map<String, String>) {
-
+class ApplicationContext(
+    env: Map<String, String>,
+) {
     private val closables = mutableListOf<() -> Unit>()
     private val config: Config = ConfigFactory.load()
 
@@ -54,11 +55,12 @@ class ApplicationContext(env: Map<String, String>) {
 
     init {
 
-        val minsideProducer = if (appIsInGCP()) {
-            GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_UTKAST_TOPIC"))
-        } else {
-            TestProdusent()
-        }
+        val minsideProducer =
+            if (appIsInGCP()) {
+                GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_UTKAST_TOPIC"))
+            } else {
+                TestProdusent()
+            }
         utkastPubliserer = UtkastPubliserer(minsideProducer, env.getValue("SOEKNAD_DOMAIN_URL"))
 
         adressebeskyttelseService =
@@ -68,8 +70,8 @@ class ApplicationContext(env: Map<String, String>) {
                     AdressebeskyttelseService(
                         AdressebeskyttelseKlient(
                             it,
-                            config.getString("no.nav.etterlatte.tjenester.pdl.url")
-                        )
+                            config.getString("no.nav.etterlatte.tjenester.pdl.url"),
+                        ),
                     )
                 }
 
@@ -85,9 +87,10 @@ class ApplicationContext(env: Map<String, String>) {
                 .also { closables.add(it::close) }
                 .let { KrrKlient(it) }
 
-        personService = tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
-            .also { closables.add(it::close) }
-            .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
+        personService =
+            tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
+                .also { closables.add(it::close) }
+                .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
     }
 
     private fun tokenSecuredEndpoint(endpointConfig: Config) =
@@ -101,7 +104,9 @@ class ApplicationContext(env: Map<String, String>) {
             }
 
             install(Auth) {
-                providers.add(BearerTokenAuthProvider(securityMediator.outgoingToken(endpointConfig.getString("audience"))))
+                providers.add(
+                    BearerTokenAuthProvider(securityMediator.outgoingToken(endpointConfig.getString("audience"))),
+                )
             }
 
             defaultRequest {
@@ -111,40 +116,41 @@ class ApplicationContext(env: Map<String, String>) {
 
     private fun kodeverkHttpClient(appConfig: Config) =
         httpClientClientCredentials(
-            azureAppScope = "api://${appConfig.getString("kodeverk.client.id")}/.default"
+            azureAppScope = "api://${appConfig.getString("kodeverk.client.id")}/.default",
         )
 
     // OBS: Denne klienten kaller PDL med en systembruker.
     // Informasjon fra denne klienten kan inneholde informasjon sluttbruker ikke har rett til å se.
     private fun systemPdlHttpClient() =
         httpClientClientCredentials(azureAppScope = System.getenv()["PDL_AZURE_SCOPE"]!!)
-
 }
 
-fun httpClientClientCredentials(
-    azureAppScope: String,
-) = HttpClient(OkHttp) {
-    install(ContentNegotiation) {
-        jackson {
-            configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            setSerializationInclusion(JsonInclude.Include.NON_NULL)
-            registerModule(JavaTimeModule())
+fun httpClientClientCredentials(azureAppScope: String) =
+    HttpClient(OkHttp) {
+        install(ContentNegotiation) {
+            jackson {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                registerModule(JavaTimeModule())
+            }
         }
-    }
-    val env = System.getenv()
+        val env = System.getenv()
 
-    install(Auth) {
-        clientCredential {
-            config =
-                mapOf(
-                    AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
-                    AzureDefaultEnvVariables.AZURE_APP_JWK.name to env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
-                    AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
-                    AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
-                )
+        install(Auth) {
+            clientCredential {
+                config =
+                    mapOf(
+                        AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to
+                            env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
+                        AzureDefaultEnvVariables.AZURE_APP_JWK.name to
+                            env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
+                        AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to
+                            env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                        AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                    )
+            }
         }
     }
-}
 
 enum class AzureDefaultEnvVariables {
     AZURE_APP_CLIENT_ID,
@@ -156,14 +162,13 @@ enum class AzureDefaultEnvVariables {
     fun key() = name
 }
 
-
 fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
 
 enum class GcpEnv(
-    val env: String
+    val env: String,
 ) {
     PROD("prod-gcp"),
-    DEV("dev-gcp")
+    DEV("dev-gcp"),
 }
 
 fun appIsInGCP(): Boolean =

@@ -22,7 +22,7 @@ import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 
 class TokenSecurityContext(
-    private val tokens: TokenValidationContext
+    private val tokens: TokenValidationContext,
 ) {
     fun tokenIssuedBy(issuer: String): JwtToken? = tokens.getJwtToken(issuer)
 
@@ -34,7 +34,7 @@ class TokenSecurityContext(
 }
 
 class TokenSupportSecurityContextMediator(
-    private val configuration: ApplicationConfig
+    private val configuration: ApplicationConfig,
 ) {
     private val defaultHttpClient =
         HttpClient(OkHttp) {
@@ -62,10 +62,10 @@ class TokenSupportSecurityContextMediator(
                 Dispatchers.Default +
                     ThreadBoundSecurityContext.asContextElement(
                         value =
-                        TokenSecurityContext(
-                            call.principal<TokenValidationContextPrincipal>()?.context!!
-                        )
-                    )
+                            TokenSecurityContext(
+                                call.principal<TokenValidationContextPrincipal>()?.context!!,
+                            ),
+                    ),
             ) {
                 proceed()
             }
@@ -74,17 +74,18 @@ class TokenSupportSecurityContextMediator(
 
     fun outgoingToken(audience: String) =
         suspend {
-            requireNotNull(ThreadBoundSecurityContext.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
-                requireNotNull(
-                    tokenxKlient
-                        .tokenExchange(
-                            it.encodedToken,
-                            audience
-                        ).accessToken
-                ) { "AccessToken må være definert, var null. Audience: $audience" }
-            }) { "Innbytta token må være definert, var null. Audience: $audience" }
+            requireNotNull(
+                ThreadBoundSecurityContext.get().tokenIssuedBy(tokenexchangeIssuer)?.let {
+                    requireNotNull(
+                        tokenxKlient
+                            .tokenExchange(
+                                it.encodedToken,
+                                audience,
+                            ).accessToken,
+                    ) { "AccessToken må være definert, var null. Audience: $audience" }
+                },
+            ) { "Innbytta token må være definert, var null. Audience: $audience" }
         }
-
 }
 
-object ThreadBoundSecurityContext: ThreadLocal<TokenSecurityContext>()
+object ThreadBoundSecurityContext : ThreadLocal<TokenSecurityContext>()

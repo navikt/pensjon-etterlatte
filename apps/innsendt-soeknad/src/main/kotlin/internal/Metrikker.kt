@@ -19,7 +19,7 @@ object Metrikker {
         PrometheusMeterRegistry(
             PrometheusConfig.DEFAULT,
             collectorRegistry,
-            Clock.SYSTEM
+            Clock.SYSTEM,
         )
 
     val soeknadTotal =

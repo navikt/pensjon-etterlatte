@@ -15,14 +15,14 @@ import org.slf4j.LoggerFactory
 interface Pdl {
     suspend fun finnAdressebeskyttelseForFnr(
         fnrListe: List<Foedselsnummer>,
-        soeknadType: SoeknadType
+        soeknadType: SoeknadType,
     ): AdressebeskyttelseResponse
 }
 
 class AdressebeskyttelseKlient(
     private val client: HttpClient,
-    private val apiUrl: String
-): Pdl {
+    private val apiUrl: String,
+) : Pdl {
     private val logger = LoggerFactory.getLogger(AdressebeskyttelseKlient::class.java)
 
     /**
@@ -35,7 +35,7 @@ class AdressebeskyttelseKlient(
      */
     override suspend fun finnAdressebeskyttelseForFnr(
         fnrListe: List<Foedselsnummer>,
-        soeknadType: SoeknadType
+        soeknadType: SoeknadType,
     ): AdressebeskyttelseResponse {
         val query = hentQuery()
 

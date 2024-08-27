@@ -19,15 +19,15 @@ internal class AdressebeskyttelseUtilsKtTest {
             InnsendtSoeknadFixtures.omstillingsSoeknad(
                 innsenderFnr = Foedselsnummer.of("24014021406"),
                 barn =
-                listOf(
-                    eksempelBarn(Foedselsnummer.of("29080775995")),
-                    eksempelBarn(Foedselsnummer.of("03081375711"))
-                )
+                    listOf(
+                        eksempelBarn(Foedselsnummer.of("29080775995")),
+                        eksempelBarn(Foedselsnummer.of("03081375711")),
+                    ),
             )
         val barnepensjon =
             InnsendtSoeknadFixtures.barnepensjon(
                 innsenderFnr = Foedselsnummer.of("24014021406"),
-                soekerFnr = Foedselsnummer.of("29080775995")
+                soekerFnr = Foedselsnummer.of("29080775995"),
             )
 
         val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))
@@ -35,7 +35,7 @@ internal class AdressebeskyttelseUtilsKtTest {
         request.finnUnikeBarn() shouldContainExactlyInAnyOrder
             listOf(
                 Foedselsnummer.of("03081375711"),
-                Foedselsnummer.of("29080775995")
+                Foedselsnummer.of("29080775995"),
             )
     }
 
@@ -43,12 +43,12 @@ internal class AdressebeskyttelseUtilsKtTest {
     fun `Skal fjerne informasjon om utenlandsopphold og utbetalingsinformasjon for en gitt liste med barn`() {
         val omstillingsstoenad =
             InnsendtSoeknadFixtures.omstillingsSoeknad(
-                innsenderFnr = Foedselsnummer.of("24014021406")
+                innsenderFnr = Foedselsnummer.of("24014021406"),
             )
         val barnepensjon =
             InnsendtSoeknadFixtures.barnepensjon(
                 innsenderFnr = Foedselsnummer.of("24014021406"),
-                soekerFnr = Foedselsnummer.of("29080775995")
+                soekerFnr = Foedselsnummer.of("29080775995"),
             )
 
         val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))

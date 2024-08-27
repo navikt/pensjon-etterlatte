@@ -25,8 +25,7 @@ import soeknad.Status
 import tokenFor
 
 @DisplayName("Innsender av søknad er ikke søker")
-internal class KunBarnepensjon: SoeknadIntegrationTest() {
-
+internal class KunBarnepensjon : SoeknadIntegrationTest() {
     companion object {
         private const val INNSENDER = "19468741094"
         private const val BARN = "21461297037"
@@ -39,9 +38,9 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
                 InnsendtSoeknadFixtures.barnepensjon(
                     innsenderFnr = Foedselsnummer.of(INNSENDER),
                     soekerFnr = Foedselsnummer.of(BARN),
-                    avdoed = Foedselsnummer.of(AVDOED)
-                )
-            )
+                    avdoed = Foedselsnummer.of(AVDOED),
+                ),
+            ),
         )
 
     @Test
@@ -109,6 +108,4 @@ internal class KunBarnepensjon: SoeknadIntegrationTest() {
             }
         }
     }
-
-
 }

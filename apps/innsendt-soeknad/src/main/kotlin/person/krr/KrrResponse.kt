@@ -8,11 +8,11 @@ data class DigitalKontaktinformasjon(
     val spraak: String?,
     val epostadresse: String?,
     val mobiltelefonnummer: String?,
-    val sikkerDigitalPostkasse: SikkerDigitalPostkasse?
+    val sikkerDigitalPostkasse: SikkerDigitalPostkasse?,
 )
 
 data class SikkerDigitalPostkasse(
     val adresse: String,
     val leverandoerAdresse: String,
-    val leverandoerSertifikat: String
+    val leverandoerSertifikat: String,
 )

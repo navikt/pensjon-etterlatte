@@ -22,7 +22,7 @@ internal class StatusTest {
                 Status.ARKIVERT,
                 Status.ARKIVERINGSFEIL,
                 Status.VENTERBEHANDLING,
-                Status.BEHANDLINGLAGRET
+                Status.BEHANDLINGLAGRET,
             )
 
         innsendt shouldBe forventetInnsendt
@@ -36,7 +36,7 @@ internal class StatusTest {
                 Status.LAGRETKLADD,
                 Status.KONVERTERT,
                 Status.SLETTET,
-                Status.UTGAATT
+                Status.UTGAATT,
             )
 
         resterendeStatuser shouldBe forventetResterende

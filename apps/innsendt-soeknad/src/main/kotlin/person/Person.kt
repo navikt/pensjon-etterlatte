@@ -17,5 +17,5 @@ data class Person(
     val statsborgerskap: String? = null,
     val sivilstatus: String? = null,
     val telefonnummer: String? = null,
-    val spraak: String? = null
+    val spraak: String? = null,
 )

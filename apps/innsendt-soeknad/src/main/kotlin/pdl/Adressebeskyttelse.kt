@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class AdressebeskyttelseResponse(
     val data: HentAdressebeskyttelse? = null,
-    val errors: List<ResponseError>? = null
+    val errors: List<ResponseError>? = null,
 )
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class HentAdressebeskyttelse(
     val hentPersonBolk: List<AdressebeskyttelseBolkPerson>? = null,
-    val hentPerson: AdressebeskyttelsePerson? = null
+    val hentPerson: AdressebeskyttelsePerson? = null,
 )
 
 /**
@@ -28,7 +28,7 @@ data class HentAdressebeskyttelse(
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class AdressebeskyttelseBolkPerson(
     val ident: String,
-    val person: AdressebeskyttelsePerson? = null
+    val person: AdressebeskyttelsePerson? = null,
 )
 
 /**
@@ -38,11 +38,11 @@ data class AdressebeskyttelseBolkPerson(
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class AdressebeskyttelsePerson(
-    val adressebeskyttelse: List<Adressebeskyttelse>
+    val adressebeskyttelse: List<Adressebeskyttelse>,
 )
 
 data class Adressebeskyttelse(
-    val gradering: Gradering?
+    val gradering: Gradering?,
 )
 
 /**
@@ -56,7 +56,8 @@ enum class Gradering {
     STRENGT_FORTROLIG_UTLAND,
     STRENGT_FORTROLIG,
     FORTROLIG,
-    UGRADERT;
+    UGRADERT,
+    ;
 
     companion object {
         @JsonCreator

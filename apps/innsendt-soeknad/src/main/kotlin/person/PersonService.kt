@@ -13,14 +13,14 @@ import org.slf4j.LoggerFactory
 class PersonService(
     private val klient: PersonKlient,
     private val kodeverkService: KodeverkService,
-    private val krrKlient: Krr
+    private val krrKlient: Krr,
 ) {
     private val logger = LoggerFactory.getLogger(PersonService::class.java)
     private val adressebeskyttet = listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND)
 
     suspend fun hentPerson(
         fnr: Foedselsnummer,
-        soeknadType: SoeknadType
+        soeknadType: SoeknadType,
     ): Person {
         logger.info("Henter person fra PDL")
 
@@ -38,7 +38,7 @@ class PersonService(
 
     private suspend fun opprettPerson(
         fnr: Foedselsnummer,
-        hentPerson: HentPerson
+        hentPerson: HentPerson,
     ): Person {
         val navn =
             hentPerson.navn
@@ -85,7 +85,7 @@ class PersonService(
             statsborgerskap = land,
             sivilstatus = sivilstand?.type?.name,
             telefonnummer = kontaktInformasjon?.mobiltelefonnummer,
-            spraak = kontaktInformasjon?.spraak
+            spraak = kontaktInformasjon?.spraak,
         )
     }
 

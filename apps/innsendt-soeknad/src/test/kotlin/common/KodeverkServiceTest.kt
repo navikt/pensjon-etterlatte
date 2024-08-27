@@ -44,10 +44,10 @@ internal class KodeverkServiceTest {
                             Betydning(
                                 gyldigFra = LocalDate.now().minusYears(5).toString(),
                                 gyldigTil = LocalDate.now().plusYears(1).toString(),
-                                beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
-                            )
-                        )
-                )
+                                beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo")),
+                            ),
+                        ),
+                ),
             )
 
         runBlocking {
@@ -67,10 +67,10 @@ internal class KodeverkServiceTest {
                             Betydning(
                                 gyldigFra = LocalDate.now().minusYears(5).toString(),
                                 gyldigTil = LocalDate.now().minusDays(1).toString(),
-                                beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo"))
-                            )
-                        )
-                )
+                                beskrivelser = mapOf("nb" to Beskrivelse("term", tekst = "Oslo")),
+                            ),
+                        ),
+                ),
             )
 
         runBlocking {

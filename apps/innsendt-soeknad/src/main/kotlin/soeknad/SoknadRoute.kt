@@ -26,13 +26,16 @@ fun Route.soknadApi(service: SoeknadService) {
 
                 val ferdigstiltOK = service.sendSoeknad(fnrFromToken(), request, kilde)
 
-                call.application.environment.log.info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
+                call.application.environment.log
+                    .info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
                 call.respond(HttpStatusCode.OK)
             } catch (e: SoeknadConflictException) {
-                call.application.environment.log.warn("Bruker har allerede en innsendt søknad under arbeid", e)
+                call.application.environment.log
+                    .warn("Bruker har allerede en innsendt søknad under arbeid", e)
                 call.respond(HttpStatusCode.Conflict)
             } catch (e: Exception) {
-                call.application.environment.log.error("Klarte ikke å lagre søknaden(e)", e)
+                call.application.environment.log
+                    .error("Klarte ikke å lagre søknaden(e)", e)
                 call.respond(HttpStatusCode.InternalServerError)
             }
         }
@@ -60,17 +63,21 @@ fun Route.soknadApi(service: SoeknadService) {
             try {
                 val soeknad = service.hentKladd(fnrFromToken(), kilde)
                 if (soeknad == null) {
-                    call.application.environment.log.info("Forsøkte å hente kladd som ikke finnes")
+                    call.application.environment.log
+                        .info("Forsøkte å hente kladd som ikke finnes")
                     call.respond(HttpStatusCode.NotFound)
                 } else if (soeknad.status != Status.LAGRETKLADD) {
-                    call.application.environment.log.info("Bruker har allerede innsendt søknad under arbeid.")
+                    call.application.environment.log
+                        .info("Bruker har allerede innsendt søknad under arbeid.")
                     call.respond(HttpStatusCode.Conflict)
                 } else {
-                    call.application.environment.log.info("Kladd hentet OK")
+                    call.application.environment.log
+                        .info("Kladd hentet OK")
                     call.respond(soeknad)
                 }
             } catch (e: Exception) {
-                call.application.environment.log.error("Klarte ikke å hente kladd", e)
+                call.application.environment.log
+                    .error("Klarte ikke å hente kladd", e)
                 call.respond(HttpStatusCode.InternalServerError)
             }
         }
@@ -79,10 +86,12 @@ fun Route.soknadApi(service: SoeknadService) {
             val kilde = call.request.queryParameters["kilde"]!!
             try {
                 service.slettKladd(fnrFromToken(), kilde)
-                call.application.environment.log.info("klarte å slette kladd")
+                call.application.environment.log
+                    .info("klarte å slette kladd")
                 call.respond(HttpStatusCode.OK)
             } catch (e: Exception) {
-                call.application.environment.log.error("klarte ikke å slette kladd", e)
+                call.application.environment.log
+                    .error("klarte ikke å slette kladd", e)
                 call.respond(HttpStatusCode.InternalServerError)
             }
         }
