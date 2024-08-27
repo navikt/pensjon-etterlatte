@@ -25,7 +25,6 @@ class InntektsjusteringService(
                 mapOf(
                     "@event_name" to "inntektsjustering_innsendt",
                     "@fnr_bruker" to fnr.value,
-                    "@inntektsaar" to "2025",
                     "@inntektsjustering_innhold" to lagret!!.toJson(),
                 ),
             )
