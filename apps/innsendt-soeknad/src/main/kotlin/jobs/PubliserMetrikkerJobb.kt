@@ -8,11 +8,11 @@ import soeknad.StatistikkRepository
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
-import java.util.*
+import java.util.Timer
 import kotlin.concurrent.fixedRateTimer
 
 class PubliserMetrikkerJobb(
-    private val db: StatistikkRepository
+    private val db: StatistikkRepository,
 ) {
     private val usendtAlder = Gauge.build("alder_eldste_usendte", "Alder på elste usendte søknad").register()
     private val ikkeJournalfoertAlder =
@@ -29,7 +29,7 @@ class PubliserMetrikkerJobb(
         return fixedRateTimer(
             name = this.javaClass.simpleName,
             initialDelay = Duration.of(1, ChronoUnit.MINUTES).toMillis(),
-            period = Duration.of(15, ChronoUnit.MINUTES).toMillis()
+            period = Duration.of(15, ChronoUnit.MINUTES).toMillis(),
         ) {
             runBlocking {
                 if (LeaderElection.isLeader() && !shuttingDown.get()) {

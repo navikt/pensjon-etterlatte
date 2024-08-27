@@ -32,7 +32,7 @@ import java.sql.ResultSet
 import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.*
+import java.util.UUID
 import javax.sql.DataSource
 
 interface SoeknadRepository {
@@ -44,23 +44,23 @@ interface SoeknadRepository {
 
     fun soeknadArkivert(
         id: SoeknadID,
-        payload: String? = null
+        payload: String? = null,
     )
 
     fun soeknadTilDoffenArkivert(
         id: SoeknadID,
-        payload: String? = null
+        payload: String? = null,
     )
 
     fun soeknadHarBehandling(
         id: SoeknadID,
         sakId: Long,
-        behandlingId: UUID
+        behandlingId: UUID,
     )
 
     fun soeknadFeiletArkivering(
         id: SoeknadID,
-        jsonFeil: String
+        jsonFeil: String,
     )
 
     fun usendteSoeknader(): List<LagretSoeknad>
@@ -69,17 +69,17 @@ interface SoeknadRepository {
 
     fun finnKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): LagretSoeknad?
 
     fun slettKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID?
 
     fun slettOgKonverterKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID?
 
     fun slettUtgaatteKladder(): List<SlettetSoeknad>
@@ -100,8 +100,8 @@ interface StatistikkRepository {
 }
 
 class PostgresSoeknadRepository private constructor(
-    private val ds: DataSource
-): SoeknadRepository,
+    private val ds: DataSource,
+) : SoeknadRepository,
     StatistikkRepository {
     private val logger = LoggerFactory.getLogger(PostgresSoeknadRepository::class.java)
 
@@ -125,7 +125,7 @@ class PostgresSoeknadRepository private constructor(
     private fun oppdaterSoeknadMeta(
         id: SoeknadID,
         type: SoeknadType?,
-        kilde: String?
+        kilde: String?,
     ) = connection.use {
         it
             .prepareStatement(OPPDATER_SOEKNAD_META)
@@ -168,7 +168,7 @@ class PostgresSoeknadRepository private constructor(
 
     private fun oppdaterSoeknad(
         kladd: LagretSoeknad,
-        nyDataJson: String
+        nyDataJson: String,
     ): LagretSoeknad {
         connection.use {
             it
@@ -193,7 +193,7 @@ class PostgresSoeknadRepository private constructor(
 
     override fun soeknadArkivert(
         id: SoeknadID,
-        payload: String?
+        payload: String?,
     ) {
         nyStatus(id, ARKIVERT, payload ?: """{}""")
     }
@@ -201,14 +201,14 @@ class PostgresSoeknadRepository private constructor(
     override fun soeknadHarBehandling(
         id: SoeknadID,
         sakId: Long,
-        behandlingId: UUID
+        behandlingId: UUID,
     ) {
         nyStatus(id, BEHANDLINGLAGRET, mapOf("sakId" to sakId, "behandlingId" to behandlingId.toString()).toJson())
     }
 
     override fun soeknadFeiletArkivering(
         id: SoeknadID,
-        jsonFeil: String
+        jsonFeil: String,
     ) {
         nyStatus(id, ARKIVERINGSFEIL, jsonFeil)
     }
@@ -216,7 +216,7 @@ class PostgresSoeknadRepository private constructor(
     private fun nyStatus(
         soeknadId: SoeknadID,
         status: Status,
-        payload: String = """{}"""
+        payload: String = """{}""",
     ) {
         connection.use {
             it
@@ -250,14 +250,14 @@ class PostgresSoeknadRepository private constructor(
 
     override fun soeknadTilDoffenArkivert(
         soeknadId: SoeknadID,
-        payload: String?
+        payload: String?,
     ) {
         nyStatus(soeknadId = soeknadId, status = VENTERBEHANDLING, payload = payload ?: """{}""")
     }
 
     override fun finnKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): LagretSoeknad? {
         val soeknad =
             connection.use {
@@ -292,18 +292,18 @@ class PostgresSoeknadRepository private constructor(
 
     override fun slettOgKonverterKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID? = slettKladd(fnr, kilde, nyStatus = KONVERTERT)
 
     override fun slettKladd(
         fnr: String,
-        kilde: String
+        kilde: String,
     ): SoeknadID? = slettKladd(fnr, kilde, nyStatus = SLETTET)
 
     private fun slettKladd(
         fnr: String,
         kilde: String,
-        nyStatus: Status = SLETTET
+        nyStatus: Status = SLETTET,
     ): SoeknadID? {
         val slettetSoeknadId =
             connection.use {

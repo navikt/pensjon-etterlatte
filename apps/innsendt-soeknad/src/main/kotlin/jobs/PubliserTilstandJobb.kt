@@ -12,13 +12,13 @@ import soeknad.LagretSoeknad
 import soeknad.SoeknadRepository
 import java.time.Duration
 import java.time.temporal.ChronoUnit
-import java.util.*
+import java.util.Timer
 import kotlin.concurrent.fixedRateTimer
 
 class PubliserTilstandJobb(
     private val db: SoeknadRepository,
     private val publiserSoeknad: SoeknadPubliserer,
-    private val publiserUtkast: UtkastPubliserer
+    private val publiserUtkast: UtkastPubliserer,
 ) {
     private val logger = LoggerFactory.getLogger(PubliserTilstandJobb::class.java)
 
@@ -28,7 +28,7 @@ class PubliserTilstandJobb(
         return fixedRateTimer(
             name = this.javaClass.simpleName,
             initialDelay = Duration.of(1, ChronoUnit.MINUTES).toMillis(),
-            period = Duration.of(10, ChronoUnit.MINUTES).toMillis()
+            period = Duration.of(10, ChronoUnit.MINUTES).toMillis(),
         ) {
             runBlocking {
                 sjekkTilstandOgPubliser()
@@ -72,7 +72,7 @@ class PubliserTilstandJobb(
                         if (it.isNotEmpty()) {
                             logger.info(
                                 "Publiserer melding om søknader ${it.map(LagretSoeknad::id)} som mangler " +
-                                    "behandling ut på Kafka"
+                                    "behandling ut på Kafka",
                             )
                         }
                     }.forEach {

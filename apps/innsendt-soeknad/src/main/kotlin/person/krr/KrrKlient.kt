@@ -15,15 +15,15 @@ import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import java.util.*
+import java.util.UUID
 
 interface Krr {
     suspend fun hentDigitalKontaktinformasjon(fnr: Foedselsnummer): DigitalKontaktinformasjon?
 }
 
 class KrrKlient(
-    private val client: HttpClient
-): Krr {
+    private val client: HttpClient,
+) : Krr {
     private val logger: Logger = LoggerFactory.getLogger(KrrKlient::class.java)
 
     override suspend fun hentDigitalKontaktinformasjon(fnr: Foedselsnummer): DigitalKontaktinformasjon? {
@@ -52,8 +52,8 @@ class KrrKlient(
 }
 
 class KrrException(
-    cause: Throwable
-): Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
+    cause: Throwable,
+) : Exception("Klarte ikke å hente digital kontaktinfo fra Krr", cause)
 
 val HttpHeaders.NavConsumerId: String
     get() = "Nav-Consumer-Id"

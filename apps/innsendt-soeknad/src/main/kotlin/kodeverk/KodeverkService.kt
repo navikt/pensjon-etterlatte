@@ -6,10 +6,10 @@ import no.nav.etterlatte.kodeverk.CacheKey.POSTSTEDER
 import no.nav.etterlatte.kodeverk.CacheKey.VALUTAER
 import org.slf4j.LoggerFactory
 import java.time.LocalDate
-import java.util.concurrent.*
+import java.util.concurrent.TimeUnit
 
 class KodeverkService(
-    private val klient: Kodeverk
+    private val klient: Kodeverk,
 ) {
     private val logger = LoggerFactory.getLogger(KodeverkService::class.java)
 
@@ -21,7 +21,7 @@ class KodeverkService(
 
     suspend fun hentPoststed(
         postnr: String?,
-        spraak: String = "nb"
+        spraak: String = "nb",
     ): String? {
         if (postnr.isNullOrBlank()) return null
 
@@ -46,7 +46,7 @@ class KodeverkService(
 
     suspend fun hentLand(
         landkode: String?,
-        spraak: String = "nb"
+        spraak: String = "nb",
     ): String? {
         if (landkode.isNullOrBlank()) return null
 
@@ -72,7 +72,7 @@ class KodeverkService(
                         gyldigFra = it.gyldigFra,
                         gyldigTil = it.gyldigTil,
                         beskrivelser = it.beskrivelser,
-                        isoKode = isoKode
+                        isoKode = isoKode,
                     )
                 }
             }.mapNotNull { betydningMedIsoKode ->
@@ -81,7 +81,7 @@ class KodeverkService(
                         isoKode = betydningMedIsoKode.isoKode,
                         gyldigFra = betydningMedIsoKode.gyldigFra,
                         gyldigTil = betydningMedIsoKode.gyldigTil,
-                        beskrivelse = beskrivelse
+                        beskrivelse = beskrivelse,
                     )
                 }
             }
@@ -89,7 +89,7 @@ class KodeverkService(
 
     private fun KodeverkResponse.hentTekst(
         kode: String,
-        spraak: String
+        spraak: String,
     ): String {
         val gyldigBetydning =
             this.betydninger[kode]
@@ -109,5 +109,5 @@ class KodeverkService(
 private enum class CacheKey {
     LANDKODER,
     POSTSTEDER,
-    VALUTAER
+    VALUTAER,
 }

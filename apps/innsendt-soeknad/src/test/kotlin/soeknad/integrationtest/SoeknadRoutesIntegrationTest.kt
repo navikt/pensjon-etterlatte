@@ -34,9 +34,8 @@ import org.junit.jupiter.api.TestMethodOrder
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import soeknad.PostgresSoeknadRepository
-import java.util.*
-import java.util.stream.*
-
+import java.util.Arrays
+import java.util.stream.Collectors
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation::class)
@@ -54,9 +53,10 @@ internal abstract class SoeknadIntegrationTest {
     val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
     // TODO mock klient istedet for å teste AdressebeskyttelseService
-    val adressebeskyttelse = mockk<AdressebeskyttelseService>().apply {
-        coEvery { hentGradering(any(), any()) } returns emptyMap()
-    }
+    val adressebeskyttelse =
+        mockk<AdressebeskyttelseService>().apply {
+            coEvery { hentGradering(any(), any()) } returns emptyMap()
+        }
 
     @BeforeAll
     fun beforeAll() {
@@ -100,16 +100,16 @@ fun TestApplicationRequest.tokenFor(fnr: String) {
                     .Builder()
                     .claim("pid", fnr)
                     .issuer("lol")
-                    .build()
+                    .build(),
             ).serialize()
-        }"""
+        }""",
     )
 }
 
-class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguration(null)) {
+class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
     class ProviderConfiguration internal constructor(
-        name: String?
-    ): Config(name)
+        name: String?,
+    ) : Config(name)
 
     private fun getTokensFromHeader(request: Headers): List<JwtToken> {
         try {
@@ -119,7 +119,7 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
                 return extractBearerTokens(*headerValues)
                     .map { encodedToken: String ->
                         JwtToken(
-                            encodedToken
+                            encodedToken,
                         )
                     }
             }
@@ -134,7 +134,7 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
             .map { s: String ->
                 s
                     .split(
-                        " ".toRegex()
+                        " ".toRegex(),
                     ).toTypedArray()
             }.filter { pair: Array<String> -> pair.size == 2 }
             .filter { pair: Array<String> ->
@@ -148,8 +148,8 @@ class TokenSupportAcceptAllProvider: AuthenticationProvider(ProviderConfiguratio
     override suspend fun onAuthenticate(context: AuthenticationContext) {
         context.principal(
             TokenValidationContextPrincipal(
-                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer })
-            )
+                TokenValidationContext(getTokensFromHeader(context.call.request.headers).associateBy { it.issuer }),
+            ),
         )
     }
 }
