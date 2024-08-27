@@ -26,6 +26,7 @@ class InntektsjusteringRepository(
             .firstOrNull {
                 Inntektsjustering(
                     id = UUID.fromString(getString("id")),
+                    inntektsaar = getInt("inntektsaar"),
                     arbeidsinntekt = getInt("arbeidsinntekt"),
                     naeringsinntekt = getInt("naeringsinntekt"),
                     arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
@@ -44,6 +45,7 @@ class InntektsjusteringRepository(
                 setInt(4, inntektsjustering.naeringsinntekt)
                 setInt(5, inntektsjustering.arbeidsinntektUtland)
                 setInt(6, inntektsjustering.naeringsinntektUtland)
+                setInt(7, inntektsjustering.inntektsaar)
             }.execute()
     }
 
@@ -57,7 +59,7 @@ private object Queries {
 		""".trimIndent()
 
     val LAGRE = """
-		INSERT INTO inntektsjustering (id, fnr, arbeidsinntekt, naeringsinntekt, arbeidsinntekt_utland, naeringsinntekt_utland)
-		VALUES (?, ?, ?, ?, ?, ?)
+		INSERT INTO inntektsjustering (id, fnr, arbeidsinntekt, naeringsinntekt, arbeidsinntekt_utland, naeringsinntekt_utland, inntektsaar)
+		VALUES (?, ?, ?, ?, ?, ?, ?)
 	""".trimIndent()
 }
