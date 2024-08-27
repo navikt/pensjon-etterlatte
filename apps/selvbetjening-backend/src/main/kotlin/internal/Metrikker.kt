@@ -9,7 +9,6 @@ import io.micrometer.core.instrument.Clock
 import io.micrometer.prometheus.PrometheusConfig
 import io.micrometer.prometheus.PrometheusMeterRegistry
 import io.prometheus.client.CollectorRegistry
-import io.prometheus.client.Counter
 import no.nav.etterlatte.internal.Metrikker.registry
 
 object Metrikker {
@@ -19,7 +18,7 @@ object Metrikker {
         PrometheusMeterRegistry(
             PrometheusConfig.DEFAULT,
             collectorRegistry,
-            Clock.SYSTEM
+            Clock.SYSTEM,
         )
     // TODO
 }

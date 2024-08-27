@@ -39,98 +39,96 @@ import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
-import java.util.*
-import java.util.concurrent.atomic.AtomicBoolean
+import java.util.UUID
 
 val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
 fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
 
 enum class GcpEnv(
-	val env: String
+    val env: String,
 ) {
-	PROD("prod-gcp"),
-	DEV("dev-gcp")
+    PROD("prod-gcp"),
+    DEV("dev-gcp"),
 }
 
 fun appIsInGCP(): Boolean =
-	when (val naisClusterName = clusternavn()) {
-		null -> false
-		else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
-	}
+    when (val naisClusterName = clusternavn()) {
+        null -> false
+        else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
+    }
 
 fun main() {
-	val datasourceBuilder = DataSourceBuilder(System.getenv())
+    val datasourceBuilder = DataSourceBuilder(System.getenv())
 
-	val env =
-		System.getenv().toMutableMap().apply {
-			put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
-		}
+    val env =
+        System.getenv().toMutableMap().apply {
+            put("KAFKA_CONSUMER_GROUP_ID", get("NAIS_APP_NAME")!!.replace("-", ""))
+        }
 
-	val rapid: KafkaProdusent<String, String> =
-		if (appIsInGCP()) {
-			GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_RAPID_TOPIC"))
-		} else {
-			TestProdusent()
-		}
+    val rapid: KafkaProdusent<String, String> =
+        if (appIsInGCP()) {
+            GcpKafkaConfig.fromEnv(env).standardProducer(env.getValue("KAFKA_RAPID_TOPIC"))
+        } else {
+            TestProdusent()
+        }
 
-	val inntektsjusteringService = InntektsjusteringService(
-		InntektsjusteringRepository(datasourceBuilder.dataSource),
-		rapid
-	)
+    val inntektsjusteringService =
+        InntektsjusteringService(
+            InntektsjusteringRepository(datasourceBuilder.dataSource),
+            rapid,
+        )
 
-	val rapidApplication =
-		RapidApplication
-			.Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
-			.withKtorModule {
-				apiModule {
-					metricsApi()
-					inntektsjustering(inntektsjusteringService)
-				}
-			}
-			.build {
-				datasourceBuilder.migrate()
-			}
-			.also { rapidConnection ->
-				// TODO rapids..
-			}
-	rapidApplication.start()
+    val rapidApplication =
+        RapidApplication
+            .Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
+            .withKtorModule {
+                apiModule {
+                    metricsApi()
+                    inntektsjustering(inntektsjusteringService)
+                }
+            }.build {
+                datasourceBuilder.migrate()
+            }.also { rapidConnection ->
+                // TODO rapids..
+            }
+    rapidApplication.start()
 }
 
 fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
-	call
-		.principal<TokenValidationContextPrincipal>()
-		?.context
-		?.firstValidToken
-		?.jwtTokenClaims
-		?.get("pid")!!
-		.toString()
-		.let { Foedselsnummer.of(it) }
+    call
+        .principal<TokenValidationContextPrincipal>()
+        ?.context
+        ?.firstValidToken
+        ?.jwtTokenClaims
+        ?.get("pid")!!
+        .toString()
+        .let { Foedselsnummer.of(it) }
 
 fun Application.apiModule(routes: Route.() -> Unit) {
-	install(Authentication) {
-		tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
-	}
-	install(ContentNegotiation) {
-		jackson {
-			enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
-			disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-			disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-			registerModule(JavaTimeModule())
-		}
-	}
-	install(IgnoreTrailingSlash)
-	install(CallLogging) {
-		level = Level.INFO
-		disableDefaultColors()
-		filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive|.*/metrics")) }
-		mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
-	}
+    install(Authentication) {
+        tokenValidationSupport(config = HoconApplicationConfig(ConfigFactory.load()))
+    }
+    install(ContentNegotiation) {
+        jackson {
+            enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+            disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            registerModule(JavaTimeModule())
+        }
+    }
+    install(IgnoreTrailingSlash)
+    install(CallLogging) {
+        level = Level.INFO
+        disableDefaultColors()
+        filter { call -> !call.request.path().matches(Regex(".*/isready|.*/isalive|.*/metrics")) }
+        mdc(CORRELATION_ID) { call -> call.request.header(X_CORRELATION_ID) ?: UUID.randomUUID().toString() }
+    }
 
-	routing {
-		healthApi()
-		authenticate {
-			routes()
-		}
-	}
+    routing {
+        healthApi()
+        authenticate {
+            routes()
+        }
+    }
 }
