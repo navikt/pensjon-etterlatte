@@ -3,17 +3,17 @@ package no.nav.etterlatte.libs.utils.database
 import java.sql.ResultSet
 
 fun <T> ResultSet.singleOrNull(block: ResultSet.() -> T): T? =
-	if (next()) {
-		block().also {
-			require(!next()) { "Skal være unik" }
-		}
-	} else {
-		null
-	}
+    if (next()) {
+        block().also {
+            require(!next()) { "Skal være unik" }
+        }
+    } else {
+        null
+    }
 
 fun <T> ResultSet.firstOrNull(block: ResultSet.() -> T): T? =
-	if (next()) {
-		block()
-	} else {
-		null
-	}
+    if (next()) {
+        block()
+    } else {
+        null
+    }
