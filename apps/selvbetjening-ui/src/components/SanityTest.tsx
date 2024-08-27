@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Select, VStack } from '@navikt/ds-react'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 import useSWR, { SWRResponse } from 'swr'
+import { apiURL } from '../utils/api.ts'
 
 export enum Language {
     BOKMAAL = 'NB',
@@ -12,7 +13,7 @@ export enum Language {
 export default function SanityTest() {
     const [lang, setLang] = useState(Language.BOKMAAL)
 
-    const { data }: SWRResponse<never[], boolean, boolean> = useSWR('/selvbetjening/sanity')
+    const { data }: SWRResponse<never[], boolean, boolean> = useSWR(`${apiURL}/api/sanity`)
 
     return (
         <div>
