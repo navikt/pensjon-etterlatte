@@ -17,7 +17,7 @@ class GcpKafkaConfig(
     private val truststorePassword: String,
     private val keystoreLocation: String,
     private val keystorePassword: String,
-    private val clientId: String
+    private val clientId: String,
 ) : KafkaConfig {
     companion object {
         private fun generateInstanceId(env: Map<String, String>): String {
@@ -32,7 +32,7 @@ class GcpKafkaConfig(
                 truststorePassword = env.getValue("KAFKA_CREDSTORE_PASSWORD"),
                 keystoreLocation = env.getValue("KAFKA_KEYSTORE_PATH"),
                 keystorePassword = env.getValue("KAFKA_CREDSTORE_PASSWORD"),
-                clientId = generateInstanceId(env)
+                clientId = generateInstanceId(env),
             )
     }
 
@@ -58,7 +58,7 @@ class GcpKafkaConfig(
 }
 
 class LocalKafkaConfig(
-    private val brokersURL: String
+    private val brokersURL: String,
 ) : KafkaConfig {
     override fun producerConfig() =
         kafkaBaseConfig().apply {

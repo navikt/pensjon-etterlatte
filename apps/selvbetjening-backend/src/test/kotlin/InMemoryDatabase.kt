@@ -13,14 +13,14 @@ val CONTAINER_WAIT_STRATEGY =
                 .withRegEx(".*database system is ready to accept connections.*\\s")
                 .withTimes(2)
                 .withStartupTimeout(
-                    Duration.of(60L, ChronoUnit.SECONDS)
-                )
+                    Duration.of(60L, ChronoUnit.SECONDS),
+                ),
         ).withStrategy(Wait.forListeningPort())
 
 fun opprettInMemoryDatabase(
     postgreSQLContainer: PostgreSQLContainer<Nothing>,
     env: Map<String, String>? = null,
-    shouldMigrate: Boolean = true
+    shouldMigrate: Boolean = true,
 ): InMemoryDatabase {
     postgreSQLContainer.waitingFor(CONTAINER_WAIT_STRATEGY)
     postgreSQLContainer.start()
@@ -38,5 +38,5 @@ fun opprettInMemoryDatabase(
 
 data class InMemoryDatabase(
     val sqlContainer: PostgreSQLContainer<Nothing>,
-    val dsb: DataSourceBuilder
+    val dsb: DataSourceBuilder,
 )

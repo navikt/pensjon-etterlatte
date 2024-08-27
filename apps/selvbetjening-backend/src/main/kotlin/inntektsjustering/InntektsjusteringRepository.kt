@@ -10,33 +10,37 @@ import java.util.UUID
 import javax.sql.DataSource
 
 class InntektsjusteringRepository(
-    private val ds: DataSource
+    private val ds: DataSource,
 ) {
-
     private val connection get() = ds.connection
 
     private val postgresTimeZone = ZoneId.of("UTC")
 
-    fun hentInntektsjustering(fnr: Foedselsnummer) = connection.use {
-        it
-            .prepareStatement(HENT)
-            .apply {
-                setString(1, fnr.value)
-            }.executeQuery()
-            .firstOrNull {
-                Inntektsjustering(
-                    id = UUID.fromString(getString("id")),
-                    arbeidsinntekt = getInt("arbeidsinntekt"),
-                    naeringsinntekt = getInt("naeringsinntekt"),
-                    arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
-                    naeringsinntektUtland = getInt("naeringsinntekt_utland"),
-                    tidspunkt = getTimestamp("innsendt").toInstant()
-                )
-            }
-    }
+    fun hentInntektsjustering(fnr: Foedselsnummer) =
+        connection.use {
+            it
+                .prepareStatement(HENT)
+                .apply {
+                    setString(1, fnr.value)
+                }.executeQuery()
+                .firstOrNull {
+                    Inntektsjustering(
+                        id = UUID.fromString(getString("id")),
+                        arbeidsinntekt = getInt("arbeidsinntekt"),
+                        naeringsinntekt = getInt("naeringsinntekt"),
+                        arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
+                        naeringsinntektUtland = getInt("naeringsinntekt_utland"),
+                        tidspunkt = getTimestamp("innsendt").toInstant(),
+                    )
+                }
+        }
 
-    fun lagreInntektsjustering(fnr: Foedselsnummer, inntektsjustering: InntektsjusteringLagre) = connection.use {
-        it.prepareStatement(LAGRE)
+    fun lagreInntektsjustering(
+        fnr: Foedselsnummer,
+        inntektsjustering: InntektsjusteringLagre,
+    ) = connection.use {
+        it
+            .prepareStatement(LAGRE)
             .apply {
                 setObject(1, inntektsjustering.id)
                 setString(2, fnr.value)
@@ -46,18 +50,19 @@ class InntektsjusteringRepository(
                 setInt(6, inntektsjustering.naeringsinntektUtland)
             }.execute()
     }
-
 }
 
 private object Queries {
-    val HENT = """
-		SELECT * FROM inntektsjustering
-		WHERE fnr = ?
-		ORDER BY innsendt DESC
-		""".trimIndent()
+    val HENT =
+        """
+        SELECT * FROM inntektsjustering
+        WHERE fnr = ?
+        ORDER BY innsendt DESC
+        """.trimIndent()
 
-    val LAGRE = """
-		INSERT INTO inntektsjustering (id, fnr, arbeidsinntekt, naeringsinntekt, arbeidsinntekt_utland, naeringsinntekt_utland)
-		VALUES (?, ?, ?, ?, ?, ?)
-	""".trimIndent()
+    val LAGRE =
+        """
+        INSERT INTO inntektsjustering (id, fnr, arbeidsinntekt, naeringsinntekt, arbeidsinntekt_utland, naeringsinntekt_utland)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """.trimIndent()
 }

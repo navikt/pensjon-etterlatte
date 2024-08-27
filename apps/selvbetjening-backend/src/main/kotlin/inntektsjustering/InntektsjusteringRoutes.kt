@@ -10,23 +10,21 @@ import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
 
-fun Route.inntektsjustering(
-	service: InntektsjusteringService
-) {
-	route("/api/inntektsjustering") {
-		get {
-			val fnr = fnrFromToken()
-			val inntektsjustering = service.hentInntektsjustering(fnr)
-			when (inntektsjustering) {
-				null -> call.respond(HttpStatusCode.NotFound)
-				else -> call.respond(inntektsjustering)
-			}
-		}
-		post {
-			val fnr = fnrFromToken()
-			val request = call.receive<InntektsjusteringLagre>()
-			service.lagreInntektsjustering(fnr, request)
-			call.respond(HttpStatusCode.OK)
-		}
-	}
+fun Route.inntektsjustering(service: InntektsjusteringService) {
+    route("/api/inntektsjustering") {
+        get {
+            val fnr = fnrFromToken()
+            val inntektsjustering = service.hentInntektsjustering(fnr)
+            when (inntektsjustering) {
+                null -> call.respond(HttpStatusCode.NotFound)
+                else -> call.respond(inntektsjustering)
+            }
+        }
+        post {
+            val fnr = fnrFromToken()
+            val request = call.receive<InntektsjusteringLagre>()
+            service.lagreInntektsjustering(fnr, request)
+            call.respond(HttpStatusCode.OK)
+        }
+    }
 }
