@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
-import java.util.*
+import java.util.LinkedList
 
 class RetryTest {
     @Test
@@ -14,7 +14,7 @@ class RetryTest {
             "OK",
             runBlocking {
                 unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
-            }
+            },
         )
     }
 

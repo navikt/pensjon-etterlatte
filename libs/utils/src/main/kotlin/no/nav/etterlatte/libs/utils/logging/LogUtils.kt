@@ -1,7 +1,7 @@
 package no.nav.etterlatte.libs.utils.logging
 
 import org.slf4j.MDC
-import java.util.*
+import java.util.UUID
 
 const val X_CORRELATION_ID: String = "x_correlation_id"
 const val CORRELATION_ID: String = "correlation_id"
