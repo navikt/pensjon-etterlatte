@@ -29,16 +29,6 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                 </FormElement>
             </Box>
 
-            <Box maxWidth="14rem">
-                <FormElement>
-                    <RHFCombobox
-                        name={'citizenship'}
-                        label={t('citizenship')}
-                        options={countries.map((country) => country.label)}
-                    />
-                </FormElement>
-            </Box>
-
             <FormElement>
                 {!fnrIsUnknown && (
                     <RHFFoedselsnummerInput
@@ -72,6 +62,16 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                     </VStack>
                 )}
             </FormElement>
+
+            <Box maxWidth="14rem">
+                <FormElement>
+                    <RHFCombobox
+                        name={'citizenship'}
+                        label={t('citizenship')}
+                        options={countries.map((country) => country.label)}
+                    />
+                </FormElement>
+            </Box>
         </>
     )
 }
