@@ -120,7 +120,7 @@ export enum SoekbareYtelserNAV {
     fosterhjemsgodtgjoering = 'soekbarYtelse.fosterhjemsgodtgjoering',
     omsorgspenger = 'soekbarYtelse.omsorgspenger',
     opplaeringspenger = 'soekbarYtelse.opplaeringspenger',
-    ufoerepensjon = 'soekbarYtelse.ufoerepensjon',
+    ufoeretrygd = 'soekbarYtelse.ufoeretrygd',
     alderspensjon = 'soekbarYtelse.alderspensjon',
 }
 

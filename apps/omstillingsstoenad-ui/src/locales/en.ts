@@ -800,6 +800,7 @@ export default {
     'soekbarYtelse.fosterhjemsgodtgjoering': 'Foster care grant',
     'soekbarYtelse.omsorgspenger': 'Care benefits',
     'soekbarYtelse.opplaeringspenger': 'Training allowance',
+    'soekbarYtelse.ufoeretrygd': 'Disability allowance',
     'soekbarYtelse.ufoerepensjon': 'Disability pension',
     'soekbarYtelse.ufoeretrygdFraNAV': 'Disability pension from NAV',
     'soekbarYtelse.alderspensjon': 'Retirement pension',

@@ -1,12 +1,6 @@
 import { JobbStatus, Utdanning as GammelUtdanning } from '../../typer/situasjon'
+import { IngenJobb, StillingType as GammelStillingType } from '../../typer/arbeidsforhold'
 import {
-    Arbeidsmengde,
-    IngenJobb,
-    SagtOppEllerRedusert,
-    StillingType as GammelStillingType,
-} from '../../typer/arbeidsforhold'
-import {
-    ArbeidsmengdeType,
     EndringAvInntektGrunnType,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
@@ -17,7 +11,6 @@ import {
     OppholdUtlandType,
     PensjonEllerTrygdType,
     PensjonsYtelseType,
-    SagtOppEllerRedusertType,
     SivilstatusType,
     SoekbareYtelserAndreType,
     SoekbareYtelserNAVType,
@@ -299,29 +292,10 @@ export const konverterSoekteYtelserNAV = (type: SoekbareYtelserNAV): SoekbareYte
             return SoekbareYtelserNAVType.OMSORGSPENGER
         case SoekbareYtelserNAV.opplaeringspenger:
             return SoekbareYtelserNAVType.OPPLAERINGSPENGER
-        case SoekbareYtelserNAV.ufoerepensjon:
-            return SoekbareYtelserNAVType.UFOEREPENSJON
+        case SoekbareYtelserNAV.ufoeretrygd:
+            return SoekbareYtelserNAVType.UFOERETRYGD
         case SoekbareYtelserNAV.alderspensjon:
             return SoekbareYtelserNAVType.ALDERSPENSJON
-    }
-}
-export const konverterArbeidsmengde = (type: Arbeidsmengde): ArbeidsmengdeType => {
-    switch (type) {
-        case Arbeidsmengde.prosent:
-            return ArbeidsmengdeType.PROSENT
-        case Arbeidsmengde.timer:
-            return ArbeidsmengdeType.TIMER
-    }
-}
-
-export const konverterSagtOppEllerRedusert = (type: SagtOppEllerRedusert): SagtOppEllerRedusertType => {
-    switch (type) {
-        case SagtOppEllerRedusert.oppsagt:
-            return SagtOppEllerRedusertType.OPPSAGT
-        case SagtOppEllerRedusert.redusert:
-            return SagtOppEllerRedusertType.REDUSERT
-        case SagtOppEllerRedusert.nei:
-            return SagtOppEllerRedusertType.NEI
     }
 }
 
