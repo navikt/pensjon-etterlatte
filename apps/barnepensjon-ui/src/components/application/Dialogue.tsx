@@ -1,10 +1,9 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StepType } from '../../utils/steps'
-import { Stepper } from '@navikt/ds-react'
+import { FormProgress } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
 import React, { useState } from 'react'
 import { ActionTypes } from '../../context/application/application'
-import { isDev } from '../../api/axios'
 import PageNotFound from '../error/PageNotFound'
 import useTranslation from '../../hooks/useTranslation'
 
@@ -39,17 +38,17 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
 
     return (
         <>
-            <Stepper
+            <FormProgress
+                totalSteps={steps.length}
                 activeStep={currentIndex + 1}
-                onStepChange={(step) => isDev && visitNavigate(step - 1)}
-                orientation={'horizontal'}
+                onStepChange={(step) => visitNavigate(step - 1)}
             >
-                {steps.map((step) => (
-                    <Stepper.Step key={uuid()} interactive={visitedPaths.includes(step)}>
+                {steps.map((step: StepType) => (
+                    <FormProgress.Step key={uuid()} interactive={visitedPaths.includes(step)}>
                         {t(step.label)}
-                    </Stepper.Step>
+                    </FormProgress.Step>
                 ))}
-            </Stepper>
+            </FormProgress>
 
             <Routes>
                 {steps.map((step: StepType) => (
