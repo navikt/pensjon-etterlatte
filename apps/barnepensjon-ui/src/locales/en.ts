@@ -532,9 +532,9 @@ const systemUnavailable = {
 
 const invalidApplicant = {
     applicantIsTooYoung: 'To apply for the children’s pension, you must be over the age of 18.',
-    childMayBeApplicableForPension:
-        'Children who have lost one or both of their parents may receive financial support. The children’s pension shall ensure there is an income to cover living and housing expenses.  \n \nFor children under the age of 18, it is the parent or guardian who must apply for a children’s pension.',
-    moreAboutChildrensPension: '<a href="https://www.nav.no/barnepensjon">Read more about the children’s pension</a>',
+    childMayBeApplicableForPension: 'Your parent or guardian shall apply for a children’s pension on your behalf.',
+    moreAboutChildrensPensionHref: 'https://www.nav.no/barnepensjon',
+    moreAboutChildrensPension: 'Read more about the children’s pension',
 }
 
 const receipt = {
