@@ -772,6 +772,7 @@ export default {
     'soekbarYtelse.fosterhjemsgodtgjoering': 'Fosterhjemsgodtgjøring',
     'soekbarYtelse.omsorgspenger': 'Omsorgspenger',
     'soekbarYtelse.opplaeringspenger': 'Opplæringspenger',
+    'soekbarYtelse.ufoeretrygd': 'Uføretrygd',
     'soekbarYtelse.ufoerepensjon': 'Uførepensjon',
     'soekbarYtelse.ufoeretrygdFraNAV': 'Uføretrygd fra NAV',
     'soekbarYtelse.alderspensjon': 'Alderspensjon',
