@@ -518,9 +518,9 @@ const systemUnavailable = {
 
 const invalidApplicant = {
     applicantIsTooYoung: 'For å søke om barnepensjon må du være over 18 år.',
-    childMayBeApplicableForPension:
-        'Barn som har mistet en eller begge foreldrene sine, kan få økonomisk støtte. Barnepensjon skal sikre inntekt til å leve og bo. \n\nFor barn under 18 år er det forelder eller verge som søker om barnepensjon.',
-    moreAboutChildrensPension: '<a href="https://www.nav.no/barnepensjon">Mer om barnepensjon</a>',
+    childMayBeApplicableForPension: 'Det er forelder eller verge som søker om barnepensjon på vegne av deg.',
+    moreAboutChildrensPensionHref: 'https://www.nav.no/barnepensjon',
+    moreAboutChildrensPension: 'Les mer om barnepensjon',
 }
 
 const receipt = {
