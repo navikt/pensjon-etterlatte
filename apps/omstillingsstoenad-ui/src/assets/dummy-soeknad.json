@@ -197,7 +197,7 @@
       "svar": "radiobuttons.ja",
       "soekteYtelser": [
         "soekbarYtelse.dagspenger",
-        "soekbarYtelse.ufoerepensjon"
+        "soekbarYtelse.ufoeretrygd"
       ]
     },
     "ytelserAndre": {
