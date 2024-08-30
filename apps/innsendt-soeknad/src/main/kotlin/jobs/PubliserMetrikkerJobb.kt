@@ -1,9 +1,9 @@
 package no.nav.etterlatte.jobs
 
 import io.micrometer.core.instrument.Gauge
-import io.micrometer.prometheusmetrics.PrometheusConfig
 import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.shuttingDown
 import org.slf4j.LoggerFactory
 import soeknad.StatistikkRepository
@@ -15,7 +15,7 @@ import kotlin.concurrent.fixedRateTimer
 
 class PubliserMetrikkerJobb(
     private val db: StatistikkRepository,
-    private val registry: PrometheusMeterRegistry = PrometheusMeterRegistry(PrometheusConfig.DEFAULT),
+    private val registry: PrometheusMeterRegistry = Metrikker.registry,
 ) {
     private val logger = LoggerFactory.getLogger(PubliserMetrikkerJobb::class.java)
 
