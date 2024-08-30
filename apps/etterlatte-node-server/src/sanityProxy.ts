@@ -13,6 +13,7 @@ const sanityClient = createClient({
 
 export default function sanityProxy(): RequestHandler {
     return async (req: Request, res: Response) => {
+        logger.info('request mot sanity proxy')
         try {
             // TODO legge inn håndtering for fine grained sanity spørringer i URL params
             const response = await sanityClient.fetch(`*[_type == "veiledningstekst"]`)
