@@ -3,8 +3,8 @@ export const apiURL = import.meta.env.DEV
     : `${import.meta.env.BASE_URL}/api`
 
 export const sanityURL = import.meta.env.DEV
-    ? `http://localhost:8080${import.meta.env.BASE_URL}/sanity`
-    : `${import.meta.env.BASE_URL}/sanity`
+    ? `http://localhost:8080${import.meta.env.BASE_URL}/brukerdialog-sanity`
+    : `${import.meta.env.BASE_URL}/brukerdialog-sanity`
 
 export const fetcher = (...args) => fetch(...args).then((res) => res.json())
 

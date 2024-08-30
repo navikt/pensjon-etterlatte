@@ -50,7 +50,7 @@ if (config.env.isSelvbetjeningUIApp) {
     // Sanity er ikke definert for annet selvbetjening-ui må derfor importeres dynamisk ellers eksekveres innholdet i filen
     import('./sanityProxy').then((sanityProxy) => {
         logger.warn('Nå laster vi sanity')
-        app.use(`${basePath}/sanity`, sanityProxy.default())
+        app.use(`${basePath}/brukerdialog-sanity`, sanityProxy.default())
     })
 }
 
