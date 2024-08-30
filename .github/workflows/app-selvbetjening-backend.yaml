@@ -24,6 +24,10 @@ on:
       - apps/selvbetjening-backend/**
       - gradle/libs.versions.toml
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   test:
     if: github.event_name == 'pull_request'
@@ -32,19 +36,5 @@ jobs:
 
   build:
     if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/.build-backend.yaml
+    uses: ./.github/workflows/.build-and-deploy-backend.yaml
     secrets: inherit
-    permissions:
-      contents: write
-      id-token: write
-
-  deploy:
-    needs: build
-    if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/.deploy.yaml
-    with:
-      image: ${{ needs.build.outputs.image }}
-    secrets: inherit
-    permissions:
-      contents: read
-      id-token: write
