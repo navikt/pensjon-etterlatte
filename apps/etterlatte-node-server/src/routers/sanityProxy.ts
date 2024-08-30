@@ -1,7 +1,7 @@
 import { RequestHandler, Request, Response } from 'express'
 import { createClient } from '@sanity/client'
-import config from './config'
-import { logger } from './monitoring/logger'
+import config from '../config'
+import { logger } from '../monitoring/logger'
 
 const sanityClient = createClient({
     projectId: config.sanity.projectId,
@@ -13,7 +13,6 @@ const sanityClient = createClient({
 
 export default function sanityProxy(): RequestHandler {
     return async (req: Request, res: Response) => {
-        logger.info('request mot sanity proxy')
         try {
             // TODO legge inn håndtering for fine grained sanity spørringer i URL params
             const response = await sanityClient.fetch(`*[_type == "veiledningstekst"]`)
