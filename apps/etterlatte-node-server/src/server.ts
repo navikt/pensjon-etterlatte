@@ -44,13 +44,18 @@ logger.info('Setting up session and proxy')
 app.use(`${basePath}/api/logg`, loggerRouter)
 app.get(`${basePath}/session`, session())
 
+const sanityRouter = express.Router()
+
+app.use(`${basePath}/api/sanity`, sanityRouter)
+
 app.use(`${basePath}/api`, proxy(config.app.apiUrl))
 
 if (config.env.isSelvbetjeningUIApp) {
     // Sanity er ikke definert for annet selvbetjening-ui må derfor importeres dynamisk ellers eksekveres innholdet i filen
+    // TODO: Flytte dette inn i "API-proxy"
     import('./sanityProxy').then((sanityProxy) => {
         logger.warn('Nå laster vi sanity')
-        app.use(`${basePath}/brukerdialog-sanity`, sanityProxy.default())
+        sanityRouter.use('/', sanityProxy.default())
     })
 }
 
