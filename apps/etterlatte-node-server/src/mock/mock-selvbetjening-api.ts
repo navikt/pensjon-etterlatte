@@ -41,7 +41,7 @@ export const mockSelvbetjeningApi = (app: any) => {
         res.sendStatus(200)
     })
 
-    app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
+    app.get(`${config.app.basePath}/sanity`, (req: Request, res: Response) => {
         res.send(testBlocks)
     })
 
