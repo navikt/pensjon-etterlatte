@@ -13,7 +13,7 @@ export enum Language {
 export default function SanityTest() {
     const [lang, setLang] = useState(Language.BOKMAAL)
 
-    const { data }: SWRResponse<never[], boolean, boolean> = useSWR(`${apiURL}/api/sanity`)
+    const { data }: SWRResponse<never[], boolean, boolean> = useSWR(`${apiURL}/sanity`)
 
     return (
         <div>

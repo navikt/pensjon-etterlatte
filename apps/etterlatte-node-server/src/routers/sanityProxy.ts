@@ -1,7 +1,7 @@
 import { RequestHandler, Request, Response } from 'express'
 import { createClient } from '@sanity/client'
-import config from './config'
-import { logger } from './monitoring/logger'
+import config from '../config'
+import { logger } from '../monitoring/logger'
 
 const sanityClient = createClient({
     projectId: config.sanity.projectId,
