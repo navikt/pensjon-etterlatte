@@ -14,7 +14,7 @@ permissions:
 jobs:
   build-and-publish:
     name: Build & publish
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-8-cores
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
     steps:
@@ -99,7 +99,7 @@ jobs:
 
   salsa:
     name: Generate SBOM, attest and sign image
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-8-cores
     needs: build-and-publish
     permissions:
       id-token: write
@@ -124,7 +124,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: dev-gcp
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-8-cores
     needs: build-and-publish
     permissions:
       contents: read
@@ -141,7 +141,7 @@ jobs:
     name: prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
     needs: [build-and-publish, deploy-to-dev-gcp, salsa]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-8-cores
     steps:
       - uses: actions/checkout@v4
       - uses: andstor/file-existence-action@v3
