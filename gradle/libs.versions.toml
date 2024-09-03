@@ -1,20 +1,20 @@
 [plugins]
 cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.10.0" }
-license = { id = 'com.github.jk1.dependency-license-report', version = '2.8' }
+license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 
 [versions]
-token-version = "5.0.1"
+token-version = "5.0.3"
 ktor-version = "2.3.12"
 jackson-version = "2.17.2"
-jupiter-version = "5.10.3"
+jupiter-version = "5.11.0"
 testcontainers-version = "1.20.1"
-flyway-version = "10.17.0"
+flyway-version = "10.17.2"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024041714471713358051.71746f05c18e" }
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version" }
-navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.1.8" }
+navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.1.9" }
 
 etterlatte-common = { module = "pensjon-etterlatte-libs:common", version = "2024.08.27-09.45.a87ec0a08b8f" }
 
@@ -33,17 +33,17 @@ ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.1.0" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
-database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.3" }
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.4" }
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version" }
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version" }
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version" }
 
-logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.13" }
-logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.6" }
+logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.16" }
+logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.7" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus-simpleclient", version = "1.13.2" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus-simpleclient", version = "1.13.3" }
 
 mockk = { module = "io.mockk:mockk", version = "1.13.12" }
 
