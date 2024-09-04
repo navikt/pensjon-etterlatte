@@ -3,12 +3,12 @@ cutterslade-analyze = { id = "ca.cutterslade.analyze", version = "1.10.0" }
 license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 
 [versions]
-token-version = "5.0.3"
+token-version = "5.0.5"
 ktor-version = "2.3.12"
 jackson-version = "2.17.2"
 jupiter-version = "5.11.0"
 testcontainers-version = "1.20.1"
-flyway-version = "10.17.2"
+flyway-version = "10.17.3"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024041714471713358051.71746f05c18e" }
