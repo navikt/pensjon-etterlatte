@@ -110,7 +110,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     }
 
     const cancelAndClose = () => {
-        if (child.fnrDnr === undefined) cancel(true)
+        if (child.fnrDnr === undefined && child.dateOfBirth === undefined) cancel(true)
         else cancel()
         window.scrollTo(0, 0)
     }
