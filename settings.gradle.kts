@@ -1,7 +1,7 @@
 rootProject.name = "pensjon-etterlatte-root"
 
 plugins {
-    kotlin("jvm") version "2.0.0" apply false
+    kotlin("jvm") version "2.0.20" apply false
 }
 
 include(
