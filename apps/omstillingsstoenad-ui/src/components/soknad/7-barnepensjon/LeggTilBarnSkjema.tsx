@@ -96,14 +96,13 @@ const TypoFeilmelding = styled.p`
 `
 
 interface Props {
-    avbryt: () => void
+    avbryt: (fjernAktivtBarn?: boolean) => void
     lagre: (data: IBarn) => void
     barn: IBarn
     fnrRegistrerteBarn: string[]
-    fjernAvbruttNyttBarn: () => void
 }
 
-const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbruttNyttBarn }: Props) => {
+const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) => {
     const { t } = useTranslation()
     const { countries }: { countries: Options[] } = useCountries()
     const { state: bruker } = useBrukerContext()
@@ -132,8 +131,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn, fjernAvbru
     }
 
     const avbrytOgLukk = () => {
-        if (barn.foedselsnummer === undefined) {
-            fjernAvbruttNyttBarn()
+        if (barn.foedselsnummer === undefined && barn.foedselsdato === undefined) {
+            avbryt(true)
         }
         avbryt()
         window.scrollTo(0, 0)
