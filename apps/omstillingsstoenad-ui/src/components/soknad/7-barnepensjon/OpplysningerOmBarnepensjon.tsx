@@ -57,9 +57,8 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
         setAktivBarnIndex(fields.length)
     }
 
-    const avbryt = (fjernAktivtBarn?: boolean) => {
-        if (fjernAktivtBarn) remove(aktivBarnIndex)
-        setAktivBarnIndex(undefined)
+    const fjernNyttBarn = () => {
+        remove(aktivBarnIndex)
     }
 
     const fjernBarn = (index: number) => {
@@ -161,9 +160,10 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
                 {aktivBarnIndex !== undefined && (
                     <LeggTilBarnSkjema
                         lagre={oppdaterBarn}
-                        avbryt={avbryt}
+                        avbryt={() => setAktivBarnIndex(undefined)}
                         fnrRegistrerteBarn={fnrRegistrerteBarn(aktivBarnIndex)}
                         barn={fields[aktivBarnIndex] as IBarn}
+                        fjernAvbruttNyttBarn={fjernNyttBarn}
                     />
                 )}
             </form>
