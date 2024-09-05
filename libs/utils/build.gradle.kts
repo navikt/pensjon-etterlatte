@@ -14,4 +14,5 @@ dependencies {
     testRuntimeOnly(libs.jupiter.engine)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
+    testFixturesImplementation(libs.etterlatte.common)
 }
