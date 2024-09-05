@@ -138,6 +138,9 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
         window.scrollTo(0, 0)
     }
 
+    console.log('test')
+    console.log('test4')
+
     const bosattUtlandSvar = watch('bosattUtland.svar')
     const harBarnetVerge = watch('harBarnetVerge.svar')
     const relasjon = watch('relasjon')
