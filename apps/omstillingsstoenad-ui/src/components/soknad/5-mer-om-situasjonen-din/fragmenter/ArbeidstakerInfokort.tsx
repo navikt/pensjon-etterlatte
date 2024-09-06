@@ -113,6 +113,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                             label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
                             htmlSize={Bredde.XS}
                             valgfri={!visFastArbeidsmengde}
+                            aria-hidden={!visFastArbeidsmengde}
                         />
                     </SkjemaElement>
                 </div>
@@ -133,6 +134,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
                                 htmlSize={Bredde.S}
                                 valgfri={!visMidlertidigArbeidsmengde}
+                                aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                             <RHFSelect
                                 name={`arbeidsforhold[${index}].arbeidsmengde.type` as const}
@@ -144,6 +146,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 ].concat(arbeidsmengdeValg)}
                                 label={t('felles.velg.tittel')}
                                 valgfri={!visMidlertidigArbeidsmengde}
+                                aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                         </NumberSelectRad>
                         <SkjemaElement>
@@ -151,6 +154,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 name={`arbeidsforhold[${index}].midlertidig.svar` as const}
                                 legend={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
                                 valgfri={!visMidlertidigArbeidsmengde}
+                                aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                         </SkjemaElement>
                         <div style={{ display: visSluttdato ? 'block' : 'none' }}>
@@ -159,6 +163,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 label={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger')}
                                 minDate={new Date()}
                                 valgfri={!visSluttdato}
+                                aria-hidden={!visSluttdato}
                             />
                         </div>
                     </SkjemaElement>
@@ -208,8 +213,14 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         marginBottom: '1rem',
                     }}
                 >
-                    <Button variant={'secondary'} type={'button'} onClick={() => fjern(index)}>
-                        <DeleteFilled /> &nbsp;{t('knapp.fjern')}
+                    <Button
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={() => fjern(index)}
+                        icon={<DeleteFilled />}
+                        data-testid={'fjern-arbeidsforhold-knapp'}
+                    >
+                        {t('knapp.fjern')}
                     </Button>
                 </div>
             )}

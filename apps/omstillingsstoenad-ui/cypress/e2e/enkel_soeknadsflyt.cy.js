@@ -130,32 +130,73 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValue(merOmSituasjonenDin.jobbStatus)
 
         merOmSituasjonenDin.arbeidsforhold.map((arbeid, idx) => {
+            const midlertidigAnsatt = idx === 0
+
+            if (!midlertidigAnsatt) cy.get('[data-testid=legg-til-arbeidsforhold-knapp]').click()
+
             const baseId = `arbeidsforhold\[${idx}\].`
 
             getById(baseId + 'arbeidsgiver').type(arbeid.arbeidsgiver)
 
             selectValueForId(baseId + 'ansettelsesforhold', arbeid.ansettelsesforhold)
 
-            getById(baseId + 'arbeidsmengde.svar').type(arbeid.arbeidsmengde.svar)
-            getById(baseId + 'arbeidsmengde.type')
-                .find('select')
-                .select(arbeid.arbeidsmengde.type)
+            if (midlertidigAnsatt) {
+                getById(baseId + 'arbeidsmengde.svar')
+                    .last()
+                    .type(arbeid.arbeidsmengde.svar)
+            } else {
+                getById(baseId + 'arbeidsmengde.svar')
+                    .first()
+                    .type(arbeid.arbeidsmengde.svar)
+            }
 
-            selectValueForId(baseId + 'midlertidig.svar', arbeid.midlertidig.svar)
-            getById(baseId + 'midlertidig.sluttdatoVelger').type(
-                format(arbeid.midlertidig.sluttdatoVelger, 'dd.MM.yyyy')
-            )
+            if (midlertidigAnsatt)
+                getById(baseId + 'arbeidsmengde.type')
+                    .find('select')
+                    .select(arbeid.arbeidsmengde.type)
+
+            if (midlertidigAnsatt) selectValueForId(baseId + 'midlertidig.svar', arbeid.midlertidig.svar)
+
+            if (midlertidigAnsatt)
+                getById(baseId + 'midlertidig.sluttdatoVelger').type(
+                    format(arbeid.midlertidig.sluttdatoVelger, 'dd.MM.yyyy')
+                )
 
             selectValueForId(
                 baseId + 'forventerEndretArbeidssituasjon.svar',
                 arbeid.forventerEndretArbeidssituasjon.svar
             )
-            getById(baseId + 'forventerEndretArbeidssituasjon.beskrivelse').type(
-                arbeid.forventerEndretArbeidssituasjon.beskrivelse
-            )
+
+            if (midlertidigAnsatt)
+                getById(baseId + 'forventerEndretArbeidssituasjon.beskrivelse').type(
+                    arbeid.forventerEndretArbeidssituasjon.beskrivelse
+                )
 
             // selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
         })
+
+        // --------------------------------------------------------------
+        // Sjekk at arbeidsforhold 2 beholdes hvis man sletter den første
+        cy.get('[data-testid=fjern-arbeidsforhold-knapp]').first().click()
+
+        getById('arbeidsforhold[0].arbeidsgiver').should(
+            'have.value',
+            merOmSituasjonenDin.arbeidsforhold[1].arbeidsgiver
+        )
+
+        getById('arbeidsforhold[0].ansettelsesforhold')
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].ansettelsesforhold}"]`)
+            .should('be.checked')
+
+        getById('arbeidsforhold[0].arbeidsmengde.svar').should(
+            'have.value',
+            merOmSituasjonenDin.arbeidsforhold[1].arbeidsmengde.svar
+        )
+
+        getById('arbeidsforhold[0].forventerEndretArbeidssituasjon.svar')
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].forventerEndretArbeidssituasjon.svar}"]`)
+            .should('be.checked')
+        // --------------------------------------------------------------
 
         selectValue(merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning)
 

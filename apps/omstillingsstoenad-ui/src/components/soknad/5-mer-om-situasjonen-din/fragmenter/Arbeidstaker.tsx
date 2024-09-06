@@ -44,7 +44,13 @@ const Arbeidstaker = () => {
                 <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
             ))}
 
-            <Button variant={'secondary'} type={'button'} onClick={nyttArbeidsforhold} disabled={fields.length >= 10}>
+            <Button
+                variant={'secondary'}
+                type={'button'}
+                onClick={nyttArbeidsforhold}
+                disabled={fields.length >= 10}
+                data-testid={'legg-til-arbeidsforhold-knapp'}
+            >
                 + {t('knapp.leggTilArbeidsforhold')}
             </Button>
         </SkjemaGruppe>

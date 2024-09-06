@@ -650,6 +650,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast
                 </label>
                 <input
+                  aria-hidden="true"
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
                   id="arbeidsforhold[0].arbeidsmengde.svar"
                   size="10"
@@ -698,6 +699,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
                   </label>
                   <input
+                    aria-hidden="false"
                     class="navds-text-field__input navds-body-short navds-body-short--medium"
                     id="arbeidsforhold[0].arbeidsmengde.svar"
                     size="25"
@@ -728,6 +730,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       class="navds-select__container"
                     >
                       <select
+                        aria-hidden="false"
                         class="navds-select__input navds-body-short navds-body-short--medium"
                         id="select-r44"
                       >
@@ -2128,6 +2131,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         </fieldset>
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-testid="legg-til-arbeidsforhold-knapp"
           type="button"
         >
           <span
@@ -3665,6 +3669,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast
                 </label>
                 <input
+                  aria-hidden="true"
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
                   id="arbeidsforhold[0].arbeidsmengde.svar"
                   size="10"
@@ -3713,6 +3718,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                     merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
                   </label>
                   <input
+                    aria-hidden="false"
                     class="navds-text-field__input navds-body-short navds-body-short--medium"
                     id="arbeidsforhold[0].arbeidsmengde.svar"
                     size="25"
@@ -3743,6 +3749,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       class="navds-select__container"
                     >
                       <select
+                        aria-hidden="false"
                         class="navds-select__input navds-body-short navds-body-short--medium"
                         id="select-r15"
                       >
@@ -5143,6 +5150,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         </fieldset>
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-testid="legg-til-arbeidsforhold-knapp"
           type="button"
         >
           <span
