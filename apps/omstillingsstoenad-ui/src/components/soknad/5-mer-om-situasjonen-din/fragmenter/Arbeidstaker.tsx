@@ -9,9 +9,9 @@ import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 const Arbeidstaker = () => {
     const { t } = useTranslation()
 
-    const { control } = useFormContext()
+    const { control, setValue, getValues } = useFormContext()
 
-    const { fields, append, remove } = useFieldArray<any>({
+    const { fields, append } = useFieldArray<any>({
         control,
         name: 'arbeidsforhold',
         shouldUnregister: true,
@@ -29,6 +29,11 @@ const Arbeidstaker = () => {
         }
     }
 
+    const fjern = (index: number) => {
+        const fjernFraListeBasertPaaIndex = getValues('arbeidsforhold').filter((_: any, i: number) => i !== index)
+        setValue('arbeidsforhold', fjernFraListeBasertPaaIndex)
+    }
+
     return (
         <SkjemaGruppe>
             <SkjemaElement>
@@ -36,7 +41,7 @@ const Arbeidstaker = () => {
             </SkjemaElement>
 
             {fields.map((field: FieldArrayWithId, index: number) => (
-                <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} />
+                <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
             ))}
 
             <Button variant={'secondary'} type={'button'} onClick={nyttArbeidsforhold} disabled={fields.length >= 10}>
