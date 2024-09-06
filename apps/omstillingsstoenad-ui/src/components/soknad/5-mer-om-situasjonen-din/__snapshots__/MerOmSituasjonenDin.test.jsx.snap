@@ -124,7 +124,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
-            id="fieldset-description-r2i"
+            id="fieldset-description-r30"
           >
             merOmSituasjonenDin.jobbStatus.hvorfor
           </div>
@@ -135,16 +135,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r2k"
+                aria-labelledby="r32"
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r2j"
+                id="checkbox-r31"
                 type="checkbox"
                 value="jobbStatus.arbeidstaker"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2j"
+                for="checkbox-r31"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -171,7 +171,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r2k"
+                    id="r32"
                   >
                     jobbStatus.arbeidstaker
                   </span>
@@ -182,16 +182,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r2n"
+                aria-labelledby="r35"
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r2m"
+                id="checkbox-r34"
                 type="checkbox"
                 value="jobbStatus.selvstendig"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2m"
+                for="checkbox-r34"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -218,7 +218,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r2n"
+                    id="r35"
                   >
                     jobbStatus.selvstendig
                   </span>
@@ -229,15 +229,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r2q"
+                aria-labelledby="r38"
                 class="navds-checkbox__input"
-                id="checkbox-r2p"
+                id="checkbox-r37"
                 type="checkbox"
                 value="jobbStatus.etablerer"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2p"
+                for="checkbox-r37"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -264,7 +264,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r2q"
+                    id="r38"
                   >
                     jobbStatus.etablerer
                   </span>
@@ -275,15 +275,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r2t"
+                aria-labelledby="r3b"
                 class="navds-checkbox__input"
-                id="checkbox-r2s"
+                id="checkbox-r3a"
                 type="checkbox"
                 value="jobbStatus.tilbud"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2s"
+                for="checkbox-r3a"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -310,7 +310,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r2t"
+                    id="r3b"
                   >
                     jobbStatus.tilbud
                   </span>
@@ -321,15 +321,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r30"
+                aria-labelledby="r3e"
                 class="navds-checkbox__input"
-                id="checkbox-r2v"
+                id="checkbox-r3d"
                 type="checkbox"
                 value="jobbStatus.arbeidssoker"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2v"
+                for="checkbox-r3d"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -356,7 +356,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r30"
+                    id="r3e"
                   >
                     jobbStatus.arbeidssoker
                   </span>
@@ -367,15 +367,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r33"
+                aria-labelledby="r3h"
                 class="navds-checkbox__input"
-                id="checkbox-r32"
+                id="checkbox-r3g"
                 type="checkbox"
                 value="jobbStatus.underUtdanning"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r32"
+                for="checkbox-r3g"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -402,7 +402,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r33"
+                    id="r3h"
                   >
                     jobbStatus.underUtdanning
                   </span>
@@ -413,15 +413,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r36"
+                aria-labelledby="r3k"
                 class="navds-checkbox__input"
-                id="checkbox-r35"
+                id="checkbox-r3j"
                 type="checkbox"
                 value="jobbStatus.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r35"
+                for="checkbox-r3j"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -448,7 +448,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r36"
+                    id="r3k"
                   >
                     jobbStatus.ingen
                   </span>
@@ -460,7 +460,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r2i"
+            id="fieldset-error-r30"
           />
         </fieldset>
       </div>
@@ -500,7 +500,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-r38"
+                id="textField-error-r3m"
               />
             </div>
           </div>
@@ -526,16 +526,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r3c"
+                    aria-labelledby="r3q"
                     class="navds-radio__input"
-                    id="radio-r3b"
+                    id="radio-r3p"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.fast"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r3b"
+                    for="radio-r3p"
                   >
                     <span
                       class="navds-radio__content"
@@ -543,7 +543,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r3c"
+                        id="r3q"
                       >
                         stillingType.fast
                       </span>
@@ -554,17 +554,17 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r3f"
+                    aria-labelledby="r3t"
                     checked=""
                     class="navds-radio__input"
-                    id="radio-r3e"
+                    id="radio-r3s"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.midlertidig"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r3e"
+                    for="radio-r3s"
                   >
                     <span
                       class="navds-radio__content"
@@ -572,7 +572,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r3f"
+                        id="r3t"
                       >
                         stillingType.midlertidig
                       </span>
@@ -583,16 +583,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r3i"
+                    aria-labelledby="r40"
                     class="navds-radio__input"
-                    id="radio-r3h"
+                    id="radio-r3v"
                     name="arbeidsforhold[0].ansettelsesforhold"
                     type="radio"
                     value="stillingType.tilkallingsvikar"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r3h"
+                    for="radio-r3v"
                   >
                     <span
                       class="navds-radio__content"
@@ -600,7 +600,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r3i"
+                        id="r40"
                       >
                         stillingType.tilkallingsvikar
                       </span>
@@ -612,7 +612,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r3a"
+                id="fieldset-error-r3o"
               />
             </fieldset>
           </div>
@@ -621,25 +621,25 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           class="sc-beqWNU hTYxft"
         >
           <div
-            class="sc-fbJSV ixxSkQ"
+            style="display: none;"
           >
             <div
               class="sc-fbJSV ixxSkQ"
             >
-              <h1
-                class="navds-heading navds-heading--small"
+              <div
+                class="sc-fbJSV ixxSkQ"
               >
-                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
-              </h1>
-              <p
-                class="navds-body-short navds-body-short--medium"
-              >
-                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
-              </p>
-            </div>
-            <div
-              class="sc-irTrJD fakLkL"
-            >
+                <h1
+                  class="navds-heading navds-heading--small"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
+                </h1>
+                <p
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse
+                </p>
+              </div>
               <div
                 class="navds-form-field navds-form-field--medium"
               >
@@ -647,12 +647,12 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="navds-form-field__label navds-label"
                   for="arbeidsforhold[0].arbeidsmengde.svar"
                 >
-                  merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
+                  merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast
                 </label>
                 <input
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
                   id="arbeidsforhold[0].arbeidsmengde.svar"
-                  size="25"
+                  size="10"
                   type="text"
                   value=""
                 />
@@ -660,154 +660,1289 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-r3k"
+                  id="textField-error-r42"
                 />
               </div>
+            </div>
+          </div>
+          <div
+            style="display: block;"
+          >
+            <div
+              class="sc-fbJSV ixxSkQ"
+            >
               <div
-                class="sc-ktEKgv bDsUzF"
-                id="arbeidsforhold[0].arbeidsmengde.type"
+                class="sc-fbJSV ixxSkQ"
+              >
+                <h1
+                  class="navds-heading navds-heading--small"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
+                </h1>
+                <p
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+                </p>
+              </div>
+              <div
+                class="sc-irTrJD fakLkL"
               >
                 <div
                   class="navds-form-field navds-form-field--medium"
                 >
                   <label
                     class="navds-form-field__label navds-label"
-                    for="select-r3l"
+                    for="arbeidsforhold[0].arbeidsmengde.svar"
                   >
-                    felles.velg.tittel
+                    merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
                   </label>
-                  <div
-                    class="navds-select__container"
-                  >
-                    <select
-                      class="navds-select__input navds-body-short navds-body-short--medium"
-                      id="select-r3l"
-                    >
-                      <option
-                        value=""
-                      >
-                        felles.velg
-                      </option>
-                      <option
-                        value="arbeidsmengde.prosent"
-                      >
-                        arbeidsmengde.prosent
-                      </option>
-                      <option
-                        value="arbeidsmengde.timer"
-                      >
-                        arbeidsmengde.timer
-                      </option>
-                    </select>
-                    <svg
-                      aria-hidden="true"
-                      class="navds-select__chevron"
-                      fill="none"
-                      focusable="false"
-                      height="1em"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
+                  <input
+                    class="navds-text-field__input navds-body-short navds-body-short--medium"
+                    id="arbeidsforhold[0].arbeidsmengde.svar"
+                    size="25"
+                    type="text"
+                    value=""
+                  />
                   <div
                     aria-live="polite"
                     aria-relevant="additions removals"
                     class="navds-form-field__error"
-                    id="select-error-r3l"
+                    id="textField-error-r43"
                   />
                 </div>
-              </div>
-            </div>
-            <div
-              class="sc-fbJSV ixxSkQ"
-            >
-              <div
-                id="arbeidsforhold[0].midlertidig.svar"
-              >
-                <fieldset
-                  class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+                <div
+                  class="sc-ktEKgv bDsUzF"
+                  id="arbeidsforhold[0].arbeidsmengde.type"
                 >
-                  <legend
-                    class="navds-fieldset__legend navds-label"
-                  >
-                    merOmSituasjonenDin.arbeidsforhold.midlertidig.svar
-                  </legend>
                   <div
-                    class="navds-radio-buttons"
+                    class="navds-form-field navds-form-field--medium"
                   >
-                    <div
-                      class="radioBorder navds-radio navds-radio--medium"
+                    <label
+                      class="navds-form-field__label navds-label"
+                      for="select-r44"
                     >
-                      <input
-                        aria-labelledby="r3q"
-                        class="navds-radio__input"
-                        id="radio-r3p"
-                        name="arbeidsforhold[0].midlertidig.svar"
-                        type="radio"
-                        value="radiobuttons.ja"
-                      />
-                      <label
-                        class="navds-radio__label"
-                        for="radio-r3p"
+                      felles.velg.tittel
+                    </label>
+                    <div
+                      class="navds-select__container"
+                    >
+                      <select
+                        class="navds-select__input navds-body-short navds-body-short--medium"
+                        id="select-r44"
                       >
-                        <span
-                          class="navds-radio__content"
+                        <option
+                          value=""
                         >
-                          <span
-                            aria-hidden="true"
-                            class="navds-body-short navds-body-short--medium"
-                            id="r3q"
-                          >
-                            radiobuttons.ja
-                          </span>
-                        </span>
-                      </label>
+                          felles.velg
+                        </option>
+                        <option
+                          value="arbeidsmengde.prosent"
+                        >
+                          arbeidsmengde.prosent
+                        </option>
+                        <option
+                          value="arbeidsmengde.timer"
+                        >
+                          arbeidsmengde.timer
+                        </option>
+                      </select>
+                      <svg
+                        aria-hidden="true"
+                        class="navds-select__chevron"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </div>
                     <div
-                      class="radioBorder navds-radio navds-radio--medium"
+                      aria-live="polite"
+                      aria-relevant="additions removals"
+                      class="navds-form-field__error"
+                      id="select-error-r44"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="sc-fbJSV ixxSkQ"
+              >
+                <div
+                  id="arbeidsforhold[0].midlertidig.svar"
+                >
+                  <fieldset
+                    class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+                  >
+                    <legend
+                      class="navds-fieldset__legend navds-label"
                     >
-                      <input
-                        aria-labelledby="r3t"
-                        class="navds-radio__input"
-                        id="radio-r3s"
-                        name="arbeidsforhold[0].midlertidig.svar"
-                        type="radio"
-                        value="radiobuttons.nei"
-                      />
-                      <label
-                        class="navds-radio__label"
-                        for="radio-r3s"
+                      merOmSituasjonenDin.arbeidsforhold.midlertidig.svar
+                    </legend>
+                    <div
+                      class="navds-radio-buttons"
+                    >
+                      <div
+                        class="radioBorder navds-radio navds-radio--medium"
                       >
-                        <span
-                          class="navds-radio__content"
+                        <input
+                          aria-labelledby="r49"
+                          class="navds-radio__input"
+                          id="radio-r48"
+                          name="arbeidsforhold[0].midlertidig.svar"
+                          type="radio"
+                          value="radiobuttons.ja"
+                        />
+                        <label
+                          class="navds-radio__label"
+                          for="radio-r48"
                         >
                           <span
-                            aria-hidden="true"
-                            class="navds-body-short navds-body-short--medium"
-                            id="r3t"
+                            class="navds-radio__content"
                           >
-                            radiobuttons.nei
+                            <span
+                              aria-hidden="true"
+                              class="navds-body-short navds-body-short--medium"
+                              id="r49"
+                            >
+                              radiobuttons.ja
+                            </span>
                           </span>
-                        </span>
+                        </label>
+                      </div>
+                      <div
+                        class="radioBorder navds-radio navds-radio--medium"
+                      >
+                        <input
+                          aria-labelledby="r4c"
+                          class="navds-radio__input"
+                          id="radio-r4b"
+                          name="arbeidsforhold[0].midlertidig.svar"
+                          type="radio"
+                          value="radiobuttons.nei"
+                        />
+                        <label
+                          class="navds-radio__label"
+                          for="radio-r4b"
+                        >
+                          <span
+                            class="navds-radio__content"
+                          >
+                            <span
+                              aria-hidden="true"
+                              class="navds-body-short navds-body-short--medium"
+                              id="r4c"
+                            >
+                              radiobuttons.nei
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      aria-live="polite"
+                      aria-relevant="additions removals"
+                      class="navds-fieldset__error"
+                      id="fieldset-error-r47"
+                    />
+                  </fieldset>
+                </div>
+              </div>
+              <div
+                style="display: none;"
+              >
+                <section
+                  class="sc-brKelq gjPFAg"
+                >
+                  <div
+                    class="navds-date__wrapper"
+                  >
+                    <div
+                      class="navds-form-field navds-form-field--medium navds-date__field"
+                    >
+                      <label
+                        class="navds-form-field__label navds-label"
+                        for="arbeidsforhold[0].midlertidig.sluttdatoVelger"
+                      >
+                        merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger (felles.valgfri)
                       </label>
+                      <div
+                        class="navds-form-field__description navds-body-short navds-body-short--medium"
+                        id="datepicker-input-description-r4f"
+                      >
+                        felles.oppgiDato felles.datoformat
+                      </div>
+                      <div
+                        class="navds-date__field-wrapper"
+                      >
+                        <input
+                          aria-describedby="datepicker-input-description-r4f"
+                          autocomplete="off"
+                          class="navds-date__field-input navds-text-field__input navds-body-short navds-body-short--medium"
+                          id="arbeidsforhold[0].midlertidig.sluttdatoVelger"
+                          size="11"
+                          value=""
+                        />
+                        <button
+                          class="navds-date__field-button"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <svg
+                            aria-labelledby="title-r4g"
+                            fill="none"
+                            focusable="false"
+                            height="1em"
+                            pointer-events="none"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <title
+                              id="title-r4g"
+                            >
+                              Åpne datovelger
+                            </title>
+                            <path
+                              clip-rule="evenodd"
+                              d="M9 2.25a.75.75 0 0 1 .75.75v1.25h4.5V3a.75.75 0 0 1 1.5 0v1.25h3.75c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-15c-.69 0-1.25-.56-1.25-1.25v-13c0-.69.56-1.25 1.25-1.25h3.75V3A.75.75 0 0 1 9 2.25M15.75 7a.75.75 0 0 1-1.5 0V5.75h-4.5V7a.75.75 0 0 1-1.5 0V5.75h-3.5v3.5h14.5v-3.5h-3.5zm-11 11.25v-7.5h14.5v7.5zm2-5.25a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5zM10.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5zM6.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75"
+                              fill="currentColor"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        aria-live="polite"
+                        aria-relevant="additions removals"
+                        class="navds-form-field__error"
+                        id="datepicker-input-error-r4f"
+                      />
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="navds-popover navds-date__popover navds-popover--hidden"
+                      data-index="0"
+                      data-placement="bottom-start"
+                      id="r4e"
+                      role="dialog"
+                      style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+                    >
+                      <div
+                        class="rdp navds-date"
+                      >
+                        <div
+                          class="rdp-months"
+                        >
+                          <div
+                            class="rdp-month rdp-caption_start rdp-caption_end"
+                          >
+                            <div
+                              class="navds-date__caption"
+                            >
+                              <span
+                                aria-atomic="true"
+                                aria-live="polite"
+                                class="navds-sr-only"
+                                id="react-day-picker-4"
+                              >
+                                september 2024
+                              </span>
+                              <button
+                                class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only navds-button--disabled"
+                                disabled=""
+                                type="button"
+                              >
+                                <span
+                                  class="navds-button__icon"
+                                >
+                                  <svg
+                                    aria-labelledby="title-r4i"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title
+                                      id="title-r4i"
+                                    >
+                                      Gå til forrige måned
+                                    </title>
+                                    <path
+                                      d="M4.47 11.47a.75.75 0 0 0 0 1.06l4.5 4.5a.75.75 0 0 0 1.06-1.06l-3.22-3.22H19a.75.75 0 0 0 0-1.5H6.81l3.22-3.22a.75.75 0 1 0-1.06-1.06z"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                class="navds-date__caption"
+                              >
+                                <div
+                                  class="navds-date__caption__month navds-form-field navds-form-field--medium"
+                                >
+                                  <label
+                                    class="navds-form-field__label navds-sr-only navds-label"
+                                    for="select-r4j"
+                                  >
+                                    Måned
+                                  </label>
+                                  <div
+                                    class="navds-select__container"
+                                  >
+                                    <select
+                                      class="navds-select__input navds-body-short navds-body-short--medium"
+                                      id="select-r4j"
+                                    >
+                                      <option
+                                        value="8"
+                                      >
+                                        september
+                                      </option>
+                                      <option
+                                        value="9"
+                                      >
+                                        oktober
+                                      </option>
+                                      <option
+                                        value="10"
+                                      >
+                                        november
+                                      </option>
+                                      <option
+                                        value="11"
+                                      >
+                                        desember
+                                      </option>
+                                    </select>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="navds-select__chevron"
+                                      fill="none"
+                                      focusable="false"
+                                      height="1em"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        clip-rule="evenodd"
+                                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                                        fill="currentColor"
+                                        fill-rule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <div
+                                    aria-live="polite"
+                                    aria-relevant="additions removals"
+                                    class="navds-form-field__error"
+                                    id="select-error-r4j"
+                                  />
+                                </div>
+                                <div
+                                  class="navds-date__caption__year navds-form-field navds-form-field--medium"
+                                >
+                                  <label
+                                    class="navds-form-field__label navds-sr-only navds-label"
+                                    for="select-r4l"
+                                  >
+                                    År
+                                  </label>
+                                  <div
+                                    class="navds-select__container"
+                                  >
+                                    <select
+                                      class="navds-select__input navds-body-short navds-body-short--medium"
+                                      id="select-r4l"
+                                    >
+                                      <option
+                                        value="2044"
+                                      >
+                                        2044
+                                      </option>
+                                      <option
+                                        value="2043"
+                                      >
+                                        2043
+                                      </option>
+                                      <option
+                                        value="2042"
+                                      >
+                                        2042
+                                      </option>
+                                      <option
+                                        value="2041"
+                                      >
+                                        2041
+                                      </option>
+                                      <option
+                                        value="2040"
+                                      >
+                                        2040
+                                      </option>
+                                      <option
+                                        value="2039"
+                                      >
+                                        2039
+                                      </option>
+                                      <option
+                                        value="2038"
+                                      >
+                                        2038
+                                      </option>
+                                      <option
+                                        value="2037"
+                                      >
+                                        2037
+                                      </option>
+                                      <option
+                                        value="2036"
+                                      >
+                                        2036
+                                      </option>
+                                      <option
+                                        value="2035"
+                                      >
+                                        2035
+                                      </option>
+                                      <option
+                                        value="2034"
+                                      >
+                                        2034
+                                      </option>
+                                      <option
+                                        value="2033"
+                                      >
+                                        2033
+                                      </option>
+                                      <option
+                                        value="2032"
+                                      >
+                                        2032
+                                      </option>
+                                      <option
+                                        value="2031"
+                                      >
+                                        2031
+                                      </option>
+                                      <option
+                                        value="2030"
+                                      >
+                                        2030
+                                      </option>
+                                      <option
+                                        value="2029"
+                                      >
+                                        2029
+                                      </option>
+                                      <option
+                                        value="2028"
+                                      >
+                                        2028
+                                      </option>
+                                      <option
+                                        value="2027"
+                                      >
+                                        2027
+                                      </option>
+                                      <option
+                                        value="2026"
+                                      >
+                                        2026
+                                      </option>
+                                      <option
+                                        value="2025"
+                                      >
+                                        2025
+                                      </option>
+                                      <option
+                                        value="2024"
+                                      >
+                                        2024
+                                      </option>
+                                    </select>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="navds-select__chevron"
+                                      fill="none"
+                                      focusable="false"
+                                      height="1em"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        clip-rule="evenodd"
+                                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                                        fill="currentColor"
+                                        fill-rule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <div
+                                    aria-live="polite"
+                                    aria-relevant="additions removals"
+                                    class="navds-form-field__error"
+                                    id="select-error-r4l"
+                                  />
+                                </div>
+                              </div>
+                              <button
+                                class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only"
+                                type="button"
+                              >
+                                <span
+                                  class="navds-button__icon"
+                                >
+                                  <svg
+                                    aria-labelledby="title-r4n"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title
+                                      id="title-r4n"
+                                    >
+                                      Gå til neste måned
+                                    </title>
+                                    <path
+                                      d="M14.087 6.874a.752.752 0 0 0-.117 1.156l3.22 3.22H5a.75.75 0 0 0 0 1.5h12.19l-3.22 3.22a.75.75 0 0 0 1.06 1.06l4.5-4.5a.75.75 0 0 0 0-1.06l-4.5-4.5a.75.75 0 0 0-.943-.096"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                            <table
+                              aria-labelledby="react-day-picker-4"
+                              class="rdp-table"
+                              role="grid"
+                            >
+                              <thead
+                                aria-hidden="true"
+                                class="rdp-head"
+                              >
+                                <tr
+                                  class="rdp-head_row"
+                                >
+                                  <th
+                                    aria-label="mandag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    ma
+                                  </th>
+                                  <th
+                                    aria-label="tirsdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    ti
+                                  </th>
+                                  <th
+                                    aria-label="onsdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    on
+                                  </th>
+                                  <th
+                                    aria-label="torsdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    to
+                                  </th>
+                                  <th
+                                    aria-label="fredag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    fr
+                                  </th>
+                                  <th
+                                    aria-label="lørdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    lø
+                                  </th>
+                                  <th
+                                    aria-label="søndag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    sø
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="rdp-tbody"
+                              >
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="mandag 26"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      26
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="tirsdag 27"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      27
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="onsdag 28"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      28
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="torsdag 29"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      29
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="fredag 30"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      30
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="lørdag 31"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      31
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 1"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      1
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 2"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      2
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 3"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      3
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 4"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      4
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 5"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      5
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 6"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                                      name="day"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      6
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 7"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      7
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 8"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      8
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 9"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      9
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 10"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      10
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 11"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      11
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 12"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      12
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 13"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      13
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 14"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      14
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 15"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      15
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 16"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      16
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 17"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      17
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 18"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      18
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 19"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      19
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 20"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      20
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 21"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      21
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 22"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      22
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 23"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      23
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 24"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      24
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 25"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      25
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 26"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      26
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 27"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      27
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 28"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      28
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 29"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      29
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 30"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      30
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="tirsdag 1"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      1
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="onsdag 2"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      2
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="torsdag 3"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      3
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="fredag 4"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      4
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="lørdag 5"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      5
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="søndag 6"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      6
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div
-                    aria-live="polite"
-                    aria-relevant="additions removals"
-                    class="navds-fieldset__error"
-                    id="fieldset-error-r3o"
-                  />
-                </fieldset>
+                </section>
               </div>
             </div>
           </div>
@@ -833,16 +1968,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r42"
+                    aria-labelledby="r4s"
                     class="navds-radio__input"
-                    id="radio-r41"
+                    id="radio-r4r"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r41"
+                    for="radio-r4r"
                   >
                     <span
                       class="navds-radio__content"
@@ -850,7 +1985,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r42"
+                        id="r4s"
                       >
                         radiobuttons.ja
                       </span>
@@ -861,16 +1996,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r45"
+                    aria-labelledby="r4v"
                     class="navds-radio__input"
-                    id="radio-r44"
+                    id="radio-r4u"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r44"
+                    for="radio-r4u"
                   >
                     <span
                       class="navds-radio__content"
@@ -878,7 +2013,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r45"
+                        id="r4v"
                       >
                         radiobuttons.nei
                       </span>
@@ -890,9 +2025,68 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r40"
+                id="fieldset-error-r4q"
               />
             </fieldset>
+          </div>
+          <div
+            style="display: none;"
+          >
+            <div
+              class="sc-fbJSV ixxSkQ"
+            >
+              <div
+                class="width-50"
+              >
+                <div
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
+                  >
+                    merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse
+                  </label>
+                  <div
+                    class="navds-form-field__description navds-body-short navds-body-short--medium"
+                    id="textarea-description-r51"
+                  >
+                    felles.ikkeSensitiveOpplysninger
+                  </div>
+                  <textarea
+                    aria-describedby="textarea-description-r51 r52"
+                    class="navds-textarea__input navds-body-short navds-body-short--medium"
+                    id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
+                    rows="3"
+                    style="--__ac-textarea-height: -4px; overflow: hidden;"
+                  />
+                  <textarea
+                    aria-hidden="true"
+                    class="navds-textarea__input navds-body-short navds-body-short--medium"
+                    readonly=""
+                    style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0);"
+                    tabindex="-1"
+                  />
+                  <span
+                    class="navds-sr-only"
+                    id="r52"
+                  >
+                    Tekstområde med plass til 200 tegn.
+                  </span>
+                  <p
+                    class="navds-textarea__counter navds-body-short navds-body-short--medium"
+                  >
+                    200 counterLeft
+                  </p>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="textarea-error-r51"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="navds-read-more navds-read-more--medium"
@@ -971,12 +2165,12 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               </label>
               <div
                 class="navds-form-field__description navds-body-short navds-body-short--medium"
-                id="textField-description-r52"
+                id="textField-description-r5u"
               >
                 merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse
               </div>
               <input
-                aria-describedby="textField-description-r52"
+                aria-describedby="textField-description-r5u"
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="selvstendig.[0].beskrivelse"
                 size="35"
@@ -987,7 +2181,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-r52"
+                id="textField-error-r5u"
               />
             </div>
           </div>
@@ -1005,12 +2199,12 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               </label>
               <div
                 class="navds-form-field__description navds-body-short navds-body-short--medium"
-                id="textField-description-r53"
+                id="textField-description-r5v"
               >
                 merOmSituasjonenDin.selvstendig.orgnrplaceholder
               </div>
               <input
-                aria-describedby="textField-description-r53"
+                aria-describedby="textField-description-r5v"
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="selvstendig.[0].orgnr"
                 size="25"
@@ -1021,7 +2215,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-r53"
+                id="textField-error-r5v"
               />
             </div>
           </div>
@@ -1065,7 +2259,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-r54"
+                  id="textField-error-r60"
                 />
               </div>
               <div
@@ -1077,7 +2271,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 >
                   <label
                     class="navds-form-field__label navds-label"
-                    for="select-r55"
+                    for="select-r61"
                   >
                     felles.velg.tittel
                   </label>
@@ -1086,7 +2280,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   >
                     <select
                       class="navds-select__input navds-body-short navds-body-short--medium"
-                      id="select-r55"
+                      id="select-r61"
                     >
                       <option
                         value=""
@@ -1127,7 +2321,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     aria-live="polite"
                     aria-relevant="additions removals"
                     class="navds-form-field__error"
-                    id="select-error-r55"
+                    id="select-error-r61"
                   />
                 </div>
               </div>
@@ -1155,16 +2349,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r5a"
+                    aria-labelledby="r66"
                     class="navds-radio__input"
-                    id="radio-r59"
+                    id="radio-r65"
                     name="selvstendig.[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r59"
+                    for="radio-r65"
                   >
                     <span
                       class="navds-radio__content"
@@ -1172,7 +2366,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r5a"
+                        id="r66"
                       >
                         radiobuttons.ja
                       </span>
@@ -1183,16 +2377,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r5d"
+                    aria-labelledby="r69"
                     class="navds-radio__input"
-                    id="radio-r5c"
+                    id="radio-r68"
                     name="selvstendig.[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r5c"
+                    for="radio-r68"
                   >
                     <span
                       class="navds-radio__content"
@@ -1200,7 +2394,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r5d"
+                        id="r69"
                       >
                         radiobuttons.nei
                       </span>
@@ -1212,7 +2406,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r58"
+                id="fieldset-error-r64"
               />
             </fieldset>
           </div>
@@ -1297,7 +2491,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
-            id="fieldset-description-r48"
+            id="fieldset-description-r54"
           >
             merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
           </div>
@@ -1308,15 +2502,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4a"
+                aria-labelledby="r56"
                 class="navds-checkbox__input"
-                id="checkbox-r49"
+                id="checkbox-r55"
                 type="checkbox"
                 value="utdanning.grunnskole"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r49"
+                for="checkbox-r55"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1343,7 +2537,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4a"
+                    id="r56"
                   >
                     utdanning.grunnskole
                   </span>
@@ -1354,15 +2548,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4d"
+                aria-labelledby="r59"
                 class="navds-checkbox__input"
-                id="checkbox-r4c"
+                id="checkbox-r58"
                 type="checkbox"
                 value="utdanning.videregående"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r4c"
+                for="checkbox-r58"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1389,7 +2583,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4d"
+                    id="r59"
                   >
                     utdanning.videregående
                   </span>
@@ -1400,15 +2594,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4g"
+                aria-labelledby="r5c"
                 class="navds-checkbox__input"
-                id="checkbox-r4f"
+                id="checkbox-r5b"
                 type="checkbox"
                 value="utdanning.fagbrev"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r4f"
+                for="checkbox-r5b"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1435,7 +2629,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4g"
+                    id="r5c"
                   >
                     utdanning.fagbrev
                   </span>
@@ -1446,15 +2640,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4j"
+                aria-labelledby="r5f"
                 class="navds-checkbox__input"
-                id="checkbox-r4i"
+                id="checkbox-r5e"
                 type="checkbox"
                 value="utdanning.bachelorgrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r4i"
+                for="checkbox-r5e"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1481,7 +2675,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4j"
+                    id="r5f"
                   >
                     utdanning.bachelorgrad
                   </span>
@@ -1492,16 +2686,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4m"
+                aria-labelledby="r5i"
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r4l"
+                id="checkbox-r5h"
                 type="checkbox"
                 value="utdanning.mastergrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r4l"
+                for="checkbox-r5h"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1528,7 +2722,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4m"
+                    id="r5i"
                   >
                     utdanning.mastergrad
                   </span>
@@ -1539,15 +2733,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4p"
+                aria-labelledby="r5l"
                 class="navds-checkbox__input"
-                id="checkbox-r4o"
+                id="checkbox-r5k"
                 type="checkbox"
                 value="utdanning.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r4o"
+                for="checkbox-r5k"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1574,7 +2768,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4p"
+                    id="r5l"
                   >
                     utdanning.ingen
                   </span>
@@ -1585,15 +2779,15 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r4s"
+                aria-labelledby="r5o"
                 class="navds-checkbox__input"
-                id="checkbox-r4r"
+                id="checkbox-r5n"
                 type="checkbox"
                 value="utdanning.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r4r"
+                for="checkbox-r5n"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1620,7 +2814,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r4s"
+                    id="r5o"
                   >
                     utdanning.annen
                   </span>
@@ -1632,7 +2826,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r48"
+            id="fieldset-error-r54"
           />
         </fieldset>
       </div>
@@ -1733,7 +2927,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r51"
+              aria-labelledby="title-r5t"
               fill="none"
               focusable="false"
               height="1em"
@@ -1743,7 +2937,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r51"
+                id="title-r5t"
               >
                 Lukk
               </title>
@@ -2442,25 +3636,25 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           class="sc-beqWNU hTYxft"
         >
           <div
-            class="sc-fbJSV ixxSkQ"
+            style="display: none;"
           >
             <div
               class="sc-fbJSV ixxSkQ"
             >
-              <h1
-                class="navds-heading navds-heading--small"
+              <div
+                class="sc-fbJSV ixxSkQ"
               >
-                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
-              </h1>
-              <p
-                class="navds-body-short navds-body-short--medium"
-              >
-                merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
-              </p>
-            </div>
-            <div
-              class="sc-irTrJD fakLkL"
-            >
+                <h1
+                  class="navds-heading navds-heading--small"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
+                </h1>
+                <p
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse
+                </p>
+              </div>
               <div
                 class="navds-form-field navds-form-field--medium"
               >
@@ -2468,12 +3662,12 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   class="navds-form-field__label navds-label"
                   for="arbeidsforhold[0].arbeidsmengde.svar"
                 >
-                  merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
+                  merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast
                 </label>
                 <input
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
                   id="arbeidsforhold[0].arbeidsmengde.svar"
-                  size="25"
+                  size="10"
                   type="text"
                   value=""
                 />
@@ -2484,151 +3678,1286 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   id="textField-error-r13"
                 />
               </div>
+            </div>
+          </div>
+          <div
+            style="display: block;"
+          >
+            <div
+              class="sc-fbJSV ixxSkQ"
+            >
               <div
-                class="sc-ktEKgv bDsUzF"
-                id="arbeidsforhold[0].arbeidsmengde.type"
+                class="sc-fbJSV ixxSkQ"
+              >
+                <h1
+                  class="navds-heading navds-heading--small"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel
+                </h1>
+                <p
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse
+                </p>
+              </div>
+              <div
+                class="sc-irTrJD fakLkL"
               >
                 <div
                   class="navds-form-field navds-form-field--medium"
                 >
                   <label
                     class="navds-form-field__label navds-label"
-                    for="select-r14"
+                    for="arbeidsforhold[0].arbeidsmengde.svar"
                   >
-                    felles.velg.tittel
+                    merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar
                   </label>
-                  <div
-                    class="navds-select__container"
-                  >
-                    <select
-                      class="navds-select__input navds-body-short navds-body-short--medium"
-                      id="select-r14"
-                    >
-                      <option
-                        value=""
-                      >
-                        felles.velg
-                      </option>
-                      <option
-                        value="arbeidsmengde.prosent"
-                      >
-                        arbeidsmengde.prosent
-                      </option>
-                      <option
-                        value="arbeidsmengde.timer"
-                      >
-                        arbeidsmengde.timer
-                      </option>
-                    </select>
-                    <svg
-                      aria-hidden="true"
-                      class="navds-select__chevron"
-                      fill="none"
-                      focusable="false"
-                      height="1em"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
+                  <input
+                    class="navds-text-field__input navds-body-short navds-body-short--medium"
+                    id="arbeidsforhold[0].arbeidsmengde.svar"
+                    size="25"
+                    type="text"
+                    value=""
+                  />
                   <div
                     aria-live="polite"
                     aria-relevant="additions removals"
                     class="navds-form-field__error"
-                    id="select-error-r14"
+                    id="textField-error-r14"
                   />
                 </div>
-              </div>
-            </div>
-            <div
-              class="sc-fbJSV ixxSkQ"
-            >
-              <div
-                id="arbeidsforhold[0].midlertidig.svar"
-              >
-                <fieldset
-                  class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+                <div
+                  class="sc-ktEKgv bDsUzF"
+                  id="arbeidsforhold[0].arbeidsmengde.type"
                 >
-                  <legend
-                    class="navds-fieldset__legend navds-label"
-                  >
-                    merOmSituasjonenDin.arbeidsforhold.midlertidig.svar
-                  </legend>
                   <div
-                    class="navds-radio-buttons"
+                    class="navds-form-field navds-form-field--medium"
                   >
-                    <div
-                      class="radioBorder navds-radio navds-radio--medium"
+                    <label
+                      class="navds-form-field__label navds-label"
+                      for="select-r15"
                     >
-                      <input
-                        aria-labelledby="r19"
-                        class="navds-radio__input"
-                        id="radio-r18"
-                        name="arbeidsforhold[0].midlertidig.svar"
-                        type="radio"
-                        value="radiobuttons.ja"
-                      />
-                      <label
-                        class="navds-radio__label"
-                        for="radio-r18"
+                      felles.velg.tittel
+                    </label>
+                    <div
+                      class="navds-select__container"
+                    >
+                      <select
+                        class="navds-select__input navds-body-short navds-body-short--medium"
+                        id="select-r15"
                       >
-                        <span
-                          class="navds-radio__content"
+                        <option
+                          value=""
                         >
-                          <span
-                            aria-hidden="true"
-                            class="navds-body-short navds-body-short--medium"
-                            id="r19"
-                          >
-                            radiobuttons.ja
-                          </span>
-                        </span>
-                      </label>
+                          felles.velg
+                        </option>
+                        <option
+                          value="arbeidsmengde.prosent"
+                        >
+                          arbeidsmengde.prosent
+                        </option>
+                        <option
+                          value="arbeidsmengde.timer"
+                        >
+                          arbeidsmengde.timer
+                        </option>
+                      </select>
+                      <svg
+                        aria-hidden="true"
+                        class="navds-select__chevron"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </div>
                     <div
-                      class="radioBorder navds-radio navds-radio--medium"
+                      aria-live="polite"
+                      aria-relevant="additions removals"
+                      class="navds-form-field__error"
+                      id="select-error-r15"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="sc-fbJSV ixxSkQ"
+              >
+                <div
+                  id="arbeidsforhold[0].midlertidig.svar"
+                >
+                  <fieldset
+                    class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+                  >
+                    <legend
+                      class="navds-fieldset__legend navds-label"
                     >
-                      <input
-                        aria-labelledby="r1c"
-                        class="navds-radio__input"
-                        id="radio-r1b"
-                        name="arbeidsforhold[0].midlertidig.svar"
-                        type="radio"
-                        value="radiobuttons.nei"
-                      />
-                      <label
-                        class="navds-radio__label"
-                        for="radio-r1b"
+                      merOmSituasjonenDin.arbeidsforhold.midlertidig.svar
+                    </legend>
+                    <div
+                      class="navds-radio-buttons"
+                    >
+                      <div
+                        class="radioBorder navds-radio navds-radio--medium"
                       >
-                        <span
-                          class="navds-radio__content"
+                        <input
+                          aria-labelledby="r1a"
+                          class="navds-radio__input"
+                          id="radio-r19"
+                          name="arbeidsforhold[0].midlertidig.svar"
+                          type="radio"
+                          value="radiobuttons.ja"
+                        />
+                        <label
+                          class="navds-radio__label"
+                          for="radio-r19"
                         >
                           <span
-                            aria-hidden="true"
-                            class="navds-body-short navds-body-short--medium"
-                            id="r1c"
+                            class="navds-radio__content"
                           >
-                            radiobuttons.nei
+                            <span
+                              aria-hidden="true"
+                              class="navds-body-short navds-body-short--medium"
+                              id="r1a"
+                            >
+                              radiobuttons.ja
+                            </span>
                           </span>
-                        </span>
+                        </label>
+                      </div>
+                      <div
+                        class="radioBorder navds-radio navds-radio--medium"
+                      >
+                        <input
+                          aria-labelledby="r1d"
+                          class="navds-radio__input"
+                          id="radio-r1c"
+                          name="arbeidsforhold[0].midlertidig.svar"
+                          type="radio"
+                          value="radiobuttons.nei"
+                        />
+                        <label
+                          class="navds-radio__label"
+                          for="radio-r1c"
+                        >
+                          <span
+                            class="navds-radio__content"
+                          >
+                            <span
+                              aria-hidden="true"
+                              class="navds-body-short navds-body-short--medium"
+                              id="r1d"
+                            >
+                              radiobuttons.nei
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      aria-live="polite"
+                      aria-relevant="additions removals"
+                      class="navds-fieldset__error"
+                      id="fieldset-error-r18"
+                    />
+                  </fieldset>
+                </div>
+              </div>
+              <div
+                style="display: none;"
+              >
+                <section
+                  class="sc-brKelq gjPFAg"
+                >
+                  <div
+                    class="navds-date__wrapper"
+                  >
+                    <div
+                      class="navds-form-field navds-form-field--medium navds-date__field"
+                    >
+                      <label
+                        class="navds-form-field__label navds-label"
+                        for="arbeidsforhold[0].midlertidig.sluttdatoVelger"
+                      >
+                        merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger (felles.valgfri)
                       </label>
+                      <div
+                        class="navds-form-field__description navds-body-short navds-body-short--medium"
+                        id="datepicker-input-description-r1g"
+                      >
+                        felles.oppgiDato felles.datoformat
+                      </div>
+                      <div
+                        class="navds-date__field-wrapper"
+                      >
+                        <input
+                          aria-describedby="datepicker-input-description-r1g"
+                          autocomplete="off"
+                          class="navds-date__field-input navds-text-field__input navds-body-short navds-body-short--medium"
+                          id="arbeidsforhold[0].midlertidig.sluttdatoVelger"
+                          size="11"
+                          value=""
+                        />
+                        <button
+                          class="navds-date__field-button"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <svg
+                            aria-labelledby="title-r1h"
+                            fill="none"
+                            focusable="false"
+                            height="1em"
+                            pointer-events="none"
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <title
+                              id="title-r1h"
+                            >
+                              Åpne datovelger
+                            </title>
+                            <path
+                              clip-rule="evenodd"
+                              d="M9 2.25a.75.75 0 0 1 .75.75v1.25h4.5V3a.75.75 0 0 1 1.5 0v1.25h3.75c.69 0 1.25.56 1.25 1.25v13c0 .69-.56 1.25-1.25 1.25h-15c-.69 0-1.25-.56-1.25-1.25v-13c0-.69.56-1.25 1.25-1.25h3.75V3A.75.75 0 0 1 9 2.25M15.75 7a.75.75 0 0 1-1.5 0V5.75h-4.5V7a.75.75 0 0 1-1.5 0V5.75h-3.5v3.5h14.5v-3.5h-3.5zm-11 11.25v-7.5h14.5v7.5zm2-5.25a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4 0a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5zM10.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75m4.75-.75a.75.75 0 0 0 0 1.5h1a.75.75 0 0 0 0-1.5zM6.75 16a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 0 1.5h-1a.75.75 0 0 1-.75-.75"
+                              fill="currentColor"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        aria-live="polite"
+                        aria-relevant="additions removals"
+                        class="navds-form-field__error"
+                        id="datepicker-input-error-r1g"
+                      />
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="navds-popover navds-date__popover navds-popover--hidden"
+                      data-index="0"
+                      data-placement="bottom-start"
+                      id="r1f"
+                      role="dialog"
+                      style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+                    >
+                      <div
+                        class="rdp navds-date"
+                      >
+                        <div
+                          class="rdp-months"
+                        >
+                          <div
+                            class="rdp-month rdp-caption_start rdp-caption_end"
+                          >
+                            <div
+                              class="navds-date__caption"
+                            >
+                              <span
+                                aria-atomic="true"
+                                aria-live="polite"
+                                class="navds-sr-only"
+                                id="react-day-picker-1"
+                              >
+                                september 2024
+                              </span>
+                              <button
+                                class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only navds-button--disabled"
+                                disabled=""
+                                type="button"
+                              >
+                                <span
+                                  class="navds-button__icon"
+                                >
+                                  <svg
+                                    aria-labelledby="title-r1j"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title
+                                      id="title-r1j"
+                                    >
+                                      Gå til forrige måned
+                                    </title>
+                                    <path
+                                      d="M4.47 11.47a.75.75 0 0 0 0 1.06l4.5 4.5a.75.75 0 0 0 1.06-1.06l-3.22-3.22H19a.75.75 0 0 0 0-1.5H6.81l3.22-3.22a.75.75 0 1 0-1.06-1.06z"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                class="navds-date__caption"
+                              >
+                                <div
+                                  class="navds-date__caption__month navds-form-field navds-form-field--medium"
+                                >
+                                  <label
+                                    class="navds-form-field__label navds-sr-only navds-label"
+                                    for="select-r1k"
+                                  >
+                                    Måned
+                                  </label>
+                                  <div
+                                    class="navds-select__container"
+                                  >
+                                    <select
+                                      class="navds-select__input navds-body-short navds-body-short--medium"
+                                      id="select-r1k"
+                                    >
+                                      <option
+                                        value="8"
+                                      >
+                                        september
+                                      </option>
+                                      <option
+                                        value="9"
+                                      >
+                                        oktober
+                                      </option>
+                                      <option
+                                        value="10"
+                                      >
+                                        november
+                                      </option>
+                                      <option
+                                        value="11"
+                                      >
+                                        desember
+                                      </option>
+                                    </select>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="navds-select__chevron"
+                                      fill="none"
+                                      focusable="false"
+                                      height="1em"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        clip-rule="evenodd"
+                                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                                        fill="currentColor"
+                                        fill-rule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <div
+                                    aria-live="polite"
+                                    aria-relevant="additions removals"
+                                    class="navds-form-field__error"
+                                    id="select-error-r1k"
+                                  />
+                                </div>
+                                <div
+                                  class="navds-date__caption__year navds-form-field navds-form-field--medium"
+                                >
+                                  <label
+                                    class="navds-form-field__label navds-sr-only navds-label"
+                                    for="select-r1m"
+                                  >
+                                    År
+                                  </label>
+                                  <div
+                                    class="navds-select__container"
+                                  >
+                                    <select
+                                      class="navds-select__input navds-body-short navds-body-short--medium"
+                                      id="select-r1m"
+                                    >
+                                      <option
+                                        value="2044"
+                                      >
+                                        2044
+                                      </option>
+                                      <option
+                                        value="2043"
+                                      >
+                                        2043
+                                      </option>
+                                      <option
+                                        value="2042"
+                                      >
+                                        2042
+                                      </option>
+                                      <option
+                                        value="2041"
+                                      >
+                                        2041
+                                      </option>
+                                      <option
+                                        value="2040"
+                                      >
+                                        2040
+                                      </option>
+                                      <option
+                                        value="2039"
+                                      >
+                                        2039
+                                      </option>
+                                      <option
+                                        value="2038"
+                                      >
+                                        2038
+                                      </option>
+                                      <option
+                                        value="2037"
+                                      >
+                                        2037
+                                      </option>
+                                      <option
+                                        value="2036"
+                                      >
+                                        2036
+                                      </option>
+                                      <option
+                                        value="2035"
+                                      >
+                                        2035
+                                      </option>
+                                      <option
+                                        value="2034"
+                                      >
+                                        2034
+                                      </option>
+                                      <option
+                                        value="2033"
+                                      >
+                                        2033
+                                      </option>
+                                      <option
+                                        value="2032"
+                                      >
+                                        2032
+                                      </option>
+                                      <option
+                                        value="2031"
+                                      >
+                                        2031
+                                      </option>
+                                      <option
+                                        value="2030"
+                                      >
+                                        2030
+                                      </option>
+                                      <option
+                                        value="2029"
+                                      >
+                                        2029
+                                      </option>
+                                      <option
+                                        value="2028"
+                                      >
+                                        2028
+                                      </option>
+                                      <option
+                                        value="2027"
+                                      >
+                                        2027
+                                      </option>
+                                      <option
+                                        value="2026"
+                                      >
+                                        2026
+                                      </option>
+                                      <option
+                                        value="2025"
+                                      >
+                                        2025
+                                      </option>
+                                      <option
+                                        value="2024"
+                                      >
+                                        2024
+                                      </option>
+                                    </select>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="navds-select__chevron"
+                                      fill="none"
+                                      focusable="false"
+                                      height="1em"
+                                      role="img"
+                                      viewBox="0 0 24 24"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        clip-rule="evenodd"
+                                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                                        fill="currentColor"
+                                        fill-rule="evenodd"
+                                      />
+                                    </svg>
+                                  </div>
+                                  <div
+                                    aria-live="polite"
+                                    aria-relevant="additions removals"
+                                    class="navds-form-field__error"
+                                    id="select-error-r1m"
+                                  />
+                                </div>
+                              </div>
+                              <button
+                                class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only"
+                                type="button"
+                              >
+                                <span
+                                  class="navds-button__icon"
+                                >
+                                  <svg
+                                    aria-labelledby="title-r1o"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title
+                                      id="title-r1o"
+                                    >
+                                      Gå til neste måned
+                                    </title>
+                                    <path
+                                      d="M14.087 6.874a.752.752 0 0 0-.117 1.156l3.22 3.22H5a.75.75 0 0 0 0 1.5h12.19l-3.22 3.22a.75.75 0 0 0 1.06 1.06l4.5-4.5a.75.75 0 0 0 0-1.06l-4.5-4.5a.75.75 0 0 0-.943-.096"
+                                      fill="currentColor"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                            <table
+                              aria-labelledby="react-day-picker-1"
+                              class="rdp-table"
+                              role="grid"
+                            >
+                              <thead
+                                aria-hidden="true"
+                                class="rdp-head"
+                              >
+                                <tr
+                                  class="rdp-head_row"
+                                >
+                                  <th
+                                    aria-label="mandag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    ma
+                                  </th>
+                                  <th
+                                    aria-label="tirsdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    ti
+                                  </th>
+                                  <th
+                                    aria-label="onsdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    on
+                                  </th>
+                                  <th
+                                    aria-label="torsdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    to
+                                  </th>
+                                  <th
+                                    aria-label="fredag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    fr
+                                  </th>
+                                  <th
+                                    aria-label="lørdag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    lø
+                                  </th>
+                                  <th
+                                    aria-label="søndag"
+                                    class="rdp-head_cell"
+                                    scope="col"
+                                  >
+                                    sø
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody
+                                class="rdp-tbody"
+                              >
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="mandag 26"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      26
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="tirsdag 27"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      27
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="onsdag 28"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      28
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="torsdag 29"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      29
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="fredag 30"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      30
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="lørdag 31"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      31
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 1"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      1
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 2"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      2
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 3"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      3
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 4"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      4
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 5"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
+                                      disabled=""
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      5
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 6"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                                      name="day"
+                                      tabindex="0"
+                                      type="button"
+                                    >
+                                      6
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 7"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      7
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 8"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      8
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 9"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      9
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 10"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      10
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 11"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      11
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 12"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      12
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 13"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      13
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 14"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      14
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 15"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      15
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 16"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      16
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 17"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      17
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 18"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      18
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 19"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      19
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 20"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      20
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 21"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      21
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 22"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      22
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 23"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      23
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 24"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      24
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="onsdag 25"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      25
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="torsdag 26"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      26
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="fredag 27"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      27
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="lørdag 28"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      28
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="søndag 29"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      29
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="mandag 30"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      30
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="tirsdag 1"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      1
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="onsdag 2"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      2
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="torsdag 3"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      3
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="fredag 4"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      4
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="lørdag 5"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      5
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="søndag 6"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      6
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div
-                    aria-live="polite"
-                    aria-relevant="additions removals"
-                    class="navds-fieldset__error"
-                    id="fieldset-error-r17"
-                  />
-                </fieldset>
+                </section>
               </div>
             </div>
           </div>
@@ -2654,16 +4983,16 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r1h"
+                    aria-labelledby="r1t"
                     class="navds-radio__input"
-                    id="radio-r1g"
+                    id="radio-r1s"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1g"
+                    for="radio-r1s"
                   >
                     <span
                       class="navds-radio__content"
@@ -2671,7 +5000,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r1h"
+                        id="r1t"
                       >
                         radiobuttons.ja
                       </span>
@@ -2682,16 +5011,16 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   class="radioBorder navds-radio navds-radio--medium"
                 >
                   <input
-                    aria-labelledby="r1k"
+                    aria-labelledby="r20"
                     class="navds-radio__input"
-                    id="radio-r1j"
+                    id="radio-r1v"
                     name="arbeidsforhold[0].forventerEndretArbeidssituasjon.svar"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-r1j"
+                    for="radio-r1v"
                   >
                     <span
                       class="navds-radio__content"
@@ -2699,7 +5028,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       <span
                         aria-hidden="true"
                         class="navds-body-short navds-body-short--medium"
-                        id="r1k"
+                        id="r20"
                       >
                         radiobuttons.nei
                       </span>
@@ -2711,9 +5040,68 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-r1f"
+                id="fieldset-error-r1r"
               />
             </fieldset>
+          </div>
+          <div
+            style="display: none;"
+          >
+            <div
+              class="sc-fbJSV ixxSkQ"
+            >
+              <div
+                class="width-50"
+              >
+                <div
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
+                  >
+                    merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse
+                  </label>
+                  <div
+                    class="navds-form-field__description navds-body-short navds-body-short--medium"
+                    id="textarea-description-r22"
+                  >
+                    felles.ikkeSensitiveOpplysninger
+                  </div>
+                  <textarea
+                    aria-describedby="textarea-description-r22 r23"
+                    class="navds-textarea__input navds-body-short navds-body-short--medium"
+                    id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
+                    rows="3"
+                    style="--__ac-textarea-height: -4px; overflow: hidden;"
+                  />
+                  <textarea
+                    aria-hidden="true"
+                    class="navds-textarea__input navds-body-short navds-body-short--medium"
+                    readonly=""
+                    style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0);"
+                    tabindex="-1"
+                  />
+                  <span
+                    class="navds-sr-only"
+                    id="r23"
+                  >
+                    Tekstområde med plass til 200 tegn.
+                  </span>
+                  <p
+                    class="navds-textarea__counter navds-body-short navds-body-short--medium"
+                  >
+                    200 counterLeft
+                  </p>
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="textarea-error-r22"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="navds-read-more navds-read-more--medium"
@@ -2792,7 +5180,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
-            id="fieldset-description-r1n"
+            id="fieldset-description-r25"
           >
             merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
           </div>
@@ -2803,15 +5191,15 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1p"
+                aria-labelledby="r27"
                 class="navds-checkbox__input"
-                id="checkbox-r1o"
+                id="checkbox-r26"
                 type="checkbox"
                 value="utdanning.grunnskole"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r1o"
+                for="checkbox-r26"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -2838,7 +5226,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1p"
+                    id="r27"
                   >
                     utdanning.grunnskole
                   </span>
@@ -2849,15 +5237,15 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1s"
+                aria-labelledby="r2a"
                 class="navds-checkbox__input"
-                id="checkbox-r1r"
+                id="checkbox-r29"
                 type="checkbox"
                 value="utdanning.videregående"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r1r"
+                for="checkbox-r29"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -2884,7 +5272,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1s"
+                    id="r2a"
                   >
                     utdanning.videregående
                   </span>
@@ -2895,15 +5283,15 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1v"
+                aria-labelledby="r2d"
                 class="navds-checkbox__input"
-                id="checkbox-r1u"
+                id="checkbox-r2c"
                 type="checkbox"
                 value="utdanning.fagbrev"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r1u"
+                for="checkbox-r2c"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -2930,7 +5318,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1v"
+                    id="r2d"
                   >
                     utdanning.fagbrev
                   </span>
@@ -2941,15 +5329,15 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r22"
+                aria-labelledby="r2g"
                 class="navds-checkbox__input"
-                id="checkbox-r21"
+                id="checkbox-r2f"
                 type="checkbox"
                 value="utdanning.bachelorgrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r21"
+                for="checkbox-r2f"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -2976,7 +5364,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r22"
+                    id="r2g"
                   >
                     utdanning.bachelorgrad
                   </span>
@@ -2987,16 +5375,16 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r25"
+                aria-labelledby="r2j"
                 checked=""
                 class="navds-checkbox__input"
-                id="checkbox-r24"
+                id="checkbox-r2i"
                 type="checkbox"
                 value="utdanning.mastergrad"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r24"
+                for="checkbox-r2i"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3023,7 +5411,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r25"
+                    id="r2j"
                   >
                     utdanning.mastergrad
                   </span>
@@ -3034,15 +5422,15 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r28"
+                aria-labelledby="r2m"
                 class="navds-checkbox__input"
-                id="checkbox-r27"
+                id="checkbox-r2l"
                 type="checkbox"
                 value="utdanning.ingen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r27"
+                for="checkbox-r2l"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3069,7 +5457,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r28"
+                    id="r2m"
                   >
                     utdanning.ingen
                   </span>
@@ -3080,15 +5468,15 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r2b"
+                aria-labelledby="r2p"
                 class="navds-checkbox__input"
-                id="checkbox-r2a"
+                id="checkbox-r2o"
                 type="checkbox"
                 value="utdanning.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2a"
+                for="checkbox-r2o"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -3115,7 +5503,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r2b"
+                    id="r2p"
                   >
                     utdanning.annen
                   </span>
@@ -3127,7 +5515,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r1n"
+            id="fieldset-error-r25"
           />
         </fieldset>
       </div>
@@ -3228,7 +5616,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r2g"
+              aria-labelledby="title-r2u"
               fill="none"
               focusable="false"
               height="1em"
@@ -3238,7 +5626,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r2g"
+                id="title-r2u"
               >
                 Lukk
               </title>
