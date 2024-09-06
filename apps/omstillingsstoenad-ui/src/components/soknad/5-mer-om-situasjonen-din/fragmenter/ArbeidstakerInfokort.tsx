@@ -23,13 +23,15 @@ interface Props {
 const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     const { t } = useTranslation()
 
-    const [visSluttdato, setVisSluttdato] = useState(false)
     const [visFastArbeidsmengde, setVisFastArbeidsmengde] = useState(false)
     const [visMidlertidigArbeidsmengde, setVisMidlertidigArbeidsmengde] = useState(false)
+    const [visSluttdato, setVisSluttdato] = useState(false)
     const [visEndretArbeidssituasjon, setVisEndretArbeidssituasjon] = useState(false)
 
-    const { watch } = useFormContext()
+    const { watch, setValue } = useFormContext()
+
     const ansettelsesforhold = watch(`arbeidsforhold[${index}].ansettelsesforhold`)
+    const arbeidsmengdeType = watch(`arbeidsforhold[${index}].arbeidsmengde.type`)
     const endretArbeidssituasjon = watch(`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar`)
     const sluttdato = watch(`arbeidsforhold[${index}].midlertidig.svar`)
 
@@ -38,20 +40,34 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     })
 
     useEffect(() => {
-        setVisSluttdato(sluttdato === IValg.JA)
+        if (sluttdato === IValg.JA) setVisSluttdato(true)
+        else if (sluttdato === IValg.NEI) {
+            setVisSluttdato(false)
+            setValue(`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`, undefined)
+        }
     }, [sluttdato])
 
     useEffect(() => {
-        setVisEndretArbeidssituasjon(endretArbeidssituasjon === IValg.JA)
+        if (endretArbeidssituasjon === IValg.JA) setVisEndretArbeidssituasjon(true)
+        else if (endretArbeidssituasjon === IValg.NEI) {
+            setVisEndretArbeidssituasjon(false)
+            setValue(`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`, '')
+        }
     }, [endretArbeidssituasjon])
 
     useEffect(() => {
         if (ansettelsesforhold === StillingType.midlertidig || ansettelsesforhold === StillingType.tilkallingsvikar) {
             setVisFastArbeidsmengde(false)
             setVisMidlertidigArbeidsmengde(true)
+            if (!arbeidsmengdeType) setValue(`arbeidsforhold[${index}].arbeidsmengde.svar`, '')
         } else if (ansettelsesforhold === StillingType.fast) {
             setVisFastArbeidsmengde(true)
             setVisMidlertidigArbeidsmengde(false)
+            if (arbeidsmengdeType) {
+                setValue(`arbeidsforhold[${index}].arbeidsmengde.svar`, '')
+            }
+            setValue(`arbeidsforhold[${index}].arbeidsmengde.type`, '')
+            setValue(`arbeidsforhold[${index}].midlertidig.svar`, '')
         }
     }, [ansettelsesforhold])
 
