@@ -79,7 +79,7 @@ const Datovelger = ({
                     validate: (date) => !date || isValid(date),
                 }}
                 render={({ field: { onChange, value } }) => {
-                    const { datepickerProps, inputProps } = useDatepicker({
+                    const { datepickerProps, inputProps, setSelected, selectedDay } = useDatepicker({
                         fromDate: minDate ? parseDateMaxMin(minDate) : undefined,
                         toDate: maxDate ? parseDateMaxMin(maxDate) : undefined,
                         locale: i18n.language as DatePickerProps['locale'],
@@ -87,6 +87,9 @@ const Datovelger = ({
                         defaultSelected: value ? new Date(value) : undefined,
                         onDateChange: (date) => onChange(formatDate(date)),
                     })
+
+                    if (value === undefined && selectedDay !== undefined) setSelected(undefined)
+
                     return (
                         <DatePicker {...datepickerProps} dropdownCaption>
                             <DatePicker.Input

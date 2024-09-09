@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
 import { useTranslation } from 'react-i18next'
 import { BodyShort, Button, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
@@ -23,14 +23,53 @@ interface Props {
 const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     const { t } = useTranslation()
 
-    const { watch } = useFormContext()
+    const [visFastArbeidsmengde, setVisFastArbeidsmengde] = useState(false)
+    const [visMidlertidigArbeidsmengde, setVisMidlertidigArbeidsmengde] = useState(false)
+    const [visSluttdato, setVisSluttdato] = useState(false)
+    const [visEndretArbeidssituasjon, setVisEndretArbeidssituasjon] = useState(false)
+
+    const { watch, setValue } = useFormContext()
+
     const ansettelsesforhold = watch(`arbeidsforhold[${index}].ansettelsesforhold`)
+    const arbeidsmengdeType = watch(`arbeidsforhold[${index}].arbeidsmengde.type`)
     const endretArbeidssituasjon = watch(`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar`)
     const sluttdato = watch(`arbeidsforhold[${index}].midlertidig.svar`)
 
     const arbeidsmengdeValg = Object.values(Arbeidsmengde).map((value) => {
         return { label: t(value), value }
     })
+
+    useEffect(() => {
+        if (sluttdato === IValg.JA) setVisSluttdato(true)
+        else if (sluttdato === IValg.NEI) {
+            setVisSluttdato(false)
+            setValue(`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`, undefined)
+        }
+    }, [sluttdato])
+
+    useEffect(() => {
+        if (endretArbeidssituasjon === IValg.JA) setVisEndretArbeidssituasjon(true)
+        else if (endretArbeidssituasjon === IValg.NEI) {
+            setVisEndretArbeidssituasjon(false)
+            setValue(`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`, '')
+        }
+    }, [endretArbeidssituasjon])
+
+    useEffect(() => {
+        if (ansettelsesforhold === StillingType.midlertidig || ansettelsesforhold === StillingType.tilkallingsvikar) {
+            setVisFastArbeidsmengde(false)
+            setVisMidlertidigArbeidsmengde(true)
+            if (!arbeidsmengdeType) setValue(`arbeidsforhold[${index}].arbeidsmengde.svar`, '')
+        } else if (ansettelsesforhold === StillingType.fast) {
+            setVisFastArbeidsmengde(true)
+            setVisMidlertidigArbeidsmengde(false)
+            if (arbeidsmengdeType) {
+                setValue(`arbeidsforhold[${index}].arbeidsmengde.svar`, '')
+            }
+            setValue(`arbeidsforhold[${index}].arbeidsmengde.type`, '')
+            setValue(`arbeidsforhold[${index}].midlertidig.svar`, '')
+        }
+    }, [ansettelsesforhold])
 
     return (
         <>
@@ -59,7 +98,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             </SkjemaElement>
 
             <SkjemaGruppe>
-                {ansettelsesforhold === StillingType.fast && (
+                <div style={{ display: visFastArbeidsmengde ? 'block' : 'none' }}>
                     <SkjemaElement>
                         <SkjemaElement>
                             <Heading size={'small'}>
@@ -73,12 +112,13 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                             name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
                             label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
                             htmlSize={Bredde.XS}
+                            valgfri={!visFastArbeidsmengde}
+                            aria-hidden={!visFastArbeidsmengde}
                         />
                     </SkjemaElement>
-                )}
+                </div>
 
-                {(ansettelsesforhold === StillingType.midlertidig ||
-                    ansettelsesforhold === StillingType.tilkallingsvikar) && (
+                <div style={{ display: visMidlertidigArbeidsmengde ? 'block' : 'none' }}>
                     <SkjemaElement>
                         <SkjemaElement>
                             <Heading size={'small'}>
@@ -93,6 +133,8 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
                                 label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
                                 htmlSize={Bredde.S}
+                                valgfri={!visMidlertidigArbeidsmengde}
+                                aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                             <RHFSelect
                                 name={`arbeidsforhold[${index}].arbeidsmengde.type` as const}
@@ -103,23 +145,29 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                     },
                                 ].concat(arbeidsmengdeValg)}
                                 label={t('felles.velg.tittel')}
+                                valgfri={!visMidlertidigArbeidsmengde}
+                                aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                         </NumberSelectRad>
                         <SkjemaElement>
                             <RHFSpoersmaalRadio
                                 name={`arbeidsforhold[${index}].midlertidig.svar` as const}
                                 legend={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
+                                valgfri={!visMidlertidigArbeidsmengde}
+                                aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                         </SkjemaElement>
-                        {sluttdato === IValg.JA && (
+                        <div style={{ display: visSluttdato ? 'block' : 'none' }}>
                             <Datovelger
                                 name={`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`}
                                 label={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger')}
                                 minDate={new Date()}
+                                valgfri={!visSluttdato}
+                                aria-hidden={!visSluttdato}
                             />
-                        )}
+                        </div>
                     </SkjemaElement>
-                )}
+                </div>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -127,16 +175,17 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                 />
-                {endretArbeidssituasjon === IValg.JA && (
+                <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
                     <SkjemaElement>
                         <RHFInputArea
                             name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
                             label={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
                             maxLength={200}
                             className={'width-50'}
+                            valgfri={!visEndretArbeidssituasjon}
                         />
                     </SkjemaElement>
-                )}
+                </div>
                 <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 </ReadMore>
@@ -164,8 +213,14 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         marginBottom: '1rem',
                     }}
                 >
-                    <Button variant={'secondary'} type={'button'} onClick={() => fjern(index)}>
-                        <DeleteFilled /> &nbsp;{t('knapp.fjern')}
+                    <Button
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={() => fjern(index)}
+                        icon={<DeleteFilled />}
+                        data-testid={'fjern-arbeidsforhold-knapp'}
+                    >
+                        {t('knapp.fjern')}
                     </Button>
                 </div>
             )}

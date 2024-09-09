@@ -13,11 +13,13 @@ export const RHFSpoersmaalRadio = ({
     description,
     legend,
     vetIkke,
+    valgfri = false,
 }: {
     name: FieldPath<FieldValues>
     legend?: ReactNode
     description?: ReactNode
     vetIkke?: boolean
+    valgfri?: boolean
 }) => {
     const { t } = useTranslation()
     const defaultRadios = [
@@ -28,7 +30,7 @@ export const RHFSpoersmaalRadio = ({
     if (vetIkke) defaultRadios.push({ children: t(IValg.VET_IKKE), value: IValg.VET_IKKE, required: true })
 
     return (
-        <RHFRadio name={name} legend={legend} description={description}>
+        <RHFRadio name={name} legend={legend} description={description} valgfri={valgfri}>
             {defaultRadios}
         </RHFRadio>
     )
@@ -39,9 +41,10 @@ interface RHFRadioProps extends Omit<RadioGroupProps, 'onChange' | 'children'> {
     description?: ReactNode
     children: RadioProps[]
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
+    valgfri?: boolean
 }
 
-export const RHFRadio = ({ name, legend, description, children, rules, ...rest }: RHFRadioProps) => {
+export const RHFRadio = ({ name, legend, description, children, rules, valgfri = false, ...rest }: RHFRadioProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -56,7 +59,7 @@ export const RHFRadio = ({ name, legend, description, children, rules, ...rest }
             <Controller
                 name={name}
                 control={control}
-                rules={{ required: true, ...rules }}
+                rules={{ required: !valgfri, ...rules }}
                 render={({ field: { value, onChange, name } }) => (
                     <RadioGroup
                         {...rest}
