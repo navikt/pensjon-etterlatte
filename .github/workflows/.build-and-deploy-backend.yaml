@@ -10,7 +10,7 @@ on:
 jobs:
   build-and-publish:
     name: Build & publish
-    runs-on: ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write
@@ -74,7 +74,7 @@ jobs:
         run: ./gradlew checkLicense --no-configuration-cache
   salsa:
     name: Generate SBOM, attest and sign image
-    runs-on: ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
     needs: build-and-publish
     permissions:
       id-token: write
@@ -99,7 +99,7 @@ jobs:
 
   deploy-to-dev-gcp:
     name: dev-gcp
-    runs-on: ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
     needs: build-and-publish
     permissions:
       contents: read
@@ -116,7 +116,7 @@ jobs:
     name: prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
     needs: [build-and-publish, license-check, deploy-to-dev-gcp, salsa]
-    runs-on: ubuntu-latest-8-cores
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: andstor/file-existence-action@v3
