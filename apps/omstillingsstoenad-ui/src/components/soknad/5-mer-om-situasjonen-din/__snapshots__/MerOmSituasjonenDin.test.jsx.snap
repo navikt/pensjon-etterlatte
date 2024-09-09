@@ -960,7 +960,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                 class="navds-sr-only"
                                 id="react-day-picker-4"
                               >
-                                september 2024
+                                januar 2024
                               </span>
                               <button
                                 class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only navds-button--disabled"
@@ -1011,6 +1011,46 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       class="navds-select__input navds-body-short navds-body-short--medium"
                                       id="select-r4j"
                                     >
+                                      <option
+                                        value="0"
+                                      >
+                                        januar
+                                      </option>
+                                      <option
+                                        value="1"
+                                      >
+                                        februar
+                                      </option>
+                                      <option
+                                        value="2"
+                                      >
+                                        mars
+                                      </option>
+                                      <option
+                                        value="3"
+                                      >
+                                        april
+                                      </option>
+                                      <option
+                                        value="4"
+                                      >
+                                        mai
+                                      </option>
+                                      <option
+                                        value="5"
+                                      >
+                                        juni
+                                      </option>
+                                      <option
+                                        value="6"
+                                      >
+                                        juli
+                                      </option>
+                                      <option
+                                        value="7"
+                                      >
+                                        august
+                                      </option>
                                       <option
                                         value="8"
                                       >
@@ -1310,125 +1350,23 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-hidden="true"
-                                      aria-label="mandag 26"
+                                      aria-label="mandag 1"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                                       name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      26
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="tirsdag 27"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      27
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="onsdag 28"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      28
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="torsdag 29"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      29
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="fredag 30"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      30
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="lørdag 31"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      31
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 1"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
+                                      tabindex="0"
                                       type="button"
                                     >
                                       1
                                     </button>
                                   </td>
-                                </tr>
-                                <tr
-                                  class="rdp-row"
-                                >
                                   <td
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 2"
+                                      aria-label="tirsdag 2"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -1440,10 +1378,9 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 3"
+                                      aria-label="onsdag 3"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -1455,10 +1392,9 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 4"
+                                      aria-label="torsdag 4"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -1470,10 +1406,9 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 5"
+                                      aria-label="fredag 5"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -1485,11 +1420,11 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 6"
+                                      aria-label="lørdag 6"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
-                                      tabindex="0"
+                                      tabindex="-1"
                                       type="button"
                                     >
                                       6
@@ -1499,7 +1434,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 7"
+                                      aria-label="søndag 7"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1507,20 +1442,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       type="button"
                                     >
                                       7
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 8"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      8
                                     </button>
                                   </td>
                                 </tr>
@@ -1531,7 +1452,21 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 9"
+                                      aria-label="mandag 8"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      8
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 9"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1545,7 +1480,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 10"
+                                      aria-label="onsdag 10"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1559,7 +1494,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 11"
+                                      aria-label="torsdag 11"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1573,7 +1508,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 12"
+                                      aria-label="fredag 12"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1587,7 +1522,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 13"
+                                      aria-label="lørdag 13"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1601,7 +1536,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 14"
+                                      aria-label="søndag 14"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1609,20 +1544,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       type="button"
                                     >
                                       14
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 15"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      15
                                     </button>
                                   </td>
                                 </tr>
@@ -1633,7 +1554,21 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 16"
+                                      aria-label="mandag 15"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      15
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 16"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1647,7 +1582,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 17"
+                                      aria-label="onsdag 17"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1661,7 +1596,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 18"
+                                      aria-label="torsdag 18"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1675,7 +1610,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 19"
+                                      aria-label="fredag 19"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1689,7 +1624,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 20"
+                                      aria-label="lørdag 20"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1703,7 +1638,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 21"
+                                      aria-label="søndag 21"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1711,20 +1646,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       type="button"
                                     >
                                       21
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 22"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      22
                                     </button>
                                   </td>
                                 </tr>
@@ -1735,7 +1656,21 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 23"
+                                      aria-label="mandag 22"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      22
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 23"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1749,7 +1684,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 24"
+                                      aria-label="onsdag 24"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1763,7 +1698,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 25"
+                                      aria-label="torsdag 25"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1777,7 +1712,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 26"
+                                      aria-label="fredag 26"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1791,7 +1726,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 27"
+                                      aria-label="lørdag 27"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1805,7 +1740,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 28"
+                                      aria-label="søndag 28"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1813,20 +1748,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       type="button"
                                     >
                                       28
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 29"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      29
                                     </button>
                                   </td>
                                 </tr>
@@ -1837,7 +1758,21 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 30"
+                                      aria-label="mandag 29"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      29
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 30"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -1851,8 +1786,22 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
+                                      aria-label="onsdag 31"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      31
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
                                       aria-hidden="true"
-                                      aria-label="tirsdag 1"
+                                      aria-label="torsdag 1"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -1867,7 +1816,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="onsdag 2"
+                                      aria-label="fredag 2"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -1882,7 +1831,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="torsdag 3"
+                                      aria-label="lørdag 3"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -1897,7 +1846,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="fredag 4"
+                                      aria-label="søndag 4"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -1907,12 +1856,16 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       4
                                     </button>
                                   </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
                                   <td
                                     class="rdp-cell"
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="lørdag 5"
+                                      aria-label="mandag 5"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -1927,7 +1880,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="søndag 6"
+                                      aria-label="tirsdag 6"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -1935,6 +1888,81 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                       type="button"
                                     >
                                       6
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="onsdag 7"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      7
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="torsdag 8"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      8
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="fredag 9"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      9
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="lørdag 10"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      10
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="søndag 11"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      11
                                     </button>
                                   </td>
                                 </tr>
@@ -3979,7 +4007,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                 class="navds-sr-only"
                                 id="react-day-picker-1"
                               >
-                                september 2024
+                                januar 2024
                               </span>
                               <button
                                 class="navds-date__caption-button navds-button navds-button--tertiary navds-button--medium navds-button--icon-only navds-button--disabled"
@@ -4030,6 +4058,46 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       class="navds-select__input navds-body-short navds-body-short--medium"
                                       id="select-r1k"
                                     >
+                                      <option
+                                        value="0"
+                                      >
+                                        januar
+                                      </option>
+                                      <option
+                                        value="1"
+                                      >
+                                        februar
+                                      </option>
+                                      <option
+                                        value="2"
+                                      >
+                                        mars
+                                      </option>
+                                      <option
+                                        value="3"
+                                      >
+                                        april
+                                      </option>
+                                      <option
+                                        value="4"
+                                      >
+                                        mai
+                                      </option>
+                                      <option
+                                        value="5"
+                                      >
+                                        juni
+                                      </option>
+                                      <option
+                                        value="6"
+                                      >
+                                        juli
+                                      </option>
+                                      <option
+                                        value="7"
+                                      >
+                                        august
+                                      </option>
                                       <option
                                         value="8"
                                       >
@@ -4329,125 +4397,23 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-hidden="true"
-                                      aria-label="mandag 26"
+                                      aria-label="mandag 1"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_today"
                                       name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      26
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="tirsdag 27"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      27
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="onsdag 28"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      28
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="torsdag 29"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      29
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="fredag 30"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      30
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-hidden="true"
-                                      aria-label="lørdag 31"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled rdp-day_outside"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      31
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 1"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
-                                      name="day"
-                                      tabindex="-1"
+                                      tabindex="0"
                                       type="button"
                                     >
                                       1
                                     </button>
                                   </td>
-                                </tr>
-                                <tr
-                                  class="rdp-row"
-                                >
                                   <td
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 2"
+                                      aria-label="tirsdag 2"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -4459,10 +4425,9 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 3"
+                                      aria-label="onsdag 3"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -4474,10 +4439,9 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 4"
+                                      aria-label="torsdag 4"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -4489,10 +4453,9 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 5"
+                                      aria-label="fredag 5"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_disabled"
-                                      disabled=""
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
                                       tabindex="-1"
                                       type="button"
@@ -4504,11 +4467,11 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 6"
+                                      aria-label="lørdag 6"
                                       aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day rdp-day_today"
+                                      class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
-                                      tabindex="0"
+                                      tabindex="-1"
                                       type="button"
                                     >
                                       6
@@ -4518,7 +4481,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 7"
+                                      aria-label="søndag 7"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4526,20 +4489,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       type="button"
                                     >
                                       7
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 8"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      8
                                     </button>
                                   </td>
                                 </tr>
@@ -4550,7 +4499,21 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 9"
+                                      aria-label="mandag 8"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      8
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 9"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4564,7 +4527,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 10"
+                                      aria-label="onsdag 10"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4578,7 +4541,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 11"
+                                      aria-label="torsdag 11"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4592,7 +4555,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 12"
+                                      aria-label="fredag 12"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4606,7 +4569,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 13"
+                                      aria-label="lørdag 13"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4620,7 +4583,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 14"
+                                      aria-label="søndag 14"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4628,20 +4591,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       type="button"
                                     >
                                       14
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 15"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      15
                                     </button>
                                   </td>
                                 </tr>
@@ -4652,7 +4601,21 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 16"
+                                      aria-label="mandag 15"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      15
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 16"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4666,7 +4629,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 17"
+                                      aria-label="onsdag 17"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4680,7 +4643,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 18"
+                                      aria-label="torsdag 18"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4694,7 +4657,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 19"
+                                      aria-label="fredag 19"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4708,7 +4671,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 20"
+                                      aria-label="lørdag 20"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4722,7 +4685,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 21"
+                                      aria-label="søndag 21"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4730,20 +4693,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       type="button"
                                     >
                                       21
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 22"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      22
                                     </button>
                                   </td>
                                 </tr>
@@ -4754,7 +4703,21 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 23"
+                                      aria-label="mandag 22"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      22
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 23"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4768,7 +4731,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="tirsdag 24"
+                                      aria-label="onsdag 24"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4782,7 +4745,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="onsdag 25"
+                                      aria-label="torsdag 25"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4796,7 +4759,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="torsdag 26"
+                                      aria-label="fredag 26"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4810,7 +4773,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="fredag 27"
+                                      aria-label="lørdag 27"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4824,7 +4787,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="lørdag 28"
+                                      aria-label="søndag 28"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4832,20 +4795,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       type="button"
                                     >
                                       28
-                                    </button>
-                                  </td>
-                                  <td
-                                    class="rdp-cell"
-                                  >
-                                    <button
-                                      aria-label="søndag 29"
-                                      aria-pressed="false"
-                                      class="rdp-button_reset rdp-button rdp-day"
-                                      name="day"
-                                      tabindex="-1"
-                                      type="button"
-                                    >
-                                      29
                                     </button>
                                   </td>
                                 </tr>
@@ -4856,7 +4805,21 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
-                                      aria-label="mandag 30"
+                                      aria-label="mandag 29"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      29
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-label="tirsdag 30"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day"
                                       name="day"
@@ -4870,8 +4833,22 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                     class="rdp-cell"
                                   >
                                     <button
+                                      aria-label="onsdag 31"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      31
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
                                       aria-hidden="true"
-                                      aria-label="tirsdag 1"
+                                      aria-label="torsdag 1"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -4886,7 +4863,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="onsdag 2"
+                                      aria-label="fredag 2"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -4901,7 +4878,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="torsdag 3"
+                                      aria-label="lørdag 3"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -4916,7 +4893,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="fredag 4"
+                                      aria-label="søndag 4"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -4926,12 +4903,16 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       4
                                     </button>
                                   </td>
+                                </tr>
+                                <tr
+                                  class="rdp-row"
+                                >
                                   <td
                                     class="rdp-cell"
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="lørdag 5"
+                                      aria-label="mandag 5"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -4946,7 +4927,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                   >
                                     <button
                                       aria-hidden="true"
-                                      aria-label="søndag 6"
+                                      aria-label="tirsdag 6"
                                       aria-pressed="false"
                                       class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
                                       name="day"
@@ -4954,6 +4935,81 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                       type="button"
                                     >
                                       6
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="onsdag 7"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      7
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="torsdag 8"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      8
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="fredag 9"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      9
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="lørdag 10"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      10
+                                    </button>
+                                  </td>
+                                  <td
+                                    class="rdp-cell"
+                                  >
+                                    <button
+                                      aria-hidden="true"
+                                      aria-label="søndag 11"
+                                      aria-pressed="false"
+                                      class="rdp-button_reset rdp-button rdp-day rdp-day_outside"
+                                      name="day"
+                                      tabindex="-1"
+                                      type="button"
+                                    >
+                                      11
                                     </button>
                                   </td>
                                 </tr>
