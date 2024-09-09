@@ -144,23 +144,21 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 getById(baseId + 'arbeidsmengde.svar')
                     .last()
                     .type(arbeid.arbeidsmengde.svar)
+
+                getById(baseId + 'arbeidsmengde.type')
+                    .find('select')
+                    .select(arbeid.arbeidsmengde.type)
+
+                selectValueForId(baseId + 'midlertidig.svar', arbeid.midlertidig.svar)
+
+                getById(baseId + 'midlertidig.sluttdatoVelger').type(
+                    format(arbeid.midlertidig.sluttdatoVelger, 'dd.MM.yyyy')
+                )
             } else {
                 getById(baseId + 'arbeidsmengde.svar')
                     .first()
                     .type(arbeid.arbeidsmengde.svar)
             }
-
-            if (midlertidigAnsatt)
-                getById(baseId + 'arbeidsmengde.type')
-                    .find('select')
-                    .select(arbeid.arbeidsmengde.type)
-
-            if (midlertidigAnsatt) selectValueForId(baseId + 'midlertidig.svar', arbeid.midlertidig.svar)
-
-            if (midlertidigAnsatt)
-                getById(baseId + 'midlertidig.sluttdatoVelger').type(
-                    format(arbeid.midlertidig.sluttdatoVelger, 'dd.MM.yyyy')
-                )
 
             selectValueForId(
                 baseId + 'forventerEndretArbeidssituasjon.svar',
