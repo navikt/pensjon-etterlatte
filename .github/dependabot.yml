@@ -50,6 +50,7 @@ updates:
       eslint-og-test:
         patterns:
           - "@typescript-eslint/*"
+          - "typescript-eslint"
           - "eslint"
           - "eslint-plugin*"
           - "prettier"
@@ -86,6 +87,8 @@ updates:
           - "amplitude-js"
           - "vite"
           - "vite-tsconfig-paths"
+          - "sanity"
+          - "@sanity/*"
       node-server:
         patterns:
           - "@navikt/nav-dekoratoren-moduler"
