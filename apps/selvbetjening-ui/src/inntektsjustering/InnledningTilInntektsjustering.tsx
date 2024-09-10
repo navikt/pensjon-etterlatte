@@ -1,7 +1,4 @@
 import { Alert, Bleed, BodyShort, Button, GuidePanel, Heading, Hide, HStack, Link, VStack } from '@navikt/ds-react'
-import useSWR, { SWRResponse } from 'swr'
-import { IInnloggetBruker } from '../types/person.ts'
-import { apiURL } from '../utils/api.ts'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
@@ -9,12 +6,6 @@ import { useNavigate } from 'react-router-dom'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
-
-    const { data: innloggetBruker, error }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(
-        `${apiURL}/api/person/innlogget`
-    )
-
-    if (error || !innloggetBruker?.foedselsnummer) navigate('/system-utilgjengelig')
 
     return (
         <HStack justify="center" padding="8">
@@ -31,7 +22,7 @@ export const InnledningTilInntektsjustering = () => {
                 <SkjemaProgresjon aktivtSteg={1} />
 
                 <Heading size="large" level="2">
-                    Hei! {innloggetBruker?.fornavn}
+                    Hei!
                 </Heading>
 
                 <Heading size="medium" level="3">
