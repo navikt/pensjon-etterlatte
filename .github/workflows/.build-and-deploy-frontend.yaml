@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
+      digest: ${{ steps.docker-build-push.outputs.digest }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -113,9 +114,9 @@ jobs:
           team: etterlatte
       - name: Lag image-referanse med digest
         run: |
-          IMAGE_WITH_TAG="${{ needs.build.outputs.image }}"
+          IMAGE_WITH_TAG="${{ needs.build-and-publish.outputs.image }}"
           IMAGE="${IMAGE_WITH_TAG%%:*}"
-          echo "IMAGE_WITH_DIGEST=${IMAGE}@${{ needs.build.outputs.digest }}" >> $GITHUB_ENV
+          echo "IMAGE_WITH_DIGEST=${IMAGE}@${{ needs.build-and-publish.outputs.digest }}" >> $GITHUB_ENV
       - name: Generate SBOM, attest and sign image
         id: attest-sign
         uses: nais/attest-sign@v1
