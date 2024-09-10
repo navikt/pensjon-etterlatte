@@ -2,8 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@navikt/ds-css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Inntektsjustering } from './inntektsjustering/Inntektsjustering.tsx'
-import { AppOutlet } from './AppOutlet.tsx'
 import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
 import { Landing } from './Landing.tsx'
 import { OpprettInntektsjustering } from './inntektsjustering/OpprettInntektsjustering.tsx'
@@ -15,6 +13,7 @@ import { nnTranslations } from './locales/nn.ts'
 import { enTranslations } from './locales/en.ts'
 import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
+import { InnledningTilInntektsjustering } from './inntektsjustering/InnledningTilInntektsjustering.tsx'
 
 i18n.use(initReactI18next).init({
     lng: 'nb',
@@ -29,14 +28,13 @@ const router = createBrowserRouter(
     [
         {
             path: '/',
-            element: <AppOutlet />,
             errorElement: <SystemUtilgjengelig />,
             children: [
                 { path: '/', element: <Landing /> },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
                     path: '/inntektsjustering',
-                    element: <Inntektsjustering />,
+                    element: <InnledningTilInntektsjustering />,
                 },
                 {
                     path: '/inntektsjustering/opprett',
