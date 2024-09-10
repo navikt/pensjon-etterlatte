@@ -10,9 +10,11 @@ import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const { data }: SWRResponse<never[], boolean, boolean> = useSWR(
+    const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
     )
+
+    if (error) navigate('/system-utilgjengelig')
 
     return (
         !!data?.length && (
