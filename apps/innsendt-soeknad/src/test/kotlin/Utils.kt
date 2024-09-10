@@ -1,3 +1,5 @@
+import io.micrometer.prometheusmetrics.PrometheusConfig
+import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
 import no.nav.etterlatte.mapper
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageProblems
@@ -12,7 +14,7 @@ fun jsonTestMessage(
     journalpost: Long,
     soeknad: Long,
     dokumentInfoId: Long? = null,
-) = JsonMessage("{}", MessageProblems("{}")).apply {
+) = JsonMessage("{}", MessageProblems("{}"), PrometheusMeterRegistry(PrometheusConfig.DEFAULT)).apply {
     this["@dokarkivRetur"] =
         mapper.createObjectNode().also {
             it.put("journalpostferdigstilt", false)

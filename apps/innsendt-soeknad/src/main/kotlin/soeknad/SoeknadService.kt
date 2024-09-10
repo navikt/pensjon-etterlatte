@@ -1,11 +1,12 @@
 package no.nav.etterlatte.soeknad
 
 import com.fasterxml.jackson.databind.JsonNode
+import io.micrometer.core.instrument.Counter
 import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.adressebeskyttelse.finnUnikeBarn
 import no.nav.etterlatte.adressebeskyttelse.fjernStedslokaliserendeInfo
-import no.nav.etterlatte.internal.Metrikker
+import no.nav.etterlatte.internal.Metrikker.registry
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.pdl.Gradering
@@ -36,7 +37,12 @@ class SoeknadService(
         // Verifisere at det er innlogget bruker som er registrert som innsender
 
         request.soeknader.forEach {
-            Metrikker.soeknadTotal.labels(it.type.name).inc()
+            Counter
+                .builder("etterlatte_soeknad_total")
+                .description("Teller alle mottatte søknader")
+                .tag("type", it.type.name)
+                .register(registry)
+                .increment()
         }
 
         val sikretRequest = vurderAdressebeskyttelse(request)
@@ -71,7 +77,11 @@ class SoeknadService(
                 .filter { listOf(Gradering.STRENGT_FORTROLIG, Gradering.STRENGT_FORTROLIG_UTLAND).contains(it.value) }
                 .map { it.key }
 
-        Metrikker.soeknadGradertTotal.inc(barnMedAdressebeskyttelse.size.toDouble())
+        Counter
+            .builder("etterlatte_soeknad_gradert_total")
+            .description("Teller mottatte søknader som inneholder gradert person")
+            .register(registry)
+            .increment(barnMedAdressebeskyttelse.size.toDouble())
 
         return if (barnMedAdressebeskyttelse.isNotEmpty()) {
             logger.info("Fjerner informasjon om utenlandsadresse før søknaden(e) sendes til lagring.")

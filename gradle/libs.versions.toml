@@ -11,7 +11,7 @@ testcontainers-version = "1.20.1"
 flyway-version = "10.17.3"
 
 [libraries]
-navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024041714471713358051.71746f05c18e" }
+navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version" }
 navfelles-mock-oauth2-server = { module = "no.nav.security:mock-oauth2-server", version = "2.1.9" }
@@ -43,7 +43,7 @@ logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.16" }
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.8" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus-simpleclient", version = "1.13.4" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.13.3" }
 
 mockk = { module = "io.mockk:mockk", version = "1.13.12" }
 
