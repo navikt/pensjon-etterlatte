@@ -3,16 +3,19 @@ import useSWR, { SWRResponse } from 'swr'
 import { IInnloggetBruker } from '../types/person.ts'
 import { apiURL } from '../utils/api.ts'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 
 export const InnledningTilInntektsjustering = () => {
     const { data }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(`${apiURL}/api/person/innlogget`)
 
     return (
         <HStack justify="center" paddingBlock="8">
-            <VStack gap="4" maxWidth="40rem">
+            <VStack gap="6" maxWidth="40rem">
                 <Heading size="xlarge" level="1">
                     Meld fra om inntekt til neste år
                 </Heading>
+
+                <SkjemaProgresjon aktivtSteg={1} />
 
                 <Heading size="large" level="2">
                     Hei! {data?.fornavn}
