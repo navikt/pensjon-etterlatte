@@ -5,11 +5,16 @@ import { apiURL } from '../utils/api.ts'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
+import { useNavigate } from 'react-router-dom'
 
 export const InnledningTilInntektsjustering = () => {
-    const { data: innloggetBruker }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(
+    const navigate = useNavigate()
+
+    const { data: innloggetBruker, error }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(
         `${apiURL}/api/person/innlogget`
     )
+
+    if (error || !innloggetBruker?.foedselsnummer) navigate('/system-utilgjengelig')
 
     return (
         <HStack justify="center" padding="8">
@@ -54,7 +59,11 @@ export const InnledningTilInntektsjustering = () => {
                     </GuidePanel>
                 </Bleed>
                 <div>
-                    <Button icon={<ArrowRightIcon aria-hidden />} iconPosition="right">
+                    <Button
+                        icon={<ArrowRightIcon aria-hidden />}
+                        iconPosition="right"
+                        onClick={() => navigate('/inntektsjustering/opprett')}
+                    >
                         Start utfyllingen
                     </Button>
                 </div>
