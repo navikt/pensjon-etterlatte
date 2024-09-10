@@ -14,8 +14,8 @@ const sanityClient = createClient({
 export default function sanityProxy(): RequestHandler {
     return async (req: Request, res: Response) => {
         try {
-            // TODO legge inn håndtering for fine grained sanity spørringer i URL params
-            const response = await sanityClient.fetch(`*[_type == "veiledningstekst"]`)
+            const sanityQuery = req.query.sanityQuery
+            const response = await sanityClient.fetch(sanityQuery?.toString() || '')
             // TODO se på om vi kan få mer fine grained response fra sanity API'et
             return res.status(200).send(JSON.stringify(response))
         } catch (error) {

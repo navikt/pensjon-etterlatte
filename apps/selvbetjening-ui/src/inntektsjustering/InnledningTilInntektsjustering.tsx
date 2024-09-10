@@ -3,9 +3,15 @@ import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { useNavigate } from 'react-router-dom'
+import useSWR, { SWRResponse } from 'swr'
+import { apiURL } from '../utils/api.ts'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
+
+    const {}: SWRResponse<never[], boolean, boolean> = useSWR(
+        `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
+    )
 
     return (
         <HStack justify="center" padding="8">
