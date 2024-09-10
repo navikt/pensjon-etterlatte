@@ -1,9 +1,10 @@
-import { Alert, Bleed, BodyShort, Button, GuidePanel, Heading, HStack, Link, VStack } from '@navikt/ds-react'
+import { Alert, Bleed, BodyShort, Button, GuidePanel, Heading, Hide, HStack, Link, VStack } from '@navikt/ds-react'
 import useSWR, { SWRResponse } from 'swr'
 import { IInnloggetBruker } from '../types/person.ts'
 import { apiURL } from '../utils/api.ts'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
+import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 
 export const InnledningTilInntektsjustering = () => {
     const { data: innloggetBruker }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(
@@ -13,9 +14,14 @@ export const InnledningTilInntektsjustering = () => {
     return (
         <HStack justify="center" padding="8">
             <VStack gap="6" maxWidth="42.5rem">
-                <Heading size="xlarge" level="1">
-                    Meld fra om inntekt til neste år
-                </Heading>
+                <HStack gap="4" align="center">
+                    <Hide below="md">
+                        <VarigLoonnstilskuddIcon />
+                    </Hide>
+                    <Heading size="xlarge" level="1">
+                        Meld fra om inntekt til neste år
+                    </Heading>
+                </HStack>
 
                 <SkjemaProgresjon aktivtSteg={1} />
 
