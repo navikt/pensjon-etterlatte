@@ -37,6 +37,7 @@ updates:
       - "/apps/omstillingsstoenad-ui"
       - "/apps/selvbetjening-ui"
       - "/apps/etterlatte-node-server"
+      - "/apps/brukerdialog-sanity"
     schedule:
       interval: "monthly"
       day: "sunday"
@@ -45,6 +46,7 @@ updates:
       ds:
         patterns:
           - "@navikt/ds-*"
+          - "@navikt/aksel-icons"
       eslint-og-test:
         patterns:
           - "@typescript-eslint/*"
@@ -61,6 +63,8 @@ updates:
           - "ts-node-dev"
           - "vitest"
           - "@vitest/*"
+          - "lint-staged"
+          - "@eslint/js"
       react:
         patterns:
           - "react*"
