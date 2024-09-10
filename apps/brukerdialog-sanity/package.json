@@ -15,10 +15,10 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^3.48.1",
+    "@sanity/vision": "^3.57.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.48.1",
+    "sanity": "^3.57.1",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
     "@types/react": "^18.3.5",
     "eslint": "^8.6.0",
     "prettier": "^3.0.2",
-    "typescript": "^5.1.6"
+    "typescript": "^5.6.2"
   },
   "prettier": {
     "semi": false,
