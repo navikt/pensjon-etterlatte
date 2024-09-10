@@ -498,10 +498,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@navikt/aksel-icons@^6.16.0":
-  version "6.16.0"
-  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.16.0.tgz#ab339b42056db9cadf36315a5eeddf8658000b36"
-  integrity sha512-qJ4VXEYkLGADYMfKKn+y2UzC86aC6hN4emwJpHhU0oJQy75K70uWFgpl0opcMSknKZgOR8mrQaAQke6QRjh4Ug==
+"@navikt/aksel-icons@^6.16.0", "@navikt/aksel-icons@^6.16.3":
+  version "6.16.3"
+  resolved "https://registry.yarnpkg.com/@navikt/aksel-icons/-/aksel-icons-6.16.3.tgz#e0a4e5abf2a0b9ae9b7be68d0f72080832fd8457"
+  integrity sha512-EE5L1F/HGzX1XJ0hQBUJq/wpdoTIs2ii02MxrZ6Ubr50Au9k9gGAUEC+fE+qxTxB8e2aDWlEvOePj1PSP/nMww==
 
 "@navikt/ds-css@^6.16.0":
   version "6.16.0"
