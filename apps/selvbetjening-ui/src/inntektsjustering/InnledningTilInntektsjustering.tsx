@@ -1,70 +1,53 @@
-import { Alert, Bleed, BodyShort, Button, GuidePanel, Heading, Hide, HStack, Link, VStack } from '@navikt/ds-react'
+import { Alert, Bleed, Button, GuidePanel, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { useNavigate } from 'react-router-dom'
 import useSWR, { SWRResponse } from 'swr'
 import { apiURL } from '../utils/api.ts'
+import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const {}: SWRResponse<never[], boolean, boolean> = useSWR(
+    const { data }: SWRResponse<never[], boolean, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
     )
 
     return (
-        <HStack justify="center" padding="8">
-            <VStack gap="6" maxWidth="42.5rem">
-                <HStack gap="4" align="center">
-                    <Hide below="md">
-                        <VarigLoonnstilskuddIcon />
-                    </Hide>
-                    <Heading size="xlarge" level="1">
-                        Meld fra om inntekt til neste år
-                    </Heading>
-                </HStack>
+        !!data?.length && (
+            <HStack justify="center" padding="8">
+                <VStack gap="6" maxWidth="42.5rem">
+                    <HStack gap="4" align="center">
+                        <Hide below="md">
+                            <VarigLoonnstilskuddIcon />
+                        </Hide>
+                        <Heading size="xlarge" level="1">
+                            {data[0]['tittel']['NB']}
+                        </Heading>
+                    </HStack>
 
-                <SkjemaProgresjon aktivtSteg={1} />
+                    <SkjemaProgresjon aktivtSteg={1} />
 
-                <Heading size="large" level="2">
-                    Hei!
-                </Heading>
+                    <SanityRikTekst text={data[0]['hovedinnhold']['NB']} />
 
-                <Heading size="medium" level="3">
-                    Her kan du melde fra om forventet inntekt til neste år.
-                </Heading>
-
-                <BodyShort>
-                    I dette skjemaet kan du melde fra om hva du forventer å tjene ved siden av omstillingsstønaden.
-                    Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt.
-                </BodyShort>
-
-                <BodyShort>
-                    Ønsker du å opplyse om endring i innværende år, må du bruke skjemaet{' '}
-                    <Link href="#">melding om inntekt når du har omstillingsstønad.</Link>
-                </BodyShort>
-
-                <Alert variant="info">
-                    Hvis inntekten din endrer seg etter du har sendt inn skjemaet, må du informere oss på nytt.
-                </Alert>
-                <Bleed marginInline={{ xs: '0', md: '10 0' }}>
-                    <GuidePanel>
-                        Vi lagrer et utkast av skjemaet automatisk hver gang du går til neste steg. Du finner utkastet
-                        på Min side. NAV kan ikke se informasjonen i utkastet. Du må trykke på “Send til NAV” for at NAV
-                        skal motta skjemaet/søknaden.
-                    </GuidePanel>
-                </Bleed>
-                <div>
-                    <Button
-                        icon={<ArrowRightIcon aria-hidden />}
-                        iconPosition="right"
-                        onClick={() => navigate('/inntektsjustering/opprett')}
-                    >
-                        Start utfyllingen
-                    </Button>
-                </div>
-            </VStack>
-        </HStack>
+                    <Alert variant="info">{data[0]['info']['NB']}</Alert>
+                    <Bleed marginInline={{ xs: '0', md: '10 0' }}>
+                        <GuidePanel>
+                            <SanityRikTekst text={data[0]['veiledning']['NB']} />
+                        </GuidePanel>
+                    </Bleed>
+                    <div>
+                        <Button
+                            icon={<ArrowRightIcon aria-hidden />}
+                            iconPosition="right"
+                            onClick={() => navigate('/inntektsjustering/opprett')}
+                        >
+                            Start utfyllingen
+                        </Button>
+                    </div>
+                </VStack>
+            </HStack>
+        )
     )
 }
