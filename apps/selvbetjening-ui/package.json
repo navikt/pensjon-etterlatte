@@ -13,7 +13,7 @@
     "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages selvbetjening-ui@0.1.0 --summary"
   },
   "dependencies": {
-    "@navikt/aksel-icons": "^6.16.0",
+    "@navikt/aksel-icons": "^6.16.3",
     "@navikt/ds-css": "^6.16.0",
     "@navikt/ds-react": "^6.16.0",
     "@portabletext/react": "^3.1.0",
