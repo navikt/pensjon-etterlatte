@@ -1,7 +1,7 @@
 import { act, render, fireEvent } from '@testing-library/react'
 import MerOmSituasjonenDin from './MerOmSituasjonenDin'
 import { describe, expect, it, vi } from 'vitest'
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom'
 
 vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -31,7 +31,7 @@ const defaultValues = {
                 svar: 'Ja',
                 opplysning: 'Mister kanskje jobben',
             },
-            sagtOppEllerRedusert: 'Reduserer pga vond rygg'
+            sagtOppEllerRedusert: 'Reduserer pga vond rygg',
         },
     ],
 }
@@ -44,13 +44,31 @@ vi.mock('../../../context/soknad/SoknadContext', () => ({
 }))
 
 describe('Mer om situasjonen din', () => {
+    beforeAll(() => {
+        vi.useFakeTimers('modern')
+    })
+
+    afterAll(() => {
+        vi.useRealTimers()
+    })
+
     it('Snapshot', () => {
-        const { container } = render(<BrowserRouter><MerOmSituasjonenDin /></BrowserRouter>)
+        vi.setSystemTime(new Date(2024, 0, 1))
+
+        const { container } = render(
+            <BrowserRouter>
+                <MerOmSituasjonenDin />
+            </BrowserRouter>
+        )
         expect(container).toMatchSnapshot()
     })
 
     it('Skal rendre selvstendig', () => {
-        const { container, getByLabelText } = render(<BrowserRouter><MerOmSituasjonenDin /></BrowserRouter>)
+        const { container, getByLabelText } = render(
+            <BrowserRouter>
+                <MerOmSituasjonenDin />
+            </BrowserRouter>
+        )
         act(() => {
             fireEvent.click(getByLabelText('jobbStatus.selvstendig'))
         })

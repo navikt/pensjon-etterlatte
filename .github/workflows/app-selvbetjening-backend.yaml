@@ -17,12 +17,14 @@ on:
     paths:
       - apps/selvbetjening-backend/**
       - gradle/libs.versions.toml
+      - buildSrc/**
   pull_request:
     branches:
       - main
     paths:
       - apps/selvbetjening-backend/**
       - gradle/libs.versions.toml
+      - buildSrc/**
 
 jobs:
   test:

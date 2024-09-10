@@ -110,6 +110,16 @@
         "sagtOppEllerRedusert": {
           "svar": "sagtOppEllerRedusert.oppsagt"
         }
+      },
+      {
+        "arbeidsgiver": "Bananskreller AS",
+        "ansettelsesforhold": "stillingType.fast",
+        "arbeidsmengde" : {
+          "svar": "50"
+        },
+        "forventerEndretArbeidssituasjon": {
+          "svar": "radiobuttons.nei"
+        }
       }
     ]
   },

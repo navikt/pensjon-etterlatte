@@ -17,12 +17,14 @@ on:
     paths:
       - apps/innsendt-soeknad/**
       - gradle/libs.versions.toml
+      - buildSrc/**
   pull_request:
     branches:
       - main
     paths:
       - apps/innsendt-soeknad/**
       - gradle/libs.versions.toml
+      - buildSrc/**
 
 jobs:
   test:

@@ -35,6 +35,7 @@ updates:
     directories:
       - "/apps/barnepensjon-ui"
       - "/apps/omstillingsstoenad-ui"
+      - "/apps/selvbetjening-ui"
       - "/apps/etterlatte-node-server"
     schedule:
       interval: "monthly"
@@ -51,6 +52,7 @@ updates:
           - "eslint-plugin*"
           - "prettier"
           - "axe-core"
+          - "husky"
           - "cypress"
           - "cypress-axe"
           - "@testing-library/*"
@@ -79,6 +81,7 @@ updates:
           - "@types/amplitude-js"
           - "amplitude-js"
           - "vite"
+          - "vite-tsconfig-paths"
       node-server:
         patterns:
           - "@navikt/nav-dekoratoren-moduler"

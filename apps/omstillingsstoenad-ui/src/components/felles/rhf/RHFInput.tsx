@@ -35,7 +35,6 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
         control,
         formState: { errors },
     } = useFormContext()
-
     const error: FieldError = get(errors, name) as FieldError
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
@@ -183,7 +182,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
+export const RHFProsentInput = ({ name, rules, valgfri = false, ...rest }: RHFProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -205,7 +204,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
         <Controller
             name={name}
             control={control}
-            rules={{ required: true, pattern: prosentMatcher, ...rules }}
+            rules={{ required: !valgfri, pattern: prosentMatcher, ...rules }}
             render={({ field: { value, onChange } }) => (
                 <TextField
                     id={name}
