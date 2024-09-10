@@ -28,21 +28,17 @@ on:
       - '!apps/etterlatte-node-server/src/mock/**'
       - '!apps/etterlatte-node-server/README.md'
 
-jobs:
-  test_and_build:
-    uses: ./.github/workflows/.build-frontend.yaml
-    secrets: inherit
-    permissions:
-      contents: read
-      id-token: write
+permissions:
+  contents: write
+  id-token: write
 
-  deploy:
-    needs: test_and_build
-    if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/.deploy-frontend.yaml
-    with:
-      image: ${{ needs.test_and_build.outputs.image }}
+jobs:
+  test:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/.test-frontend.yaml
     secrets: inherit
-    permissions:
-      contents: read
-      id-token: write
+
+  build_and_deploy:
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/.build-and-deploy-frontend.yaml
+    secrets: inherit

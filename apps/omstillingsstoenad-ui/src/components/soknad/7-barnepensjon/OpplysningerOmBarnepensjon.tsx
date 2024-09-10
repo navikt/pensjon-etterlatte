@@ -58,7 +58,7 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
     }
 
     const avbryt = (fjernAktivtBarn?: boolean) => {
-        if(fjernAktivtBarn) remove(aktivBarnIndex)
+        if (fjernAktivtBarn) remove(aktivBarnIndex)
         setAktivBarnIndex(undefined)
     }
 
