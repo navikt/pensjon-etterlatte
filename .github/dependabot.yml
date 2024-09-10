@@ -35,6 +35,7 @@ updates:
     directories:
       - "/apps/barnepensjon-ui"
       - "/apps/omstillingsstoenad-ui"
+      - "/apps/selvbetjening-ui"
       - "/apps/etterlatte-node-server"
     schedule:
       interval: "monthly"
