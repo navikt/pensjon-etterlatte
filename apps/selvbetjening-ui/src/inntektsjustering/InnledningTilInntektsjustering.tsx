@@ -6,11 +6,13 @@ import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 
 export const InnledningTilInntektsjustering = () => {
-    const { data }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(`${apiURL}/api/person/innlogget`)
+    const { data: innloggetBruker }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(
+        `${apiURL}/api/person/innlogget`
+    )
 
     return (
-        <HStack justify="center" paddingBlock="8">
-            <VStack gap="6" maxWidth="40rem">
+        <HStack justify="center" padding="8">
+            <VStack gap="6" maxWidth="42.5rem">
                 <Heading size="xlarge" level="1">
                     Meld fra om inntekt til neste år
                 </Heading>
@@ -18,7 +20,7 @@ export const InnledningTilInntektsjustering = () => {
                 <SkjemaProgresjon aktivtSteg={1} />
 
                 <Heading size="large" level="2">
-                    Hei! {data?.fornavn}
+                    Hei! {innloggetBruker?.fornavn}
                 </Heading>
 
                 <Heading size="medium" level="3">
@@ -38,7 +40,7 @@ export const InnledningTilInntektsjustering = () => {
                 <Alert variant="info">
                     Hvis inntekten din endrer seg etter du har sendt inn skjemaet, må du informere oss på nytt.
                 </Alert>
-                <Bleed marginInline="10 0">
+                <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                     <GuidePanel>
                         Vi lagrer et utkast av skjemaet automatisk hver gang du går til neste steg. Du finner utkastet
                         på Min side. NAV kan ikke se informasjonen i utkastet. Du må trykke på “Send til NAV” for at NAV
