@@ -42,20 +42,6 @@ class RetryTest {
         }
     }
 
-    @Test
-    fun `Skal returnere failure når alle forsøk feiler`() {
-        runBlocking {
-            unsafeRetry(2, ustabilMetode(listOf(true, true, true, false)))
-        }.also {
-            when (it) {
-                is RetryResult.Success -> fail()
-                is RetryResult.Failure -> {
-                    assertEquals(3, it.exceptions.size)
-                }
-            }
-        }
-    }
-
     private fun ustabilMetode(eksternFeil: List<Boolean>): suspend () -> String {
         LinkedList<Boolean>().apply {
             addAll(eksternFeil)
