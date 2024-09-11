@@ -43,17 +43,10 @@ class OAuth2Client(
             )
         }
 
-    suspend fun onBehalfOf(
-        token: String,
-        scope: String,
-    ) = accessToken(GrantRequest.onBehalfOf(token, scope))
-
     suspend fun tokenExchange(
         token: String,
         audience: String,
     ) = accessToken(GrantRequest.tokenExchange(token, audience))
-
-    suspend fun clientCredentials(scope: String) = accessToken(GrantRequest.clientCredentials(scope))
 
     suspend fun accessToken(grantRequest: GrantRequest): OAuth2AccessTokenResponse =
         if (cacheConfig.enabled) {
@@ -88,29 +81,6 @@ data class GrantRequest(
                         OAuth2ParameterNames.SUBJECT_TOKEN_TYPE to "urn:ietf:params:oauth:token-type:jwt",
                         OAuth2ParameterNames.SUBJECT_TOKEN to token,
                         OAuth2ParameterNames.AUDIENCE to audience,
-                    ),
-            )
-
-        fun onBehalfOf(
-            token: String,
-            scope: String,
-        ): GrantRequest =
-            GrantRequest(
-                grantType = GrantType.JWT_BEARER,
-                params =
-                    mapOf(
-                        OAuth2ParameterNames.SCOPE to scope,
-                        OAuth2ParameterNames.REQUESTED_TOKEN_USE to "on_behalf_of",
-                        OAuth2ParameterNames.ASSERTION to token,
-                    ),
-            )
-
-        fun clientCredentials(scope: String): GrantRequest =
-            GrantRequest(
-                grantType = GrantType.CLIENT_CREDENTIALS,
-                params =
-                    mapOf(
-                        OAuth2ParameterNames.SCOPE to scope,
                     ),
             )
     }

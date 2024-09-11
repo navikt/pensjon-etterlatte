@@ -93,7 +93,7 @@ class KodeverkService(
     ): String {
         val gyldigBetydning =
             this.betydninger[kode]
-                ?.find { it -> it.gyldigTil > LocalDate.now().toString() }
+                ?.find { it.gyldigTil > LocalDate.now().toString() }
 
         return gyldigBetydning
             ?.beskrivelser
