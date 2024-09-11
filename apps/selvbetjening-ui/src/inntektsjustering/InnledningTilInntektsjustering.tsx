@@ -2,7 +2,7 @@ import { Alert, Bleed, Button, GuidePanel, Heading, Hide, HStack, Select, VStack
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import useSWR, { SWRResponse } from 'swr'
 import { apiURL } from '../utils/api.ts'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
@@ -18,7 +18,9 @@ export const InnledningTilInntektsjustering = () => {
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
     )
 
-    if (error) navigate('/system-utilgjengelig')
+    if (error || !data?.length) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
 
     return (
         !!data?.length && (
