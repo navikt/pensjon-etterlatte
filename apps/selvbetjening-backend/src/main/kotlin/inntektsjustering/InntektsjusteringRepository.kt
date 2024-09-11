@@ -49,14 +49,18 @@ class InntektsjusteringRepository(
                 .use {
                     generateSequence {
                         if (it.next()) {
-                            Inntektsjustering(
-                                id = UUID.fromString(it.getString("id")),
-                                inntektsaar = it.getInt("inntektsaar"),
-                                arbeidsinntekt = it.getInt("arbeidsinntekt"),
-                                naeringsinntekt = it.getInt("naeringsinntekt"),
-                                arbeidsinntektUtland = it.getInt("arbeidsinntekt_utland"),
-                                naeringsinntektUtland = it.getInt("naeringsinntekt_utland"),
-                                tidspunkt = it.getTimestamp("innsendt").toInstant(),
+                            mapOf(
+                                "@fnr" to it.getString("fnr"),
+                                "@inntektsjustering" to
+                                    Inntektsjustering(
+                                        id = UUID.fromString(it.getString("id")),
+                                        inntektsaar = it.getInt("inntektsaar"),
+                                        arbeidsinntekt = it.getInt("arbeidsinntekt"),
+                                        naeringsinntekt = it.getInt("naeringsinntekt"),
+                                        arbeidsinntektUtland = it.getInt("arbeidsinntekt_utland"),
+                                        naeringsinntektUtland = it.getInt("naeringsinntekt_utland"),
+                                        tidspunkt = it.getTimestamp("innsendt").toInstant(),
+                                    ),
                             )
                         } else {
                             null
@@ -90,8 +94,8 @@ class InntektsjusteringRepository(
         it
             .prepareStatement(OPPDATER_STATUS)
             .apply {
-                setObject(1, id)
-                setString(2, status.value)
+                setString(1, status.value)
+                setObject(2, id)
             }.execute()
     }
 }
