@@ -28,6 +28,7 @@ jobs:
         id: yarn-cache-webapp
         with:
           path: apps/${{ github.workflow }}/node_modules
+          key: ${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
       - name: Install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         working-directory: apps/${{ github.workflow }}
