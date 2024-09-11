@@ -13,12 +13,26 @@ on:
 jobs:
   deploy_sanity_studio:
     runs-on: ubuntu-latest
+    env:
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
     name: Deploy sanity studio
     steps:
-      - uses: actions/checkout@v4
-      - uses: sanity-io/github-action-sanity@v0.6-alpha
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          args: deploy
-          working-directory: apps/brukerdialog-sanity
+          node-version: '22.x'
+      - name: Cache node modules
+        uses: actions/cache@v4
+        id: yarn-cache-webapp
+        with:
+          path: apps/${{ github.workflow }}/node_modules
+      - name: Install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        working-directory: apps/${{ github.workflow }}
+        run: yarn install --frozen-lockfile
+      - name: Deploy sanity studio
+        working-directory: apps/${{ github.workflow }}
+        run: yarn deploy
+
