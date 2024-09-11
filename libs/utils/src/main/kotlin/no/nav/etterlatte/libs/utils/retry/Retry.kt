@@ -41,7 +41,7 @@ private suspend fun <T> retryInner(
         }
     }
 
-private fun samleExceptions(exceptions: List<Exception>): Exception {
+internal fun samleExceptions(exceptions: List<Exception>): Exception {
     val siste = exceptions.last()
     exceptions.dropLast(1).reversed().forEach { siste.addSuppressed(it) }
     return siste

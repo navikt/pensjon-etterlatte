@@ -42,6 +42,17 @@ class RetryTest {
         }
     }
 
+    @Test
+    fun `exceptions blir lagt til i lista som suppressed, den nyeste foerst`() {
+        val e1 = RuntimeException("e1")
+        val e2 = RuntimeException("e2")
+        val e3 = RuntimeException("e3")
+
+        val samla = samleExceptions(listOf(e1, e2, e3))
+        assertEquals(e3, samla)
+        assertEquals(listOf(e2, e1), samla.suppressedExceptions)
+    }
+
     private fun ustabilMetode(eksternFeil: List<Boolean>): suspend () -> String {
         LinkedList<Boolean>().apply {
             addAll(eksternFeil)
