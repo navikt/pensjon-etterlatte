@@ -18,7 +18,7 @@ export const InnledningTilInntektsjustering = () => {
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
     )
 
-    if (error || !data?.length) {
+    if (error) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
