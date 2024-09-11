@@ -30,7 +30,7 @@ class RetryTest {
     @Test
     fun `Skal forsøke på nytt når det feiler`() {
         runBlocking {
-            retry(2, ustabilMetode(listOf(true, true, false)))
+            unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
         }.also {
             when (it) {
                 is RetryResult.Success -> {
@@ -45,7 +45,7 @@ class RetryTest {
     @Test
     fun `Skal returnere failure når alle forsøk feiler`() {
         runBlocking {
-            retry(2, ustabilMetode(listOf(true, true, true, false)))
+            unsafeRetry(2, ustabilMetode(listOf(true, true, true, false)))
         }.also {
             when (it) {
                 is RetryResult.Success -> fail()

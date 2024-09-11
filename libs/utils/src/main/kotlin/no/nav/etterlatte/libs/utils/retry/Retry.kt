@@ -19,17 +19,12 @@ sealed class RetryResult {
 suspend fun <T> unsafeRetry(
     times: Int = 2,
     block: suspend () -> T,
-) = retry(times, block).let {
+) = retryInner(times, emptyList(), block).let {
     when (it) {
         is Success -> it.content
         is Failure -> throw it.lastError()
     }
 }
-
-suspend fun <T> retry(
-    times: Int = 2,
-    block: suspend () -> T,
-) = retryInner(times, emptyList(), block)
 
 private suspend fun <T> retryInner(
     times: Int,
