@@ -1,0 +1,21 @@
+name: brukerdialog-sanity
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/brukerdialog-sanity/**
+
+jobs:
+  deploy_sanity_studio:
+    runs-on: ubuntu-latest
+    name: Deploy sanity studio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sanity-io/github-action-sanity@v0.6-alpha
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+        with:
+          args: deploy
