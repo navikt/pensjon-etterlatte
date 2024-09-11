@@ -5,20 +5,14 @@ import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 import io.ktor.server.routing.route
-import io.micrometer.core.instrument.Clock
-import io.micrometer.prometheus.PrometheusConfig
-import io.micrometer.prometheus.PrometheusMeterRegistry
-import io.prometheus.client.CollectorRegistry
+import io.micrometer.prometheusmetrics.PrometheusConfig
+import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
 import no.nav.etterlatte.internal.Metrikker.registry
 
 object Metrikker {
-    private val collectorRegistry = CollectorRegistry.defaultRegistry
-
     val registry =
         PrometheusMeterRegistry(
             PrometheusConfig.DEFAULT,
-            collectorRegistry,
-            Clock.SYSTEM,
         )
     // TODO
 }

@@ -1,10 +1,12 @@
 package jobs
 
 import io.kotest.matchers.shouldBe
+import io.micrometer.core.instrument.Gauge
+import io.micrometer.prometheusmetrics.PrometheusConfig
+import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import io.prometheus.client.CollectorRegistry
 import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -17,7 +19,8 @@ import java.time.LocalDateTime
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class PubliserMetrikkerJobbTest {
     private val dbMock = mockk<PostgresSoeknadRepository>()
-    private val publiserMetrikkerJobb = PubliserMetrikkerJobb(dbMock)
+    private val testreg = PrometheusMeterRegistry(PrometheusConfig.DEFAULT)
+    private val publiserMetrikkerJobb = PubliserMetrikkerJobb(dbMock, testreg)
     private val eldsteUsendt = LocalDateTime.now().minusHours(1)
     private val eldsteUarkivert = LocalDateTime.now().minusHours(2)
     private val kildeBP = "barnepensjon-ui"
@@ -33,36 +36,30 @@ internal class PubliserMetrikkerJobbTest {
         every { dbMock.ukategorisert() } returns listOf(1L)
     }
 
+    private fun metrikker(metrikk: String) = testreg.get(metrikk).gauges()
+
     @Test
     fun `Skal hente relevante metrics og logge til Prometheus`() {
         publiserMetrikkerJobb.publiserMetrikker()
 
         verify(exactly = 1) { dbMock.eldsteUsendte() }
-        CollectorRegistry.defaultRegistry.getSampleValue("alder_eldste_usendte") shouldBe 60.0
+        hentVerdi(metrikker("alder_eldste_usendte")) shouldBe 60
         verify(exactly = 1) { dbMock.eldsteUarkiverte() }
-        CollectorRegistry.defaultRegistry.getSampleValue("alder_eldste_uarkiverte") shouldBe 120.0
+        hentVerdi(metrikker("alder_eldste_uarkiverte")) shouldBe 120
         verify(exactly = 1) { dbMock.rapport() }
-        CollectorRegistry.defaultRegistry.getSampleValue(
-            "soknad_tilstand",
-            arrayOf("tilstand", "kilde"),
-            arrayOf(Status.FERDIGSTILT.name, kildeBP),
-        ) shouldBe 12.0
-        CollectorRegistry.defaultRegistry.getSampleValue(
-            "soknad_tilstand",
-            arrayOf("tilstand", "kilde"),
-            arrayOf(Status.SENDT.name, kildeOMS),
-        ) shouldBe 34.0
+        hentVerdi(
+            metrikker("soknad_tilstand"),
+            mapOf("tilstand" to Status.FERDIGSTILT.name, "kilde" to kildeBP),
+        ) shouldBe 12
+        hentVerdi(metrikker("soknad_tilstand"), mapOf("tilstand" to Status.SENDT.name, "kilde" to kildeOMS)) shouldBe 34
         verify(exactly = 1) { dbMock.kilder() }
-        CollectorRegistry.defaultRegistry.getSampleValue(
-            "soknad_kilde",
-            arrayOf("kilde"),
-            arrayOf(kildeBP),
-        ) shouldBe 40.0
-        CollectorRegistry.defaultRegistry.getSampleValue(
-            "soknad_kilde",
-            arrayOf("kilde"),
-            arrayOf(kildeOMS),
-        ) shouldBe 25.0
+        hentVerdi(metrikker("soknad_kilde"), mapOf("kilde" to kildeBP)) shouldBe 40
+        hentVerdi(metrikker("soknad_kilde"), mapOf("kilde" to kildeOMS)) shouldBe 25
         verify(exactly = 1) { dbMock.ukategorisert() }
     }
 }
+
+private fun hentVerdi(
+    metrikker: Collection<Gauge>,
+    tags: Map<String, String> = mapOf(),
+) = metrikker.filter { metrikk -> tags.all { metrikk.id.getTag(it.key) == it.value } }.sumOf { it.value() }.toInt()
