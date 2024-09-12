@@ -1,8 +1,10 @@
 package no.nav.etterlatte.inntektsjustering
 
 import no.nav.etterlatte.inntektsjustering.Queries.HENT_FOR_FNR
+import no.nav.etterlatte.inntektsjustering.Queries.HENT_FOR_STATUS
 import no.nav.etterlatte.inntektsjustering.Queries.HENT_SISTE_INNSENDT_FOR_STATUS
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
+import no.nav.etterlatte.inntektsjustering.Queries.OPPDATER_DUPLIKATER_STATUS
 import no.nav.etterlatte.inntektsjustering.Queries.OPPDATER_STATUS
 import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
@@ -40,34 +42,10 @@ class InntektsjusteringRepository(
         }
 
     fun hentSisteInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
-        connection.use {
-            it
-                .prepareStatement(HENT_SISTE_INNSENDT_FOR_STATUS)
-                .apply {
-                    setString(1, status.value)
-                }.executeQuery()
-                .use {
-                    generateSequence {
-                        if (it.next()) {
-                            mapOf(
-                                "@fnr" to it.getString("fnr"),
-                                "@inntektsjustering" to
-                                    Inntektsjustering(
-                                        id = UUID.fromString(it.getString("id")),
-                                        inntektsaar = it.getInt("inntektsaar"),
-                                        arbeidsinntekt = it.getInt("arbeidsinntekt"),
-                                        naeringsinntekt = it.getInt("naeringsinntekt"),
-                                        arbeidsinntektUtland = it.getInt("arbeidsinntekt_utland"),
-                                        naeringsinntektUtland = it.getInt("naeringsinntekt_utland"),
-                                        tidspunkt = it.getTimestamp("innsendt").toInstant(),
-                                    ),
-                            )
-                        } else {
-                            null
-                        }
-                    }.toList()
-                }
-        }
+        hentInntektsjusteringer(HENT_SISTE_INNSENDT_FOR_STATUS, status)
+
+    fun hentInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
+        hentInntektsjusteringer(HENT_FOR_STATUS, status)
 
     fun lagreInntektsjustering(
         fnr: Foedselsnummer,
@@ -98,6 +76,51 @@ class InntektsjusteringRepository(
                 setObject(2, id)
             }.execute()
     }
+
+    fun oppdaterDuplikaterStatus(
+        status: PubliserInntektsjusteringStatus,
+        updateStatus: PubliserInntektsjusteringStatus,
+    ) = connection.use {
+        it
+            .prepareStatement(OPPDATER_DUPLIKATER_STATUS)
+            .apply {
+                setString(1, status.value)
+                setString(2, updateStatus.value)
+            }.execute()
+    }
+
+    private fun hentInntektsjusteringer(
+        query: String,
+        status: PubliserInntektsjusteringStatus,
+    ): List<Map<String, Any>> =
+        connection.use {
+            it
+                .prepareStatement(query)
+                .apply {
+                    setString(1, status.value)
+                }.executeQuery()
+                .use { resultSet ->
+                    generateSequence {
+                        if (resultSet.next()) {
+                            mapOf(
+                                "@fnr" to resultSet.getString("fnr"),
+                                "@inntektsjustering" to
+                                    Inntektsjustering(
+                                        id = UUID.fromString(resultSet.getString("id")),
+                                        inntektsaar = resultSet.getInt("inntektsaar"),
+                                        arbeidsinntekt = resultSet.getInt("arbeidsinntekt"),
+                                        naeringsinntekt = resultSet.getInt("naeringsinntekt"),
+                                        arbeidsinntektUtland = resultSet.getInt("arbeidsinntekt_utland"),
+                                        naeringsinntektUtland = resultSet.getInt("naeringsinntekt_utland"),
+                                        tidspunkt = resultSet.getTimestamp("innsendt").toInstant(),
+                                    ),
+                            )
+                        } else {
+                            null
+                        }
+                    }.toList()
+                }
+        }
 }
 
 private object Queries {
@@ -144,5 +167,24 @@ private object Queries {
             SISTE_INNSENDT
         WHERE
             row_num = 1
+        """.trimIndent()
+
+    val OPPDATER_DUPLIKATER_STATUS =
+        """
+        WITH SISTE_INNSENDT AS (
+            SELECT *,
+                ROW_NUMBER() OVER (PARTITION BY fnr ORDER BY innsendt DESC) AS row_num
+            FROM
+                inntektsjustering
+            WHERE
+                status = ?
+        )
+        UPDATE inntektsjustering
+        SET status = ?
+        WHERE id IN (
+            SELECT id
+            FROM SISTE_INNSENDT
+            WHERE row_num > 1
+        )
         """.trimIndent()
 }

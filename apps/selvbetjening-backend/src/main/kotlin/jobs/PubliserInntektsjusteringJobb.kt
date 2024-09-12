@@ -16,7 +16,7 @@ import kotlin.concurrent.fixedRateTimer
 
 class PubliserInntektsjusteringJobb(
     private val produsent: KafkaProdusent<String, String>,
-    private val service: InntektsjusteringService,
+    private val inntektsjusteringService: InntektsjusteringService,
 ) {
     private val logger = LoggerFactory.getLogger(PubliserInntektsjusteringJobb::class.java)
 
@@ -31,14 +31,13 @@ class PubliserInntektsjusteringJobb(
             runBlocking {
                 if (LeaderElection.isLeader() && !shuttingDown.get()) {
                     try {
-                        val inntektsjusteringer =
-                            service.hentSisteInntektsjusteringForStatus(
+                        val resultat =
+                            inntektsjusteringService.hentSisteInntektsjusteringForStatus(
                                 PubliserInntektsjusteringStatus.LAGRET,
                             )
 
-                        inntektsjusteringer.forEach {
+                        resultat.forEach {
                             try {
-                                // TODO: trenger vi validering?
                                 val fnr = it["@fnr"] as String
                                 val inntektsjustering = it["@inntektsjustering"] as Inntektsjustering
 
@@ -53,7 +52,7 @@ class PubliserInntektsjusteringJobb(
                                     )
 
                                 produsent.publiser(UUID.randomUUID().toString(), message.toJson())
-                                service.oppdaterInntektsjusteringStatus(
+                                inntektsjusteringService.oppdaterStatusForInntektsjustering(
                                     inntektsjustering.id,
                                     PubliserInntektsjusteringStatus.PUBLISERT,
                                 )
@@ -61,6 +60,12 @@ class PubliserInntektsjusteringJobb(
                                 logger.error("Feil oppsto under publisering av inntektsjustering: ", e)
                             }
                         }
+
+                        // rydder opp eventuelle duplikater
+                        inntektsjusteringService.oppdaterDuplikaterInntektsjustering(
+                            PubliserInntektsjusteringStatus.LAGRET,
+                            PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
+                        )
                     } catch (e: Exception) {
                         logger.error("Feil oppsto under publisering av inntektsjusteringer jobb: ", e)
                     }

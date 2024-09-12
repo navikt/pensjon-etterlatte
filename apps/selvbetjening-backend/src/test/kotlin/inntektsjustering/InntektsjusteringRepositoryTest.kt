@@ -38,6 +38,31 @@ class InntektsjusteringRepositoryTest {
     }
 
     @Test
+    fun `oppdater duplikater`() {
+        repeat(2) {
+            db.lagreInntektsjustering(
+                VAKKER_PENN,
+                InntektsjusteringLagre(
+                    arbeidsinntekt = 100,
+                    naeringsinntekt = 200,
+                    arbeidsinntektUtland = 300,
+                    naeringsinntektUtland = 400,
+                ),
+            )
+        }
+
+        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 2
+
+        db.oppdaterDuplikaterStatus(
+            PubliserInntektsjusteringStatus.LAGRET,
+            PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
+        )
+
+        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 1
+        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.IKKE_PUBLISERT).size shouldBe 1
+    }
+
+    @Test
     fun `oppdatere status paa innsendt soeknad`() {
         db.lagreInntektsjustering(
             VAKKER_PENN,
