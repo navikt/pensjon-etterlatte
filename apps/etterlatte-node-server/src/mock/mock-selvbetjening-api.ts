@@ -3,7 +3,12 @@ import parser from 'body-parser'
 import { NextFunction, Request, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
-import { innledningTilInntektsjusteringTestBlocks, testBlocks } from './data/sanityBlocks'
+import {
+    innledningTilInntektsjusteringTestBlocks,
+    skjemaProgresjonTestBlocks,
+    spraakVelgerTestBlock,
+    testBlocks,
+} from './data/sanityBlocks'
 
 const cache = new NodeCache()
 
@@ -43,7 +48,10 @@ export const mockSelvbetjeningApi = (app: any) => {
 
     app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
         const sanityQuery = req.query.sanityQuery
-        if (sanityQuery?.toString().includes('innledning')) res.send(innledningTilInntektsjusteringTestBlocks)
+        if (sanityQuery?.toString().includes('innledningTilInntektsjustering'))
+            res.send(innledningTilInntektsjusteringTestBlocks)
+        else if (sanityQuery?.toString().includes('spraakVelger')) res.send(spraakVelgerTestBlock)
+        else if (sanityQuery?.toString().includes('skjemaProgresjon')) res.send(skjemaProgresjonTestBlocks)
         else res.send(testBlocks)
     })
 
