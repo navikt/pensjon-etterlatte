@@ -6,13 +6,45 @@ export const fellesKomponenter = defineType({
     type: 'document',
     fields: [
         defineField({
+            name: 'dokumentTittel',
+            title: 'Dokument tittel',
+            type: 'string',
+        }),
+        defineField({
+            name: 'spraakVelger',
+            title: 'Språk velger',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'label',
+                    title: 'Label',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'NB', type: 'string' }),
+                        defineField({ name: 'NN', type: 'string' }),
+                        defineField({ name: 'EN', type: 'string' }),
+                    ],
+                }),
+            ],
+        }),
+        defineField({
             name: 'skjemaProgresjon',
             title: 'Skjema progresjon',
             type: 'object',
             fields: [
                 defineField({
-                    name: 'stegTeller',
-                    title: 'Steg teller',
+                    name: 'steg',
+                    title: 'Steg',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'NB', type: 'string' }),
+                        defineField({ name: 'NN', type: 'string' }),
+                        defineField({ name: 'EN', type: 'string' }),
+                    ],
+                }),
+                defineField({
+                    name: 'av',
+                    title: 'av',
                     type: 'object',
                     fields: [
                         defineField({ name: 'NB', type: 'string' }),
@@ -41,8 +73,8 @@ export const fellesKomponenter = defineType({
                     ],
                 }),
                 defineField({
-                    name: 'alleSteg',
-                    title: 'Alle steg',
+                    name: 'stegLabels',
+                    title: 'Steg labels',
                     type: 'object',
                     fields: [
                         defineField({
