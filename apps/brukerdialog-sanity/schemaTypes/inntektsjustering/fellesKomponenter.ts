@@ -34,7 +34,7 @@ export const fellesKomponenter = defineType({
             fields: [
                 defineField({
                     name: 'stegXAvX',
-                    title: 'Steg x av X',
+                    title: 'Steg x av x',
                     type: 'object',
                     fields: [
                         defineField({
