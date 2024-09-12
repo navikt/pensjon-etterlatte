@@ -14,11 +14,19 @@ export const fellesKomponenter = defineType({
             name: 'spraakVelger',
             title: 'Språk velger',
             type: 'object',
+            options: {
+                collapsible: true,
+                collapsed: true,
+            },
             fields: [
                 defineField({
                     name: 'label',
                     title: 'Label',
                     type: 'object',
+                    options: {
+                        collapsible: true,
+                        collapsed: false,
+                    },
                     fields: [
                         defineField({ name: 'NB', type: 'string' }),
                         defineField({ name: 'NN', type: 'string' }),
@@ -31,6 +39,10 @@ export const fellesKomponenter = defineType({
             name: 'skjemaProgresjon',
             title: 'Skjema progresjon',
             type: 'object',
+            options: {
+                collapsible: true,
+                collapsed: true,
+            },
             fields: [
                 defineField({
                     name: 'stegXAvX',
@@ -41,6 +53,10 @@ export const fellesKomponenter = defineType({
                             name: 'steg',
                             title: 'Steg',
                             type: 'object',
+                            options: {
+                                collapsible: true,
+                                collapsed: true,
+                            },
                             fields: [
                                 defineField({ name: 'NB', type: 'string' }),
                                 defineField({ name: 'NN', type: 'string' }),
@@ -51,6 +67,10 @@ export const fellesKomponenter = defineType({
                             name: 'av',
                             title: 'av',
                             type: 'object',
+                            options: {
+                                collapsible: true,
+                                collapsed: true,
+                            },
                             fields: [
                                 defineField({ name: 'NB', type: 'string' }),
                                 defineField({ name: 'NN', type: 'string' }),
@@ -88,6 +108,10 @@ export const fellesKomponenter = defineType({
                             name: 'steg1',
                             title: 'Steg 1',
                             type: 'object',
+                            options: {
+                                collapsible: true,
+                                collapsed: true,
+                            },
                             fields: [
                                 defineField({ name: 'NB', type: 'string' }),
                                 defineField({ name: 'NN', type: 'string' }),
@@ -98,6 +122,10 @@ export const fellesKomponenter = defineType({
                             name: 'steg2',
                             title: 'Steg 2',
                             type: 'object',
+                            options: {
+                                collapsible: true,
+                                collapsed: true,
+                            },
                             fields: [
                                 defineField({ name: 'NB', type: 'string' }),
                                 defineField({ name: 'NN', type: 'string' }),
@@ -108,6 +136,10 @@ export const fellesKomponenter = defineType({
                             name: 'steg3',
                             title: 'Steg 3',
                             type: 'object',
+                            options: {
+                                collapsible: true,
+                                collapsed: true,
+                            },
                             fields: [
                                 defineField({ name: 'NB', type: 'string' }),
                                 defineField({ name: 'NN', type: 'string' }),
@@ -118,6 +150,10 @@ export const fellesKomponenter = defineType({
                             name: 'steg4',
                             title: 'Steg 4',
                             type: 'object',
+                            options: {
+                                collapsible: true,
+                                collapsed: true,
+                            },
                             fields: [
                                 defineField({ name: 'NB', type: 'string' }),
                                 defineField({ name: 'NN', type: 'string' }),
