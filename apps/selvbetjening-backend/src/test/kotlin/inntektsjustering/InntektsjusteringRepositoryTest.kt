@@ -47,17 +47,25 @@ class InntektsjusteringRepositoryTest {
 
     @Test
     fun `oppdater status for duplikater med IKKE_PUBLISER`() {
-        repeat(2) {
-            db.lagreInntektsjustering(
-                VAKKER_PENN,
-                InntektsjusteringLagre(
-                    arbeidsinntekt = 100,
-                    naeringsinntekt = 200,
-                    arbeidsinntektUtland = 300,
-                    naeringsinntektUtland = 400,
-                ),
-            )
-        }
+        db.lagreInntektsjustering(
+            VAKKER_PENN,
+            InntektsjusteringLagre(
+                arbeidsinntekt = 100,
+                naeringsinntekt = 200,
+                arbeidsinntektUtland = 300,
+                naeringsinntektUtland = 400,
+            ),
+        )
+
+        db.lagreInntektsjustering(
+            VAKKER_PENN,
+            InntektsjusteringLagre(
+                arbeidsinntekt = 1001,
+                naeringsinntekt = 200,
+                arbeidsinntektUtland = 300,
+                naeringsinntektUtland = 400,
+            ),
+        )
 
         db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 2
 
@@ -66,7 +74,11 @@ class InntektsjusteringRepositoryTest {
             PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
         )
 
-        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 1
+        val dataList = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        dataList.size shouldBe 1
+        val sisteInnsendteInntektsjustering = dataList[0]["@inntektsjustering"] as Inntektsjustering
+        sisteInnsendteInntektsjustering.arbeidsinntekt shouldBe 1001
+
         db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.IKKE_PUBLISERT).size shouldBe 1
     }
 
