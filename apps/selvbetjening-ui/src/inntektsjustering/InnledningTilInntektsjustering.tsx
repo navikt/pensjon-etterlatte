@@ -7,13 +7,13 @@ import useSWR, { SWRResponse } from 'swr'
 import { apiURL } from '../utils/api.ts'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 import { useState } from 'react'
-import { Spraak } from '../types/spraak.ts'
-import { SpraakVelger } from '../common/SpraakVelger.tsx'
+import { Spraak } from '../common/spraak/spraak.ts'
+import { SpraakVelger } from '../common/spraak/SpraakVelger.tsx'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const [valgtSpraak, setValgtSpraak] = useState<Spraak>(Spraak.BOKMAAL)
+    const [valgtSpraak] = useState<Spraak>(Spraak.BOKMAAL)
 
     const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
@@ -28,7 +28,7 @@ export const InnledningTilInntektsjustering = () => {
             <HStack justify="center" padding="8">
                 <VStack gap="6" maxWidth="42.5rem">
                     <HStack justify="end">
-                        <SpraakVelger valgtSpraak={valgtSpraak} setValgtSpraak={setValgtSpraak} />
+                        <SpraakVelger />
                     </HStack>
                     <HStack gap="4" align="center">
                         <Hide below="md">
