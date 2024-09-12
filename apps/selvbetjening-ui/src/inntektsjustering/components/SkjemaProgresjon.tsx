@@ -2,12 +2,11 @@ import { FormProgress } from '@navikt/ds-react'
 import useSWR, { SWRResponse } from 'swr'
 import { apiURL } from '../../utils/api.ts'
 import { Navigate } from 'react-router-dom'
-import { Spraak } from '../../types/spraak.ts'
+import { Spraak } from '../../common/spraak/spraak.ts'
 
 export const SkjemaProgresjon = ({ aktivtSteg, valgtSpraak }: { aktivtSteg: number; valgtSpraak: Spraak }) => {
     const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
-        `${apiURL}/sanity?` +
-            new URLSearchParams('sanityQuery=*[_type == "fellesKomponenterSchemaType"].skjemaProgresjon')
+        `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "fellesKomponenter"].skjemaProgresjon')
     )
 
     if (error) {

@@ -14,7 +14,7 @@ export const SpraakVelger = () => {
     }, [valgtSpraak])
 
     const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
-        `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "fellesKomponenterSchemaType"].spraakVelger')
+        `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "fellesKomponenter"].spraakVelger')
     )
 
     if (error) {

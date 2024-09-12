@@ -9,11 +9,13 @@ import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 import { useState } from 'react'
 import { Spraak } from '../common/spraak/spraak.ts'
 import { SpraakVelger } from '../common/spraak/SpraakVelger.tsx'
+import { hentSpraakFraLocalStorage } from '../common/spraak/localStorage.ts'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const [valgtSpraak] = useState<Spraak>(Spraak.BOKMAAL)
+    //TODO Må legge språk fra local storage i context
+    const [valgtSpraak] = useState<Spraak>(hentSpraakFraLocalStorage())
 
     const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
