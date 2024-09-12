@@ -6,16 +6,13 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import useSWR, { SWRResponse } from 'swr'
 import { apiURL } from '../utils/api.ts'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
-import { useState } from 'react'
-import { Spraak } from '../common/spraak/spraak.ts'
 import { SpraakVelger } from '../common/spraak/SpraakVelger.tsx'
-import { hentSpraakFraLocalStorage } from '../common/spraak/localStorage.ts'
+import { useSpraak } from '../common/spraak/SpraakContext.tsx'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
 
-    //TODO Må legge språk fra local storage i context
-    const [valgtSpraak] = useState<Spraak>(hentSpraakFraLocalStorage())
+    const spraak = useSpraak()
 
     const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
@@ -37,18 +34,18 @@ export const InnledningTilInntektsjustering = () => {
                             <VarigLoonnstilskuddIcon />
                         </Hide>
                         <Heading size="xlarge" level="1">
-                            {data[0]['tittel'][valgtSpraak]}
+                            {data[0]['tittel'][spraak]}
                         </Heading>
                     </HStack>
 
-                    <SkjemaProgresjon aktivtSteg={1} valgtSpraak={valgtSpraak} />
+                    <SkjemaProgresjon aktivtSteg={1} valgtSpraak={spraak} />
 
-                    <SanityRikTekst text={data[0]['hovedinnhold'][valgtSpraak]} />
+                    <SanityRikTekst text={data[0]['hovedinnhold'][spraak]} />
 
-                    <Alert variant="info">{data[0]['info'][valgtSpraak]}</Alert>
+                    <Alert variant="info">{data[0]['info'][spraak]}</Alert>
                     <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                         <GuidePanel>
-                            <SanityRikTekst text={data[0]['veiledning'][valgtSpraak]} />
+                            <SanityRikTekst text={data[0]['veiledning'][spraak]} />
                         </GuidePanel>
                     </Bleed>
                     <div>

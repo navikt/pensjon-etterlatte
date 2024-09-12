@@ -1,17 +1,14 @@
 import { Spraak } from './spraak.ts'
-import { useEffect, useState } from 'react'
 import { Select } from '@navikt/ds-react'
 import useSWR, { SWRResponse } from 'swr'
 import { apiURL } from '../../utils/api.ts'
 import { Navigate } from 'react-router-dom'
-import { hentSpraakFraLocalStorage, lagreSpraakILocalStorage } from './localStorage.ts'
+import { useSpraak, useSpraakDispatch } from './SpraakContext.tsx'
 
 export const SpraakVelger = () => {
-    const [valgtSpraak, setValgtSpraak] = useState<Spraak>(hentSpraakFraLocalStorage())
+    const spraak = useSpraak()
 
-    useEffect(() => {
-        lagreSpraakILocalStorage(valgtSpraak)
-    }, [valgtSpraak])
+    const spraakDispatch = useSpraakDispatch()
 
     const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "fellesKomponenter"].spraakVelger')
@@ -24,9 +21,9 @@ export const SpraakVelger = () => {
     return (
         !!data?.length && (
             <Select
-                label={data[0]['label'][valgtSpraak]}
-                value={valgtSpraak}
-                onChange={(e) => setValgtSpraak(e.target.value as Spraak)}
+                label={data[0]['label'][spraak]}
+                value={spraak}
+                onChange={(e) => spraakDispatch.setSpraak(e.target.value as Spraak)}
             >
                 <option value={Spraak.BOKMAAL}>Bokmål</option>
                 <option value={Spraak.NYNORSK}>Nynorsk</option>
