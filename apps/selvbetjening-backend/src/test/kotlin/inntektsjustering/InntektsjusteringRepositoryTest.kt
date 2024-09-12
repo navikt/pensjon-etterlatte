@@ -5,7 +5,6 @@ import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
-import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
@@ -46,43 +45,6 @@ class InntektsjusteringRepositoryTest {
     }
 
     @Test
-    fun `oppdater status for duplikater med IKKE_PUBLISER`() {
-        db.lagreInntektsjustering(
-            VAKKER_PENN,
-            InntektsjusteringLagre(
-                arbeidsinntekt = 100,
-                naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
-            ),
-        )
-
-        db.lagreInntektsjustering(
-            VAKKER_PENN,
-            InntektsjusteringLagre(
-                arbeidsinntekt = 1001,
-                naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
-            ),
-        )
-
-        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 2
-
-        db.oppdaterDuplikaterStatus(
-            PubliserInntektsjusteringStatus.LAGRET,
-            PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
-        )
-
-        val dataList = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
-        dataList.size shouldBe 1
-        val sisteInnsendteInntektsjustering = dataList[0]["@inntektsjustering"] as Inntektsjustering
-        sisteInnsendteInntektsjustering.arbeidsinntekt shouldBe 1001
-
-        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.IKKE_PUBLISERT).size shouldBe 1
-    }
-
-    @Test
     fun `oppdatere status paa innsendt soeknad`() {
         db.lagreInntektsjustering(
             VAKKER_PENN,
@@ -94,42 +56,44 @@ class InntektsjusteringRepositoryTest {
             ),
         )
 
-        val resultat = db.hentSisteInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        val resultat = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 1
-        val inntektsjustering = resultat[0]["@inntektsjustering"] as Inntektsjustering
-        db.oppdaterInntektsjusteringStatus(inntektsjustering.id, PubliserInntektsjusteringStatus.PUBLISERT)
-        db.hentSisteInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 0
+
+        val (fnr, inntektsjustering) = resultat[0]
+        db.oppdaterStatusForId(inntektsjustering.id, PubliserInntektsjusteringStatus.PUBLISERT)
+        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 0
     }
 
     @Test
-    fun `hent siste innsendte inntektsjusteringer`() {
-        val foersteInntektsjustering =
+    fun `hent inntektsjusteringer`() {
+        db.lagreInntektsjustering(
+            VAKKER_PENN,
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
                 arbeidsinntektUtland = 300,
                 naeringsinntektUtland = 400,
-            )
-        db.lagreInntektsjustering(VAKKER_PENN, foersteInntektsjustering)
+            ),
+        )
 
-        val andreInntektsjustering =
+        db.lagreInntektsjustering(
+            SPYDIG_EGG,
             InntektsjusteringLagre(
-                arbeidsinntekt = 200,
-                naeringsinntekt = 300,
-                arbeidsinntektUtland = 400,
-                naeringsinntektUtland = 500,
-            )
-        db.lagreInntektsjustering(VAKKER_PENN, andreInntektsjustering)
-        db.lagreInntektsjustering(SPYDIG_EGG, foersteInntektsjustering)
+                arbeidsinntekt = 150,
+                naeringsinntekt = 250,
+                arbeidsinntektUtland = 350,
+                naeringsinntektUtland = 450,
+            ),
+        )
 
-        val resultat = db.hentSisteInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        val resultat = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 2
 
-        resultat[0]["@fnr"] shouldBe VAKKER_PENN.value
-        val inntektsjustering = resultat[0]["@inntektsjustering"] as Inntektsjustering
-        inntektsjustering.naeringsinntekt shouldBe andreInntektsjustering.naeringsinntekt
+        resultat[0].first shouldBe SPYDIG_EGG.value
+        resultat[0].second.arbeidsinntekt shouldBe 150
 
-        resultat[1]["@fnr"] shouldBe SPYDIG_EGG.value
+        resultat[1].first shouldBe VAKKER_PENN.value
+        resultat[1].second.arbeidsinntekt shouldBe 100
     }
 
     @Test

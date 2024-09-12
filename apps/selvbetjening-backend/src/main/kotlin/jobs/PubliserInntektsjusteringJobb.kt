@@ -15,7 +15,7 @@ import java.util.UUID
 import kotlin.concurrent.fixedRateTimer
 
 class PubliserInntektsjusteringJobb(
-    private val produsent: KafkaProdusent<String, String>,
+    private val rapid: KafkaProdusent<String, String>,
     private val inntektsjusteringService: InntektsjusteringService,
 ) {
     private val logger = LoggerFactory.getLogger(PubliserInntektsjusteringJobb::class.java)
@@ -38,34 +38,28 @@ class PubliserInntektsjusteringJobb(
 
     fun publiserInntektsjusteringer() {
         runCatching {
-            // fjerner eventuelle duplikater
-            inntektsjusteringService.oppdaterDuplikateInntektsjusteringer(
-                PubliserInntektsjusteringStatus.LAGRET,
-                PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
-            )
-
             val inntektsjusteringer =
-                inntektsjusteringService.hentSisteInntektsjusteringForStatus(
+                inntektsjusteringService.hentInntektsjusteringForStatus(
                     PubliserInntektsjusteringStatus.LAGRET,
                 )
 
-            inntektsjusteringer.forEach { inntektsjustering ->
-                publiser(inntektsjustering)
+            inntektsjusteringer.forEach { (fnr, inntektsjustering) ->
+                publiser(fnr, inntektsjustering)
             }
         }.onFailure { e ->
             logger.error("Feil oppsto under jobb for publisering av inntektsjusteringer: ", e)
         }
     }
 
-    private fun publiser(data: Map<String, Any>) {
-        val fnr = data["@fnr"] as String
-        val inntektsjustering = data["@inntektsjustering"] as Inntektsjustering
-
+    private fun publiser(
+        fnr: String,
+        inntektsjustering: Inntektsjustering,
+    ) {
         runCatching {
             val melding = opprettMelding(fnr, inntektsjustering)
-            produsent.publiser(UUID.randomUUID().toString(), melding.toJson())
+            rapid.publiser(UUID.randomUUID().toString(), melding.toJson())
 
-            inntektsjusteringService.oppdaterStatusForInntektsjustering(
+            inntektsjusteringService.oppdaterStatusForId(
                 inntektsjustering.id,
                 PubliserInntektsjusteringStatus.PUBLISERT,
             )

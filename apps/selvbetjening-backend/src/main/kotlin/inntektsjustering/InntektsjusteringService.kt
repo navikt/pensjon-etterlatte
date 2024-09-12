@@ -11,8 +11,8 @@ class InntektsjusteringService(
     fun hentInntektsjusteringForFnr(fnr: Foedselsnummer): Inntektsjustering? =
         inntektsjusteringRepository.hentInntektsjusteringForFnr(fnr)
 
-    fun hentSisteInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
-        inntektsjusteringRepository.hentSisteInntektsjusteringForStatus(status)
+    fun hentInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
+        inntektsjusteringRepository.hentInntektsjusteringForStatus(status)
 
     fun lagreInntektsjustering(
         fnr: Foedselsnummer,
@@ -21,17 +21,10 @@ class InntektsjusteringService(
         inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
     }
 
-    fun oppdaterDuplikateInntektsjusteringer(
-        status: PubliserInntektsjusteringStatus,
-        updateStatus: PubliserInntektsjusteringStatus,
-    ) {
-        inntektsjusteringRepository.oppdaterDuplikaterStatus(status, updateStatus)
-    }
-
-    fun oppdaterStatusForInntektsjustering(
+    fun oppdaterStatusForId(
         id: UUID,
         status: PubliserInntektsjusteringStatus,
     ) {
-        inntektsjusteringRepository.oppdaterInntektsjusteringStatus(id, status)
+        inntektsjusteringRepository.oppdaterStatusForId(id, status)
     }
 }

@@ -43,23 +43,19 @@ internal class PubliserInntektsjusteringJobbTest {
             )
 
         val data =
-            mapOf(
-                "@fnr" to "12345678901",
-                "@inntektsjustering" to inntektsjustering,
+            Pair(
+                "12345678901",
+                inntektsjustering,
             )
 
-        every { inntektsjusteringService.hentSisteInntektsjusteringForStatus(any()) } returns listOf(data)
-        every { inntektsjusteringService.oppdaterStatusForInntektsjustering(any(), any()) } just Runs
+        every { inntektsjusteringService.hentInntektsjusteringForStatus(any()) } returns listOf(data)
+        every { inntektsjusteringService.oppdaterStatusForId(any(), any()) } just Runs
 
         publiserJobb.publiserInntektsjusteringer()
 
         verify(exactly = 1) {
-            inntektsjusteringService.oppdaterDuplikateInntektsjusteringer(
-                PubliserInntektsjusteringStatus.LAGRET,
-                PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
-            )
             rapid.publiser(any(), any())
-            inntektsjusteringService.oppdaterStatusForInntektsjustering(
+            inntektsjusteringService.oppdaterStatusForId(
                 inntektsjustering.id,
                 PubliserInntektsjusteringStatus.PUBLISERT,
             )
