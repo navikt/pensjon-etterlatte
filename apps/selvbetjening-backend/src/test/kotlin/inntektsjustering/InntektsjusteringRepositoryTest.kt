@@ -90,7 +90,7 @@ class InntektsjusteringRepositoryTest {
     }
 
     @Test
-    fun `hent siste innsendte inntektsjustering`() {
+    fun `hent siste innsendte inntektsjusteringer`() {
         val foersteInntektsjustering =
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,

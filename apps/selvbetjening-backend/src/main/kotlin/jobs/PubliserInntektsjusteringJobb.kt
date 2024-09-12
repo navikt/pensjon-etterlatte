@@ -36,8 +36,14 @@ class PubliserInntektsjusteringJobb(
         }
     }
 
-    private fun publiserInntektsjusteringer() {
+    fun publiserInntektsjusteringer() {
         runCatching {
+            // fjerner eventuelle duplikater
+            inntektsjusteringService.oppdaterDuplikateInntektsjusteringer(
+                PubliserInntektsjusteringStatus.LAGRET,
+                PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
+            )
+
             val inntektsjusteringer =
                 inntektsjusteringService.hentSisteInntektsjusteringForStatus(
                     PubliserInntektsjusteringStatus.LAGRET,
@@ -46,12 +52,6 @@ class PubliserInntektsjusteringJobb(
             inntektsjusteringer.forEach { inntektsjustering ->
                 publiser(inntektsjustering)
             }
-
-            // Rydder opp duplikater
-            inntektsjusteringService.oppdaterDuplikateInntektsjusteringer(
-                PubliserInntektsjusteringStatus.LAGRET,
-                PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
-            )
         }.onFailure { e ->
             logger.error("Feil oppsto under jobb for publisering av inntektsjusteringer: ", e)
         }
