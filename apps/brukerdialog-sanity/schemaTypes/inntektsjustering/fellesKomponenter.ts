@@ -33,23 +33,30 @@ export const fellesKomponenter = defineType({
             type: 'object',
             fields: [
                 defineField({
-                    name: 'steg',
-                    title: 'Steg',
+                    name: 'stegXAvX',
+                    title: 'Steg x av X',
                     type: 'object',
                     fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
-                    ],
-                }),
-                defineField({
-                    name: 'av',
-                    title: 'av',
-                    type: 'object',
-                    fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
+                        defineField({
+                            name: 'steg',
+                            title: 'Steg',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
+                        defineField({
+                            name: 'av',
+                            title: 'av',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
                     ],
                 }),
                 defineField({
