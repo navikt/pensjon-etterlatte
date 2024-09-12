@@ -1,27 +1,24 @@
 import { Spraak } from './spraak.ts'
 import { Select } from '@navikt/ds-react'
-import useSWR, { SWRResponse } from 'swr'
-import { apiURL } from '../../utils/api.ts'
 import { Navigate } from 'react-router-dom'
 import { useSpraak, useSpraakDispatch } from './SpraakContext.tsx'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 
 export const SpraakVelger = () => {
     const spraak = useSpraak()
 
     const spraakDispatch = useSpraakDispatch()
 
-    const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
-        `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "fellesKomponenter"].spraakVelger')
-    )
+    const { innhold, error, isLoading } = useSanityInnhold<never>('*[_type == "fellesKomponenter"].spraakVelger')
 
-    if (error) {
+    if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
     return (
-        !!data?.length && (
+        !!innhold && (
             <Select
-                label={data[0]['label'][spraak]}
+                label={innhold['label'][spraak]}
                 value={spraak}
                 onChange={(e) => spraakDispatch.setSpraak(e.target.value as Spraak)}
             >
