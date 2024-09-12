@@ -1,4 +1,4 @@
-import { Alert, Bleed, Button, GuidePanel, Heading, Hide, HStack, Select, VStack } from '@navikt/ds-react'
+import { Alert, Bleed, Button, GuidePanel, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
@@ -8,6 +8,7 @@ import { apiURL } from '../utils/api.ts'
 import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
 import { useState } from 'react'
 import { Spraak } from '../types/spraak.ts'
+import { SpraakVelger } from '../common/SpraakVelger.tsx'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
@@ -27,11 +28,7 @@ export const InnledningTilInntektsjustering = () => {
             <HStack justify="center" padding="8">
                 <VStack gap="6" maxWidth="42.5rem">
                     <HStack justify="end">
-                        <Select label="Velg språk" onChange={(e) => setValgtSpraak(e.target.value as Spraak)}>
-                            <option value={Spraak.BOKMAAL}>Bokmål</option>
-                            <option value={Spraak.NYNORSK}>Nynorsk</option>
-                            <option value={Spraak.ENGELSK}>English</option>
-                        </Select>
+                        <SpraakVelger valgtSpraak={valgtSpraak} setValgtSpraak={setValgtSpraak} />
                     </HStack>
                     <HStack gap="4" align="center">
                         <Hide below="md">
@@ -42,7 +39,7 @@ export const InnledningTilInntektsjustering = () => {
                         </Heading>
                     </HStack>
 
-                    <SkjemaProgresjon aktivtSteg={1} />
+                    <SkjemaProgresjon aktivtSteg={1} valgtSpraak={valgtSpraak} />
 
                     <SanityRikTekst text={data[0]['hovedinnhold'][valgtSpraak]} />
 

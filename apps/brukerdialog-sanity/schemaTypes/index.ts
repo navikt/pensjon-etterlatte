@@ -1,4 +1,4 @@
 import { innledningTilInntektsjusteringSchemaType } from './inntektsjustering/innledningTilInntektsjusteringSchemaType'
-import { fellesKomponenter } from './inntektsjustering/fellesKomponenter'
+import { fellesKomponenterSchemaType } from './inntektsjustering/fellesKomponenterSchemaType'
 
-export const schemaTypes = [innledningTilInntektsjusteringSchemaType, fellesKomponenter]
+export const schemaTypes = [innledningTilInntektsjusteringSchemaType, fellesKomponenterSchemaType]

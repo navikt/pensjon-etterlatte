@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 
-export const fellesKomponenter = defineType({
-    name: 'fellesKomponenter',
+export const fellesKomponenterSchemaType = defineType({
+    name: 'fellesKomponenterSchemaType',
     title: 'Felles komponenter',
     type: 'document',
     fields: [
