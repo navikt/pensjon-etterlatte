@@ -10,6 +10,7 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
@@ -37,8 +38,15 @@ class InntektsjusteringRepositoryTest {
         postgreSQLContainer.stop()
     }
 
+    @BeforeEach
+    fun resetDatabase() {
+        dsbHolder.dataSource.connection.use { connection ->
+            connection.prepareStatement("TRUNCATE TABLE inntektsjustering RESTART IDENTITY CASCADE").execute()
+        }
+    }
+
     @Test
-    fun `oppdater duplikater`() {
+    fun `oppdater status for duplikater med IKKE_PUBLISER`() {
         repeat(2) {
             db.lagreInntektsjustering(
                 VAKKER_PENN,

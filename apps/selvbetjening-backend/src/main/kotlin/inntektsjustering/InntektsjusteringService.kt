@@ -21,7 +21,7 @@ class InntektsjusteringService(
         inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
     }
 
-    fun oppdaterDuplikaterInntektsjustering(
+    fun oppdaterDuplikateInntektsjusteringer(
         status: PubliserInntektsjusteringStatus,
         updateStatus: PubliserInntektsjusteringStatus,
     ) {

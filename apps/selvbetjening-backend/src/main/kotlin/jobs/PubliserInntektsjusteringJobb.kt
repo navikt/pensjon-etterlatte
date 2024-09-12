@@ -30,49 +30,65 @@ class PubliserInntektsjusteringJobb(
         ) {
             runBlocking {
                 if (LeaderElection.isLeader() && !shuttingDown.get()) {
-                    try {
-                        val resultat =
-                            inntektsjusteringService.hentSisteInntektsjusteringForStatus(
-                                PubliserInntektsjusteringStatus.LAGRET,
-                            )
-
-                        resultat.forEach {
-                            try {
-                                val fnr = it["@fnr"] as String
-                                val inntektsjustering = it["@inntektsjustering"] as Inntektsjustering
-
-                                val message =
-                                    JsonMessage.newMessage(
-                                        mapOf(
-                                            "@event_name" to "inntektsjustering_innsendt",
-                                            "@fnr_bruker" to fnr,
-                                            "@inntektsjustering_innhold" to
-                                                inntektsjustering.toJson(),
-                                        ),
-                                    )
-
-                                produsent.publiser(UUID.randomUUID().toString(), message.toJson())
-                                inntektsjusteringService.oppdaterStatusForInntektsjustering(
-                                    inntektsjustering.id,
-                                    PubliserInntektsjusteringStatus.PUBLISERT,
-                                )
-                            } catch (e: Exception) {
-                                logger.error("Feil oppsto under publisering av inntektsjustering: ", e)
-                            }
-                        }
-
-                        // rydder opp eventuelle duplikater
-                        inntektsjusteringService.oppdaterDuplikaterInntektsjustering(
-                            PubliserInntektsjusteringStatus.LAGRET,
-                            PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
-                        )
-                    } catch (e: Exception) {
-                        logger.error("Feil oppsto under publisering av inntektsjusteringer jobb: ", e)
-                    }
+                    publiserInntektsjusteringer()
                 }
             }
         }
     }
+
+    private fun publiserInntektsjusteringer() {
+        runCatching {
+            val inntektsjusteringer =
+                inntektsjusteringService.hentSisteInntektsjusteringForStatus(
+                    PubliserInntektsjusteringStatus.LAGRET,
+                )
+
+            inntektsjusteringer.forEach { inntektsjustering ->
+                publiser(inntektsjustering)
+            }
+
+            // Rydder opp duplikater
+            inntektsjusteringService.oppdaterDuplikateInntektsjusteringer(
+                PubliserInntektsjusteringStatus.LAGRET,
+                PubliserInntektsjusteringStatus.IKKE_PUBLISERT,
+            )
+        }.onFailure { e ->
+            logger.error("Feil oppsto under jobb for publisering av inntektsjusteringer: ", e)
+        }
+    }
+
+    private fun publiser(data: Map<String, Any>) {
+        val fnr = data["@fnr"] as String
+        val inntektsjustering = data["@inntektsjustering"] as Inntektsjustering
+
+        runCatching {
+            val melding = opprettMelding(fnr, inntektsjustering)
+            produsent.publiser(UUID.randomUUID().toString(), melding.toJson())
+
+            inntektsjusteringService.oppdaterStatusForInntektsjustering(
+                inntektsjustering.id,
+                PubliserInntektsjusteringStatus.PUBLISERT,
+            )
+            logger.info("Inntektsjustering publisert og oppdatert id: ${inntektsjustering.id}")
+        }.onFailure { e ->
+            logger.error(
+                "Feil oppsto under publisering av inntektsjustering for id: ${inntektsjustering.id}",
+                e,
+            )
+        }
+    }
+
+    private fun opprettMelding(
+        fnr: String,
+        inntektsjustering: Inntektsjustering,
+    ): JsonMessage =
+        JsonMessage.newMessage(
+            mapOf(
+                "@event_name" to "inntektsjustering_innsendt",
+                "@fnr_bruker" to fnr,
+                "@inntektsjustering_innhold" to inntektsjustering.toJson(),
+            ),
+        )
 }
 
 enum class PubliserInntektsjusteringStatus(
@@ -81,9 +97,4 @@ enum class PubliserInntektsjusteringStatus(
     LAGRET("LAGRET"),
     PUBLISERT("PUBLISERT"),
     IKKE_PUBLISERT("IKKE_PUBLISERT"),
-    ;
-
-    companion object {
-        fun fra(value: String): PubliserInntektsjusteringStatus? = entries.find { it.value == value }
-    }
 }
