@@ -32,8 +32,10 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const stopEditing = () => setEditing(EditParent.NONE)
 
-    const updateFirstParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload })
-    const updateSecondParent = (payload: IParent | {}) => dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
+    const updateFirstParent = (payload: IParent | Record<string, never>) =>
+        dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload })
+    const updateSecondParent = (payload: IParent | Record<string, never>) =>
+        dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
     const updateUnknownParent = (payload: boolean) => dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
 
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
