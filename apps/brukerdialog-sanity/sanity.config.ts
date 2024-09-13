@@ -1,7 +1,7 @@
 import { AuthConfig, defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './schemaTypes'
+import { inntektsjusteringSchemaTypes } from './schemaTypes/inntektsjustering'
 
 const auth: AuthConfig = {
     redirectOnSingle: true,
@@ -22,23 +22,35 @@ export default defineConfig([
         dataset: 'selvbetjening-ui-dev',
         name: 'selvbetjening-ui-dev',
         title: 'Selvbetjening dev',
-        basePath: '/selvbetjening/dev',
+        basePath: '/selvbetjening-dev',
         plugins: [structureTool(), visionTool()],
         auth: auth,
         schema: {
-            types: schemaTypes,
+            types: inntektsjusteringSchemaTypes,
+        },
+    },
+    {
+        projectId: 'u0dlg8d8',
+        dataset: 'selvbetjening-ui-prod',
+        name: 'selvbetjening-ui-prod',
+        title: 'Selvbetjening prod',
+        basePath: '/selvbetjening-prod',
+        plugins: [structureTool(), visionTool()],
+        auth: auth,
+        schema: {
+            types: inntektsjusteringSchemaTypes,
         },
     },
     {
         projectId: 'u0dlg8d8',
         dataset: 'production',
-        name: 'default',
-        title: 'test-sanity',
-        basePath: '/',
+        name: 'test',
+        title: 'Test',
+        basePath: '/test',
         plugins: [structureTool(), visionTool()],
         auth: auth,
         schema: {
-            types: schemaTypes,
+            types: inntektsjusteringSchemaTypes,
         },
     },
 ])
