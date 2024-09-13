@@ -92,8 +92,6 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-
-                // TODO: add db?
                 PubliserInntektsjusteringJobb(rapid, inntektsjusteringService)
                     .schedule()
                     .addShutdownHook()
