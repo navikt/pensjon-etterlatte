@@ -20,6 +20,7 @@ import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonen
 import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
+import PropTypes from 'prop-types'
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const navigate = useNavigate()
@@ -156,6 +157,10 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
             </Modal>
         </>
     )
+}
+
+Oppsummering.propTypes = {
+    forrige: PropTypes.func,
 }
 
 export default Oppsummering

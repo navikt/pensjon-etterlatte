@@ -13,6 +13,7 @@ import { IInntekt } from '../../../typer/inntekt'
 import Inntekt from './fragmenter/Inntekt'
 import YtelserNAV from './fragmenter/YtelserNAV'
 import YtelserAndre from './fragmenter/YtelserAndre'
+import PropTypes from 'prop-types'
 
 const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -76,6 +77,11 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
+}
+
+InntektenDin.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default InntektenDin
