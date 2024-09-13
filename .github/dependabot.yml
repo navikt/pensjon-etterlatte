@@ -47,12 +47,15 @@ updates:
         patterns:
           - "@navikt/ds-*"
           - "@navikt/aksel-icons"
-      eslint-og-test:
+      eslint:
         patterns:
           - "@typescript-eslint/*"
           - "typescript-eslint"
           - "eslint"
           - "eslint-plugin*"
+          - "@eslint/js"
+      test:
+        patterns:
           - "prettier"
           - "axe-core"
           - "husky"
@@ -65,7 +68,6 @@ updates:
           - "vitest"
           - "@vitest/*"
           - "lint-staged"
-          - "@eslint/js"
       react:
         patterns:
           - "react*"
