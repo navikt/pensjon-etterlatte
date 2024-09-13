@@ -1,52 +1,48 @@
 import { Alert, Bleed, Button, GuidePanel, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { SkjemaProgresjon } from './components/SkjemaProgresjon.tsx'
+import { SkjemaProgresjon } from '../../common/SkjemaProgresjon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { Navigate, useNavigate } from 'react-router-dom'
-import useSWR, { SWRResponse } from 'swr'
-import { apiURL } from '../utils/api.ts'
-import { SanityRikTekst } from '../common/sanity/SanityRikTekst.tsx'
-import { useState } from 'react'
-import { Spraak } from '../types/spraak.ts'
-import { SpraakVelger } from '../common/SpraakVelger.tsx'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 
 export const InnledningTilInntektsjustering = () => {
     const navigate = useNavigate()
 
-    const [valgtSpraak, setValgtSpraak] = useState<Spraak>(Spraak.BOKMAAL)
+    const spraak = useSpraak()
 
-    const { data, error }: SWRResponse<never[], boolean, boolean> = useSWR(
-        `${apiURL}/sanity?` + new URLSearchParams('sanityQuery=*[_type == "innledningTilInntektsjustering"]')
-    )
+    const { innhold, error, isLoading } = useSanityInnhold<never>('*[_type == "innledningTilInntektsjustering"]')
 
-    if (error) {
+    if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
     return (
-        !!data?.length && (
+        !!innhold && (
             <HStack justify="center" padding="8">
                 <VStack gap="6" maxWidth="42.5rem">
                     <HStack justify="end">
-                        <SpraakVelger valgtSpraak={valgtSpraak} setValgtSpraak={setValgtSpraak} />
+                        <SpraakVelger />
                     </HStack>
                     <HStack gap="4" align="center">
                         <Hide below="md">
                             <VarigLoonnstilskuddIcon />
                         </Hide>
                         <Heading size="xlarge" level="1">
-                            {data[0]['tittel'][valgtSpraak]}
+                            {innhold['tittel'][spraak]}
                         </Heading>
                     </HStack>
 
-                    <SkjemaProgresjon aktivtSteg={1} valgtSpraak={valgtSpraak} />
+                    <SkjemaProgresjon aktivtSteg={1} />
 
-                    <SanityRikTekst text={data[0]['hovedinnhold'][valgtSpraak]} />
+                    <SanityRikTekst text={innhold['hovedinnhold'][spraak]} />
 
-                    <Alert variant="info">{data[0]['info'][valgtSpraak]}</Alert>
+                    <Alert variant="info">{innhold['info'][spraak]}</Alert>
                     <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                         <GuidePanel>
-                            <SanityRikTekst text={data[0]['veiledning'][valgtSpraak]} />
+                            <SanityRikTekst text={innhold['veiledning'][spraak]} />
                         </GuidePanel>
                     </Bleed>
                     <div>

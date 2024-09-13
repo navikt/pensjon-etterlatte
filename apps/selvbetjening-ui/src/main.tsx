@@ -8,7 +8,8 @@ import { OpprettInntektsjustering } from './inntektsjustering/OpprettInntektsjus
 import { InntektsjusteringKvittering } from './inntektsjustering/InntektsjusteringKvittering.tsx'
 import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
-import { InnledningTilInntektsjustering } from './inntektsjustering/InnledningTilInntektsjustering.tsx'
+import { InnledningTilInntektsjustering } from './inntektsjustering/1-innledning/InnledningTilInntektsjustering.tsx'
+import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 
 const router = createBrowserRouter(
     [
@@ -38,14 +39,16 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <SWRConfig
-            value={{
-                fetcher: fetcher,
-                shouldRetryOnError: false,
-                revalidateOnFocus: false,
-            }}
-        >
-            <RouterProvider router={router} />
-        </SWRConfig>
+        <ProvideSpraakContext>
+            <SWRConfig
+                value={{
+                    fetcher: fetcher,
+                    shouldRetryOnError: false,
+                    revalidateOnFocus: false,
+                }}
+            >
+                <RouterProvider router={router} />
+            </SWRConfig>
+        </ProvideSpraakContext>
     </StrictMode>
 )
