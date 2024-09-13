@@ -23,7 +23,7 @@ interface InnsendtSoeknad {
     spraak: Language
 
     innsender: Person
-    harSamtykket: Opplysning<Boolean>
+    harSamtykket: Opplysning<boolean>
     utbetalingsInformasjon?: BetingetOpplysning<EnumSvar<BankkontoType>, UtbetalingsInformasjon>
 }
 
