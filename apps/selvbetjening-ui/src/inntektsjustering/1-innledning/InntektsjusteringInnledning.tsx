@@ -7,13 +7,14 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { InnledningTilInntektsjustering } from '../../sanity.types.ts'
 
-export const InnledningTilInntektsjustering = () => {
+export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<never>('*[_type == "innledningTilInntektsjustering"]')
+    const { innhold, error, isLoading } = useSanityInnhold<InnledningTilInntektsjustering>('*[_type == "innledningTilInntektsjustering"]')
 
     if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
@@ -31,18 +32,18 @@ export const InnledningTilInntektsjustering = () => {
                             <VarigLoonnstilskuddIcon />
                         </Hide>
                         <Heading size="xlarge" level="1">
-                            {innhold['tittel'][spraak]}
+                            {innhold.tittel?.[spraak]}
                         </Heading>
                     </HStack>
 
                     <SkjemaProgresjon aktivtSteg={1} />
 
-                    <SanityRikTekst text={innhold['hovedinnhold'][spraak]} />
+                    <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
 
-                    <Alert variant="info">{innhold['info'][spraak]}</Alert>
+                    <Alert variant="info">{innhold.info?.[spraak]}</Alert>
                     <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                         <GuidePanel>
-                            <SanityRikTekst text={innhold['veiledning'][spraak]} />
+                            <SanityRikTekst text={innhold.veiledning?.[spraak]} />
                         </GuidePanel>
                     </Bleed>
                     <div>

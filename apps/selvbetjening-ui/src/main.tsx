@@ -8,7 +8,7 @@ import { OpprettInntektsjustering } from './inntektsjustering/OpprettInntektsjus
 import { InntektsjusteringKvittering } from './inntektsjustering/InntektsjusteringKvittering.tsx'
 import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
-import { InnledningTilInntektsjustering } from './inntektsjustering/1-innledning/InnledningTilInntektsjustering.tsx'
+import { InntektsjusteringInnledning } from './inntektsjustering/1-innledning/InntektsjusteringInnledning.tsx'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 
 const router = createBrowserRouter(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
                     path: '/inntektsjustering',
-                    element: <InnledningTilInntektsjustering />,
+                    element: <InntektsjusteringInnledning />,
                 },
                 {
                     path: '/inntektsjustering/opprett',

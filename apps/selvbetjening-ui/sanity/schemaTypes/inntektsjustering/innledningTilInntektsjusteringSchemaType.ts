@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 export const innledningTilInntektsjusteringSchemaType = defineType({
     name: 'innledningTilInntektsjustering',
-    title: 'Innledning til inntektsjustering',
+    title: 'InntektsjusteringInnledning til inntektsjustering',
     type: 'document',
     fields: [
         defineField({
