@@ -16,18 +16,29 @@ const auth: AuthConfig = {
     loginMethod: 'dual',
 }
 
-export default defineConfig({
-    name: 'default',
-    title: 'test-sanity',
-
-    projectId: 'u0dlg8d8',
-
-    dataset: 'production',
-
-    plugins: [structureTool(), visionTool()],
-    auth: auth,
-
-    schema: {
-        types: schemaTypes,
+export default defineConfig([
+    {
+        projectId: 'u0dlg8d8',
+        dataset: 'selvbetjening-ui-dev',
+        name: 'selvbetjening-ui-dev',
+        title: 'Selvbetjening dev',
+        basePath: '/selvbetjening/dev',
+        plugins: [structureTool(), visionTool()],
+        auth: auth,
+        schema: {
+            types: schemaTypes,
+        },
     },
-})
+    {
+        projectId: 'u0dlg8d8',
+        dataset: 'production',
+        name: 'default',
+        title: 'test-sanity',
+        basePath: '/',
+        plugins: [structureTool(), visionTool()],
+        auth: auth,
+        schema: {
+            types: schemaTypes,
+        },
+    },
+])
