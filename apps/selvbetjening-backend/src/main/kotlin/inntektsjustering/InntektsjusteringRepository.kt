@@ -65,7 +65,7 @@ class InntektsjusteringRepository(
             }
     }
 
-    fun hentInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
+    fun hentAlleInntektsjusteringerForStatus(status: PubliserInntektsjusteringStatus) =
         connection.use {
             it
                 .prepareStatement(HENT_FOR_STATUS)

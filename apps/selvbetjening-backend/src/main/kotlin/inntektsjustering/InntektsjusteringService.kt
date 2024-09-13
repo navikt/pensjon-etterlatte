@@ -12,7 +12,7 @@ class InntektsjusteringService(
         inntektsjusteringRepository.hentInntektsjusteringForFnr(fnr)
 
     fun hentInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
-        inntektsjusteringRepository.hentInntektsjusteringForStatus(status)
+        inntektsjusteringRepository.hentAlleInntektsjusteringerForStatus(status)
 
     fun lagreInntektsjustering(
         fnr: Foedselsnummer,

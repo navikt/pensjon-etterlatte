@@ -88,12 +88,12 @@ class InntektsjusteringRepositoryTest {
             ),
         )
 
-        val resultat = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 1
 
         val (fnr, inntektsjustering) = resultat[0]
         db.oppdaterStatusForId(inntektsjustering.id, PubliserInntektsjusteringStatus.PUBLISERT)
-        db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 0
+        db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 0
     }
 
     @Test
@@ -118,7 +118,7 @@ class InntektsjusteringRepositoryTest {
             ),
         )
 
-        val resultat = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 2
         resultat[0].first shouldBe SPYDIG_EGG.value
         resultat[1].first shouldBe VAKKER_PENN.value
