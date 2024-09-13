@@ -4,9 +4,8 @@ import { NextFunction, Request, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
 import {
+    fellesKomponenterTestBlocks,
     innledningTilInntektsjusteringTestBlocks,
-    skjemaProgresjonTestBlocks,
-    spraakVelgerTestBlock,
     testBlocks,
 } from './data/sanityBlocks'
 
@@ -50,8 +49,7 @@ export const mockSelvbetjeningApi = (app: any) => {
         const sanityQuery = req.query.sanityQuery
         if (sanityQuery?.toString().includes('innledningTilInntektsjustering'))
             res.send(innledningTilInntektsjusteringTestBlocks)
-        else if (sanityQuery?.toString().includes('spraakVelger')) res.send(spraakVelgerTestBlock)
-        else if (sanityQuery?.toString().includes('skjemaProgresjon')) res.send(skjemaProgresjonTestBlocks)
+        else if (sanityQuery?.toString().includes('fellesKomponenter')) res.send(fellesKomponenterTestBlocks)
         else res.send(testBlocks)
     })
 

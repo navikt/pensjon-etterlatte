@@ -2,6 +2,25 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { Heading, Link, List } from '@navikt/ds-react'
 import './index.css'
 
+interface PortableTextBlock {
+    children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
+        _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+}
+
 const portableTextTilAkselKomponenter: PortableTextComponents = {
     marks: {
         a: ({ children, value }) => (
@@ -48,6 +67,6 @@ const portableTextTilAkselKomponenter: PortableTextComponents = {
     },
 }
 
-export const SanityRikTekst = ({ text }: { text: never[] }) => {
-    return <PortableText value={text} components={portableTextTilAkselKomponenter} />
+export const SanityRikTekst = ({ text }: { text: Array<PortableTextBlock> | undefined }) => {
+    return !!text && <PortableText value={text} components={portableTextTilAkselKomponenter} />
 }
