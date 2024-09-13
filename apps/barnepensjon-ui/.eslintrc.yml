@@ -4,7 +4,7 @@ env:
 extends:
     # Kan også bruke DISABLE_ESLINT_PLUGIN=true
     #- 'eslint:recommended'
-    #  - 'plugin:react/recommended'
+    - 'plugin:react/recommended'
     - 'plugin:@typescript-eslint/recommended'
     #- 'plugin:jsx-a11y/recommended'
     #- 'plugin:jest/recommended'
@@ -26,7 +26,10 @@ plugins:
     - 'jest'
 rules:
     {
+        'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        'react/display-name': 'off',
+        'react/no-children-prop': 'off',
     }
 globals:
     'process': true
