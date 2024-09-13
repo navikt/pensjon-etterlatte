@@ -91,7 +91,7 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
 
         const soeknad = soeknader[0]
 
-        const foreldre = soeknad.foreldre!!
+        const foreldre = soeknad.foreldre!
         expect(foreldre.length).toBe(2)
 
         const gjenlevende = foreldre[0] as GjenlevendeForelder
@@ -100,10 +100,10 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
         expect(gjenlevende.foedselsnummer?.svar).toEqual(user.foedselsnummer)
         expect(gjenlevende.foedselsdato?.svar).toEqual(user.foedselsdato)
         expect(gjenlevende.statsborgerskap.svar).toEqual(user.statsborgerskap)
-        expect(gjenlevende.adresse!!.svar).toEqual(fullAdresse(user))
+        expect(gjenlevende.adresse!.svar).toEqual(fullAdresse(user))
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(user.telefonnummer)
 
-        const secondParent = application.secondParent!! as IDeceasedParent
+        const secondParent = application.secondParent! as IDeceasedParent
         const avdoed = foreldre[1] as Avdoed
         expect(avdoed.fornavn.svar).toEqual(secondParent.firstName)
         expect(avdoed.etternavn.svar).toEqual(secondParent.lastName)
@@ -146,7 +146,7 @@ describe('Test mapping foreldre', () => {
 
         expect(foreldreListe1.length).toEqual(2)
         compareParentsWithUser(foreldreListe1[0], user)
-        compareParents(foreldreListe1[1], application.secondParent!!)
+        compareParents(foreldreListe1[1], application.secondParent!)
 
         const childToFirstParent: IChild = { parents: ParentRelationType.FIRST_PARENT }
         const foreldreListe2 = hentForeldre(t, childToFirstParent, application, user)
@@ -157,7 +157,7 @@ describe('Test mapping foreldre', () => {
         const foreldreListe3 = hentForeldre(t, childToSecondParent, application, user)
         expect(foreldreListe3.length).toEqual(1)
 
-        compareParents(foreldreListe3[0], application.secondParent!!)
+        compareParents(foreldreListe3[0], application.secondParent!)
     })
 
     it('Mapping av forenklede foreldre fungerer - verge søker', () => {
@@ -174,18 +174,18 @@ describe('Test mapping foreldre', () => {
         const foreldreListe1 = hentForeldre(t, child, application, user)
 
         expect(foreldreListe1.length).toEqual(2)
-        compareParents(foreldreListe1[0], application.firstParent!!)
-        compareParents(foreldreListe1[1], application.secondParent!!)
+        compareParents(foreldreListe1[0], application.firstParent!)
+        compareParents(foreldreListe1[1], application.secondParent!)
 
         const childToFirstParent: IChild = { parents: ParentRelationType.FIRST_PARENT }
         const foreldreListe2 = hentForeldre(t, childToFirstParent, application, user)
         expect(foreldreListe2.length).toEqual(1)
-        compareParents(foreldreListe2[0], application.firstParent!!)
+        compareParents(foreldreListe2[0], application.firstParent!)
 
         const childToSecondParent: IChild = { parents: ParentRelationType.SECOND_PARENT }
         const foreldreListe3 = hentForeldre(t, childToSecondParent, application, user)
         expect(foreldreListe3.length).toEqual(1)
-        compareParents(foreldreListe3[0], application.secondParent!!)
+        compareParents(foreldreListe3[0], application.secondParent!)
     })
 
     /*it('Mapping av gjenlenvende/avdød fungerer - gjenlevende søker', () => {
@@ -212,7 +212,7 @@ describe('Test mapping foreldre', () => {
         expect(gjenlevende.foedselsnummer?.svar).toEqual(livingParent.fnrDnr)
         expect(gjenlevende.statsborgerskap.svar).toEqual(livingParent.citizenship)
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(EMPTY_VALUE)
-        expect(gjenlevende.adresse!!.svar).toEqual(EMPTY_VALUE)
+        expect(gjenlevende.adresse!.svar).toEqual(EMPTY_VALUE)
     })
 
     it('Mapping av gjenlevende forelder - komplett med adresse og telefon', () => {
@@ -228,7 +228,7 @@ describe('Test mapping foreldre', () => {
         expect(gjenlevende.foedselsnummer?.svar).toEqual(livingParent.fnrDnr)
         expect(gjenlevende.statsborgerskap.svar).toEqual(livingParent.citizenship)
         expect(gjenlevende.kontaktinfo.telefonnummer.svar.innhold).toEqual(livingParent.phoneNumber)
-        expect(gjenlevende.adresse!!.svar).toEqual(livingParent.address)
+        expect(gjenlevende.adresse!.svar).toEqual(livingParent.address)
     })
 })
 
@@ -264,7 +264,7 @@ describe('Utenlandsopphold mappes korrekt', () => {
         expect(result.svar.verdi).toEqual(JaNeiVetIkke.JA)
         expect(result.opplysning?.length).toEqual(2)
 
-        const opphold1 = result.opplysning!![0]
+        const opphold1 = result.opplysning![0]
         expect(opphold1.oppholdsType.svar[0].verdi).toEqual(OppholdUtlandType.ARBEIDET)
         expect(opphold1.oppholdsType.svar[1].verdi).toEqual(OppholdUtlandType.BODD)
         expect(opphold1.pensjonsutbetaling?.svar.innhold).toEqual(
@@ -275,7 +275,7 @@ describe('Utenlandsopphold mappes korrekt', () => {
         expect(opphold1.land?.svar.innhold).toEqual(stayWithValues.country)
         expect(opphold1.medlemFolketrygd?.svar.innhold).toEqual(stayWithValues.medlemFolketrygd)
 
-        const opphold2 = result.opplysning!![1]
+        const opphold2 = result.opplysning![1]
         expect(opphold2.oppholdsType.svar?.length).toEqual(0)
         expect(opphold2.pensjonsutbetaling?.svar.innhold).toEqual(undefined)
         expect(opphold2.fraDato?.svar.innhold).toBeUndefined()
@@ -306,7 +306,7 @@ describe('Næringsinntekt mappes korrekt', () => {
             },
         }
 
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!!
+        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
         expect(result.svar.verdi).toEqual(JaNeiVetIkke.JA)
         expect(result.opplysning?.naeringsinntektPrAarFoerDoedsfall?.svar.innhold).toEqual(EMPTY_VALUE)
         expect(result.opplysning?.naeringsinntektVedDoedsfall?.svar.innhold).toEqual(
@@ -323,7 +323,7 @@ describe('Næringsinntekt mappes korrekt', () => {
             },
         }
 
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!!
+        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
         expect(result.svar.verdi).toEqual(JaNeiVetIkke.JA)
         expect(result.opplysning?.naeringsinntektPrAarFoerDoedsfall?.svar.innhold).toEqual(
             selfEmployment.selfEmplymentDetails.income
@@ -339,7 +339,7 @@ describe('Næringsinntekt mappes korrekt', () => {
             selfEmplymentDetails: {},
         }
 
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!!
+        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
         expect(result.svar.verdi).toEqual(JaNeiVetIkke.NEI)
         expect(result.opplysning).toBeUndefined()
     })
@@ -350,7 +350,7 @@ describe('Næringsinntekt mappes korrekt', () => {
             selfEmplymentDetails: {},
         }
 
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!!
+        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
         expect(result.svar.verdi).toEqual(JaNeiVetIkke.VET_IKKE)
         expect(result.opplysning).toBeUndefined()
     })
@@ -382,7 +382,7 @@ describe('Avdød mappes korrekt', () => {
 
         // Separate tester for grundig sjekk av mapping på utenlandsopphold og næringsinntekt
         expect(result.utenlandsopphold.svar.verdi).toBe(parent.staysAbroad.hasStaysAbroad)
-        expect(result.naeringsInntekt!!.svar.verdi).toBe(parent.selfEmplyment.wasSelfEmployed)
+        expect(result.naeringsInntekt!.svar.verdi).toBe(parent.selfEmplyment.wasSelfEmployed)
         expect(result.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.svar.verdi).toBe(parent.occupationalInjury)
     })
 })

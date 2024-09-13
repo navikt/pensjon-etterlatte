@@ -26,9 +26,9 @@ const Naeringsinntekt = () => {
 
     const norgeEllerUtland = watch('naeringsinntekt.norgeEllerUtland')
 
-    const foedt1963EllerTidligere = bruker.foedselsaar!! <= 1963
+    const foedt1963EllerTidligere = bruker.foedselsaar! <= 1963
 
-    const erIkkeDesember = new Date(datoforDoedsfallet!!).getMonth() !== 11
+    const erIkkeDesember = new Date(datoforDoedsfallet!).getMonth() !== 11
 
     return (
         <SkjemaGruppe>
@@ -79,7 +79,7 @@ const Naeringsinntekt = () => {
                         <JevntOpptjentNaeringsinntekt type={'norge'} />
                     </SkjemaGruppe>
                     <SkjemaElement>
-                        {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                        {doedsdatoErIAar(datoforDoedsfallet!) ? (
                             <>
                                 {foedt1963EllerTidligere && (
                                     <SkjemaGruppe>
@@ -193,7 +193,7 @@ const Naeringsinntekt = () => {
                         <JevntOpptjentNaeringsinntekt type={'utland'} />
                     </SkjemaGruppe>
                     <SkjemaElement>
-                        {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                        {doedsdatoErIAar(datoforDoedsfallet!) ? (
                             <>
                                 {foedt1963EllerTidligere && (
                                     <SkjemaGruppe>

@@ -30,7 +30,7 @@ export const mapTilBarnepensjonSoeknadListe = (
     if (isChild) {
         return [mapTilBarnepensjonSoeknad(t, application, user)]
     }
-    const children: IChild[] = application.aboutChildren!!.children!!
+    const children: IChild[] = application.aboutChildren!.children!
 
     if (!children.length) {
         throw Error('Kan ikke sende inn søknad med tom liste over barn!')
@@ -85,25 +85,25 @@ const mapUtbetalingsinfo = (
                 utenlandskBankNavn: {
                     spoersmaal: t('foreignBankName', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: person.paymentDetails.foreignBankName!!,
+                        innhold: person.paymentDetails.foreignBankName!,
                     },
                 },
                 utenlandskBankAdresse: {
                     spoersmaal: t('foreignBankAddress', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: person.paymentDetails.foreignBankAddress!!,
+                        innhold: person.paymentDetails.foreignBankAddress!,
                     },
                 },
                 iban: {
                     spoersmaal: t('iban', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: person.paymentDetails.iban!!,
+                        innhold: person.paymentDetails.iban!,
                     },
                 },
                 swift: {
                     spoersmaal: t('swift', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: person.paymentDetails.swift!!,
+                        innhold: person.paymentDetails.swift!,
                     },
                 },
             },
@@ -120,30 +120,30 @@ const mapUtbetalingsinfo = (
                     },
                 },
                 trekk:
-                    person.paymentDetails.taxWithhold.type!! === KronerEllerProsentType.KRONER
+                    person.paymentDetails.taxWithhold.type! === KronerEllerProsentType.KRONER
                         ? {
                               spoersmaal: t('desiredTaxKroner', { ns: 'paymentDetails' }),
                               svar: {
                                   innhold:
-                                      person.paymentDetails?.taxWithhold?.taxPercentage!! +
+                                      person.paymentDetails?.taxWithhold?.taxPercentage! +
                                       ' ' +
-                                      t(person.paymentDetails?.taxWithhold?.type!!),
+                                      t(person.paymentDetails?.taxWithhold?.type!),
                               },
                           }
                         : {
                               spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
                               svar: {
                                   innhold:
-                                      person.paymentDetails?.taxWithhold?.taxPercentage!! +
+                                      person.paymentDetails?.taxWithhold?.taxPercentage! +
                                       ' ' +
-                                      t(person.paymentDetails?.taxWithhold?.type!!),
+                                      t(person.paymentDetails?.taxWithhold?.type!),
                               },
                           },
-                beskrivelse: person.paymentDetails.taxWithhold.description!!
+                beskrivelse: person.paymentDetails.taxWithhold.description!
                     ? {
                           spoersmaal: t('taxPercentageDescription', { ns: 'paymentDetails' }),
                           svar: {
-                              innhold: person.paymentDetails.taxWithhold.description!!,
+                              innhold: person.paymentDetails.taxWithhold.description!,
                           },
                       }
                     : undefined,
@@ -160,7 +160,7 @@ const mapUtbetalingsinfo = (
                 kontonummer: {
                     spoersmaal: t('bankAccount', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: person.paymentDetails?.bankAccount!!,
+                        innhold: person.paymentDetails?.bankAccount!,
                     },
                 },
                 skattetrekk,
@@ -187,13 +187,13 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
             land: {
                 spoersmaal: t('stayAbroadCountry', { ns: 'aboutChildren' }),
                 svar: {
-                    innhold: child.staysAbroad!!.country!!,
+                    innhold: child.staysAbroad!.country!,
                 },
             },
             adresse: {
                 spoersmaal: t('addressAbroad', { ns: 'aboutChildren' }),
                 svar: {
-                    innhold: child.staysAbroad!!.address!!,
+                    innhold: child.staysAbroad!.address!,
                 },
             },
         }
@@ -237,11 +237,11 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
         type: PersonType.BARN,
         fornavn: {
             spoersmaal: t('firstName', { ns: 'common' }),
-            svar: child.firstName!!,
+            svar: child.firstName!,
         },
         etternavn: {
             spoersmaal: t('lastName', { ns: 'common' }),
-            svar: child.lastName!!,
+            svar: child.lastName!,
         },
         foedselsnummer: child.fnrDnr
             ? {
@@ -257,7 +257,7 @@ const mapBarn = (t: TFunction, child: IChild, application: IApplication, user: U
             : undefined,
         statsborgerskap: {
             spoersmaal: t('citizenship', { ns: 'common' }),
-            svar: child.citizenship!!,
+            svar: child.citizenship!,
         },
         utenlandsAdresse,
         ukjentForelder,
@@ -294,7 +294,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
             land: {
                 spoersmaal: t('countryOfResidence', { ns: 'aboutYou' }),
                 svar: {
-                    innhold: aboutYou!!.countryOfResidence!!,
+                    innhold: aboutYou!.countryOfResidence!,
                 },
             },
         }
@@ -305,25 +305,25 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
             ? {
                   spoersmaal: t('stayedAbroad', { ns: 'aboutYou' }),
                   svar: {
-                      innhold: t(aboutYou.stayedAbroad!!, { ns: 'radiobuttons' }),
-                      verdi: aboutYou.stayedAbroad!!,
+                      innhold: t(aboutYou.stayedAbroad!, { ns: 'radiobuttons' }),
+                      verdi: aboutYou.stayedAbroad!,
                   },
               }
             : undefined
 
-    if (residesInNorway === JaNeiVetIkke.JA && aboutYou.stayedAbroad!! === JaNeiVetIkke.JA && !!bosattNorge) {
+    if (residesInNorway === JaNeiVetIkke.JA && aboutYou.stayedAbroad! === JaNeiVetIkke.JA && !!bosattNorge) {
         bosattNorge.opplysning = {
             oppholdLand: {
                 spoersmaal: t('stayedAbroadCountry', { ns: 'aboutYou' }),
                 svar: {
-                    innhold: aboutYou!!.stayedAbroadCountry!!,
+                    innhold: aboutYou!.stayedAbroadCountry!,
                 },
             },
             oppholdFra: aboutYou.stayedAbroadFromDate
                 ? {
                       spoersmaal: t('stayedAbroadFromDate', { ns: 'aboutYou' }),
                       svar: {
-                          innhold: aboutYou.stayedAbroadFromDate!!,
+                          innhold: aboutYou.stayedAbroadFromDate!,
                       },
                   }
                 : undefined,
@@ -331,7 +331,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
                 ? {
                       spoersmaal: t('stayedAbroadToDate', { ns: 'aboutYou' }),
                       svar: {
-                          innhold: aboutYou.stayedAbroadToDate!!,
+                          innhold: aboutYou.stayedAbroadToDate!,
                       },
                   }
                 : undefined,
@@ -377,19 +377,19 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
         type: PersonType.BARN,
         fornavn: {
             spoersmaal: t('firstName', { ns: 'common' }),
-            svar: user.fornavn!!,
+            svar: user.fornavn!,
         },
         etternavn: {
             spoersmaal: t('lastName', { ns: 'common' }),
-            svar: user.etternavn!!,
+            svar: user.etternavn!,
         },
         foedselsnummer: {
             spoersmaal: t('fnrDnr', { ns: 'common' }),
-            svar: user.foedselsnummer!!,
+            svar: user.foedselsnummer!,
         },
         statsborgerskap: {
             spoersmaal: t('citizenship', { ns: 'common' }),
-            svar: user.statsborgerskap!!,
+            svar: user.statsborgerskap!,
         },
         foreldre: hentForeldreOver18(t, application),
         ukjentForelder,
@@ -401,7 +401,7 @@ const mapBarnOver18 = (t: TFunction, application: IApplication, user: User): Bar
 }
 
 const mapSoesken = (t: TFunction, child: IChild, application: IApplication, user: User): Barn[] => {
-    const allChildren: IChild[] = application.aboutChildren!!.children!!
+    const allChildren: IChild[] = application.aboutChildren!.children!
 
     // TODO: Sjekke at dette fungerer som forventet
     return allChildren
@@ -410,7 +410,7 @@ const mapSoesken = (t: TFunction, child: IChild, application: IApplication, user
 }
 
 const mapSamtykke = (t: TFunction, application: IApplication): Opplysning<boolean> => {
-    if (!application.applicant!!.consent) throw Error('Kan ikke sende inn søknad uten å ha samtykket!')
+    if (!application.applicant!.consent) throw Error('Kan ikke sende inn søknad uten å ha samtykket!')
 
     return {
         spoersmaal: t('consentToNav', { ns: 'frontPage' }),
@@ -422,14 +422,14 @@ const mapInnsender = (t: TFunction, user: User): Innsender => ({
     type: PersonType.INNSENDER,
     fornavn: {
         spoersmaal: t('firstName', { ns: 'common' }),
-        svar: user.fornavn!!,
+        svar: user.fornavn!,
     },
     etternavn: {
         spoersmaal: t('lastName', { ns: 'common' }),
-        svar: user.etternavn!!,
+        svar: user.etternavn!,
     },
     foedselsnummer: {
         spoersmaal: t('fnrDnr', { ns: 'common' }),
-        svar: user.foedselsnummer!!,
+        svar: user.foedselsnummer!,
     },
 })

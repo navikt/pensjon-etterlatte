@@ -24,7 +24,7 @@ export const mapTilOmstillingsstoenadSoeknad = (
 
     return {
         type: SoeknadType.OMSTILLINGSSTOENAD,
-        spraak: soeknad.spraak!!,
+        spraak: soeknad.spraak!,
 
         harSamtykket: {
             spoersmaal: t('forside.samtykke.bekreftelse', { navn: innsenderNavn }),
@@ -35,18 +35,18 @@ export const mapTilOmstillingsstoenadSoeknad = (
             type: PersonType.INNSENDER,
             fornavn: {
                 spoersmaal: t('felles.fornavn'),
-                svar: bruker.fornavn!!,
+                svar: bruker.fornavn!,
             },
             etternavn: {
                 spoersmaal: t('felles.etternavn'),
-                svar: bruker.etternavn!!,
+                svar: bruker.etternavn!,
             },
             foedselsnummer: {
                 spoersmaal: t('felles.foedselsnummer'),
-                svar: bruker.foedselsnummer!!,
+                svar: bruker.foedselsnummer!,
             },
         },
-        utbetalingsInformasjon: hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg.utbetalingsInformasjon!!),
+        utbetalingsInformasjon: hentUtbetalingsInformasjonSoeker(t, soeknad.omDeg.utbetalingsInformasjon!),
         soeker: mapGjenlevende(t, soeknad, bruker),
         avdoed: mapAvdoed(t, soeknad),
         barn,
@@ -56,7 +56,7 @@ export const mapTilOmstillingsstoenadSoeknad = (
 
 export const mapTilBarnepensjonSoeknadListe = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Barnepensjon[] => {
     return soeknad.opplysningerOmBarn
-        .barn!!.filter((barnet) => !!barnet.barnepensjon?.soeker)
+        .barn!.filter((barnet) => !!barnet.barnepensjon?.soeker)
         .map((barnet) => mapTilBarnepensjonSoeknad(t, barnet, soeknad, bruker))
 }
 
@@ -65,25 +65,25 @@ const mapTilBarnepensjonSoeknad = (t: TFunction, soeker: IBarn, soeknad: ISoekna
         type: PersonType.INNSENDER,
         fornavn: {
             spoersmaal: t('felles.fornavn'),
-            svar: bruker.fornavn!!,
+            svar: bruker.fornavn!,
         },
         etternavn: {
             spoersmaal: t('felles.etternavn'),
-            svar: bruker.etternavn!!,
+            svar: bruker.etternavn!,
         },
         foedselsnummer: {
             spoersmaal: t('felles.foedselsnummer'),
-            svar: bruker.foedselsnummer!!,
+            svar: bruker.foedselsnummer!,
         },
     }
 
     const soesken: Barn[] = soeknad.opplysningerOmBarn
-        .barn!!.filter((barn) => barn.foedselsnummer !== soeker.foedselsnummer)
+        .barn!.filter((barn) => barn.foedselsnummer !== soeker.foedselsnummer)
         .map((barn) => mapBarn(t, barn, soeknad, bruker))
 
     return {
         type: SoeknadType.BARNEPENSJON,
-        spraak: soeknad.spraak!!,
+        spraak: soeknad.spraak!,
 
         innsender,
         harSamtykket: {

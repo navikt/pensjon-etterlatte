@@ -59,7 +59,7 @@ export default function AboutParents({ next, prev }: StepProps) {
     const save = () => {
         const values = getValues()
         updateUnknownParent(values.unknownParent)
-        next!!()
+        next!()
     }
 
     const setUnknownParent = (value: boolean) => {
@@ -132,7 +132,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                 </Infocard>
                             ) : (
                                 <ParentInfoCard
-                                    parent={state.firstParent!!}
+                                    parent={state.firstParent!}
                                     edit={() => updateEditing(EditParent.FIRST)}
                                     remove={() => updateFirstParent({})}
                                 />
@@ -180,7 +180,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                 </Infocard>
                             ) : (
                                 <ParentInfoCard
-                                    parent={state.secondParent!!}
+                                    parent={state.secondParent!}
                                     edit={() => updateEditing(EditParent.SECOND)}
                                     remove={() => updateSecondParent({})}
                                 />

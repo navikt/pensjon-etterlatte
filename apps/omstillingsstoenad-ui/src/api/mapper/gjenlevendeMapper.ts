@@ -72,7 +72,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         telefonnummer: {
             spoersmaal: bruker.telefonnummer ? t('felles.telefonnummer') : t('omDeg.kontaktinfo.telefonnummer'),
             svar: {
-                innhold: bruker.telefonnummer || soeknad.omDeg.kontaktinfo!!.telefonnummer || '-',
+                innhold: bruker.telefonnummer || soeknad.omDeg.kontaktinfo!.telefonnummer || '-',
             },
         },
     }
@@ -89,7 +89,7 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         ? {
               spoersmaal: t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning'),
               svar:
-                  soeknad.merOmSituasjonenDin.utdanning!!.hoyesteFullfoerteUtdanning!!.map((type) => ({
+                  soeknad.merOmSituasjonenDin.utdanning!.hoyesteFullfoerteUtdanning!.map((type) => ({
                       verdi: konverterTilHoyesteUtdanning(type),
                       innhold: t(type),
                   })) || [],
@@ -101,15 +101,15 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
 
         fornavn: {
             spoersmaal: t('felles.fornavn'),
-            svar: bruker.fornavn!!,
+            svar: bruker.fornavn!,
         },
         etternavn: {
             spoersmaal: t('felles.etternavn'),
-            svar: bruker.etternavn!!,
+            svar: bruker.etternavn!,
         },
         foedselsnummer: {
             spoersmaal: t('felles.foedselsnummer'),
-            svar: bruker.foedselsnummer!!,
+            svar: bruker.foedselsnummer!,
         },
 
         statsborgerskap: {
@@ -132,14 +132,14 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
                 ? {
                       spoersmaal: t('omDeg.alternativAdresse'),
                       svar: {
-                          innhold: soeknad.omDeg.alternativAdresse!!,
+                          innhold: soeknad.omDeg.alternativAdresse!,
                       },
                   }
                 : undefined,
         kontaktinfo,
         flyktning,
         oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.situasjonenDin) : undefined,
-        nySivilstatus: hentSivilstatus(t, soeknad.situasjonenDin.nySivilstatus!!),
+        nySivilstatus: hentSivilstatus(t, soeknad.situasjonenDin.nySivilstatus!),
         arbeidOgUtdanning: !bruker.adressebeskyttelse
             ? hentArbeidOgUtdanning(t, soeknad.merOmSituasjonenDin)
             : undefined,
@@ -147,17 +147,17 @@ export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker)
         inntektOgPensjon: hentInntektOgPensjon(
             t,
             soeknad.inntektenDin,
-            soeknad.omDenAvdoede.datoForDoedsfallet!!,
+            soeknad.omDenAvdoede.datoForDoedsfallet!,
             bruker
         ),
         uregistrertEllerVenterBarn: {
             spoersmaal: t('situasjonenDin.gravidEllerNyligFoedt'),
-            svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!!),
+            svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!),
         },
-        forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!!),
+        forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!),
         omsorgForBarn: {
             spoersmaal: t('situasjonenDin.omsorgMinstFemti'),
-            svar: valgTilSvar(t, soeknad.situasjonenDin.omsorgMinstFemti!!),
+            svar: valgTilSvar(t, soeknad.situasjonenDin.omsorgMinstFemti!),
         },
     }
 }
@@ -218,34 +218,34 @@ const hentOppholdUtland = (
         opplysning = {
             oppholderSegIUtlandet: {
                 spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.svar'),
-                svar: valgTilSvar(t, situasjonenDin.oppholderSegIUtlandet!!.svar!!),
+                svar: valgTilSvar(t, situasjonenDin.oppholderSegIUtlandet!.svar!),
             },
             oppholdsland:
-                situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA
+                situasjonenDin.oppholderSegIUtlandet!.svar! === IValg.JA
                     ? {
                           spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdsland'),
                           svar: {
-                              innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdsland!!,
+                              innhold: situasjonenDin.oppholderSegIUtlandet!.oppholdsland!,
                           },
                       }
                     : undefined,
             oppholdFra:
-                situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA &&
-                situasjonenDin.oppholderSegIUtlandet!!.oppholdFra
+                situasjonenDin.oppholderSegIUtlandet!.svar! === IValg.JA &&
+                situasjonenDin.oppholderSegIUtlandet!.oppholdFra
                     ? {
                           spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdFra'),
                           svar: {
-                              innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdFra!!,
+                              innhold: situasjonenDin.oppholderSegIUtlandet!.oppholdFra!,
                           },
                       }
                     : undefined,
             oppholdTil:
-                situasjonenDin.oppholderSegIUtlandet!!.svar!! === IValg.JA &&
-                situasjonenDin.oppholderSegIUtlandet!!.oppholdTil
+                situasjonenDin.oppholderSegIUtlandet!.svar! === IValg.JA &&
+                situasjonenDin.oppholderSegIUtlandet!.oppholdTil
                     ? {
                           spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdTil'),
                           svar: {
-                              innhold: situasjonenDin.oppholderSegIUtlandet!!.oppholdTil!!,
+                              innhold: situasjonenDin.oppholderSegIUtlandet!.oppholdTil!,
                           },
                       }
                     : undefined,
@@ -257,7 +257,7 @@ const hentOppholdUtland = (
             bosattLand: {
                 spoersmaal: t('situasjonenDin.bosattLand'),
                 svar: {
-                    innhold: situasjonenDin.bosattLand!!,
+                    innhold: situasjonenDin.bosattLand!,
                 },
             },
         }
@@ -265,7 +265,7 @@ const hentOppholdUtland = (
 
     return {
         spoersmaal: t('situasjonenDin.bosattINorge'),
-        svar: valgTilSvar(t, situasjonenDin.bosattINorge!!),
+        svar: valgTilSvar(t, situasjonenDin.bosattINorge!),
         opplysning,
     }
 }
@@ -277,25 +277,25 @@ const hentSivilstatus = (
     let opplysning: Samboer | undefined
 
     if (nySivilstatus?.sivilstatus == Sivilstatus.samboerskap) {
-        const samboer = nySivilstatus.samboerskap!!.samboer!!
+        const samboer = nySivilstatus.samboerskap!.samboer!
 
         opplysning = {
             type: PersonType.SAMBOER,
             fornavn: {
                 spoersmaal: t('felles.fornavn'),
-                svar: samboer.fornavn!!,
+                svar: samboer.fornavn!,
             },
             etternavn: {
                 spoersmaal: t('felles.etternavn'),
-                svar: samboer.etternavn!!,
+                svar: samboer.etternavn!,
             },
             foedselsnummer: {
                 spoersmaal: t('felles.foedselsnummer'),
-                svar: samboer.foedselsnummer!!,
+                svar: samboer.foedselsnummer!,
             },
             fellesBarnEllertidligereGift: {
                 spoersmaal: t('situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
-                svar: valgTilSvar(t, nySivilstatus.samboerskap!!.hattBarnEllerVaertGift!!),
+                svar: valgTilSvar(t, nySivilstatus.samboerskap!.hattBarnEllerVaertGift!),
             },
         }
     }
@@ -303,8 +303,8 @@ const hentSivilstatus = (
     return {
         spoersmaal: t('situasjonenDin.nySivilstatus.sivilstatus'),
         svar: {
-            verdi: konverterSivilstatus(nySivilstatus!!.sivilstatus!!),
-            innhold: t(nySivilstatus!!.sivilstatus!!),
+            verdi: konverterSivilstatus(nySivilstatus!.sivilstatus!),
+            innhold: t(nySivilstatus!.sivilstatus!),
         },
         opplysning,
     }
@@ -322,7 +322,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                         arbeidsgiver: {
                             spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver'),
                             svar: {
-                                innhold: arbeid.arbeidsgiver!!,
+                                innhold: arbeid.arbeidsgiver!,
                             },
                         },
                         arbeidsmengde:
@@ -330,22 +330,20 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                                 ? {
                                       spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast'),
                                       svar: {
-                                          innhold: `${arbeid.arbeidsmengde!!.svar!!} ${t('felles.prosent')}`,
+                                          innhold: `${arbeid.arbeidsmengde!.svar!} ${t('felles.prosent')}`,
                                       },
                                   }
                                 : {
                                       spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar'),
                                       svar: {
-                                          innhold: `${arbeid.arbeidsmengde!!.svar!!} ${t(
-                                              arbeid.arbeidsmengde!!.type!!
-                                          )}`,
+                                          innhold: `${arbeid.arbeidsmengde!.svar!} ${t(arbeid.arbeidsmengde!.type!)}`,
                                       },
                                   },
                         ansettelsesforhold: {
                             spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold'),
                             svar: {
-                                verdi: konverterStillingType(arbeid.ansettelsesforhold!!),
-                                innhold: t(arbeid.ansettelsesforhold!!),
+                                verdi: konverterStillingType(arbeid.ansettelsesforhold!),
+                                innhold: t(arbeid.ansettelsesforhold!),
                             },
                         },
                         harSluttdato:
@@ -353,7 +351,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                             arbeid?.ansettelsesforhold === StillingType.tilkallingsvikar
                                 ? {
                                       spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar'),
-                                      svar: valgTilSvar(t, arbeid!!.midlertidig!!.svar!!),
+                                      svar: valgTilSvar(t, arbeid!.midlertidig!.svar!),
                                   }
                                 : undefined,
                         sluttdato:
@@ -361,13 +359,13 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                                 ? {
                                       spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger'),
                                       svar: {
-                                          innhold: arbeid!!.midlertidig!!.sluttdatoVelger!!,
+                                          innhold: arbeid!.midlertidig!.sluttdatoVelger!,
                                       },
                                   }
                                 : undefined,
                         endretArbeidssituasjon: {
                             spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar'),
-                            svar: valgTilSvar(t, arbeid.forventerEndretArbeidssituasjon!!.svar!!),
+                            svar: valgTilSvar(t, arbeid.forventerEndretArbeidssituasjon!.svar!),
                             opplysning:
                                 arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA
                                     ? {
@@ -375,7 +373,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                                               'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse'
                                           ),
                                           svar: {
-                                              innhold: t(arbeid.forventerEndretArbeidssituasjon.beskrivelse!!),
+                                              innhold: t(arbeid.forventerEndretArbeidssituasjon.beskrivelse!),
                                           },
                                       }
                                     : undefined,
@@ -383,8 +381,8 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                         /*sagtOppEllerRedusert: {
                             spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar'),
                             svar: {
-                                verdi: konverterSagtOppEllerRedusert(arbeid.sagtOppEllerRedusert!!.svar!!),
-                                innhold: t(arbeid.sagtOppEllerRedusert!!.svar!!),
+                                verdi: konverterSagtOppEllerRedusert(arbeid.sagtOppEllerRedusert!.svar!),
+                                innhold: t(arbeid.sagtOppEllerRedusert!.svar!),
                             },
                         },*/
                     }
@@ -415,7 +413,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 virksomheten: {
                     spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten'),
                     svar: {
-                        innhold: dinSituasjon.etablererVirksomhet!!.hvaHeterVirksomheten!!,
+                        innhold: dinSituasjon.etablererVirksomhet!.hvaHeterVirksomheten!,
                     },
                 },
                 orgnr: {
@@ -423,12 +421,12 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                     svar: {
                         innhold: dinSituasjon.etablererVirksomhet?.manglerOrgnr?.length
                             ? dinSituasjon.etablererVirksomhet.manglerOrgnr[0]
-                            : dinSituasjon.etablererVirksomhet!!.orgnr!!,
+                            : dinSituasjon.etablererVirksomhet!.orgnr!,
                     },
                 },
                 forretningsplan: {
                     spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar'),
-                    svar: valgTilSvar(t, dinSituasjon.etablererVirksomhet!!.forretningsplan!!.svar!!),
+                    svar: valgTilSvar(t, dinSituasjon.etablererVirksomhet!.forretningsplan!.svar!),
                 },
                 samarbeidMedNav:
                     dinSituasjon.etablererVirksomhet?.forretningsplan?.svar === IValg.JA
@@ -438,7 +436,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                               ),
                               svar: valgTilSvar(
                                   t,
-                                  dinSituasjon!!.etablererVirksomhet!!.forretningsplan!!.samarbeidMedNAV!!.svar!!
+                                  dinSituasjon!.etablererVirksomhet!.forretningsplan!.samarbeidMedNAV!.svar!
                               ),
                           }
                         : undefined,
@@ -456,34 +454,34 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 nyttArbeidssted: {
                     spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted'),
                     svar: {
-                        innhold: dinSituasjon.tilbudOmJobb!!.arbeidssted!!,
+                        innhold: dinSituasjon.tilbudOmJobb!.arbeidssted!,
                     },
                 },
                 ansettelsesdato: {
                     spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato'),
                     svar: {
-                        innhold: dinSituasjon!!.tilbudOmJobb!!.ansettelsesdato!!,
+                        innhold: dinSituasjon!.tilbudOmJobb!.ansettelsesdato!,
                     },
                 },
                 ansettelsesforhold: {
                     spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold'),
                     svar: {
-                        verdi: konverterStillingType(dinSituasjon.tilbudOmJobb!!.ansettelsesforhold!!),
-                        innhold: t(dinSituasjon.tilbudOmJobb!!.ansettelsesforhold!!),
+                        verdi: konverterStillingType(dinSituasjon.tilbudOmJobb!.ansettelsesforhold!),
+                        innhold: t(dinSituasjon.tilbudOmJobb!.ansettelsesforhold!),
                     },
                 },
                 arbeidsmengde: fastAnsettelse
                     ? {
                           spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast'),
                           svar: {
-                              innhold: `${dinSituasjon.tilbudOmJobb!!.arbeidsmengde!!.svar!!} ${t('felles.prosent')}`,
+                              innhold: `${dinSituasjon.tilbudOmJobb!.arbeidsmengde!.svar!} ${t('felles.prosent')}`,
                           },
                       }
                     : {
                           spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar'),
                           svar: {
-                              innhold: `${dinSituasjon.tilbudOmJobb!!.arbeidsmengde!!.svar!!} ${t(
-                                  dinSituasjon.tilbudOmJobb!!.arbeidsmengde!!.type!!
+                              innhold: `${dinSituasjon.tilbudOmJobb!.arbeidsmengde!.svar!} ${t(
+                                  dinSituasjon.tilbudOmJobb!.arbeidsmengde!.type!
                               )}`,
                           },
                       },
@@ -492,7 +490,7 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                     dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.tilkallingsvikar
                         ? {
                               spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar'),
-                              svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!!.midlertidig!!.svar!!),
+                              svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!.midlertidig!.svar!),
                           }
                         : undefined,
                 sluttdato:
@@ -500,13 +498,13 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                         ? {
                               spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger'),
                               svar: {
-                                  innhold: dinSituasjon!!.tilbudOmJobb!!.midlertidig!!.sluttdatoVelger!!,
+                                  innhold: dinSituasjon!.tilbudOmJobb!.midlertidig!.sluttdatoVelger!,
                               },
                           }
                         : undefined,
                 aktivitetsplan: {
                     spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar'),
-                    svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!!.aktivitetsplan.svar!!),
+                    svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!.aktivitetsplan.svar!),
                 },
             },
         }
@@ -519,13 +517,13 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
             svar: {
                 registrertArbeidssoeker: {
                     spoersmaal: t('merOmSituasjonenDin.arbeidssoeker.svar'),
-                    svar: valgTilSvar(t, dinSituasjon.arbeidssoeker!!.svar!!),
+                    svar: valgTilSvar(t, dinSituasjon.arbeidssoeker!.svar!),
                 },
                 aktivitetsplan:
-                    dinSituasjon.arbeidssoeker!!.svar === IValg.JA
+                    dinSituasjon.arbeidssoeker!.svar === IValg.JA
                         ? {
                               spoersmaal: t('merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar'),
-                              svar: valgTilSvar(t, dinSituasjon.arbeidssoeker!!.aktivitetsplan.svar!!),
+                              svar: valgTilSvar(t, dinSituasjon.arbeidssoeker!.aktivitetsplan.svar!),
                           }
                         : undefined,
             },
@@ -540,50 +538,50 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 studiested: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested'),
                     svar: {
-                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studiested!!,
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.studiested!,
                     },
                 },
                 studie: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie'),
                     svar: {
-                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studie!!,
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.studie!,
                     },
                 },
                 studieform: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform'),
                     svar: {
-                        innhold: t(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!),
-                        verdi: konverterStudieform(dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform!!),
+                        innhold: t(dinSituasjon.utdanning!.naavaerendeUtdanning!.studieform!),
+                        verdi: konverterStudieform(dinSituasjon.utdanning!.naavaerendeUtdanning!.studieform!),
                     },
                 },
                 studieprosent:
-                    dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieform === Studieform.deltid
+                    dinSituasjon.utdanning!.naavaerendeUtdanning!.studieform === Studieform.deltid
                         ? {
                               spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent'),
                               svar: {
-                                  innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.studieprosent!!,
+                                  innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.studieprosent!,
                               },
                           }
                         : undefined,
                 startDato: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato'),
                     svar: {
-                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.startDato!!,
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.startDato!,
                     },
                 },
                 sluttDato: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato'),
                     svar: {
-                        innhold: dinSituasjon.utdanning!!.naavaerendeUtdanning!!.sluttDato!!,
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.sluttDato!,
                     },
                 },
                 godkjentUtdanning: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning'),
-                    svar: valgTilSvar(t, dinSituasjon.utdanning!!.naavaerendeUtdanning!!.godkjentUtdanning!!),
+                    svar: valgTilSvar(t, dinSituasjon.utdanning!.naavaerendeUtdanning!.godkjentUtdanning!),
                 },
                 aktivitetsplan: {
                     spoersmaal: t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar'),
-                    svar: valgTilSvar(t, dinSituasjon.utdanning!!.aktivitetsplan!!.svar!!),
+                    svar: valgTilSvar(t, dinSituasjon.utdanning!.aktivitetsplan!.svar!),
                 },
             },
         }
@@ -597,16 +595,16 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
                 beskrivelse: {
                     spoersmaal: t('merOmSituasjonenDin.annenSituasjon.beskrivelse'),
                     svar:
-                        dinSituasjon.annenSituasjon!!.beskrivelse!!.map((type) => ({
+                        dinSituasjon.annenSituasjon!.beskrivelse!.map((type) => ({
                             verdi: konverterIngenJobb(type),
                             innhold: t(type),
                         })) || [],
                 },
-                annet: dinSituasjon.annenSituasjon!!.annet?.beskrivelse
+                annet: dinSituasjon.annenSituasjon!.annet?.beskrivelse
                     ? {
                           spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse'),
                           svar: {
-                              innhold: `${dinSituasjon.annenSituasjon!!.annet!!.beskrivelse}`,
+                              innhold: `${dinSituasjon.annenSituasjon!.annet!.beskrivelse}`,
                           },
                       }
                     : undefined,
@@ -640,7 +638,7 @@ const hentInntektOgPensjon = (
     bruker: IBruker
 ): InntektOgPensjon => {
     const doedsfallIAar = doedsdatoErIAar(datoForDoedsfall)
-    const foedt1963EllerTidligere = bruker.foedselsaar!! <= 1963
+    const foedt1963EllerTidligere = bruker.foedselsaar! <= 1963
     const erIkkeDesember = new Date(datoForDoedsfall).getMonth() !== 11
 
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
@@ -650,12 +648,12 @@ const hentInntektOgPensjon = (
             svar: {
                 norgeEllerUtland: {
                     spoersmaal: t('inntektenDin.loennsinntekt.norgeEllerUtland'),
-                    svar: inntektenDin.loennsinntekt!!.norgeEllerUtland!!.map((norgeEllerUtland) => ({
+                    svar: inntektenDin.loennsinntekt!.norgeEllerUtland!.map((norgeEllerUtland) => ({
                         verdi: konverterNorgeEllerUtland(norgeEllerUtland),
                         innhold: t(norgeEllerUtland),
                     })),
                 },
-                norge: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.norge)
+                norge: inntektenDin.loennsinntekt!.norgeEllerUtland.includes(NorgeOgUtland.norge)
                     ? {
                           inntektIFjor: doedsfallIAar
                               ? {
@@ -666,7 +664,7 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.loennsinntekt!!.norge!!.inntektIFjor!!.aarsinntekt!!,
+                                                      inntektenDin.loennsinntekt!.norge!.inntektIFjor!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -679,15 +677,14 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.loennsinntekt!!.norge!!.inntektIFjor!!
-                                                          .tilDoedsfall!!,
+                                                      inntektenDin.loennsinntekt!.norge!.inntektIFjor!.tilDoedsfall!,
                                               },
                                           }
                                         : undefined,
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.norge!!.inntektIFjor!!.aarsinntekt!!,
+                                            innhold: inntektenDin.loennsinntekt!.norge!.inntektIFjor!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -696,15 +693,14 @@ const hentInntektOgPensjon = (
                                     tilDoedsfall: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.norge!!.inntektIAar!!.tilDoedsfall!!,
+                                            innhold: inntektenDin.loennsinntekt!.norge!.inntektIAar!.tilDoedsfall!,
                                         },
                                     },
                                     aarsinntekt: erIkkeDesember
                                         ? {
                                               spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                               svar: {
-                                                  innhold:
-                                                      inntektenDin.loennsinntekt!!.norge!!.inntektIAar!!.aarsinntekt!!,
+                                                  innhold: inntektenDin.loennsinntekt!.norge!.inntektIAar!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -713,7 +709,7 @@ const hentInntektOgPensjon = (
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.norge!!.inntektIAar!!.aarsinntekt!!,
+                                            innhold: inntektenDin.loennsinntekt!.norge!.inntektIAar!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -726,22 +722,21 @@ const hentInntektOgPensjon = (
                                             ),
                                             svar: {
                                                 innhold:
-                                                    inntektenDin.loennsinntekt!!.norge!!.inntektNesteAar!!
-                                                        .aarsinntekt!!,
+                                                    inntektenDin.loennsinntekt!.norge!.inntektNesteAar!.aarsinntekt!,
                                             },
                                         },
                                     }
                                   : undefined,
                       }
                     : undefined,
-                utland: inntektenDin.loennsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.utland)
+                utland: inntektenDin.loennsinntekt!.norgeEllerUtland.includes(NorgeOgUtland.utland)
                     ? {
                           inntektAaretFoerDoedsfall:
                               !doedsfallIAar && foedt1963EllerTidligere
                                   ? {
                                         spoersmaal: t('inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektAaretFoerDoedsfall!!,
+                                            innhold: inntektenDin.loennsinntekt!.utland!.inntektAaretFoerDoedsfall!,
                                         },
                                     }
                                   : undefined,
@@ -754,8 +749,7 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!
-                                                          .aarsinntekt!!,
+                                                      inntektenDin.loennsinntekt!.utland!.inntektIFjor!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -768,15 +762,14 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!
-                                                          .tilDoedsfall!!,
+                                                      inntektenDin.loennsinntekt!.utland!.inntektIFjor!.tilDoedsfall!,
                                               },
                                           }
                                         : undefined,
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIFjor!!.aarsinntekt!!,
+                                            innhold: inntektenDin.loennsinntekt!.utland!.inntektIFjor!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -785,7 +778,7 @@ const hentInntektOgPensjon = (
                                     tilDoedsfall: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIAar!!.tilDoedsfall!!,
+                                            innhold: inntektenDin.loennsinntekt!.utland!.inntektIAar!.tilDoedsfall!,
                                         },
                                     },
                                     aarsinntekt: erIkkeDesember
@@ -793,7 +786,7 @@ const hentInntektOgPensjon = (
                                               spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.loennsinntekt!!.utland!!.inntektIAar!!.aarsinntekt!!,
+                                                      inntektenDin.loennsinntekt!.utland!.inntektIAar!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -802,7 +795,7 @@ const hentInntektOgPensjon = (
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.loennsinntekt.inntektIAar.aarsinntekt'),
                                         svar: {
-                                            innhold: inntektenDin.loennsinntekt!!.utland!!.inntektIAar!!.aarsinntekt!!,
+                                            innhold: inntektenDin.loennsinntekt!.utland!.inntektIAar!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -815,15 +808,14 @@ const hentInntektOgPensjon = (
                                             ),
                                             svar: {
                                                 innhold:
-                                                    inntektenDin.loennsinntekt!!.utland!!.inntektNesteAar!!
-                                                        .aarsinntekt!!,
+                                                    inntektenDin.loennsinntekt!.utland!.inntektNesteAar!.aarsinntekt!,
                                             },
                                         },
                                     }
                                   : undefined,
                       }
                     : undefined,
-                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.loennsinntekt!!.forventerEndringAvInntekt),
+                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.loennsinntekt!.forventerEndringAvInntekt),
             },
         }
     }
@@ -835,32 +827,31 @@ const hentInntektOgPensjon = (
             svar: {
                 norgeEllerUtland: {
                     spoersmaal: t('inntektenDin.naeringsinntekt.norgeEllerUtland'),
-                    svar: inntektenDin.naeringsinntekt!!.norgeEllerUtland!!.map((norgeEllerUtland) => ({
+                    svar: inntektenDin.naeringsinntekt!.norgeEllerUtland!.map((norgeEllerUtland) => ({
                         verdi: konverterNorgeEllerUtland(norgeEllerUtland),
                         innhold: t(norgeEllerUtland),
                     })),
                 },
-                norge: inntektenDin.naeringsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.norge)
+                norge: inntektenDin.naeringsinntekt!.norgeEllerUtland.includes(NorgeOgUtland.norge)
                     ? {
                           jevntOpptjentNaeringsinntekt: {
                               svar: {
                                   spoersmaal: t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar'),
                                   svar: valgTilSvar(
                                       t,
-                                      inntektenDin.naeringsinntekt!!.norge!!.jevntOpptjentNaeringsinntekt!!.svar!!
+                                      inntektenDin.naeringsinntekt!.norge!.jevntOpptjentNaeringsinntekt!.svar!
                                   ),
                               },
                               beskrivelse:
-                                  inntektenDin.naeringsinntekt!!.norge!!.jevntOpptjentNaeringsinntekt!!.svar ===
-                                  IValg.NEI
+                                  inntektenDin.naeringsinntekt!.norge!.jevntOpptjentNaeringsinntekt!.svar === IValg.NEI
                                       ? {
                                             spoersmaal: t(
                                                 'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse'
                                             ),
                                             svar: {
                                                 innhold:
-                                                    inntektenDin.naeringsinntekt!!.norge!!
-                                                        .jevntOpptjentNaeringsinntekt!!.beskrivelse!!,
+                                                    inntektenDin.naeringsinntekt!.norge!.jevntOpptjentNaeringsinntekt!
+                                                        .beskrivelse!,
                                             },
                                         }
                                       : undefined,
@@ -874,8 +865,7 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!
-                                                          .aarsinntekt!!,
+                                                      inntektenDin.naeringsinntekt!.norge!.inntektIFjor!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -888,16 +878,14 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!
-                                                          .tilDoedsfall!!,
+                                                      inntektenDin.naeringsinntekt!.norge!.inntektIFjor!.tilDoedsfall!,
                                               },
                                           }
                                         : undefined,
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.norge!!.inntektIFjor!!.aarsinntekt!!,
+                                            innhold: inntektenDin.naeringsinntekt!.norge!.inntektIFjor!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -906,8 +894,7 @@ const hentInntektOgPensjon = (
                                     tilDoedsfall: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.norge!!.inntektIAar!!.tilDoedsfall!!,
+                                            innhold: inntektenDin.naeringsinntekt!.norge!.inntektIAar!.tilDoedsfall!,
                                         },
                                     },
                                     aarsinntekt: erIkkeDesember
@@ -915,8 +902,7 @@ const hentInntektOgPensjon = (
                                               spoersmaal: t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt'),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.norge!!.inntektIAar!!
-                                                          .aarsinntekt!!,
+                                                      inntektenDin.naeringsinntekt!.norge!.inntektIAar!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -925,7 +911,7 @@ const hentInntektOgPensjon = (
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt'),
                                         svar: {
-                                            innhold: inntektenDin.naeringsinntekt!!.norge!!.inntektIAar!!.aarsinntekt!!,
+                                            innhold: inntektenDin.naeringsinntekt!.norge!.inntektIAar!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -938,35 +924,33 @@ const hentInntektOgPensjon = (
                                             ),
                                             svar: {
                                                 innhold:
-                                                    inntektenDin.naeringsinntekt!!.norge!!.inntektNesteAar!!
-                                                        .aarsinntekt!!,
+                                                    inntektenDin.naeringsinntekt!.norge!.inntektNesteAar!.aarsinntekt!,
                                             },
                                         },
                                     }
                                   : undefined,
                       }
                     : undefined,
-                utland: inntektenDin.naeringsinntekt!!.norgeEllerUtland.includes(NorgeOgUtland.utland)
+                utland: inntektenDin.naeringsinntekt!.norgeEllerUtland.includes(NorgeOgUtland.utland)
                     ? {
                           jevntOpptjentNaeringsinntekt: {
                               svar: {
                                   spoersmaal: t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar'),
                                   svar: valgTilSvar(
                                       t,
-                                      inntektenDin.naeringsinntekt!!.utland!!.jevntOpptjentNaeringsinntekt!!.svar!!
+                                      inntektenDin.naeringsinntekt!.utland!.jevntOpptjentNaeringsinntekt!.svar!
                                   ),
                               },
                               beskrivelse:
-                                  inntektenDin.naeringsinntekt!!.utland!!.jevntOpptjentNaeringsinntekt!!.svar ===
-                                  IValg.NEI
+                                  inntektenDin.naeringsinntekt!.utland!.jevntOpptjentNaeringsinntekt!.svar === IValg.NEI
                                       ? {
                                             spoersmaal: t(
                                                 'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse'
                                             ),
                                             svar: {
                                                 innhold:
-                                                    inntektenDin.naeringsinntekt!!.utland!!
-                                                        .jevntOpptjentNaeringsinntekt!!.beskrivelse!!,
+                                                    inntektenDin.naeringsinntekt!.utland!.jevntOpptjentNaeringsinntekt!
+                                                        .beskrivelse!,
                                             },
                                         }
                                       : undefined,
@@ -976,8 +960,7 @@ const hentInntektOgPensjon = (
                                   ? {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.utland!!.inntektAaretFoerDoedsfall!!,
+                                            innhold: inntektenDin.naeringsinntekt!.utland!.inntektAaretFoerDoedsfall!,
                                         },
                                     }
                                   : undefined,
@@ -990,8 +973,7 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.utland!!.inntektIFjor!!
-                                                          .aarsinntekt!!,
+                                                      inntektenDin.naeringsinntekt!.utland!.inntektIFjor!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -1004,16 +986,14 @@ const hentInntektOgPensjon = (
                                               ),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.utland!!.inntektIFjor!!
-                                                          .tilDoedsfall!!,
+                                                      inntektenDin.naeringsinntekt!.utland!.inntektIFjor!.tilDoedsfall!,
                                               },
                                           }
                                         : undefined,
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.utland!!.inntektIFjor!!.aarsinntekt!!,
+                                            innhold: inntektenDin.naeringsinntekt!.utland!.inntektIFjor!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -1022,8 +1002,7 @@ const hentInntektOgPensjon = (
                                     tilDoedsfall: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.utland!!.inntektIAar!!.tilDoedsfall!!,
+                                            innhold: inntektenDin.naeringsinntekt!.utland!.inntektIAar!.tilDoedsfall!,
                                         },
                                     },
                                     aarsinntekt: erIkkeDesember
@@ -1031,8 +1010,7 @@ const hentInntektOgPensjon = (
                                               spoersmaal: t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt'),
                                               svar: {
                                                   innhold:
-                                                      inntektenDin.naeringsinntekt!!.utland!!.inntektIAar!!
-                                                          .aarsinntekt!!,
+                                                      inntektenDin.naeringsinntekt!.utland!.inntektIAar!.aarsinntekt!,
                                               },
                                           }
                                         : undefined,
@@ -1041,8 +1019,7 @@ const hentInntektOgPensjon = (
                                     aarsinntekt: {
                                         spoersmaal: t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt'),
                                         svar: {
-                                            innhold:
-                                                inntektenDin.naeringsinntekt!!.utland!!.inntektIAar!!.aarsinntekt!!,
+                                            innhold: inntektenDin.naeringsinntekt!.utland!.inntektIAar!.aarsinntekt!,
                                         },
                                     },
                                 },
@@ -1055,15 +1032,14 @@ const hentInntektOgPensjon = (
                                             ),
                                             svar: {
                                                 innhold:
-                                                    inntektenDin.naeringsinntekt!!.utland!!.inntektNesteAar!!
-                                                        .aarsinntekt!!,
+                                                    inntektenDin.naeringsinntekt!.utland!.inntektNesteAar!.aarsinntekt!,
                                             },
                                         },
                                     }
                                   : undefined,
                       }
                     : undefined,
-                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.naeringsinntekt!!.forventerEndringAvInntekt),
+                endringAvInntekt: mapEndringAvInntekt(t, inntektenDin.naeringsinntekt!.forventerEndringAvInntekt),
             },
         }
     }
@@ -1073,12 +1049,12 @@ const hentInntektOgPensjon = (
         pensjonEllerUfoere = {
             pensjonstype: {
                 spoersmaal: t('inntektenDin.pensjonEllerUfoere.pensjonstype'),
-                svar: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.map((ytelse) => ({
+                svar: inntektenDin.pensjonEllerUfoere!.pensjonstype!.map((ytelse) => ({
                     verdi: konverterPensjonEllerTrygd(ytelse),
                     innhold: t(ytelse),
                 })),
             },
-            tjenestepensjonsordning: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(
+            tjenestepensjonsordning: inntektenDin.pensjonEllerUfoere!.pensjonstype!.includes(
                 PensjonEllerTrygd.tjenestepensjonsordning
             )
                 ? {
@@ -1086,38 +1062,38 @@ const hentInntektOgPensjon = (
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type'),
                           svar: {
                               verdi: konverterPensjonsYtelse(
-                                  inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type
+                                  inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type
                               ),
-                              innhold: t(inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type),
+                              innhold: t(inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type),
                           },
                       },
                       utbetaler: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'),
                           svar: {
-                              innhold: inntektenDin.pensjonEllerUfoere!!.tjenestepensjonsordning!!.utbetaler,
+                              innhold: inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.utbetaler,
                           },
                       },
                   }
                 : undefined,
-            utland: inntektenDin.pensjonEllerUfoere!!.pensjonstype!!.includes(PensjonEllerTrygd.pensjonFraUtlandet)
+            utland: inntektenDin.pensjonEllerUfoere!.pensjonstype!.includes(PensjonEllerTrygd.pensjonFraUtlandet)
                 ? {
                       type: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.type'),
                           svar: {
-                              innhold: inntektenDin.pensjonEllerUfoere!!.utland!!.type!!,
+                              innhold: inntektenDin.pensjonEllerUfoere!.utland!.type!,
                           },
                       },
                       land: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.utland.land'),
                           svar: {
-                              innhold: inntektenDin.pensjonEllerUfoere!!.utland!!.land!!,
+                              innhold: inntektenDin.pensjonEllerUfoere!.utland!.land!,
                           },
                       },
                       beloepMedValuta: {
                           spoersmaal: t('felles.aarligBeloep'),
                           svar: {
-                              innhold: `${inntektenDin.pensjonEllerUfoere!!.utland!!
-                                  .beloep!!} ${inntektenDin.pensjonEllerUfoere!!.utland!!.valuta!!}`,
+                              innhold: `${inntektenDin.pensjonEllerUfoere!.utland!
+                                  .beloep!} ${inntektenDin.pensjonEllerUfoere!.utland!.valuta!}`,
                           },
                       },
                   }
@@ -1130,17 +1106,17 @@ const hentInntektOgPensjon = (
         inntektViaYtelserFraNAV = {
             ytelser: {
                 spoersmaal: t('inntektenDin.inntektViaYtelserFraNAV.ytelser'),
-                svar: inntektenDin.inntektViaYtelserFraNAV!!.ytelser!!.map((ytelse) => ({
+                svar: inntektenDin.inntektViaYtelserFraNAV!.ytelser!.map((ytelse) => ({
                     verdi: konverterInntektEllerUtbetaling(ytelse),
                     innhold: t(ytelse),
                 })),
             },
-            aktivitetsplan: inntektenDin.inntektViaYtelserFraNAV!!.ytelser!!.includes(
+            aktivitetsplan: inntektenDin.inntektViaYtelserFraNAV!.ytelser!.includes(
                 InntektEllerUtbetaling.arbeidsavklaringspenger
             )
                 ? {
                       spoersmaal: t('inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar'),
-                      svar: valgTilSvar(t, inntektenDin.inntektViaYtelserFraNAV!!.aktivitetsplan!!.svar!!),
+                      svar: valgTilSvar(t, inntektenDin.inntektViaYtelserFraNAV!.aktivitetsplan!.svar!),
                   }
                 : undefined,
         }
@@ -1151,23 +1127,23 @@ const hentInntektOgPensjon = (
         ingenInntekt = {
             svar: {
                 spoersmaal: t('inntektenDin.ingenInntekt.svar'),
-                svar: valgTilSvar(t, inntektenDin.ingenInntekt!!.svar!!),
+                svar: valgTilSvar(t, inntektenDin.ingenInntekt!.svar!),
             },
             beloep:
-                inntektenDin.ingenInntekt!!.svar!! === IValg.JA
+                inntektenDin.ingenInntekt!.svar! === IValg.JA
                     ? {
                           spoersmaal: t('inntektenDin.ingenInntekt.beloep'),
                           svar: {
-                              innhold: inntektenDin.ingenInntekt!!.beloep!!,
+                              innhold: inntektenDin.ingenInntekt!.beloep!,
                           },
                       }
                     : undefined,
             beskrivelse:
-                inntektenDin.ingenInntekt!!.svar!! === IValg.JA
+                inntektenDin.ingenInntekt!.svar! === IValg.JA
                     ? {
                           spoersmaal: t('inntektenDin.ingenInntekt.beskrivelse'),
                           svar: {
-                              innhold: inntektenDin.ingenInntekt!!.beskrivelse!!,
+                              innhold: inntektenDin.ingenInntekt!.beskrivelse!,
                           },
                       }
                     : undefined,
@@ -1177,13 +1153,13 @@ const hentInntektOgPensjon = (
     const ytelserNAV: YtelserNav = {
         soektOmYtelse: {
             spoersmaal: t('inntektenDin.ytelserNAV.svar'),
-            svar: valgTilSvar(t, inntektenDin.ytelserNAV!!.svar!!),
+            svar: valgTilSvar(t, inntektenDin.ytelserNAV!.svar!),
         },
         soektYtelse:
-            inntektenDin.ytelserNAV!!.svar!! === IValg.JA
+            inntektenDin.ytelserNAV!.svar! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
-                      svar: inntektenDin.ytelserNAV!!.soekteYtelser!!.map((ytelse) => ({
+                      svar: inntektenDin.ytelserNAV!.soekteYtelser!.map((ytelse) => ({
                           verdi: konverterSoekteYtelserNAV(ytelse),
                           innhold: t(ytelse),
                       })),
@@ -1194,24 +1170,24 @@ const hentInntektOgPensjon = (
     const ytelserAndre: YtelserAndre = {
         soektOmYtelse: {
             spoersmaal: t('inntektenDin.ytelserAndre.svar'),
-            svar: valgTilSvar(t, inntektenDin.ytelserAndre!!.svar!!),
+            svar: valgTilSvar(t, inntektenDin.ytelserAndre!.svar!),
         },
         soektYtelse:
-            inntektenDin.ytelserAndre!!.svar!! === IValg.JA
+            inntektenDin.ytelserAndre!.svar! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
-                      svar: inntektenDin.ytelserAndre!!.soekteYtelser!!.map((ytelse) => ({
+                      svar: inntektenDin.ytelserAndre!.soekteYtelser!.map((ytelse) => ({
                           verdi: konverterSoekteYtelserAndre(ytelse),
                           innhold: t(ytelse),
                       })),
                   }
                 : undefined,
         pensjonsordning:
-            inntektenDin.ytelserAndre!!.svar!! === IValg.JA
+            inntektenDin.ytelserAndre!.svar! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.ytelserAndre.pensjonsordning'),
                       svar: {
-                          innhold: inntektenDin.ytelserAndre!!.pensjonsordning!!,
+                          innhold: inntektenDin.ytelserAndre!.pensjonsordning!,
                       },
                   }
                 : undefined,
@@ -1232,8 +1208,8 @@ const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede):
     const relasjon: Opplysning<EnumSvar<ForholdTilAvdoedeType>> = {
         spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.relasjon'),
         svar: {
-            verdi: konverterRelasjonAvdoed(forholdTilAvdoede.relasjon!!),
-            innhold: t(forholdTilAvdoede.relasjon!!),
+            verdi: konverterRelasjonAvdoed(forholdTilAvdoede.relasjon!),
+            innhold: t(forholdTilAvdoede.relasjon!),
         },
     }
 
@@ -1333,24 +1309,24 @@ const mapSelvstendigNæringsdrivende = (
         firmanavn: {
             spoersmaal: t('merOmSituasjonenDin.selvstendig.tittel'),
             svar: {
-                innhold: selvstendig.beskrivelse!!,
+                innhold: selvstendig.beskrivelse!,
             },
         },
         orgnr: {
             spoersmaal: t('merOmSituasjonenDin.selvstendig.orgnr'),
             svar: {
-                innhold: selvstendig.orgnr!!,
+                innhold: selvstendig.orgnr!,
             },
         },
         arbeidsmengde: {
             spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar'),
             svar: {
-                innhold: `${selvstendig!!.arbeidsmengde!!.svar!!} ${t(selvstendig!!.arbeidsmengde!!.type!!)}`,
+                innhold: `${selvstendig!.arbeidsmengde!.svar!} ${t(selvstendig!.arbeidsmengde!.type!)}`,
             },
         },
         endretArbeidssituasjon: {
             spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar'),
-            svar: valgTilSvar(t, selvstendig.forventerEndretArbeidssituasjon!!.svar!!),
+            svar: valgTilSvar(t, selvstendig.forventerEndretArbeidssituasjon!.svar!),
             opplysning:
                 selvstendig.forventerEndretArbeidssituasjon?.svar === IValg.JA
                     ? {
@@ -1368,24 +1344,24 @@ const mapEndringAvInntekt = (t: TFunction, endringAvInntekt: IForventerEndringAv
     return {
         fremtidigEndringAvInntekt: {
             spoersmaal: t('inntektenDin.forventerEndringAvInntekt.svar'),
-            svar: valgTilSvar(t, endringAvInntekt!!.svar!!),
+            svar: valgTilSvar(t, endringAvInntekt!.svar!),
         },
         grunn:
-            endringAvInntekt!!.svar!! === IValg.JA
+            endringAvInntekt!.svar! === IValg.JA
                 ? {
                       spoersmaal: t('inntektenDin.forventerEndringAvInntekt.grunn'),
                       svar: {
-                          verdi: konverterEndringAvInntektGrunn(endringAvInntekt!!.grunn!!),
-                          innhold: t(endringAvInntekt!!.grunn!!),
+                          verdi: konverterEndringAvInntektGrunn(endringAvInntekt!.grunn!),
+                          innhold: t(endringAvInntekt!.grunn!),
                       },
                   }
                 : undefined,
         annenGrunn:
-            endringAvInntekt!!.grunn === EndringAvInntektGrunn.annenGrunn
+            endringAvInntekt!.grunn === EndringAvInntektGrunn.annenGrunn
                 ? {
                       spoersmaal: t('inntektenDin.forventerEndringAvInntekt.annenGrunn'),
                       svar: {
-                          innhold: endringAvInntekt!!.annenGrunn!!,
+                          innhold: endringAvInntekt!.annenGrunn!,
                       },
                   }
                 : undefined,

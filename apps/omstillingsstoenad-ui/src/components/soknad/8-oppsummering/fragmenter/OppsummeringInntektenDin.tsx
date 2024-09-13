@@ -140,7 +140,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         <>
                             <TekstGruppe
                                 tittel={t('inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn')}
-                                innhold={t(inntektenDin.loennsinntekt!!.forventerEndringAvInntekt!!.grunn!!)}
+                                innhold={t(inntektenDin.loennsinntekt!.forventerEndringAvInntekt!.grunn!)}
                             />
 
                             {inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn ===
@@ -165,9 +165,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                     {inntektenDin.naeringsinntekt?.norgeEllerUtland.includes(NorgeOgUtland.norge) && (
                         <Panel>
-                            <Heading size={'small'}>
-                                {t('inntektenDin.naeringsinntekt.norgeEllerUtland.norge')}
-                            </Heading>
+                            <Heading size={'small'}>{t('inntektenDin.naeringsinntekt.norgeEllerUtland.norge')}</Heading>
 
                             <TekstGruppeJaNeiVetIkke
                                 tittel={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar')}
@@ -293,7 +291,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         <>
                             <TekstGruppe
                                 tittel={t('inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn')}
-                                innhold={t(inntektenDin.naeringsinntekt!!.forventerEndringAvInntekt!!.grunn!!)}
+                                innhold={t(inntektenDin.naeringsinntekt!.forventerEndringAvInntekt!.grunn!)}
                             />
 
                             {inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn ===
@@ -326,11 +324,11 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
-                                innhold={t(inntektenDin!!.pensjonEllerUfoere!!.tjenestepensjonsordning!!.type!!)}
+                                innhold={t(inntektenDin!.pensjonEllerUfoere!.tjenestepensjonsordning!.type!)}
                             />
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.tjenestepensjonsordning!!.utbetaler!!}
+                                innhold={inntektenDin!.pensjonEllerUfoere!.tjenestepensjonsordning!.utbetaler!}
                             />
                         </Panel>
                     )}
@@ -343,22 +341,22 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
 
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.utland.type')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.type}
+                                innhold={inntektenDin!.pensjonEllerUfoere!.utland!.type}
                             />
 
                             <TekstGruppe
                                 tittel={t('inntektenDin.pensjonEllerUfoere.utland.land')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.land}
+                                innhold={inntektenDin!.pensjonEllerUfoere!.utland!.land}
                             />
 
                             <TekstGruppe
                                 tittel={t('felles.aarligBeloep')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.beloep}
+                                innhold={inntektenDin!.pensjonEllerUfoere!.utland!.beloep}
                             />
 
                             <TekstGruppe
                                 tittel={t('felles.velgValuta')}
-                                innhold={inntektenDin!!.pensjonEllerUfoere!!.utland!!.valuta}
+                                innhold={inntektenDin!.pensjonEllerUfoere!.utland!.valuta}
                             />
                         </Panel>
                     )}

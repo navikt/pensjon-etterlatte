@@ -25,8 +25,8 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
             const stackFrame = stackFrames[0]
             try {
                 logger.error({
-                    lineno: stackFrame.lineNumber!!,
-                    columnno: stackFrame.columnNumber!!,
+                    lineno: stackFrame.lineNumber!,
+                    columnno: stackFrame.columnNumber!,
                     message: error.message,
                     error: JSON.stringify(error),
                 })
@@ -41,12 +41,12 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
     render() {
         if (this.state.hasError) {
             return (
-                    <div>
-                        <ApiErrorAlert>En feil har oppstått og blitt logget.</ApiErrorAlert>
-                        <HjemLink to="/" onClick={() => this.setState({ hasError: false })}>
-                            Gå til hovedskjermen
-                        </HjemLink>
-                    </div>
+                <div>
+                    <ApiErrorAlert>En feil har oppstått og blitt logget.</ApiErrorAlert>
+                    <HjemLink to="/" onClick={() => this.setState({ hasError: false })}>
+                        Gå til hovedskjermen
+                    </HjemLink>
+                </div>
             )
         }
         return this.props.children
@@ -60,12 +60,12 @@ export const ApiErrorAlert = ({ children }: { children: ReactNode | Array<ReactN
 }
 
 const BredAlert = styled(Alert)`
-  margin: 2rem auto;
-  max-width: fit-content;
+    margin: 2rem auto;
+    max-width: fit-content;
 `
 
 const HjemLink = styled(Link)`
-  margin: 2rem auto;
-  max-width: fit-content;
-  display: block;
+    margin: 2rem auto;
+    max-width: fit-content;
+    display: block;
 `

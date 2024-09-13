@@ -13,8 +13,8 @@ export const mapVerge = (
         return {
             spoersmaal: t('childHasGuardian', { ns: 'aboutChildren' }),
             svar: {
-                innhold: t(child.childHasGuardianship!!.answer!!, { ns: 'radiobuttons' }),
-                verdi: child.childHasGuardianship!!.answer!!,
+                innhold: t(child.childHasGuardianship!.answer!, { ns: 'radiobuttons' }),
+                verdi: child.childHasGuardianship!.answer!,
             },
             opplysning: mapFromChildDetails(t, child),
         }
@@ -22,8 +22,8 @@ export const mapVerge = (
         return {
             spoersmaal: t('loggedInUserIsGuardian', { ns: 'aboutChildren' }),
             svar: {
-                innhold: t(child.loggedInUserIsGuardian!!, { ns: 'radiobuttons' }),
-                verdi: child.loggedInUserIsGuardian!!,
+                innhold: t(child.loggedInUserIsGuardian!, { ns: 'radiobuttons' }),
+                verdi: child.loggedInUserIsGuardian!,
             },
             opplysning: mapFromLoggedInUser(t, child, user),
         }
@@ -34,22 +34,22 @@ const mapFromChildDetails = (t: TFunction, child: IChild): Verge | undefined => 
     return child.childHasGuardianship?.answer === JaNeiVetIkke.JA
         ? {
               type: PersonType.VERGE,
-              fornavn: child.childHasGuardianship!!.firstName
+              fornavn: child.childHasGuardianship!.firstName
                   ? {
                         spoersmaal: t('guardianFirstName', { ns: 'aboutChildren' }),
-                        svar: child.childHasGuardianship!!.firstName,
+                        svar: child.childHasGuardianship!.firstName,
                     }
                   : undefined,
-              etternavn: child.childHasGuardianship!!.lastName
+              etternavn: child.childHasGuardianship!.lastName
                   ? {
                         spoersmaal: t('guardianLastName', { ns: 'aboutChildren' }),
-                        svar: child.childHasGuardianship!!.lastName,
+                        svar: child.childHasGuardianship!.lastName,
                     }
                   : undefined,
-              foedselsnummer: child.childHasGuardianship!!.fnr
+              foedselsnummer: child.childHasGuardianship!.fnr
                   ? {
                         spoersmaal: t('guardianFnr', { ns: 'aboutChildren' }),
-                        svar: child.childHasGuardianship!!.fnr,
+                        svar: child.childHasGuardianship!.fnr,
                     }
                   : undefined,
           }
@@ -62,15 +62,15 @@ const mapFromLoggedInUser = (t: TFunction, child: IChild, user: User): Verge | u
               type: PersonType.VERGE,
               fornavn: {
                   spoersmaal: t('firstName', { ns: 'common' }),
-                  svar: user.fornavn!!,
+                  svar: user.fornavn!,
               },
               etternavn: {
                   spoersmaal: t('lastName', { ns: 'common' }),
-                  svar: user.etternavn!!,
+                  svar: user.etternavn!,
               },
               foedselsnummer: {
                   spoersmaal: t('fnr', { ns: 'common' }),
-                  svar: user.foedselsnummer!!,
+                  svar: user.foedselsnummer!,
               },
           }
         : undefined

@@ -24,7 +24,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     const brukerState = useBrukerContext().state
     const lagre = (data: ISoeker) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const methods = useForm<ISoeker>({

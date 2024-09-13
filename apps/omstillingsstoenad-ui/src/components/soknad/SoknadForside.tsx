@@ -40,7 +40,7 @@ const SoknadForside = () => {
 
     return (
         <>
-            {erForGammel(brukerState.alder!!) && (
+            {erForGammel(brukerState.alder!) && (
                 <SkjemaElement>
                     <Alert variant={'info'}>
                         <Heading size={'small'} spacing>

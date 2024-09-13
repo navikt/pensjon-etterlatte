@@ -48,7 +48,7 @@ export const konverterStillingType = (type: GammelStillingType): StillingType =>
     }
 }
 
-export const konverterTilHoyesteUtdanning = (type: String | GammelUtdanning): HoeyesteUtdanning => {
+export const konverterTilHoyesteUtdanning = (type: string | GammelUtdanning): HoeyesteUtdanning => {
     switch (type) {
         case GammelUtdanning.grunnskole:
             return HoeyesteUtdanning.GRUNNSKOLE

@@ -81,18 +81,18 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
     const saveNext = (data: IAboutChildren) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...data, erValidert: true } })
-        next!!()
+        next!()
     }
 
     const savePrevious = (data: IAboutChildren) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...data, erValidert: true } })
-        prev!!()
+        prev!()
     }
 
     const savePreviousWithoutValidation = () => {
         const values = getValues()
         dispatch({ type: ActionTypes.UPDATE_ABOUT_CHILDREN, payload: { ...values, erValidert: false } })
-        prev!!()
+        prev!()
     }
 
     const { handleSubmit } = methods

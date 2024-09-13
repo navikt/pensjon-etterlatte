@@ -48,7 +48,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
             payload: { ...deepCopy(data), erValidert: true },
         })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: IMerOmSituasjonenDin) => {
@@ -56,7 +56,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
             payload: { ...deepCopy(data), erValidert: true },
         })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
@@ -65,7 +65,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
             payload: { ...deepCopy(verdier), erValidert: false },
         })
-        forrige!!()
+        forrige!()
     }
 
     const erValidert = state.merOmSituasjonenDin.erValidert
