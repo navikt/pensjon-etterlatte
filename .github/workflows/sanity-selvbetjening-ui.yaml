@@ -1,13 +1,7 @@
 name: brukerdialog-sanity
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - apps/brukerdialog-sanity/**
-      - .github/workflows/brukerdialog-sanity.yaml
+  workflow_call:
 
 jobs:
   deploy_sanity_studio:
