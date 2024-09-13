@@ -1,8 +1,10 @@
 package no.nav.etterlatte.inntektsjustering
 
 import no.nav.etterlatte.inntektsjustering.Queries.HENT_FOR_FNR
+import no.nav.etterlatte.inntektsjustering.Queries.HENT_FOR_FNR_OG_STATUS
 import no.nav.etterlatte.inntektsjustering.Queries.HENT_FOR_STATUS
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
+import no.nav.etterlatte.inntektsjustering.Queries.OPPDATER
 import no.nav.etterlatte.inntektsjustering.Queries.OPPDATER_STATUS
 import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
@@ -40,8 +42,51 @@ class InntektsjusteringRepository(
                 }
         }
 
+    fun hentInntektsjusteringForFnrOgStatus(
+        fnr: Foedselsnummer,
+        status: PubliserInntektsjusteringStatus,
+    ) = connection.use {
+        it
+            .prepareStatement(HENT_FOR_FNR_OG_STATUS)
+            .apply {
+                setString(1, fnr.value)
+                setString(2, status.value)
+            }.executeQuery()
+            .firstOrNull {
+                Inntektsjustering(
+                    id = UUID.fromString(getString("id")),
+                    inntektsaar = getInt("inntektsaar"),
+                    arbeidsinntekt = getInt("arbeidsinntekt"),
+                    naeringsinntekt = getInt("naeringsinntekt"),
+                    arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
+                    naeringsinntektUtland = getInt("naeringsinntekt_utland"),
+                    tidspunkt = getTimestamp("innsendt").toInstant(),
+                )
+            }
+    }
+
     fun hentInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
-        hentInntektsjusteringer(HENT_FOR_STATUS, status)
+        connection.use {
+            it
+                .prepareStatement(HENT_FOR_STATUS)
+                .apply {
+                    setString(1, status.value)
+                }.executeQuery()
+                .toList {
+                    Pair(
+                        getString("fnr"),
+                        Inntektsjustering(
+                            id = UUID.fromString(getString("id")),
+                            inntektsaar = getInt("inntektsaar"),
+                            arbeidsinntekt = getInt("arbeidsinntekt"),
+                            naeringsinntekt = getInt("naeringsinntekt"),
+                            arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
+                            naeringsinntektUtland = getInt("naeringsinntekt_utland"),
+                            tidspunkt = getTimestamp("innsendt").toInstant(),
+                        ),
+                    )
+                }
+        }
 
     fun lagreInntektsjustering(
         fnr: Foedselsnummer,
@@ -61,6 +106,22 @@ class InntektsjusteringRepository(
             }.execute()
     }
 
+    fun oppdaterInntektsjustering(
+        id: UUID,
+        inntektsjustering: InntektsjusteringLagre,
+    ) = connection.use {
+        it
+            .prepareStatement(OPPDATER)
+            .apply {
+                setInt(1, inntektsjustering.arbeidsinntekt)
+                setInt(2, inntektsjustering.naeringsinntekt)
+                setInt(3, inntektsjustering.arbeidsinntektUtland)
+                setInt(4, inntektsjustering.naeringsinntektUtland)
+                setInt(5, inntektsjustering.inntektsaar)
+                setObject(6, id)
+            }.executeUpdate()
+    }
+
     fun oppdaterStatusForId(
         id: UUID,
         status: PubliserInntektsjusteringStatus,
@@ -72,32 +133,6 @@ class InntektsjusteringRepository(
                 setObject(2, id)
             }.execute()
     }
-
-    private fun hentInntektsjusteringer(
-        query: String,
-        status: PubliserInntektsjusteringStatus,
-    ): List<Pair<String, Inntektsjustering>> =
-        connection.use {
-            it
-                .prepareStatement(query)
-                .apply {
-                    setString(1, status.value)
-                }.executeQuery()
-                .toList {
-                    Pair(
-                        getString("fnr"),
-                        Inntektsjustering(
-                            id = UUID.fromString(getString("id")),
-                            inntektsaar = getInt("inntektsaar"),
-                            arbeidsinntekt = getInt("arbeidsinntekt"),
-                            naeringsinntekt = getInt("naeringsinntekt"),
-                            arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
-                            naeringsinntektUtland = getInt("naeringsinntekt_utland"),
-                            tidspunkt = getTimestamp("innsendt").toInstant(),
-                        ),
-                    )
-                }
-        }
 }
 
 private object Queries {
@@ -105,6 +140,13 @@ private object Queries {
         """
         SELECT * FROM inntektsjustering
         WHERE fnr = ?
+        ORDER BY innsendt DESC
+        """.trimIndent()
+
+    val HENT_FOR_FNR_OG_STATUS =
+        """
+        SELECT * FROM inntektsjustering
+        WHERE fnr = ? AND status = ?
         ORDER BY innsendt DESC
         """.trimIndent()
 
@@ -125,5 +167,17 @@ private object Queries {
         """
         UPDATE inntektsjustering
         SET status = ? WHERE id = ?
+        """.trimIndent()
+
+    val OPPDATER =
+        """
+        UPDATE inntektsjustering
+        SET 
+            arbeidsinntekt = ?,
+            naeringsinntekt = ?,
+            arbeidsinntekt_utland = ?,
+            naeringsinntekt_utland = ?,
+            inntektsaar = ?
+        WHERE id = ?
         """.trimIndent()
 }

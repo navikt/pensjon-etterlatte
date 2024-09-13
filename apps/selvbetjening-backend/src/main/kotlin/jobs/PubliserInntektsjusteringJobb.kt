@@ -25,7 +25,7 @@ class PubliserInntektsjusteringJobb(
 
         return fixedRateTimer(
             name = this.javaClass.simpleName,
-            initialDelay = Duration.of(60, ChronoUnit.MINUTES).toMillis(),
+            initialDelay = Duration.of(24, ChronoUnit.HOURS).toMillis(),
             period = Duration.of(15, ChronoUnit.MINUTES).toMillis(),
         ) {
             runBlocking {

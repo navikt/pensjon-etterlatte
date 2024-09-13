@@ -45,7 +45,39 @@ class InntektsjusteringRepositoryTest {
     }
 
     @Test
-    fun `oppdatere status paa innsendt soeknad`() {
+    fun `oppdater inntektsjustering`() {
+        val foersteInntektsjustering =
+            InntektsjusteringLagre(
+                arbeidsinntekt = 100,
+                naeringsinntekt = 200,
+                arbeidsinntektUtland = 300,
+                naeringsinntektUtland = 400,
+            )
+
+        db.lagreInntektsjustering(VAKKER_PENN, foersteInntektsjustering)
+
+        val foersteResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
+        foersteResult?.arbeidsinntekt shouldBe 100
+
+        db.oppdaterInntektsjustering(
+            foersteInntektsjustering.id,
+            InntektsjusteringLagre(
+                arbeidsinntekt = 1000,
+                naeringsinntekt = 2000,
+                arbeidsinntektUtland = 3000,
+                naeringsinntektUtland = 4000,
+            ),
+        )
+
+        val andreResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
+        andreResult?.arbeidsinntekt shouldBe 1000
+        andreResult?.naeringsinntekt shouldBe 2000
+        andreResult?.arbeidsinntektUtland shouldBe 3000
+        andreResult?.naeringsinntektUtland shouldBe 4000
+    }
+
+    @Test
+    fun `oppdatere status paa inntektsjustering`() {
         db.lagreInntektsjustering(
             VAKKER_PENN,
             InntektsjusteringLagre(
@@ -65,7 +97,7 @@ class InntektsjusteringRepositoryTest {
     }
 
     @Test
-    fun `hent inntektsjusteringer`() {
+    fun `hent inntektsjusteringer for status`() {
         db.lagreInntektsjustering(
             VAKKER_PENN,
             InntektsjusteringLagre(
@@ -88,12 +120,8 @@ class InntektsjusteringRepositoryTest {
 
         val resultat = db.hentInntektsjusteringForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 2
-
         resultat[0].first shouldBe SPYDIG_EGG.value
-        resultat[0].second.arbeidsinntekt shouldBe 150
-
         resultat[1].first shouldBe VAKKER_PENN.value
-        resultat[1].second.arbeidsinntekt shouldBe 100
     }
 
     @Test

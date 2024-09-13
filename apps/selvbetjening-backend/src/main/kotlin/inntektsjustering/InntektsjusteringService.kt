@@ -18,7 +18,17 @@ class InntektsjusteringService(
         fnr: Foedselsnummer,
         request: InntektsjusteringLagre,
     ) {
-        inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
+        val lagretInntektsjustering =
+            inntektsjusteringRepository.hentInntektsjusteringForFnrOgStatus(
+                fnr,
+                PubliserInntektsjusteringStatus.LAGRET,
+            )
+
+        if (lagretInntektsjustering == null) {
+            inntektsjusteringRepository.lagreInntektsjustering(fnr, request)
+        } else {
+            inntektsjusteringRepository.oppdaterInntektsjustering(lagretInntektsjustering.id, request)
+        }
     }
 
     fun oppdaterStatusForId(
