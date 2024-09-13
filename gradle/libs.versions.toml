@@ -8,7 +8,7 @@ ktor-version = "2.3.12"
 jackson-version = "2.17.2"
 jupiter-version = "5.11.0"
 testcontainers-version = "1.20.1"
-flyway-version = "10.17.3"
+flyway-version = "10.18.0"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -43,7 +43,7 @@ logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.16" }
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.8" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.13.3" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.13.4" }
 
 mockk = { module = "io.mockk:mockk", version = "1.13.12" }
 
