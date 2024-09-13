@@ -330,8 +330,8 @@ const mapNaeringsinntekt = (
             naeringsinntektVedDoedsfall: {
                 spoersmaal: t('hadIncomeFromSelfEmployment', { ns: 'aboutTheDeceased' }),
                 svar: {
-                    innhold: t(selfEmployment.selfEmplymentDetails?.incomeAtDeath!, { ns: 'radiobuttons' }),
-                    verdi: selfEmployment.selfEmplymentDetails?.incomeAtDeath!,
+                    innhold: t(selfEmployment.selfEmplymentDetails.incomeAtDeath!, { ns: 'radiobuttons' }),
+                    verdi: selfEmployment.selfEmplymentDetails.incomeAtDeath!,
                 },
             },
         }

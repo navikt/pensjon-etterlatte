@@ -125,18 +125,18 @@ const mapUtbetalingsinfo = (
                               spoersmaal: t('desiredTaxKroner', { ns: 'paymentDetails' }),
                               svar: {
                                   innhold:
-                                      person.paymentDetails?.taxWithhold?.taxPercentage! +
+                                      person.paymentDetails.taxWithhold.taxPercentage! +
                                       ' ' +
-                                      t(person.paymentDetails?.taxWithhold?.type!),
+                                      t(person.paymentDetails.taxWithhold.type!),
                               },
                           }
                         : {
                               spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
                               svar: {
                                   innhold:
-                                      person.paymentDetails?.taxWithhold?.taxPercentage! +
+                                      person.paymentDetails.taxWithhold.taxPercentage! +
                                       ' ' +
-                                      t(person.paymentDetails?.taxWithhold?.type!),
+                                      t(person.paymentDetails.taxWithhold.type!),
                               },
                           },
                 beskrivelse: person.paymentDetails.taxWithhold.description!
@@ -160,7 +160,7 @@ const mapUtbetalingsinfo = (
                 kontonummer: {
                     spoersmaal: t('bankAccount', { ns: 'paymentDetails' }),
                     svar: {
-                        innhold: person.paymentDetails?.bankAccount!,
+                        innhold: person.paymentDetails.bankAccount!,
                     },
                 },
                 skattetrekk,
