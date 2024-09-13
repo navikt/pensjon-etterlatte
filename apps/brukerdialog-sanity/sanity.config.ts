@@ -41,16 +41,4 @@ export default defineConfig([
             types: inntektsjusteringSchemaTypes,
         },
     },
-    {
-        projectId: 'u0dlg8d8',
-        dataset: 'production',
-        name: 'test',
-        title: 'Test',
-        basePath: '/test',
-        plugins: [structureTool(), visionTool()],
-        auth: auth,
-        schema: {
-            types: inntektsjusteringSchemaTypes,
-        },
-    },
 ])
