@@ -8,7 +8,7 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
-    "generate-types": "sanity schema extract && sanity typegen generate && mv sanity.types.ts ../src && rm -rf schema.json",
+    "generer-typer:selvbetjening": "sanity schema extract && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src && rm -rf schema.json",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },

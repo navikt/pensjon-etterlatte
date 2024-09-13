@@ -38,11 +38,6 @@ jobs:
     uses: ./.github/workflows/.test-frontend.yaml
     secrets: inherit
 
-  deploy_sanity:
-    if: github.event_name != 'pull_request'
-    uses: ./.github/workflows/sanity-selvbetjening-ui.yaml
-    secrets: inherit
-
   build_and_deploy:
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/.build-and-deploy-frontend.yaml

@@ -1,14 +1,19 @@
-name: sanity-selvbetjening-ui
+name: brukerdialog-sanity
 
 on:
-  workflow_call:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/brukerdialog-sanity/**
+      - .github/workflows/brukerdialog-sanity.yaml
 
 jobs:
   deploy_sanity_studio:
     runs-on: ubuntu-latest
     env:
       SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN }}
-      SANITY_PROJECT_PATH: /selvbetjening-ui/sanity
     name: Deploy sanity studio
     steps:
       - name: Checkout code
@@ -21,13 +26,13 @@ jobs:
         uses: actions/cache@v4
         id: yarn-cache-webapp
         with:
-          path: apps/${{ env.SANITY_PROJECT_PATH }}/node_modules
+          path: apps/${{ github.workflow }}/node_modules
           key: ${{ hashFiles(format('apps/{0}/yarn.lock',github.workflow)) }}
       - name: Install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        working-directory: apps/${{ env.SANITY_PROJECT_PATH }}
+        working-directory: apps/${{ github.workflow }}
         run: yarn install --frozen-lockfile
       - name: Deploy sanity studio
-        working-directory: apps/${{ env.SANITY_PROJECT_PATH }}
+        working-directory: apps/${{ github.workflow }}
         run: yarn deploy
 
