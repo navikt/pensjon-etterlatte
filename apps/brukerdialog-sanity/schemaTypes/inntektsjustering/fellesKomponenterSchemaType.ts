@@ -174,5 +174,79 @@ export const fellesKomponenterSchemaType = defineType({
                 }),
             ],
         }),
+        defineField({
+            name: 'knappMeny',
+            title: 'Knapp meny',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'sistLagret',
+                    title: 'Sist lagret',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'NB', type: 'string' }),
+                        defineField({ name: 'NN', type: 'string' }),
+                        defineField({ name: 'EN', type: 'string' }),
+                    ],
+                }),
+                defineField({
+                    name: 'knapper',
+                    title: 'Knapper',
+                    type: 'object',
+                    fields: [
+                        defineField({
+                            name: 'forrigeStegKnapp',
+                            title: 'Forrige steg knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
+                        defineField({
+                            name: 'nesteStegKnapp',
+                            title: 'Neste steg knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
+                        defineField({
+                            name: 'sendSoeknadKnapp',
+                            title: 'Send søknad knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
+                        defineField({
+                            name: 'fortsettSenereKnapp',
+                            title: 'Fortsett senere knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
+                        defineField({
+                            name: 'slettSoeknadenKnapp',
+                            title: 'Slett søknaden knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({ name: 'NB', type: 'string' }),
+                                defineField({ name: 'NN', type: 'string' }),
+                                defineField({ name: 'EN', type: 'string' }),
+                            ],
+                        }),
+                    ],
+                }),
+            ],
+        }),
     ],
 })

@@ -5,7 +5,7 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../../sanity.types.ts'
 import { Navigate } from 'react-router-dom'
-import { SkjemaFooter } from '../../common/skjemaFooter/SkjemaFooter.tsx'
+import { KnappMeny } from '../../common/knappMeny/KnappMeny.tsx'
 
 export const InntektsjusteringOppsummering = () => {
     const spraak = useSpraak()
@@ -57,7 +57,7 @@ export const InntektsjusteringOppsummering = () => {
                         </FormSummary.Answers>
                     </FormSummary>
 
-                    <SkjemaFooter tilbakePath="/opprett" nestePath="/kvittering" skalSendeSoeknad />
+                    <KnappMeny tilbakePath="/opprett" nestePath="/kvittering" skalSendeSoeknad />
                 </VStack>
             </HStack>
         )

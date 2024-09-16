@@ -196,6 +196,40 @@ export type FellesKomponenter = {
             }
         }
     }
+    knappMeny?: {
+        sistLagret?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        knapper?: {
+            forrigeStegKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            nesteStegKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            sendSoeknadKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            fortsettSenereKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            slettSoeknadenKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
 }
 
 export type InntektsjusteringOppsummering = {
