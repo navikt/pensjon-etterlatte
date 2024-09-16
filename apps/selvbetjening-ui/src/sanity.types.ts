@@ -322,6 +322,11 @@ export type InnledningTilInntektsjustering = {
             _key: string
         }>
     }
+    startUtfyllingKnapp?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
 }
 
 export type AllSanitySchemaTypes =

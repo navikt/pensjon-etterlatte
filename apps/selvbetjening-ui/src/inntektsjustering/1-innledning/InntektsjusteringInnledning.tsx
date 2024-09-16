@@ -14,7 +14,9 @@ export const InntektsjusteringInnledning = () => {
 
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InnledningTilInntektsjustering>('*[_type == "innledningTilInntektsjustering"]')
+    const { innhold, error, isLoading } = useSanityInnhold<InnledningTilInntektsjustering>(
+        '*[_type == "innledningTilInntektsjustering"]'
+    )
 
     if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
@@ -52,7 +54,7 @@ export const InntektsjusteringInnledning = () => {
                             iconPosition="right"
                             onClick={() => navigate('/inntektsjustering/opprett')}
                         >
-                            Start utfyllingen
+                            {innhold.startUtfyllingKnapp?.[spraak]}
                         </Button>
                     </div>
                 </VStack>
