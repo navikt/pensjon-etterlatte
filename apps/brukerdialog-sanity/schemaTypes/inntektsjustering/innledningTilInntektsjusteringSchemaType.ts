@@ -50,5 +50,15 @@ export const innledningTilInntektsjusteringSchemaType = defineType({
                 defineField({ name: 'EN', type: 'array', of: [{ type: 'block' }] }),
             ],
         }),
+        defineField({
+            name: 'startUtfyllingKnapp',
+            title: 'Start utfylling knapp',
+            type: 'object',
+            fields: [
+                defineField({ name: 'NB', type: 'string' }),
+                defineField({ name: 'NN', type: 'string' }),
+                defineField({ name: 'EN', type: 'string' }),
+            ],
+        }),
     ],
 })
