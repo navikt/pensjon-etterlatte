@@ -3,7 +3,12 @@ import parser from 'body-parser'
 import { NextFunction, Request, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
-import { fellesKomponenterTestBlocks, inntektsjusteringInnledningTestBlocks, testBlocks } from './data/sanityBlocks'
+import {
+    fellesKomponenterTestBlocks,
+    inntektsjusteringInnledningTestBlocks,
+    inntektsjusteringOppsummeringTestBlocks,
+    testBlocks,
+} from './data/sanityBlocks'
 
 const cache = new NodeCache()
 
@@ -43,10 +48,15 @@ export const mockSelvbetjeningApi = (app: any) => {
 
     app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
         const sanityQuery = req.query.sanityQuery
-        if (sanityQuery?.toString().includes('inntektsjusteringInnledning'))
+        if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
             res.send(inntektsjusteringInnledningTestBlocks)
-        else if (sanityQuery?.toString().includes('fellesKomponenter')) res.send(fellesKomponenterTestBlocks)
-        else res.send(testBlocks)
+        } else if (sanityQuery?.toString().includes('inntektsjusteringOppsummering')) {
+            res.send(inntektsjusteringOppsummeringTestBlocks)
+        } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
+            res.send(fellesKomponenterTestBlocks)
+        } else {
+            res.send(testBlocks)
+        }
     })
 
     app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {

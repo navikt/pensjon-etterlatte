@@ -73,7 +73,7 @@ export const OpprettInntektsjustering = () => {
                     />
                 )}
                 <HStack gap="4">
-                    <Button type="button" variant="secondary" onClick={() => navigate('/inntektsjustering')}>
+                    <Button type="button" variant="secondary" onClick={() => navigate('/inntektsjustering/innledning')}>
                         Tilbake
                     </Button>
                     <Button type="submit">Opprett</Button>
