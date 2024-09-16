@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { spraakBlockFields, spraakStringFields } from '../spraak'
 
 export const inntektsjusteringInnledningSchemaType = defineType({
     name: 'inntektsjusteringInnledning',
@@ -14,41 +15,25 @@ export const inntektsjusteringInnledningSchemaType = defineType({
             name: 'hovedinnhold',
             title: 'Hovedinnhold',
             type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'array', of: [{ type: 'block' }] }),
-                defineField({ name: 'NN', type: 'array', of: [{ type: 'block' }] }),
-                defineField({ name: 'EN', type: 'array', of: [{ type: 'block' }] }),
-            ],
+            fields: spraakBlockFields,
         }),
         defineField({
             name: 'info',
             title: 'Info',
             type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'string' }),
-                defineField({ name: 'NN', type: 'string' }),
-                defineField({ name: 'EN', type: 'string' }),
-            ],
+            fields: spraakStringFields,
         }),
         defineField({
             name: 'veiledning',
             title: 'Veiledning',
             type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'array', of: [{ type: 'block' }] }),
-                defineField({ name: 'NN', type: 'array', of: [{ type: 'block' }] }),
-                defineField({ name: 'EN', type: 'array', of: [{ type: 'block' }] }),
-            ],
+            fields: spraakBlockFields,
         }),
         defineField({
             name: 'startUtfyllingKnapp',
             title: 'Start utfylling knapp',
             type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'string' }),
-                defineField({ name: 'NN', type: 'string' }),
-                defineField({ name: 'EN', type: 'string' }),
-            ],
+            fields: spraakStringFields,
         }),
     ],
 })

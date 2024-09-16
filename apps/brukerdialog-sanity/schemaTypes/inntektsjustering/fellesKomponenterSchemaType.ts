@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { spraakStringFields } from '../spraak'
 
 export const fellesKomponenterSchemaType = defineType({
     name: 'fellesKomponenter',
@@ -27,11 +28,7 @@ export const fellesKomponenterSchemaType = defineType({
                         collapsible: true,
                         collapsed: false,
                     },
-                    fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
-                    ],
+                    fields: spraakStringFields,
                 }),
             ],
         }),
@@ -39,11 +36,7 @@ export const fellesKomponenterSchemaType = defineType({
             name: 'skjemaTittel',
             title: 'Skjema tittel',
             type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'string' }),
-                defineField({ name: 'NN', type: 'string' }),
-                defineField({ name: 'EN', type: 'string' }),
-            ],
+            fields: spraakStringFields,
         }),
         defineField({
             name: 'skjemaProgresjon',
@@ -67,11 +60,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 collapsible: true,
                                 collapsed: true,
                             },
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'av',
@@ -81,11 +70,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 collapsible: true,
                                 collapsed: true,
                             },
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                     ],
                 }),
@@ -93,21 +78,13 @@ export const fellesKomponenterSchemaType = defineType({
                     name: 'visAlleSteg',
                     title: 'Vis alle steg',
                     type: 'object',
-                    fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
-                    ],
+                    fields: spraakStringFields,
                 }),
                 defineField({
                     name: 'skjulAlleSteg',
                     title: 'Skjul alle steg',
                     type: 'object',
-                    fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
-                    ],
+                    fields: spraakStringFields,
                 }),
                 defineField({
                     name: 'stegLabels',
@@ -122,11 +99,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 collapsible: true,
                                 collapsed: true,
                             },
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'steg2',
@@ -136,11 +109,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 collapsible: true,
                                 collapsed: true,
                             },
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'steg3',
@@ -150,11 +119,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 collapsible: true,
                                 collapsed: true,
                             },
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'steg4',
@@ -164,11 +129,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 collapsible: true,
                                 collapsed: true,
                             },
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                     ],
                 }),
@@ -183,11 +144,7 @@ export const fellesKomponenterSchemaType = defineType({
                     name: 'sistLagret',
                     title: 'Sist lagret',
                     type: 'object',
-                    fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
-                    ],
+                    fields: spraakStringFields,
                 }),
                 defineField({
                     name: 'knapper',
@@ -198,51 +155,31 @@ export const fellesKomponenterSchemaType = defineType({
                             name: 'forrigeStegKnapp',
                             title: 'Forrige steg knapp',
                             type: 'object',
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'nesteStegKnapp',
                             title: 'Neste steg knapp',
                             type: 'object',
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'sendSoeknadKnapp',
                             title: 'Send søknad knapp',
                             type: 'object',
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'fortsettSenereKnapp',
                             title: 'Fortsett senere knapp',
                             type: 'object',
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                         defineField({
                             name: 'slettSoeknadenKnapp',
                             title: 'Slett søknaden knapp',
                             type: 'object',
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                     ],
                 }),

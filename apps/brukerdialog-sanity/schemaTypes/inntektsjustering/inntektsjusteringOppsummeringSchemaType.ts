@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity'
+import { spraakBlockFields, spraakStringFields } from '../spraak'
 
 export const inntektsjusteringOppsummeringSchemaType = defineType({
     name: 'inntektsjusteringOppsummering',
@@ -14,11 +15,7 @@ export const inntektsjusteringOppsummeringSchemaType = defineType({
             name: 'veiledning',
             title: 'Veiledning',
             type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'array', of: [{ type: 'block' }] }),
-                defineField({ name: 'NN', type: 'array', of: [{ type: 'block' }] }),
-                defineField({ name: 'EN', type: 'array', of: [{ type: 'block' }] }),
-            ],
+            fields: spraakBlockFields,
         }),
         defineField({
             name: 'skjemaSammendrag',
@@ -29,11 +26,7 @@ export const inntektsjusteringOppsummeringSchemaType = defineType({
                     name: 'tittel',
                     title: 'Tittel',
                     type: 'object',
-                    fields: [
-                        defineField({ name: 'NB', type: 'string' }),
-                        defineField({ name: 'NN', type: 'string' }),
-                        defineField({ name: 'EN', type: 'string' }),
-                    ],
+                    fields: spraakStringFields,
                 }),
                 defineField({
                     name: 'endreSvarLenke',
@@ -44,11 +37,7 @@ export const inntektsjusteringOppsummeringSchemaType = defineType({
                             name: 'tekst',
                             title: 'Tekst',
                             type: 'object',
-                            fields: [
-                                defineField({ name: 'NB', type: 'string' }),
-                                defineField({ name: 'NN', type: 'string' }),
-                                defineField({ name: 'EN', type: 'string' }),
-                            ],
+                            fields: spraakStringFields,
                         }),
                     ],
                 }),
