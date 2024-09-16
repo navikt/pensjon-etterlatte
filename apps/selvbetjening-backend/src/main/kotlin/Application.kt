@@ -26,6 +26,7 @@ import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
 import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
+import no.nav.etterlatte.jobs.PubliserInntektsjusteringJobb
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.kafka.TestProdusent
@@ -39,7 +40,9 @@ import no.nav.security.token.support.v2.tokenValidationSupport
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
+import java.util.Timer
 import java.util.UUID
+import java.util.concurrent.atomic.AtomicBoolean
 
 val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
@@ -76,7 +79,6 @@ fun main() {
     val inntektsjusteringService =
         InntektsjusteringService(
             InntektsjusteringRepository(datasourceBuilder.dataSource),
-            rapid,
         )
 
     val rapidApplication =
@@ -90,7 +92,9 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-                // TODO rapids..
+                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService)
+                    .schedule()
+                    .addShutdownHook()
             }
     rapidApplication.start()
 }
@@ -132,3 +136,13 @@ fun Application.apiModule(routes: Route.() -> Unit) {
         }
     }
 }
+
+val shuttingDown: AtomicBoolean = AtomicBoolean(false)
+
+private fun Timer.addShutdownHook() =
+    Runtime.getRuntime().addShutdownHook(
+        Thread {
+            shuttingDown.set(true)
+            this.cancel()
+        },
+    )
