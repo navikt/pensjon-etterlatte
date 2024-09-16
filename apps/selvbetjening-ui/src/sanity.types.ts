@@ -145,6 +145,11 @@ export type FellesKomponenter = {
             EN?: string
         }
     }
+    skjemaTittel?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
     skjemaProgresjon?: {
         stegXAvX?: {
             steg?: {
@@ -200,11 +205,6 @@ export type InnledningTilInntektsjustering = {
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    tittel?: {
-        NB?: string
-        NN?: string
-        EN?: string
-    }
     hovedinnhold?: {
         NB?: Array<{
             children?: Array<{

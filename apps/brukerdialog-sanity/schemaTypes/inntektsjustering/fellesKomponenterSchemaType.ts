@@ -36,6 +36,16 @@ export const fellesKomponenterSchemaType = defineType({
             ],
         }),
         defineField({
+            name: 'skjemaTittel',
+            title: 'Skjema tittel',
+            type: 'object',
+            fields: [
+                defineField({ name: 'NB', type: 'string' }),
+                defineField({ name: 'NN', type: 'string' }),
+                defineField({ name: 'EN', type: 'string' }),
+            ],
+        }),
+        defineField({
             name: 'skjemaProgresjon',
             title: 'Skjema progresjon',
             type: 'object',

@@ -21,7 +21,7 @@ const router = createBrowserRouter(
                 { path: '/', element: <Landing /> },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
-                    path: '/inntektsjustering',
+                    path: '/inntektsjustering/innledning',
                     element: <InntektsjusteringInnledning />,
                 },
                 {

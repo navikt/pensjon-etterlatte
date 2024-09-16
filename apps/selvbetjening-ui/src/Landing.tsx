@@ -8,7 +8,7 @@ export const Landing = () => {
         <VStack gap="4" align="center">
             <Heading size="xlarge">Velkommen til selvbetjening!</Heading>
             <div>
-                <Button onClick={() => navigate('/inntektsjustering')}>Til inntektsjustering</Button>
+                <Button onClick={() => navigate('/inntektsjustering/innledning')}>Til inntektsjustering</Button>
             </div>
         </VStack>
     )

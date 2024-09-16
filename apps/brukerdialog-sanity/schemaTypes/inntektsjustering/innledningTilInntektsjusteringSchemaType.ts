@@ -11,16 +11,6 @@ export const innledningTilInntektsjusteringSchemaType = defineType({
             type: 'string',
         }),
         defineField({
-            name: 'tittel',
-            title: 'Tittel',
-            type: 'object',
-            fields: [
-                defineField({ name: 'NB', type: 'string' }),
-                defineField({ name: 'NN', type: 'string' }),
-                defineField({ name: 'EN', type: 'string' }),
-            ],
-        }),
-        defineField({
             name: 'hovedinnhold',
             title: 'Hovedinnhold',
             type: 'object',
