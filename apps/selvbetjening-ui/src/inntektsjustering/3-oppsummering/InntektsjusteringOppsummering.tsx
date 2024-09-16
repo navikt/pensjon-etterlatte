@@ -36,6 +36,13 @@ export const InntektsjusteringOppsummering = () => {
                                 {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
                             </FormSummary.EditLink>
                         </FormSummary.Header>
+                        {/* Hva som skal stå i disse har ikke blitt landet enda, så lar vær så lenge å lage sanity schemaer for det*/}
+                        <FormSummary.Answers>
+                            <FormSummary.Answer>
+                                <FormSummary.Label>Hva slags type inntekt har du?</FormSummary.Label>
+                                <FormSummary.Value>Næringsinntekt</FormSummary.Value>
+                            </FormSummary.Answer>
+                        </FormSummary.Answers>
                     </FormSummary>
                 </VStack>
             </HStack>
