@@ -10,6 +10,7 @@ import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
 import { InntektsjusteringInnledning } from './inntektsjustering/1-innledning/InntektsjusteringInnledning.tsx'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
+import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummering/InntektsjusteringOppsummering.tsx'
 
 const router = createBrowserRouter(
     [
@@ -26,6 +27,10 @@ const router = createBrowserRouter(
                 {
                     path: '/inntektsjustering/opprett',
                     element: <OpprettInntektsjustering />,
+                },
+                {
+                    path: '/inntektsjustering/oppsummering',
+                    element: <InntektsjusteringOppsummering />,
                 },
                 {
                     path: '/inntektsjustering/kvittering',

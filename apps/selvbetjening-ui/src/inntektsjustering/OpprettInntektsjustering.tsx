@@ -30,7 +30,7 @@ export const OpprettInntektsjustering = () => {
             naeringsinntektUtland: data.naeringsinntektUtland ?? 0,
         }
         await trigger(inntektsjustering)
-        navigate('/inntektsjustering/kvittering', { state: { inntektsjustering } })
+        navigate('/inntektsjustering/oppsummering', { state: { inntektsjustering } })
     }
 
     return (
