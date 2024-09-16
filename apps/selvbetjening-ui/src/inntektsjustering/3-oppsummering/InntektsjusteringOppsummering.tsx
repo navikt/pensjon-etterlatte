@@ -57,7 +57,7 @@ export const InntektsjusteringOppsummering = () => {
                         </FormSummary.Answers>
                     </FormSummary>
 
-                    <SkjemaFooter />
+                    <SkjemaFooter tilbakePath="/opprett" nestePath="/kvittering" skalSendeSoeknad />
                 </VStack>
             </HStack>
         )
