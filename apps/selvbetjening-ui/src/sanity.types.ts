@@ -145,6 +145,11 @@ export type FellesKomponenter = {
             EN?: string
         }
     }
+    skjemaTittel?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
     skjemaProgresjon?: {
         stegXAvX?: {
             steg?: {
@@ -191,20 +196,128 @@ export type FellesKomponenter = {
             }
         }
     }
+    navigasjonMeny?: {
+        sistLagret?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        knapper?: {
+            forrigeStegKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            nesteStegKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            sendSoeknadKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            fortsettSenereKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            slettSoeknadenKnapp?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
 }
 
-export type InnledningTilInntektsjustering = {
+export type InntektsjusteringOppsummering = {
     _id: string
-    _type: 'innledningTilInntektsjustering'
+    _type: 'inntektsjusteringOppsummering'
     _createdAt: string
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    tittel?: {
-        NB?: string
-        NN?: string
-        EN?: string
+    veiledning?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
     }
+    skjemaSammendrag?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        endreSvarLenke?: {
+            tekst?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+}
+
+export type InntektsjusteringInnledning = {
+    _id: string
+    _type: 'inntektsjusteringInnledning'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
     hovedinnhold?: {
         NB?: Array<{
             children?: Array<{
@@ -342,5 +455,6 @@ export type AllSanitySchemaTypes =
     | Slug
     | SanityAssetSourceData
     | FellesKomponenter
-    | InnledningTilInntektsjustering
+    | InntektsjusteringOppsummering
+    | InntektsjusteringInnledning
 export declare const internalGroqTypeReferenceTo: unique symbol

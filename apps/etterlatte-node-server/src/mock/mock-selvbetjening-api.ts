@@ -5,7 +5,8 @@ import config from '../config'
 import NodeCache from 'node-cache'
 import {
     fellesKomponenterTestBlocks,
-    innledningTilInntektsjusteringTestBlocks,
+    inntektsjusteringInnledningTestBlocks,
+    inntektsjusteringOppsummeringTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
 
@@ -47,10 +48,15 @@ export const mockSelvbetjeningApi = (app: any) => {
 
     app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
         const sanityQuery = req.query.sanityQuery
-        if (sanityQuery?.toString().includes('innledningTilInntektsjustering'))
-            res.send(innledningTilInntektsjusteringTestBlocks)
-        else if (sanityQuery?.toString().includes('fellesKomponenter')) res.send(fellesKomponenterTestBlocks)
-        else res.send(testBlocks)
+        if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
+            res.send(inntektsjusteringInnledningTestBlocks)
+        } else if (sanityQuery?.toString().includes('inntektsjusteringOppsummering')) {
+            res.send(inntektsjusteringOppsummeringTestBlocks)
+        } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
+            res.send(fellesKomponenterTestBlocks)
+        } else {
+            res.send(testBlocks)
+        }
     })
 
     app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
