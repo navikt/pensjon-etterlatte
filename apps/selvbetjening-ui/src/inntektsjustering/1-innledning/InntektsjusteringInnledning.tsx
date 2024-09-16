@@ -4,16 +4,16 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InnledningTilInntektsjustering } from '../../sanity.types.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { InntektsjusteringInnledning as InntektsjusteringInnledningInnhold } from '../../sanity.types.ts'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InnledningTilInntektsjustering>(
-        '*[_type == "innledningTilInntektsjustering"]'
+    const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringInnledningInnhold>(
+        '*[_type == "inntektsjusteringInnledning"]'
     )
 
     if (error && !isLoading) {

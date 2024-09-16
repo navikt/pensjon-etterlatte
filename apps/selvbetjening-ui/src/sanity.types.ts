@@ -198,9 +198,9 @@ export type FellesKomponenter = {
     }
 }
 
-export type InnledningTilInntektsjustering = {
+export type InntektsjusteringInnledning = {
     _id: string
-    _type: 'innledningTilInntektsjustering'
+    _type: 'inntektsjusteringInnledning'
     _createdAt: string
     _updatedAt: string
     _rev: string
@@ -342,5 +342,5 @@ export type AllSanitySchemaTypes =
     | Slug
     | SanityAssetSourceData
     | FellesKomponenter
-    | InnledningTilInntektsjustering
+    | InntektsjusteringInnledning
 export declare const internalGroqTypeReferenceTo: unique symbol
