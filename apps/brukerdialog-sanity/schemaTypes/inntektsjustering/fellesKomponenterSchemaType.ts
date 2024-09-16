@@ -136,8 +136,8 @@ export const fellesKomponenterSchemaType = defineType({
             ],
         }),
         defineField({
-            name: 'knappMeny',
-            title: 'Knapp meny',
+            name: 'navigasjonMeny',
+            title: 'Navigasjon meny',
             type: 'object',
             fields: [
                 defineField({

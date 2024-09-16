@@ -11,7 +11,7 @@ interface Props {
     skalSendeSoeknad?: boolean
 }
 
-export const KnappMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) => {
+export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
@@ -24,7 +24,7 @@ export const KnappMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) =
         !!innhold && (
             <VStack gap="4">
                 <BodyShort as="div" size="small" textColor="subtle">
-                    {innhold.knappMeny?.sistLagret?.[spraak]}: 10. mars 2024 kl. 13.55
+                    {innhold.navigasjonMeny?.sistLagret?.[spraak]}: 10. mars 2024 kl. 13.55
                 </BodyShort>
                 <HGrid gap={{ xs: '4', sm: '8 4' }} columns={{ xs: 1, sm: 2 }} width={{ sm: 'fit-content' }}>
                     <Button
@@ -33,7 +33,7 @@ export const KnappMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) =
                         iconPosition="left"
                         onClick={() => navigate(`/inntektsjustering/${tilbakePath}`)}
                     >
-                        {innhold.knappMeny?.knapper?.forrigeStegKnapp?.[spraak]}
+                        {innhold.navigasjonMeny?.knapper?.forrigeStegKnapp?.[spraak]}
                     </Button>
                     <Button
                         variant="primary"
@@ -42,17 +42,17 @@ export const KnappMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) =
                         onClick={() => navigate(`/inntektsjustering/${nestePath}`)}
                     >
                         {skalSendeSoeknad
-                            ? innhold.knappMeny?.knapper?.sendSoeknadKnapp?.[spraak]
-                            : innhold.knappMeny?.knapper?.nesteStegKnapp?.[spraak]}
+                            ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]
+                            : innhold.navigasjonMeny?.knapper?.nesteStegKnapp?.[spraak]}
                     </Button>
 
                     <Box asChild marginBlock={{ xs: '4 0', sm: '0' }}>
                         <Button variant="tertiary" icon={<FloppydiskIcon aria-hidden />} iconPosition="left">
-                            {innhold.knappMeny?.knapper?.fortsettSenereKnapp?.[spraak]}
+                            {innhold.navigasjonMeny?.knapper?.fortsettSenereKnapp?.[spraak]}
                         </Button>
                     </Box>
                     <Button variant="tertiary" icon={<TrashIcon aria-hidden />} iconPosition="left">
-                        {innhold.knappMeny?.knapper?.slettSoeknadenKnapp?.[spraak]}
+                        {innhold.navigasjonMeny?.knapper?.slettSoeknadenKnapp?.[spraak]}
                     </Button>
                 </HGrid>
             </VStack>

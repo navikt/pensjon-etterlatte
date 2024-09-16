@@ -196,7 +196,7 @@ export type FellesKomponenter = {
             }
         }
     }
-    knappMeny?: {
+    navigasjonMeny?: {
         sistLagret?: {
             NB?: string
             NN?: string
