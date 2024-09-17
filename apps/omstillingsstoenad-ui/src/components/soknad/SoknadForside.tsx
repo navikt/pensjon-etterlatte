@@ -93,121 +93,145 @@ const SoknadForside = () => {
 
             <SkjemaGruppe>
                 <Heading size={'small'}>{t('forside.barnepensjon.tittel')}</Heading>
-
                 <BodyLong spacing>{t('forside.barnepensjon.innhold')}</BodyLong>
+                <Heading size={'small'}>{t('forside.utfyllingAvSoeknad.tittel')}</Heading>
+                <BodyLong spacing>{t('forside.utfyllingAvSoeknad.innhold')}</BodyLong>
 
-                <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')}>
-                    <ExpansionCard.Header>
-                        <ExpansionCard.Title as={'h2'} size={'small'}>
-                            {t('forside.omSoeknaden.personvern')}
-                        </ExpansionCard.Title>
-                    </ExpansionCard.Header>
-                    <ExpansionCard.Content>
-                        <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
-                        <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
+                <SkjemaElement>
+                    <ExpansionCard aria-label={t('forside.klartFoerSoeknad.tittel')} size="small">
+                        <ExpansionCard.Header>
+                            <ExpansionCard.Title as={'h2'} size={'small'}>
+                                {t('forside.klartFoerSoeknad.tittel')}
+                            </ExpansionCard.Title>
+                        </ExpansionCard.Header>
+                        <ExpansionCard.Content>
+                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.fnr.tittel')}</Heading>
+                            <BodyLong spacing>{t('forside.klartFoerSoeknad.fnr.innhold')}</BodyLong>
 
-                        <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
-                            <List as={'ul'}>
-                                <ListItemWithIndent>
-                                    {t('forside.innsamlingAvInfo.innholdListe.li1')}
-                                </ListItemWithIndent>
-                                <ListItemWithIndent>
-                                    {t('forside.innsamlingAvInfo.innholdListe.li2')}
-                                </ListItemWithIndent>
-                                <ListItemWithIndent>
-                                    {t('forside.innsamlingAvInfo.innholdListe.li3')}
-                                </ListItemWithIndent>
-                            </List>
-                        </SkjemaElement>
+                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.oppholdUtland.tittel')}</Heading>
+                            <BodyLong spacing>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del1')}</BodyLong>
+                            <BodyLong spacing>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del2')}</BodyLong>
 
-                        <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
-                        <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
+                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.arbeidsinntekt.tittel')}</Heading>
+                            <BodyLong>{t('forside.klartFoerSoeknad.arbeidsinntekt.innhold')}</BodyLong>
+                        </ExpansionCard.Content>
+                    </ExpansionCard>
+                </SkjemaElement>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li4')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li5')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li6')}</ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
-                            </ListItemWithIndent>
-                        </List>
+                <SkjemaElement>
+                    <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')} size="small">
+                        <ExpansionCard.Header>
+                            <ExpansionCard.Title as={'h2'} size={'small'}>
+                                {t('forside.omSoeknaden.personvern')}
+                            </ExpansionCard.Title>
+                        </ExpansionCard.Header>
+                        <ExpansionCard.Content>
+                            <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
+                            <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
 
-                        <SkjemaElement>
-                            <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
-                        </SkjemaElement>
-
-                        <SkjemaElement>
-                            <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
-
-                            <List as={'ul'}>
-                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li1')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li2')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li3')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.personvern.tredjeperson.li4')}</ListItemWithIndent>
-                            </List>
-                        </SkjemaElement>
-
-                        <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
-                            <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
-                        </SkjemaElement>
-
-                        <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
-                            <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
-                        </SkjemaElement>
-
-                        <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
-                            <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
                             <SkjemaElement>
+                                <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
+                                <List as={'ul'}>
+                                    <ListItemWithIndent>
+                                        {t('forside.innsamlingAvInfo.innholdListe.li1')}
+                                    </ListItemWithIndent>
+                                    <ListItemWithIndent>
+                                        {t('forside.innsamlingAvInfo.innholdListe.li2')}
+                                    </ListItemWithIndent>
+                                    <ListItemWithIndent>
+                                        {t('forside.innsamlingAvInfo.innholdListe.li3')}
+                                    </ListItemWithIndent>
+                                </List>
+                            </SkjemaElement>
+
+                            <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
+                            <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
+
+                            <List as={'ul'}>
+                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li1')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li2')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li3')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li4')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li5')}</ListItemWithIndent>
+                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li6')}</ListItemWithIndent>
+                                <ListItemWithIndent>
+                                    <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
+                                </ListItemWithIndent>
+                            </List>
+
+                            <SkjemaElement>
+                                <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
+                            </SkjemaElement>
+
+                            <SkjemaElement>
+                                <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
+
+                                <List as={'ul'}>
+                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li1')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li2')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li3')}</ListItemWithIndent>
+                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li4')}</ListItemWithIndent>
+                                </List>
+                            </SkjemaElement>
+
+                            <SkjemaElement>
+                                <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
+                                <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
+                            </SkjemaElement>
+
+                            <SkjemaElement>
+                                <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
+                                <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
+                            </SkjemaElement>
+
+                            <SkjemaElement>
+                                <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
+                                <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
+                                <SkjemaElement>
+                                    <BodyLong>
+                                        {t('forside.automatiskbehandling.innhold2.del1')}
+                                        <Link href={t('forside.automatiskbehandling.innhold2.lenke.href')} inlineText>
+                                            {t('forside.automatiskbehandling.innhold2.lenke.tekst')}
+                                        </Link>
+                                        {t('forside.automatiskbehandling.innhold2.del2')}
+                                    </BodyLong>
+                                </SkjemaElement>
+                                <SkjemaElement>
+                                    <BodyLong>{t('forside.automatiskbehandling.innhold3')}</BodyLong>
+                                </SkjemaElement>
+                                <SkjemaElement>
+                                    <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
+                                </SkjemaElement>
+
+                                <List as={'ul'}>
+                                    <ListItemWithIndent>
+                                        {t('forside.automatiskbehandling.innholdListe.li1')}
+                                    </ListItemWithIndent>
+                                    <ListItemWithIndent>
+                                        {t('forside.automatiskbehandling.innholdListe.li2')}
+                                    </ListItemWithIndent>
+                                    <ListItemWithIndent>
+                                        {t('forside.automatiskbehandling.innholdListe.li3')}
+                                    </ListItemWithIndent>
+                                    <ListItemWithIndent>
+                                        {t('forside.automatiskbehandling.innholdListe.li4')}
+                                    </ListItemWithIndent>
+                                </List>
+
+                                <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
+                            </SkjemaElement>
+
+                            <SkjemaElement>
+                                <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
+
                                 <BodyLong>
-                                    {t('forside.automatiskbehandling.innhold2.del1')}
-                                    <Link href={t('forside.automatiskbehandling.innhold2.lenke.href')} inlineText>
-                                        {t('forside.automatiskbehandling.innhold2.lenke.tekst')}
-                                    </Link>
-                                    {t('forside.automatiskbehandling.innhold2.del2')}
+                                    {t('forside.personvern.innhold')}
+                                    <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
                                 </BodyLong>
                             </SkjemaElement>
-                            <SkjemaElement>
-                                <BodyLong>{t('forside.automatiskbehandling.innhold3')}</BodyLong>
-                            </SkjemaElement>
-                            <SkjemaElement>
-                                <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
-                            </SkjemaElement>
-
-                            <List as={'ul'}>
-                                <ListItemWithIndent>
-                                    {t('forside.automatiskbehandling.innholdListe.li1')}
-                                </ListItemWithIndent>
-                                <ListItemWithIndent>
-                                    {t('forside.automatiskbehandling.innholdListe.li2')}
-                                </ListItemWithIndent>
-                                <ListItemWithIndent>
-                                    {t('forside.automatiskbehandling.innholdListe.li3')}
-                                </ListItemWithIndent>
-                                <ListItemWithIndent>
-                                    {t('forside.automatiskbehandling.innholdListe.li4')}
-                                </ListItemWithIndent>
-                            </List>
-
-                            <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
-                        </SkjemaElement>
-
-                        <SkjemaElement>
-                            <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
-
-                            <BodyLong>
-                                {t('forside.personvern.innhold')}
-                                <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
-                            </BodyLong>
-                        </SkjemaElement>
-                    </ExpansionCard.Content>
-                </ExpansionCard>
+                        </ExpansionCard.Content>
+                    </ExpansionCard>
+                </SkjemaElement>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
