@@ -46,7 +46,7 @@ export default {
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese mer om omstillingsstønad.',
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
-        'Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
+        'I denne søknaden kan du også søke om barnepensjon. Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
     'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden',
     'forside.utfyllingAvSoeknad.innhold':
         'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake for å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
@@ -59,6 +59,9 @@ export default {
         'Vi trenger å vite om avdøde har oppholdt seg i andre land enn Norge. Du må svare på hvilket land avdøde har bodd og/eller arbeidet i og om avdøde var medlem av folketrygden under oppholdet.',
     'forside.klartFoerSoeknad.oppholdUtland.innhold.del2':
         'I tillegg spør vi om hvilke perioder avdøde har bodd og/eller arbeidet i utlandet og om avdøde har hatt pensjonsutbetaling fra dette landet. Er du usikker på datoer eller beløp, fyller du ut så godt du kan.',
+    'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Din arbeidsinntekt',
+    'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
+        'For å kunne beregne riktig omstillingsstønad trenger vi informasjon om din arbeidsinntekt. Er du født før 1964 trenger vi informasjon om inntekten din i året før den avdødes dødsfall. Du må oppgi brutto inntekt, det vil si inntekt før skatt. Du finner brutto inntekt på lønnsslippen din.',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysninger i søknaden',
     'forside.slikBehandlerVi.tittel': 'Slik behandler NAV personopplysningene dine',
     'forside.slikBehandlerVi.innhold':

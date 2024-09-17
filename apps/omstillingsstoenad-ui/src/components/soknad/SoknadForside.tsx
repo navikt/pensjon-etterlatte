@@ -98,7 +98,7 @@ const SoknadForside = () => {
                 <BodyLong spacing>{t('forside.utfyllingAvSoeknad.innhold')}</BodyLong>
 
                 <SkjemaElement>
-                    <ExpansionCard aria-label={t('forside.klartFoerSoeknad.tittel')}>
+                    <ExpansionCard aria-label={t('forside.klartFoerSoeknad.tittel')} size="small">
                         <ExpansionCard.Header>
                             <ExpansionCard.Title as={'h2'} size={'small'}>
                                 {t('forside.klartFoerSoeknad.tittel')}
@@ -110,13 +110,16 @@ const SoknadForside = () => {
 
                             <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.oppholdUtland.tittel')}</Heading>
                             <BodyLong spacing>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del1')}</BodyLong>
-                            <BodyLong>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del2')}</BodyLong>
+                            <BodyLong spacing>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del2')}</BodyLong>
+
+                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.arbeidsinntekt.tittel')}</Heading>
+                            <BodyLong>{t('forside.klartFoerSoeknad.arbeidsinntekt.innhold')}</BodyLong>
                         </ExpansionCard.Content>
                     </ExpansionCard>
                 </SkjemaElement>
 
                 <SkjemaElement>
-                    <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')}>
+                    <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')} size="small">
                         <ExpansionCard.Header>
                             <ExpansionCard.Title as={'h2'} size={'small'}>
                                 {t('forside.omSoeknaden.personvern')}

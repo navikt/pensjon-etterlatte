@@ -30,11 +30,11 @@ export default {
     'knapp.nei': 'No, go back',
     'forside.tittel': 'Apply for adjustment allowance',
     'forside.ingress':
-        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how you should answer some questions about the coming months. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.',
+        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how to answer some questions about the coming months. Answer as good as you can based on your current situation. You can always notify us about any changes that occur later.',
     'forside.startSoeknad': 'Start the application',
     'forside.infoOmUtvikling': 'The application may be unstable from February 9th to February 12th.',
     'forside.omYtelsene.innhold':
-        'If your spouse, partner or cohabitant has died, you may be entitled to a survivor’s pension or transitional benefit for survivors.',
+        'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',
     'forside.omYtelsene.innhold.li1':
         'The objective of this support scheme is to ensure income and assist you in being self-reliant during a transitional period after the death',
     'forside.omYtelsene.innhold.li2':
@@ -46,16 +46,22 @@ export default {
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about survivor’s pension',
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
-        'If you have a joint child under the age of 18 with the deceased, the child(ren) may be entitled to a children’s pension.',
-    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden', // Trenger oversettelse
+        "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
+    'forside.utfyllingAvSoeknad.tittel': 'Filling in the application',
     'forside.utfyllingAvSoeknad.innhold':
         'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
-    'forside.klartFoerSoeknad.tittel': '',
-    'forside.klartFoerSoeknad.fnr.tittel': '',
-    'forside.klartFoerSoeknad.fnr.innhold': '',
-    'forside.klartFoerSoeknad.oppholdUtland.tittel': '',
-    'forside.klartFoerSoeknad.oppholdUtland.innhold.del1': '',
-    'forside.klartFoerSoeknad.oppholdUtland.innhold.del2': '',
+    'forside.klartFoerSoeknad.tittel': 'Please have this information available before you apply',
+    'forside.klartFoerSoeknad.fnr.tittel': 'National identity number',
+    'forside.klartFoerSoeknad.fnr.innhold':
+        'We need the names and national identity numbers for everyone listed on the application. If you do not know the national identity number for one or more persons on the application, you can state their date of birth. The application process will take more time if you only provide the date of birth.',
+    'forside.klartFoerSoeknad.oppholdUtland.tittel': 'If the deceased was living abroad',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del1':
+        ' We need to know whether the deceased has lived or worked outside of Norway. We need to know which countries the deceased was living and/or working in, and whether the deceased was a member of the Norwegian National Insurance Scheme during his or her stay abroad.',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del2':
+        ' We also need to know the dates/periods in which the deceased has lived and/or worked abroad, and whether the deceased has received any pension/retirement payments from those countries. If you are uncertain about any dates or amounts, please provide as much information as you can.',
+    'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Your income from work',
+    'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
+        ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
     'forside.slikBehandlerVi.tittel': 'How NAV processes your personal data',
     'forside.slikBehandlerVi.innhold':
