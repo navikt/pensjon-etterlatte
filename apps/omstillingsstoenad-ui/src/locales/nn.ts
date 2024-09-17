@@ -43,7 +43,7 @@ export default {
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad.',
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'I denne søknaden kan du også søkje om barnepensjon. Dersom du har felles barn under 18 år med avdøde, kan barnet eller barna ha rett på barnepensjon.',

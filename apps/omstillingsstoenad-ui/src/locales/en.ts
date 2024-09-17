@@ -43,7 +43,7 @@ export default {
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about survivor’s pension',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about adjustment allowance.',
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
         "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
