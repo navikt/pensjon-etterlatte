@@ -46,7 +46,20 @@ export const inntektsjusteringKvitteringSchemaType = defineType({
             name: 'gaaTilNAVKnapp',
             title: 'Gå til nav knapp',
             type: 'object',
-            fields: spraakStringFields,
+            fields: [
+                defineField({
+                    name: 'tekst',
+                    title: 'Tekst',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+                defineField({
+                    name: 'lenke',
+                    title: 'Lenke',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+            ],
         }),
     ],
 })

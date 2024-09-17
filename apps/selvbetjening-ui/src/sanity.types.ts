@@ -364,9 +364,16 @@ export type InntektsjusteringKvittering = {
         }
     }
     gaaTilNAVKnapp?: {
-        NB?: string
-        NN?: string
-        EN?: string
+        tekst?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        lenke?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
     }
 }
 

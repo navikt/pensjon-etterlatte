@@ -46,9 +46,9 @@ export const InntektsjusteringKvittering = () => {
                             icon={<ArrowRightIcon aria-hidden />}
                             iconPosition="right"
                             rel="noopener noreferrer"
-                            href="https://www.nav.no"
+                            href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
                         >
-                            {innhold.gaaTilNAVKnapp?.[spraak]}
+                            {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
                         </Button>
                     </div>
                 </VStack>
