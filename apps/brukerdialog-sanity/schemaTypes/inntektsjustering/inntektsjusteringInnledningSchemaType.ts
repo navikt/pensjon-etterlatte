@@ -3,7 +3,7 @@ import { spraakBlockFields, spraakStringFields } from '../spraak'
 
 export const inntektsjusteringInnledningSchemaType = defineType({
     name: 'inntektsjusteringInnledning',
-    title: 'Innledning til inntektsjustering',
+    title: '1 - Innledning til inntektsjustering',
     type: 'document',
     fields: [
         defineField({
