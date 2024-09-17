@@ -232,6 +232,144 @@ export type FellesKomponenter = {
     }
 }
 
+export type InntektsjusteringKvittering = {
+    _id: string
+    _type: 'inntektsjusteringKvittering'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    tittel?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+    suksess?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+    }
+    info?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        beskrivelse?: {
+            NB?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+            NN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+            EN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+        }
+    }
+    gaaTilNAVKnapp?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+}
+
 export type InntektsjusteringOppsummering = {
     _id: string
     _type: 'inntektsjusteringOppsummering'
@@ -455,6 +593,7 @@ export type AllSanitySchemaTypes =
     | Slug
     | SanityAssetSourceData
     | FellesKomponenter
+    | InntektsjusteringKvittering
     | InntektsjusteringOppsummering
     | InntektsjusteringInnledning
 export declare const internalGroqTypeReferenceTo: unique symbol

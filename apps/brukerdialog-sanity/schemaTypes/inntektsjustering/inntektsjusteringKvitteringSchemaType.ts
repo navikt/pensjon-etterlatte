@@ -21,7 +21,7 @@ export const inntektsjusteringKvitteringSchemaType = defineType({
             name: 'suksess',
             title: 'Suksess',
             type: 'object',
-            fields: spraakStringFields,
+            fields: spraakBlockFields,
         }),
         defineField({
             name: 'info',
