@@ -4,7 +4,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-brKelq epGfWk"
+      class="sc-jtQUzJ kIGLYq"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -13,7 +13,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -103,10 +103,10 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-fmSBHF ccNjZl"
+      class="sc-eOzmre fBzGck"
     >
       <div
-        class="sc-brKelq epGfWk"
+        class="sc-jtQUzJ kIGLYq"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -115,7 +115,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-ktEKgv dXJRJn"
+        class="sc-cEzcPc einPMM"
         id="inntektstyper"
       >
         <fieldset
@@ -370,7 +370,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -378,7 +378,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-brKelq epGfWk"
+        class="sc-jtQUzJ kIGLYq"
       >
         <div
           id="ytelserNAV.svar"
@@ -468,7 +468,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -476,7 +476,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-brKelq epGfWk"
+        class="sc-jtQUzJ kIGLYq"
       >
         <div
           id="ytelserAndre.svar"
@@ -566,10 +566,10 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <div
-        class="sc-gueXAH cTNYLi undefined"
+        class="sc-gtLWhw bxiLjI undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -594,7 +594,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gueXAH sc-dmqGRC cTNYLi iYfIhT"
+      class="sc-gtLWhw sc-egkSDF bxiLjI jLlWyu"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -664,7 +664,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsMaUZ dKSyDF"
+          class="sc-dstKZu bDvNoD"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -692,7 +692,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsMaUZ dKSyDF"
+          class="sc-dstKZu bDvNoD"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -717,7 +717,7 @@ exports[`Inntekten din > Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-brKelq epGfWk"
+      class="sc-jtQUzJ kIGLYq"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -726,7 +726,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -816,10 +816,10 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-fmSBHF ccNjZl"
+      class="sc-eOzmre fBzGck"
     >
       <div
-        class="sc-brKelq epGfWk"
+        class="sc-jtQUzJ kIGLYq"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -828,7 +828,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-ktEKgv dXJRJn"
+        class="sc-cEzcPc einPMM"
         id="inntektstyper"
       >
         <fieldset
@@ -1083,7 +1083,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1091,7 +1091,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-brKelq epGfWk"
+        class="sc-jtQUzJ kIGLYq"
       >
         <div
           id="ytelserNAV.svar"
@@ -1181,7 +1181,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1189,7 +1189,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-brKelq epGfWk"
+        class="sc-jtQUzJ kIGLYq"
       >
         <div
           id="ytelserAndre.svar"
@@ -1279,10 +1279,10 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <div
-        class="sc-gueXAH cTNYLi undefined"
+        class="sc-gtLWhw bxiLjI undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1307,7 +1307,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gueXAH sc-dmqGRC cTNYLi iYfIhT"
+      class="sc-gtLWhw sc-egkSDF bxiLjI jLlWyu"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1377,7 +1377,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsMaUZ dKSyDF"
+          class="sc-dstKZu bDvNoD"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1405,7 +1405,7 @@ exports[`Inntekten din > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsMaUZ dKSyDF"
+          class="sc-dstKZu bDvNoD"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
