@@ -3,7 +3,7 @@
 exports[`Om den avdøde > Snapshot 1`] = `
 <div>
   <div
-    class="sc-hAtFlw bQVbwr"
+    class="sc-ovuCP iUitbz"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -15,7 +15,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
     autocomplete="on"
   >
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <div
         class="navds-hgrid navds-hgrid-gap navds-hgrid-align"
@@ -71,7 +71,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hAtFlw bQVbwr"
+        class="sc-ovuCP iUitbz"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -169,7 +169,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         style="--__ac-r-maxw-xs: 14rem;"
       >
         <div
-          class="sc-hAtFlw bQVbwr"
+          class="sc-ovuCP iUitbz"
         >
           <div
             id="statsborgerskap"
@@ -273,10 +273,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-hAtFlw bQVbwr"
+        class="sc-ovuCP iUitbz"
       >
         <section
-          class="sc-fbJSV cxDVig"
+          class="sc-cHqXqK RJENY"
         >
           <div
             class="navds-date__wrapper"
@@ -1319,7 +1319,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1332,7 +1332,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.doedsfallAarsakHvorfor
       </p>
       <div
-        class="sc-hAtFlw bQVbwr"
+        class="sc-ovuCP iUitbz"
       >
         <div
           id="doedsfallAarsak"
@@ -1444,7 +1444,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1457,7 +1457,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.boddEllerJobbetUtland.ingress
       </p>
       <div
-        class="sc-hAtFlw bQVbwr"
+        class="sc-ovuCP iUitbz"
       >
         <div
           id="boddEllerJobbetUtland.svar"
@@ -1569,7 +1569,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1582,7 +1582,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.selvstendigNaeringsdrivende.ingress
       </p>
       <div
-        class="sc-hAtFlw bQVbwr"
+        class="sc-ovuCP iUitbz"
       >
         <div
           id="selvstendigNaeringsdrivende.svar"
@@ -1694,10 +1694,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-beqWNU hTYxft"
+      class="sc-blHHSb hqrzOP"
     >
       <div
-        class="sc-gueXAH cTNYLi undefined"
+        class="sc-gtLWhw bxiLjI undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1722,7 +1722,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gueXAH sc-dmqGRC cTNYLi iYfIhT"
+      class="sc-gtLWhw sc-egkSDF bxiLjI jLlWyu"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1792,7 +1792,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-jsMaUZ dKSyDF"
+          class="sc-dstKZu bDvNoD"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1820,7 +1820,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-jsMaUZ dKSyDF"
+          class="sc-dstKZu bDvNoD"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
