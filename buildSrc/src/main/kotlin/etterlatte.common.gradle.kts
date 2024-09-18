@@ -4,7 +4,6 @@ val libs = the<LibrariesForLibs>()
 
 plugins {
     kotlin("jvm")
-    id("etterlatte.libs")
     application
 }
 
@@ -24,9 +23,10 @@ tasks {
 
         manifest {
             attributes["Main-Class"] = "no.nav.etterlatte.ApplicationKt"
-            attributes["Class-Path"] = configurations.runtimeClasspath.get().joinToString(separator = " ") {
-                it.name
-            }
+            attributes["Class-Path"] =
+                configurations.runtimeClasspath.get().joinToString(separator = " ") {
+                    it.name
+                }
         }
 
         val configuration =

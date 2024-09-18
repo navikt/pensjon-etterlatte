@@ -10,11 +10,11 @@ import soeknad.SoeknadRepository
 import java.time.OffsetDateTime
 import java.util.UUID
 
-internal class BehandlingOpprettetDoffen(
+internal class BehandlingOpprettetGjenny(
     rapidsConnection: RapidsConnection,
     private val soeknader: SoeknadRepository,
 ) : River.PacketListener {
-    private val logger = LoggerFactory.getLogger(BehandlingOpprettetDoffen::class.java)
+    private val logger = LoggerFactory.getLogger(BehandlingOpprettetGjenny::class.java)
 
     init {
         River(rapidsConnection)

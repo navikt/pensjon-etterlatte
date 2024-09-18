@@ -12,24 +12,19 @@ sealed class RetryResult {
     data class Failure(
         val exceptions: List<Exception> = emptyList(),
     ) : RetryResult() {
-        fun lastError() = exceptions.last()
+        fun samlaExceptions(): Exception = samleExceptions(this.exceptions)
     }
 }
 
 suspend fun <T> unsafeRetry(
     times: Int = 2,
     block: suspend () -> T,
-) = retry(times, block).let {
+) = retryInner(times, emptyList(), block).let {
     when (it) {
         is Success -> it.content
-        is Failure -> throw it.lastError()
+        is Failure -> throw it.samlaExceptions()
     }
 }
-
-suspend fun <T> retry(
-    times: Int = 2,
-    block: suspend () -> T,
-) = retryInner(times, emptyList(), block)
 
 private suspend fun <T> retryInner(
     times: Int,
@@ -45,3 +40,9 @@ private suspend fun <T> retryInner(
             retryInner(times - 1, exceptions + ex, block)
         }
     }
+
+internal fun samleExceptions(exceptions: List<Exception>): Exception {
+    val siste = exceptions.last()
+    exceptions.dropLast(1).reversed().forEach { siste.addSuppressed(it) }
+    return siste
+}

@@ -2,7 +2,6 @@ package no.nav.etterlatte.ktorclientauth
 
 import com.nimbusds.oauth2.sdk.GrantType
 import com.nimbusds.oauth2.sdk.auth.ClientAuthenticationMethod
-import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.auth.AuthProvider
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.http.HttpHeaders
@@ -14,16 +13,6 @@ import no.nav.security.token.support.client.core.oauth2.OAuth2AccessTokenService
 import no.nav.security.token.support.client.core.oauth2.OnBehalfOfTokenClient
 import no.nav.security.token.support.client.core.oauth2.TokenExchangeClient
 import java.net.URI
-
-fun Auth.clientCredential(block: ClientCredentialAuthConfig.() -> Unit) {
-    with(ClientCredentialAuthConfig().apply(block)) {
-        providers.add(ClientCredentialAuthProvider(config))
-    }
-}
-
-class ClientCredentialAuthConfig {
-    lateinit var config: Map<String, String>
-}
 
 class ClientCredentialAuthProvider(
     config: Map<String, String>,

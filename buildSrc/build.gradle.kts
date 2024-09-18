@@ -1,10 +1,8 @@
-import ca.cutterslade.gradle.analyze.AnalyzeDependenciesTask
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("jvm") version "2.0.20"
     `kotlin-dsl`
-    alias(libs.plugins.cutterslade.analyze) apply true
 }
 
 group = "no.nav.etterlatte"
@@ -27,18 +25,9 @@ tasks {
     withType<Wrapper> {
         gradleVersion = "8.10"
     }
-
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_21.toString()
-    }
-
-    java {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    withType<AnalyzeDependenciesTask> {
-        warnUsedUndeclared = true
-        warnUnusedDeclared = true
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+        }
     }
 }

@@ -25,3 +25,12 @@ fun <T> ResultSet.firstOrNull(block: ResultSet.() -> T): T? =
     } else {
         null
     }
+
+fun <T> ResultSet.toList(block: ResultSet.() -> T): List<T> =
+    generateSequence {
+        if (next()) {
+            block()
+        } else {
+            null
+        }
+    }.toList()

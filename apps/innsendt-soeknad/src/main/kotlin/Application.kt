@@ -69,7 +69,7 @@ fun main() {
                     datasourceBuilder.migrate()
                 }.also { rapidConnection ->
                     JournalpostSkrevet(rapidConnection, db)
-                    BehandlingOpprettetDoffen(rapidConnection, db)
+                    BehandlingOpprettetGjenny(rapidConnection, db)
 
                     PubliserTilstandJobb(db, SoeknadPubliserer(rapidConnection, db), utkastPubliserer)
                         .schedule()
