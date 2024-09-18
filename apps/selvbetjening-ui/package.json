@@ -24,7 +24,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.26.2",
-    "styled-components": "^6.1.12",
+    "styled-components": "^6.1.13",
     "swr": "^2.2.5",
     "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.1.0"
