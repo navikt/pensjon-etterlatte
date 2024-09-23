@@ -20,6 +20,7 @@ import TilbudOmJobb from './fragmenter/TilbudOmJobb'
 import Arbeidssoeker from './fragmenter/Arbeidssoeker'
 import AnnenSituasjon from './fragmenter/AnnenSituasjon'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const DynamicSpacing = styled.div<{ $margin: boolean }>`
     margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
@@ -48,7 +49,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
             payload: { ...deepCopy(data), erValidert: true },
         })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: IMerOmSituasjonenDin) => {
@@ -56,7 +57,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
             payload: { ...deepCopy(data), erValidert: true },
         })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
@@ -65,7 +66,7 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             type: ActionTypes.OPPDATER_MER_OM_SITUASJONEN_DIN,
             payload: { ...deepCopy(verdier), erValidert: false },
         })
-        forrige!!()
+        forrige!()
     }
 
     const erValidert = state.merOmSituasjonenDin.erValidert
@@ -128,6 +129,11 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
+}
+
+MerOmSituasjonenDin.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default MerOmSituasjonenDin

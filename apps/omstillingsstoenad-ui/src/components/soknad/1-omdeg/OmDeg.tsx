@@ -17,6 +17,7 @@ import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
+import PropTypes from 'prop-types'
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation()
@@ -24,7 +25,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
     const brukerState = useBrukerContext().state
     const lagre = (data: ISoeker) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const methods = useForm<ISoeker>({
@@ -106,6 +107,10 @@ const OmDeg: SoknadSteg = ({ neste }) => {
             </FormProvider>
         </>
     )
+}
+
+OmDeg.propTypes = {
+    neste: PropTypes.func,
 }
 
 export default OmDeg

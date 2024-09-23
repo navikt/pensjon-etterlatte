@@ -22,7 +22,7 @@ const convert = (errors: FieldErrors, t: TFunction): Error[] => {
     return getFieldErrors(errors)
         .filter((error) => !!error)
         .map((error) => ({
-            elementId: error.ref!!.name,
+            elementId: error.ref!.name,
             message: t(getErrorKey(error)),
         }))
 }

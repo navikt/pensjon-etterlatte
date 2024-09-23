@@ -20,8 +20,8 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
     const { t } = useTranslation('livingParent')
 
     const save = (data: ILivingParent) => {
-        dispatch({ type: type!!, payload: { ...data } })
-        next!!()
+        dispatch({ type: type!, payload: { ...data } })
+        next!()
     }
 
     const methods = useForm<any>({

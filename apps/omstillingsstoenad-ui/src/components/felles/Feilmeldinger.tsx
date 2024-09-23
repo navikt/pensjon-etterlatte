@@ -24,7 +24,7 @@ export const konverterFeilmeldinger = (errors: FieldErrors, t: TFunction<'transl
         .filter((error) => !!error)
         .map((error) => {
             return {
-                skjemaelementId: error.ref!!.name,
+                skjemaelementId: error.ref!.name,
                 feilmelding: t(getTransKey(error)),
             }
         })

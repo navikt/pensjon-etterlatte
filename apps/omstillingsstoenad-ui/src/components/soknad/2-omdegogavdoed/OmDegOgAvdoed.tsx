@@ -11,6 +11,7 @@ import Navigasjon from '../../felles/Navigasjon'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { isDev } from '../../../api/axios'
+import PropTypes from 'prop-types'
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -31,18 +32,18 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: ISoekerOgAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: ISoekerOgAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG_OG_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
+        forrige!()
     }
 
     return (
@@ -69,6 +70,11 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             </FormProvider>
         </>
     )
+}
+
+OmDegOgAvdoed.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default OmDegOgAvdoed

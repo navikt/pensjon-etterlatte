@@ -13,6 +13,7 @@ import { IInntekt } from '../../../typer/inntekt'
 import Inntekt from './fragmenter/Inntekt'
 import YtelserNAV from './fragmenter/YtelserNAV'
 import YtelserAndre from './fragmenter/YtelserAndre'
+import PropTypes from 'prop-types'
 
 const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -32,18 +33,18 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: IInntekt) => {
         dispatch({ type: ActionTypes.OPPDATER_INNTEKTEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: IInntekt) => {
         dispatch({ type: ActionTypes.OPPDATER_INNTEKTEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_INNTEKTEN_DIN, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
+        forrige!()
     }
 
     const erValidert = state.inntektenDin.erValidert
@@ -76,6 +77,11 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
+}
+
+InntektenDin.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default InntektenDin

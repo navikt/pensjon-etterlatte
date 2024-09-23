@@ -25,9 +25,9 @@ const Loennsinntekt = () => {
 
     const norgeEllerUtland = watch('loennsinntekt.norgeEllerUtland')
 
-    const foedt1963EllerTidligere = bruker.foedselsaar!! <= 1963
+    const foedt1963EllerTidligere = bruker.foedselsaar! <= 1963
 
-    const erIkkeDesember = new Date(datoforDoedsfallet!!).getMonth() !== 11
+    const erIkkeDesember = new Date(datoforDoedsfallet!).getMonth() !== 11
 
     return (
         <SkjemaGruppe>
@@ -78,7 +78,7 @@ const Loennsinntekt = () => {
                         <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt')}</Alert>
                     </SkjemaGruppe>
 
-                    {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                    {doedsdatoErIAar(datoforDoedsfallet!) ? (
                         <>
                             {foedt1963EllerTidligere && (
                                 <SkjemaGruppe>
@@ -188,7 +188,7 @@ const Loennsinntekt = () => {
                         <Alert variant={'info'}>{t('inntektenDin.loennsinntekt.bruttoinntekt.utland')}</Alert>
                     </SkjemaGruppe>
 
-                    {doedsdatoErIAar(datoforDoedsfallet!!) ? (
+                    {doedsdatoErIAar(datoforDoedsfallet!) ? (
                         <>
                             {foedt1963EllerTidligere && (
                                 <SkjemaGruppe>

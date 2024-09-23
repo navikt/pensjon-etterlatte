@@ -31,7 +31,7 @@ export default function AboutYou({ next }: StepProps) {
 
     const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
-        next!!()
+        next!()
     }
 
     const methods = useForm<IAboutYou>({

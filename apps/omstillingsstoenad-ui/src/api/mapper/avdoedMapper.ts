@@ -22,14 +22,14 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                     land: {
                         spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land'),
                         svar: {
-                            innhold: info.land!!,
+                            innhold: info.land!,
                         },
                     },
                     fraDato: info.fraDato
                         ? {
                               spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato'),
                               svar: {
-                                  innhold: info.fraDato!!,
+                                  innhold: info.fraDato!,
                               },
                           }
                         : undefined,
@@ -37,7 +37,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                         ? {
                               spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato'),
                               svar: {
-                                  innhold: info.tilDato!!,
+                                  innhold: info.tilDato!,
                               },
                           }
                         : undefined,
@@ -47,15 +47,15 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
                     },
                     medlemFolketrygd: {
                         spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd'),
-                        svar: valgTilSvar(t, info.medlemFolketrygd!!),
+                        svar: valgTilSvar(t, info.medlemFolketrygd!),
                     },
                     pensjonsutbetaling:
-                        info.mottokPensjon!!.beloep || info.mottokPensjon!!.valuta
+                        info.mottokPensjon!.beloep || info.mottokPensjon!.valuta
                             ? {
                                   spoersmaal: t('felles.aarligBeloep'),
                                   svar: {
-                                      innhold: `${info.mottokPensjon!!.beloep || ''} ${
-                                          info.mottokPensjon!!.valuta || ''
+                                      innhold: `${info.mottokPensjon!.beloep || ''} ${
+                                          info.mottokPensjon!.valuta || ''
                                       }`,
                                   },
                               }
@@ -77,7 +77,7 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             },
             naeringsinntektVedDoedsfall: {
                 spoersmaal: t('omDenAvdoede.haddePensjonsgivendeInntekt.svar'),
-                svar: valgTilSvar(t, soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!!.svar!!),
+                svar: valgTilSvar(t, soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!.svar!),
             },
         }
     }
@@ -87,50 +87,50 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
 
         fornavn: {
             spoersmaal: t('omDenAvdoede.fornavn'),
-            svar: soeknad.omDenAvdoede.fornavn!!,
+            svar: soeknad.omDenAvdoede.fornavn!,
         },
         etternavn: {
             spoersmaal: t('omDenAvdoede.etternavn'),
-            svar: soeknad.omDenAvdoede.etternavn!!,
+            svar: soeknad.omDenAvdoede.etternavn!,
         },
         foedselsnummer: soeknad.omDenAvdoede.foedselsnummer
             ? {
                   spoersmaal: t('omDenAvdoede.foedselsnummer'),
-                  svar: soeknad.omDenAvdoede.foedselsnummer!!,
+                  svar: soeknad.omDenAvdoede.foedselsnummer!,
               }
             : undefined,
         foedselsdato: soeknad.omDenAvdoede.foedselsdato
             ? {
                   spoersmaal: t('omDenAvdoede.foedselsdato'),
-                  svar: soeknad.omDenAvdoede.foedselsdato!!,
+                  svar: soeknad.omDenAvdoede.foedselsdato!,
               }
             : undefined,
 
         datoForDoedsfallet: {
             spoersmaal: t('omDenAvdoede.datoForDoedsfallet'),
             svar: {
-                innhold: soeknad.omDenAvdoede.datoForDoedsfallet!!,
+                innhold: soeknad.omDenAvdoede.datoForDoedsfallet!,
             },
         },
         statsborgerskap: {
             spoersmaal: t('omDenAvdoede.statsborgerskap'),
             svar: {
-                innhold: soeknad.omDenAvdoede.statsborgerskap!!,
+                innhold: soeknad.omDenAvdoede.statsborgerskap!,
             },
         },
         utenlandsopphold: {
             spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.svar'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.boddEllerJobbetUtland!!.svar!!),
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.boddEllerJobbetUtland!.svar!),
             opplysning: oppholdUtland,
         },
         naeringsInntekt: {
             spoersmaal: t('omDenAvdoede.selvstendigNaeringsdrivende.svar'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!!.svar!!),
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!.svar!),
             opplysning: opplysningNaeringsInntekt,
         },
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('omDenAvdoede.doedsfallAarsak'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.doedsfallAarsak!!),
+            svar: valgTilSvar(t, soeknad.omDenAvdoede.doedsfallAarsak!),
         },
     }
 }

@@ -65,7 +65,7 @@ const InnloggetBruker = memo(() => {
                 </Alert>
             )}
 
-            {erForGammel(state.alder!!) && (
+            {erForGammel(state.alder!) && (
                 <SkjemaElement>
                     <Alert variant={'warning'}>
                         <BodyShort>{t('omDeg.over67')}</BodyShort>

@@ -33,7 +33,7 @@ export const Spraakvalg = () => {
     useEffect(() => {
         // Benytt språk fra KRR dersom det finnes, hvis ikke sett norsk bokmål som default.
         if (!soknadState.spraak && personHarStoettetSpraakvalg()) {
-            oppdaterSpraak(brukerState.spraak!!)
+            oppdaterSpraak(brukerState.spraak!)
         } else if (!soknadState.spraak && Object.keys(brukerState).length !== 0 && !brukerState.spraak) {
             oppdaterSpraak(Language.NORSK_BOKMAAL)
         }

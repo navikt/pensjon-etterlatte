@@ -103,7 +103,7 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                         {barnet.barnepensjon?.kontonummer?.svar === IValg.NEI && (
                             <Panel>
                                 <UtbetalingsInformasjonOppsummering
-                                    utbetalingsInformasjon={barnet.barnepensjon.utbetalingsInformasjon!!}
+                                    utbetalingsInformasjon={barnet.barnepensjon.utbetalingsInformasjon!}
                                 />
                             </Panel>
                         )}
@@ -126,7 +126,7 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
                                     innhold={
                                         barnet.barnepensjon.forskuddstrekk.trekkprosent +
                                         ' ' +
-                                        t(barnet.barnepensjon.forskuddstrekk.type!!)
+                                        t(barnet.barnepensjon.forskuddstrekk.type!)
                                     }
                                 />
                                 {barnet.barnepensjon?.forskuddstrekk.beskrivelse && (

@@ -1,10 +1,10 @@
 export interface Opplysning<T> {
-    spoersmaal: String
+    spoersmaal: string
     svar: T
 }
 
 export interface BetingetOpplysning<T, R> {
-    spoersmaal: String
+    spoersmaal: string
     svar: T
     opplysning?: R
 }
@@ -13,16 +13,16 @@ export interface Svar<T> {
     innhold: T
 }
 
-export interface FritekstSvar extends Svar<String> {
-    innhold: String
+export interface FritekstSvar extends Svar<string> {
+    innhold: string
 }
 
-export interface DatoSvar extends Svar<Date | String> {
-    innhold: Date | String
+export interface DatoSvar extends Svar<Date | string> {
+    innhold: Date | string
 }
 
-export interface EnumSvar<E> extends Svar<String> {
-    innhold: String
+export interface EnumSvar<E> extends Svar<string> {
+    innhold: string
     verdi: E
 }
 

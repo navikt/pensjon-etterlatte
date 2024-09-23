@@ -18,8 +18,8 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
     const { t } = useTranslation()
 
     const save = (data: IDeceasedParent) => {
-        dispatch({ type: type!!, payload: { ...data } })
-        next!!()
+        dispatch({ type: type!, payload: { ...data } })
+        next!()
     }
 
     const methods = useForm<any>({
@@ -35,7 +35,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
     return (
         <FormProvider {...methods}>
             <form autoComplete={isDev ? 'on' : 'off'}>
-                <DeceasedParentTitle type={type!!} situation={state?.applicant?.applicantSituation} />
+                <DeceasedParentTitle type={type!} situation={state?.applicant?.applicantSituation} />
 
                 <DeceasedParentForm fnrRegisteredParent={fnrRegisteredParent || ['']} />
 

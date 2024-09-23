@@ -45,12 +45,12 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                                 />
                                 <TekstGruppe
                                     tittel={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
-                                    innhold={t(arbeid.ansettelsesforhold!!)}
+                                    innhold={t(arbeid.ansettelsesforhold!)}
                                 />
                                 {arbeid.ansettelsesforhold === StillingType.fast && (
                                     <TekstGruppe
                                         tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
-                                        innhold={t(arbeid.arbeidsmengde!!.svar)}
+                                        innhold={t(arbeid.arbeidsmengde!.svar)}
                                     />
                                 )}
 
@@ -59,11 +59,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                                     <>
                                         <TekstGruppe
                                             tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
-                                            innhold={arbeid.arbeidsmengde!!.svar}
+                                            innhold={arbeid.arbeidsmengde!.svar}
                                         />
                                         <TekstGruppe
                                             tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.type')}
-                                            innhold={t(arbeid.arbeidsmengde!!.type!!)}
+                                            innhold={t(arbeid.arbeidsmengde!.type!)}
                                         />
                                         <TekstGruppeJaNeiVetIkke
                                             tittel={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
@@ -117,11 +117,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
 
                                 <TekstGruppe
                                     tittel={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
-                                    innhold={arbeid.arbeidsmengde!!.svar}
+                                    innhold={arbeid.arbeidsmengde!.svar}
                                 />
                                 <TekstGruppe
                                     tittel={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.type')}
-                                    innhold={t(arbeid.arbeidsmengde!!.type!!)}
+                                    innhold={t(arbeid.arbeidsmengde!.type!)}
                                 />
 
                                 <TekstGruppeJaNeiVetIkke
@@ -192,13 +192,13 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
 
                         <TekstGruppe
                             tittel={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
-                            innhold={t(merOmSituasjonenDin.tilbudOmJobb!!.ansettelsesforhold!!)}
+                            innhold={t(merOmSituasjonenDin.tilbudOmJobb!.ansettelsesforhold!)}
                         />
 
                         {merOmSituasjonenDin.tilbudOmJobb?.ansettelsesforhold === StillingType.fast && (
                             <TekstGruppe
                                 tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
-                                innhold={t(merOmSituasjonenDin.tilbudOmJobb?.arbeidsmengde!!.svar)}
+                                innhold={t(merOmSituasjonenDin.tilbudOmJobb?.arbeidsmengde!.svar)}
                             />
                         )}
 
@@ -207,11 +207,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             <>
                                 <TekstGruppe
                                     tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
-                                    innhold={merOmSituasjonenDin.tilbudOmJobb?.arbeidsmengde!!.svar}
+                                    innhold={merOmSituasjonenDin.tilbudOmJobb?.arbeidsmengde!.svar}
                                 />
                                 <TekstGruppe
                                     tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.type')}
-                                    innhold={t(merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde!!.type!!)}
+                                    innhold={t(merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde!.type!)}
                                 />
                                 <TekstGruppeJaNeiVetIkke
                                     tittel={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
@@ -267,7 +267,7 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
 
                         <TekstGruppe
                             tittel={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform')}
-                            innhold={t(merOmSituasjonenDin.utdanning!!.naavaerendeUtdanning!!.studieform!!)}
+                            innhold={t(merOmSituasjonenDin.utdanning!.naavaerendeUtdanning!.studieform!)}
                         />
                         {merOmSituasjonenDin.utdanning?.naavaerendeUtdanning?.studieform === Studieform.deltid && (
                             <TekstGruppe

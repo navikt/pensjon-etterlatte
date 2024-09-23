@@ -34,7 +34,7 @@ export default function PaymentDetailsSummary({ paymentDetails }: { paymentDetai
                                         ? 'desiredTaxKroner'
                                         : 'desiredTaxPercentage'
                                 )}
-                                content={taxWithhold.taxPercentage + ' ' + t(taxWithhold.type!!)}
+                                content={taxWithhold.taxPercentage + ' ' + t(taxWithhold.type!)}
                             />
                             {taxWithhold.description && (
                                 <TextGroup title={t('taxPercentageDescription')} content={taxWithhold.description} />

@@ -18,6 +18,7 @@ import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { isDev } from '../../../api/axios'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
+import PropTypes from 'prop-types'
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -39,18 +40,18 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: ISituasjonenDin) => {
         dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: ISituasjonenDin) => {
         dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
+        forrige!()
     }
 
     const harOmsorg = watch('omsorgMinstFemti')
@@ -177,6 +178,11 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
+}
+
+SituasjonenDin.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default SituasjonenDin

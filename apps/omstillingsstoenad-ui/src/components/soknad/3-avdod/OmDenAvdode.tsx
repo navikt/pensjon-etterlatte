@@ -20,6 +20,7 @@ import Datovelger from '../../felles/Datovelger'
 import { isDev } from '../../../api/axios'
 import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
+import PropTypes from 'prop-types'
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -39,18 +40,18 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: IAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: IAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
+        forrige!()
     }
 
     const erValidert = state.omDenAvdoede.erValidert
@@ -170,6 +171,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
+}
+
+OmDenAvdode.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default OmDenAvdode

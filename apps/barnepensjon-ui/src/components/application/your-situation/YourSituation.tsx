@@ -19,7 +19,7 @@ export default function YourSituation({ next, prev }: StepProps) {
 
     const save = (data: ISituationChild) => {
         dispatch({ type: ActionTypes.UPDATE_YOUR_SITUATION, payload: { ...data } })
-        next!!()
+        next!()
     }
 
     const methods = useForm<ISituationChild>({

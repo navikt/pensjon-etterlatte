@@ -17,6 +17,7 @@ import styled from 'styled-components'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { isDev } from '../../../api/axios'
+import PropTypes from 'prop-types'
 
 const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -79,18 +80,18 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: IOmBarn) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } })
-        neste!!()
+        neste!()
     }
 
     const lagreTilbake = (data: IOmBarn) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(data), erValidert: true } })
-        forrige!!()
+        forrige!()
     }
 
     const lagreTilbakeUtenValidering = () => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_OM_BARN, payload: { ...deepCopy(verdier), erValidert: false } })
-        forrige!!()
+        forrige!()
     }
 
     const { handleSubmit } = methods
@@ -169,6 +170,11 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
+}
+
+OpplysningerOmBarnepensjon.propTypes = {
+    neste: PropTypes.func,
+    forrige: PropTypes.func,
 }
 
 export default OpplysningerOmBarnepensjon
