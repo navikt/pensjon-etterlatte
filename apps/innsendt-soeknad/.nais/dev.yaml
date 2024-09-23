@@ -25,6 +25,8 @@ spec:
       destinations:
         - id: elastic
         - id: loki
+  secureLogs:
+    enabled: true
   kafka:
     pool: nav-dev
   tokenx:
@@ -37,7 +39,7 @@ spec:
     sqlInstances:
       - type: POSTGRES_14
         name: innsendt-soeknad-v2
-        tier: db-f1-micro
+        tier: db-g1-small
         databases:
           - name: innsendte-soeknader
             envVarPrefix: DB

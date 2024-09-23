@@ -1,6 +1,6 @@
 import io.mockk.spyk
 import io.mockk.verify
-import no.nav.etterlatte.BehandlingOpprettetDoffen
+import no.nav.etterlatte.BehandlingOpprettetGjenny
 import no.nav.etterlatte.EventName
 import no.nav.etterlatte.toJson
 import no.nav.helse.rapids_rivers.testsupport.TestRapid
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.UUID
 
-class BehandlingOpprettetDoffenTest {
+class BehandlingOpprettetGjennyTest {
     @Test
     fun `leser melding om opprettet behandling og registrerer dette i databasen`() {
         val message =
@@ -22,7 +22,7 @@ class BehandlingOpprettetDoffenTest {
         val db = spyk<TestRepo>()
         val testRapid =
             TestRapid().apply {
-                BehandlingOpprettetDoffen(this, db)
+                BehandlingOpprettetGjenny(this, db)
             }
 
         testRapid.sendTestMessage(message)

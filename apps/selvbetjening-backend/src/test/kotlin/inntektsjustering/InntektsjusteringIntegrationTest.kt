@@ -76,7 +76,7 @@ internal class InntektsjusteringIntegrationTest {
         dsbHolder = dsb
         db = InntektsjusteringRepository(dsb.dataSource)
 
-        service = InntektsjusteringService(db, rapid)
+        service = InntektsjusteringService(db)
     }
 
     @AfterAll

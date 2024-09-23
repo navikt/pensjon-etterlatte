@@ -5,11 +5,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
 import { Landing } from './Landing.tsx'
 import { OpprettInntektsjustering } from './inntektsjustering/OpprettInntektsjustering.tsx'
-import { InntektsjusteringKvittering } from './inntektsjustering/InntektsjusteringKvittering.tsx'
+import { InntektsjusteringKvittering } from './inntektsjustering/4-kvittering/InntektsjusteringKvittering.tsx'
 import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
-import { InnledningTilInntektsjustering } from './inntektsjustering/1-innledning/InnledningTilInntektsjustering.tsx'
+import { InntektsjusteringInnledning } from './inntektsjustering/1-innledning/InntektsjusteringInnledning.tsx'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
+import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummering/InntektsjusteringOppsummering.tsx'
 
 const router = createBrowserRouter(
     [
@@ -20,12 +21,16 @@ const router = createBrowserRouter(
                 { path: '/', element: <Landing /> },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
-                    path: '/inntektsjustering',
-                    element: <InnledningTilInntektsjustering />,
+                    path: '/inntektsjustering/innledning',
+                    element: <InntektsjusteringInnledning />,
                 },
                 {
                     path: '/inntektsjustering/opprett',
                     element: <OpprettInntektsjustering />,
+                },
+                {
+                    path: '/inntektsjustering/oppsummering',
+                    element: <InntektsjusteringOppsummering />,
                 },
                 {
                     path: '/inntektsjustering/kvittering',

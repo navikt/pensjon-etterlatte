@@ -30,12 +30,11 @@ export default {
     'knapp.nei': 'Nei, gå tilbake',
     'forside.tittel': 'Søk om omstillingsstønad',
     'forside.ingress':
-        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n' +
-        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
     'forside.startSoeknad': 'Start søknad',
     'forside.infoOmUtvikling': 'Søknaden kan være ustabil fra 9. februar til og med 12. februar.',
     'forside.omYtelsene.innhold':
-        'Viss ektefellen, partnaren eller sambuaren din er død, kan du ha rett til omstillingsstønad eller overgangsstønad til atterlevande.',
+        'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. I enkelte tilfelle kan du få støtte dersom de tidlegare var gifte.',
     'forside.omYtelsene.innhold.li1':
         'Støtta skal sikre inntekt og gi hjelp til sjølvhjelp i ein omstillingsperiode etter dødsfallet.',
     'forside.omYtelsene.innhold.li2':
@@ -44,10 +43,25 @@ export default {
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
         'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad',
-    'forside.barnepensjon.tittel': 'Du kan også søke om barnepensjon',
+    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad.',
+    'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
-        'Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
+        'I denne søknaden kan du også søkje om barnepensjon. Dersom du har felles barn under 18 år med avdøde, kan barnet eller barna ha rett på barnepensjon.',
+    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden',
+    'forside.utfyllingAvSoeknad.innhold':
+        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+    'forside.klartFoerSoeknad.tittel': 'Ha klar følgjande opplysningar før du søkjer',
+    'forside.klartFoerSoeknad.fnr.tittel': 'Fødselsnummer',
+    'forside.klartFoerSoeknad.fnr.innhold':
+        'Vi må ha namn og fødselsnummer for alle personane i søknaden. Dersom du ikkje har fødselsnummeret til éin eller fleire av personane i søknaden, må du oppgi fødselsdatoen. Med berre fødselsdatoen vil det ta lenger tid å behandle søknaden.',
+    'forside.klartFoerSoeknad.oppholdUtland.tittel': 'Opphald som avdøde hadde i utlandet',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del1':
+        'Vi må vite om avdøde har opphalde seg i andre land enn Noreg. Du må svare på kva land avdøde har budd og/eller jobba i, og om avdøde var medlem av folketrygda under opphaldet.',
+    'forside.klartFoerSoeknad.oppholdUtland.innhold.del2':
+        'I tillegg må vi vite i kva periodar avdøde har budd og/eller arbeidd i utlandet, og om avdøde har hatt pensjonsutbetaling frå dette landet. Viss du er usikker på datoar eller beløp, fyller du ut så godt du kan.',
+    'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Di arbeidsinntekt',
+    'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
+        'For at vi skal kunne rekne ut rett omstillingsstønad, treng vi informasjon om arbeidsinntekta di. Viss du er fødd før 1964, treng vi informasjon om inntekta du hadde året før den avdøde gjekk bort. Oppgi brutto inntekt, det vil seie inntekt før skatt. Du finn brutto inntekt på lønsslippen din.\n',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
     'forside.slikBehandlerVi.tittel': 'Slik behandlar NAV personopplysningane dine',
     'forside.slikBehandlerVi.innhold':

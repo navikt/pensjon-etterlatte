@@ -1,4 +1,4 @@
-package person
+package no.nav.etterlatte.person
 
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
@@ -12,12 +12,8 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
-import no.nav.etterlatte.common.Auth
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.person.Person
-import no.nav.etterlatte.person.PersonService
-import no.nav.etterlatte.person.personApi
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.TestInstance

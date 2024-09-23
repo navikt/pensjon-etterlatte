@@ -8,6 +8,7 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
+    "generer-typer:selvbetjening": "sanity schema extract --workspace selvbetjening-ui-dev && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src && rm -rf schema.json",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
@@ -18,8 +19,7 @@
     "@sanity/vision": "^3.57.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.57.3",
-    "styled-components": "^6.1.8"
+    "sanity": "^3.57.3"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^4.0.0",

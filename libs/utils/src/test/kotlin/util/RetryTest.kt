@@ -30,7 +30,7 @@ class RetryTest {
     @Test
     fun `Skal forsøke på nytt når det feiler`() {
         runBlocking {
-            retry(2, ustabilMetode(listOf(true, true, false)))
+            unsafeRetry(2, ustabilMetode(listOf(true, true, false)))
         }.also {
             when (it) {
                 is RetryResult.Success -> {
@@ -43,17 +43,14 @@ class RetryTest {
     }
 
     @Test
-    fun `Skal returnere failure når alle forsøk feiler`() {
-        runBlocking {
-            retry(2, ustabilMetode(listOf(true, true, true, false)))
-        }.also {
-            when (it) {
-                is RetryResult.Success -> fail()
-                is RetryResult.Failure -> {
-                    assertEquals(3, it.exceptions.size)
-                }
-            }
-        }
+    fun `exceptions blir lagt til i lista som suppressed, den nyeste foerst`() {
+        val e1 = RuntimeException("e1")
+        val e2 = RuntimeException("e2")
+        val e3 = RuntimeException("e3")
+
+        val samla = samleExceptions(listOf(e1, e2, e3))
+        assertEquals(e3, samla)
+        assertEquals(listOf(e2, e1), samla.suppressedExceptions)
     }
 
     private fun ustabilMetode(eksternFeil: List<Boolean>): suspend () -> String {

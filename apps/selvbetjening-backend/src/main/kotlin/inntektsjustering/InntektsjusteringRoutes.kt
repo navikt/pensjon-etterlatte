@@ -14,7 +14,7 @@ fun Route.inntektsjustering(service: InntektsjusteringService) {
     route("/api/inntektsjustering") {
         get {
             val fnr = fnrFromToken()
-            val inntektsjustering = service.hentInntektsjustering(fnr)
+            val inntektsjustering = service.hentInntektsjusteringForFnr(fnr)
             when (inntektsjustering) {
                 null -> call.respond(HttpStatusCode.NotFound)
                 else -> call.respond(inntektsjustering)

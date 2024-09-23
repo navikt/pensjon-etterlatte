@@ -20,7 +20,7 @@ import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
 import no.nav.etterlatte.kodeverk.KodeverkKlient
 import no.nav.etterlatte.kodeverk.KodeverkService
-import no.nav.etterlatte.ktorclientauth.clientCredential
+import no.nav.etterlatte.ktorclientauth.ClientCredentialAuthProvider
 import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
 import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
@@ -137,8 +137,8 @@ fun httpClientClientCredentials(azureAppScope: String) =
         val env = System.getenv()
 
         install(Auth) {
-            clientCredential {
-                config =
+            providers.add(
+                ClientCredentialAuthProvider(
                     mapOf(
                         AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to
                             env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
@@ -147,8 +147,9 @@ fun httpClientClientCredentials(azureAppScope: String) =
                         AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to
                             env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
                         AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
-                    )
-            }
+                    ),
+                ),
+            )
         }
     }
 

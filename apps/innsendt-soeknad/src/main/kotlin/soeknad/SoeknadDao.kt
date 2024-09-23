@@ -1,6 +1,8 @@
 package soeknad
 
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
+import no.nav.etterlatte.libs.utils.database.singleOrNull
+import no.nav.etterlatte.libs.utils.database.toList
 import no.nav.etterlatte.toJson
 import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
@@ -28,7 +30,6 @@ import soeknad.Status.SENDT
 import soeknad.Status.SLETTET
 import soeknad.Status.UTGAATT
 import soeknad.Status.VENTERBEHANDLING
-import java.sql.ResultSet
 import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -383,24 +384,6 @@ class PostgresSoeknadRepository private constructor(
                 .executeQuery()
                 .toList { getLong("id") }
         }
-
-    private fun <T> ResultSet.singleOrNull(block: ResultSet.() -> T): T? =
-        if (next()) {
-            block().also {
-                require(!next()) { "Skal være unik" }
-            }
-        } else {
-            null
-        }
-
-    private fun <T> ResultSet.toList(block: ResultSet.() -> T): List<T> =
-        generateSequence {
-            if (next()) {
-                block()
-            } else {
-                null
-            }
-        }.toList()
 
     private fun asLocalDateTime(timestamp: Timestamp): LocalDateTime =
         timestamp
