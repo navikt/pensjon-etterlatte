@@ -21,7 +21,8 @@ const inntektTilNesteAarDefaultValues: InntektTilNesteAarSkjema = {
 export const InntektsjusteringInntektTilNesteAar = () => {
     const { register } = useForm<InntektTilNesteAarSkjema>({ defaultValues: inntektTilNesteAarDefaultValues })
 
-    /* TODO: Sjekke for: 1) Ingen input. 2) ikke tall input, 3) negativ input */
+    /* TODO: Sjekke for: 1) ikke tall input, 1) negativ input */
+    // Hvis de ikke har lagt inn inntakt, antar vi at det er 0?
     const validerTallInput = (value: number): string | undefined => {
         if (!(value >= 0)) return 'Inntekt må være større enn 0'
         return undefined

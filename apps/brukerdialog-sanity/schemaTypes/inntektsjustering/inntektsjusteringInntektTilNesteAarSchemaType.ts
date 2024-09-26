@@ -119,12 +119,6 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                     type: 'object',
                     fields: [
                         defineField({
-                            name: 'ingenInput',
-                            title: 'Ingen input',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
                             name: 'inputInneholderBokstaver',
                             title: 'Input inneholder bokstaver',
                             type: 'object',
@@ -139,6 +133,12 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                     ],
                 }),
             ],
+        }),
+        defineField({
+            name: 'sumAvInntekt',
+            title: 'Sum av inntekt',
+            type: 'object',
+            fields: spraakStringFields,
         }),
     ],
 })

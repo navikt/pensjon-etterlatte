@@ -828,11 +828,6 @@ export type InntektsjusteringInntektTilNesteAar = {
             }
         }
         errorMeldinger?: {
-            ingenInput?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
             inputInneholderBokstaver?: {
                 NB?: string
                 NN?: string
@@ -844,6 +839,11 @@ export type InntektsjusteringInntektTilNesteAar = {
                 EN?: string
             }
         }
+    }
+    sumAvInntekt?: {
+        NB?: string
+        NN?: string
+        EN?: string
     }
 }
 

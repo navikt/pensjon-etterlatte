@@ -6,6 +6,7 @@ import NodeCache from 'node-cache'
 import {
     fellesKomponenterTestBlocks,
     inntektsjusteringInnledningTestBlocks,
+    inntektsjusteringInntektTilNesteAarTestBlocks,
     inntektsjusteringKvitteringTestBlocks,
     inntektsjusteringOppsummeringTestBlocks,
     testBlocks,
@@ -51,6 +52,8 @@ export const mockSelvbetjeningApi = (app: any) => {
         const sanityQuery = req.query.sanityQuery
         if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
             res.send(inntektsjusteringInnledningTestBlocks)
+        } else if (sanityQuery?.toString().includes('inntektsjusteringInntektTilNesteAar')) {
+            res.send(inntektsjusteringInntektTilNesteAarTestBlocks)
         } else if (sanityQuery?.toString().includes('inntektsjusteringOppsummering')) {
             res.send(inntektsjusteringOppsummeringTestBlocks)
         } else if (sanityQuery?.toString().includes('inntektsjusteringKvittering')) {
