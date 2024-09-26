@@ -39,7 +39,7 @@ etterlatte-gyldig-soeknad --> etterlatte-behandling
 
 innsendt-soeknad --> pdl
 innsendt-soeknad --> kodeverk
-innsendt-soeknad <--> innsendt-soeknad-v2[(soeknad\ndatabase)]
+innsendt-soeknad <--> innsendt-soeknad-v2[(soeknad <br/> database)]
 
 subgraph frontend["Søknadsdialog"]
     barnepensjon-ui:::app
