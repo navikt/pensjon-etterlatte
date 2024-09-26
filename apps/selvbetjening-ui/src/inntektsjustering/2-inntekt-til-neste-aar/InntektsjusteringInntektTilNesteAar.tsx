@@ -21,6 +21,7 @@ const inntektTilNesteAarDefaultValues: InntektTilNesteAarSkjema = {
 export const InntektsjusteringInntektTilNesteAar = () => {
     const { register } = useForm<InntektTilNesteAarSkjema>({ defaultValues: inntektTilNesteAarDefaultValues })
 
+    /* TODO: Sjekke for: 1) Ingen input. 2) ikke tall input, 3) negativ input */
     const validerTallInput = (value: number): string | undefined => {
         if (!(value >= 0)) return 'Inntekt må være større enn 0'
         return undefined
@@ -56,7 +57,6 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                         </Accordion.Item>
                     </Accordion>
                 </div>
-
                 <form>
                     <VStack gap="6" width="fit-content">
                         <TextField

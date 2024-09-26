@@ -456,6 +456,397 @@ export type InntektsjusteringOppsummering = {
     }
 }
 
+export type InntektsjusteringInntektTilNesteAar = {
+    _id: string
+    _type: 'inntektsjusteringInntektTilNesteAar'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    hovedinnhold?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+    }
+    inntektAccordions?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        arbeidsinntekt?: {
+            tittel?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            innhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+        }
+        naeringsinntekt?: {
+            tittel?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            innhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+        }
+        AFPInntekt?: {
+            tittel?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            innhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+        }
+        alleInntekterIUtland?: {
+            tittel?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            innhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+        }
+    }
+    inntektTextFields?: {
+        arbeidsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            beskrivelse?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        naeringsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            beskrivelse?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPInntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            beskrivelse?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        alleInntekterIUtland?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            beskrivelse?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        errorMeldinger?: {
+            ingenInput?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            inputInneholderBokstaver?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            inputErNegativ?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+}
+
 export type InntektsjusteringInnledning = {
     _id: string
     _type: 'inntektsjusteringInnledning'
@@ -602,5 +993,6 @@ export type AllSanitySchemaTypes =
     | FellesKomponenter
     | InntektsjusteringKvittering
     | InntektsjusteringOppsummering
+    | InntektsjusteringInntektTilNesteAar
     | InntektsjusteringInnledning
 export declare const internalGroqTypeReferenceTo: unique symbol
