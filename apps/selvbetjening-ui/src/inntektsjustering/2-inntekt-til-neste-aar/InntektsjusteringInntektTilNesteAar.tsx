@@ -1,4 +1,4 @@
-import { Accordion, Box, Heading, HStack, TextField, VStack } from '@navikt/ds-react'
+import { Accordion, Heading, HStack, TextField, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
@@ -7,10 +7,10 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
-import { EqualsIcon } from '@navikt/aksel-icons'
+import { SumAvOppgittInntekt } from './SumAvOppgittInntekt.tsx'
 
 // TODO: datastrukturen her må sees mer nøye på
-interface InntektTilNesteAarSkjema {
+export interface InntektTilNesteAarSkjema {
     arbeidsinntektINorge: number
     naeringsinntekt: number
     AFPInntekt: number
@@ -152,20 +152,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                         </VStack>
                     </form>
 
-                    <Box background="surface-subtle" padding="4" borderRadius="xlarge">
-                        <VStack gap="4">
-                            <EqualsIcon fontSize="3.5rem" aria-hidden />
-                            <Heading size="small">{innhold.sumAvInntekt?.[spraak]}</Heading>
-                            {/* Hvis input er NaN, bare gjøre det om til 0*/}
-                            <Heading size="large">
-                                {watch().arbeidsinntektINorge +
-                                    watch().naeringsinntekt +
-                                    watch().AFPInntekt +
-                                    watch().alleInntekterIUtland}{' '}
-                                kr
-                            </Heading>
-                        </VStack>
-                    </Box>
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
 
                     <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" />
                 </VStack>
