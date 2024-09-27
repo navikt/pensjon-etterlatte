@@ -113,25 +113,6 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                     type: 'object',
                     fields: textFieldFields,
                 }),
-                defineField({
-                    name: 'errorMeldinger',
-                    title: 'Error meldinger',
-                    type: 'object',
-                    fields: [
-                        defineField({
-                            name: 'inputInneholderBokstaver',
-                            title: 'Input inneholder bokstaver',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
-                            name: 'inputErNegativ',
-                            title: 'Input er negativ',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                    ],
-                }),
             ],
         }),
         defineField({
