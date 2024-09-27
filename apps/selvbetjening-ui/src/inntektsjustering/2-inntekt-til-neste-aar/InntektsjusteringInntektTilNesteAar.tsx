@@ -31,18 +31,24 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register, watch } = useForm<InntektTilNesteAarSkjema>({ defaultValues: inntektTilNesteAarDefaultValues })
+    const { register, watch, setValue } = useForm<InntektTilNesteAarSkjema>({
+        defaultValues: inntektTilNesteAarDefaultValues,
+    })
 
     if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    /* TODO: Sjekke for: 1) ikke tall input, 1) negativ input */
-    // Hvis de ikke har lagt inn inntakt, antar vi at det er 0?
-    const validerTallInput = (value: number): string | undefined => {
-        if (!(value >= 0)) return 'Inntekt må være større enn 0'
-        return undefined
-    }
+    // Fra skatteetaten: gir feil hvis man ikke har gitt et tall, man må aktivt sette det til "0"
+    //                   de har blokkert muligheten for å kunne skrive inn bokstaver
+    //                   lar deg heller ikke skrive minus beløp
+
+    /* TODO: Sjekke for: ingen input, ikke tall input, negativ input */
+    // const validerTallInput = (value: number | undefined): string | undefined => {
+    //     console.log(value)
+    //     if (!(value >= 0)) return 'Inntekt må være større enn 0'
+    //     return undefined
+    // }
 
     return (
         !!innhold && (
@@ -102,7 +108,9 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                             <TextField
                                 {...register('arbeidsinntektINorge', {
                                     valueAsNumber: true,
-                                    validate: validerTallInput,
+                                    onChange: (e) => {
+                                        setValue('arbeidsinntektINorge', e.target.value.replace(/[^0-9.]/g, ''))
+                                    },
                                 })}
                                 label={innhold.inntektTextFields?.arbeidsinntekt?.label?.[spraak]}
                                 description={innhold.inntektTextFields?.arbeidsinntekt?.beskrivelse?.[spraak]}
@@ -111,7 +119,9 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                             <TextField
                                 {...register('naeringsinntekt', {
                                     valueAsNumber: true,
-                                    validate: validerTallInput,
+                                    onChange: (e) => {
+                                        setValue('naeringsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
+                                    },
                                 })}
                                 label={innhold.inntektTextFields?.naeringsinntekt?.label?.[spraak]}
                                 description={innhold.inntektTextFields?.naeringsinntekt?.beskrivelse?.[spraak]}
@@ -120,7 +130,9 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                             <TextField
                                 {...register('AFPInntekt', {
                                     valueAsNumber: true,
-                                    validate: validerTallInput,
+                                    onChange: (e) => {
+                                        setValue('AFPInntekt', e.target.value.replace(/[^0-9.]/g, ''))
+                                    },
                                 })}
                                 label={innhold.inntektTextFields?.AFPInntekt?.label?.[spraak]}
                                 description={innhold.inntektTextFields?.AFPInntekt?.beskrivelse?.[spraak]}
@@ -129,7 +141,9 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                             <TextField
                                 {...register('alleInntekterIUtland', {
                                     valueAsNumber: true,
-                                    validate: validerTallInput,
+                                    onChange: (e) => {
+                                        setValue('alleInntekterIUtland', e.target.value.replace(/[^0-9.]/g, ''))
+                                    },
                                 })}
                                 label={innhold.inntektTextFields?.alleInntekterIUtland?.label?.[spraak]}
                                 description={innhold.inntektTextFields?.alleInntekterIUtland?.beskrivelse?.[spraak]}
@@ -142,6 +156,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                         <VStack gap="4">
                             <EqualsIcon fontSize="3.5rem" aria-hidden />
                             <Heading size="small">{innhold.sumAvInntekt?.[spraak]}</Heading>
+                            {/* Hvis input er NaN, bare gjøre det om til 0*/}
                             <Heading size="large">
                                 {watch().arbeidsinntektINorge +
                                     watch().naeringsinntekt +
