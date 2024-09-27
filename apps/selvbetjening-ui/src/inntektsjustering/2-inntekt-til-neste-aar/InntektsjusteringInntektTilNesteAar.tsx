@@ -1,4 +1,4 @@
-import { Accordion, Heading, HStack, TextField, VStack } from '@navikt/ds-react'
+import { Accordion, Box, Heading, HStack, TextField, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
@@ -7,6 +7,7 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { EqualsIcon } from '@navikt/aksel-icons'
 
 // TODO: datastrukturen her må sees mer nøye på
 interface InntektTilNesteAarSkjema {
@@ -30,7 +31,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register } = useForm<InntektTilNesteAarSkjema>({ defaultValues: inntektTilNesteAarDefaultValues })
+    const { register, watch } = useForm<InntektTilNesteAarSkjema>({ defaultValues: inntektTilNesteAarDefaultValues })
 
     if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
@@ -136,6 +137,20 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                             />
                         </VStack>
                     </form>
+
+                    <Box background="surface-subtle" padding="4" borderRadius="xlarge">
+                        <VStack gap="4">
+                            <EqualsIcon fontSize="3.5rem" aria-hidden />
+                            <Heading size="small">{innhold.sumAvInntekt?.[spraak]}</Heading>
+                            <Heading size="large">
+                                {watch().arbeidsinntektINorge +
+                                    watch().naeringsinntekt +
+                                    watch().AFPInntekt +
+                                    watch().alleInntekterIUtland}{' '}
+                                kr
+                            </Heading>
+                        </VStack>
+                    </Box>
 
                     <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" />
                 </VStack>
