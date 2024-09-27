@@ -25,7 +25,7 @@ const router = createBrowserRouter(
                     element: <InntektsjusteringInnledning />,
                 },
                 {
-                    path: '/inntektsjustering/inntekt-til-nest-år',
+                    path: '/inntektsjustering/inntekt-til-neste-år',
                     element: <InntektsjusteringInntektTilNesteAar />,
                 },
                 {
