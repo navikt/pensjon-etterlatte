@@ -9,7 +9,6 @@ import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { SumAvOppgittInntekt } from './SumAvOppgittInntekt.tsx'
 
-// TODO: datastrukturen her må sees mer nøye på
 export interface InntektTilNesteAarSkjema {
     arbeidsinntektINorge: number
     naeringsinntekt: number
@@ -38,17 +37,6 @@ export const InntektsjusteringInntektTilNesteAar = () => {
     if (error && !isLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
-
-    // Fra skatteetaten: gir feil hvis man ikke har gitt et tall, man må aktivt sette det til "0"
-    //                   de har blokkert muligheten for å kunne skrive inn bokstaver
-    //                   lar deg heller ikke skrive minus beløp
-
-    /* TODO: Sjekke for: ingen input, ikke tall input, negativ input */
-    // const validerTallInput = (value: number | undefined): string | undefined => {
-    //     console.log(value)
-    //     if (!(value >= 0)) return 'Inntekt må være større enn 0'
-    //     return undefined
-    // }
 
     return (
         !!innhold && (

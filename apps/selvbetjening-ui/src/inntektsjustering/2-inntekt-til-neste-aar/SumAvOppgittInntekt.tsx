@@ -40,7 +40,6 @@ export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar
             <VStack gap="4">
                 <EqualsIcon fontSize="3.5rem" aria-hidden />
                 <Heading size="small">{innhold?.sumAvInntekt?.[spraak]}</Heading>
-                {/* Hvis input er NaN, bare gjøre det om til 0*/}
                 <Heading size="large">{sumAvInntektStringBuilder(inntektTilNesteAar)}</Heading>
             </VStack>
         </Box>
