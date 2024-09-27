@@ -32,15 +32,15 @@ export const InntektsjusteringInntektTilNesteAar = () => {
 
     const { register } = useForm<InntektTilNesteAarSkjema>({ defaultValues: inntektTilNesteAarDefaultValues })
 
+    if (error && !isLoading) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+
     /* TODO: Sjekke for: 1) ikke tall input, 1) negativ input */
     // Hvis de ikke har lagt inn inntakt, antar vi at det er 0?
     const validerTallInput = (value: number): string | undefined => {
         if (!(value >= 0)) return 'Inntekt må være større enn 0'
         return undefined
-    }
-
-    if (error && !isLoading) {
-        return <Navigate to="/system-utilgjengelig" />
     }
 
     return (
