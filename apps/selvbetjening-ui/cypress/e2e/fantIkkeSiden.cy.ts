@@ -2,7 +2,7 @@ import { testAccesibility } from '../support/accessibility.ts'
 
 describe('"Side ikke funnet" skal fungere som forventet', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:5173/selvbetjening/inntektjustering/hei-dette-er-meg-route')
+        cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/hei-dette-er-meg-route')
     })
 
     it('Skal ikke ha noen UU feil', () => {
