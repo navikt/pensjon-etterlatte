@@ -1,3 +1,5 @@
+import { testAccesibility } from '../support/accessibility.ts'
+
 describe('"System utilgjengelig" skal fungere som forventet', () => {
     before(() => {
         cy.intercept(
@@ -11,6 +13,8 @@ describe('"System utilgjengelig" skal fungere som forventet', () => {
     })
 
     it('Skal kunne navigere til "system utilgjengelig" ved feil', () => {
+        testAccesibility()
+
         cy.url().should('include', '/system-utilgjengelig')
 
         cy.findByText(
