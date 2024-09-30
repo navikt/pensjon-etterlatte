@@ -7,4 +7,5 @@ export default defineConfig({
     e2e: {
         testIsolation: false,
     },
+    trashAssetsBeforeRuns: true
 })
