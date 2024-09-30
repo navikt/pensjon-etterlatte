@@ -131,6 +131,71 @@ export type SanityAssetSourceData = {
     url?: string
 }
 
+export type FantIkkeSiden = {
+    _id: string
+    _type: 'fantIkkeSiden'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    hovedinnhold?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+    }
+}
+
 export type FellesKomponenter = {
     _id: string
     _type: 'fellesKomponenter'
@@ -978,6 +1043,7 @@ export type AllSanitySchemaTypes =
     | Geopoint
     | Slug
     | SanityAssetSourceData
+    | FantIkkeSiden
     | FellesKomponenter
     | InntektsjusteringKvittering
     | InntektsjusteringOppsummering
