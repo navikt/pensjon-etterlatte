@@ -10,6 +10,7 @@ import {
     inntektsjusteringInntektTilNesteAarTestBlocks,
     inntektsjusteringKvitteringTestBlocks,
     inntektsjusteringOppsummeringTestBlocks,
+    systemUtilgjengeligTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
 
@@ -63,6 +64,8 @@ export const mockSelvbetjeningApi = (app: any) => {
             res.send(fellesKomponenterTestBlocks)
         } else if (sanityQuery?.toString().includes('fantIkkeSiden')) {
             res.send(fantIkkeSidenTestBlocks)
+        } else if (sanityQuery?.toString().includes('systemUtilgjengelig')) {
+            res.send(systemUtilgjengeligTestBlocks)
         } else {
             res.send(testBlocks)
         }

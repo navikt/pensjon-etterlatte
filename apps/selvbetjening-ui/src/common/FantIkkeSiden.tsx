@@ -16,17 +16,19 @@ export const FantIkkeSiden = () => {
     }
 
     return (
-        <main>
-            <HStack justify="center" padding="8">
-                <VStack gap="6" maxWidth="42.5rem">
-                    <HStack justify="end">
-                        <SpraakVelger />
-                    </HStack>
-                    <div>
-                        <SanityRikTekst text={innhold?.hovedinnhold?.[spraak]} />
-                    </div>
-                </VStack>
-            </HStack>
-        </main>
+        !!innhold && (
+            <main>
+                <HStack justify="center" padding="8">
+                    <VStack gap="6" maxWidth="42.5rem">
+                        <HStack justify="end">
+                            <SpraakVelger />
+                        </HStack>
+                        <div>
+                            <SanityRikTekst text={innhold?.hovedinnhold?.[spraak]} />
+                        </div>
+                    </VStack>
+                </HStack>
+            </main>
+        )
     )
 }
