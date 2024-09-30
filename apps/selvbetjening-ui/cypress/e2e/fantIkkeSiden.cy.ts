@@ -4,9 +4,9 @@ describe('"Side ikke funnet" skal fungere som forventet', () => {
     it('Skal vise "side ikke funnet" ved route som ikke eksisterer', () => {
         cy.visit('http://localhost:5173/selvbetjening/inntektjustering/hei-dette-er-meg-route')
 
-        testAccesibility()
-
         cy.findByText('Beklager, vi fant ikke siden').should('exist')
+
+        testAccesibility()
     })
 
     it('Skal ikke navigere til "side ikke funnet" hvis routen faktisk finnes', () => {

@@ -8,5 +8,5 @@ export const testAccesibility = (context?: CypressAxeContext, options?: Options)
     setTimeout(() => {
         cy.injectAxe()
         cy.checkA11y(context, options)
-    }, 2000)
+    }, 1000)
 }
