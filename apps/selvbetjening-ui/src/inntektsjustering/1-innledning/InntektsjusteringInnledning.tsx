@@ -22,29 +22,31 @@ export const InntektsjusteringInnledning = () => {
 
     return (
         !!innhold && (
-            <HStack justify="center" padding="8">
-                <VStack gap="6" maxWidth="42.5rem">
-                    <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" />
+            <main>
+                <HStack justify="center" padding="8">
+                    <VStack gap="6" maxWidth="42.5rem">
+                        <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" />
 
-                    <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
+                        <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
 
-                    <Alert variant="info">{innhold.info?.[spraak]}</Alert>
-                    <Bleed marginInline={{ xs: '0', md: '10 0' }}>
-                        <GuidePanel>
-                            <SanityRikTekst text={innhold.veiledning?.[spraak]} />
-                        </GuidePanel>
-                    </Bleed>
-                    <div>
-                        <Button
-                            icon={<ArrowRightIcon aria-hidden />}
-                            iconPosition="right"
-                            onClick={() => navigate('/inntektsjustering/inntekt-til-neste-år')}
-                        >
-                            {innhold.startUtfyllingKnapp?.[spraak]}
-                        </Button>
-                    </div>
-                </VStack>
-            </HStack>
+                        <Alert variant="info">{innhold.info?.[spraak]}</Alert>
+                        <Bleed marginInline={{ xs: '0', md: '10 0' }}>
+                            <GuidePanel>
+                                <SanityRikTekst text={innhold.veiledning?.[spraak]} />
+                            </GuidePanel>
+                        </Bleed>
+                        <div>
+                            <Button
+                                icon={<ArrowRightIcon aria-hidden />}
+                                iconPosition="right"
+                                onClick={() => navigate('/inntektsjustering/inntekt-til-neste-år')}
+                            >
+                                {innhold.startUtfyllingKnapp?.[spraak]}
+                            </Button>
+                        </div>
+                    </VStack>
+                </HStack>
+            </main>
         )
     )
 }
