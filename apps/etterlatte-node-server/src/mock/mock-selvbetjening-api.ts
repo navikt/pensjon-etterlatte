@@ -4,11 +4,13 @@ import { NextFunction, Request, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
 import {
+    fantIkkeSidenTestBlocks,
     fellesKomponenterTestBlocks,
     inntektsjusteringInnledningTestBlocks,
     inntektsjusteringInntektTilNesteAarTestBlocks,
     inntektsjusteringKvitteringTestBlocks,
     inntektsjusteringOppsummeringTestBlocks,
+    systemUtilgjengeligTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
 
@@ -60,6 +62,10 @@ export const mockSelvbetjeningApi = (app: any) => {
             res.send(inntektsjusteringKvitteringTestBlocks)
         } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
             res.send(fellesKomponenterTestBlocks)
+        } else if (sanityQuery?.toString().includes('fantIkkeSiden')) {
+            res.send(fantIkkeSidenTestBlocks)
+        } else if (sanityQuery?.toString().includes('systemUtilgjengelig')) {
+            res.send(systemUtilgjengeligTestBlocks)
         } else {
             res.send(testBlocks)
         }

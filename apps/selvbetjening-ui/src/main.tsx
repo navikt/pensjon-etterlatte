@@ -11,6 +11,7 @@ import { InntektsjusteringInnledning } from './inntektsjustering/1-innledning/In
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummering/InntektsjusteringOppsummering.tsx'
 import { InntektsjusteringInntektTilNesteAar } from './inntektsjustering/2-inntekt-til-neste-aar/InntektsjusteringInntektTilNesteAar.tsx'
+import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
 
 const router = createBrowserRouter(
     [
@@ -18,6 +19,10 @@ const router = createBrowserRouter(
             path: '/',
             errorElement: <SystemUtilgjengelig />,
             children: [
+                {
+                    path: '*',
+                    element: <FantIkkeSiden />,
+                },
                 { path: '/', element: <Landing /> },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {

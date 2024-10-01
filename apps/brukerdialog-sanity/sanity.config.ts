@@ -2,6 +2,8 @@ import { AuthConfig, defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { inntektsjusteringSchemaTypes } from './schemaTypes/inntektsjustering'
+import { fantIkkeSidenSchemaType } from './schemaTypes/fantIkkeSidenSchemaType'
+import { systemUtilgjengeligSchemaType } from './schemaTypes/systemUtilgjengeligSchemaType'
 
 const auth: AuthConfig = {
     redirectOnSingle: true,
@@ -26,7 +28,7 @@ export default defineConfig([
         plugins: [structureTool(), visionTool()],
         auth: auth,
         schema: {
-            types: inntektsjusteringSchemaTypes,
+            types: [...inntektsjusteringSchemaTypes, fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
         },
     },
     {
@@ -38,7 +40,7 @@ export default defineConfig([
         plugins: [structureTool(), visionTool()],
         auth: auth,
         schema: {
-            types: inntektsjusteringSchemaTypes,
+            types: [...inntektsjusteringSchemaTypes, fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
         },
     },
 ])
