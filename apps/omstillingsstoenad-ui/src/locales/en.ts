@@ -695,6 +695,8 @@ export default {
         'An error occurred while submitting. Please wait and try again. If the error persists, you can report techical errors ',
     'oppsummering.feilVedSending.tittel': 'here.',
     'oppsummering.feilVedSending.href': 'https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler',
+    'oppsummering.ikkeFylltUtAarsinntekt': 'You are missing information about next years income. ',
+    'oppsummering.ikkeFylltUtAarsinntekt.tittel': 'Change answers about your income',
     'soeknadKvittering.tittel': 'Your application has been submitted',
     'soeknadKvittering.mottatt':
         'We have received your application for transitional benefits. NAV will now process and review your case. We will contact you if we need more information or documentation from you.',

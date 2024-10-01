@@ -21,6 +21,9 @@ import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSitua
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
 import PropTypes from 'prop-types'
+import { erMellomOktoberogDesember } from '~utils/dato'
+import { StegPath } from '~typer/steg'
+import { Link as RouterLink } from 'react-router-dom'
 
 const Oppsummering: SoknadSteg = ({ forrige }) => {
     const navigate = useNavigate()
@@ -33,6 +36,31 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
     const [senderSoeknad, setSenderSoeknad] = useState(false)
     const [error, setError] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const fylltUtAarsinntektForNesteAar = () => {
+        if (erMellomOktoberogDesember()) {
+            const loennsinntekt = soeknad.inntektenDin.loennsinntekt
+            const naeringsinntekt = soeknad.inntektenDin.loennsinntekt
+            if (loennsinntekt) {
+                if (
+                    (loennsinntekt?.norge && loennsinntekt.norge?.inntektNesteAar?.aarsinntekt === undefined) ||
+                    (loennsinntekt?.utland && loennsinntekt.utland?.inntektNesteAar?.aarsinntekt === undefined)
+                ) {
+                    return false
+                }
+            }
+
+            if (naeringsinntekt) {
+                if (
+                    (naeringsinntekt?.norge && naeringsinntekt.norge?.inntektNesteAar?.aarsinntekt === undefined) ||
+                    (naeringsinntekt?.utland && naeringsinntekt.utland?.inntektNesteAar?.aarsinntekt === undefined)
+                ) {
+                    return false
+                }
+            }
+            return true
+        }
+        return true
+    }
 
     const send = () => {
         setSenderSoeknad(true)
@@ -93,6 +121,17 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
             </Accordion>
 
             <br />
+
+            {!fylltUtAarsinntektForNesteAar() && (
+                <SkjemaGruppe>
+                    <Alert variant={'error'}>
+                        {t('oppsummering.ikkeFylltUtAarsinntekt')}
+                        <RouterLink to={`/skjema/steg/${StegPath.InntektenDin}`}>
+                            {t('oppsummering.ikkeFylltUtAarsinntekt.tittel')}
+                        </RouterLink>
+                    </Alert>
+                </SkjemaGruppe>
+            )}
 
             {error && (
                 <SkjemaGruppe>
