@@ -662,6 +662,8 @@ export default {
         'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil ',
     'oppsummering.feilVedSending.tittel': 'her.',
     'oppsummering.feilVedSending.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+    'oppsummering.ikkeFylltUtAarsinntekt': 'Du mangler å fylle ut informasjon om neste års inntekt. Gå til ',
+    'oppsummering.ikkeFylltUtAarsinntekt.tittel': ' inntekten din for å legge til svar.',
     'soeknadKvittering.tittel': 'Søknaden din er sendt til oss',
     'soeknadKvittering.mottatt':
         'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
