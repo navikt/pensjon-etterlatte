@@ -4,5 +4,6 @@ declare namespace Cypress {
         lastInntektsjusteringInnledning(): Chainable<T>
         lastInntektsjusteringInntektTilNesteAar(): Chainable<T>
         lastInntetktsjusteringOppsummering(): Chainable<T>
+        lastInntektsjusteringKvittering(): Chainable<T>
     }
 }

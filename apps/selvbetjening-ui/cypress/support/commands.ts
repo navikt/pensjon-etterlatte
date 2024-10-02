@@ -51,3 +51,18 @@ Cypress.Commands.add('lastInntetktsjusteringOppsummering', () => {
 
     cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringOppsummeringInnhold'])
 })
+
+Cypress.Commands.add('lastInntektsjusteringKvittering', () => {
+    cy.intercept('GET', `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "fellesKomponenter"]`), {
+        fixture: 'fellesKomponenterInnhold',
+    }).as('fellesKomponenterInnhold')
+    cy.intercept(
+        'GET',
+        `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "inntektsjusteringKvittering"]`),
+        { fixture: 'inntektsjusteringKvitteringInnhold' }
+    ).as('inntektsjusteringKvitteringInnhold')
+
+    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/kvittering')
+
+    cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringKvitteringInnhold'])
+})
