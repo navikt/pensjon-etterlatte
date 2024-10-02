@@ -54,7 +54,6 @@ Cypress.Commands.add('useSimpleDeceased', (gotoNext: boolean = true) => {
     cy.get('#dateOfDeath').type('010120')
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
     cy.get('#staysAbroad\\.hasStaysAbroad').find(`[value="NEI"]`).check({ force: true })
-    cy.get('#selfEmplyment\\.wasSelfEmployed').find(`[value="NEI"]`).check({ force: true })
 
     if (gotoNext) cy.clickBtn(Button.Next)
 })
@@ -69,7 +68,6 @@ Cypress.Commands.add('useAdvancedDeceased', (gotoNext: boolean = true) => {
     cy.get('#dateOfDeath').type('010120')
     cy.get('#occupationalInjury').find('[value="JA"]').check({ force: true })
     cy.get('#staysAbroad\\.hasStaysAbroad').find(`[value="NEI"]`).check({ force: true })
-    cy.get('div[id="selfEmplyment.wasSelfEmployed"]').find('[value="NEI"]').check({ force: true })
 
     if (gotoNext) cy.clickBtn(Button.Next)
 })

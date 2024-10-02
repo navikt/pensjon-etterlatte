@@ -306,13 +306,6 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroadTitle: 'Pensjon frå utlandet (valfri)',
     pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
     pensionWithCurrency: 'Årleg pensjon i valutaen til landet',
-    selfEmploymentTitle: 'Næringsinntekt i Noreg',
-    weNeedToKnowIfDeceasedWasSelfEmployed:
-        'Vi treng å vite om avdøde hadde inntekt som sjølvstendig næringsdrivende. Dette kan påvirke berekninga av barnepensjon. Vi hentar informasjon om andre inntekter.',
-    wasTheDeceasedSelfEmployed: 'Var han eller ho sjølvstendig næringsdrivande?',
-    incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt frå kalenderåret før dødsfallet (valfri)',
-    incomeFromSelfEmploymentBeforeTaxes: 'Samla årsinntekt før skatt',
-    hadIncomeFromSelfEmployment: 'Hadde han eller ho næringsinntekt når dødsfallet skjedde?',
     occupationalInjuryTitle: 'Yrkesskade eller yrkessjukdom',
     occupationalInjury: 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     whyWeAskAboutOccupationalInjury:
@@ -451,9 +444,6 @@ const error = {
     'paymentDetails.iban.validate': 'Ugyldig IBAN-nummer',
     'paymentDetails.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fyllast ut',
     'paymentDetails.swift.validate': 'Ugyldig SWIFT-kode',
-    'selfEmplyment.wasSelfEmployed.required': 'Oppgi om avdøde var sjølvstendig næringsdrivande',
-    'selfEmplyment.selfEmplymentDetails.income.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
-    'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required': 'Oppgi om avdøde hadde næringsinntekt',
     'staysAbroad.answer.required': 'Oppgi om barnet er busatt i eit anna land enn Noreg',
     'staysAbroad.hasStaysAbroad.required': 'Oppgi om avdøde har hatt opphald utanfor Noreg',
     'staysAbroad.abroadStays.type.required': 'Huk av for type opphald',
