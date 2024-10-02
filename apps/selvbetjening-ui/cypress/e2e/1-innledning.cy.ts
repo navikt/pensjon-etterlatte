@@ -1,12 +1,10 @@
-import { testAccesibility } from '../support/accessibility.ts'
-
 describe('1 - Innledning til inntektsjustering', () => {
     before(() => {
         cy.lastInntektsjusteringInnledning()
     })
 
     it('Innledning skal ikke ha noen UU feil', () => {
-        testAccesibility()
+        cy.testUniversellUtforming()
     })
 
     it('Sanity innhold skal lastes som forventet', () => {

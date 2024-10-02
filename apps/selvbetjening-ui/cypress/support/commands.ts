@@ -2,6 +2,11 @@ import '@testing-library/cypress/add-commands'
 
 const apiUrl = 'http://localhost:8080/selvbetjening/api'
 
+Cypress.Commands.add('testUniversellUtforming', () => {
+    cy.injectAxe()
+    cy.checkA11y()
+})
+
 Cypress.Commands.add('lastInntektsjusteringInnledning', () => {
     cy.intercept('GET', `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "fellesKomponenter"]`), {
         fixture: 'fellesKomponenterInnhold',
