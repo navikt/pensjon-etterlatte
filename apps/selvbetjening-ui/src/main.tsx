@@ -30,7 +30,7 @@ const router = createBrowserRouter(
                     element: <InntektsjusteringInnledning />,
                 },
                 {
-                    path: '/inntektsjustering/inntekt-til-neste-år',
+                    path: '/inntektsjustering/inntekt-til-neste-aar',
                     element: <InntektsjusteringInntektTilNesteAar />,
                 },
                 {

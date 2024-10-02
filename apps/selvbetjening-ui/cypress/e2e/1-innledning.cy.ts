@@ -1,11 +1,14 @@
-import { testAccesibility } from '../support/accessibility.ts'
-
 describe('1 - Innledning til inntektsjustering', () => {
-    beforeEach(() => {
-        cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/innledning')
+    before(() => {
+        cy.lastInntektsjusteringInnledning()
     })
 
     it('Innledning skal ikke ha noen UU feil', () => {
-        testAccesibility()
+        cy.testUniversellUtforming()
+    })
+
+    it('Sanity innhold skal lastes som forventet', () => {
+        cy.findAllByText('Innledning').should('exist')
+        cy.findByRole('button', { name: 'Start utfyllingen' }).should('exist')
     })
 })
