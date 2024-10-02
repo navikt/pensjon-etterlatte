@@ -1,0 +1,299 @@
+[
+  {
+    "veiledning": {
+      "NN": [
+        {
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "No kan du sjå over at alt er rett før du sender inn søknaden. Ved behov kan du endra opplysningane.",
+              "_key": "a6e7ee66119e0"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "af014c22d7a2",
+          "markDefs": []
+        },
+        {
+          "markDefs": [],
+          "children": [
+            {
+              "_key": "de5eb203fe8a",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "441304a76592"
+        },
+        {
+          "markDefs": [],
+          "children": [
+            {
+              "marks": [],
+              "text": "Når du har sendt inn søknaden kjem du til ei kvitteringsside med informasjon om vegen vidare.",
+              "_key": "41aa97ff9aa8",
+              "_type": "span"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "52737c6c4282"
+        }
+      ],
+      "NB": [
+        {
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "Nå kan du se over at alt er riktig før du sender inn søknaden. Ved behov kan du endre opplysningene.",
+              "_key": "83c8fb889d660"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "6211ad5445a2"
+        },
+        {
+          "style": "normal",
+          "_key": "c68e1319b0b3",
+          "markDefs": [],
+          "children": [
+            {
+              "text": "\nNår du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien videre.",
+              "_key": "7001f736f139",
+              "_type": "span",
+              "marks": []
+            }
+          ],
+          "_type": "block"
+        }
+      ],
+      "EN": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "_key": "1129fa4f6553",
+          "markDefs": [],
+          "children": [
+            {
+              "_key": "12ad9670e41f0",
+              "_type": "span",
+              "marks": [],
+              "text": "Now you can check that everything is correct before you submit the application. If necessary, you can change the information."
+            }
+          ]
+        },
+        {
+          "style": "normal",
+          "_key": "9d71f81a5a71",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "",
+              "_key": "0749ffbca033"
+            }
+          ],
+          "_type": "block"
+        },
+        {
+          "_key": "370639c587ca",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "When you have submitted the application, you will be taken to a receipt page with information on how to proceed.",
+              "_key": "ded048381fa6"
+            }
+          ],
+          "_type": "block",
+          "style": "normal"
+        }
+      ]
+    },
+    "_createdAt": "2024-09-16T10:06:26Z",
+    "_rev": "UoZMYaFjA2jA0ws9rdTgeh",
+    "_type": "inntektsjusteringOppsummering",
+    "skjemaSammendrag": {
+      "endreSvarLenke": {
+        "tekst": {
+          "NB": "Endre svar",
+          "EN": " Change answer",
+          "NN": "Endre svar"
+        }
+      },
+      "tittel": {
+        "NN": "Inntekt til neste år",
+        "NB": "Inntekt til neste år",
+        "EN": " Income for next year"
+      }
+    },
+    "dokumentTittel": "v1",
+    "_id": "d1043190-702c-4483-be90-05ef334cb0ef",
+    "_updatedAt": "2024-09-16T12:20:22Z"
+  },
+  {
+    "skjemaSammendrag": {
+      "tittel": {
+        "NN": "Inntekt til neste år",
+        "NB": "Inntekt til neste år",
+        "EN": " Income for next year"
+      },
+      "endreSvarLenke": {
+        "tekst": {
+          "NN": "Endre svar",
+          "NB": "Endre svar",
+          "EN": " Change answer"
+        }
+      }
+    },
+    "dokumentTittel": "v1",
+    "_id": "drafts.d1043190-702c-4483-be90-05ef334cb0ef",
+    "_updatedAt": "2024-09-17T10:41:59Z",
+    "veiledning": {
+      "NN": [
+        {
+          "_key": "af014c22d7a2",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "No kan du sjå over at alt er rett før du sender inn søknaden. Ved behov kan du endra opplysningane.",
+              "_key": "a6e7ee66119e0"
+            }
+          ],
+          "_type": "block",
+          "style": "normal"
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "_key": "441304a76592",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "",
+              "_key": "de5eb203fe8a"
+            }
+          ]
+        },
+        {
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "Når du har sendt inn søknaden kjem du til ei kvitteringsside med informasjon om vegen vidare.",
+              "_key": "41aa97ff9aa8"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "52737c6c4282",
+          "markDefs": []
+        }
+      ],
+      "NB": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "_key": "6211ad5445a2",
+          "markDefs": [],
+          "children": [
+            {
+              "_key": "83c8fb889d660",
+              "_type": "span",
+              "marks": [],
+              "text": "Nå kan du se over at alt er riktig før du sender inn søknaden. Ved behov kan du endre opplysningene."
+            }
+          ]
+        },
+        {
+          "style": "normal",
+          "_key": "c68e1319b0b3",
+          "markDefs": [
+            {
+              "_key": "149b679a5394",
+              "_type": "link"
+            }
+          ],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "\nNår du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien ",
+              "_key": "7001f736f139"
+            },
+            {
+              "_type": "span",
+              "marks": [
+                "149b679a5394"
+              ],
+              "text": "videre.",
+              "_key": "95ad99ff05ac"
+            }
+          ],
+          "_type": "block"
+        }
+      ],
+      "EN": [
+        {
+          "markDefs": [],
+          "children": [
+            {
+              "marks": [],
+              "text": "Now you can check that everything is correct before you submit the application. If necessary, you can change the information.",
+              "_key": "12ad9670e41f0",
+              "_type": "span"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "1129fa4f6553"
+        },
+        {
+          "_key": "9d71f81a5a71",
+          "markDefs": [],
+          "children": [
+            {
+              "_key": "0749ffbca033",
+              "_type": "span",
+              "marks": [],
+              "text": ""
+            }
+          ],
+          "_type": "block",
+          "style": "normal"
+        },
+        {
+          "markDefs": [],
+          "children": [
+            {
+              "_key": "ded048381fa6",
+              "_type": "span",
+              "marks": [],
+              "text": "When you have submitted the application, you will be taken to a receipt page with information on how to proceed."
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "370639c587ca"
+        }
+      ]
+    },
+    "_createdAt": "2024-09-16T10:06:26Z",
+    "_rev": "e94b5c12-72e7-4259-b610-e0ed54668351",
+    "_type": "inntektsjusteringOppsummering"
+  }
+]

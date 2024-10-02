@@ -29,10 +29,25 @@ Cypress.Commands.add('lastInntektsjusteringInntektTilNesteAar', () => {
     cy.intercept(
         'GET',
         `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "inntektsjusteringInntektTilNesteAar"]`),
-        { fixture: 'inntektsjusteringInntektTilNesteAar' }
+        { fixture: 'inntektsjusteringInntektTilNesteAarInnhold' }
     ).as('inntektsjusteringInntektTilNesteAarInnhold')
 
     cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/inntekt-til-neste-aar')
 
     cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringInntektTilNesteAarInnhold'])
+})
+
+Cypress.Commands.add('lastInntetktsjusteringOppsummering', () => {
+    cy.intercept('GET', `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "fellesKomponenter"]`), {
+        fixture: 'fellesKomponenterInnhold',
+    }).as('fellesKomponenterInnhold')
+    cy.intercept(
+        'GET',
+        `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "inntektsjusteringOppsummering"]`),
+        { fixture: 'inntektsjusteringOppsummeringInnhold' }
+    ).as('inntektsjusteringOppsummeringInnhold')
+
+    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/oppsummering')
+
+    cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringOppsummeringInnhold'])
 })
