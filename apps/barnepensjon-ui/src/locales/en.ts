@@ -314,14 +314,6 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroadTitle: 'Pension from abroad (optional)',
     pensionReceivedFromAbroadDescription: 'Enter any pension the deceased received from this country.',
     pensionWithCurrency: 'Annual pension, in the currency of that country',
-    selfEmploymentTitle: 'Income from self-employment in Norway',
-    weNeedToKnowIfDeceasedWasSelfEmployed:
-        'We need to know if the deceased had any income as a self-employed person. This can influence the calculation of the children’s pension. We obtain information about other income directly.',
-    wasTheDeceasedSelfEmployed: 'Was the deceased self-employed?',
-    incomeFromSelfEmployymentYearBeforeDeath:
-        'Enter the deceased’s income from self-employment from the calendar year before their death (optional)',
-    incomeFromSelfEmploymentBeforeTaxes: 'Total annual income before tax',
-    hadIncomeFromSelfEmployment: 'Did the deceased have any income from self-employment at the time of his/her death?',
     occupationalInjuryTitle: 'Occupational injury or occupational illness',
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
@@ -467,10 +459,6 @@ const error = {
     'paymentDetails.swift.required': 'The bank’s SWIFT code or BIC is a required field',
     'paymentDetails.swift.validate': 'Invalid SWIFT code',
     'residesInNorway.required': 'You must answer this question about residence',
-    'selfEmplyment.wasSelfEmployed.required': 'State whether the deceased was self-employed',
-    'selfEmplyment.selfEmplymentDetails.income.pattern': 'Enter valid income from self-employment (digits only)',
-    'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required':
-        'State whether the deceased had income from self-employment',
     'staysAbroad.answer.required': 'State whether the child is a resident in a country other than Norway',
     'staysAbroad.hasStaysAbroad.required': 'State whether the deceased spent periods outside of Norway',
     'staysAbroad.abroadStays.type.required': 'Select the type of stay',

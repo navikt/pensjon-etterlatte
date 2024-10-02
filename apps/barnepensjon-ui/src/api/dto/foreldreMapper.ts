@@ -1,11 +1,4 @@
-import {
-    BetingetOpplysning,
-    EnumSvar,
-    JaNeiVetIkke,
-    Naeringsinntekt,
-    OppholdUtlandType,
-    Utenlandsopphold,
-} from './FellesOpplysninger'
+import { EnumSvar, JaNeiVetIkke, OppholdUtlandType, Utenlandsopphold } from './FellesOpplysninger'
 import { Avdoed, Forelder, GjenlevendeForelder, Person, PersonType } from './Person'
 import {
     IAbroadStay,
@@ -13,7 +6,6 @@ import {
     IDeceasedParent,
     ILivingParent,
     IParent,
-    ISelfEmployment,
     IStaysAbroad,
 } from '../../context/application/application'
 import { TFunction } from '../../hooks/useTranslation'
@@ -218,7 +210,6 @@ const mapAvdoed = (t: TFunction, parent: IDeceasedParent): Avdoed => {
             },
         },
         utenlandsopphold: mapUtenlandsopphold(t, parent.staysAbroad),
-        naeringsInntekt: mapNaeringsinntekt(t, parent.selfEmplyment),
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('occupationalInjury', { ns: 'aboutTheDeceased' }),
             svar: {
@@ -312,46 +303,10 @@ const mapUtenlandsopphold = (t: TFunction, staysAbroad: IStaysAbroad) => {
     }
 }
 
-const mapNaeringsinntekt = (
-    t: TFunction,
-    selfEmployment: ISelfEmployment
-): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined => {
-    if (!selfEmployment?.wasSelfEmployed) return undefined
-
-    let opplysningNaeringsInntekt: Naeringsinntekt | undefined
-    if (selfEmployment?.wasSelfEmployed === JaNeiVetIkke.JA) {
-        opplysningNaeringsInntekt = {
-            naeringsinntektPrAarFoerDoedsfall: {
-                spoersmaal: t('incomeFromSelfEmployymentYearBeforeDeath', { ns: 'aboutTheDeceased' }),
-                svar: {
-                    innhold: selfEmployment.selfEmplymentDetails?.income || '-',
-                },
-            },
-            naeringsinntektVedDoedsfall: {
-                spoersmaal: t('hadIncomeFromSelfEmployment', { ns: 'aboutTheDeceased' }),
-                svar: {
-                    innhold: t(selfEmployment.selfEmplymentDetails.incomeAtDeath!, { ns: 'radiobuttons' }),
-                    verdi: selfEmployment.selfEmplymentDetails.incomeAtDeath!,
-                },
-            },
-        }
-    }
-
-    return {
-        spoersmaal: t('wasTheDeceasedSelfEmployed', { ns: 'aboutTheDeceased' }),
-        svar: {
-            innhold: t(selfEmployment!.wasSelfEmployed, { ns: 'radiobuttons' }),
-            verdi: selfEmployment!.wasSelfEmployed,
-        },
-        opplysning: opplysningNaeringsInntekt,
-    }
-}
-
 export const _test = {
     mapTilForelder,
     mapForelderFraInnloggetBruker,
     mapGjenlevendeForelder,
     mapAvdoed,
     mapUtenlandsopphold,
-    mapNaeringsinntekt,
 }

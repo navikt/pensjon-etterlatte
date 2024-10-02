@@ -79,7 +79,6 @@ export interface ILivingParent extends IParent {
 export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
     staysAbroad: IStaysAbroad
-    selfEmplyment: ISelfEmployment
     occupationalInjury?: JaNeiVetIkke
 }
 
@@ -97,13 +96,5 @@ export interface IAbroadStay {
     pension: {
         amount?: string
         currency?: string
-    }
-}
-
-export interface ISelfEmployment {
-    wasSelfEmployed: JaNeiVetIkke
-    selfEmplymentDetails: {
-        income?: string
-        incomeAtDeath?: JaNeiVetIkke
     }
 }

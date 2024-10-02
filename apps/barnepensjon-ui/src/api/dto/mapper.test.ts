@@ -8,7 +8,6 @@ import {
     IDeceasedParent,
     ILivingParent,
     IParent,
-    ISelfEmployment,
     IStaysAbroad,
 } from '../../context/application/application'
 import { User } from '../../context/user/user'
@@ -73,10 +72,6 @@ describe('Gjenlevende forelder søker på vegne av barn', () => {
                 dateOfDeath: new Date(2022, 1, 1),
                 staysAbroad: {
                     hasStaysAbroad: JaNeiVetIkke.NEI,
-                },
-                selfEmplyment: {
-                    wasSelfEmployed: JaNeiVetIkke.NEI,
-                    selfEmplymentDetails: {},
                 },
                 occupationalInjury: JaNeiVetIkke.VET_IKKE,
             },
@@ -297,65 +292,6 @@ describe('Utenlandsopphold mappes korrekt', () => {
     })
 })
 
-describe('Næringsinntekt mappes korrekt', () => {
-    it('Næringsinntekt - JA - uten detaljer', () => {
-        const selfEmployment: ISelfEmployment = {
-            wasSelfEmployed: JaNeiVetIkke.JA,
-            selfEmplymentDetails: {
-                incomeAtDeath: JaNeiVetIkke.VET_IKKE,
-            },
-        }
-
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
-        expect(result.svar.verdi).toEqual(JaNeiVetIkke.JA)
-        expect(result.opplysning?.naeringsinntektPrAarFoerDoedsfall?.svar.innhold).toEqual(EMPTY_VALUE)
-        expect(result.opplysning?.naeringsinntektVedDoedsfall?.svar.innhold).toEqual(
-            selfEmployment.selfEmplymentDetails.incomeAtDeath
-        )
-    })
-
-    it('Næringsinntekt - JA - med detaljer', () => {
-        const selfEmployment: ISelfEmployment = {
-            wasSelfEmployed: JaNeiVetIkke.JA,
-            selfEmplymentDetails: {
-                income: '1111',
-                incomeAtDeath: JaNeiVetIkke.JA,
-            },
-        }
-
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
-        expect(result.svar.verdi).toEqual(JaNeiVetIkke.JA)
-        expect(result.opplysning?.naeringsinntektPrAarFoerDoedsfall?.svar.innhold).toEqual(
-            selfEmployment.selfEmplymentDetails.income
-        )
-        expect(result.opplysning?.naeringsinntektVedDoedsfall?.svar.innhold).toEqual(
-            selfEmployment.selfEmplymentDetails.incomeAtDeath
-        )
-    })
-
-    it('Næringsinntekt - NEI', () => {
-        const selfEmployment: ISelfEmployment = {
-            wasSelfEmployed: JaNeiVetIkke.NEI,
-            selfEmplymentDetails: {},
-        }
-
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
-        expect(result.svar.verdi).toEqual(JaNeiVetIkke.NEI)
-        expect(result.opplysning).toBeUndefined()
-    })
-
-    it('Næringsinntekt - VET_IKKE', () => {
-        const selfEmployment: ISelfEmployment = {
-            wasSelfEmployed: JaNeiVetIkke.VET_IKKE,
-            selfEmplymentDetails: {},
-        }
-
-        const result = _test.mapNaeringsinntekt(t, selfEmployment)!
-        expect(result.svar.verdi).toEqual(JaNeiVetIkke.VET_IKKE)
-        expect(result.opplysning).toBeUndefined()
-    })
-})
-
 describe('Avdød mappes korrekt', () => {
     it('Generell sjekk på avdød mapping', () => {
         const parent: IDeceasedParent = {
@@ -363,10 +299,6 @@ describe('Avdød mappes korrekt', () => {
             dateOfDeath: new Date(2022, 1, 1),
             staysAbroad: {
                 hasStaysAbroad: JaNeiVetIkke.VET_IKKE,
-            },
-            selfEmplyment: {
-                wasSelfEmployed: JaNeiVetIkke.VET_IKKE,
-                selfEmplymentDetails: {},
             },
             occupationalInjury: JaNeiVetIkke.VET_IKKE,
         }
@@ -380,9 +312,8 @@ describe('Avdød mappes korrekt', () => {
         expect(result.statsborgerskap.svar.innhold).toBe(parent.citizenship)
         expect(result.datoForDoedsfallet.svar.innhold).toBe(parent.dateOfDeath)
 
-        // Separate tester for grundig sjekk av mapping på utenlandsopphold og næringsinntekt
+        // Separate tester for grundig sjekk av mapping på utenlandsopphold
         expect(result.utenlandsopphold.svar.verdi).toBe(parent.staysAbroad.hasStaysAbroad)
-        expect(result.naeringsInntekt!.svar.verdi).toBe(parent.selfEmplyment.wasSelfEmployed)
         expect(result.doedsaarsakSkyldesYrkesskadeEllerYrkessykdom.svar.verdi).toBe(parent.occupationalInjury)
     })
 })
