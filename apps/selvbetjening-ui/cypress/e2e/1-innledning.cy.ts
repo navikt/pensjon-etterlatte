@@ -10,6 +10,6 @@ describe('1 - Innledning til inntektsjustering', () => {
     })
     it('Sanity innhold skal lastes som forventet', () => {
         cy.findByText('Meld fra om inntekt til neste år').should('exist')
-        cy.findByRole('button', { name: 'Start utfyllingen' })
+        cy.findByRole('button', { name: 'Start utfyllingen' }).should('exist')
     })
 })
