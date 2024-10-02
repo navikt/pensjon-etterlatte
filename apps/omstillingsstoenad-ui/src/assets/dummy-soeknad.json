@@ -46,13 +46,6 @@
         }
       ]
     },
-    "selvstendigNaeringsdrivende": {
-      "svar": "radiobuttons.ja",
-      "beskrivelse": "150 000"
-    },
-    "haddePensjonsgivendeInntekt": {
-      "svar": "radiobuttons.nei"
-    },
     "doedsfallAarsak": "radiobuttons.ja"
   },
   "situasjonenDin": {

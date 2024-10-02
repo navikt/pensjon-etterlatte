@@ -107,14 +107,6 @@ export interface IAvdoed {
         svar?: IValg
         oppholdUtland?: IOppholdUtland[]
     }
-    selvstendigNaeringsdrivende?: {
-        svar?: IValg
-        beskrivelse?: string
-    }
-    haddePensjonsgivendeInntekt?: {
-        svar?: IValg
-        beskrivelse?: string
-    }
     doedsfallAarsak?: IValg
     erValidert?: boolean
 }

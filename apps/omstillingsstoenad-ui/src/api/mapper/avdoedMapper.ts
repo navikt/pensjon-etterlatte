@@ -1,6 +1,6 @@
 import { TFunction } from 'i18next'
 import { ISoeknad } from '../../context/soknad/soknad'
-import { EnumSvar, NaeringsinntektAvdoed, OppholdUtlandType, Utenlandsopphold } from '../dto/FellesOpplysninger'
+import { EnumSvar, OppholdUtlandType, Utenlandsopphold } from '../dto/FellesOpplysninger'
 import { Avdoed, PersonType } from '../dto/Person'
 import { IValg } from '../../typer/Spoersmaal'
 import { valgTilSvar } from './fellesMapper'
@@ -66,22 +66,6 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             }) || []
     }
 
-    let opplysningNaeringsInntekt: NaeringsinntektAvdoed | undefined
-    if (soeknad.omDenAvdoede.selvstendigNaeringsdrivende?.svar === IValg.JA) {
-        opplysningNaeringsInntekt = {
-            naeringsinntektPrAarFoerDoedsfall: {
-                spoersmaal: t('omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse'),
-                svar: {
-                    innhold: `${soeknad.omDenAvdoede.selvstendigNaeringsdrivende?.beskrivelse}`,
-                },
-            },
-            naeringsinntektVedDoedsfall: {
-                spoersmaal: t('omDenAvdoede.haddePensjonsgivendeInntekt.svar'),
-                svar: valgTilSvar(t, soeknad.omDenAvdoede.haddePensjonsgivendeInntekt!.svar!),
-            },
-        }
-    }
-
     return {
         type: PersonType.AVDOED,
 
@@ -122,11 +106,6 @@ export const mapAvdoed = (t: TFunction, soeknad: ISoeknad): Avdoed => {
             spoersmaal: t('omDenAvdoede.boddEllerJobbetUtland.svar'),
             svar: valgTilSvar(t, soeknad.omDenAvdoede.boddEllerJobbetUtland!.svar!),
             opplysning: oppholdUtland,
-        },
-        naeringsInntekt: {
-            spoersmaal: t('omDenAvdoede.selvstendigNaeringsdrivende.svar'),
-            svar: valgTilSvar(t, soeknad.omDenAvdoede.selvstendigNaeringsdrivende!.svar!),
-            opplysning: opplysningNaeringsInntekt,
         },
         doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: {
             spoersmaal: t('omDenAvdoede.doedsfallAarsak'),

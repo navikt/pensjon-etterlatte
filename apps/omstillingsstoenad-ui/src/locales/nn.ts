@@ -565,14 +565,6 @@ export default {
         'Oppgi eventuell pensjon han eller ho fekk frå dette landet.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
         'Årleg beløp i valutaen til landet',
-    'omDenAvdoede.haddePensjonsgivendeInntekt.svar': 'Hadde han eller ho næringsinntekt då dødsfallet skjedde?',
-    'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Næringsinntekt',
-    'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
-        'Vi hentar inn nødvendige opplysningar om inntekta til avdøde i registera hos Skatteetaten. Vi har ikkje tilgang til opplysningar om næringsinntekt same år og året før dødsfallet.',
-    'omDenAvdoede.selvstendigNaeringsdrivende.svar': 'Var han eller ho sjølvstendig næringsdrivande?',
-    'omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse':
-        'Oppgi næringsinntekt frå kalenderåret før dødsfallet (valfri)',
-    'omDenAvdoede.selvstendigNaeringsdrivende.placeholder': 'Samla årsinntekt før skatt',
     'omDenAvdoede.annenOpptjening.tittel': 'Anna',
     'omDenAvdoede.doedsfallAarsak.tittel': 'Yrkesskade eller yrkessjukdom',
     'omDenAvdoede.doedsfallAarsak': 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
@@ -909,13 +901,6 @@ export default {
     'feil.forholdTilAvdoede.mottokBidrag.required': 'Oppgi om du vart forsørga av avdøde på dødstidstidspunktet?',
     'feil.forholdTilAvdoede.mottokBidrag.svar.required': 'Oppgi om du fekk bidrag frå avdøde',
     'feil.forholdTilAvdoede.mottokBidrag.sum.required': 'Oppgi summen du fekk i bidrag',
-    'feil.selvstendigNaeringsdrivende.svar.required': 'Oppgi om avdøde var sjølvstendig næringsdrivande',
-    'feil.selvstendigNaeringsdrivende.beskrivelse.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
-    'feil.selvstendigNaeringsdrivende.beskrivelse.required': 'Oppgi næringsinntekt',
-    'feil.selvstendigNaeringsdrivende.forventerEndretInntekt.svar.required':
-        'Oppgi om du forventar endringar i inntekt',
-    'feil.selvstendigNaeringsdrivende.orgnr.required': 'Du må fylle ut gyldig organisasjonsnummer. 9 siffer',
-    'feil.selvstendigNaeringsdrivende.orgnr.minLength': 'Organisasjonsnummer skal vere 9 siffer',
     'feil.selvstendig.beskrivelse.required': 'Oppgi namnet på næringa',
     'feil.selvstendig.startDato.required': 'Oppgi oppstartsdato',
     'feil.selvstendig.startDato.validate': 'Dato må vere i eit gyldig format',
@@ -929,7 +914,6 @@ export default {
     'feil.selvstendig.arbeidsmengde.type.required': 'Vel anten prosent eller timar',
     'feil.selvstendig.forventerEndretArbeidssituasjon.svar.required': 'Beskriv forventinga rundt arbeidssituasjon',
     'feil.selvstendig.forventerEndretArbeidssituasjon.beskrivelse.required': 'Utdjup endringa',
-    'feil.haddePensjonsgivendeInntekt.svar.required': 'Oppgi om avdøde hadde næringsdrivande inntekt',
     'feil.kontaktinfo.telefonnummer.required': 'Telefonnummer må fyllast ut',
     'feil.kontaktinfo.telefonnummer.pattern': 'Må vere eit gyldig telefonnummer',
     'feil.kontaktinfo.telefonnummer.minLength': 'Må vere eit gyldig telefonnummer',

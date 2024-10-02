@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 import PersonInfoOppsummering from './PersonInfoOppsummering'
-import { IValg } from '../../../../typer/Spoersmaal'
 import { Panel } from '../../../felles/Panel'
 
 interface Props {
@@ -84,28 +83,6 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                         )}
                     </Panel>
                 ))}
-            </Panel>
-
-            <Panel>
-                <Heading size={'small'}>{t('omDenAvdoede.selvstendigNaeringsdrivende.tittel')}</Heading>
-                <TekstGruppeJaNeiVetIkke
-                    tittel={t('omDenAvdoede.selvstendigNaeringsdrivende.svar')}
-                    innhold={omDenAvdoede.selvstendigNaeringsdrivende?.svar}
-                />
-                {omDenAvdoede.selvstendigNaeringsdrivende?.svar === IValg.JA && (
-                    <>
-                        {omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse && (
-                            <TekstGruppe
-                                tittel={t('omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse')}
-                                innhold={omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse}
-                            />
-                        )}
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('omDenAvdoede.haddePensjonsgivendeInntekt.svar')}
-                            innhold={omDenAvdoede.haddePensjonsgivendeInntekt?.svar}
-                        />
-                    </>
-                )}
             </Panel>
         </AccordionItem>
     )

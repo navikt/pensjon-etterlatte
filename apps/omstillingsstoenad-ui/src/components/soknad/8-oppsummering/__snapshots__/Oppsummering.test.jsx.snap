@@ -275,28 +275,6 @@ exports[`Oppsummering > Snapshot 1`] = `
             />
           </div>
         </div>
-        <div
-          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
-          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
-        >
-          <h1
-            class="navds-heading navds-heading--small"
-          >
-            omDenAvdoede.selvstendigNaeringsdrivende.tittel
-          </h1>
-          <div
-            class="tekstgruppe"
-          >
-            <label
-              class="navds-label"
-            >
-              omDenAvdoede.selvstendigNaeringsdrivende.svar
-            </label>
-            <p
-              class="navds-body-short navds-body-short--medium"
-            />
-          </div>
-        </div>
         <a
           class=""
           href="/skjema/steg/om-den-avdoede"
