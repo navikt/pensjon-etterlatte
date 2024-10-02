@@ -26,8 +26,9 @@ export const InntektsjusteringInnledning = () => {
                 <HStack justify="center" padding="8">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" />
-
-                        <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
+                        <div>
+                            <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
+                        </div>
 
                         <Alert variant="info">{innhold.info?.[spraak]}</Alert>
                         <Bleed marginInline={{ xs: '0', md: '10 0' }}>
