@@ -593,15 +593,6 @@ export default {
         'Enter any pension the deceased received from this country.',
     'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.aarligBeloepMedValuta':
         'Annual amount, in the currency of that country',
-    'omDenAvdoede.haddePensjonsgivendeInntekt.svar':
-        'Did the deceased have any income from self-employment at the time of their death?',
-    'omDenAvdoede.selvstendigNaeringsdrivende.tittel': 'Income from self-employment',
-    'omDenAvdoede.selvstendigNaeringsdrivende.ingress':
-        "We will obtain information about the deceased's income from the Tax Administration Registry. We do not have access to business income information for the same year and the year before death",
-    'omDenAvdoede.selvstendigNaeringsdrivende.svar': 'Was the deceased self-employed?',
-    'omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse':
-        'Enter the deceased’s income from self-employment from the calendar year before their death (optional)',
-    'omDenAvdoede.selvstendigNaeringsdrivende.placeholder': 'Total annual income before tax',
     'omDenAvdoede.annenOpptjening.tittel': 'Other',
     'omDenAvdoede.doedsfallAarsak.tittel': 'Occupational injury or occupational illness',
     'omDenAvdoede.doedsfallAarsak': 'Was the death caused by an occupational injury or occupational illness?',
@@ -945,13 +936,6 @@ export default {
         'State whether you were being supported by the deceased at the time of their death',
     'feil.forholdTilAvdoede.mottokBidrag.svar.required': 'State whether you receive support from the deceased',
     'feil.forholdTilAvdoede.mottokBidrag.sum.required': 'State the sum you received in support',
-    'feil.selvstendigNaeringsdrivende.svar.required': 'State whether the deceased was self-employed',
-    'feil.selvstendigNaeringsdrivende.beskrivelse.pattern': 'Enter valid income from self-employment (digits only)',
-    'feil.selvstendigNaeringsdrivende.beskrivelse.required': 'Enter income from self-employment',
-    'feil.selvstendigNaeringsdrivende.forventerEndretInntekt.svar.required':
-        'State whether you expect any changes in your income',
-    'feil.selvstendigNaeringsdrivende.orgnr.required': 'You must enter a valid organisation number. 9 digits',
-    'feil.selvstendigNaeringsdrivende.orgnr.minLength': 'The organisation number must be 9 digits',
     'feil.selvstendig.beskrivelse.required': 'State name of industry',
     'feil.selvstendig.startDato.required': 'Enter start-up date',
     'feil.selvstendig.startDato.validate': 'Invalid date format',
@@ -965,7 +949,6 @@ export default {
     'feil.selvstendig.arbeidsmengde.type.required': 'Choose between percent or hours',
     'feil.selvstendig.forventerEndretArbeidssituasjon.svar.required': 'State expectations about your working situation',
     'feil.selvstendig.forventerEndretArbeidssituasjon.beskrivelse.required': 'Explain the change',
-    'feil.haddePensjonsgivendeInntekt.svar.required': 'State whether the deceased had self-employmed income',
     'feil.kontaktinfo.telefonnummer.required': 'Telephone number is a required field',
     'feil.kontaktinfo.telefonnummer.pattern': 'Must be a valid phone number',
     'feil.kontaktinfo.telefonnummer.minLength': 'Must be a valid phone number',

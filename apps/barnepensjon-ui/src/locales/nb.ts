@@ -308,13 +308,6 @@ const aboutTheDeceased = {
     pensionReceivedFromAbroadTitle: 'Pensjon fra utlandet (valgfri)',
     pensionReceivedFromAbroadDescription: 'Oppgi eventuell pensjon han eller hun mottok fra dette landet.',
     pensionWithCurrency: 'Årlig pensjon i landets valuta',
-    selfEmploymentTitle: 'Næringsinntekt i Norge',
-    weNeedToKnowIfDeceasedWasSelfEmployed:
-        'Vi henter inn nødvendige opplysninger om avdødes inntekt i Skatteetatens register. Vi har ikke tilgang til opplysninger om næringsinntekt samme år og året før dødsfallet.',
-    wasTheDeceasedSelfEmployed: 'Var han eller hun selvstendig næringsdrivende?',
-    incomeFromSelfEmployymentYearBeforeDeath: 'Oppgi næringsinntekt fra kalenderåret før dødsfallet (valgfri)',
-    incomeFromSelfEmploymentBeforeTaxes: 'Samlet årsinntekt før skatt',
-    hadIncomeFromSelfEmployment: 'Hadde han eller hun næringsinntekt når dødsfallet skjedde?',
     occupationalInjuryTitle: 'Yrkesskade eller yrkessykdom',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     whyWeAskAboutOccupationalInjury:
@@ -455,9 +448,6 @@ const error = {
     'paymentDetails.swift.required': 'Bankens S.W.I.F.T (BIC) adresse må fylles ut',
     'paymentDetails.swift.validate': 'Ugyldig SWIFT-kode',
     'residesInNorway.required': 'Opphold må besvares',
-    'selfEmplyment.wasSelfEmployed.required': 'Oppgi om avdøde var selvstendig næringsdrivende',
-    'selfEmplyment.selfEmplymentDetails.income.pattern': 'Oppgi gyldig næringsinntekt (kun siffer)',
-    'selfEmplyment.selfEmplymentDetails.incomeAtDeath.required': 'Oppgi om avdøde hadde næringsinntekt',
     'staysAbroad.answer.required': 'Oppgi om barnet er bosatt i et annet land enn Norge',
     'staysAbroad.hasStaysAbroad.required': 'Oppgi om avdøde har hatt opphold utenfor Norge',
     'staysAbroad.abroadStays.type.required': 'Huk av for type opphold',

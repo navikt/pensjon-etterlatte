@@ -76,9 +76,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 .select(oppholdUtland.mottokPensjon.valuta)
         })
 
-        selectValueForId('selvstendigNaeringsdrivende.svar', omDenAvdoede.selvstendigNaeringsdrivende.svar)
-        getById('selvstendigNaeringsdrivende.beskrivelse').type(omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse)
-        selectValueForId('haddePensjonsgivendeInntekt.svar', omDenAvdoede.haddePensjonsgivendeInntekt.svar)
         selectValueForId('doedsfallAarsak', omDenAvdoede.doedsfallAarsak)
         a11yCheck()
 

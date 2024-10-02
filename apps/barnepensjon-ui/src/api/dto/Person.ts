@@ -5,7 +5,6 @@ import {
     FritekstSvar,
     JaNeiVetIkke,
     Kontaktinfo,
-    Naeringsinntekt,
     OppholdUtland,
     Opplysning,
     Utenlandsadresse,
@@ -99,7 +98,6 @@ export interface Avdoed extends Person {
     datoForDoedsfallet: Opplysning<DatoSvar>
     statsborgerskap: Opplysning<FritekstSvar>
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>
-    naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Naeringsinntekt> | undefined
     doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 

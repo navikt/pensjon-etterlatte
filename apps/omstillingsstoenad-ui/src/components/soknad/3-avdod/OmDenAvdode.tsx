@@ -5,9 +5,8 @@ import { IAvdoed } from '../../../typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import { FormProvider, useForm } from 'react-hook-form'
-import { RHFFoedselsnummerInput, RHFInput, RHFValutaInput } from '../../felles/rhf/RHFInput'
+import { RHFFoedselsnummerInput, RHFInput } from '../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 import Navigasjon from '../../felles/Navigasjon'
@@ -55,7 +54,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     }
 
     const erValidert = state.omDenAvdoede.erValidert
-    const selvstendigNaeringsdrivende = watch('selvstendigNaeringsdrivende.svar')
     const datoForDoedsfallet = watch('datoForDoedsfallet')
     const ukjentFoedselsnummer = watch('ukjentFoedselsnummer')
 
@@ -127,40 +125,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 </SkjemaGruppe>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={datoForDoedsfallet} />
-
-                <SkjemaGruppe>
-                    <Heading size="small">{t('omDenAvdoede.selvstendigNaeringsdrivende.tittel')}</Heading>
-                    <BodyLong>{t('omDenAvdoede.selvstendigNaeringsdrivende.ingress')}</BodyLong>
-
-                    <SkjemaElement>
-                        <RHFSpoersmaalRadio
-                            name={'selvstendigNaeringsdrivende.svar'}
-                            legend={t('omDenAvdoede.selvstendigNaeringsdrivende.svar')}
-                            vetIkke
-                        />
-                    </SkjemaElement>
-
-                    {selvstendigNaeringsdrivende === IValg.JA && (
-                        <>
-                            <SkjemaElement>
-                                <RHFValutaInput
-                                    name={'selvstendigNaeringsdrivende.beskrivelse'}
-                                    htmlSize={Bredde.S}
-                                    valgfri={true}
-                                    type="tel"
-                                    description={t('omDenAvdoede.selvstendigNaeringsdrivende.placeholder')}
-                                    label={t('omDenAvdoede.selvstendigNaeringsdrivende.beskrivelse')}
-                                />
-                            </SkjemaElement>
-
-                            <RHFSpoersmaalRadio
-                                name={'haddePensjonsgivendeInntekt.svar'}
-                                legend={t('omDenAvdoede.haddePensjonsgivendeInntekt.svar')}
-                                vetIkke
-                            />
-                        </>
-                    )}
-                </SkjemaGruppe>
 
                 <Feilmeldinger errors={errors} />
 

@@ -128,11 +128,6 @@ export interface Utenlandsopphold {
     pensjonsutbetaling?: Opplysning<FritekstSvar>
 }
 
-export interface NaeringsinntektAvdoed {
-    naeringsinntektPrAarFoerDoedsfall?: Opplysning<FritekstSvar>
-    naeringsinntektVedDoedsfall?: Opplysning<EnumSvar<JaNeiVetIkke>>
-}
-
 export interface ArbeidOgUtdanning {
     dinSituasjon: Opplysning<EnumSvar<JobbStatusType>[]>
     arbeidsforhold?: Opplysning<Arbeidstaker[]>

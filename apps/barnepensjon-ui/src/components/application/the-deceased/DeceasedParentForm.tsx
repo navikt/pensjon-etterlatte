@@ -9,7 +9,6 @@ import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import SelfEmploymentDetails from './SelfEmploymentDetails'
 import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useCurrencies } from '../../../hooks/useCurrencies'
@@ -69,8 +68,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                 </FormElement>
                 {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} currencies={currencies} />}
             </FormGroup>
-
-            <SelfEmploymentDetails />
         </>
     )
 }

@@ -1571,131 +1571,6 @@ exports[`Om den avdøde > Snapshot 1`] = `
     <fieldset
       class="sc-blHHSb hqrzOP"
     >
-      <h1
-        class="navds-heading navds-heading--small"
-      >
-        omDenAvdoede.selvstendigNaeringsdrivende.tittel
-      </h1>
-      <p
-        class="navds-body-long navds-body-long--medium"
-      >
-        omDenAvdoede.selvstendigNaeringsdrivende.ingress
-      </p>
-      <div
-        class="sc-ovuCP iUitbz"
-      >
-        <div
-          id="selvstendigNaeringsdrivende.svar"
-        >
-          <fieldset
-            class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
-          >
-            <legend
-              class="navds-fieldset__legend navds-label"
-            >
-              omDenAvdoede.selvstendigNaeringsdrivende.svar
-            </legend>
-            <div
-              class="navds-radio-buttons"
-            >
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-labelledby="r1d"
-                  class="navds-radio__input"
-                  id="radio-r1c"
-                  name="selvstendigNaeringsdrivende.svar"
-                  type="radio"
-                  value="radiobuttons.ja"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r1c"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="navds-body-short navds-body-short--medium"
-                      id="r1d"
-                    >
-                      radiobuttons.ja
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-labelledby="r1g"
-                  class="navds-radio__input"
-                  id="radio-r1f"
-                  name="selvstendigNaeringsdrivende.svar"
-                  type="radio"
-                  value="radiobuttons.nei"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r1f"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="navds-body-short navds-body-short--medium"
-                      id="r1g"
-                    >
-                      radiobuttons.nei
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div
-                class="radioBorder navds-radio navds-radio--medium"
-              >
-                <input
-                  aria-labelledby="r1j"
-                  class="navds-radio__input"
-                  id="radio-r1i"
-                  name="selvstendigNaeringsdrivende.svar"
-                  type="radio"
-                  value="radiobuttons.vetIkke"
-                />
-                <label
-                  class="navds-radio__label"
-                  for="radio-r1i"
-                >
-                  <span
-                    class="navds-radio__content"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="navds-body-short navds-body-short--medium"
-                      id="r1j"
-                    >
-                      radiobuttons.vetIkke
-                    </span>
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div
-              aria-live="polite"
-              aria-relevant="additions removals"
-              class="navds-fieldset__error"
-              id="fieldset-error-r1b"
-            />
-          </fieldset>
-        </div>
-      </div>
-    </fieldset>
-    <fieldset
-      class="sc-blHHSb hqrzOP"
-    >
       <div
         class="sc-gtLWhw bxiLjI undefined"
       >
@@ -1752,7 +1627,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r1n"
+              aria-labelledby="title-r1c"
               fill="none"
               focusable="false"
               height="1em"
@@ -1762,7 +1637,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r1n"
+                id="title-r1c"
               >
                 Lukk
               </title>

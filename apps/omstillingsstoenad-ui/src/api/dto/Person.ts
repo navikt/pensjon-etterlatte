@@ -4,7 +4,6 @@ import {
     ForholdTilAvdoede,
     HoeyesteUtdanning,
     Kontaktinfo,
-    NaeringsinntektAvdoed,
     OppholdUtland,
     Opplysning,
     SivilstatusType,
@@ -124,7 +123,6 @@ export interface Avdoed extends Person {
     datoForDoedsfallet: Opplysning<DatoSvar>
     statsborgerskap: Opplysning<FritekstSvar>
     utenlandsopphold: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Utenlandsopphold[] | undefined>
-    naeringsInntekt: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, NaeringsinntektAvdoed> // Ikke nødvendig nytt regelverk for barnep.
     doedsaarsakSkyldesYrkesskadeEllerYrkessykdom: Opplysning<EnumSvar<JaNeiVetIkke>>
 }
 
