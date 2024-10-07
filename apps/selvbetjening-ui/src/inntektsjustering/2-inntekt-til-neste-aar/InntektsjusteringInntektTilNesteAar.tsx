@@ -24,8 +24,6 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    // TODO: denne her fylles ut når andre skjemaene kommer på plass
-    //       trenger også en default for når personen ikke er gyldig for å fylle inn inntekt
     const velgSkjemaForInntekt = (alder: Alder) => {
         switch (alder) {
             case Alder.ATTEN_TIL_FEMTI_SEKS:
