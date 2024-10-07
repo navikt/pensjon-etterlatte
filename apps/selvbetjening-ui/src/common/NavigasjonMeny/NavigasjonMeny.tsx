@@ -5,6 +5,7 @@ import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
 import { Inntekt } from '../../types/inntektsjustering.ts'
+import { useInntektDispatch } from '../inntekt/InntektContext.tsx'
 
 interface Props {
     tilbakePath: string
@@ -17,6 +18,7 @@ export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, innte
     const navigate = useNavigate()
 
     const spraak = useSpraak()
+    const inntektDispatch = useInntektDispatch()
 
     const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
@@ -33,19 +35,19 @@ export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, innte
                         variant="secondary"
                         icon={<ArrowLeftIcon aria-hidden />}
                         iconPosition="left"
-                        onClick={() =>
-                            navigate(`/inntektsjustering/${tilbakePath}`, { state: inntekt ? inntekt : undefined })
-                        }
+                        onClick={() => navigate(`/inntektsjustering/${tilbakePath}`)}
                     >
                         {innhold.navigasjonMeny?.knapper?.forrigeStegKnapp?.[spraak]}
                     </Button>
                     <Button
+                        type="submit"
                         variant="primary"
                         icon={skalSendeSoeknad ? <PaperplaneIcon aria-hidden /> : <ArrowRightIcon aria-hidden />}
                         iconPosition="right"
-                        onClick={() =>
-                            navigate(`/inntektsjustering/${nestePath}`, { state: inntekt ? inntekt : undefined })
-                        }
+                        onClick={() => {
+                            if (inntekt) inntektDispatch.setInntekt(inntekt)
+                            navigate(`/inntektsjustering/${nestePath}`)
+                        }}
                     >
                         {skalSendeSoeknad
                             ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]

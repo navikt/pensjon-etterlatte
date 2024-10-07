@@ -4,16 +4,14 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../../sanity.types.ts'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
-import { Inntekt } from '../../types/inntektsjustering.ts'
+import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
 
 export const InntektsjusteringOppsummering = () => {
     const spraak = useSpraak()
-
-    const { state: inntekt } = useLocation() as Inntekt
-
     const navigate = useNavigate()
+    const inntekt = useInntekt()
 
     const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>(
         '*[_type == "inntektsjusteringOppsummering"]'
@@ -42,11 +40,7 @@ export const InntektsjusteringOppsummering = () => {
                                     {innhold.skjemaSammendrag?.tittel?.[spraak]}
                                 </FormSummary.Heading>
                                 <FormSummary.EditLink
-                                    onClick={() =>
-                                        navigate(`/inntektsjustering/inntekt-til-neste-aar`, {
-                                            state: inntekt ? inntekt : undefined,
-                                        })
-                                    }
+                                    onClick={() => navigate(`/inntektsjustering/inntekt-til-neste-aar`)}
                                 >
                                     {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
@@ -67,12 +61,7 @@ export const InntektsjusteringOppsummering = () => {
                             </FormSummary.Answers>
                         </FormSummary>
 
-                        <NavigasjonMeny
-                            tilbakePath="/inntekt-til-neste-aar"
-                            nestePath="/kvittering"
-                            skalSendeSoeknad
-                            inntekt={inntekt}
-                        />
+                        <NavigasjonMeny tilbakePath="/inntekt-til-neste-aar" nestePath="/kvittering" skalSendeSoeknad />
                     </VStack>
                 </HStack>
             </main>

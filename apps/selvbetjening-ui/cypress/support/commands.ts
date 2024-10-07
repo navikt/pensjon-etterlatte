@@ -47,9 +47,7 @@ Cypress.Commands.add('lastInntetktsjusteringOppsummering', () => {
         { fixture: 'inntektsjusteringOppsummeringInnhold' }
     ).as('inntektsjusteringOppsummeringInnhold')
 
-    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/inntekt-til-neste-aar')
-
-    cy.findByRole('button', { name: 'Neste steg' }).click()
+    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/oppsummering')
 
     cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringOppsummeringInnhold'])
 })

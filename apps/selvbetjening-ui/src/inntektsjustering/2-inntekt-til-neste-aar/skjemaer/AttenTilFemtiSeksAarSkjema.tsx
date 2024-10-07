@@ -3,20 +3,17 @@ import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Inntekt } from '../../../types/inntektsjustering.ts'
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
-
-const inntektDefaultValues: Inntekt = {
-    arbeidsinntekt: 0,
-    naeringsinntekt: 0,
-    inntektFraUtland: 0,
-}
+import { useInntekt } from '../../../common/inntekt/InntektContext.tsx'
 
 export const AttenTilFemtiSeksAarSkjema = () => {
     const spraak = useSpraak()
+
+    const inntekt = useInntekt()
 
     const {
         innhold,
@@ -25,10 +22,9 @@ export const AttenTilFemtiSeksAarSkjema = () => {
     } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
-    const { state: inntekt } = useLocation() as Inntekt
 
     const { register, setValue, watch, getValues } = useForm<Inntekt>({
-        defaultValues: inntekt ? inntekt : inntektDefaultValues,
+        defaultValues: inntekt,
     })
 
     if (innholdError && !innholdIsLoading) {
