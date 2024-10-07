@@ -25,18 +25,15 @@ export const AttenTilFemtiSeksAarSkjema = () => {
     } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
-
-    if (innholdError && !innholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
-    }
-
     const { state: inntekt } = useLocation() as Inntekt
 
     const { register, setValue, watch, getValues } = useForm<Inntekt>({
         defaultValues: inntekt ? inntekt : inntektDefaultValues,
     })
 
-    const { arbeidsinntekt, naeringsinntekt, inntektFraUtland } = innhold?.inntektSkjemaer?.attenTilFemtiSeksAar
+    if (innholdError && !innholdIsLoading) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
 
     return (
         !!innhold && (
@@ -50,12 +47,26 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                                     setValue('arbeidsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
                                 },
                             })}
-                            label={arbeidsinntekt?.label?.[spraak]}
-                            description={arbeidsinntekt?.description?.[spraak]}
+                            label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.label?.[spraak]}
+                            description={
+                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.description?.[spraak]
+                            }
                             inputMode="numeric"
                         />
-                        <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
-                            <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
+                        <ReadMore
+                            header={
+                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore?.tittel?.[
+                                    spraak
+                                ]
+                            }
+                        >
+                            <SanityRikTekst
+                                text={
+                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore?.innhold?.[
+                                        spraak
+                                    ]
+                                }
+                            />
                         </ReadMore>
                     </VStack>
                     <VStack gap="2">
@@ -66,12 +77,25 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                                     setValue('naeringsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
                                 },
                             })}
-                            label={naeringsinntekt?.label?.[spraak]}
-                            description={naeringsinntekt?.description?.[spraak]}
+                            label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.label?.[spraak]}
+                            description={
+                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.description?.[spraak]
+                            }
                             inputMode="numeric"
                         />
-                        <ReadMore header={naeringsinntekt?.readMore?.tittel?.[spraak]}>
-                            <SanityRikTekst text={naeringsinntekt?.readMore?.innhold?.[spraak]} />
+                        <ReadMore
+                            header={
+                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore?.tittel?.[
+                                    spraak
+                                ]
+                            }
+                        >
+                            <SanityRikTekst
+                                text={
+                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore
+                                        ?.innhold?.[spraak]
+                                }
+                            />
                         </ReadMore>
                     </VStack>
                     <VStack gap="2">
@@ -82,12 +106,25 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                                     setValue('inntektFraUtland', e.target.value.replace(/[^0-9.]/g, ''))
                                 },
                             })}
-                            label={inntektFraUtland?.label?.[spraak]}
-                            description={inntektFraUtland?.description?.[spraak]}
+                            label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.label?.[spraak]}
+                            description={
+                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.description?.[spraak]
+                            }
                             inputMode="numeric"
                         />
-                        <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
-                            <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
+                        <ReadMore
+                            header={
+                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore?.tittel?.[
+                                    spraak
+                                ]
+                            }
+                        >
+                            <SanityRikTekst
+                                text={
+                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore
+                                        ?.innhold?.[spraak]
+                                }
+                            />
                         </ReadMore>
                     </VStack>
 
