@@ -5,20 +5,12 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
-import useSWR, { SWRResponse } from 'swr'
-import { Alder, IInnloggetBruker } from '../../types/person.ts'
-import { apiURL } from '../../utils/api.ts'
+import { Alder } from '../../types/person.ts'
 import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
 import { finnAlder } from './finnAlder.ts'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const spraak = useSpraak()
-
-    const {
-        data: innloggetBruker,
-        error: innloggetBrukerError,
-        isLoading: innloggetBrukerIsLoading,
-    }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(`${apiURL}/api/person/innlogget`)
 
     const {
         innhold,
@@ -28,14 +20,12 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
-    }
-
     if (innholdError && !innholdIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
+    // TODO: denne her fylles ut når andre skjemaene kommer på plass
+    //       trenger også en default for når personen ikke er gyldig for å fylle inn inntekt
     const velgSkjemaForInntekt = (alder: Alder) => {
         switch (alder) {
             case Alder.ATTEN_TIL_FEMTI_SEKS:
@@ -44,7 +34,6 @@ export const InntektsjusteringInntektTilNesteAar = () => {
     }
 
     return (
-        !!innloggetBruker &&
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8">
@@ -100,8 +89,8 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                                 </Accordion.Item>
                             </Accordion>
                         </div>
-
-                        {velgSkjemaForInntekt(finnAlder(innloggetBruker))}
+                        {/* TODO: bruker hardkodet person helt til vi har dette på plass i backend */}
+                        {velgSkjemaForInntekt(finnAlder({ foedselsdato: new Date(1975, 4, 11) }))}
                     </VStack>
                 </HStack>
             </main>
