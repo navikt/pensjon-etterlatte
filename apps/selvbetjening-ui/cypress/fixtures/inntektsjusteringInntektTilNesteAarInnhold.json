@@ -1,30 +1,241 @@
 [
   {
     "sumAvInntekt": {
+      "NB": "Din samlede forventet brutto inntekt til neste år: ",
       "EN": "Your total expected gross income for the next year:",
-      "NN": "Din samla forventa brutto inntekt til neste år:",
-      "NB": "Din samlede forventet brutto inntekt til neste år: "
+      "NN": "Din samla forventa brutto inntekt til neste år:"
+    },
+    "inntektSkjemaer": {
+      "attenTilFemtiSeksAar": {
+        "inntektFraUtland": {
+          "label": {
+            "NN": "Alle inntekter fra utland",
+            "NB": "Alle inntekter fra utland",
+            "EN": "Alle inntekter fra utland"
+          },
+          "readMore": {
+            "innhold": {
+              "NN": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "32b707bba53f",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "2fbb3b760f0f"
+                    }
+                  ],
+                  "level": 1
+                }
+              ],
+              "NB": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "917fe0916488",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "ddb4bc799621"
+                    }
+                  ],
+                  "level": 1
+                }
+              ],
+              "EN": [
+                {
+                  "level": 1,
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "8240fb01cde7",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "0097599835ae"
+                    }
+                  ]
+                }
+              ]
+            },
+            "tittel": {
+              "NN": "Inntekter fra utland du skal melde inn",
+              "NB": "Inntekter fra utland du skal melde inn",
+              "EN": "Inntekter fra utland du skal melde inn"
+            }
+          }
+        },
+        "naeringsinntekt": {
+          "label": {
+            "NN": "Næringsinntekt",
+            "NB": "Næringsinntekt",
+            "EN": "Næringsinntekt"
+          },
+          "readMore": {
+            "innhold": {
+              "NN": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "d500c0edb42a",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "c053e8c1fb9f"
+                    }
+                  ],
+                  "level": 1
+                }
+              ],
+              "NB": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "e6dec088a185",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "a78c0be09ead"
+                    }
+                  ],
+                  "level": 1
+                }
+              ],
+              "EN": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "ea9cac687c86",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "247a5af6037a",
+                      "_type": "span"
+                    }
+                  ],
+                  "level": 1
+                }
+              ]
+            },
+            "tittel": {
+              "EN": "Næringsinntekter du skal melde inn",
+              "NN": "Næringsinntekter du skal melde inn",
+              "NB": "Næringsinntekter du skal melde inn"
+            }
+          }
+        },
+        "arbeidsinntekt": {
+          "label": {
+            "NN": "Arbeidsinntekt og andre utbetalinger",
+            "NB": "Arbeidsinntekt og andre utbetalinger",
+            "EN": "Arbeidsinntekt og andre utbetalinger"
+          },
+          "readMore": {
+            "innhold": {
+              "NN": [
+                {
+                  "level": 1,
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "c98071e152dc",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "f416f269868e"
+                    }
+                  ]
+                }
+              ],
+              "NB": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "5123d74b3528",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "e0aea0423bf9"
+                    }
+                  ],
+                  "level": 1
+                }
+              ],
+              "EN": [
+                {
+                  "_type": "block",
+                  "style": "normal",
+                  "_key": "0ccb9bca302e",
+                  "listItem": "bullet",
+                  "markDefs": [],
+                  "children": [
+                    {
+                      "_type": "span",
+                      "marks": [],
+                      "text": "Liste over inntekter kommer her..........",
+                      "_key": "6fa863a8165a"
+                    }
+                  ],
+                  "level": 1
+                }
+              ]
+            },
+            "tittel": {
+              "NN": "Arbeidsinntekter og andre utbetalinger du skal melde inn",
+              "NB": "Arbeidsinntekter og andre utbetalinger du skal melde inn",
+              "EN": "Arbeidsinntekter og andre utbetalinger du skal melde inn"
+            }
+          }
+        }
+      }
     },
     "dokumentTittel": "v1",
-    "_createdAt": "2024-09-26T10:43:33Z",
-    "_rev": "VO3Rz3CKgO8VZQnLmjtrqQ",
-    "_type": "inntektsjusteringInntektTilNesteAar",
     "_id": "046c0049-e5f0-4317-9cf8-f7735b446b66",
     "hovedinnhold": {
       "NN": [
         {
+          "markDefs": [],
           "children": [
             {
-              "_key": "25027df341b3",
               "_type": "span",
               "marks": [],
-              "text": "Inntekt til neste år"
+              "text": "Inntekt til neste år",
+              "_key": "25027df341b3"
             }
           ],
           "_type": "block",
           "style": "h2",
-          "_key": "5203795ae51f",
-          "markDefs": []
+          "_key": "5203795ae51f"
         },
         {
           "_type": "block",
@@ -34,15 +245,16 @@
           "markDefs": [],
           "children": [
             {
+              "text": "Inntekta du oppgir, skal vera brutto inntekt, altså inntekt før skatt.",
               "_key": "29bd3687725b0",
               "_type": "span",
-              "marks": [],
-              "text": "Inntekta du oppgir, skal vera brutto inntekt, altså inntekt før skatt."
+              "marks": []
             }
           ],
           "level": 1
         },
         {
+          "_type": "block",
           "style": "normal",
           "_key": "af5bb1f3b387",
           "listItem": "bullet",
@@ -55,14 +267,9 @@
               "_key": "581e2fcc0abc"
             }
           ],
-          "level": 1,
-          "_type": "block"
+          "level": 1
         },
         {
-          "style": "normal",
-          "_key": "164f2bbf3621",
-          "listItem": "bullet",
-          "markDefs": [],
           "children": [
             {
               "_type": "span",
@@ -72,27 +279,64 @@
             }
           ],
           "level": 1,
-          "_type": "block"
+          "_type": "block",
+          "style": "normal",
+          "_key": "164f2bbf3621",
+          "listItem": "bullet",
+          "markDefs": []
         },
         {
-          "markDefs": [],
           "children": [
             {
+              "_key": "7744554d6eb4",
               "_type": "span",
               "marks": [],
-              "text": "Viss me ikkje høyrer frå deg, vil me bruka same årsinntekt til neste år som du har meldt inn for dette året.",
-              "_key": "7744554d6eb4"
+              "text": "Viss me ikkje høyrer frå deg, vil me bruka same årsinntekt til neste år som du har meldt inn for dette året."
             }
           ],
           "level": 1,
           "_type": "block",
           "style": "normal",
           "_key": "76b6008b6707",
-          "listItem": "bullet"
+          "listItem": "bullet",
+          "markDefs": []
+        },
+        {
+          "_key": "3fce8454cfde",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "Inntekt du skal melde inn",
+              "_key": "af69a05e9816"
+            }
+          ],
+          "_type": "block",
+          "style": "h3"
+        },
+        {
+          "children": [
+            {
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "Du skal fylle inn forventet utbetalt årsinntekt fra januar til og med desember.",
+              "_key": "3b2bee51c21c"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "aff58132831f",
+          "markDefs": []
         }
       ],
       "NB": [
         {
+          "style": "h2",
+          "_key": "d66ccacecec7",
+          "markDefs": [],
           "children": [
             {
               "_type": "span",
@@ -101,13 +345,9 @@
               "_key": "c9f96c3a92db"
             }
           ],
-          "_type": "block",
-          "style": "h2",
-          "_key": "d66ccacecec7",
-          "markDefs": []
+          "_type": "block"
         },
         {
-          "markDefs": [],
           "children": [
             {
               "_type": "span",
@@ -120,1511 +360,10 @@
           "_type": "block",
           "style": "normal",
           "_key": "3f11ff541004",
-          "listItem": "bullet"
-        },
-        {
-          "_key": "6e717ce3d072",
           "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "text": "For å kunne beregne riktig utbetaling, trenger vi å vite hva du forventer å ha i inntekt ved siden av omstillingsstønad. Riktig informasjon om inntekt reduserer risiko for baksmell på etteroppgjøret.",
-              "_key": "12f982af6cd9",
-              "_type": "span",
-              "marks": []
-            }
-          ],
-          "level": 1,
-          "_type": "block",
-          "style": "normal"
+          "markDefs": []
         },
         {
-          "_type": "block",
-          "style": "normal",
-          "_key": "92b5955f614c",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "marks": [],
-              "text": "Du kan fra oktober hvert år bruke skjemaet til å melde fra om forventet inntekt for neste år.",
-              "_key": "333d9e1e308b",
-              "_type": "span"
-            }
-          ],
-          "level": 1
-        },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "4670f98d92de",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "text": "Hvis vi ikke hører fra deg, vil vi bruke samme årsinntekt til neste år som du har meldt inn for dette året.",
-              "_key": "adc7800eaa17",
-              "_type": "span",
-              "marks": []
-            }
-          ],
-          "level": 1
-        }
-      ],
-      "EN": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Income for next year",
-              "_key": "5a2ded7b94540"
-            }
-          ],
-          "_type": "block",
-          "style": "h2",
-          "_key": "68d6b7b393a1"
-        },
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "The income you state must be gross income, i.e. income before tax.",
-              "_key": "a7bbdd1983060"
-            }
-          ],
-          "level": 1,
-          "_type": "block",
-          "style": "normal",
-          "_key": "75cafa895410",
-          "listItem": "bullet"
-        },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "4742dce0558b",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "_key": "5f1d1b2ac1870",
-              "_type": "span",
-              "marks": [],
-              "text": "In order to be able to calculate the correct payment, we need to know what you expect to have in income in addition to adjustment allowance. Correct information about income reduces the risk of backlash at the post-settlement."
-            }
-          ],
-          "level": 1
-        },
-        {
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "From October each year, you can use the form to report your expected income for the next year.",
-              "_key": "04b04dc8e1530"
-            }
-          ],
-          "level": 1,
-          "_type": "block",
-          "style": "normal",
-          "_key": "69b21858a713"
-        },
-        {
-          "style": "normal",
-          "_key": "c7b9b5c12b2d",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "marks": [],
-              "text": "If we do not hear from you, we will use the same annual income for the next year that you have entered for this year.",
-              "_key": "859a326ffa960",
-              "_type": "span"
-            }
-          ],
-          "level": 1,
-          "_type": "block"
-        }
-      ]
-    },
-    "inntektAccordions": {
-      "naeringsinntekt": {
-        "innhold": {
-          "NN": [
-            {
-              "_key": "9b472064f886",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "næringsinntekt",
-                  "_key": "36f1548d3067",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "style": "normal",
-              "_key": "a4becd19aa0b",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sal av næringsverksemd",
-                  "_key": "43173cf0817a"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            }
-          ],
-          "NB": [
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "783071fd4df20",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "næringsinntekt"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "b32c83f3ee65"
-            },
-            {
-              "_key": "ce15c7b6c295",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "salg av næringsvirksomhet",
-                  "_key": "6794b72f025c"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            }
-          ],
-          "EN": [
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "95ff6117933d",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "business income",
-                  "_key": "1fefc0c6330e0",
-                  "_type": "span"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sale of commercial activities",
-                  "_key": "17f6349af560"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "5b23225e7f84",
-              "listItem": "bullet",
-              "markDefs": []
-            }
-          ]
-        },
-        "tittel": {
-          "NN": "Næringsinntekt",
-          "NB": "Næringsinntekt",
-          "EN": "Business income"
-        }
-      },
-      "alleInntekterIUtland": {
-        "innhold": {
-          "NN": [
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "em"
-                  ],
-                  "text": "Slot for sanity innhold",
-                  "_key": "39c48b986b20"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "84383f9b795a",
-              "markDefs": []
-            }
-          ],
-          "NB": [
-            {
-              "style": "normal",
-              "_key": "61756e2252d7",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "Slot for sanity innhold",
-                  "_key": "68527af662bc",
-                  "_type": "span",
-                  "marks": [
-                    "em"
-                  ]
-                }
-              ],
-              "_type": "block"
-            }
-          ],
-          "EN": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "em"
-                  ],
-                  "text": "Slot for sanity innhold",
-                  "_key": "2c27dbd8b2d6"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "3dc2f22c941a"
-            }
-          ]
-        },
-        "tittel": {
-          "NB": "Alle inntekter fra utland",
-          "EN": "All income from abroad",
-          "NN": "Alle inntekter frå utland"
-        }
-      },
-      "arbeidsinntekt": {
-        "innhold": {
-          "NN": [
-            {
-              "_key": "1d00e7776bf9",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "Arbeidsinntekt",
-                  "_key": "926c55b5ecae0",
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ]
-                }
-              ],
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "7cd13ee23ee0",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fastlønn",
-                  "_key": "c8bd1b2389e7"
-                }
-              ]
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ekstratimar og overtid",
-                  "_key": "5a52a97e07f5"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "811909f7e6dd"
-            },
-            {
-              "_key": "e24e2e549a8f",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "feriepengar",
-                  "_key": "7fd65a8af432"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "style": "normal",
-              "_key": "47fe19ab6c09",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Pengestøtte frå NAV og andre pensjonsleverandørar",
-                  "_key": "ab0d4add22190"
-                }
-              ],
-              "_type": "block"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "arbeidsavklaringspenger (AAP)",
-                  "_key": "937aff42a467",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "2a53333ff0d6"
-            },
-            {
-              "style": "normal",
-              "_key": "b82a32004599",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "dagpenger",
-                  "_key": "e694aef9bbfb"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "foreldrepenger",
-                  "_key": "49a353b6951a"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "2fd44a1dd68a"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "fosterhjemsgodgjørelse",
-                  "_key": "624137a2d51b",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "6f1513757a1b"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "kvalifiseringsstønad",
-                  "_key": "1555348b80f2",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "f05651012614",
-              "listItem": "bullet"
-            },
-            {
-              "_key": "384a86b933e1",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgslønn/omsorgsstønad (kommunal støtte)",
-                  "_key": "5800daffcd65"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "36b557215e33",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgspenger",
-                  "_key": "393f3c9764b1"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "opplæringspenger",
-                  "_key": "bc347e15c7fe"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "9e8c3bf0fc55",
-              "listItem": "bullet"
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "69b7373e4ff1",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "1831324a5a52",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pensjon fra utlandet"
-                }
-              ]
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "cd82ee4dc54e",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pleiepenger"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "52943f00208b",
-              "listItem": "bullet"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sykepenger",
-                  "_key": "8e32ca2935aa"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "4909a236bedd",
-              "listItem": "bullet"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "99542731ae1e",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ytelser fra tjenestepensjonsordning",
-                  "_key": "f1a26efc61de"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "_key": "e654854dee9c",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Andre utbetalingar som blir rekna som inntekt",
-                  "_key": "f5ae7d9c52ca0"
-                }
-              ],
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "_key": "d00a91d07381",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "skattepliktig del av forsikringar",
-                  "_key": "2c26ae8b4dfd0"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royaltyar eller godtgjersle for deltakingar i styre, utval, representantskap eller liknande.",
-                  "_key": "a77090d0c798"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "87ef56f11129",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "",
-                  "_key": "4f8049299c7a"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "a5e738c182c2"
-            }
-          ],
-          "NB": [
-            {
-              "_key": "340c63c63919",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "a6f4b3033912",
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Arbeidsinntekt"
-                }
-              ],
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "0e4beacc0549",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "fastlønn",
-                  "_key": "f5416b28a41c",
-                  "_type": "span"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ekstratimer og overtid",
-                  "_key": "0c98c74371f7"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "180c20453396",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "feriepenger",
-                  "_key": "e4c0c4b057ab"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "293689e5a745",
-              "listItem": "bullet"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Pengestøtte fra NAV og andre pensjonsleverandører",
-                  "_key": "065fea8a5b1f"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "777f56058108",
-              "markDefs": []
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "f890060d42e4",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "arbeidsavklaringspenger (AAP)",
-                  "_key": "aff6f2ce967c0"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "children": [
-                {
-                  "_key": "eaf676e7d2ac",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "dagpenger"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "7f1187757b9e",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "_key": "868ae497954f",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "foreldrepenger",
-                  "_key": "913b459a9edc",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "bdacc0bdb255",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fosterhjemsgodgjørelse",
-                  "_key": "8d773d57a881"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "f41a9131ab86",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "kvalifiseringsstønad",
-                  "_key": "0838ed1b7484"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "2e412dcbca8a",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgslønn/omsorgsstønad (kommunal støtte)"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "0d416a97e52e"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "4415c1ee04b0",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "6fe8e1152f17",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgspenger"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "_key": "ecfb96cc10d8",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "opplæringspenger",
-                  "_key": "00e65b945921"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pensjon fra utlandet",
-                  "_key": "d6ffc8f09a57"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "8a311fff099c"
-            },
-            {
-              "style": "normal",
-              "_key": "c048586ecac5",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pleiepenger",
-                  "_key": "ce8905d62599"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "100ece66f631",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "bb5cbb30c856",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sykepenger"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "851ae28be4ae",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ytelser fra tjenestepensjonsordning",
-                  "_key": "75bb8bc18230"
-                }
-              ]
-            },
-            {
-              "_key": "4bb47ad581ed",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Andre utbetalinger som regnes som inntekt",
-                  "_key": "4fdc1e9bca3c",
-                  "_type": "span"
-                }
-              ],
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "skattepliktig del av forsikringer",
-                  "_key": "5dd8580b91730"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "624a3753fa24",
-              "listItem": "bullet"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.",
-                  "_key": "8882eb5cd4fc"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "8bf0bcd8dd98",
-              "listItem": "bullet",
-              "markDefs": []
-            }
-          ],
-          "EN": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Labor income",
-                  "_key": "df174b7c45860"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "849ada411139"
-            },
-            {
-              "style": "normal",
-              "_key": "7f63429eefae",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "fixed salary",
-                  "_key": "3d3242d45b0e0",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "extra hours and overtime",
-                  "_key": "7eefeaf469a1"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "3f78b933d1cd"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "holiday pay",
-                  "_key": "f9db811c7289",
-                  "_type": "span",
-                  "marks": []
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "a9587e0d1667",
-              "listItem": "bullet"
-            },
-            {
-              "_key": "4395979e8db1",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Cash support from NAV and other pension providers",
-                  "_key": "294a9777165b0"
-                }
-              ],
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "style": "normal",
-              "_key": "91d3f484cde7",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "2df63cc70dc30",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "employment verification allowance (AAP)"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "daily allowance",
-                  "_key": "55930ec4a72c",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "4df713ee86d6",
-              "listItem": "bullet"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "4a81d08b4361",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "41d87698c792",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "parental allowance"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "_key": "9f5fd053884a",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "717157876648",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "foster home allowance"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "7a0483cc29a0",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "qualifying allowance",
-                  "_key": "f944f4e56d9f"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "_key": "947f246d327b",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "care pay/care allowance (municipal support)",
-                  "_key": "9665d5572fc9"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "care allowance",
-                  "_key": "40e4c0d0b6ac",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "90b1df188cba"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "9135d018cde8",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "training allowance",
-                  "_key": "3939414f5b77"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pension from abroad",
-                  "_key": "3993d237e77c"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "e933f8ebf27d",
-              "listItem": "bullet"
-            },
-            {
-              "style": "normal",
-              "_key": "055508338113",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "care money",
-                  "_key": "e8c79848ec51",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "dd3a17f895d5",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "sick pay",
-                  "_key": "b9ec185c632e",
-                  "_type": "span",
-                  "marks": []
-                }
-              ],
-              "level": 1
-            },
-            {
-              "_key": "c1a8543e79c2",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "benefits from occupational pension scheme",
-                  "_key": "bc739cb1f20e",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Other payments that are considered income",
-                  "_key": "027d824823610"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "7398c4a8c33b"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "taxable part of insurances",
-                  "_key": "73d3e7b1d2d20"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "522eb0c8087e"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "bonuses and other pension-giving supplements and allowances. This also includes remuneration in the form of commissions, fees, royalties or indemnities for participation in boards, committees, boards of representatives or the like",
-                  "_key": "976fcb57bd13"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "630cfbeec6b0",
-              "listItem": "bullet"
-            }
-          ]
-        },
-        "tittel": {
-          "NN": "Arbeidsinntekter og andre utbetalingar",
-          "NB": "Arbeidsinntekter og andre utbetalinger",
-          "EN": "Earnings and other payments"
-        }
-      },
-      "tittel": {
-        "NN": "Desse inntektene skal du melda inn",
-        "NB": "Disse inntektene skal du melde inn ",
-        "EN": "You must report this income"
-      },
-      "AFPInntekt": {
-        "innhold": {
-          "NB": [
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "67c4f92778eb",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "AFP privat",
-                  "_key": "115d77a2fd2f0",
-                  "_type": "span"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "f2133ec112ef",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP offentlig (regnes som inntekt fra 1. januar 2025)",
-                  "_key": "a030af50b9cb"
-                }
-              ]
-            }
-          ],
-          "EN": [
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "eb2564b71e5a",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP private",
-                  "_key": "df63ffb4f4f10"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP public (counted as income from 1 January 2025)",
-                  "_key": "60fbc074d3ce"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "0f5d6104e30e",
-              "listItem": "bullet"
-            }
-          ],
-          "NN": [
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP privat",
-                  "_key": "f2cc70855bba"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "c797580c776a"
-            },
-            {
-              "_key": "9e6439172ecb",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "AFP offentleg (blir rekna som inntekt frå 1. januar 2025)",
-                  "_key": "d03677405de7",
-                  "_type": "span",
-                  "marks": []
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            }
-          ]
-        },
-        "tittel": {
-          "EN": "Contractual pension public and private (AFP)",
-          "NN": "Avtalefesta pensjon offentleg og privat (AFP)",
-          "NB": "Avtalefestet pensjon offentlig og privat (AFP) "
-        }
-      }
-    },
-    "_updatedAt": "2024-09-27T08:41:59Z",
-    "inntektTextFields": {
-      "AFPInntekt": {
-        "label": {
-          "NN": "AFP offentleg eller privat",
-          "NB": "AFP offentlig eller privat",
-          "EN": "AFP public or private"
-        },
-        "beskrivelse": {
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember",
-          "EN": "Enter expected annual income from January to December",
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember"
-        }
-      },
-      "naeringsinntekt": {
-        "label": {
-          "NB": "Næringsinntekt",
-          "EN": "Business income",
-          "NN": "Næringsinntekt"
-        },
-        "beskrivelse": {
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember",
-          "EN": "Enter expected annual income from January to December",
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember"
-        }
-      },
-      "alleInntekterIUtland": {
-        "beskrivelse": {
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember",
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember",
-          "EN": "Enter expected annual income from January to December"
-        },
-        "label": {
-          "EN": "All income from abroad",
-          "NN": "Alle inntekter frå utland",
-          "NB": "Alle inntekter fra utland"
-        }
-      },
-      "arbeidsinntekt": {
-        "label": {
-          "NN": "Arbeidsinntekter og andre utbetalingar i Noreg",
-          "NB": "Arbeidsinntekter og andre utbetalinger i Norge",
-          "EN": "Earnings and other payments in Norway"
-        },
-        "beskrivelse": {
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember",
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember",
-          "EN": "Enter expected annual income from January to December"
-        }
-      }
-    }
-  },
-  {
-    "_type": "inntektsjusteringInntektTilNesteAar",
-    "hovedinnhold": {
-      "NB": [
-        {
-          "_type": "block",
-          "style": "h2",
-          "_key": "d66ccacecec7",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Inntekt til neste år",
-              "_key": "c9f96c3a92db"
-            }
-          ]
-        },
-        {
-          "level": 1,
-          "_type": "block",
-          "style": "normal",
-          "_key": "3f11ff541004",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "text": "Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt.",
-              "_key": "f428da7933730",
-              "_type": "span",
-              "marks": []
-            }
-          ]
-        },
-        {
-          "_key": "6e717ce3d072",
-          "listItem": "bullet",
-          "markDefs": [],
           "children": [
             {
               "_type": "span",
@@ -1635,38 +374,71 @@
           ],
           "level": 1,
           "_type": "block",
-          "style": "normal"
+          "style": "normal",
+          "_key": "6e717ce3d072",
+          "listItem": "bullet",
+          "markDefs": []
         },
         {
-          "_key": "92b5955f614c",
-          "listItem": "bullet",
           "markDefs": [],
           "children": [
             {
-              "text": "Du kan fra oktober hvert år bruke skjemaet til å melde fra om forventet inntekt for neste år.",
-              "_key": "333d9e1e308b",
               "_type": "span",
-              "marks": []
-            }
-          ],
-          "level": 1,
-          "_type": "block",
-          "style": "normal"
-        },
-        {
-          "children": [
-            {
               "marks": [],
-              "text": "Hvis vi ikke hører fra deg, vil vi bruke samme årsinntekt til neste år som du har meldt inn for dette året.",
-              "_key": "adc7800eaa17",
-              "_type": "span"
+              "text": "Du kan fra oktober hvert år bruke skjemaet til å melde fra om forventet inntekt for neste år.",
+              "_key": "333d9e1e308b"
             }
           ],
           "level": 1,
           "_type": "block",
           "style": "normal",
+          "_key": "92b5955f614c",
+          "listItem": "bullet"
+        },
+        {
+          "level": 1,
+          "_type": "block",
+          "style": "normal",
           "_key": "4670f98d92de",
           "listItem": "bullet",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "Hvis vi ikke hører fra deg, vil vi bruke samme årsinntekt til neste år som du har meldt inn for dette året.",
+              "_key": "adc7800eaa17"
+            }
+          ]
+        },
+        {
+          "_key": "b125ee584d9e",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "Inntekt du skal melde inn",
+              "_key": "0b24cd71b7a2"
+            }
+          ],
+          "_type": "block",
+          "style": "h3"
+        },
+        {
+          "children": [
+            {
+              "_key": "59f414e8513e",
+              "_type": "span",
+              "marks": [
+                "strong"
+              ],
+              "text": "Du skal fylle inn forventet utbetalt årsinntekt fra januar til og med desember."
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "5774011bfb64",
           "markDefs": []
         }
       ],
@@ -1686,6 +458,7 @@
           "_type": "block"
         },
         {
+          "_key": "75cafa895410",
           "listItem": "bullet",
           "markDefs": [],
           "children": [
@@ -1698,10 +471,13 @@
           ],
           "level": 1,
           "_type": "block",
-          "style": "normal",
-          "_key": "75cafa895410"
+          "style": "normal"
         },
         {
+          "style": "normal",
+          "_key": "4742dce0558b",
+          "listItem": "bullet",
+          "markDefs": [],
           "children": [
             {
               "_type": "span",
@@ -1711,13 +487,10 @@
             }
           ],
           "level": 1,
-          "_type": "block",
-          "style": "normal",
-          "_key": "4742dce0558b",
-          "listItem": "bullet",
-          "markDefs": []
+          "_type": "block"
         },
         {
+          "level": 1,
           "_type": "block",
           "style": "normal",
           "_key": "69b21858a713",
@@ -1725,99 +498,20 @@
           "markDefs": [],
           "children": [
             {
-              "_type": "span",
-              "marks": [],
               "text": "From October each year, you can use the form to report your expected income for the next year.",
-              "_key": "04b04dc8e1530"
+              "_key": "04b04dc8e1530",
+              "_type": "span",
+              "marks": []
             }
-          ],
-          "level": 1
+          ]
         },
         {
-          "_key": "c7b9b5c12b2d",
           "listItem": "bullet",
           "markDefs": [],
           "children": [
             {
-              "marks": [],
               "text": "If we do not hear from you, we will use the same annual income for the next year that you have entered for this year.",
               "_key": "859a326ffa960",
-              "_type": "span"
-            }
-          ],
-          "level": 1,
-          "_type": "block",
-          "style": "normal"
-        }
-      ],
-      "NN": [
-        {
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Inntekt til neste år",
-              "_key": "25027df341b3"
-            }
-          ],
-          "_type": "block",
-          "style": "h2",
-          "_key": "5203795ae51f",
-          "markDefs": []
-        },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "ca2905dfdefa",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Inntekta du oppgir, skal vera brutto inntekt, altså inntekt før skatt.",
-              "_key": "29bd3687725b0"
-            }
-          ],
-          "level": 1
-        },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "af5bb1f3b387",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "For å kunna berekna rett utbetaling, treng me å vita kva du forventar å ha i inntekt ved sida av omstillingsstønad. Rett informasjon om inntekt reduserer risiko for baksmell på etteroppgjeret.",
-              "_key": "581e2fcc0abc"
-            }
-          ],
-          "level": 1
-        },
-        {
-          "_key": "164f2bbf3621",
-          "listItem": "bullet",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Du kan frå oktober kvart år bruka skjemaet til å melda frå om forventa inntekt for neste år.",
-              "_key": "94a5a8ab2c86"
-            }
-          ],
-          "level": 1,
-          "_type": "block",
-          "style": "normal"
-        },
-        {
-          "children": [
-            {
-              "text": "Viss me ikkje høyrer frå deg, vil me bruka same årsinntekt til neste år som du har meldt inn for dette året.",
-              "_key": "7744554d6eb4",
               "_type": "span",
               "marks": []
             }
@@ -1825,1306 +519,43 @@
           "level": 1,
           "_type": "block",
           "style": "normal",
-          "_key": "76b6008b6707",
-          "listItem": "bullet",
-          "markDefs": []
+          "_key": "c7b9b5c12b2d"
+        },
+        {
+          "_type": "block",
+          "style": "h3",
+          "_key": "0d592cc183b4",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "marks": [],
+              "text": "Inntekt du skal melde inn",
+              "_key": "988bcc9c91b3"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "_key": "2fb4a857500a",
+          "markDefs": [],
+          "children": [
+            {
+              "marks": [
+                "strong"
+              ],
+              "text": "Du skal fylle inn forventet utbetalt årsinntekt fra januar til og med desember.",
+              "_key": "ca90493e9e99",
+              "_type": "span"
+            }
+          ]
         }
       ]
     },
-    "_updatedAt": "2024-09-30T10:57:10Z",
-    "inntektTextFields": {
-      "AFPInntekt": {
-        "label": {
-          "EN": "AFP public or private",
-          "NN": "AFP offentleg eller privat",
-          "NB": "AFP offentlig eller privat"
-        },
-        "beskrivelse": {
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember",
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember",
-          "EN": "Enter expected annual income from January to December"
-        }
-      },
-      "naeringsinntekt": {
-        "label": {
-          "NN": "Næringsinntekt",
-          "NB": "Næringsinntekt",
-          "EN": "Business income"
-        },
-        "beskrivelse": {
-          "EN": "Enter expected annual income from January to December",
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember",
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember"
-        }
-      },
-      "alleInntekterIUtland": {
-        "label": {
-          "NN": "Alle inntekter frå utland",
-          "NB": "Alle inntekter fra utland",
-          "EN": "All income from abroad"
-        },
-        "beskrivelse": {
-          "EN": "Enter expected annual income from January to December",
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember",
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember"
-        }
-      },
-      "arbeidsinntekt": {
-        "label": {
-          "NB": "Arbeidsinntekter og andre utbetalinger i Norge",
-          "EN": "Earnings and other payments in Norway",
-          "NN": "Arbeidsinntekter og andre utbetalingar i Noreg"
-        },
-        "beskrivelse": {
-          "NN": "Oppgi forventa årsinntekt frå januar til og med desember",
-          "NB": "Oppgi forventet årsinntekt fra januar til og med desember",
-          "EN": "Enter expected annual income from January to December"
-        }
-      }
-    },
-    "inntektAccordions": {
-      "alleInntekterIUtland": {
-        "innhold": {
-          "NB": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "em"
-                  ],
-                  "text": "Slot for sanity innhold",
-                  "_key": "68527af662bc"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "61756e2252d7"
-            }
-          ],
-          "EN": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "2c27dbd8b2d6",
-                  "_type": "span",
-                  "marks": [
-                    "em"
-                  ],
-                  "text": "Slot for sanity innhold"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "3dc2f22c941a"
-            }
-          ],
-          "NN": [
-            {
-              "style": "normal",
-              "_key": "84383f9b795a",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "Slot for sanity innhold",
-                  "_key": "39c48b986b20",
-                  "_type": "span",
-                  "marks": [
-                    "em"
-                  ]
-                }
-              ],
-              "_type": "block"
-            }
-          ]
-        },
-        "tittel": {
-          "EN": "All income from abroad",
-          "NN": "Alle inntekter frå utland",
-          "NB": "Alle inntekter fra utland"
-        }
-      },
-      "arbeidsinntekt": {
-        "innhold": {
-          "NN": [
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "1d00e7776bf9",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Arbeidsinntekt",
-                  "_key": "926c55b5ecae0"
-                }
-              ]
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fastlønn",
-                  "_key": "c8bd1b2389e7"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "7cd13ee23ee0",
-              "listItem": "bullet"
-            },
-            {
-              "style": "normal",
-              "_key": "811909f7e6dd",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ekstratimar og overtid",
-                  "_key": "5a52a97e07f5"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "7fd65a8af432",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "feriepengar"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "e24e2e549a8f",
-              "listItem": "bullet"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "Pengestøtte frå NAV og andre pensjonsleverandørar",
-                  "_key": "ab0d4add22190",
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ]
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "47fe19ab6c09"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "arbeidsavklaringspenger (AAP)",
-                  "_key": "937aff42a467",
-                  "_type": "span",
-                  "marks": []
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "2a53333ff0d6",
-              "listItem": "bullet"
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "b82a32004599",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "dagpenger",
-                  "_key": "e694aef9bbfb"
-                }
-              ]
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "2fd44a1dd68a",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "foreldrepenger",
-                  "_key": "49a353b6951a"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fosterhjemsgodgjørelse",
-                  "_key": "624137a2d51b"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "6f1513757a1b"
-            },
-            {
-              "_key": "f05651012614",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "kvalifiseringsstønad",
-                  "_key": "1555348b80f2",
-                  "_type": "span",
-                  "marks": []
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgslønn/omsorgsstønad (kommunal støtte)",
-                  "_key": "5800daffcd65"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "384a86b933e1",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "style": "normal",
-              "_key": "36b557215e33",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgspenger",
-                  "_key": "393f3c9764b1"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "opplæringspenger",
-                  "_key": "bc347e15c7fe"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "9e8c3bf0fc55",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "52943f00208b",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pleiepenger",
-                  "_key": "cd82ee4dc54e"
-                }
-              ]
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sykepenger",
-                  "_key": "8e32ca2935aa"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "4909a236bedd",
-              "listItem": "bullet"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "99542731ae1e",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ytelser fra tjenestepensjonsordning",
-                  "_key": "f1a26efc61de"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Andre utbetalingar som blir rekna som inntekt",
-                  "_key": "f5ae7d9c52ca0"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "e654854dee9c",
-              "markDefs": []
-            },
-            {
-              "style": "normal",
-              "_key": "d00a91d07381",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "2c26ae8b4dfd0",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "skattepliktig del av forsikringar"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "87ef56f11129",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royaltyar eller godtgjersle for deltakingar i styre, utval, representantskap eller liknande.",
-                  "_key": "a77090d0c798"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "style": "normal",
-              "_key": "a5e738c182c2",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "",
-                  "_key": "4f8049299c7a",
-                  "_type": "span"
-                }
-              ],
-              "_type": "block"
-            }
-          ],
-          "NB": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Arbeidsinntekt",
-                  "_key": "a6f4b3033912"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "340c63c63919"
-            },
-            {
-              "_key": "0e4beacc0549",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "f5416b28a41c",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fastlønn"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ekstratimer og overtid",
-                  "_key": "0c98c74371f7"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "180c20453396",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "_key": "293689e5a745",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "feriepenger",
-                  "_key": "e4c0c4b057ab"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "065fea8a5b1f",
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Pengestøtte fra NAV og andre pensjonsleverandører"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "777f56058108"
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "f890060d42e4",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "arbeidsavklaringspenger (AAP)",
-                  "_key": "aff6f2ce967c0",
-                  "_type": "span",
-                  "marks": []
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "dagpenger",
-                  "_key": "eaf676e7d2ac"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "7f1187757b9e",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "foreldrepenger",
-                  "_key": "913b459a9edc"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "868ae497954f",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "_key": "bdacc0bdb255",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fosterhjemsgodgjørelse",
-                  "_key": "8d773d57a881"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "style": "normal",
-              "_key": "f41a9131ab86",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "0838ed1b7484",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "kvalifiseringsstønad"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "omsorgslønn/omsorgsstønad (kommunal støtte)",
-                  "_key": "2e412dcbca8a"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "0d416a97e52e"
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "4415c1ee04b0",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "omsorgspenger",
-                  "_key": "6fe8e1152f17",
-                  "_type": "span"
-                }
-              ]
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "opplæringspenger",
-                  "_key": "00e65b945921",
-                  "_type": "span",
-                  "marks": []
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "ecfb96cc10d8"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "pleiepenger",
-                  "_key": "ce8905d62599"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "c048586ecac5",
-              "listItem": "bullet"
-            },
-            {
-              "_key": "100ece66f631",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sykepenger",
-                  "_key": "bb5cbb30c856"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "ytelser fra tjenestepensjonsordning",
-                  "_key": "75bb8bc18230"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "851ae28be4ae"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "Andre utbetalinger som regnes som inntekt",
-                  "_key": "4fdc1e9bca3c",
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ]
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "4bb47ad581ed"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "624a3753fa24",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "skattepliktig del av forsikringer",
-                  "_key": "5dd8580b91730"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "8bf0bcd8dd98",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.",
-                  "_key": "8882eb5cd4fc"
-                }
-              ]
-            }
-          ],
-          "EN": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Labor income",
-                  "_key": "df174b7c45860"
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "849ada411139"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "fixed salary",
-                  "_key": "3d3242d45b0e0"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "7f63429eefae",
-              "listItem": "bullet"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "extra hours and overtime",
-                  "_key": "7eefeaf469a1"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "3f78b933d1cd",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "a9587e0d1667",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "holiday pay",
-                  "_key": "f9db811c7289"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "text": "Cash support from NAV and other pension providers",
-                  "_key": "294a9777165b0",
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ]
-                }
-              ],
-              "_type": "block",
-              "style": "normal",
-              "_key": "4395979e8db1",
-              "markDefs": []
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "employment verification allowance (AAP)",
-                  "_key": "2df63cc70dc30"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "91d3f484cde7"
-            },
-            {
-              "children": [
-                {
-                  "_key": "55930ec4a72c",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "daily allowance"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "4df713ee86d6",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "parental allowance",
-                  "_key": "41d87698c792"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "4a81d08b4361",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "9f5fd053884a",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "foster home allowance",
-                  "_key": "717157876648"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "style": "normal",
-              "_key": "7a0483cc29a0",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "qualifying allowance",
-                  "_key": "f944f4e56d9f"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "_key": "947f246d327b",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "care pay/care allowance (municipal support)",
-                  "_key": "9665d5572fc9"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "style": "normal",
-              "_key": "90b1df188cba",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "care allowance",
-                  "_key": "40e4c0d0b6ac"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "training allowance",
-                  "_key": "3939414f5b77",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "9135d018cde8"
-            },
-            {
-              "_key": "055508338113",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "care money",
-                  "_key": "e8c79848ec51"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sick pay",
-                  "_key": "b9ec185c632e"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "dd3a17f895d5",
-              "listItem": "bullet",
-              "markDefs": []
-            },
-            {
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "c1a8543e79c2",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "benefits from occupational pension scheme",
-                  "_key": "bc739cb1f20e"
-                }
-              ]
-            },
-            {
-              "_key": "7398c4a8c33b",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
-                  "text": "Other payments that are considered income",
-                  "_key": "027d824823610"
-                }
-              ],
-              "_type": "block",
-              "style": "normal"
-            },
-            {
-              "style": "normal",
-              "_key": "522eb0c8087e",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "taxable part of insurances",
-                  "_key": "73d3e7b1d2d20",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "bonuses and other pension-giving supplements and allowances. This also includes remuneration in the form of commissions, fees, royalties or indemnities for participation in boards, committees, boards of representatives or the like",
-                  "_key": "976fcb57bd13",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "630cfbeec6b0"
-            }
-          ]
-        },
-        "tittel": {
-          "NN": "Arbeidsinntekter og andre utbetalingar",
-          "NB": "Arbeidsinntekter og andre utbetalinger",
-          "EN": "Earnings and other payments"
-        }
-      },
-      "tittel": {
-        "NN": "Desse inntektene skal du melda inn",
-        "NB": "Disse inntektene skal du melde inn ",
-        "EN": "You must report this income"
-      },
-      "AFPInntekt": {
-        "innhold": {
-          "NB": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP privat",
-                  "_key": "115d77a2fd2f0"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "67c4f92778eb",
-              "listItem": "bullet"
-            },
-            {
-              "children": [
-                {
-                  "marks": [],
-                  "text": "AFP offentlig (regnes som inntekt fra 1. januar 2025)",
-                  "_key": "a030af50b9cb",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "f2133ec112ef",
-              "listItem": "bullet",
-              "markDefs": []
-            }
-          ],
-          "EN": [
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP private",
-                  "_key": "df63ffb4f4f10"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "eb2564b71e5a"
-            },
-            {
-              "_key": "0f5d6104e30e",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP public (counted as income from 1 January 2025)",
-                  "_key": "60fbc074d3ce"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal"
-            }
-          ],
-          "NN": [
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "c797580c776a",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP privat",
-                  "_key": "f2cc70855bba"
-                }
-              ],
-              "level": 1
-            },
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "AFP offentleg (blir rekna som inntekt frå 1. januar 2025)",
-                  "_key": "d03677405de7"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "9e6439172ecb"
-            }
-          ]
-        },
-        "tittel": {
-          "NN": "Avtalefesta pensjon offentleg og privat (AFP)",
-          "NB": "Avtalefestet pensjon offentlig og privat (AFP) ",
-          "EN": "Contractual pension public and private (AFP)"
-        }
-      },
-      "naeringsinntekt": {
-        "innhold": {
-          "NB": [
-            {
-              "style": "normal",
-              "_key": "b32c83f3ee65",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "783071fd4df20",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "næringsinntekt"
-                }
-              ],
-              "level": 1,
-              "_type": "block"
-            },
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "salg av næringsvirksomhet",
-                  "_key": "6794b72f025c"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "ce15c7b6c295",
-              "listItem": "bullet"
-            }
-          ],
-          "EN": [
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "business income",
-                  "_key": "1fefc0c6330e0",
-                  "_type": "span"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "95ff6117933d"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "5b23225e7f84",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "17f6349af560",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sale of commercial activities"
-                }
-              ],
-              "level": 1
-            }
-          ],
-          "NN": [
-            {
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "næringsinntekt",
-                  "_key": "36f1548d3067"
-                }
-              ],
-              "level": 1,
-              "_type": "block",
-              "style": "normal",
-              "_key": "9b472064f886"
-            },
-            {
-              "_type": "block",
-              "style": "normal",
-              "_key": "a4becd19aa0b",
-              "listItem": "bullet",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "sal av næringsverksemd",
-                  "_key": "43173cf0817a"
-                }
-              ],
-              "level": 1
-            }
-          ]
-        },
-        "tittel": {
-          "NN": "Næringsinntekt",
-          "NB": "Næringsinntekt",
-          "EN": "Business income"
-        }
-      }
-    },
-    "sumAvInntekt": {
-      "NN": "Din samla forventa brutto inntekt til neste år:",
-      "NB": "Din samlede forventet brutto inntekt til neste år: ",
-      "EN": "Your total expected gross income for the next year:"
-    },
     "_createdAt": "2024-09-26T10:43:33Z",
-    "_rev": "820eb4ef-ef93-4bd1-b2e0-13ecae1d6cd8",
-    "dokumentTittel": "v1",
-    "_id": "drafts.046c0049-e5f0-4317-9cf8-f7735b446b66"
+    "_rev": "J4ilIRzoxy2eWxXjzMF8Oq",
+    "_type": "inntektsjusteringInntektTilNesteAar",
+    "_updatedAt": "2024-10-07T11:42:28Z"
   }
 ]
