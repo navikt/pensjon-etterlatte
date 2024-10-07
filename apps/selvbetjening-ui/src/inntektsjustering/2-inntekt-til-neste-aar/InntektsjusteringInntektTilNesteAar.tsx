@@ -6,17 +6,10 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import useSWR, { SWRResponse } from 'swr'
-import { IInnloggetBruker } from '../../types/person.ts'
+import { Alder, IInnloggetBruker } from '../../types/person.ts'
 import { apiURL } from '../../utils/api.ts'
 import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
-
-enum Alder {
-    UNDER_ATTEN,
-    ATTEN_TIL_FEMTI_SEKS,
-    FEMTI_SYV_TIL_SEKSTI,
-    SEKSTI_EN_TIL_SEKSTI_SEKS,
-    SEKSTI_SYV,
-}
+import { finnAlder } from './finnAlder.ts'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const spraak = useSpraak()
@@ -51,6 +44,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
     }
 
     return (
+        !!innloggetBruker &&
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8">
@@ -107,7 +101,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                             </Accordion>
                         </div>
 
-                        {velgSkjemaForInntekt(Alder.ATTEN_TIL_FEMTI_SEKS)}
+                        {velgSkjemaForInntekt(finnAlder(innloggetBruker))}
                     </VStack>
                 </HStack>
             </main>
