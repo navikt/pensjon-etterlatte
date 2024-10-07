@@ -11,7 +11,7 @@ const inntektDefaultValues: Inntekt = {
 }
 
 export const AttenTilFemtiSeksAarSkjema = () => {
-    const { register, setValue, watch } = useForm<Inntekt>({ defaultValues: inntektDefaultValues })
+    const { register, setValue, watch, getValues } = useForm<Inntekt>({ defaultValues: inntektDefaultValues })
 
     return (
         <form>
@@ -49,7 +49,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
 
                 <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
 
-                <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" />
+                <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" inntekt={getValues()} />
             </VStack>
         </form>
     )
