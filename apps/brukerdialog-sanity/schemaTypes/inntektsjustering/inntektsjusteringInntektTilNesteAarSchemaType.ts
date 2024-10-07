@@ -10,13 +10,13 @@ const textFieldFields = [
     }),
     defineField({
         name: 'description',
-        title: 'Description',
+        title: 'Description (valgfri)',
         type: 'object',
         fields: spraakStringFields,
     }),
     defineField({
         name: 'readMore',
-        title: 'Read more',
+        title: 'Read more (valgfri)',
         type: 'object',
         fields: [
             defineField({
