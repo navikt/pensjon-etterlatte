@@ -2,12 +2,7 @@ import { TextField, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
-
-export interface Inntekt {
-    arbeidsinntekt: number
-    naeringsinntekt: number
-    inntektFraUtland: number
-}
+import { Inntekt } from '../../../types/inntektsjustering.ts'
 
 const inntektDefaultValues: Inntekt = {
     arbeidsinntekt: 0,

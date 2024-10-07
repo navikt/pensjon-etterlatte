@@ -4,7 +4,7 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { Inntekt } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
+import { Inntekt } from '../../types/inntektsjustering.ts'
 
 export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar: Inntekt }) => {
     const spraak = useSpraak()

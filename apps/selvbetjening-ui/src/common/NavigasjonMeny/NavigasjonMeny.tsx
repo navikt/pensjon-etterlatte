@@ -4,14 +4,16 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
+import { Inntekt } from '../../types/inntektsjustering.ts'
 
 interface Props {
     tilbakePath: string
     nestePath: string
     skalSendeSoeknad?: boolean
+    inntekt?: Inntekt
 }
 
-export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) => {
+export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, inntekt }: Props) => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
@@ -39,7 +41,9 @@ export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Pro
                         variant="primary"
                         icon={skalSendeSoeknad ? <PaperplaneIcon aria-hidden /> : <ArrowRightIcon aria-hidden />}
                         iconPosition="right"
-                        onClick={() => navigate(`/inntektsjustering/${nestePath}`)}
+                        onClick={() =>
+                            navigate(`/inntektsjustering/${nestePath}`, { state: inntekt ? inntekt : undefined })
+                        }
                     >
                         {skalSendeSoeknad
                             ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]
