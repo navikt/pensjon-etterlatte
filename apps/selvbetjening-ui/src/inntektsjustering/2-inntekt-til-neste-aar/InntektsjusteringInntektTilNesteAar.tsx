@@ -1,41 +1,53 @@
-import { Accordion, Heading, HStack, TextField, VStack } from '@navikt/ds-react'
+import { Accordion, Heading, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
-import { useForm } from 'react-hook-form'
-import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
-import { SumAvOppgittInntekt } from './SumAvOppgittInntekt.tsx'
+import useSWR, { SWRResponse } from 'swr'
+import { IInnloggetBruker } from '../../types/person.ts'
+import { apiURL } from '../../utils/api.ts'
+import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
 
-export interface InntektTilNesteAarSkjema {
-    arbeidsinntektINorge: number
-    naeringsinntekt: number
-    AFPInntekt: number
-    alleInntekterIUtland: number
-}
-
-const inntektTilNesteAarDefaultValues: InntektTilNesteAarSkjema = {
-    arbeidsinntektINorge: 0,
-    naeringsinntekt: 0,
-    AFPInntekt: 0,
-    alleInntekterIUtland: 0,
+enum Alder {
+    UNDER_ATTEN,
+    ATTEN_TIL_FEMTI_SEKS,
+    FEMTI_SYV_TIL_SEKSTI,
+    SEKSTI_EN_TIL_SEKSTI_SEKS,
+    SEKSTI_SYV,
 }
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(`${apiURL}/api/person/innlogget`)
+
+    const {
+        innhold,
+        error: innholdError,
+        isLoading: innholdIsLoading,
+    } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register, watch, setValue } = useForm<InntektTilNesteAarSkjema>({
-        defaultValues: inntektTilNesteAarDefaultValues,
-    })
-
-    if (error && !isLoading) {
+    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
+    }
+
+    if (innholdError && !innholdIsLoading) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+
+    const velgSkjemaForInntekt = (alder: Alder) => {
+        switch (alder) {
+            case Alder.ATTEN_TIL_FEMTI_SEKS:
+                return <AttenTilFemtiSeksAarSkjema />
+        }
     }
 
     return (
@@ -94,58 +106,8 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                                 </Accordion.Item>
                             </Accordion>
                         </div>
-                        <form>
-                            <VStack gap="6" width="fit-content">
-                                <TextField
-                                    {...register('arbeidsinntektINorge', {
-                                        valueAsNumber: true,
-                                        onChange: (e) => {
-                                            setValue('arbeidsinntektINorge', e.target.value.replace(/[^0-9.]/g, ''))
-                                        },
-                                    })}
-                                    label={innhold.inntektTextFields?.arbeidsinntekt?.label?.[spraak]}
-                                    description={innhold.inntektTextFields?.arbeidsinntekt?.beskrivelse?.[spraak]}
-                                    inputMode="numeric"
-                                />
-                                <TextField
-                                    {...register('naeringsinntekt', {
-                                        valueAsNumber: true,
-                                        onChange: (e) => {
-                                            setValue('naeringsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
-                                        },
-                                    })}
-                                    label={innhold.inntektTextFields?.naeringsinntekt?.label?.[spraak]}
-                                    description={innhold.inntektTextFields?.naeringsinntekt?.beskrivelse?.[spraak]}
-                                    inputMode="numeric"
-                                />
-                                <TextField
-                                    {...register('AFPInntekt', {
-                                        valueAsNumber: true,
-                                        onChange: (e) => {
-                                            setValue('AFPInntekt', e.target.value.replace(/[^0-9.]/g, ''))
-                                        },
-                                    })}
-                                    label={innhold.inntektTextFields?.AFPInntekt?.label?.[spraak]}
-                                    description={innhold.inntektTextFields?.AFPInntekt?.beskrivelse?.[spraak]}
-                                    inputMode="numeric"
-                                />
-                                <TextField
-                                    {...register('alleInntekterIUtland', {
-                                        valueAsNumber: true,
-                                        onChange: (e) => {
-                                            setValue('alleInntekterIUtland', e.target.value.replace(/[^0-9.]/g, ''))
-                                        },
-                                    })}
-                                    label={innhold.inntektTextFields?.alleInntekterIUtland?.label?.[spraak]}
-                                    description={innhold.inntektTextFields?.alleInntekterIUtland?.beskrivelse?.[spraak]}
-                                    inputMode="numeric"
-                                />
-                            </VStack>
-                        </form>
 
-                        <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
-
-                        <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" />
+                        {velgSkjemaForInntekt(Alder.ATTEN_TIL_FEMTI_SEKS)}
                     </VStack>
                 </HStack>
             </main>

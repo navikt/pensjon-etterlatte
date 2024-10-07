@@ -40,7 +40,7 @@ export const InntektsjusteringInnledning = () => {
                             <Button
                                 icon={<ArrowRightIcon aria-hidden />}
                                 iconPosition="right"
-                                onClick={() => navigate('/inntektsjustering/inntekt-til-neste-år')}
+                                onClick={() => navigate('/inntektsjustering/inntekt-til-neste-aar')}
                             >
                                 {innhold.startUtfyllingKnapp?.[spraak]}
                             </Button>
