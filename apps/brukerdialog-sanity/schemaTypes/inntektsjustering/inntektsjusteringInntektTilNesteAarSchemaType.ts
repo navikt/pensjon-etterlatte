@@ -1,21 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
 
-const accordionFields = [
-    defineField({
-        name: 'tittel',
-        title: 'Tittel',
-        type: 'object',
-        fields: spraakStringFields,
-    }),
-    defineField({
-        name: 'innhold',
-        title: 'Innhold',
-        type: 'object',
-        fields: spraakBlockFields,
-    }),
-]
-
 const textFieldFields = [
     defineField({
         name: 'label',
@@ -24,10 +9,29 @@ const textFieldFields = [
         fields: spraakStringFields,
     }),
     defineField({
-        name: 'beskrivelse',
-        title: 'Beskrivelse',
+        name: 'description',
+        title: 'Description',
         type: 'object',
         fields: spraakStringFields,
+    }),
+    defineField({
+        name: 'readMore',
+        title: 'Read more',
+        type: 'object',
+        fields: [
+            defineField({
+                name: 'tittel',
+                title: 'Tittel',
+                type: 'object',
+                fields: spraakStringFields,
+            }),
+            defineField({
+                name: 'innhold',
+                title: 'Innhold',
+                type: 'object',
+                fields: spraakBlockFields,
+            }),
+        ],
     }),
 ]
 
@@ -48,70 +52,38 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
             fields: spraakBlockFields,
         }),
         defineField({
-            name: 'inntektAccordions',
-            title: 'Inntekt accordions',
+            name: 'inntektSkjemaer',
+            title: 'Inntekt skjemaer',
             type: 'object',
             fields: [
                 defineField({
-                    name: 'tittel',
-                    title: 'Tittel',
+                    name: 'attenTilFemtiSeksAar',
+                    title: '18 til 56 år',
+                    options: {
+                        collapsible: true,
+                        collapsed: false,
+                    },
                     type: 'object',
-                    fields: spraakStringFields,
-                }),
-                defineField({
-                    name: 'arbeidsinntekt',
-                    title: 'Arbeidsinntekt',
-                    type: 'object',
-                    fields: accordionFields,
-                }),
-                defineField({
-                    name: 'naeringsinntekt',
-                    title: 'Næringsinntekt',
-                    type: 'object',
-                    fields: accordionFields,
-                }),
-                defineField({
-                    name: 'AFPInntekt',
-                    title: 'AFP inntekt',
-                    type: 'object',
-                    fields: accordionFields,
-                }),
-                defineField({
-                    name: 'alleInntekterIUtland',
-                    title: 'Alle inntekter i utland',
-                    type: 'object',
-                    fields: accordionFields,
-                }),
-            ],
-        }),
-        defineField({
-            name: 'inntektTextFields',
-            title: 'Inntekt text fields',
-            type: 'object',
-            fields: [
-                defineField({
-                    name: 'arbeidsinntekt',
-                    title: 'Arbeidsinntekt',
-                    type: 'object',
-                    fields: textFieldFields,
-                }),
-                defineField({
-                    name: 'naeringsinntekt',
-                    title: 'Næringsinntekt',
-                    type: 'object',
-                    fields: textFieldFields,
-                }),
-                defineField({
-                    name: 'AFPInntekt',
-                    title: 'AFP inntekt',
-                    type: 'object',
-                    fields: textFieldFields,
-                }),
-                defineField({
-                    name: 'alleInntekterIUtland',
-                    title: 'Alle inntekter i utland',
-                    type: 'object',
-                    fields: textFieldFields,
+                    fields: [
+                        defineField({
+                            name: 'arbeidsinntekt',
+                            title: 'Arbeidsinntekt og andre utbetalinger',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                        defineField({
+                            name: 'naeringsinntekt',
+                            title: 'Næringsinntekt',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                        defineField({
+                            name: 'inntektFraUtland',
+                            title: 'Alle inntekter fra utland',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                    ],
                 }),
             ],
         }),
