@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Inntekt } from '../../../types/inntektsjustering.ts'
+import { useLocation } from 'react-router-dom'
 
 const inntektDefaultValues: Inntekt = {
     arbeidsinntekt: 0,
@@ -11,7 +12,11 @@ const inntektDefaultValues: Inntekt = {
 }
 
 export const AttenTilFemtiSeksAarSkjema = () => {
-    const { register, setValue, watch, getValues } = useForm<Inntekt>({ defaultValues: inntektDefaultValues })
+    const { state: inntekt } = useLocation() as Inntekt
+
+    const { register, setValue, watch, getValues } = useForm<Inntekt>({
+        defaultValues: inntekt ? inntekt : inntektDefaultValues,
+    })
 
     return (
         <form>

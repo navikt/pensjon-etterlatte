@@ -11,9 +11,7 @@ import { Inntekt } from '../../types/inntektsjustering.ts'
 export const InntektsjusteringOppsummering = () => {
     const spraak = useSpraak()
 
-    const location = useLocation()
-
-    const { state: inntekt } = location as Inntekt
+    const { state: inntekt } = useLocation() as Inntekt
 
     const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>(
         '*[_type == "inntektsjusteringOppsummering"]'
@@ -45,7 +43,7 @@ export const InntektsjusteringOppsummering = () => {
                                     {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
-                            {/* Hva som skal stå i disse har ikke blitt landet enda, så lar vær så lenge å lage sanity schemaer for det*/}
+                            {/* TODO: Hva som skal stå i disse har ikke blitt landet enda, så lar vær så lenge å lage sanity schemaer for det*/}
                             <FormSummary.Answers>
                                 <FormSummary.Answer>
                                     <FormSummary.Label>Hvor mye har du oppgitt i arbeidsinntekt?</FormSummary.Label>
@@ -62,7 +60,12 @@ export const InntektsjusteringOppsummering = () => {
                             </FormSummary.Answers>
                         </FormSummary>
 
-                        <NavigasjonMeny tilbakePath="/inntekt-til-neste-aar" nestePath="/kvittering" skalSendeSoeknad />
+                        <NavigasjonMeny
+                            tilbakePath="/inntekt-til-neste-aar"
+                            nestePath="/kvittering"
+                            skalSendeSoeknad
+                            inntekt={inntekt}
+                        />
                     </VStack>
                 </HStack>
             </main>
