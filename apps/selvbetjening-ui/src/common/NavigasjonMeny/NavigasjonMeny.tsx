@@ -4,17 +4,21 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
+import { Inntekt } from '../../types/inntektsjustering.ts'
+import { useInntektDispatch } from '../inntekt/InntektContext.tsx'
 
 interface Props {
     tilbakePath: string
     nestePath: string
     skalSendeSoeknad?: boolean
+    inntekt?: Inntekt
 }
 
-export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Props) => {
+export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, inntekt }: Props) => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
+    const inntektDispatch = useInntektDispatch()
 
     const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
@@ -36,10 +40,14 @@ export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad }: Pro
                         {innhold.navigasjonMeny?.knapper?.forrigeStegKnapp?.[spraak]}
                     </Button>
                     <Button
+                        type="submit"
                         variant="primary"
                         icon={skalSendeSoeknad ? <PaperplaneIcon aria-hidden /> : <ArrowRightIcon aria-hidden />}
                         iconPosition="right"
-                        onClick={() => navigate(`/inntektsjustering/${nestePath}`)}
+                        onClick={() => {
+                            if (inntekt) inntektDispatch.setInntekt(inntekt)
+                            navigate(`/inntektsjustering/${nestePath}`)
+                        }}
                     >
                         {skalSendeSoeknad
                             ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]

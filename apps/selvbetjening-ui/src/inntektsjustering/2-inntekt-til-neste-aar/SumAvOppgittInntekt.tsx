@@ -1,12 +1,12 @@
-import { InntektTilNesteAarSkjema } from './InntektsjusteringInntektTilNesteAar.tsx'
 import { Box, Heading, VStack } from '@navikt/ds-react'
 import { EqualsIcon } from '@navikt/aksel-icons'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { Inntekt } from '../../types/inntektsjustering.ts'
 
-export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar: InntektTilNesteAarSkjema }) => {
+export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar: Inntekt }) => {
     const spraak = useSpraak()
 
     const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
@@ -17,20 +17,17 @@ export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    const sumAvInntektStringBuilder = (inntektTilNesteAar: InntektTilNesteAarSkjema): string => {
+    const sumAvInntektStringBuilder = (inntektTilNesteAar: Inntekt): string => {
         let inntekt = 0
 
-        if (isNaN(inntektTilNesteAar.arbeidsinntektINorge)) inntekt += 0
-        else inntekt += inntektTilNesteAar.arbeidsinntektINorge
+        if (isNaN(inntektTilNesteAar.arbeidsinntekt)) inntekt += 0
+        else inntekt += inntektTilNesteAar.arbeidsinntekt
 
         if (isNaN(inntektTilNesteAar.naeringsinntekt)) inntekt += 0
         else inntekt += inntektTilNesteAar.naeringsinntekt
 
-        if (isNaN(inntektTilNesteAar.AFPInntekt)) inntekt += 0
-        else inntekt += inntektTilNesteAar.AFPInntekt
-
-        if (isNaN(inntektTilNesteAar.alleInntekterIUtland)) inntekt += 0
-        else inntekt += inntektTilNesteAar.alleInntekterIUtland
+        if (isNaN(inntektTilNesteAar.inntektFraUtland)) inntekt += 0
+        else inntekt += inntektTilNesteAar.inntektFraUtland
 
         return `${inntekt} kr`
     }

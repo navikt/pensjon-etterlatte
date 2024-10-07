@@ -12,6 +12,7 @@ import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummering/InntektsjusteringOppsummering.tsx'
 import { InntektsjusteringInntektTilNesteAar } from './inntektsjustering/2-inntekt-til-neste-aar/InntektsjusteringInntektTilNesteAar.tsx'
 import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
+import { ProvideInntektContext } from './common/inntekt/InntektContext.tsx'
 
 const router = createBrowserRouter(
     [
@@ -50,15 +51,17 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ProvideSpraakContext>
-            <SWRConfig
-                value={{
-                    fetcher: fetcher,
-                    shouldRetryOnError: false,
-                    revalidateOnFocus: false,
-                }}
-            >
-                <RouterProvider router={router} />
-            </SWRConfig>
+            <ProvideInntektContext>
+                <SWRConfig
+                    value={{
+                        fetcher: fetcher,
+                        shouldRetryOnError: false,
+                        revalidateOnFocus: false,
+                    }}
+                >
+                    <RouterProvider router={router} />
+                </SWRConfig>
+            </ProvideInntektContext>
         </ProvideSpraakContext>
     </StrictMode>
 )

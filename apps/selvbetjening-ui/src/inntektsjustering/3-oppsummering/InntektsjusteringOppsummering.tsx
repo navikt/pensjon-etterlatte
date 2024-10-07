@@ -4,11 +4,14 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
+import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
 
 export const InntektsjusteringOppsummering = () => {
     const spraak = useSpraak()
+    const navigate = useNavigate()
+    const inntekt = useInntekt()
 
     const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>(
         '*[_type == "inntektsjusteringOppsummering"]'
@@ -36,24 +39,24 @@ export const InntektsjusteringOppsummering = () => {
                                 <FormSummary.Heading level="2">
                                     {innhold.skjemaSammendrag?.tittel?.[spraak]}
                                 </FormSummary.Heading>
-                                <FormSummary.EditLink href="/selvbetjening/inntektsjustering/opprett">
+                                <FormSummary.EditLink
+                                    onClick={() => navigate(`/inntektsjustering/inntekt-til-neste-aar`)}
+                                >
                                     {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
-                            {/* Hva som skal stå i disse har ikke blitt landet enda, så lar vær så lenge å lage sanity schemaer for det*/}
                             <FormSummary.Answers>
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>Hva slags type inntekter har du?</FormSummary.Label>
-                                    <FormSummary.Value>Arbeidsinntekt</FormSummary.Value>
-                                    <FormSummary.Value>Næringsinntekt</FormSummary.Value>
-                                </FormSummary.Answer>
-                                <FormSummary.Answer>
                                     <FormSummary.Label>Hvor mye har du oppgitt i arbeidsinntekt?</FormSummary.Label>
-                                    <FormSummary.Value>100000000000 kr</FormSummary.Value>
+                                    <FormSummary.Value>{inntekt.arbeidsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                                 <FormSummary.Answer>
                                     <FormSummary.Label>Hvor mye har du oppgitt i næringsinntekt?</FormSummary.Label>
-                                    <FormSummary.Value>45000000000 kr</FormSummary.Value>
+                                    <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
+                                </FormSummary.Answer>
+                                <FormSummary.Answer>
+                                    <FormSummary.Label>Hvor mye har du oppgitt i inntekt fra utland?</FormSummary.Label>
+                                    <FormSummary.Value>{inntekt.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
                         </FormSummary>
