@@ -4,9 +4,9 @@ license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 [versions]
 token-version = "5.0.5"
 ktor-version = "2.3.12"
-jupiter-version = "5.11.0"
-testcontainers-version = "1.20.1"
-flyway-version = "10.18.0"
+jupiter-version = "5.11.1"
+testcontainers-version = "1.20.2"
+flyway-version = "10.18.2"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -27,7 +27,7 @@ ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-vers
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version" }
 
-database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "5.1.0" }
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.0.0" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
 database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.4" }
