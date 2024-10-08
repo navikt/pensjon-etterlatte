@@ -62,7 +62,7 @@ export const InntektsjusteringOppsummering = () => {
                                     <>
                                         <FormSummary.Answer>
                                             <FormSummary.Label>Hva har du oppgitt i AFP inntekt?</FormSummary.Label>
-                                            <FormSummary.Value>{inntekt.AFPInntekt}</FormSummary.Value>
+                                            <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
                                         </FormSummary.Answer>
 
                                         {!!inntekt.AFPInntekt && (
