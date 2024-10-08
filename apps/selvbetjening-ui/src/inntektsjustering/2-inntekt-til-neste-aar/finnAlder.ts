@@ -8,8 +8,6 @@ export const finnAlder = (innloggetBruker: IInnloggetBruker): Alder => {
         const nesteAar = new Date().setFullYear(new Date().getFullYear() + 1)
         const alderNesteAar = differenceInYears(nesteAar, innloggetBruker.foedselsdato)
 
-        console.log(alderNesteAar)
-
         if (alderNesteAar >= 18 && alderNesteAar <= 56) {
             return Alder.ATTEN_TIL_FEMTI_SEKS
         } else if (alderNesteAar >= 57 && alderNesteAar <= 60) {
