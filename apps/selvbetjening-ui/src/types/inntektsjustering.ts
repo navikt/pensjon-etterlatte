@@ -2,7 +2,7 @@ export interface Inntekt {
     arbeidsinntekt: number
     naeringsinntekt: number
     inntektFraUtland: number
-    AFPInntekt?: number
+    AFPInntekt: number
     AFPTjenesteordning?: string
 }
 export const inntektDefaultValues: Inntekt = {
