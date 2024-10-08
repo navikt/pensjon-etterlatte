@@ -116,7 +116,15 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                             name: 'AFPTjenestepensjonordning',
                             title: 'AFP tjenestepensjonordning',
                             type: 'object',
-                            fields: textFieldFields,
+                            fields: [
+                                ...textFieldFields,
+                                defineField({
+                                    name: 'tomInputError',
+                                    title: 'Tom input error',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ],
                         }),
                         defineField({
                             name: 'inntektFraUtland',

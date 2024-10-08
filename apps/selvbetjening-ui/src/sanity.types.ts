@@ -1201,6 +1201,11 @@ export type InntektsjusteringInntektTilNesteAar = {
                         }>
                     }
                 }
+                tomInputError?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
             }
             inntektFraUtland?: {
                 label?: {

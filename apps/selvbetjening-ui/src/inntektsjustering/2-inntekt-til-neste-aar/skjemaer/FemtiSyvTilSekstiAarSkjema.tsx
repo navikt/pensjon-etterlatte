@@ -132,7 +132,14 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
 
                     {!!watch().AFPInntekt && (
                         <TextField
-                            {...register('AFPTjenesteordning', { required: { value: true, message: 'må settes' } })}
+                            {...register('AFPTjenesteordning', {
+                                required: {
+                                    value: true,
+                                    message:
+                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
+                                            ?.tomInputError?.[spraak] ?? 'Må settes',
+                                },
+                            })}
                             label={
                                 innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
                                     ?.label?.[spraak]
