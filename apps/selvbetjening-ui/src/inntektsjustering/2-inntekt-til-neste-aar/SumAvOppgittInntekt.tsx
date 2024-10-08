@@ -29,6 +29,9 @@ export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar
         if (isNaN(inntektTilNesteAar.inntektFraUtland)) inntekt += 0
         else inntekt += inntektTilNesteAar.inntektFraUtland
 
+        if (!inntektTilNesteAar.AFPInntekt || isNaN(inntektTilNesteAar.AFPInntekt)) inntekt += 0
+        else inntekt += inntektTilNesteAar.AFPInntekt
+
         return `${inntekt} kr`
     }
 

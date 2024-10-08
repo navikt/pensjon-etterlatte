@@ -7,6 +7,8 @@ import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNeste
 import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
+import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
+import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 
 export const FemtiSyvTilSekstiAarSkjema = () => {
     const spraak = useSpraak()
@@ -21,7 +23,7 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register, setValue } = useForm<Inntekt>({ defaultValues: inntekt })
+    const { register, setValue, watch, getValues } = useForm<Inntekt>({ defaultValues: inntekt })
 
     if (innholdError && !innholdIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
@@ -65,6 +67,107 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
                             </ReadMore>
                         )}
                     </VStack>
+
+                    <VStack gap="2">
+                        <TextField
+                            {...register('naeringsinntekt', {
+                                valueAsNumber: true,
+                                onChange: (e) => {
+                                    setValue('naeringsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
+                                },
+                            })}
+                            label={
+                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.label?.[spraak]
+                            }
+                            description={
+                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.description?.[
+                                    spraak
+                                ]
+                            }
+                            inputMode="numeric"
+                        />
+                        {!!innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.readMore && (
+                            <ReadMore
+                                header={
+                                    innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.readMore
+                                        ?.tittel?.[spraak]
+                                }
+                            >
+                                <SanityRikTekst
+                                    text={
+                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.readMore
+                                            ?.innhold?.[spraak]
+                                    }
+                                />
+                            </ReadMore>
+                        )}
+                    </VStack>
+
+                    <TextField
+                        {...register('AFPInntekt', {
+                            valueAsNumber: true,
+                            onChange: (e) => {
+                                setValue('AFPInntekt', e.target.value.replace(/[^0-9.]/g, ''))
+                            },
+                        })}
+                        label={innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPInntekt?.label?.[spraak]}
+                        description={
+                            innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPInntekt?.description?.[spraak]
+                        }
+                    />
+
+                    {!!watch().AFPInntekt && (
+                        <TextField
+                            {...register('AFPTjenesteordning')}
+                            label={
+                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
+                                    ?.label?.[spraak]
+                            }
+                            description={
+                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
+                                    ?.description?.[spraak]
+                            }
+                        />
+                    )}
+
+                    <VStack gap="2">
+                        <TextField
+                            {...register('inntektFraUtland', {
+                                valueAsNumber: true,
+                                onChange: (e) => {
+                                    setValue('inntektFraUtland', e.target.value.replace(/[^0-9.]/g, ''))
+                                },
+                            })}
+                            label={
+                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.label?.[spraak]
+                            }
+                            description={
+                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.description?.[
+                                    spraak
+                                ]
+                            }
+                            inputMode="numeric"
+                        />
+                        {!!innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.readMore && (
+                            <ReadMore
+                                header={
+                                    innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.readMore
+                                        ?.tittel?.[spraak]
+                                }
+                            >
+                                <SanityRikTekst
+                                    text={
+                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.readMore
+                                            ?.innhold?.[spraak]
+                                    }
+                                />
+                            </ReadMore>
+                        )}
+                    </VStack>
+
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
+
+                    <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" inntekt={getValues()} />
                 </VStack>
             </form>
         )
