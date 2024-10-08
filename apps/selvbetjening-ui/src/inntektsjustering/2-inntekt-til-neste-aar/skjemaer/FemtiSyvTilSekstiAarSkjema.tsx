@@ -1,10 +1,10 @@
-import { useInntekt } from '../../../common/inntekt/InntektContext.tsx'
+import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useForm } from 'react-hook-form'
 import { Inntekt } from '../../../types/inntektsjustering.ts'
 import { ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -14,6 +14,9 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
+    const inntektDispatch = useInntektDispatch()
+
+    const navigate = useNavigate()
 
     const {
         innhold,
@@ -23,10 +26,21 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register, setValue, watch, getValues } = useForm<Inntekt>({ defaultValues: inntekt })
+    const {
+        register,
+        setValue,
+        watch,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Inntekt>({ defaultValues: inntekt })
 
     if (innholdError && !innholdIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
+    }
+
+    const onInntektSubmit = (inntekt: Inntekt) => {
+        inntektDispatch.setInntekt(inntekt)
+        navigate(`/inntektsjustering/oppsummering`)
     }
 
     return (
@@ -118,7 +132,7 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
 
                     {!!watch().AFPInntekt && (
                         <TextField
-                            {...register('AFPTjenesteordning')}
+                            {...register('AFPTjenesteordning', { required: { value: true, message: 'må settes' } })}
                             label={
                                 innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
                                     ?.label?.[spraak]
@@ -127,6 +141,7 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
                                 innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
                                     ?.description?.[spraak]
                             }
+                            error={errors.AFPTjenesteordning?.message}
                         />
                     )}
 
@@ -167,7 +182,8 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
 
                     <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
 
-                    <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" inntekt={getValues()} />
+                    {/* TODO: passe en onFormSubmit ned her, som trigges når handleSubmit blir kalt, som holder på oppdaterte verdier til "inntekt" */}
+                    <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>
             </form>
         )

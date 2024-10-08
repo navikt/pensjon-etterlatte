@@ -82,7 +82,11 @@ export const InntektsjusteringOppsummering = () => {
                             </FormSummary.Answers>
                         </FormSummary>
 
-                        <NavigasjonMeny tilbakePath="/inntekt-til-neste-aar" nestePath="/kvittering" skalSendeSoeknad />
+                        <NavigasjonMeny
+                            tilbakePath="/inntekt-til-neste-aar"
+                            onNeste={() => navigate('/inntektsjustering/kvittering')}
+                            skalSendeSoeknad
+                        />
                     </VStack>
                 </HStack>
             </main>

@@ -3,17 +3,20 @@ import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Inntekt } from '../../../types/inntektsjustering.ts'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
-import { useInntekt } from '../../../common/inntekt/InntektContext.tsx'
+import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 
 export const AttenTilFemtiSeksAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
+    const inntektDispatch = useInntektDispatch()
+
+    const navigate = useNavigate()
 
     const {
         innhold,
@@ -23,12 +26,17 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register, setValue, watch, getValues } = useForm<Inntekt>({
+    const { register, setValue, watch, handleSubmit } = useForm<Inntekt>({
         defaultValues: inntekt,
     })
 
     if (innholdError && !innholdIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
+    }
+
+    const onInntektSubmit = (inntekt: Inntekt) => {
+        inntektDispatch.setInntekt(inntekt)
+        navigate(`/inntektsjustering/oppsummering`)
     }
 
     return (
@@ -130,7 +138,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
 
                     <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
 
-                    <NavigasjonMeny tilbakePath="/innledning" nestePath="/oppsummering" inntekt={getValues()} />
+                    <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>
             </form>
         )
