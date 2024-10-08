@@ -61,6 +61,35 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                     title: '18 til 56 år',
                     options: {
                         collapsible: true,
+                        collapsed: true,
+                    },
+                    type: 'object',
+                    fields: [
+                        defineField({
+                            name: 'arbeidsinntekt',
+                            title: 'Arbeidsinntekt og andre utbetalinger',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                        defineField({
+                            name: 'naeringsinntekt',
+                            title: 'Næringsinntekt',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                        defineField({
+                            name: 'inntektFraUtland',
+                            title: 'Alle inntekter fra utland',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                    ],
+                }),
+                defineField({
+                    name: 'femtiSyvTilSekstiAarSkjema',
+                    title: '57 til 60 år',
+                    options: {
+                        collapsible: true,
                         collapsed: false,
                     },
                     type: 'object',
@@ -74,6 +103,18 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                         defineField({
                             name: 'naeringsinntekt',
                             title: 'Næringsinntekt',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                        defineField({
+                            name: 'AFPInntekt',
+                            title: 'AFP offentlig eller privat',
+                            type: 'object',
+                            fields: textFieldFields,
+                        }),
+                        defineField({
+                            name: 'AFPTjenestepensjonordning',
+                            title: 'AFP tjenestepensjonordning',
                             type: 'object',
                             fields: textFieldFields,
                         }),

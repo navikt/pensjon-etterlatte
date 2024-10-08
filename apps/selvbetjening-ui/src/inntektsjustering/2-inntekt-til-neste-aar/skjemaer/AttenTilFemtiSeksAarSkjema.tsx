@@ -49,21 +49,22 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                             }
                             inputMode="numeric"
                         />
-                        <ReadMore
-                            header={
-                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore?.tittel?.[
-                                    spraak
-                                ]
-                            }
-                        >
-                            <SanityRikTekst
-                                text={
-                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore?.innhold?.[
+                        {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore && (
+                            <ReadMore
+                                header={
+                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore?.tittel?.[
                                         spraak
                                     ]
                                 }
-                            />
-                        </ReadMore>
+                            >
+                                <SanityRikTekst
+                                    text={
+                                        innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore
+                                            ?.innhold?.[spraak]
+                                    }
+                                />
+                            </ReadMore>
+                        )}
                     </VStack>
                     <VStack gap="2">
                         <TextField
@@ -79,20 +80,22 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                             }
                             inputMode="numeric"
                         />
-                        <ReadMore
-                            header={
-                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore?.tittel?.[
-                                    spraak
-                                ]
-                            }
-                        >
-                            <SanityRikTekst
-                                text={
-                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore
-                                        ?.innhold?.[spraak]
+                        {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore && (
+                            <ReadMore
+                                header={
+                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore?.tittel?.[
+                                        spraak
+                                    ]
                                 }
-                            />
-                        </ReadMore>
+                            >
+                                <SanityRikTekst
+                                    text={
+                                        innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore
+                                            ?.innhold?.[spraak]
+                                    }
+                                />
+                            </ReadMore>
+                        )}
                     </VStack>
                     <VStack gap="2">
                         <TextField
@@ -108,20 +111,21 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                             }
                             inputMode="numeric"
                         />
-                        <ReadMore
-                            header={
-                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore?.tittel?.[
-                                    spraak
-                                ]
-                            }
-                        >
-                            <SanityRikTekst
-                                text={
+                        {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore && (
+                            <ReadMore
+                                header={
                                     innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore
-                                        ?.innhold?.[spraak]
+                                        ?.tittel?.[spraak]
                                 }
-                            />
-                        </ReadMore>
+                            >
+                                <SanityRikTekst
+                                    text={
+                                        innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore
+                                            ?.innhold?.[spraak]
+                                    }
+                                />
+                            </ReadMore>
+                        )}
                     </VStack>
 
                     <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
