@@ -4,21 +4,17 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
-import { Inntekt } from '../../types/inntektsjustering.ts'
-import { useInntektDispatch } from '../inntekt/InntektContext.tsx'
 
 interface Props {
     tilbakePath: string
-    nestePath: string
     skalSendeSoeknad?: boolean
-    inntekt?: Inntekt
+    onNeste?: () => void
 }
 
-export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, inntekt }: Props) => {
+export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste }: Props) => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
-    const inntektDispatch = useInntektDispatch()
 
     const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
@@ -32,6 +28,7 @@ export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, innte
                 </BodyShort>
                 <HGrid gap={{ xs: '4', sm: '8 4' }} columns={{ xs: 1, sm: 2 }} width={{ sm: 'fit-content' }}>
                     <Button
+                        type="button"
                         variant="secondary"
                         icon={<ArrowLeftIcon aria-hidden />}
                         iconPosition="left"
@@ -40,14 +37,11 @@ export const NavigasjonMeny = ({ tilbakePath, nestePath, skalSendeSoeknad, innte
                         {innhold.navigasjonMeny?.knapper?.forrigeStegKnapp?.[spraak]}
                     </Button>
                     <Button
-                        type="submit"
+                        type="button"
                         variant="primary"
                         icon={skalSendeSoeknad ? <PaperplaneIcon aria-hidden /> : <ArrowRightIcon aria-hidden />}
                         iconPosition="right"
-                        onClick={() => {
-                            if (inntekt) inntektDispatch.setInntekt(inntekt)
-                            navigate(`/inntektsjustering/${nestePath}`)
-                        }}
+                        onClick={onNeste}
                     >
                         {skalSendeSoeknad
                             ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]
