@@ -29,7 +29,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         switch (alder) {
             case Alder.ATTEN_TIL_FEMTI_SEKS:
                 return <AttenTilFemtiSeksAarSkjema />
-            case Alder.FEMTI_SYV_TIL_SEKSTI:
+            case Alder.FEMTI_SYV_TIL_SEKSTI_EN:
                 return <FemtiSyvTilSekstiAarSkjema />
         }
     }
