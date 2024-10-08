@@ -7,7 +7,6 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoedeType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.InntektOgPensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.JobbStatusTypeOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Kontaktinfo
-import no.nav.etterlatte.libs.common.innsendtsoeknad.Naeringsinntekt
 import no.nav.etterlatte.libs.common.innsendtsoeknad.OmsorgspersonType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.OppholdUtlandType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.SivilstatusType
@@ -340,7 +339,6 @@ object InnsendtSoeknadFixtures {
                                 ),
                             spoersmaal = null,
                         ),
-                    naeringsInntekt = null,
                     militaertjeneste = null,
                 ),
             barn = barn,
@@ -424,15 +422,6 @@ fun avdoedMedUtenlandsopphold(foedselsnummer: Foedselsnummer? = null) =
                             medlemFolketrygd = Opplysning(EnumSvar(JA, "Ja")),
                             pensjonsutbetaling = Opplysning(FritekstSvar("150000")),
                         ),
-                    ),
-            ),
-        naeringsInntekt =
-            BetingetOpplysning(
-                svar = EnumSvar(JA, "Ja"),
-                opplysning =
-                    Naeringsinntekt(
-                        naeringsinntektPrAarFoerDoedsfall = Opplysning(FritekstSvar("20000")),
-                        naeringsinntektVedDoedsfall = Opplysning(EnumSvar(JA, "Ja")),
                     ),
             ),
         militaertjeneste =
