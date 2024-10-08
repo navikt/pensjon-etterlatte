@@ -1,8 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { Inntekt } from '../../types/inntektsjustering.ts'
+import { Inntekt, inntektDefaultValues } from '../../types/inntektsjustering.ts'
 import { createContext, ReactNode, useContext, useState } from 'react'
-import { inntektDefaultValues } from '../../types/person.ts'
 
 interface InntektDispatcher {
     setInntekt: (inntekt: Inntekt) => void

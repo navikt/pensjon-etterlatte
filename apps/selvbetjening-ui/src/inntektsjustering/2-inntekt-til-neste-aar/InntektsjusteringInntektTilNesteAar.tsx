@@ -8,6 +8,7 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { Alder } from '../../types/person.ts'
 import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
 import { finnAlder } from './finnAlder.ts'
+import { FemtiSyvTilSekstiAarSkjema } from './skjemaer/FemtiSyvTilSekstiAarSkjema.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const spraak = useSpraak()
@@ -28,6 +29,8 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         switch (alder) {
             case Alder.ATTEN_TIL_FEMTI_SEKS:
                 return <AttenTilFemtiSeksAarSkjema />
+            case Alder.FEMTI_SYV_TIL_SEKSTI:
+                return <FemtiSyvTilSekstiAarSkjema />
         }
     }
 
@@ -42,7 +45,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                         </div>
 
                         {/* TODO: bruker hardkodet person helt til vi har dette på plass i backend */}
-                        {velgSkjemaForInntekt(finnAlder({ foedselsdato: new Date(1975, 4, 11) }))}
+                        {velgSkjemaForInntekt(finnAlder({ foedselsdato: new Date(1968, 4, 11) }))}
                     </VStack>
                 </HStack>
             </main>
