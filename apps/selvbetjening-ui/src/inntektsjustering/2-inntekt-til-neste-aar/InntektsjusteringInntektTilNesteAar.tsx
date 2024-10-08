@@ -45,7 +45,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                         </div>
 
                         {/* TODO: bruker hardkodet person helt til vi har dette på plass i backend */}
-                        {velgSkjemaForInntekt(finnAlder({ foedselsdato: new Date(1968, 4, 11) }))}
+                        {velgSkjemaForInntekt(finnAlder({ foedselsdato: new Date(1998, 4, 11) }))}
                     </VStack>
                 </HStack>
             </main>

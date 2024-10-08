@@ -10,6 +10,7 @@ import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
+import { Alder } from '../../../types/person.ts'
 
 export const FemtiSyvTilSekstiAarSkjema = () => {
     const spraak = useSpraak()
@@ -171,7 +172,7 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
                         )}
                     </VStack>
 
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI} />
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>

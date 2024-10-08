@@ -1,4 +1,4 @@
-import { ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -9,6 +9,8 @@ import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNeste
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
+import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
+import { Alder } from '../../../types/person.ts'
 
 export const AttenTilFemtiSeksAarSkjema = () => {
     const spraak = useSpraak()
@@ -26,7 +28,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { register, setValue, watch, handleSubmit } = useForm<Inntekt>({
+    const { control, watch, handleSubmit } = useForm<Inntekt>({
         defaultValues: inntekt,
     })
 
@@ -44,18 +46,13 @@ export const AttenTilFemtiSeksAarSkjema = () => {
             <form>
                 <VStack gap="6" width="fit-content">
                     <VStack gap="2">
-                        <TextField
-                            {...register('arbeidsinntekt', {
-                                valueAsNumber: true,
-                                onChange: (e) => {
-                                    setValue('arbeidsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
-                                },
-                            })}
+                        <ControlledInntektTextField
+                            name="arbeidsinntekt"
+                            control={control}
                             label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.label?.[spraak]}
                             description={
                                 innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.description?.[spraak]
                             }
-                            inputMode="numeric"
                         />
                         {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore && (
                             <ReadMore
@@ -75,18 +72,13 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         )}
                     </VStack>
                     <VStack gap="2">
-                        <TextField
-                            {...register('naeringsinntekt', {
-                                valueAsNumber: true,
-                                onChange: (e) => {
-                                    setValue('naeringsinntekt', e.target.value.replace(/[^0-9.]/g, ''))
-                                },
-                            })}
+                        <ControlledInntektTextField
+                            name="naeringsinntekt"
+                            control={control}
                             label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.label?.[spraak]}
                             description={
                                 innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.description?.[spraak]
                             }
-                            inputMode="numeric"
                         />
                         {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore && (
                             <ReadMore
@@ -106,18 +98,13 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         )}
                     </VStack>
                     <VStack gap="2">
-                        <TextField
-                            {...register('inntektFraUtland', {
-                                valueAsNumber: true,
-                                onChange: (e) => {
-                                    setValue('inntektFraUtland', e.target.value.replace(/[^0-9.]/g, ''))
-                                },
-                            })}
+                        <ControlledInntektTextField
+                            name="inntektFraUtland"
+                            control={control}
                             label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.label?.[spraak]}
                             description={
                                 innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.description?.[spraak]
                             }
-                            inputMode="numeric"
                         />
                         {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore && (
                             <ReadMore
@@ -136,7 +123,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         )}
                     </VStack>
 
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} />
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS} />
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>

@@ -5,8 +5,9 @@ import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNeste
 import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Inntekt } from '../../types/inntektsjustering.ts'
+import { Alder } from '../../types/person.ts'
 
-export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar: Inntekt }) => {
+export const SumAvOppgittInntekt = ({ inntektTilNesteAar, alder }: { inntektTilNesteAar: Inntekt; alder: Alder }) => {
     const spraak = useSpraak()
 
     const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
@@ -29,8 +30,10 @@ export const SumAvOppgittInntekt = ({ inntektTilNesteAar }: { inntektTilNesteAar
         if (isNaN(inntektTilNesteAar.inntektFraUtland)) inntekt += 0
         else inntekt += inntektTilNesteAar.inntektFraUtland
 
-        if (!inntektTilNesteAar.AFPInntekt || isNaN(inntektTilNesteAar.AFPInntekt)) inntekt += 0
-        else inntekt += inntektTilNesteAar.AFPInntekt
+        if (alder === Alder.FEMTI_SYV_TIL_SEKSTI) {
+            if (!inntektTilNesteAar.AFPInntekt || isNaN(inntektTilNesteAar.AFPInntekt)) inntekt += 0
+            else inntekt += inntektTilNesteAar.AFPInntekt
+        }
 
         return `${inntekt} kr`
     }
