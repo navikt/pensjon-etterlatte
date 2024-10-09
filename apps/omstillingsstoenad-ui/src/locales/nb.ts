@@ -24,6 +24,7 @@ export default {
     'knapp.fjern': 'Fjern',
     'knapp.fjernFraSoeknad': 'Fjern fra søknad',
     'knapp.lagre': 'Lagre',
+    'knapp.lagreEndring': 'Lagre endring',
     'knapp.slett': 'Slett søknad',
     'knapp.endre': 'Endre',
     'knapp.ja': 'Ja, send søknad',

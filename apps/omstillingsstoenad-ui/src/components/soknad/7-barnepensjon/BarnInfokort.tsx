@@ -3,7 +3,7 @@ import ikon from '../../../assets/ikoner/barn1.svg'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IValg } from '../../../typer/Spoersmaal'
-import { BodyShort, Heading, BodyLong, Link, Tag } from '@navikt/ds-react'
+import { BodyShort, Heading, Tag, Button, VStack } from '@navikt/ds-react'
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import styled from 'styled-components'
@@ -12,17 +12,6 @@ import { format } from 'date-fns'
 
 const InfokortInformasjonsElement = styled.div`
     margin: 10px 0 10px 0;
-`
-
-const InfokortFooter = styled.div`
-    margin-bottom: 1rem;
-`
-
-const InfokortFooterItem = styled(Link)`
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    text-align: center;
 `
 
 interface Props {
@@ -85,28 +74,16 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         </SkjemaElement>
                     )}
                 </InfokortInformasjonsElement>
-            </InfokortInformasjonsboks>
 
-            <InfokortFooter>
-                <BodyLong>
-                    <InfokortFooterItem
-                        href={'#'}
-                        onClick={(e: React.MouseEvent) => {
-                            e.preventDefault()
-                            setAktivBarnIndex()
-                        }}
-                    >
-                        <EditFilled className={'edit-svg'} />
-                        <span>{t('knapp.endre')}</span>
-                    </InfokortFooterItem>
-                </BodyLong>
-                <BodyLong>
-                    <InfokortFooterItem href={'#'} onClick={() => fjern(index)}>
-                        <DeleteFilled className={'edit-svg'} />
-                        <span>{t('knapp.fjernFraSoeknad')}</span>
-                    </InfokortFooterItem>
-                </BodyLong>
-            </InfokortFooter>
+                <VStack gap="2" align="center">
+                    <Button onClick={() => setAktivBarnIndex()} icon={<EditFilled fontSize={20} />} variant="tertiary">
+                        {t('knapp.endre')}
+                    </Button>
+                    <Button onClick={() => fjern(index)} icon={<DeleteFilled fontSize={20} />} variant="tertiary">
+                        {t('knapp.fjernFraSoeknad')}
+                    </Button>
+                </VStack>
+            </InfokortInformasjonsboks>
         </Infokort>
     )
 })

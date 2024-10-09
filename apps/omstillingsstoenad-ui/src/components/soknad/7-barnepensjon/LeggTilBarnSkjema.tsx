@@ -108,6 +108,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     const { state: bruker } = useBrukerContext()
     const { state: soeknad } = useSoknadContext()
 
+    const endrerBarn = !!barn?.fornavn?.length
+
     const methods = useForm<IBarn>({
         defaultValues: {
             ...barn,
@@ -502,7 +504,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                     onClick={handleSubmit(leggTilOgLukk)}
                                     style={{ minWidth: '80px' }}
                                 >
-                                    {t('knapp.leggTil')}
+                                    {endrerBarn ? t('knapp.lagreEndring') : t('knapp.leggTil')}
                                 </Button>
                             </NavigasjonsRad>
                         </EndreBarnKortInnhold>

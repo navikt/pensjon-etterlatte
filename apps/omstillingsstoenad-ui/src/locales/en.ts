@@ -24,6 +24,7 @@ export default {
     'knapp.fjern': 'Remove',
     'knapp.fjernFraSoeknad': 'Remove from the application',
     'knapp.lagre': 'Save',
+    'knapp.lagreEndring': 'Save changes',
     'knapp.slett': 'Delete the application',
     'knapp.endre': 'Change',
     'knapp.ja': 'Yes, send application',
