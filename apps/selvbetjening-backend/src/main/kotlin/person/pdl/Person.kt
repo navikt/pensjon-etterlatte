@@ -1,7 +1,19 @@
 package no.nav.etterlatte.person.pdl
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import no.nav.etterlatte.pdl.ResponseError
 import java.time.LocalDate
 import java.time.LocalDateTime
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class PersonResponse(
+    val data: PersonResponseData? = null,
+    val errors: List<ResponseError>? = null,
+)
+
+data class PersonResponseData(
+    val hentPerson: Person? = null,
+)
 
 data class Person(
     val navn: List<Navn>,
