@@ -14,8 +14,6 @@ val objectMapper: ObjectMapper =
         .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         .registerModule(JavaTimeModule())
 
-fun Any.toJson(): String = objectMapper.writeValueAsString(this)
-
 inline fun <reified T : Any> mapJsonToAny(
     json: String,
     failonunknown: Boolean = false,
