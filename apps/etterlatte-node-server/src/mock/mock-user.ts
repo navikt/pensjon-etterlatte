@@ -38,8 +38,8 @@ export const STOR_SNERK = {
 }
 
 export const STOR_SNERK_FORENKLET = {
-    fornavn: 'STOR',
-    etternavn: 'SNERK',
+    fornavn: 'SNERK',
+    etternavn: 'STORESEN',
     foedselsnummer: '11057523044',
     foedselsaar: 1975,
     foedselsdato: new Date(1975, 4, 11),
