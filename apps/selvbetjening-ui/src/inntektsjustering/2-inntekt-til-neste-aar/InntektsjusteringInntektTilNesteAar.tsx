@@ -1,4 +1,4 @@
-import { HStack, VStack } from '@navikt/ds-react'
+import { Heading, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -52,6 +52,11 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                 <HStack justify="center" padding="8">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={2} stegLabelKey="steg2" />
+
+                        <Heading size="large">
+                            Hei! {innloggetBruker.fornavn} {innloggetBruker.etternavn}
+                        </Heading>
+
                         <div>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>
