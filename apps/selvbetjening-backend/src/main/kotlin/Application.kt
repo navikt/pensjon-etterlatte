@@ -159,6 +159,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     routing {
         healthApi()
         authenticate {
+            securityMediator.autentiser(this)
             routes()
         }
     }
