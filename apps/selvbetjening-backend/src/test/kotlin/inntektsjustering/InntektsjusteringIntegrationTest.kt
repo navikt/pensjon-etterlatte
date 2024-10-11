@@ -3,64 +3,64 @@ package inntektsjustering
 // TODO Kommenterte ut dette for testingen sin skyld
 //      Må uansett oppdateres for ny datastruktur
 
-//import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-//import com.fasterxml.jackson.module.kotlin.readValue
-//import com.nimbusds.jwt.JWTClaimsSet
-//import com.nimbusds.jwt.PlainJWT
-//import io.kotest.matchers.shouldBe
-//import io.ktor.http.ContentType
-//import io.ktor.http.Headers
-//import io.ktor.http.HttpHeaders
-//import io.ktor.http.HttpMethod
-//import io.ktor.http.HttpStatusCode
-//import io.ktor.serialization.jackson.jackson
-//import io.ktor.server.application.Application
-//import io.ktor.server.application.install
-//import io.ktor.server.auth.Authentication
-//import io.ktor.server.auth.AuthenticationConfig
-//import io.ktor.server.auth.AuthenticationContext
-//import io.ktor.server.auth.AuthenticationProvider
-//import io.ktor.server.auth.authenticate
-//import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
-//import io.ktor.server.routing.IgnoreTrailingSlash
-//import io.ktor.server.routing.Route
-//import io.ktor.server.routing.routing
-//import io.ktor.server.testing.TestApplicationRequest
-//import io.ktor.server.testing.handleRequest
-//import io.ktor.server.testing.setBody
-//import io.ktor.server.testing.withTestApplication
-//import io.mockk.every
-//import io.mockk.mockk
-//import no.nav.etterlatte.DataSourceBuilder
-//import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
-//import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
-//import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
-//import no.nav.etterlatte.inntektsjustering.inntektsjustering
-//import no.nav.etterlatte.kafka.KafkaProdusent
-//import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
-//import no.nav.etterlatte.mapper
-//import no.nav.etterlatte.toJson
-//import no.nav.security.token.support.core.context.TokenValidationContext
-//import no.nav.security.token.support.core.jwt.JwtToken
-//import no.nav.security.token.support.v2.TokenValidationContextPrincipal
-//import opprettInMemoryDatabase
-//import org.junit.jupiter.api.AfterAll
-//import org.junit.jupiter.api.BeforeAll
-//import org.junit.jupiter.api.MethodOrderer
-//import org.junit.jupiter.api.Order
-//import org.junit.jupiter.api.Test
-//import org.junit.jupiter.api.TestInstance
-//import org.junit.jupiter.api.TestMethodOrder
-//import org.testcontainers.containers.PostgreSQLContainer
-//import org.testcontainers.junit.jupiter.Container
-//import java.time.LocalDateTime
-//import java.time.ZoneId
-//import java.util.Arrays
-//import java.util.stream.Collectors
+// import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+// import com.fasterxml.jackson.module.kotlin.readValue
+// import com.nimbusds.jwt.JWTClaimsSet
+// import com.nimbusds.jwt.PlainJWT
+// import io.kotest.matchers.shouldBe
+// import io.ktor.http.ContentType
+// import io.ktor.http.Headers
+// import io.ktor.http.HttpHeaders
+// import io.ktor.http.HttpMethod
+// import io.ktor.http.HttpStatusCode
+// import io.ktor.serialization.jackson.jackson
+// import io.ktor.server.application.Application
+// import io.ktor.server.application.install
+// import io.ktor.server.auth.Authentication
+// import io.ktor.server.auth.AuthenticationConfig
+// import io.ktor.server.auth.AuthenticationContext
+// import io.ktor.server.auth.AuthenticationProvider
+// import io.ktor.server.auth.authenticate
+// import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+// import io.ktor.server.routing.IgnoreTrailingSlash
+// import io.ktor.server.routing.Route
+// import io.ktor.server.routing.routing
+// import io.ktor.server.testing.TestApplicationRequest
+// import io.ktor.server.testing.handleRequest
+// import io.ktor.server.testing.setBody
+// import io.ktor.server.testing.withTestApplication
+// import io.mockk.every
+// import io.mockk.mockk
+// import no.nav.etterlatte.DataSourceBuilder
+// import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
+// import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
+// import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
+// import no.nav.etterlatte.inntektsjustering.inntektsjustering
+// import no.nav.etterlatte.kafka.KafkaProdusent
+// import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
+// import no.nav.etterlatte.mapper
+// import no.nav.etterlatte.toJson
+// import no.nav.security.token.support.core.context.TokenValidationContext
+// import no.nav.security.token.support.core.jwt.JwtToken
+// import no.nav.security.token.support.v2.TokenValidationContextPrincipal
+// import opprettInMemoryDatabase
+// import org.junit.jupiter.api.AfterAll
+// import org.junit.jupiter.api.BeforeAll
+// import org.junit.jupiter.api.MethodOrderer
+// import org.junit.jupiter.api.Order
+// import org.junit.jupiter.api.Test
+// import org.junit.jupiter.api.TestInstance
+// import org.junit.jupiter.api.TestMethodOrder
+// import org.testcontainers.containers.PostgreSQLContainer
+// import org.testcontainers.junit.jupiter.Container
+// import java.time.LocalDateTime
+// import java.time.ZoneId
+// import java.util.Arrays
+// import java.util.stream.Collectors
 //
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-//@TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-//internal class InntektsjusteringIntegrationTest {
+// @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+// @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
+// internal class InntektsjusteringIntegrationTest {
 //    @Container
 //    private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
 //    private lateinit var db: InntektsjusteringRepository
@@ -188,9 +188,9 @@ package inntektsjustering
 //                naeringsinntektUtland = 200,
 //            )
 //    }
-//}
+// }
 //
-//fun Application.apiTestModule(routes: Route.() -> Unit) {
+// fun Application.apiTestModule(routes: Route.() -> Unit) {
 //    install(ContentNegotiation) {
 //        jackson {
 //            registerModule(JavaTimeModule())
@@ -206,9 +206,9 @@ package inntektsjustering
 //            routes()
 //        }
 //    }
-//}
+// }
 //
-//fun TestApplicationRequest.tokenFor(fnr: String) {
+// fun TestApplicationRequest.tokenFor(fnr: String) {
 //    addHeader(
 //        HttpHeaders.Authorization,
 //        """Bearer ${
@@ -221,9 +221,9 @@ package inntektsjustering
 //            ).serialize()
 //        }""",
 //    )
-//}
+// }
 //
-//class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
+// class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfiguration(null)) {
 //    class ProviderConfiguration internal constructor(
 //        name: String?,
 //    ) : Config(name)
@@ -269,6 +269,6 @@ package inntektsjustering
 //            ),
 //        )
 //    }
-//}
+// }
 //
-//fun AuthenticationConfig.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())
+// fun AuthenticationConfig.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())

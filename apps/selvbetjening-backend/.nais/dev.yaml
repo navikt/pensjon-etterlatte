@@ -51,7 +51,16 @@ spec:
   env:
     - name: KAFKA_RAPID_TOPIC
       value: etterlatte.dodsmelding
+    - name: PDL_URL
+      value: https://pdl-api.dev-fss-pub.nais.io/graphql
+    - name: PDL_AZURE_SCOPE
+      value: api://dev-fss.pdl.pdl-api/.default
+    - name: PDL_AUDIENCE
+      value: "dev-fss:pdl:pdl-api"
   accessPolicy:
+    outbound:
+      external:
+        - host: pdl-api.dev-fss-pub.nais.io
     inbound:
       rules:
         - application: selvbetjening-ui
