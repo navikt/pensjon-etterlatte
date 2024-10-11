@@ -40,6 +40,8 @@ import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
 import no.nav.etterlatte.ktorclientauth.ClientCredentialAuthProvider
+import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
+import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
@@ -73,11 +75,14 @@ fun appIsInGCP(): Boolean =
         else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
     }
 
+val closables = mutableListOf<() -> Unit>()
+val config: Config = ConfigFactory.load()
+
+val hoconApplicationConfig = HoconApplicationConfig(config)
+val securityMediator = TokenSupportSecurityContextMediator(hoconApplicationConfig)
+
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
-
-    val closables = mutableListOf<() -> Unit>()
-    val config: Config = ConfigFactory.load()
 
     val env =
         System.getenv().toMutableMap().apply {
