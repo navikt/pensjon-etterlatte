@@ -8,7 +8,7 @@ import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
 
 fun Route.person(service: PersonService) {
-    route("/api/person/innlogget") {
+    route("/api/person/innlogget/forenklet") {
         get {
             val fnr = fnrFromToken()
 
