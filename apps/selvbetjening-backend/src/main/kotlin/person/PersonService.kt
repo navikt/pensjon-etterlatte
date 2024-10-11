@@ -3,7 +3,7 @@ package no.nav.etterlatte.person
 import io.ktor.server.plugins.NotFoundException
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.pdl.ResponseError
-import no.nav.etterlatte.person.pdl.PdlPerson
+import no.nav.etterlatte.person.pdl.HentPerson
 import org.slf4j.LoggerFactory
 
 class PersonService(
@@ -16,7 +16,7 @@ class PersonService(
 
         val response = klient.hentPerson(fnr)
 
-        val pdlPerson = response.data?.pdlPerson
+        val pdlPerson = response.data?.hentPerson
 
         if (pdlPerson == null) {
             loggfoerFeilmeldinger(response.errors)
@@ -28,12 +28,12 @@ class PersonService(
 
     private fun lagPerson(
         fnr: Foedselsnummer,
-        pdlPerson: PdlPerson,
+        hentPerson: HentPerson,
     ): Person {
-        val navn = pdlPerson.navn.maxByOrNull { it.metadata.sisteRegistrertDato() }!!
+        val navn = hentPerson.navn.maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
         val foedsel =
-            pdlPerson.foedsel
+            hentPerson.foedsel
                 .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         return Person(
