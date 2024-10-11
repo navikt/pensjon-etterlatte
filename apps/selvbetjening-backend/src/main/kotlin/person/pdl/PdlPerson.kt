@@ -12,10 +12,10 @@ data class PersonResponse(
 )
 
 data class PersonResponseData(
-    val pdlPerson: PdlPerson? = null,
+    val hentPerson: HentPerson? = null,
 )
 
-data class PdlPerson(
+data class HentPerson(
     val navn: List<Navn>,
     val foedsel: List<Foedsel>,
 )
