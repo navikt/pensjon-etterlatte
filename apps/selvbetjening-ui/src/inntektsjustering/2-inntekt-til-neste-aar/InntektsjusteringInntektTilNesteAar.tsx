@@ -9,9 +9,16 @@ import { Alder } from '../../types/person.ts'
 import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
 import { finnAlder } from './finnAlder.ts'
 import { FemtiSyvTilSekstiAarSkjema } from './skjemaer/FemtiSyvTilSekstiAarSkjema.tsx'
+import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const spraak = useSpraak()
+
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    } = useInnloggetInnbygger()
 
     const {
         innhold,
@@ -20,6 +27,10 @@ export const InntektsjusteringInntektTilNesteAar = () => {
     } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
+
+    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
 
     if (innholdError && !innholdIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
@@ -35,6 +46,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
     }
 
     return (
+        !!innloggetBruker &&
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8">
@@ -45,7 +57,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
                         </div>
 
                         {/* TODO: bruker hardkodet person helt til vi har dette på plass i backend */}
-                        {velgSkjemaForInntekt(finnAlder({ foedselsdato: new Date(1998, 4, 11) }))}
+                        {velgSkjemaForInntekt(finnAlder(innloggetBruker))}
                     </VStack>
                 </HStack>
             </main>

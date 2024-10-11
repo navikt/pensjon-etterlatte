@@ -37,6 +37,14 @@ export const STOR_SNERK = {
     ...personalia,
 }
 
+export const STOR_SNERK_FORENKLET = {
+    fornavn: 'STOR',
+    etternavn: 'SNERK',
+    foedselsnummer: '11057523044',
+    foedselsaar: 1975,
+    foedselsdato: new Date(1975, 4, 11),
+}
+
 // For ung til å søke
 export const TRIVIELL_MIDTPUNKT = {
     fornavn: 'TRIVIELL',
