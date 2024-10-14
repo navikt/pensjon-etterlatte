@@ -59,7 +59,7 @@ export const InntektsjusteringOppsummering = () => {
                                 </FormSummary.Answer>
                                 {/* TODO: bruker hardkodet person helt til vi har dette på plass i backend */}
                                 {finnAlder({ foedselsdato: new Date(1998, 4, 11) }) ===
-                                    Alder.FEMTI_SYV_TIL_SEKSTI_EN && (
+                                    Alder.FEMTI_SYV_TIL_SEKSTI_SEKS && (
                                     <>
                                         <FormSummary.Answer>
                                             <FormSummary.Label>Hva har du oppgitt i AFP inntekt?</FormSummary.Label>
