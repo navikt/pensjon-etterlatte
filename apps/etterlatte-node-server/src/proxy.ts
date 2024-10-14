@@ -1,8 +1,7 @@
 import { Request, RequestHandler, Response } from 'express'
-import fetch from 'node-fetch'
 import { requestTokenxOboToken, validateIdportenToken } from '@navikt/oasis'
 import config from './config'
-import {logger} from "./monitoring/logger";
+import { logger } from './monitoring/logger'
 
 const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
@@ -11,13 +10,13 @@ const isOK = (status: any) => [200, 404, 409].includes(status)
 const prepareSecuredRequest = async (req: Request, token: any) => {
     const validation = await validateIdportenToken(token)
     if (!validation.ok) {
-        logger.error("Validering av token feilet: ", validation.error)
+        logger.error('Validering av token feilet: ', validation.error)
         throw validation.error
     }
 
     const obo = await requestTokenxOboToken(token, config.app.targetAudience!)
     if (!obo.ok) {
-        logger.error("Henting av obo-token feilet: ", obo.error)
+        logger.error('Henting av obo-token feilet: ', obo.error)
         throw obo.error
     }
 
