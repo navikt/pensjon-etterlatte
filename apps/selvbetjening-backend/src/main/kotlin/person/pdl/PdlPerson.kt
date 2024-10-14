@@ -17,7 +17,7 @@ data class PersonResponseData(
 
 data class HentPerson(
     val navn: List<Navn>,
-    val foedsel: List<Foedsel>,
+    val foedselsdato: List<Foedselsdato>,
 )
 
 data class Navn(
@@ -28,7 +28,7 @@ data class Navn(
     val metadata: Metadata,
 )
 
-data class Foedsel(
+data class Foedselsdato(
     val foedselsdato: LocalDate? = null,
     val foedselsaar: Int? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,

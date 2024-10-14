@@ -32,16 +32,16 @@ class PersonService(
     ): Person {
         val navn = hentPerson.navn.maxByOrNull { it.metadata.sisteRegistrertDato() }!!
 
-        val foedsel =
-            hentPerson.foedsel
+        val foedselsdato =
+            hentPerson.foedselsdato
                 .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         return Person(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
             foedselsnummer = fnr,
-            foedselsdato = foedsel?.foedselsdato?.toString(),
-            foedselsaar = foedsel?.foedselsaar,
+            foedselsdato = foedselsdato?.foedselsdato?.toString(),
+            foedselsaar = foedselsdato?.foedselsaar,
         )
     }
 

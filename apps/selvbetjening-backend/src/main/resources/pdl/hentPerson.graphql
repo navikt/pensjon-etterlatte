@@ -8,7 +8,7 @@ query($ident: ID!) {
                 ...metadataDetails
             }
         }
-        foedsel {
+        foedselsdato {
             foedselsdato
             foedselsaar
             metadata {
