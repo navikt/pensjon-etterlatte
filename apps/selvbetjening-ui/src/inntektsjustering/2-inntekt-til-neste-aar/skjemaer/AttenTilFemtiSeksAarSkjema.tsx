@@ -1,8 +1,8 @@
-import { Radio, ReadMore, VStack } from '@navikt/ds-react'
+import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
-import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
+import { Inntekt } from '../../../types/inntektsjustering.ts'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
@@ -11,7 +11,6 @@ import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
 import { Alder } from '../../../types/person.ts'
-import { ControlledRadioGroup } from '../../../common/radio/ControlledRadioGroup.tsx'
 
 export const AttenTilFemtiSeksAarSkjema = () => {
     const spraak = useSpraak()
@@ -46,25 +45,6 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         !!innhold && (
             <form>
                 <VStack gap="6" width="fit-content">
-                    <VStack gap="2">
-                        <ControlledRadioGroup
-                            name="skalGaaAvMedAlderspensjon"
-                            control={control}
-                            legend="Skal du gå av med alderspensjon til neste år?"
-                            errorVedTomInput="Du må velge om du skal gå av med alderspensjon til neste år"
-                            radios={
-                                <>
-                                    <Radio value={SkalGaaAvMedAlderspensjon.JA}>Ja</Radio>
-                                    <Radio value={SkalGaaAvMedAlderspensjon.NEI}>Nei</Radio>
-                                    <Radio value={SkalGaaAvMedAlderspensjon.VET_IKKE}>Vet ikke</Radio>
-                                </>
-                            }
-                        />
-                        <ReadMore header="Når kan jeg ta ut alderspensjon?">
-                            Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.
-                        </ReadMore>
-                    </VStack>
-
                     <VStack gap="2">
                         <ControlledInntektTextField
                             name="arbeidsinntekt"

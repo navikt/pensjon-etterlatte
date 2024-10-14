@@ -11,7 +11,7 @@ interface Props<T extends FieldValues> {
     errorVedTomInput?: string
 }
 
-export const ControlledRadioGroup = <T extends FieldValues>({
+export const ControlledRadioGruppe = <T extends FieldValues>({
     name,
     control,
     legend,

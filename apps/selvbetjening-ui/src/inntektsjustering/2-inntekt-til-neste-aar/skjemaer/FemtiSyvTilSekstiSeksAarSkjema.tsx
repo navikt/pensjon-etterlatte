@@ -1,7 +1,7 @@
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useForm } from 'react-hook-form'
-import { Inntekt } from '../../../types/inntektsjustering.ts'
-import { ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
+import { Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -11,8 +11,10 @@ import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
 import { Alder } from '../../../types/person.ts'
+import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
+import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 
-export const FemtiSyvTilSekstiAarSkjema = () => {
+export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
@@ -45,10 +47,44 @@ export const FemtiSyvTilSekstiAarSkjema = () => {
         navigate(`/inntektsjustering/oppsummering`)
     }
 
+    // TODO: Hvis person har valg enten 'NEI' eller 'VET_IKKE' så må vi resette dataen til dato
     return (
         !!innhold && (
             <form>
                 <VStack gap="6" width="fit-content">
+                    <VStack gap="2">
+                        <ControlledRadioGruppe
+                            name="skalGaaAvMedAlderspensjon"
+                            control={control}
+                            legend="Skal du gå av med alderspensjon til neste år?"
+                            errorVedTomInput="Du må velge om du skal gå av med alderspensjon til neste år"
+                            radios={
+                                <>
+                                    <Radio value={SkalGaaAvMedAlderspensjon.JA}>Ja</Radio>
+                                    <Radio value={SkalGaaAvMedAlderspensjon.NEI}>Nei</Radio>
+                                    <Radio value={SkalGaaAvMedAlderspensjon.VET_IKKE}>Vet ikke</Radio>
+                                </>
+                            }
+                        />
+                        <ReadMore header="Når kan jeg ta ut alderspensjon?">
+                            Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.
+                        </ReadMore>
+                    </VStack>
+                    {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
+                        <VStack gap="2">
+                            <ControlledMaanedVelger
+                                name="datoForAaGaaAvMedAlderspensjon"
+                                control={control}
+                                label="Når planlegger du å gå av med alderpensjon?"
+                                errorVedTomInput="Du må velge"
+                            />
+                        </VStack>
+                    )}
+                    <div>
+                        <SanityRikTekst text={[]} />
+                        <ReadMore header="Grunnen til at vi spør om dette">Fordi vi vil, duhh</ReadMore>
+                    </div>
+
                     <VStack gap="2">
                         <ControlledInntektTextField
                             name="arbeidsinntekt"

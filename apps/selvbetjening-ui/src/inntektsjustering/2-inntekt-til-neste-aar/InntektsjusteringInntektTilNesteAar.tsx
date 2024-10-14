@@ -8,7 +8,7 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { Alder } from '../../types/person.ts'
 import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
 import { finnAlder } from './finnAlder.ts'
-import { FemtiSyvTilSekstiAarSkjema } from './skjemaer/FemtiSyvTilSekstiAarSkjema.tsx'
+import { FemtiSyvTilSekstiSeksAarSkjema } from './skjemaer/FemtiSyvTilSekstiSeksAarSkjema.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
@@ -41,7 +41,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
             case Alder.ATTEN_TIL_FEMTI_SEKS:
                 return <AttenTilFemtiSeksAarSkjema />
             case Alder.FEMTI_SYV_TIL_SEKSTI_SEKS:
-                return <FemtiSyvTilSekstiAarSkjema />
+                return <FemtiSyvTilSekstiSeksAarSkjema />
         }
     }
 
