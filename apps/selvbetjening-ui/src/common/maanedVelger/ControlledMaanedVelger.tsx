@@ -3,7 +3,7 @@ import { MonthPicker, MonthValidationT, useMonthpicker } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { Spraak } from '../spraak/spraak.ts'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 const formatDateToLocaleDateOrEmptyString = (date: Date | undefined) =>
     date === undefined ? '' : format(date, 'yyyy-MM-dd')
@@ -24,8 +24,8 @@ const spraakTilAkselLocale = (spraak: Spraak): 'nb' | 'nn' | 'en' | undefined =>
 interface Props<T extends FieldValues> {
     name: Path<T>
     control: Control<T>
-    label: string
-    description?: string
+    label: ReactNode | string
+    description?: ReactNode | string
     errorVedTomInput?: string
     fromDate?: Date
 }

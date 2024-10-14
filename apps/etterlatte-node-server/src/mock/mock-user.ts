@@ -41,8 +41,8 @@ export const STOR_SNERK_FORENKLET = {
     fornavn: 'SNERK',
     etternavn: 'STORESEN',
     foedselsnummer: '11057523044',
-    foedselsaar: 1975,
-    foedselsdato: new Date(1975, 4, 11),
+    foedselsaar: 1965,
+    foedselsdato: new Date(1965, 4, 11),
 }
 
 // For ung til å søke

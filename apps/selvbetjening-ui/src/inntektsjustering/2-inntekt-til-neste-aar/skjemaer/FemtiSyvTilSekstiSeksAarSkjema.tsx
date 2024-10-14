@@ -38,7 +38,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         formState: { errors },
     } = useForm<Inntekt>({ defaultValues: inntekt })
 
-    if ((innholdError && !innholdIsLoading) || !innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema) {
+    if ((innholdError && !innholdIsLoading) || !innhold?.inntektSkjemaer?.femtiSyvTilSekstiSeksAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -51,8 +51,17 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         navigate(`/inntektsjustering/oppsummering`)
     }
 
-    const { arbeidsinntekt, naeringsinntekt, AFPInntekt, AFPTjenestepensjonordning, inntektFraUtland } =
-        innhold.inntektSkjemaer.femtiSyvTilSekstiAarSkjema
+    const {
+        skalGaaAvMedAlderspensjon,
+        datoForAaGaaAvMedAlderspensjon,
+        omsTarSlutt,
+        inntekterSomSkalMeldesReadMore,
+        arbeidsinntekt,
+        naeringsinntekt,
+        AFPInntekt,
+        AFPTjenestepensjonordning,
+        inntektFraUtland,
+    } = innhold.inntektSkjemaer.femtiSyvTilSekstiSeksAarSkjema
 
     return (
         !!innhold && (
@@ -62,34 +71,54 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                         <ControlledRadioGruppe
                             name="skalGaaAvMedAlderspensjon"
                             control={control}
-                            legend="Skal du gå av med alderspensjon til neste år?"
-                            errorVedTomInput="Du må velge om du skal gå av med alderspensjon til neste år"
+                            legend={skalGaaAvMedAlderspensjon?.legend?.[spraak]}
+                            description={skalGaaAvMedAlderspensjon?.description?.[spraak]}
+                            errorVedTomInput={skalGaaAvMedAlderspensjon?.errorVedTomInput?.[spraak]}
                             radios={
                                 <>
-                                    <Radio value={SkalGaaAvMedAlderspensjon.JA}>Ja</Radio>
-                                    <Radio value={SkalGaaAvMedAlderspensjon.NEI}>Nei</Radio>
-                                    <Radio value={SkalGaaAvMedAlderspensjon.VET_IKKE}>Vet ikke</Radio>
+                                    <Radio value={SkalGaaAvMedAlderspensjon.JA}>
+                                        {skalGaaAvMedAlderspensjon?.radios?.ja?.[spraak]}
+                                    </Radio>
+                                    <Radio value={SkalGaaAvMedAlderspensjon.NEI}>
+                                        {skalGaaAvMedAlderspensjon?.radios?.nei?.[spraak]}
+                                    </Radio>
+                                    <Radio value={SkalGaaAvMedAlderspensjon.VET_IKKE}>
+                                        {skalGaaAvMedAlderspensjon?.radios?.vetIkke?.[spraak]}
+                                    </Radio>
                                 </>
                             }
                         />
-                        <ReadMore header="Når kan jeg ta ut alderspensjon?">
-                            Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.
-                        </ReadMore>
+                        {!!skalGaaAvMedAlderspensjon?.readMore && (
+                            <ReadMore header={skalGaaAvMedAlderspensjon.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={skalGaaAvMedAlderspensjon.readMore?.innhold?.[spraak]} />
+                            </ReadMore>
+                        )}
                     </VStack>
                     {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
-                        <VStack gap="2">
-                            <ControlledMaanedVelger
-                                name="datoForAaGaaAvMedAlderspensjon"
-                                control={control}
-                                label="Når planlegger du å gå av med alderpensjon?"
-                                errorVedTomInput="Du må velge"
-                            />
-                        </VStack>
+                        <>
+                            <VStack gap="2">
+                                <ControlledMaanedVelger
+                                    name="datoForAaGaaAvMedAlderspensjon"
+                                    control={control}
+                                    label={datoForAaGaaAvMedAlderspensjon?.label?.[spraak]}
+                                    description={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
+                                    errorVedTomInput={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
+                                />
+                                {!!datoForAaGaaAvMedAlderspensjon?.readMore && (
+                                    <ReadMore header={datoForAaGaaAvMedAlderspensjon.readMore.tittel?.[spraak]}>
+                                        <SanityRikTekst
+                                            text={datoForAaGaaAvMedAlderspensjon.readMore.innhold?.[spraak]}
+                                        />
+                                    </ReadMore>
+                                )}
+                            </VStack>
+                            <SanityRikTekst text={omsTarSlutt?.[spraak]} />
+                        </>
                     )}
-                    <div>
-                        <SanityRikTekst text={[]} />
-                        <ReadMore header="Grunnen til at vi spør om dette">Fordi vi vil, duhh</ReadMore>
-                    </div>
+
+                    <ReadMore header={inntekterSomSkalMeldesReadMore?.tittel?.[spraak]}>
+                        <SanityRikTekst text={inntekterSomSkalMeldesReadMore?.innhold?.[spraak]} />
+                    </ReadMore>
 
                     <VStack gap="2">
                         <ControlledInntektTextField
@@ -132,7 +161,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                             {...register('AFPTjenesteordning', {
                                 required: {
                                     value: true,
-                                    message: AFPTjenestepensjonordning?.tomInputError?.[spraak] ?? 'Må settes',
+                                    message: AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ?? 'Må settes',
                                 },
                             })}
                             label={AFPTjenestepensjonordning?.label?.[spraak]}
