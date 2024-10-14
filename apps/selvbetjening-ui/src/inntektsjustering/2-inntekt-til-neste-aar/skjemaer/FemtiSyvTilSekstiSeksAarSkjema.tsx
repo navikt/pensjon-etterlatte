@@ -43,14 +43,17 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     }
 
     const onInntektSubmit = (inntekt: Inntekt) => {
-        inntektDispatch.setInntekt(inntekt)
+        if (inntekt.skalGaaAvMedAlderspensjon !== SkalGaaAvMedAlderspensjon.JA) {
+            inntektDispatch.setInntekt({ ...inntekt, datoForAaGaaAvMedAlderspensjon: undefined })
+        } else {
+            inntektDispatch.setInntekt(inntekt)
+        }
         navigate(`/inntektsjustering/oppsummering`)
     }
 
     const { arbeidsinntekt, naeringsinntekt, AFPInntekt, AFPTjenestepensjonordning, inntektFraUtland } =
         innhold.inntektSkjemaer.femtiSyvTilSekstiAarSkjema
 
-    // TODO: Hvis person har valg enten 'NEI' eller 'VET_IKKE' så må vi resette dataen til dato
     return (
         !!innhold && (
             <form>
