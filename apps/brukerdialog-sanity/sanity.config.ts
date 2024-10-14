@@ -26,6 +26,7 @@ export default defineConfig([
         title: 'Selvbetjening dev',
         basePath: '/selvbetjening-dev',
         plugins: [structureTool(), visionTool()],
+        liveEdit: true,
         auth: auth,
         schema: {
             types: [...inntektsjusteringSchemaTypes, fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
