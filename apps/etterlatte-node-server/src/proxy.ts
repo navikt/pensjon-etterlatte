@@ -2,7 +2,7 @@ import { Request, RequestHandler, Response } from 'express'
 import { requestTokenxOboToken, validateIdportenToken } from '@navikt/oasis'
 import config from './config'
 import { logger } from './monitoring/logger'
-
+import fetch from 'node-fetch'
 const isEmpty = (obj: any) => !obj || !Object.keys(obj).length
 
 const isOK = (status: any) => [200, 404, 409].includes(status)
