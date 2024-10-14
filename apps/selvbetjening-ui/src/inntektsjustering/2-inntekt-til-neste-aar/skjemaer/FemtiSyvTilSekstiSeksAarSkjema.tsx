@@ -43,11 +43,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     }
 
     const onInntektSubmit = (inntekt: Inntekt) => {
-        if (inntekt.skalGaaAvMedAlderspensjon !== SkalGaaAvMedAlderspensjon.JA) {
-            inntektDispatch.setInntekt({ ...inntekt, datoForAaGaaAvMedAlderspensjon: undefined })
-        } else {
-            inntektDispatch.setInntekt(inntekt)
-        }
+        inntektDispatch.setInntekt(inntekt)
         navigate(`/inntektsjustering/oppsummering`)
     }
 
@@ -55,7 +51,8 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         skalGaaAvMedAlderspensjon,
         datoForAaGaaAvMedAlderspensjon,
         omsTarSlutt,
-        inntekterSomSkalMeldesReadMore,
+        inntekterSomSkalMeldesInn,
+        hvorforViSpoerReadMore,
         arbeidsinntekt,
         naeringsinntekt,
         AFPInntekt,
@@ -116,9 +113,12 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                         </>
                     )}
 
-                    <ReadMore header={inntekterSomSkalMeldesReadMore?.tittel?.[spraak]}>
-                        <SanityRikTekst text={inntekterSomSkalMeldesReadMore?.innhold?.[spraak]} />
-                    </ReadMore>
+                    <VStack gap="2">
+                        <SanityRikTekst text={inntekterSomSkalMeldesInn?.[spraak]} />
+                        <ReadMore header={hvorforViSpoerReadMore?.tittel?.[spraak]}>
+                            <SanityRikTekst text={hvorforViSpoerReadMore?.innhold?.[spraak]} />
+                        </ReadMore>
+                    </VStack>
 
                     <VStack gap="2">
                         <ControlledInntektTextField
