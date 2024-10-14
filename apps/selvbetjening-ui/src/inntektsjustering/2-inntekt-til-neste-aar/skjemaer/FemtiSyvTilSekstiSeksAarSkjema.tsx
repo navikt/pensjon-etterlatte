@@ -38,7 +38,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         formState: { errors },
     } = useForm<Inntekt>({ defaultValues: inntekt })
 
-    if (innholdError && !innholdIsLoading) {
+    if ((innholdError && !innholdIsLoading) || !innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -46,6 +46,9 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         inntektDispatch.setInntekt(inntekt)
         navigate(`/inntektsjustering/oppsummering`)
     }
+
+    const { arbeidsinntekt, naeringsinntekt, AFPInntekt, AFPTjenestepensjonordning, inntektFraUtland } =
+        innhold.inntektSkjemaer.femtiSyvTilSekstiAarSkjema
 
     // TODO: Hvis person har valg enten 'NEI' eller 'VET_IKKE' så må vi resette dataen til dato
     return (
@@ -89,29 +92,13 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                         <ControlledInntektTextField
                             name="arbeidsinntekt"
                             control={control}
-                            label={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.arbeidsinntekt?.label?.[spraak]
-                            }
-                            description={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.arbeidsinntekt?.description?.[
-                                    spraak
-                                ]
-                            }
+                            label={arbeidsinntekt?.label?.[spraak]}
+                            description={arbeidsinntekt?.description?.[spraak]}
                         />
 
-                        {!!innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.arbeidsinntekt?.readMore && (
-                            <ReadMore
-                                header={
-                                    innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.arbeidsinntekt?.readMore
-                                        ?.tittel?.[spraak]
-                                }
-                            >
-                                <SanityRikTekst
-                                    text={
-                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.arbeidsinntekt?.readMore
-                                            ?.innhold?.[spraak]
-                                    }
-                                />
+                        {!!arbeidsinntekt?.readMore && (
+                            <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
                             </ReadMore>
                         )}
                     </VStack>
@@ -120,28 +107,12 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                         <ControlledInntektTextField
                             name="naeringsinntekt"
                             control={control}
-                            label={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.label?.[spraak]
-                            }
-                            description={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.description?.[
-                                    spraak
-                                ]
-                            }
+                            label={naeringsinntekt?.label?.[spraak]}
+                            description={naeringsinntekt?.description?.[spraak]}
                         />
-                        {!!innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.readMore && (
-                            <ReadMore
-                                header={
-                                    innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.readMore
-                                        ?.tittel?.[spraak]
-                                }
-                            >
-                                <SanityRikTekst
-                                    text={
-                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.naeringsinntekt?.readMore
-                                            ?.innhold?.[spraak]
-                                    }
-                                />
+                        {!!naeringsinntekt?.readMore && (
+                            <ReadMore header={naeringsinntekt?.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={naeringsinntekt?.readMore?.innhold?.[spraak]} />
                             </ReadMore>
                         )}
                     </VStack>
@@ -149,10 +120,8 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                     <ControlledInntektTextField
                         name="AFPInntekt"
                         control={control}
-                        label={innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPInntekt?.label?.[spraak]}
-                        description={
-                            innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPInntekt?.description?.[spraak]
-                        }
+                        label={AFPInntekt?.label?.[spraak]}
+                        description={AFPInntekt?.description?.[spraak]}
                     />
 
                     {!!watch().AFPInntekt && (
@@ -160,19 +129,11 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                             {...register('AFPTjenesteordning', {
                                 required: {
                                     value: true,
-                                    message:
-                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
-                                            ?.tomInputError?.[spraak] ?? 'Må settes',
+                                    message: AFPTjenestepensjonordning?.tomInputError?.[spraak] ?? 'Må settes',
                                 },
                             })}
-                            label={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
-                                    ?.label?.[spraak]
-                            }
-                            description={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.AFPTjenestepensjonordning
-                                    ?.description?.[spraak]
-                            }
+                            label={AFPTjenestepensjonordning?.label?.[spraak]}
+                            description={AFPTjenestepensjonordning?.description?.[spraak]}
                             error={errors.AFPTjenesteordning?.message}
                         />
                     )}
@@ -181,29 +142,13 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                         <ControlledInntektTextField
                             name="inntektFraUtland"
                             control={control}
-                            label={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.label?.[spraak]
-                            }
-                            description={
-                                innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.description?.[
-                                    spraak
-                                ]
-                            }
+                            label={inntektFraUtland?.label?.[spraak]}
+                            description={inntektFraUtland?.description?.[spraak]}
                         />
 
-                        {!!innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.readMore && (
-                            <ReadMore
-                                header={
-                                    innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.readMore
-                                        ?.tittel?.[spraak]
-                                }
-                            >
-                                <SanityRikTekst
-                                    text={
-                                        innhold?.inntektSkjemaer?.femtiSyvTilSekstiAarSkjema?.inntektFraUtland?.readMore
-                                            ?.innhold?.[spraak]
-                                    }
-                                />
+                        {!!inntektFraUtland?.readMore && (
+                            <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
                             </ReadMore>
                         )}
                     </VStack>
