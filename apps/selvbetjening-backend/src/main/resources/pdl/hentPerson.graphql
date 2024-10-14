@@ -1,0 +1,33 @@
+query($ident: ID!) {
+    hentPerson(ident: $ident) {
+        navn {
+            fornavn
+            mellomnavn
+            etternavn
+            metadata {
+                ...metadataDetails
+            }
+        }
+        foedselsdato {
+            foedselsdato
+            foedselsaar
+            metadata {
+                ...metadataDetails
+            }
+        }
+    }
+}
+
+fragment metadataDetails on Metadata {
+    endringer {
+        kilde
+        registrert
+        registrertAv
+        systemkilde
+        type
+    }
+    master
+    opplysningsId
+    historisk
+}
+

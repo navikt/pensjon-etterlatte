@@ -1,4 +1,4 @@
-import { STOR_SNERK } from './mock-user'
+import { STOR_SNERK_FORENKLET } from './mock-user'
 import parser from 'body-parser'
 import { NextFunction, Request, Response } from 'express'
 import config from '../config'
@@ -17,7 +17,7 @@ import {
 const cache = new NodeCache()
 
 export const mockSelvbetjeningApi = (app: any) => {
-    const innloggetBruker = STOR_SNERK
+    const innloggetBruker = STOR_SNERK_FORENKLET
 
     app.use(parser.json())
     app.use(function (req: Request, res: Response, next: NextFunction) {
@@ -29,7 +29,7 @@ export const mockSelvbetjeningApi = (app: any) => {
         next()
     })
 
-    app.get(`${config.app.basePath}/api/api/person/innlogget`, (req: Request, res: Response) =>
+    app.get(`${config.app.basePath}/api/api/person/innlogget/forenklet`, (req: Request, res: Response) =>
         setTimeout(() => res.json(innloggetBruker), 1000)
     )
 

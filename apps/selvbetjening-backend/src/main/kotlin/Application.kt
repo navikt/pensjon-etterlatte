@@ -1,9 +1,17 @@
 package no.nav.etterlatte
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.auth.Auth
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.http.encodedPath
+import io.ktor.http.takeFrom
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCall
@@ -31,9 +39,15 @@ import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.kafka.TestProdusent
 import no.nav.etterlatte.kafka.standardProducer
+import no.nav.etterlatte.ktorclientauth.ClientCredentialAuthProvider
+import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
+import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
+import no.nav.etterlatte.person.PersonKlient
+import no.nav.etterlatte.person.PersonService
+import no.nav.etterlatte.person.person
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
@@ -61,6 +75,12 @@ fun appIsInGCP(): Boolean =
         else -> GcpEnv.entries.map { it.env }.contains(naisClusterName)
     }
 
+val closables = mutableListOf<() -> Unit>()
+val config: Config = ConfigFactory.load()
+
+val hoconApplicationConfig = HoconApplicationConfig(config)
+val securityMediator = TokenSupportSecurityContextMediator(hoconApplicationConfig)
+
 fun main() {
     val datasourceBuilder = DataSourceBuilder(System.getenv())
 
@@ -81,6 +101,12 @@ fun main() {
             InntektsjusteringRepository(datasourceBuilder.dataSource),
         )
 
+    val peronService =
+        tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
+            .also {
+                closables.add(it::close)
+            }.let { PersonService(PersonKlient(it)) }
+
     val rapidApplication =
         RapidApplication
             .Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
@@ -88,6 +114,7 @@ fun main() {
                 apiModule {
                     metricsApi()
                     inntektsjustering(inntektsjusteringService)
+                    person(peronService)
                 }
             }.build {
                 datasourceBuilder.migrate()
@@ -132,6 +159,7 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     routing {
         healthApi()
         authenticate {
+            securityMediator.autentiser(this)
             routes()
         }
     }
@@ -146,3 +174,62 @@ private fun Timer.addShutdownHook() =
             this.cancel()
         },
     )
+
+private fun tokenSecuredEndpoint(endpointConfig: Config) =
+    HttpClient(OkHttp) {
+        install(io.ktor.client.plugins.contentnegotiation.ContentNegotiation) {
+            jackson {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                registerModule(JavaTimeModule())
+            }
+        }
+
+        install(Auth) {
+            providers.add(
+                BearerTokenAuthProvider(securityMediator.outgoingToken(endpointConfig.getString("audience"))),
+            )
+        }
+
+        defaultRequest {
+            url.takeFrom(endpointConfig.getString("url") + url.encodedPath)
+        }
+    }
+
+fun httpClientClientCredentials(azureAppScope: String) =
+    HttpClient(OkHttp) {
+        install(io.ktor.client.plugins.contentnegotiation.ContentNegotiation) {
+            jackson {
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                registerModule(JavaTimeModule())
+            }
+        }
+        val env = System.getenv()
+
+        install(Auth) {
+            providers.add(
+                ClientCredentialAuthProvider(
+                    mapOf(
+                        AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to
+                            env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
+                        AzureDefaultEnvVariables.AZURE_APP_JWK.name to
+                            env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
+                        AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to
+                            env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                        AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                    ),
+                ),
+            )
+        }
+    }
+
+enum class AzureDefaultEnvVariables {
+    AZURE_APP_CLIENT_ID,
+    AZURE_APP_JWK,
+    AZURE_APP_WELL_KNOWN_URL,
+    AZURE_APP_OUTBOUND_SCOPE,
+    ;
+
+    fun key() = name
+}

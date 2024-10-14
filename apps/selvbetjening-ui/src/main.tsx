@@ -13,6 +13,7 @@ import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummerin
 import { InntektsjusteringInntektTilNesteAar } from './inntektsjustering/2-inntekt-til-neste-aar/InntektsjusteringInntektTilNesteAar.tsx'
 import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
 import { ProvideInntektContext } from './common/inntekt/InntektContext.tsx'
+import { ProvideInnloggetInnbyggerContext } from './common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 
 const router = createBrowserRouter(
     [
@@ -59,7 +60,9 @@ createRoot(document.getElementById('root')!).render(
                         revalidateOnFocus: false,
                     }}
                 >
-                    <RouterProvider router={router} />
+                    <ProvideInnloggetInnbyggerContext>
+                        <RouterProvider router={router} />
+                    </ProvideInnloggetInnbyggerContext>
                 </SWRConfig>
             </ProvideInntektContext>
         </ProvideSpraakContext>

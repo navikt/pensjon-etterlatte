@@ -12,6 +12,12 @@ dependencies {
     implementation(libs.database.postgresql)
     implementation(libs.navfelles.token.validation.ktor)
 
+    implementation(libs.ktor.okhttp)
+    implementation(libs.ktor.server.cio)
+    implementation(libs.ktor.client.auth)
+    implementation(libs.navfelles.token.client.core)
+    implementation(libs.ktor.client.content.negotiation)
+
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.client.cio.jvm)
     implementation(libs.navfelles.rapids.and.rivers)
