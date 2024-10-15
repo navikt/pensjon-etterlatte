@@ -91,101 +91,105 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                             </ReadMore>
                         )}
                     </VStack>
-                    {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
+                    {watch().skalGaaAvMedAlderspensjon !== undefined && (
                         <>
-                            <VStack gap="2">
-                                <ControlledMaanedVelger
-                                    name="datoForAaGaaAvMedAlderspensjon"
-                                    control={control}
-                                    label={datoForAaGaaAvMedAlderspensjon?.label?.[spraak]}
-                                    description={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
-                                    errorVedTomInput={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
-                                />
-                                {!!datoForAaGaaAvMedAlderspensjon?.readMore && (
-                                    <ReadMore header={datoForAaGaaAvMedAlderspensjon.readMore.tittel?.[spraak]}>
-                                        <SanityRikTekst
-                                            text={datoForAaGaaAvMedAlderspensjon.readMore.innhold?.[spraak]}
+                            {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
+                                <>
+                                    <VStack gap="2">
+                                        <ControlledMaanedVelger
+                                            name="datoForAaGaaAvMedAlderspensjon"
+                                            control={control}
+                                            label={datoForAaGaaAvMedAlderspensjon?.label?.[spraak]}
+                                            description={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
+                                            errorVedTomInput={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
                                         />
+                                        {!!datoForAaGaaAvMedAlderspensjon?.readMore && (
+                                            <ReadMore header={datoForAaGaaAvMedAlderspensjon.readMore.tittel?.[spraak]}>
+                                                <SanityRikTekst
+                                                    text={datoForAaGaaAvMedAlderspensjon.readMore.innhold?.[spraak]}
+                                                />
+                                            </ReadMore>
+                                        )}
+                                    </VStack>
+                                    <SanityRikTekst text={omsTarSlutt?.[spraak]} />
+                                </>
+                            )}
+                            <VStack gap="2">
+                                <SanityRikTekst text={inntekterSomSkalMeldesInn?.[spraak]} />
+                                <ReadMore header={hvorforViSpoerReadMore?.tittel?.[spraak]}>
+                                    <SanityRikTekst text={hvorforViSpoerReadMore?.innhold?.[spraak]} />
+                                </ReadMore>
+                            </VStack>
+
+                            <VStack gap="2">
+                                <ControlledInntektTextField
+                                    name="arbeidsinntekt"
+                                    control={control}
+                                    label={arbeidsinntekt?.label?.[spraak]}
+                                    description={arbeidsinntekt?.description?.[spraak]}
+                                />
+
+                                {!!arbeidsinntekt?.readMore && (
+                                    <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
+                                        <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
                                     </ReadMore>
                                 )}
                             </VStack>
-                            <SanityRikTekst text={omsTarSlutt?.[spraak]} />
+
+                            <VStack gap="2">
+                                <ControlledInntektTextField
+                                    name="naeringsinntekt"
+                                    control={control}
+                                    label={naeringsinntekt?.label?.[spraak]}
+                                    description={naeringsinntekt?.description?.[spraak]}
+                                />
+                                {!!naeringsinntekt?.readMore && (
+                                    <ReadMore header={naeringsinntekt?.readMore?.tittel?.[spraak]}>
+                                        <SanityRikTekst text={naeringsinntekt?.readMore?.innhold?.[spraak]} />
+                                    </ReadMore>
+                                )}
+                            </VStack>
+
+                            <ControlledInntektTextField
+                                name="AFPInntekt"
+                                control={control}
+                                label={AFPInntekt?.label?.[spraak]}
+                                description={AFPInntekt?.description?.[spraak]}
+                            />
+
+                            {!!watch().AFPInntekt && (
+                                <TextField
+                                    {...register('AFPTjenesteordning', {
+                                        required: {
+                                            value: true,
+                                            message:
+                                                AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ?? 'Må settes',
+                                        },
+                                    })}
+                                    label={AFPTjenestepensjonordning?.label?.[spraak]}
+                                    description={AFPTjenestepensjonordning?.description?.[spraak]}
+                                    error={errors.AFPTjenesteordning?.message}
+                                />
+                            )}
+
+                            <VStack gap="2">
+                                <ControlledInntektTextField
+                                    name="inntektFraUtland"
+                                    control={control}
+                                    label={inntektFraUtland?.label?.[spraak]}
+                                    description={inntektFraUtland?.description?.[spraak]}
+                                />
+
+                                {!!inntektFraUtland?.readMore && (
+                                    <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
+                                        <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
+                                    </ReadMore>
+                                )}
+                            </VStack>
+
+                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS} />
                         </>
                     )}
-
-                    <VStack gap="2">
-                        <SanityRikTekst text={inntekterSomSkalMeldesInn?.[spraak]} />
-                        <ReadMore header={hvorforViSpoerReadMore?.tittel?.[spraak]}>
-                            <SanityRikTekst text={hvorforViSpoerReadMore?.innhold?.[spraak]} />
-                        </ReadMore>
-                    </VStack>
-
-                    <VStack gap="2">
-                        <ControlledInntektTextField
-                            name="arbeidsinntekt"
-                            control={control}
-                            label={arbeidsinntekt?.label?.[spraak]}
-                            description={arbeidsinntekt?.description?.[spraak]}
-                        />
-
-                        {!!arbeidsinntekt?.readMore && (
-                            <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
-                                <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
-                            </ReadMore>
-                        )}
-                    </VStack>
-
-                    <VStack gap="2">
-                        <ControlledInntektTextField
-                            name="naeringsinntekt"
-                            control={control}
-                            label={naeringsinntekt?.label?.[spraak]}
-                            description={naeringsinntekt?.description?.[spraak]}
-                        />
-                        {!!naeringsinntekt?.readMore && (
-                            <ReadMore header={naeringsinntekt?.readMore?.tittel?.[spraak]}>
-                                <SanityRikTekst text={naeringsinntekt?.readMore?.innhold?.[spraak]} />
-                            </ReadMore>
-                        )}
-                    </VStack>
-
-                    <ControlledInntektTextField
-                        name="AFPInntekt"
-                        control={control}
-                        label={AFPInntekt?.label?.[spraak]}
-                        description={AFPInntekt?.description?.[spraak]}
-                    />
-
-                    {!!watch().AFPInntekt && (
-                        <TextField
-                            {...register('AFPTjenesteordning', {
-                                required: {
-                                    value: true,
-                                    message: AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ?? 'Må settes',
-                                },
-                            })}
-                            label={AFPTjenestepensjonordning?.label?.[spraak]}
-                            description={AFPTjenestepensjonordning?.description?.[spraak]}
-                            error={errors.AFPTjenesteordning?.message}
-                        />
-                    )}
-
-                    <VStack gap="2">
-                        <ControlledInntektTextField
-                            name="inntektFraUtland"
-                            control={control}
-                            label={inntektFraUtland?.label?.[spraak]}
-                            description={inntektFraUtland?.description?.[spraak]}
-                        />
-
-                        {!!inntektFraUtland?.readMore && (
-                            <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
-                                <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
-                            </ReadMore>
-                        )}
-                    </VStack>
-
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS} />
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>
