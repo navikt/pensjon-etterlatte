@@ -2,9 +2,9 @@ import { defineField } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../../spraak'
 import { errorVedTomInputSchemaField, textFieldSchemaFields, valgfriReadMoreSchemaField } from './fellesSchemaFields'
 
-export const femtiSyvTilSekstiSeksAarSkjemaSchemaField = defineField({
-    name: 'femtiSyvTilSekstiSeksAarSkjema',
-    title: '57 til 66 år',
+export const sekstiSyvAarSkjemaSchemaField = defineField({
+    name: 'sekstiSyvAarSkjema',
+    title: '67 år',
     options: {
         collapsible: true,
         collapsed: false,
@@ -68,12 +68,6 @@ export const femtiSyvTilSekstiSeksAarSkjemaSchemaField = defineField({
             title: 'Dato for å gå av med alderspensjon',
             type: 'object',
             fields: [...textFieldSchemaFields, errorVedTomInputSchemaField],
-        }),
-        defineField({
-            name: 'omsTarSlutt',
-            title: 'Omstillingsstønaden din vil ta slutt',
-            type: 'object',
-            fields: spraakBlockFields,
         }),
         defineField({
             name: 'inntekterSomSkalMeldesInn',

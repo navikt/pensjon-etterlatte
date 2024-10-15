@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
 import { textFieldSchemaFields } from './fellesSchemaFields'
-import { spraakStringFields } from '../../spraak'
+import { spraakBlockFields, spraakStringFields } from '../../spraak'
 
 export const attenTilFemtiSeksAarSkjemaSchemaField = defineField({
     name: 'attenTilFemtiSeksAar',
@@ -11,6 +11,12 @@ export const attenTilFemtiSeksAarSkjemaSchemaField = defineField({
     },
     type: 'object',
     fields: [
+        defineField({
+            name: 'hovedinnhold',
+            title: 'Hovedinnhold',
+            type: 'object',
+            fields: spraakBlockFields,
+        }),
         defineField({
             name: 'arbeidsinntekt',
             title: 'Arbeidsinntekt og andre utbetalinger',

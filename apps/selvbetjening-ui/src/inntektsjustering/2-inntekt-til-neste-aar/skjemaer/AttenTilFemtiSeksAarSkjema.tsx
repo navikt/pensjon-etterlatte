@@ -41,13 +41,17 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         navigate(`/inntektsjustering/oppsummering`)
     }
 
-    const { arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
+    const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
         innhold.inntektSkjemaer.attenTilFemtiSeksAar
 
     return (
         !!innhold && (
             <form>
                 <VStack gap="6" width="fit-content">
+                    <div>
+                        <SanityRikTekst text={hovedinnhold?.[spraak]} />
+                    </div>
+
                     <VStack gap="2">
                         <ControlledInntektTextField
                             name="arbeidsinntekt"
