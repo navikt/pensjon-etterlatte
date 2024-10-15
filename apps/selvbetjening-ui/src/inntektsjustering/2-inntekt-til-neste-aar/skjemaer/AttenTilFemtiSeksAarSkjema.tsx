@@ -1,4 +1,4 @@
-import { Heading, Loader, ReadMore, VStack } from '@navikt/ds-react'
+import { Loader, ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -99,7 +99,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                     </VStack>
 
                     <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS}>
-                        <Heading size="small">{sumAvInntekt?.[spraak]}</Heading>
+                        <SanityRikTekst text={sumAvInntekt?.[spraak]} />
                     </SumAvOppgittInntekt>
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
