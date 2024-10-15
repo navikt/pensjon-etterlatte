@@ -102,9 +102,9 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                             </ReadMore>
                         )}
                     </VStack>
-                    {watch().skalGaaAvMedAlderspensjon !== undefined && (
+                    {watch('skalGaaAvMedAlderspensjon') !== undefined && (
                         <>
-                            {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
+                            {watch('skalGaaAvMedAlderspensjon') === SkalGaaAvMedAlderspensjon.JA && (
                                 <>
                                     <VStack gap="2">
                                         <ControlledMaanedVelger
@@ -169,7 +169,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                 description={AFPInntekt?.description?.[spraak]}
                             />
 
-                            {!!watch().AFPInntekt && (
+                            {!!watch('AFPInntekt') && (
                                 <Box maxWidth="25rem">
                                     <TextField
                                         {...register('AFPTjenesteordning', {
@@ -203,7 +203,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                             </VStack>
 
                             <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS}>
-                                {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA ? (
+                                {watch('skalGaaAvMedAlderspensjon') === SkalGaaAvMedAlderspensjon.JA ? (
                                     <SanityRikTekst text={sumAvInntekt?.skalGaaAvMedAlderspensjon?.ja?.[spraak]} />
                                 ) : (
                                     <SanityRikTekst
