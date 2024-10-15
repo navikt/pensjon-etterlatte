@@ -1,7 +1,7 @@
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -38,7 +38,13 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         formState: { errors },
     } = useForm<Inntekt>({ defaultValues: inntekt })
 
-    if ((innholdError && !innholdIsLoading) || !innhold?.inntektSkjemaer?.femtiSyvTilSekstiSeksAarSkjema) {
+    if (innholdIsLoading) {
+        return <Loader />
+    }
+    if (innholdError) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+    if (!innhold?.inntektSkjemaer?.femtiSyvTilSekstiSeksAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 

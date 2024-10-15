@@ -1,4 +1,4 @@
-import { Heading, ReadMore, VStack } from '@navikt/ds-react'
+import { Heading, Loader, ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -32,7 +32,13 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         defaultValues: inntekt,
     })
 
-    if ((innholdError && !innholdIsLoading) || !innhold?.inntektSkjemaer?.attenTilFemtiSeksAar) {
+    if (innholdIsLoading) {
+        return <Loader />
+    }
+    if (innholdError) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+    if (!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar) {
         return <Navigate to="/system-utilgjengelig" />
     }
 

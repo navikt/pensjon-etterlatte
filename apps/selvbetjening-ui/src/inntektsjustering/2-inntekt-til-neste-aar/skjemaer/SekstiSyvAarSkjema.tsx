@@ -5,7 +5,7 @@ import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
@@ -38,7 +38,13 @@ export const SekstiSyvAarSkjema = () => {
         formState: { errors },
     } = useForm<Inntekt>({ defaultValues: inntekt })
 
-    if ((innholdError && !innholdIsLoading) || !innhold?.inntektSkjemaer?.sekstiSyvAarSkjema) {
+    if (innholdIsLoading) {
+        return <Loader />
+    }
+    if (innholdError) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+    if (!innhold?.inntektSkjemaer?.sekstiSyvAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -59,6 +65,7 @@ export const SekstiSyvAarSkjema = () => {
         inntektFraUtland,
         sumAvInntekt,
     } = innhold.inntektSkjemaer.sekstiSyvAarSkjema
+
     return (
         !!innhold && (
             <form>
