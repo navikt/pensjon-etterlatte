@@ -8,8 +8,7 @@ export interface IInnloggetBruker {
 
 export enum Alder {
     ATTEN_TIL_FEMTI_SEKS,
-    FEMTI_SYV_TIL_SEKSTI_EN,
-    SEKSTI_TO_TIL_SEKSTI_SEKS,
+    FEMTI_SYV_TIL_SEKSTI_SEKS,
     SEKSTI_SYV,
     IKKE_GYLDIG,
 }
