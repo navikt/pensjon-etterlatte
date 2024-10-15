@@ -8,11 +8,21 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
 import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
+import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
+import { Alder } from '../../types/person.ts'
 
 export const InntektsjusteringOppsummering = () => {
-    const spraak = useSpraak()
     const navigate = useNavigate()
+
+    const spraak = useSpraak()
     const inntekt = useInntekt()
+
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    } = useInnloggetInnbygger()
 
     const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>(
         '*[_type == "inntektsjusteringOppsummering"]'
@@ -22,7 +32,16 @@ export const InntektsjusteringOppsummering = () => {
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    // TODO: må få inn noen sjekker på alder og om man har fylt ut ting riktig, hvis ikke send dem tilbake til skjema?
+    if (innloggetBrukerError && !innloggetBrukerIsLoading && !innloggetBruker) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+
+    // Hvis en person er over 56 og ikke har gitt stilling om hen skal gå av med alderspensjon, send tilbake til skjema for inntekt
+    if (finnAlder(innloggetBruker!) !== Alder.ATTEN_TIL_FEMTI_SEKS) {
+        if (inntekt.skalGaaAvMedAlderspensjon === undefined) {
+            return <Navigate to="/inntektsjustering/inntekt-til-neste-aar" />
+        }
+    }
 
     return (
         !!innhold && (
