@@ -52,7 +52,6 @@ export const SekstiSyvAarSkjema = () => {
         skalGaaAvMedAlderspensjon,
         datoForAaGaaAvMedAlderspensjon,
         inntekterSomSkalMeldesInn,
-        hvorforViSpoerReadMore,
         arbeidsinntekt,
         naeringsinntekt,
         AFPInntekt,
@@ -105,7 +104,9 @@ export const SekstiSyvAarSkjema = () => {
                                             control={control}
                                             label={datoForAaGaaAvMedAlderspensjon?.label?.[spraak]}
                                             description={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
-                                            errorVedTomInput={datoForAaGaaAvMedAlderspensjon?.description?.[spraak]}
+                                            errorVedTomInput={
+                                                datoForAaGaaAvMedAlderspensjon?.errorVedTomInput?.[spraak]
+                                            }
                                         />
                                         {!!datoForAaGaaAvMedAlderspensjon?.readMore && (
                                             <ReadMore header={datoForAaGaaAvMedAlderspensjon.readMore.tittel?.[spraak]}>
@@ -119,9 +120,6 @@ export const SekstiSyvAarSkjema = () => {
                             )}
                             <VStack gap="2">
                                 <SanityRikTekst text={inntekterSomSkalMeldesInn?.[spraak]} />
-                                <ReadMore header={hvorforViSpoerReadMore?.tittel?.[spraak]}>
-                                    <SanityRikTekst text={hvorforViSpoerReadMore?.innhold?.[spraak]} />
-                                </ReadMore>
                             </VStack>
 
                             <VStack gap="2">

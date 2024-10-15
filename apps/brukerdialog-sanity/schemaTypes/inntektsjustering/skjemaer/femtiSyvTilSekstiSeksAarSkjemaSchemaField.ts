@@ -82,25 +82,6 @@ export const femtiSyvTilSekstiSeksAarSkjemaSchemaField = defineField({
             fields: spraakBlockFields,
         }),
         defineField({
-            name: 'hvorforViSpoerReadMore',
-            title: 'Hvorfor spør vi om dette',
-            type: 'object',
-            fields: [
-                defineField({
-                    name: 'tittel',
-                    title: 'Tittel',
-                    type: 'object',
-                    fields: spraakStringFields,
-                }),
-                defineField({
-                    name: 'innhold',
-                    title: 'Innhold',
-                    type: 'object',
-                    fields: spraakBlockFields,
-                }),
-            ],
-        }),
-        defineField({
             name: 'arbeidsinntekt',
             title: 'Arbeidsinntekt og andre utbetalinger',
             type: 'object',

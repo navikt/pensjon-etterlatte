@@ -19,7 +19,7 @@ export const sekstiSyvAarSkjemaSchemaField = defineField({
         }),
         defineField({
             name: 'skalGaaAvMedAlderspensjon',
-            title: 'Skal du gå av med alderspensjon til neste år? ',
+            title: 'Skal du gå av med alderspensjon før du fyller 67? ',
             type: 'object',
             fields: [
                 defineField({
@@ -74,25 +74,6 @@ export const sekstiSyvAarSkjemaSchemaField = defineField({
             title: 'Inntekter du skal melde inn',
             type: 'object',
             fields: spraakBlockFields,
-        }),
-        defineField({
-            name: 'hvorforViSpoerReadMore',
-            title: 'Hvorfor spør vi om dette',
-            type: 'object',
-            fields: [
-                defineField({
-                    name: 'tittel',
-                    title: 'Tittel',
-                    type: 'object',
-                    fields: spraakStringFields,
-                }),
-                defineField({
-                    name: 'innhold',
-                    title: 'Innhold',
-                    type: 'object',
-                    fields: spraakBlockFields,
-                }),
-            ],
         }),
         defineField({
             name: 'arbeidsinntekt',
