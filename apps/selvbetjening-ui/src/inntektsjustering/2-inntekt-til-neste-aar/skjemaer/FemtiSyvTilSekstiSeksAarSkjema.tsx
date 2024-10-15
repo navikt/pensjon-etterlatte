@@ -1,7 +1,7 @@
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -111,7 +111,9 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                             </ReadMore>
                                         )}
                                     </VStack>
-                                    <SanityRikTekst text={omsTarSlutt?.[spraak]} />
+                                    <div>
+                                        <SanityRikTekst text={omsTarSlutt?.[spraak]} />
+                                    </div>
                                 </>
                             )}
                             <VStack gap="2">
@@ -158,18 +160,21 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                             />
 
                             {!!watch().AFPInntekt && (
-                                <TextField
-                                    {...register('AFPTjenesteordning', {
-                                        required: {
-                                            value: true,
-                                            message:
-                                                AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ?? 'Må settes',
-                                        },
-                                    })}
-                                    label={AFPTjenestepensjonordning?.label?.[spraak]}
-                                    description={AFPTjenestepensjonordning?.description?.[spraak]}
-                                    error={errors.AFPTjenesteordning?.message}
-                                />
+                                <Box maxWidth="25rem">
+                                    <TextField
+                                        {...register('AFPTjenesteordning', {
+                                            required: {
+                                                value: true,
+                                                message:
+                                                    AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ??
+                                                    'Må settes',
+                                            },
+                                        })}
+                                        label={AFPTjenestepensjonordning?.label?.[spraak]}
+                                        description={AFPTjenestepensjonordning?.description?.[spraak]}
+                                        error={errors.AFPTjenesteordning?.message}
+                                    />
+                                </Box>
                             )}
 
                             <VStack gap="2">
