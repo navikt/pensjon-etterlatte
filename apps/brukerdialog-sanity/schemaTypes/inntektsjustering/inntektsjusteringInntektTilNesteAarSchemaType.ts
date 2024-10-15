@@ -25,11 +25,5 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
             type: 'object',
             fields: [attenTilFemtiSeksAarSkjemaSchemaField, femtiSyvTilSekstiSeksAarSkjemaSchemaField],
         }),
-        defineField({
-            name: 'sumAvInntekt',
-            title: 'Sum av inntekt',
-            type: 'object',
-            fields: spraakStringFields,
-        }),
     ],
 })

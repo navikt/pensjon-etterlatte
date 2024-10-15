@@ -14,6 +14,12 @@ import { Alder } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 
+// TODO:
+//  1.Oms vil stanse neste år skal flyttes over radio
+//  2. Annderledes tittel på legend på radio group
+
+// TODO: hvis man har valgt "JA" på radio, så skal oppsummering av lønn være annereledes
+
 export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     const spraak = useSpraak()
 
@@ -58,6 +64,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         AFPInntekt,
         AFPTjenestepensjonordning,
         inntektFraUtland,
+        sumAvInntekt,
     } = innhold.inntektSkjemaer.femtiSyvTilSekstiSeksAarSkjema
 
     return (
@@ -192,7 +199,15 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                 )}
                             </VStack>
 
-                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS} />
+                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS}>
+                                {watch().skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA ? (
+                                    <SanityRikTekst text={sumAvInntekt?.skalGaaAvMedAlderspensjon?.ja?.[spraak]} />
+                                ) : (
+                                    <SanityRikTekst
+                                        text={sumAvInntekt?.skalGaaAvMedAlderspensjon?.neiVetIkke?.[spraak]}
+                                    />
+                                )}
+                            </SumAvOppgittInntekt>
                         </>
                     )}
 

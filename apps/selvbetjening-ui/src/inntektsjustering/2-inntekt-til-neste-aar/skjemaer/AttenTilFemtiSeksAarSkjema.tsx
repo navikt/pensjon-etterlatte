@@ -1,4 +1,4 @@
-import { ReadMore, VStack } from '@navikt/ds-react'
+import { Heading, ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -41,7 +41,8 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         navigate(`/inntektsjustering/oppsummering`)
     }
 
-    const { arbeidsinntekt, naeringsinntekt, inntektFraUtland } = innhold.inntektSkjemaer.attenTilFemtiSeksAar
+    const { arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
+        innhold.inntektSkjemaer.attenTilFemtiSeksAar
 
     return (
         !!innhold && (
@@ -87,7 +88,9 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         )}
                     </VStack>
 
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS} />
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS}>
+                        <Heading size="small">{sumAvInntekt?.[spraak]}</Heading>
+                    </SumAvOppgittInntekt>
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>

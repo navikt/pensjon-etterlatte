@@ -131,5 +131,26 @@ export const femtiSyvTilSekstiSeksAarSkjemaSchemaField = defineField({
             type: 'object',
             fields: textFieldSchemaFields,
         }),
+        defineField({
+            name: 'sumAvInntekt',
+            title: 'Sum av inntekt',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'skalGaaAvMedAlderspensjon',
+                    title: 'Skal gå av med alderspensjon?',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'ja', title: 'Ja', type: 'object', fields: spraakBlockFields }),
+                        defineField({
+                            name: 'neiVetIkke',
+                            title: 'Nei / Vet ikke',
+                            type: 'object',
+                            fields: spraakBlockFields,
+                        }),
+                    ],
+                }),
+            ],
+        }),
     ],
 })
