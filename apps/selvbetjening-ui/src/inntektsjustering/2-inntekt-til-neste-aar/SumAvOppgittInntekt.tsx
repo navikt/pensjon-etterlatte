@@ -1,23 +1,18 @@
 import { Box, Heading, VStack } from '@navikt/ds-react'
 import { EqualsIcon } from '@navikt/aksel-icons'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { Inntekt } from '../../types/inntektsjustering.ts'
 import { Alder } from '../../types/person.ts'
+import { ReactNode } from 'react'
 
-export const SumAvOppgittInntekt = ({ inntektTilNesteAar, alder }: { inntektTilNesteAar: Inntekt; alder: Alder }) => {
-    const spraak = useSpraak()
-
-    const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
-        '*[_type == "inntektsjusteringInntektTilNesteAar"]'
-    )
-
-    if (error && !isLoading) {
-        return <Navigate to="/system-utilgjengelig" />
-    }
-
+export const SumAvOppgittInntekt = ({
+    inntektTilNesteAar,
+    alder,
+    children,
+}: {
+    inntektTilNesteAar: Inntekt
+    alder: Alder
+    children: ReactNode | Array<ReactNode>
+}) => {
     const sumAvInntektStringBuilder = (inntektTilNesteAar: Inntekt): string => {
         let inntekt = 0
 
@@ -40,9 +35,9 @@ export const SumAvOppgittInntekt = ({ inntektTilNesteAar, alder }: { inntektTilN
 
     return (
         <Box background="surface-subtle" padding="4" borderRadius="xlarge">
-            <VStack gap="4">
+            <VStack>
                 <EqualsIcon fontSize="3.5rem" aria-hidden />
-                <Heading size="small">{innhold?.sumAvInntekt?.[spraak]}</Heading>
+                <div>{children}</div>
                 <Heading size="large">{sumAvInntektStringBuilder(inntektTilNesteAar)}</Heading>
             </VStack>
         </Box>

@@ -36,3 +36,10 @@ export const textFieldSchemaFields = [
     }),
     valgfriReadMoreSchemaField,
 ]
+
+export const errorVedTomInputSchemaField = defineField({
+    name: 'errorVedTomInput',
+    title: 'Error ved tom input',
+    type: 'object',
+    fields: spraakStringFields,
+})

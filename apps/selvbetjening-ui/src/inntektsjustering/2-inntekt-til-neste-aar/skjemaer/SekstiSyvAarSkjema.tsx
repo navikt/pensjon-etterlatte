@@ -1,20 +1,20 @@
+import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
+import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
 import { Box, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
-import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
-import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
-import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
-import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
-import { Alder } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
+import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
+import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
+import { Alder } from '../../../types/person.ts'
+import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 
-export const FemtiSyvTilSekstiSeksAarSkjema = () => {
+export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
@@ -44,7 +44,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     if (innholdError) {
         return <Navigate to="/system-utilgjengelig" />
     }
-    if (!innhold?.inntektSkjemaer?.femtiSyvTilSekstiSeksAarSkjema) {
+    if (!innhold?.inntektSkjemaer?.sekstiSyvAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -57,7 +57,6 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         hovedinnhold,
         skalGaaAvMedAlderspensjon,
         datoForAaGaaAvMedAlderspensjon,
-        omsTarSlutt,
         inntekterSomSkalMeldesInn,
         arbeidsinntekt,
         naeringsinntekt,
@@ -65,7 +64,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         AFPTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
-    } = innhold.inntektSkjemaer.femtiSyvTilSekstiSeksAarSkjema
+    } = innhold.inntektSkjemaer.sekstiSyvAarSkjema
 
     return (
         !!innhold && (
@@ -124,9 +123,6 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                             </ReadMore>
                                         )}
                                     </VStack>
-                                    <div>
-                                        <SanityRikTekst text={omsTarSlutt?.[spraak]} />
-                                    </div>
                                 </>
                             )}
                             <VStack gap="2">

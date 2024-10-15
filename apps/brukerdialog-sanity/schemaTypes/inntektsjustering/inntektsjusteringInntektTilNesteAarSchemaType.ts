@@ -2,6 +2,7 @@ import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
 import { femtiSyvTilSekstiSeksAarSkjemaSchemaField } from './skjemaer/femtiSyvTilSekstiSeksAarSkjemaSchemaField'
 import { attenTilFemtiSeksAarSkjemaSchemaField } from './skjemaer/attenTilFemtiSeksAarSkjemaSchemaField'
+import { sekstiSyvAarSkjemaSchemaField } from './skjemaer/sekstiSyvAarSkjemaSchemaField'
 
 export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
     name: 'inntektsjusteringInntektTilNesteAar',
@@ -14,22 +15,14 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
             type: 'string',
         }),
         defineField({
-            name: 'hovedinnhold',
-            title: 'Hovedinnhold',
-            type: 'object',
-            fields: spraakBlockFields,
-        }),
-        defineField({
             name: 'inntektSkjemaer',
             title: 'Inntekt skjemaer',
             type: 'object',
-            fields: [attenTilFemtiSeksAarSkjemaSchemaField, femtiSyvTilSekstiSeksAarSkjemaSchemaField],
-        }),
-        defineField({
-            name: 'sumAvInntekt',
-            title: 'Sum av inntekt',
-            type: 'object',
-            fields: spraakStringFields,
+            fields: [
+                attenTilFemtiSeksAarSkjemaSchemaField,
+                femtiSyvTilSekstiSeksAarSkjemaSchemaField,
+                sekstiSyvAarSkjemaSchemaField,
+            ],
         }),
     ],
 })

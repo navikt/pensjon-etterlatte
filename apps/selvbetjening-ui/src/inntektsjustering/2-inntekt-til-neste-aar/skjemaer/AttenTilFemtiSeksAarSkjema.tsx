@@ -1,4 +1,4 @@
-import { ReadMore, VStack } from '@navikt/ds-react'
+import { Heading, Loader, ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -32,7 +32,13 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         defaultValues: inntekt,
     })
 
-    if (innholdError && !innholdIsLoading) {
+    if (innholdIsLoading) {
+        return <Loader />
+    }
+    if (innholdError) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+    if (!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -41,33 +47,27 @@ export const AttenTilFemtiSeksAarSkjema = () => {
         navigate(`/inntektsjustering/oppsummering`)
     }
 
+    const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
+        innhold.inntektSkjemaer.attenTilFemtiSeksAar
+
     return (
         !!innhold && (
             <form>
                 <VStack gap="6" width="fit-content">
+                    <div>
+                        <SanityRikTekst text={hovedinnhold?.[spraak]} />
+                    </div>
+
                     <VStack gap="2">
                         <ControlledInntektTextField
                             name="arbeidsinntekt"
                             control={control}
-                            label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.label?.[spraak]}
-                            description={
-                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.description?.[spraak]
-                            }
+                            label={arbeidsinntekt?.label?.[spraak]}
+                            description={arbeidsinntekt?.description?.[spraak]}
                         />
-                        {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore && (
-                            <ReadMore
-                                header={
-                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore?.tittel?.[
-                                        spraak
-                                    ]
-                                }
-                            >
-                                <SanityRikTekst
-                                    text={
-                                        innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.arbeidsinntekt?.readMore
-                                            ?.innhold?.[spraak]
-                                    }
-                                />
+                        {!!arbeidsinntekt?.readMore && (
+                            <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
                             </ReadMore>
                         )}
                     </VStack>
@@ -75,25 +75,12 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         <ControlledInntektTextField
                             name="naeringsinntekt"
                             control={control}
-                            label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.label?.[spraak]}
-                            description={
-                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.description?.[spraak]
-                            }
+                            label={naeringsinntekt?.label?.[spraak]}
+                            description={naeringsinntekt?.description?.[spraak]}
                         />
-                        {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore && (
-                            <ReadMore
-                                header={
-                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore?.tittel?.[
-                                        spraak
-                                    ]
-                                }
-                            >
-                                <SanityRikTekst
-                                    text={
-                                        innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.naeringsinntekt?.readMore
-                                            ?.innhold?.[spraak]
-                                    }
-                                />
+                        {!!naeringsinntekt?.readMore && (
+                            <ReadMore header={naeringsinntekt?.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={naeringsinntekt?.readMore?.innhold?.[spraak]} />
                             </ReadMore>
                         )}
                     </VStack>
@@ -101,29 +88,19 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         <ControlledInntektTextField
                             name="inntektFraUtland"
                             control={control}
-                            label={innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.label?.[spraak]}
-                            description={
-                                innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.description?.[spraak]
-                            }
+                            label={inntektFraUtland?.label?.[spraak]}
+                            description={inntektFraUtland?.description?.[spraak]}
                         />
-                        {!!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore && (
-                            <ReadMore
-                                header={
-                                    innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore
-                                        ?.tittel?.[spraak]
-                                }
-                            >
-                                <SanityRikTekst
-                                    text={
-                                        innhold?.inntektSkjemaer?.attenTilFemtiSeksAar?.inntektFraUtland?.readMore
-                                            ?.innhold?.[spraak]
-                                    }
-                                />
+                        {!!inntektFraUtland?.readMore && (
+                            <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
+                                <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
                             </ReadMore>
                         )}
                     </VStack>
 
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS} />
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS}>
+                        <Heading size="small">{sumAvInntekt?.[spraak]}</Heading>
+                    </SumAvOppgittInntekt>
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
                 </VStack>

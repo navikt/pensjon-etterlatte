@@ -617,64 +617,64 @@ export type InntektsjusteringInntektTilNesteAar = {
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    hovedinnhold?: {
-        NB?: Array<{
-            children?: Array<{
-                marks?: Array<string>
-                text?: string
-                _type: 'span'
-                _key: string
-            }>
-            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-            listItem?: 'bullet' | 'number'
-            markDefs?: Array<{
-                href?: string
-                _type: 'link'
-                _key: string
-            }>
-            level?: number
-            _type: 'block'
-            _key: string
-        }>
-        NN?: Array<{
-            children?: Array<{
-                marks?: Array<string>
-                text?: string
-                _type: 'span'
-                _key: string
-            }>
-            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-            listItem?: 'bullet' | 'number'
-            markDefs?: Array<{
-                href?: string
-                _type: 'link'
-                _key: string
-            }>
-            level?: number
-            _type: 'block'
-            _key: string
-        }>
-        EN?: Array<{
-            children?: Array<{
-                marks?: Array<string>
-                text?: string
-                _type: 'span'
-                _key: string
-            }>
-            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-            listItem?: 'bullet' | 'number'
-            markDefs?: Array<{
-                href?: string
-                _type: 'link'
-                _key: string
-            }>
-            level?: number
-            _type: 'block'
-            _key: string
-        }>
-    }
     inntektSkjemaer?: {
         attenTilFemtiSeksAar?: {
+            hovedinnhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
             arbeidsinntekt?: {
                 label?: {
                     NB?: string
@@ -900,8 +900,69 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
+            sumAvInntekt?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
         }
         femtiSyvTilSekstiSeksAarSkjema?: {
+            hovedinnhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
             skalGaaAvMedAlderspensjon?: {
                 legend?: {
                     NB?: string
@@ -1190,69 +1251,6 @@ export type InntektsjusteringInntektTilNesteAar = {
                     _type: 'block'
                     _key: string
                 }>
-            }
-            hvorforViSpoerReadMore?: {
-                tittel?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                innhold?: {
-                    NB?: Array<{
-                        children?: Array<{
-                            marks?: Array<string>
-                            text?: string
-                            _type: 'span'
-                            _key: string
-                        }>
-                        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                        listItem?: 'bullet' | 'number'
-                        markDefs?: Array<{
-                            href?: string
-                            _type: 'link'
-                            _key: string
-                        }>
-                        level?: number
-                        _type: 'block'
-                        _key: string
-                    }>
-                    NN?: Array<{
-                        children?: Array<{
-                            marks?: Array<string>
-                            text?: string
-                            _type: 'span'
-                            _key: string
-                        }>
-                        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                        listItem?: 'bullet' | 'number'
-                        markDefs?: Array<{
-                            href?: string
-                            _type: 'link'
-                            _key: string
-                        }>
-                        level?: number
-                        _type: 'block'
-                        _key: string
-                    }>
-                    EN?: Array<{
-                        children?: Array<{
-                            marks?: Array<string>
-                            text?: string
-                            _type: 'span'
-                            _key: string
-                        }>
-                        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                        listItem?: 'bullet' | 'number'
-                        markDefs?: Array<{
-                            href?: string
-                            _type: 'link'
-                            _key: string
-                        }>
-                        level?: number
-                        _type: 'block'
-                        _key: string
-                    }>
-                }
             }
             arbeidsinntekt?: {
                 label?: {
@@ -1634,12 +1632,910 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
+            sumAvInntekt?: {
+                skalGaaAvMedAlderspensjon?: {
+                    ja?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                    neiVetIkke?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
         }
-    }
-    sumAvInntekt?: {
-        NB?: string
-        NN?: string
-        EN?: string
+        sekstiSyvAarSkjema?: {
+            hovedinnhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+            skalGaaAvMedAlderspensjon?: {
+                legend?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                radios?: {
+                    ja?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    nei?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    vetIkke?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                }
+                errorVedTomInput?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
+            datoForAaGaaAvMedAlderspensjon?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+                errorVedTomInput?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+            inntekterSomSkalMeldesInn?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+            arbeidsinntekt?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
+            naeringsinntekt?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
+            AFPInntekt?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
+            AFPTjenestepensjonordning?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+                errorVedTomInput?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+            inntektFraUtland?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                description?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                readMore?: {
+                    tittel?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    innhold?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
+            sumAvInntekt?: {
+                skalGaaAvMedAlderspensjon?: {
+                    ja?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                    neiVetIkke?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
+            }
+        }
     }
 }
 
