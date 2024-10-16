@@ -1,6 +1,7 @@
 package inntektsjustering
 
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
@@ -69,7 +70,7 @@ class InntektsjusteringRepositoryTest {
         }
 
         db.oppdaterInntektsjustering(
-            foersteInntektsjustering.id,
+            foersteResult.id,
             InntektsjusteringLagre(
                 arbeidsinntekt = 1000,
                 naeringsinntekt = 2000,
@@ -169,7 +170,7 @@ class InntektsjusteringRepositoryTest {
         val lagret = db.hentInntektsjusteringForFnr(VAKKER_PENN) ?: throw Exception()
 
         with(lagret) {
-            id shouldBe ny.id
+            id shouldNotBe null
             fnr shouldBe VAKKER_PENN.value
             inntektsaar shouldBe 2025
             arbeidsinntekt shouldBe ny.arbeidsinntekt

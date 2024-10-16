@@ -66,7 +66,7 @@ class InntektsjusteringRepository(
         it
             .prepareStatement(LAGRE)
             .apply {
-                setObject(1, inntektsjustering.id)
+                setObject(1, UUID.randomUUID())
                 setString(2, fnr.value)
                 setInt(3, inntektsjustering.inntektsaar)
                 setInt(4, inntektsjustering.arbeidsinntekt)
