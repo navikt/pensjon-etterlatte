@@ -34,7 +34,7 @@ internal class PubliserInntektsjusteringJobbTest {
         val inntektsjustering =
             Inntektsjustering(
                 id = UUID.randomUUID(),
-                fnr = "fnr",
+                fnr = "12345678901",
                 inntektsaar = 2024,
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
@@ -46,13 +46,7 @@ internal class PubliserInntektsjusteringJobbTest {
                 tidspunkt = Instant.now(),
             )
 
-        val data =
-            Pair(
-                "12345678901",
-                inntektsjustering,
-            )
-
-        every { inntektsjusteringService.hentInntektsjusteringForStatus(any()) } returns listOf(data)
+        every { inntektsjusteringService.hentInntektsjusteringForStatus(any()) } returns listOf(inntektsjustering)
         every { inntektsjusteringService.oppdaterStatusForId(any(), any()) } just Runs
 
         publiserJobb.publiserInntektsjusteringer()

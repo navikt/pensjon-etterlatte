@@ -43,20 +43,15 @@ class PubliserInntektsjusteringJobb(
                     PubliserInntektsjusteringStatus.LAGRET,
                 )
 
-            inntektsjusteringer.forEach { (fnr, inntektsjustering) ->
-                publiser(fnr, inntektsjustering)
-            }
+            inntektsjusteringer.forEach { publiser(it) }
         }.onFailure { e ->
             logger.error("Feil oppsto under jobb for publisering av inntektsjusteringer: ", e)
         }
     }
 
-    private fun publiser(
-        fnr: String,
-        inntektsjustering: Inntektsjustering,
-    ) {
+    private fun publiser(inntektsjustering: Inntektsjustering) {
         runCatching {
-            val melding = opprettMelding(fnr, inntektsjustering)
+            val melding = opprettMelding(inntektsjustering)
             rapid.publiser(UUID.randomUUID().toString(), melding.toJson())
 
             inntektsjusteringService.oppdaterStatusForId(
@@ -72,14 +67,11 @@ class PubliserInntektsjusteringJobb(
         }
     }
 
-    private fun opprettMelding(
-        fnr: String,
-        inntektsjustering: Inntektsjustering,
-    ): JsonMessage =
+    private fun opprettMelding(inntektsjustering: Inntektsjustering): JsonMessage =
         JsonMessage.newMessage(
             mapOf(
                 "@event_name" to "inntektsjustering_innsendt",
-                "@fnr_bruker" to fnr,
+                "@fnr_bruker" to inntektsjustering.fnr,
                 "@inntektsjustering_innhold" to inntektsjustering.toJson(),
             ),
         )

@@ -54,10 +54,7 @@ class InntektsjusteringRepository(
                     setString(1, status.value)
                 }.executeQuery()
                 .toList {
-                    Pair(
-                        getString("fnr"), // TODO fjern..
-                        this.toInntektsjustering(),
-                    )
+                    this.toInntektsjustering()
                 }
         }
 
