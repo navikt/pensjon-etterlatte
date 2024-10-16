@@ -1,4 +1,4 @@
-import { Bleed, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
+import { Bleed, FormSummary, GuidePanel, HStack, Loader, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -11,6 +11,22 @@ import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
 import { Alder } from '../../types/person.ts'
+import { format, Locale } from 'date-fns'
+import { Spraak } from '../../common/spraak/spraak.ts'
+import { nb, nn, enGB } from 'date-fns/locale'
+
+const spraakTilDateFnsLocale = (spraak: Spraak): Locale => {
+    switch (spraak) {
+        case Spraak.BOKMAAL:
+            return nb
+        case Spraak.NYNORSK:
+            return nn
+        case Spraak.ENGELSK:
+            return enGB
+        default:
+            return nb
+    }
+}
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()
@@ -24,15 +40,23 @@ export const InntektsjusteringOppsummering = () => {
         isLoading: innloggetBrukerIsLoading,
     } = useInnloggetInnbygger()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>(
-        '*[_type == "inntektsjusteringOppsummering"]'
-    )
+    const {
+        innhold,
+        error: innholdError,
+        isLoading: innholdIsLoading,
+    } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>('*[_type == "inntektsjusteringOppsummering"]')
 
-    if (error && !isLoading) {
+    if (innloggetBrukerError && !innloggetBrukerIsLoading && !innloggetBruker) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    if (innloggetBrukerError && !innloggetBrukerIsLoading && !innloggetBruker) {
+    if (innholdIsLoading) {
+        return <Loader />
+    }
+    if (innholdError) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+    if (!innhold?.skjemaSammendrag) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -43,7 +67,20 @@ export const InntektsjusteringOppsummering = () => {
         }
     }
 
+    const {
+        tittel,
+        endreSvarLenke,
+        skalGaaAvMedAlderspensjon,
+        datoForAaGaaAvMedAlderspensjon,
+        arbeidsinntekt,
+        naeringsinntekt,
+        AFPInntekt,
+        AFPTjenesteordning,
+        inntektFraUtland,
+    } = innhold.skjemaSammendrag
+
     return (
+        !!innloggetBruker &&
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8">
@@ -58,61 +95,73 @@ export const InntektsjusteringOppsummering = () => {
 
                         <FormSummary>
                             <FormSummary.Header>
-                                <FormSummary.Heading level="2">
-                                    {innhold.skjemaSammendrag?.tittel?.[spraak]}
-                                </FormSummary.Heading>
+                                <FormSummary.Heading level="2">{tittel?.[spraak]}</FormSummary.Heading>
                                 <FormSummary.EditLink
                                     onClick={() => navigate(`/inntektsjustering/inntekt-til-neste-aar`)}
                                 >
-                                    {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
+                                    {endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
                             <FormSummary.Answers>
-                                <FormSummary.Answer>
-                                    <FormSummary.Label>Skal du gå av med alderspensjon?</FormSummary.Label>
-                                    <FormSummary.Value>
-                                        {/* TODO: den her må oversettes på en god måte*/}
-                                        {!!inntekt.skalGaaAvMedAlderspensjon && inntekt.skalGaaAvMedAlderspensjon}
-                                    </FormSummary.Value>
-                                </FormSummary.Answer>
-                                {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
-                                    <FormSummary.Answer>
-                                        <FormSummary.Label>
-                                            Når planlegger du å gå av med alderspensjon?
-                                        </FormSummary.Label>
-                                        {/* TODO: den her må oversettes på en god måte*/}
-                                        {/* TODO: må skriver på formatet: måned-år, aka mars 2025*/}
-                                        <FormSummary.Value>
-                                            {!!inntekt.datoForAaGaaAvMedAlderspensjon &&
-                                                inntekt.datoForAaGaaAvMedAlderspensjon.toString()}
-                                        </FormSummary.Value>
-                                    </FormSummary.Answer>
+                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                                    <>
+                                        <FormSummary.Answer>
+                                            <FormSummary.Label>
+                                                {finnAlder(innloggetBruker) === Alder.FEMTI_SYV_TIL_SEKSTI_SEKS
+                                                    ? skalGaaAvMedAlderspensjon?.label?.femtiSyvTilSekstiSeksAar?.[
+                                                          spraak
+                                                      ]
+                                                    : skalGaaAvMedAlderspensjon?.label?.sekstiSyvAar?.[spraak]}
+                                            </FormSummary.Label>
+                                            <FormSummary.Value>
+                                                {/* TODO: denne her kan se litt mer pen ut :)*/}
+                                                {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA &&
+                                                    skalGaaAvMedAlderspensjon?.value?.ja?.[spraak]}
+                                                {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.NEI &&
+                                                    skalGaaAvMedAlderspensjon?.value?.nei?.[spraak]}
+                                                {inntekt.skalGaaAvMedAlderspensjon ===
+                                                    SkalGaaAvMedAlderspensjon.VET_IKKE &&
+                                                    skalGaaAvMedAlderspensjon?.value?.vetIkke?.[spraak]}
+                                            </FormSummary.Value>
+                                        </FormSummary.Answer>
+                                        {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
+                                            <FormSummary.Answer>
+                                                <FormSummary.Label>
+                                                    {datoForAaGaaAvMedAlderspensjon?.label?.[spraak]}
+                                                </FormSummary.Label>
+                                                <FormSummary.Value>
+                                                    {!!inntekt.datoForAaGaaAvMedAlderspensjon &&
+                                                        format(inntekt.skalGaaAvMedAlderspensjon, 'MMMM YY', {
+                                                            locale: spraakTilDateFnsLocale(spraak),
+                                                        })}
+                                                </FormSummary.Value>
+                                            </FormSummary.Answer>
+                                        )}
+                                    </>
                                 )}
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>Hvor mye har du oppgitt i arbeidsinntekt?</FormSummary.Label>
+                                    <FormSummary.Label>{arbeidsinntekt?.label?.[spraak]}</FormSummary.Label>
                                     <FormSummary.Value>{inntekt.arbeidsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
 
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>Hvor mye har du oppgitt i næringsinntekt?</FormSummary.Label>
+                                    <FormSummary.Label>{naeringsinntekt?.label?.[spraak]}</FormSummary.Label>
                                     <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>Hva har du oppgitt i AFP inntekt?</FormSummary.Label>
+                                    <FormSummary.Label>{AFPInntekt?.label?.[spraak]}</FormSummary.Label>
                                     <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
 
                                 {!!inntekt.AFPInntekt && (
                                     <FormSummary.Answer>
-                                        <FormSummary.Label>
-                                            Hvilken tjenesteordning for AFP har du oppgitt?
-                                        </FormSummary.Label>
+                                        <FormSummary.Label>{AFPTjenesteordning?.label?.[spraak]}</FormSummary.Label>
                                         <FormSummary.Value>{inntekt.AFPTjenesteordning}</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>Hvor mye har du oppgitt i inntekt fra utland?</FormSummary.Label>
+                                    <FormSummary.Label>{inntektFraUtland?.label?.[spraak]}</FormSummary.Label>
                                     <FormSummary.Value>{inntekt.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
