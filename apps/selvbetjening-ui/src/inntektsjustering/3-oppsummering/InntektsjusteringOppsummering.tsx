@@ -1,4 +1,4 @@
-import { Bleed, FormSummary, GuidePanel, HStack, Loader, VStack } from '@navikt/ds-react'
+import { Alert, Bleed, FormSummary, GuidePanel, HStack, Loader, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -14,6 +14,8 @@ import { Alder } from '../../types/person.ts'
 import { format, Locale } from 'date-fns'
 import { Spraak } from '../../common/spraak/spraak.ts'
 import { nb, nn, enGB } from 'date-fns/locale'
+import { apiURL, poster } from '../../utils/api.ts'
+import { useState } from 'react'
 
 const spraakTilDateFnsLocale = (spraak: Spraak): Locale => {
     switch (spraak) {
@@ -33,6 +35,8 @@ export const InntektsjusteringOppsummering = () => {
 
     const spraak = useSpraak()
     const inntekt = useInntekt()
+
+    const [feilmelding, setFeilmelding] = useState<string>('')
 
     const {
         data: innloggetBruker,
@@ -58,6 +62,16 @@ export const InntektsjusteringOppsummering = () => {
     }
     if (!innhold?.skjemaSammendrag) {
         return <Navigate to="/system-utilgjengelig" />
+    }
+
+    async function sendInnInntektsjustering() {
+        setFeilmelding('')
+        const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
+        if (res.ok) {
+            navigate('/inntektsjustering/kvittering')
+        } else {
+            setFeilmelding('Kunne ikke lagre inntekt for neste år. Prøv igjen senere.')
+        }
     }
 
     const {
@@ -167,11 +181,13 @@ export const InntektsjusteringOppsummering = () => {
                                     <FormSummary.Value>{inntekt.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
+
+                            {feilmelding && <Alert variant="error">{feilmelding}</Alert>}
                         </FormSummary>
 
                         <NavigasjonMeny
                             tilbakePath="/inntekt-til-neste-aar"
-                            onNeste={() => navigate('/inntektsjustering/kvittering')}
+                            onNeste={sendInnInntektsjustering}
                             skalSendeSoeknad
                         />
                     </VStack>
