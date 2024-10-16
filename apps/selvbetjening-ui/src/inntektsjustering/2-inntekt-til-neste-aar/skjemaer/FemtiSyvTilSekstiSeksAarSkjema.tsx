@@ -130,7 +130,17 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                 </>
                             )}
                             <VStack gap="2">
-                                <SanityRikTekst text={inntekterSomSkalMeldesInn?.[spraak]} />
+                                {watch('skalGaaAvMedAlderspensjon') === SkalGaaAvMedAlderspensjon.JA ? (
+                                    <SanityRikTekst
+                                        text={inntekterSomSkalMeldesInn?.skalGaaAvMedAlderspensjon?.ja?.[spraak]}
+                                    />
+                                ) : (
+                                    <SanityRikTekst
+                                        text={
+                                            inntekterSomSkalMeldesInn?.skalGaaAvMedAlderspensjon?.neiVetIkke?.[spraak]
+                                        }
+                                    />
+                                )}
                             </VStack>
 
                             <VStack gap="2">

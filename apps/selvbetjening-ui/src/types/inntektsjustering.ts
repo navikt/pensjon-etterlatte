@@ -9,9 +9,9 @@ export interface Inntekt {
 }
 
 export enum SkalGaaAvMedAlderspensjon {
-    JA,
-    NEI,
-    VET_IKKE,
+    JA = 'JA',
+    NEI = 'NEI',
+    VET_IKKE = 'VET_IKKE',
 }
 
 export const inntektDefaultValues: Inntekt = {

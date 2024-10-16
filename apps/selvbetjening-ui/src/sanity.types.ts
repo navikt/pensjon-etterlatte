@@ -607,6 +607,79 @@ export type InntektsjusteringOppsummering = {
                 EN?: string
             }
         }
+        skalGaaAvMedAlderspensjon?: {
+            label?: {
+                femtiSyvTilSekstiSeksAar?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                sekstiSyvAar?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+            value?: {
+                ja?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                nei?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                vetIkke?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+        }
+        datoForAaGaaAvMedAlderspensjon?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        arbeidsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        naeringsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPInntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPTjenesteordning?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        inntektFraUtland?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
     }
 }
 
@@ -901,9 +974,60 @@ export type InntektsjusteringInntektTilNesteAar = {
                 }
             }
             sumAvInntekt?: {
-                NB?: string
-                NN?: string
-                EN?: string
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
             }
         }
         femtiSyvTilSekstiSeksAarSkjema?: {
@@ -1197,60 +1321,120 @@ export type InntektsjusteringInntektTilNesteAar = {
                 }>
             }
             inntekterSomSkalMeldesInn?: {
-                NB?: Array<{
-                    children?: Array<{
-                        marks?: Array<string>
-                        text?: string
-                        _type: 'span'
-                        _key: string
-                    }>
-                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                    listItem?: 'bullet' | 'number'
-                    markDefs?: Array<{
-                        href?: string
-                        _type: 'link'
-                        _key: string
-                    }>
-                    level?: number
-                    _type: 'block'
-                    _key: string
-                }>
-                NN?: Array<{
-                    children?: Array<{
-                        marks?: Array<string>
-                        text?: string
-                        _type: 'span'
-                        _key: string
-                    }>
-                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                    listItem?: 'bullet' | 'number'
-                    markDefs?: Array<{
-                        href?: string
-                        _type: 'link'
-                        _key: string
-                    }>
-                    level?: number
-                    _type: 'block'
-                    _key: string
-                }>
-                EN?: Array<{
-                    children?: Array<{
-                        marks?: Array<string>
-                        text?: string
-                        _type: 'span'
-                        _key: string
-                    }>
-                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                    listItem?: 'bullet' | 'number'
-                    markDefs?: Array<{
-                        href?: string
-                        _type: 'link'
-                        _key: string
-                    }>
-                    level?: number
-                    _type: 'block'
-                    _key: string
-                }>
+                skalGaaAvMedAlderspensjon?: {
+                    ja?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                    neiVetIkke?: {
+                        NB?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        NN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                        EN?: Array<{
+                            children?: Array<{
+                                marks?: Array<string>
+                                text?: string
+                                _type: 'span'
+                                _key: string
+                            }>
+                            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                            listItem?: 'bullet' | 'number'
+                            markDefs?: Array<{
+                                href?: string
+                                _type: 'link'
+                                _key: string
+                            }>
+                            level?: number
+                            _type: 'block'
+                            _key: string
+                        }>
+                    }
+                }
             }
             arbeidsinntekt?: {
                 label?: {

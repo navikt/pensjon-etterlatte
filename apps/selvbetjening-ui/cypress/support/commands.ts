@@ -41,9 +41,17 @@ Cypress.Commands.add('lastInntektsjusteringInntektTilNesteAar', () => {
 })
 
 Cypress.Commands.add('lastInntetktsjusteringOppsummering', () => {
+    cy.lastInntektsjusteringInntektTilNesteAar()
+
+    cy.findByRole('radio', { name: 'Nei' }).click()
+    cy.findByRole('button', { name: 'Neste steg' }).click()
+
     cy.intercept('GET', `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "fellesKomponenter"]`), {
         fixture: 'fellesKomponenterInnhold',
     }).as('fellesKomponenterInnhold')
+    cy.intercept('GET', `${apiUrl}/api/person/innlogget/forenklet`, { fixture: 'innloggetInnbygger' }).as(
+        'innloggetInnbygger'
+    )
     cy.intercept(
         'GET',
         `${apiUrl}/sanity?` + new URLSearchParams(`sanityQuery=*[_type == "inntektsjusteringOppsummering"]`),
@@ -52,7 +60,7 @@ Cypress.Commands.add('lastInntetktsjusteringOppsummering', () => {
 
     cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/oppsummering')
 
-    cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringOppsummeringInnhold'])
+    cy.wait(['@fellesKomponenterInnhold', '@innloggetInnbygger', '@inntektsjusteringOppsummeringInnhold'])
 })
 
 Cypress.Commands.add('lastInntektsjusteringKvittering', () => {

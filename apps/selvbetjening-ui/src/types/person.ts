@@ -3,7 +3,7 @@ export interface IInnloggetBruker {
     etternavn?: string
     foedselsnummer?: string
     foedselsaar?: number
-    foedselsdato?: Date
+    foedselsdato?: Date | string
 }
 
 export enum Alder {

@@ -39,7 +39,7 @@ export const attenTilFemtiSeksAarSkjemaSchemaField = defineField({
             name: 'sumAvInntekt',
             title: 'Sum av inntekt',
             type: 'object',
-            fields: spraakStringFields,
+            fields: spraakBlockFields,
         }),
     ],
 })
