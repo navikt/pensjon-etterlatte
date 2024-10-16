@@ -52,7 +52,9 @@ export const ControlledMaanedVelger = <T extends FieldValues>({
     const [, setDateError] = useState<MonthValidationT | undefined>(undefined)
 
     const { monthpickerProps, inputProps } = useMonthpicker({
-        onMonthChange: (date) => date && field.onChange(formatDateToLocaleDateOrEmptyString(date)),
+        onMonthChange: (date) => {
+            date && field.onChange(formatDateToLocaleDateOrEmptyString(date))
+        },
         defaultSelected: field.value ? new Date(field.value) : undefined,
         fromDate: fromDate ?? undefined,
         locale: spraakTilAkselLocale(spraak),

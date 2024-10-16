@@ -79,6 +79,19 @@ export const InntektsjusteringOppsummering = () => {
         inntektFraUtland,
     } = innhold.skjemaSammendrag
 
+    const velgTekstForSkalGaaAvMedAlderspensjon = (
+        skalGaaAvMedAlderspensjonValue: SkalGaaAvMedAlderspensjon
+    ): string | undefined => {
+        switch (skalGaaAvMedAlderspensjonValue) {
+            case SkalGaaAvMedAlderspensjon.JA:
+                return skalGaaAvMedAlderspensjon?.value?.ja?.[spraak]
+            case SkalGaaAvMedAlderspensjon.NEI:
+                return skalGaaAvMedAlderspensjon?.value?.nei?.[spraak]
+            case SkalGaaAvMedAlderspensjon.VET_IKKE:
+                return skalGaaAvMedAlderspensjon?.value?.vetIkke?.[spraak]
+        }
+    }
+
     return (
         !!innloggetBruker &&
         !!innhold && (
@@ -114,14 +127,10 @@ export const InntektsjusteringOppsummering = () => {
                                                     : skalGaaAvMedAlderspensjon?.label?.sekstiSyvAar?.[spraak]}
                                             </FormSummary.Label>
                                             <FormSummary.Value>
-                                                {/* TODO: denne her kan se litt mer pen ut :)*/}
-                                                {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA &&
-                                                    skalGaaAvMedAlderspensjon?.value?.ja?.[spraak]}
-                                                {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.NEI &&
-                                                    skalGaaAvMedAlderspensjon?.value?.nei?.[spraak]}
-                                                {inntekt.skalGaaAvMedAlderspensjon ===
-                                                    SkalGaaAvMedAlderspensjon.VET_IKKE &&
-                                                    skalGaaAvMedAlderspensjon?.value?.vetIkke?.[spraak]}
+                                                {!!inntekt.skalGaaAvMedAlderspensjon &&
+                                                    velgTekstForSkalGaaAvMedAlderspensjon(
+                                                        inntekt.skalGaaAvMedAlderspensjon
+                                                    )}
                                             </FormSummary.Value>
                                         </FormSummary.Answer>
                                         {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
@@ -131,7 +140,7 @@ export const InntektsjusteringOppsummering = () => {
                                                 </FormSummary.Label>
                                                 <FormSummary.Value>
                                                     {!!inntekt.datoForAaGaaAvMedAlderspensjon &&
-                                                        format(inntekt.skalGaaAvMedAlderspensjon, 'MMMM YY', {
+                                                        format(inntekt.datoForAaGaaAvMedAlderspensjon, 'MMMM yyyy', {
                                                             locale: spraakTilDateFnsLocale(spraak),
                                                         })}
                                                 </FormSummary.Value>
