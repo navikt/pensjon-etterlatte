@@ -64,7 +64,7 @@ class InntektsjusteringRepositoryTest {
         val foersteResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
         with(foersteResult!!) {
             arbeidsinntekt shouldBe 100
-            AFPTjenesteordning shouldBe null
+            afpTjenesteordning shouldBe null
             skalGaaAvMedAlderspensjon shouldBe "NEI"
             datoForAaGaaAvMedAlderspensjon shouldBe null
         }
@@ -89,8 +89,8 @@ class InntektsjusteringRepositoryTest {
             arbeidsinntekt shouldBe 1000
             naeringsinntekt shouldBe 2000
             inntektFraUtland shouldBe 3000
-            AFPInntekt shouldBe 100
-            AFPTjenesteordning shouldBe "AFPTjenesteordning"
+            afpInntekt shouldBe 100
+            afpTjenesteordning shouldBe "AFPTjenesteordning"
             skalGaaAvMedAlderspensjon shouldBe "JA"
             datoForAaGaaAvMedAlderspensjon shouldBe LocalDate.of(2025, 6, 10)
         }
@@ -176,8 +176,8 @@ class InntektsjusteringRepositoryTest {
             arbeidsinntekt shouldBe ny.arbeidsinntekt
             naeringsinntekt shouldBe ny.naeringsinntekt
             inntektFraUtland shouldBe ny.inntektFraUtland
-            AFPInntekt shouldBe 100
-            AFPTjenesteordning shouldBe "AFPTjenesteordning"
+            afpInntekt shouldBe 100
+            afpTjenesteordning shouldBe "AFPTjenesteordning"
             skalGaaAvMedAlderspensjon shouldBe "JA"
             datoForAaGaaAvMedAlderspensjon shouldBe LocalDate.of(2025, 6, 10)
             LocalDateTime.now().let { naa ->
