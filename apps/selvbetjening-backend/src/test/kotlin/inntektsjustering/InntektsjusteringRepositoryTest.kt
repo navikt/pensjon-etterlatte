@@ -1,6 +1,7 @@
 package inntektsjustering
 
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
@@ -14,6 +15,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 
@@ -50,30 +52,48 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             )
 
         db.lagreInntektsjustering(VAKKER_PENN, foersteInntektsjustering)
 
         val foersteResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
-        foersteResult?.arbeidsinntekt shouldBe 100
+        with(foersteResult!!) {
+            arbeidsinntekt shouldBe 100
+            afpTjenesteordning shouldBe null
+            skalGaaAvMedAlderspensjon shouldBe "NEI"
+            datoForAaGaaAvMedAlderspensjon shouldBe null
+        }
 
         db.oppdaterInntektsjustering(
-            foersteInntektsjustering.id,
+            foersteResult.id,
             InntektsjusteringLagre(
                 arbeidsinntekt = 1000,
                 naeringsinntekt = 2000,
-                arbeidsinntektUtland = 3000,
-                naeringsinntektUtland = 4000,
+                inntektFraUtland = 3000,
+                AFPInntekt = 100,
+                AFPTjenesteordning = "AFPTjenesteordning",
+                skalGaaAvMedAlderspensjon = "JA",
+                datoForAaGaaAvMedAlderspensjon = LocalDate.of(2025, 6, 10),
             ),
         )
 
         val andreResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
-        andreResult?.arbeidsinntekt shouldBe 1000
-        andreResult?.naeringsinntekt shouldBe 2000
-        andreResult?.arbeidsinntektUtland shouldBe 3000
-        andreResult?.naeringsinntektUtland shouldBe 4000
+        with(andreResult!!) {
+            fnr shouldBe VAKKER_PENN.value
+            inntektsaar shouldBe 2025
+            arbeidsinntekt shouldBe 1000
+            naeringsinntekt shouldBe 2000
+            inntektFraUtland shouldBe 3000
+            afpInntekt shouldBe 100
+            afpTjenesteordning shouldBe "AFPTjenesteordning"
+            skalGaaAvMedAlderspensjon shouldBe "JA"
+            datoForAaGaaAvMedAlderspensjon shouldBe LocalDate.of(2025, 6, 10)
+        }
     }
 
     @Test
@@ -83,15 +103,18 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
         val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 1
 
-        val (fnr, inntektsjustering) = resultat[0]
+        val inntektsjustering = resultat[0]
         db.oppdaterStatusForId(inntektsjustering.id, PubliserInntektsjusteringStatus.PUBLISERT)
         db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 0
     }
@@ -103,8 +126,11 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
@@ -113,15 +139,18 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 150,
                 naeringsinntekt = 250,
-                arbeidsinntektUtland = 350,
-                naeringsinntektUtland = 450,
+                inntektFraUtland = 350,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
         val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 2
-        resultat[0].first shouldBe SPYDIG_EGG.value
-        resultat[1].first shouldBe VAKKER_PENN.value
+        resultat[0].fnr shouldBe SPYDIG_EGG.value
+        resultat[1].fnr shouldBe VAKKER_PENN.value
     }
 
     @Test
@@ -130,19 +159,27 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 100,
+                AFPTjenesteordning = "AFPTjenesteordning",
+                skalGaaAvMedAlderspensjon = "JA",
+                datoForAaGaaAvMedAlderspensjon = LocalDate.of(2025, 6, 10),
             )
 
         db.lagreInntektsjustering(VAKKER_PENN, ny)
         val lagret = db.hentInntektsjusteringForFnr(VAKKER_PENN) ?: throw Exception()
 
         with(lagret) {
-            id shouldBe ny.id
+            id shouldNotBe null
+            fnr shouldBe VAKKER_PENN.value
+            inntektsaar shouldBe 2025
             arbeidsinntekt shouldBe ny.arbeidsinntekt
             naeringsinntekt shouldBe ny.naeringsinntekt
-            arbeidsinntektUtland shouldBe ny.arbeidsinntektUtland
-            naeringsinntektUtland shouldBe ny.naeringsinntektUtland
+            inntektFraUtland shouldBe ny.inntektFraUtland
+            afpInntekt shouldBe 100
+            afpTjenesteordning shouldBe "AFPTjenesteordning"
+            skalGaaAvMedAlderspensjon shouldBe "JA"
+            datoForAaGaaAvMedAlderspensjon shouldBe LocalDate.of(2025, 6, 10)
             LocalDateTime.now().let { naa ->
                 tidspunkt.atZone(ZoneId.of("UTC")).let {
                     it.year shouldBe naa.year
