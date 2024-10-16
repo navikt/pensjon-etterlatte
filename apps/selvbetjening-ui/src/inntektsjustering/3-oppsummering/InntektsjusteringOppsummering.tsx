@@ -46,7 +46,7 @@ export const InntektsjusteringOppsummering = () => {
         isLoading: innholdIsLoading,
     } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>('*[_type == "inntektsjusteringOppsummering"]')
 
-    if (innloggetBrukerError && !innloggetBrukerIsLoading && !innloggetBruker) {
+    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -58,13 +58,6 @@ export const InntektsjusteringOppsummering = () => {
     }
     if (!innhold?.skjemaSammendrag) {
         return <Navigate to="/system-utilgjengelig" />
-    }
-
-    // Hvis en person er over 56 og ikke har gitt stilling om hen skal gå av med alderspensjon, send tilbake til skjema for inntekt
-    if (finnAlder(innloggetBruker!) !== Alder.ATTEN_TIL_FEMTI_SEKS) {
-        if (inntekt.skalGaaAvMedAlderspensjon === undefined) {
-            return <Navigate to="/inntektsjustering/inntekt-til-neste-aar" />
-        }
     }
 
     const {
