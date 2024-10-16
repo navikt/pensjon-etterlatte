@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 
@@ -60,7 +61,12 @@ class InntektsjusteringRepositoryTest {
         db.lagreInntektsjustering(VAKKER_PENN, foersteInntektsjustering)
 
         val foersteResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
-        foersteResult?.arbeidsinntekt shouldBe 100
+        with(foersteResult!!) {
+            arbeidsinntekt shouldBe 100
+            AFPTjenesteordning shouldBe null
+            skalGaaAvMedAlderspensjon shouldBe "NEI"
+            datoForAaGaaAvMedAlderspensjon shouldBe null
+        }
 
         db.oppdaterInntektsjustering(
             foersteInntektsjustering.id,
@@ -68,18 +74,25 @@ class InntektsjusteringRepositoryTest {
                 arbeidsinntekt = 1000,
                 naeringsinntekt = 2000,
                 inntektFraUtland = 3000,
-                AFPInntekt = 0,
-                AFPTjenesteordning = null,
-                skalGaaAvMedAlderspensjon = "NEI",
-                datoForAaGaaAvMedAlderspensjon = null,
+                AFPInntekt = 100,
+                AFPTjenesteordning = "AFPTjenesteordning",
+                skalGaaAvMedAlderspensjon = "JA",
+                datoForAaGaaAvMedAlderspensjon = LocalDate.of(2025, 6, 10),
             ),
         )
 
         val andreResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
-        andreResult?.arbeidsinntekt shouldBe 1000
-        andreResult?.naeringsinntekt shouldBe 2000
-        andreResult?.inntektFraUtland shouldBe 3000
-        // TODO flere felter..
+        with(andreResult!!) {
+            fnr shouldBe VAKKER_PENN.value
+            inntektsaar shouldBe 2025
+            arbeidsinntekt shouldBe 1000
+            naeringsinntekt shouldBe 2000
+            inntektFraUtland shouldBe 3000
+            AFPInntekt shouldBe 100
+            AFPTjenesteordning shouldBe "AFPTjenesteordning"
+            skalGaaAvMedAlderspensjon shouldBe "JA"
+            datoForAaGaaAvMedAlderspensjon shouldBe LocalDate.of(2025, 6, 10)
+        }
     }
 
     @Test
@@ -135,8 +148,8 @@ class InntektsjusteringRepositoryTest {
 
         val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 2
-        resultat[0] shouldBe SPYDIG_EGG.value
-        resultat[1] shouldBe VAKKER_PENN.value
+        resultat[0].fnr shouldBe SPYDIG_EGG.value
+        resultat[1].fnr shouldBe VAKKER_PENN.value
     }
 
     @Test
@@ -146,10 +159,10 @@ class InntektsjusteringRepositoryTest {
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
                 inntektFraUtland = 300,
-                AFPInntekt = 0,
-                AFPTjenesteordning = null,
-                skalGaaAvMedAlderspensjon = "NEI",
-                datoForAaGaaAvMedAlderspensjon = null,
+                AFPInntekt = 100,
+                AFPTjenesteordning = "AFPTjenesteordning",
+                skalGaaAvMedAlderspensjon = "JA",
+                datoForAaGaaAvMedAlderspensjon = LocalDate.of(2025, 6, 10),
             )
 
         db.lagreInntektsjustering(VAKKER_PENN, ny)
@@ -157,10 +170,15 @@ class InntektsjusteringRepositoryTest {
 
         with(lagret) {
             id shouldBe ny.id
+            fnr shouldBe VAKKER_PENN.value
+            inntektsaar shouldBe 2025
             arbeidsinntekt shouldBe ny.arbeidsinntekt
             naeringsinntekt shouldBe ny.naeringsinntekt
             inntektFraUtland shouldBe ny.inntektFraUtland
-            // TODO flere felter
+            AFPInntekt shouldBe 100
+            AFPTjenesteordning shouldBe "AFPTjenesteordning"
+            skalGaaAvMedAlderspensjon shouldBe "JA"
+            datoForAaGaaAvMedAlderspensjon shouldBe LocalDate.of(2025, 6, 10)
             LocalDateTime.now().let { naa ->
                 tidspunkt.atZone(ZoneId.of("UTC")).let {
                     it.year shouldBe naa.year

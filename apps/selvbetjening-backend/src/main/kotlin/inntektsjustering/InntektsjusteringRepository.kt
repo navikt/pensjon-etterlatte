@@ -11,6 +11,7 @@ import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.database.firstOrNull
 import no.nav.etterlatte.libs.utils.database.toList
+import java.sql.Date
 import java.sql.ResultSet
 import java.time.ZoneId
 import java.util.UUID
@@ -67,13 +68,15 @@ class InntektsjusteringRepository(
             .apply {
                 setObject(1, inntektsjustering.id)
                 setString(2, fnr.value)
-                setInt(3, inntektsjustering.arbeidsinntekt)
-                setInt(4, inntektsjustering.naeringsinntekt)
-                setInt(5, 0) // TODO bytt
-                setInt(6, 0) // TODO
-                setInt(7, inntektsjustering.inntektsaar)
-                setString(8, PubliserInntektsjusteringStatus.LAGRET.value)
-                // TODO flere felter
+                setInt(3, inntektsjustering.inntektsaar)
+                setInt(4, inntektsjustering.arbeidsinntekt)
+                setInt(5, inntektsjustering.naeringsinntekt)
+                setInt(6, inntektsjustering.inntektFraUtland)
+                setInt(7, inntektsjustering.AFPInntekt)
+                setString(8, inntektsjustering.AFPTjenesteordning)
+                setString(9, inntektsjustering.skalGaaAvMedAlderspensjon)
+                setDate(10, inntektsjustering.datoForAaGaaAvMedAlderspensjon?.let { dato -> Date.valueOf(dato) })
+                setString(11, PubliserInntektsjusteringStatus.LAGRET.value)
             }.execute()
     }
 
@@ -86,10 +89,12 @@ class InntektsjusteringRepository(
             .apply {
                 setInt(1, inntektsjustering.arbeidsinntekt)
                 setInt(2, inntektsjustering.naeringsinntekt)
-                setInt(3, 0) // TODO bytt
-                setInt(4, 0) // TODO
-                setInt(5, inntektsjustering.inntektsaar)
-                setObject(6, id)
+                setInt(3, inntektsjustering.inntektFraUtland)
+                setInt(4, inntektsjustering.AFPInntekt)
+                setString(5, inntektsjustering.AFPTjenesteordning)
+                setString(6, inntektsjustering.skalGaaAvMedAlderspensjon)
+                setDate(7, inntektsjustering.datoForAaGaaAvMedAlderspensjon?.let { dato -> Date.valueOf(dato) })
+                setObject(8, id)
             }.executeUpdate()
     }
 
@@ -113,11 +118,11 @@ fun ResultSet.toInntektsjustering() =
         inntektsaar = getInt("inntektsaar"),
         arbeidsinntekt = getInt("arbeidsinntekt"),
         naeringsinntekt = getInt("naeringsinntekt"),
-        inntektFraUtland = 0, // TODO
-        AFPInntekt = 0,
-        AFPTjenesteordning = null,
-        skalGaaAvMedAlderspensjon = "",
-        datoForAaGaaAvMedAlderspensjon = null,
+        inntektFraUtland = getInt("inntekt_fra_utland"),
+        AFPInntekt = getInt("afp_inntekt"),
+        AFPTjenesteordning = getString("afp_tjenesteordning"),
+        skalGaaAvMedAlderspensjon = getString("skal_gaa_av_med_alderspensjon"),
+        datoForAaGaaAvMedAlderspensjon = getDate("dato_for_aa_gaa_av_med_alderspensjon")?.toLocalDate(),
         tidspunkt = getTimestamp("innsendt").toInstant(),
     )
 
@@ -145,8 +150,8 @@ private object Queries {
 
     val LAGRE =
         """
-        INSERT INTO inntektsjustering (id, fnr, arbeidsinntekt, naeringsinntekt, arbeidsinntekt_utland, naeringsinntekt_utland, inntektsaar, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO inntektsjustering (id, fnr, inntektsaar, arbeidsinntekt, naeringsinntekt, inntekt_fra_utland, afp_inntekt, afp_tjenesteordning, skal_gaa_av_med_alderspensjon, dato_for_aa_gaa_av_med_alderspensjon, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """.trimIndent()
 
     val OPPDATER_STATUS =
@@ -161,9 +166,11 @@ private object Queries {
         SET 
             arbeidsinntekt = ?,
             naeringsinntekt = ?,
-            arbeidsinntekt_utland = ?,
-            naeringsinntekt_utland = ?,
-            inntektsaar = ?
+            inntekt_fra_utland = ?,
+            afp_inntekt = ?,
+            afp_tjenesteordning = ?,
+            skal_gaa_av_med_alderspensjon = ?,
+            dato_for_aa_gaa_av_med_alderspensjon = ?
         WHERE id = ?
         """.trimIndent()
 }
