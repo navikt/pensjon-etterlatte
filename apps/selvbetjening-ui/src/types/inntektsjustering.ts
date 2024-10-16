@@ -21,5 +21,5 @@ export const inntektDefaultValues: Inntekt = {
     naeringsinntekt: 0,
     inntektFraUtland: 0,
     AFPInntekt: 0,
-    AFPTjenesteordning: '',
+    AFPTjenesteordning: undefined,
 }

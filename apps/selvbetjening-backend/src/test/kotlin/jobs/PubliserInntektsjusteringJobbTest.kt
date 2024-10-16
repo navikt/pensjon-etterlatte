@@ -34,11 +34,15 @@ internal class PubliserInntektsjusteringJobbTest {
         val inntektsjustering =
             Inntektsjustering(
                 id = UUID.randomUUID(),
+                fnr = "fnr",
                 inntektsaar = 2024,
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
                 tidspunkt = Instant.now(),
             )
 

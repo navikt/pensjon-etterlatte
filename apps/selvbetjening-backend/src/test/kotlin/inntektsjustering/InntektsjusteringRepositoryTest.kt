@@ -50,8 +50,11 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             )
 
         db.lagreInntektsjustering(VAKKER_PENN, foersteInntektsjustering)
@@ -64,16 +67,19 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 1000,
                 naeringsinntekt = 2000,
-                arbeidsinntektUtland = 3000,
-                naeringsinntektUtland = 4000,
+                inntektFraUtland = 3000,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
         val andreResult = db.hentInntektsjusteringForFnr(VAKKER_PENN)
         andreResult?.arbeidsinntekt shouldBe 1000
         andreResult?.naeringsinntekt shouldBe 2000
-        andreResult?.arbeidsinntektUtland shouldBe 3000
-        andreResult?.naeringsinntektUtland shouldBe 4000
+        andreResult?.inntektFraUtland shouldBe 3000
+        // TODO flere felter..
     }
 
     @Test
@@ -83,8 +89,11 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
@@ -103,8 +112,11 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
@@ -113,8 +125,11 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 150,
                 naeringsinntekt = 250,
-                arbeidsinntektUtland = 350,
-                naeringsinntektUtland = 450,
+                inntektFraUtland = 350,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             ),
         )
 
@@ -130,8 +145,11 @@ class InntektsjusteringRepositoryTest {
             InntektsjusteringLagre(
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
-                arbeidsinntektUtland = 300,
-                naeringsinntektUtland = 400,
+                inntektFraUtland = 300,
+                AFPInntekt = 0,
+                AFPTjenesteordning = null,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
             )
 
         db.lagreInntektsjustering(VAKKER_PENN, ny)
@@ -141,8 +159,8 @@ class InntektsjusteringRepositoryTest {
             id shouldBe ny.id
             arbeidsinntekt shouldBe ny.arbeidsinntekt
             naeringsinntekt shouldBe ny.naeringsinntekt
-            arbeidsinntektUtland shouldBe ny.arbeidsinntektUtland
-            naeringsinntektUtland shouldBe ny.naeringsinntektUtland
+            inntektFraUtland shouldBe ny.inntektFraUtland
+            // TODO flere felter
             LocalDateTime.now().let { naa ->
                 tidspunkt.atZone(ZoneId.of("UTC")).let {
                     it.year shouldBe naa.year

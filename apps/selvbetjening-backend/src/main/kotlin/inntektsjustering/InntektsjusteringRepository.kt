@@ -11,6 +11,7 @@ import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.database.firstOrNull
 import no.nav.etterlatte.libs.utils.database.toList
+import java.sql.ResultSet
 import java.time.ZoneId
 import java.util.UUID
 import javax.sql.DataSource
@@ -29,17 +30,7 @@ class InntektsjusteringRepository(
                 .apply {
                     setString(1, fnr.value)
                 }.executeQuery()
-                .firstOrNull {
-                    Inntektsjustering(
-                        id = UUID.fromString(getString("id")),
-                        inntektsaar = getInt("inntektsaar"),
-                        arbeidsinntekt = getInt("arbeidsinntekt"),
-                        naeringsinntekt = getInt("naeringsinntekt"),
-                        arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
-                        naeringsinntektUtland = getInt("naeringsinntekt_utland"),
-                        tidspunkt = getTimestamp("innsendt").toInstant(),
-                    )
-                }
+                .firstOrNull { this.toInntektsjustering() }
         }
 
     fun hentInntektsjusteringForFnrOgStatus(
@@ -52,17 +43,7 @@ class InntektsjusteringRepository(
                 setString(1, fnr.value)
                 setString(2, status.value)
             }.executeQuery()
-            .firstOrNull {
-                Inntektsjustering(
-                    id = UUID.fromString(getString("id")),
-                    inntektsaar = getInt("inntektsaar"),
-                    arbeidsinntekt = getInt("arbeidsinntekt"),
-                    naeringsinntekt = getInt("naeringsinntekt"),
-                    arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
-                    naeringsinntektUtland = getInt("naeringsinntekt_utland"),
-                    tidspunkt = getTimestamp("innsendt").toInstant(),
-                )
-            }
+            .firstOrNull { this.toInntektsjustering() }
     }
 
     fun hentAlleInntektsjusteringerForStatus(status: PubliserInntektsjusteringStatus) =
@@ -74,16 +55,8 @@ class InntektsjusteringRepository(
                 }.executeQuery()
                 .toList {
                     Pair(
-                        getString("fnr"),
-                        Inntektsjustering(
-                            id = UUID.fromString(getString("id")),
-                            inntektsaar = getInt("inntektsaar"),
-                            arbeidsinntekt = getInt("arbeidsinntekt"),
-                            naeringsinntekt = getInt("naeringsinntekt"),
-                            arbeidsinntektUtland = getInt("arbeidsinntekt_utland"),
-                            naeringsinntektUtland = getInt("naeringsinntekt_utland"),
-                            tidspunkt = getTimestamp("innsendt").toInstant(),
-                        ),
+                        getString("fnr"), // TODO fjern..
+                        this.toInntektsjustering(),
                     )
                 }
         }
@@ -99,10 +72,11 @@ class InntektsjusteringRepository(
                 setString(2, fnr.value)
                 setInt(3, inntektsjustering.arbeidsinntekt)
                 setInt(4, inntektsjustering.naeringsinntekt)
-                setInt(5, inntektsjustering.arbeidsinntektUtland)
-                setInt(6, inntektsjustering.naeringsinntektUtland)
+                setInt(5, 0) // TODO bytt
+                setInt(6, 0) // TODO
                 setInt(7, inntektsjustering.inntektsaar)
                 setString(8, PubliserInntektsjusteringStatus.LAGRET.value)
+                // TODO flere felter
             }.execute()
     }
 
@@ -115,8 +89,8 @@ class InntektsjusteringRepository(
             .apply {
                 setInt(1, inntektsjustering.arbeidsinntekt)
                 setInt(2, inntektsjustering.naeringsinntekt)
-                setInt(3, inntektsjustering.arbeidsinntektUtland)
-                setInt(4, inntektsjustering.naeringsinntektUtland)
+                setInt(3, 0) // TODO bytt
+                setInt(4, 0) // TODO
                 setInt(5, inntektsjustering.inntektsaar)
                 setObject(6, id)
             }.executeUpdate()
@@ -134,6 +108,21 @@ class InntektsjusteringRepository(
             }.execute()
     }
 }
+
+fun ResultSet.toInntektsjustering() =
+    Inntektsjustering(
+        id = UUID.fromString(getString("id")),
+        fnr = getString("fnr"),
+        inntektsaar = getInt("inntektsaar"),
+        arbeidsinntekt = getInt("arbeidsinntekt"),
+        naeringsinntekt = getInt("naeringsinntekt"),
+        inntektFraUtland = 0, // TODO
+        AFPInntekt = 0,
+        AFPTjenesteordning = null,
+        skalGaaAvMedAlderspensjon = "",
+        datoForAaGaaAvMedAlderspensjon = null,
+        tidspunkt = getTimestamp("innsendt").toInstant(),
+    )
 
 private object Queries {
     val HENT_FOR_FNR =
