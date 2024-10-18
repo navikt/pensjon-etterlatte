@@ -2919,11 +2919,6 @@ export type InntektsjusteringInnledning = {
             _key: string
         }>
     }
-    info?: {
-        NB?: string
-        NN?: string
-        EN?: string
-    }
     veiledning?: {
         NB?: Array<{
             children?: Array<{

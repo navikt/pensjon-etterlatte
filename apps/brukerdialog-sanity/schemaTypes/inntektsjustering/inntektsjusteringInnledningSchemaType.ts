@@ -18,12 +18,6 @@ export const inntektsjusteringInnledningSchemaType = defineType({
             fields: spraakBlockFields,
         }),
         defineField({
-            name: 'info',
-            title: 'Info',
-            type: 'object',
-            fields: spraakStringFields,
-        }),
-        defineField({
             name: 'veiledning',
             title: 'Veiledning',
             type: 'object',
