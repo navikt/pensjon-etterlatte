@@ -58,7 +58,7 @@ export const ControlledMaanedVelger = <T extends FieldValues>({
         defaultSelected: field.value ? new Date(field.value) : undefined,
         fromDate: fromDate ?? undefined,
         toDate: toDate ?? undefined,
-        defaultYear: fromDate ?? undefined,
+        defaultYear: fromDate,
         locale: spraakTilAkselLocale(spraak),
         onValidate: (val) => {
             if (val.isEmpty) field.onChange(undefined)

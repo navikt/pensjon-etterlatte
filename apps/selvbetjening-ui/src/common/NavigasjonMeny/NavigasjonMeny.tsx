@@ -24,10 +24,6 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLa
     return (
         !!innhold && (
             <VStack gap="4">
-                {/* TODO: kommenterer ut disse til vi funksjonaliteten for de på plass*/}
-                {/*<BodyShort as="div" size="small" textColor="subtle">*/}
-                {/*    {innhold.navigasjonMeny?.sistLagret?.[spraak]}: 10. mars 2024 kl. 13.55*/}
-                {/*</BodyShort>*/}
                 <HGrid gap={{ xs: '4', sm: '8 4' }} columns={{ xs: 1, sm: 2 }} width={{ sm: 'fit-content' }}>
                     <Button
                         type="button"
@@ -50,15 +46,6 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLa
                             ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]
                             : innhold.navigasjonMeny?.knapper?.nesteStegKnapp?.[spraak]}
                     </Button>
-
-                    {/*<Box asChild marginBlock={{ xs: '4 0', sm: '0' }}>*/}
-                    {/*    <Button variant="tertiary" icon={<FloppydiskIcon aria-hidden />} iconPosition="left">*/}
-                    {/*        {innhold.navigasjonMeny?.knapper?.fortsettSenereKnapp?.[spraak]}*/}
-                    {/*    </Button>*/}
-                    {/*</Box>*/}
-                    {/*<Button variant="tertiary" icon={<TrashIcon aria-hidden />} iconPosition="left">*/}
-                    {/*    {innhold.navigasjonMeny?.knapper?.slettSoeknadenKnapp?.[spraak]}*/}
-                    {/*</Button>*/}
                 </HGrid>
             </VStack>
         )
