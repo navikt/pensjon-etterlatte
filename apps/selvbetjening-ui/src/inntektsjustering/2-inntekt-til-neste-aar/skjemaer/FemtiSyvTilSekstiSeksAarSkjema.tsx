@@ -1,7 +1,7 @@
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, ErrorSummary, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -13,6 +13,7 @@ import { ControlledInntektTextField } from '../../../common/inntekt/ControlledIn
 import { Alder } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
+import { formaterFieldErrors } from '../../../utils/error.ts'
 
 export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     const spraak = useSpraak()
@@ -67,9 +68,9 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         sumAvInntekt,
     } = innhold.inntektSkjemaer.femtiSyvTilSekstiSeksAarSkjema
 
-const nesteAar = new Date().getFullYear() + 1
-const foersteDagNesteAar = new Date(nesteAar, 0, 1)
-const sisteDagNesteAar = new Date(nesteAar, 11, 31)
+    const nesteAar = new Date().getFullYear() + 1
+    const foersteDagNesteAar = new Date(nesteAar, 0, 1)
+    const sisteDagNesteAar = new Date(nesteAar, 11, 31)
 
     return (
         !!innhold && (
@@ -228,6 +229,16 @@ const sisteDagNesteAar = new Date(nesteAar, 11, 31)
                                 )}
                             </SumAvOppgittInntekt>
                         </>
+                    )}
+
+                    {!!Object.keys(errors)?.length && (
+                        <ErrorSummary heading="Du må fikse disse feilene">
+                            {formaterFieldErrors(errors).map((error) => (
+                                <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
+                                    {error.message}
+                                </ErrorSummary.Item>
+                            ))}
+                        </ErrorSummary>
                     )}
 
                     <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
