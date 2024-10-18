@@ -28,6 +28,7 @@ interface Props<T extends FieldValues> {
     description?: ReactNode | string
     errorVedTomInput?: string
     fromDate?: Date
+    toDate?: Date
 }
 
 export const ControlledMaanedVelger = <T extends FieldValues>({
@@ -37,6 +38,7 @@ export const ControlledMaanedVelger = <T extends FieldValues>({
     description,
     errorVedTomInput,
     fromDate,
+    toDate,
 }: Props<T>) => {
     const spraak = useSpraak()
 
@@ -55,6 +57,8 @@ export const ControlledMaanedVelger = <T extends FieldValues>({
         onMonthChange: (date) => date && field.onChange(formatDateToLocaleDateOrEmptyString(date)),
         defaultSelected: field.value ? new Date(field.value) : undefined,
         fromDate: fromDate ?? undefined,
+        toDate: toDate ?? undefined,
+        defaultYear: fromDate ?? undefined,
         locale: spraakTilAkselLocale(spraak),
         onValidate: (val) => {
             if (val.isEmpty) field.onChange(undefined)
