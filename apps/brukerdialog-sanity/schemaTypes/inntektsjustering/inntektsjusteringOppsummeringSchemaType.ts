@@ -142,5 +142,14 @@ export const inntektsjusteringOppsummeringSchemaType = defineType({
                 }),
             ],
         }),
+        defineField({
+            name: 'feilIOpprettelseAvInntekt',
+            title: 'Feil i opprettelse av inntekt',
+            type: 'object',
+            fields: [
+                defineField({ name: 'tittel', title: 'Tittel', type: 'object', fields: spraakStringFields }),
+                defineField({ name: 'innhold', title: 'Innhold', type: 'object', fields: spraakBlockFields }),
+            ],
+        }),
     ],
 })
