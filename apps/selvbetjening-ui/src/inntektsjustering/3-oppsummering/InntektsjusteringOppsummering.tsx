@@ -38,7 +38,7 @@ export const InntektsjusteringOppsummering = () => {
     const inntekt = useInntekt()
 
     const [laster, setLaster] = useState<boolean>(false)
-    const [apiFeil, setApiFeil] = useState<boolean>(true)
+    const [apiFeil, setApiFeil] = useState<boolean>(false)
 
     const {
         data: innloggetBruker,

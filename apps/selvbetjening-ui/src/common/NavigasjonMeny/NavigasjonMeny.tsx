@@ -24,7 +24,7 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLa
     return (
         !!innhold && (
             <VStack gap="4">
-                {/* TODO: kommenterer ut disse til vi har de på plass*/}
+                {/* TODO: kommenterer ut disse til vi funksjonaliteten for de på plass*/}
                 {/*<BodyShort as="div" size="small" textColor="subtle">*/}
                 {/*    {innhold.navigasjonMeny?.sistLagret?.[spraak]}: 10. mars 2024 kl. 13.55*/}
                 {/*</BodyShort>*/}
