@@ -168,10 +168,12 @@ export const InntektsjusteringOppsummering = () => {
                                     <FormSummary.Label>{naeringsinntekt?.label?.[spraak]}</FormSummary.Label>
                                     <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
-                                <FormSummary.Answer>
-                                    <FormSummary.Label>{AFPInntekt?.label?.[spraak]}</FormSummary.Label>
-                                    <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
-                                </FormSummary.Answer>
+                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                                    <FormSummary.Answer>
+                                        <FormSummary.Label>{AFPInntekt?.label?.[spraak]}</FormSummary.Label>
+                                        <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
+                                    </FormSummary.Answer>
+                                )}
 
                                 {!!inntekt.AFPInntekt && (
                                     <FormSummary.Answer>
