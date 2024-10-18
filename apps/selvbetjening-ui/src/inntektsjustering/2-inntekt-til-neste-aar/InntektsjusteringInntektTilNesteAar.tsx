@@ -1,4 +1,4 @@
-import { Heading, HStack, VStack } from '@navikt/ds-react'
+import { HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -9,6 +9,7 @@ import { finnAlder } from './finnAlder.ts'
 import { FemtiSyvTilSekstiSeksAarSkjema } from './skjemaer/FemtiSyvTilSekstiSeksAarSkjema.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SekstiSyvAarSkjema } from './skjemaer/SekstiSyvAarSkjema.tsx'
+import { IkkeGyldigForAaMeldeInnInntekt } from './IkkeGyldigForAaMeldeInnInntekt.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const {
@@ -42,7 +43,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
             case Alder.SEKSTI_SYV:
                 return <SekstiSyvAarSkjema />
             case Alder.IKKE_GYLDIG:
-                return <Heading size="large">Du er enten for ung eller for gammal til å kunne melde inntekt</Heading>
+                return <IkkeGyldigForAaMeldeInnInntekt />
         }
     }
 

@@ -7,8 +7,8 @@ data class InntektsjusteringLagre(
     val arbeidsinntekt: Int,
     val naeringsinntekt: Int,
     val inntektFraUtland: Int,
-    val AFPInntekt: Int,
+    val AFPInntekt: Int?,
     val AFPTjenesteordning: String?,
-    val skalGaaAvMedAlderspensjon: String,
+    val skalGaaAvMedAlderspensjon: String?,
     val datoForAaGaaAvMedAlderspensjon: LocalDate?,
 )

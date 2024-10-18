@@ -66,6 +66,10 @@ export const SekstiSyvAarSkjema = () => {
         sumAvInntekt,
     } = innhold.inntektSkjemaer.sekstiSyvAarSkjema
 
+const nesteAar = new Date().getFullYear() + 1
+const foersteDagNesteAar = new Date(nesteAar, 0, 1)
+const sisteDagNesteAar = new Date(nesteAar, 11, 31)
+
     return (
         !!innhold && (
             <form>
@@ -114,6 +118,8 @@ export const SekstiSyvAarSkjema = () => {
                                             errorVedTomInput={
                                                 datoForAaGaaAvMedAlderspensjon?.errorVedTomInput?.[spraak]
                                             }
+                                            fromDate={foersteDagNesteAar}
+                                            toDate={sisteDagNesteAar}
                                         />
                                         {!!datoForAaGaaAvMedAlderspensjon?.readMore && (
                                             <ReadMore header={datoForAaGaaAvMedAlderspensjon.readMore.tittel?.[spraak]}>

@@ -1,4 +1,4 @@
-import { Alert, Bleed, FormSummary, GuidePanel, HStack, Loader, VStack } from '@navikt/ds-react'
+import { Bleed, FormSummary, GuidePanel, HStack, Loader, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -16,6 +16,7 @@ import { Spraak } from '../../common/spraak/spraak.ts'
 import { nb, nn, enGB } from 'date-fns/locale'
 import { apiURL, poster } from '../../utils/api.ts'
 import { useState } from 'react'
+import { FeilIAPIKall } from './FeilIAPIKall.tsx'
 
 const spraakTilDateFnsLocale = (spraak: Spraak): Locale => {
     switch (spraak) {
@@ -36,7 +37,8 @@ export const InntektsjusteringOppsummering = () => {
     const spraak = useSpraak()
     const inntekt = useInntekt()
 
-    const [feilmelding, setFeilmelding] = useState<string>('')
+    const [laster, setLaster] = useState<boolean>(false)
+    const [apiFeil, setApiFeil] = useState<boolean>(false)
 
     const {
         data: innloggetBruker,
@@ -65,13 +67,15 @@ export const InntektsjusteringOppsummering = () => {
     }
 
     async function sendInnInntektsjustering() {
-        setFeilmelding('')
+        setLaster(true)
+        setApiFeil(false)
         const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
         if (res.ok) {
             navigate('/inntektsjustering/kvittering')
         } else {
-            setFeilmelding('Kunne ikke lagre inntekt for neste år. Prøv igjen senere.')
+            setApiFeil(true)
         }
+        setLaster(false)
     }
 
     const {
@@ -164,10 +168,12 @@ export const InntektsjusteringOppsummering = () => {
                                     <FormSummary.Label>{naeringsinntekt?.label?.[spraak]}</FormSummary.Label>
                                     <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
-                                <FormSummary.Answer>
-                                    <FormSummary.Label>{AFPInntekt?.label?.[spraak]}</FormSummary.Label>
-                                    <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
-                                </FormSummary.Answer>
+                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                                    <FormSummary.Answer>
+                                        <FormSummary.Label>{AFPInntekt?.label?.[spraak]}</FormSummary.Label>
+                                        <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
+                                    </FormSummary.Answer>
+                                )}
 
                                 {!!inntekt.AFPInntekt && (
                                     <FormSummary.Answer>
@@ -181,13 +187,14 @@ export const InntektsjusteringOppsummering = () => {
                                     <FormSummary.Value>{inntekt.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
-
-                            {feilmelding && <Alert variant="error">{feilmelding}</Alert>}
                         </FormSummary>
+
+                        {apiFeil && <FeilIAPIKall />}
 
                         <NavigasjonMeny
                             tilbakePath="/inntekt-til-neste-aar"
                             onNeste={sendInnInntektsjustering}
+                            nesteLaster={laster}
                             skalSendeSoeknad
                         />
                     </VStack>

@@ -12,7 +12,9 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.database.firstOrNull
 import no.nav.etterlatte.libs.utils.database.toList
 import java.sql.Date
+import java.sql.PreparedStatement
 import java.sql.ResultSet
+import java.sql.Types
 import java.time.ZoneId
 import java.util.UUID
 import javax.sql.DataSource
@@ -174,3 +176,8 @@ private object Queries {
         WHERE id = ?
         """.trimIndent()
 }
+
+fun PreparedStatement.setInt(
+    index: Int,
+    value: Int?,
+) = if (value == null) setNull(index, Types.BIGINT) else setInt(index, value)
