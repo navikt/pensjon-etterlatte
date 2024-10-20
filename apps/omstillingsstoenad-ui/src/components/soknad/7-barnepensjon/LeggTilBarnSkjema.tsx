@@ -189,7 +189,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
             </SkjemaElement>
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                    <EndreBarnKort borderRadius padding={'0'} borderColor={'border-default'} borderWidth={'0'}>
+                    <EndreBarnKort borderRadius padding={'0'} borderColor={'border-default'} borderWidth={'1'}>
                         <EndreBarnKortHeader>
                             <img alt="barn" src={ikon} />
                             <Heading size={'small'} className={'overskrift'}>
@@ -450,7 +450,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                                             <Panel
                                                                 borderRadius
                                                                 borderColor={'border-default'}
-                                                                borderWidth={'0'}
+                                                                borderWidth={'1'}
                                                             >
                                                                 <Alert
                                                                     variant={'info'}
