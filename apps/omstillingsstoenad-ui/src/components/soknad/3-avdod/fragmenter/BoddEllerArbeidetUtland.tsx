@@ -8,31 +8,14 @@ import React, { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label } from '@navikt/ds-react'
+import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label, VStack } from '@navikt/ds-react'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import useCountries from '../../../../hooks/useCountries'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import styled from 'styled-components'
 import { Panel } from '../../../felles/Panel'
 import { useValutaer } from '../../../../hooks/useValutaer'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
-
-const Rad = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 1rem;
-    column-gap: 1rem;
-`
-const ArbeidIUtlandPanel = styled(Panel)`
-    @media screen and (max-width: 450px) {
-        padding-left: 0;
-        padding-right: 0;
-        border-left: none;
-        border-right: none;
-    }
-`
 
 interface Props {
     datoForDoedsfallet?: Date
@@ -73,9 +56,14 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             </SkjemaElement>
 
             {boddEllerArbeidetUtland === IValg.JA && (
-                <>
+                <VStack gap="4">
                     {fields.map((field: FieldArrayWithId, index: number) => (
-                        <ArbeidIUtlandPanel border key={field.id} className={'luft-under'}>
+                        <Panel
+                            borderColor={'border-info'}
+                            borderWidth={'0 0 0 4'}
+                            key={field.id}
+                            background={'surface-selected'}
+                        >
                             <Box maxWidth="14rem">
                                 <SkjemaElement>
                                     <RHFCombobox
@@ -106,24 +94,20 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                             </SkjemaElement>
 
                             <SkjemaElement>
-                                <Rad>
-                                    <div className={'kol'}>
-                                        <Datovelger
-                                            name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
-                                            label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
-                                            maxDate={datoForDoedsfallet || new Date()}
-                                            valgfri
-                                        />
-                                    </div>
-                                    <div className={'kol'}>
-                                        <Datovelger
-                                            name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
-                                            label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
-                                            maxDate={datoForDoedsfallet || new Date()}
-                                            valgfri
-                                        />
-                                    </div>
-                                </Rad>
+                                <VStack gap="4">
+                                    <Datovelger
+                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
+                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
+                                        maxDate={datoForDoedsfallet || new Date()}
+                                        valgfri
+                                    />
+                                    <Datovelger
+                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
+                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
+                                        maxDate={datoForDoedsfallet || new Date()}
+                                        valgfri
+                                    />
+                                </VStack>
                             </SkjemaElement>
 
                             <RHFSpoersmaalRadio
@@ -168,19 +152,26 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                             </SkjemaElement>
 
                             {fields.length > 1 && (
-                                <div style={{ textAlign: 'right' }}>
-                                    <Button variant={'secondary'} type={'button'} onClick={() => remove(index)}>
-                                        <DeleteFilled /> &nbsp;{t('knapp.fjern')}
+                                <div>
+                                    <Button
+                                        variant={'secondary'}
+                                        type={'button'}
+                                        onClick={() => remove(index)}
+                                        icon={<DeleteFilled />}
+                                    >
+                                        {t('knapp.fjern')}
                                     </Button>
                                 </div>
                             )}
-                        </ArbeidIUtlandPanel>
+                        </Panel>
                     ))}
 
-                    <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
-                        + {t('knapp.leggTilLand')}
-                    </Button>
-                </>
+                    <div>
+                        <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
+                            + {t('knapp.leggTilLand')}
+                        </Button>
+                    </div>
+                </VStack>
             )}
         </SkjemaGruppe>
     )

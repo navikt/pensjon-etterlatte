@@ -1,23 +1,30 @@
 import { Box } from '@navikt/ds-react'
 import { ComponentProps, ReactNode } from 'react'
-import { ResponsiveProp, SpacingScale } from '@navikt/ds-react/src/layout/utilities/types'
-interface PanelProps extends ComponentProps<"div">{
+import { ResponsiveProp, SpacingScale, SpaceDelimitedAttribute } from '@navikt/ds-react/src/layout/utilities/types'
+
+interface PanelProps extends ComponentProps<'div'> {
     children: ReactNode
-    border?: boolean
+    borderRadius?: boolean
+    borderColor?: 'border-default' | 'border-info'
+    borderWidth?: SpaceDelimitedAttribute<'0' | '1' | '2' | '3' | '4' | '5'>
     padding?: ResponsiveProp<SpacingScale>
+    background?: 'surface-default' | 'surface-selected'
 }
 export const Panel = ({
     children,
-    border = false,
+    borderRadius = false,
     padding = '4',
+    background = 'surface-default',
+    borderWidth = '0',
+    borderColor,
     ...props
 }: PanelProps) => (
     <Box
-        background={'surface-default'}
+        background={background}
         padding={padding}
-        borderColor={border ? 'border-default' : undefined}
-        borderWidth={border ? '1' : '0'}
-        borderRadius={border ? 'small' : undefined}
+        borderColor={borderColor}
+        borderWidth={borderWidth}
+        borderRadius={borderRadius ? 'small' : undefined}
         {...props}
     >
         {children}
