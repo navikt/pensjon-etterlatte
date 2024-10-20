@@ -13,6 +13,7 @@ import Bredde from '../../../../typer/bredde'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
+import { Panel } from '~components/felles/Panel'
 
 interface Props {
     lengde: number
@@ -72,7 +73,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     }, [ansettelsesforhold])
 
     return (
-        <>
+        <Panel borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
             {lengde > 1 && (
                 <Heading size={'small'}>{`${t('merOmSituasjonenDin.arbeidsforhold.arbeidssted')} ${
                     index + 1
@@ -205,14 +206,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             * */}
 
             {lengde > 1 && (
-                <div
-                    style={{
-                        textAlign: 'right',
-                        borderBottom: '1px solid grey',
-                        paddingBottom: '1rem',
-                        marginBottom: '1rem',
-                    }}
-                >
+                <div>
                     <Button
                         variant={'secondary'}
                         type={'button'}
@@ -224,7 +218,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     </Button>
                 </div>
             )}
-        </>
+        </Panel>
     )
 })
 
