@@ -12,7 +12,7 @@ const SamboerSkjema = () => {
 
     return (
         <SkjemaElement>
-            <Panel border>
+            <Panel borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
                 <SkjemaElement>
                     <Heading size={'small'}>{t('situasjonenDin.nySivilstatus.samboerskap.samboer.tittel')}</Heading>
                 </SkjemaElement>
