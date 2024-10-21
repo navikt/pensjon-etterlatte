@@ -1,4 +1,4 @@
-import { Bleed, Button, GuidePanel, HStack, VStack } from '@navikt/ds-react'
+import { Button, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
@@ -64,11 +64,6 @@ export const InntektsjusteringInnledning = () => {
                             <OppgittInntektAlert inntekt={eksisterendeInntekt} innloggetBruker={innloggetBruker} />
                         )}
 
-                        <Bleed marginInline={{ xs: '0', md: '10 0' }}>
-                            <GuidePanel>
-                                <SanityRikTekst text={innhold.veiledning?.[spraak]} />
-                            </GuidePanel>
-                        </Bleed>
                         <div>
                             <Button
                                 icon={<ArrowRightIcon aria-hidden />}
