@@ -3,7 +3,10 @@ import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../../sanity.types.ts'
+import {
+    FellesKomponenter,
+    InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold,
+} from '../../sanity.types.ts'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
@@ -11,25 +14,12 @@ import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
 import { Alder } from '../../types/person.ts'
-import { format, Locale } from 'date-fns'
-import { Spraak } from '../../common/spraak/spraak.ts'
-import { nb, nn, enGB } from 'date-fns/locale'
+import { format } from 'date-fns'
+import { spraakTilDateFnsLocale } from '../../common/spraak/spraak.ts'
 import { apiURL, poster } from '../../utils/api.ts'
 import { useState } from 'react'
 import { FeilIAPIKall } from './FeilIAPIKall.tsx'
-
-const spraakTilDateFnsLocale = (spraak: Spraak): Locale => {
-    switch (spraak) {
-        case Spraak.BOKMAAL:
-            return nb
-        case Spraak.NYNORSK:
-            return nn
-        case Spraak.ENGELSK:
-            return enGB
-        default:
-            return nb
-    }
-}
+import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()
@@ -47,22 +37,32 @@ export const InntektsjusteringOppsummering = () => {
     } = useInnloggetInnbygger()
 
     const {
-        innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innhold: fellesKomponenterInnhold,
+        error: fellesKomponenterInnholdError,
+        isLoading: fellesKomponenterInnholdIsLoading,
+    } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
+
+    const {
+        innhold: inntektsjusteringOppsummeringInnhold,
+        error: inntektsjusteringOppsummeringInnholdError,
+        isLoading: inntektsjusteringOppsummeringInnholdIsLoading,
     } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>('*[_type == "inntektsjusteringOppsummering"]')
 
     if (innloggetBrukerError && !innloggetBrukerIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    if (innholdIsLoading) {
-        return <Loader />
-    }
-    if (innholdError) {
+    if (fellesKomponenterInnholdError && !fellesKomponenterInnholdIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
-    if (!innhold?.skjemaSammendrag) {
+
+    if (inntektsjusteringOppsummeringInnholdIsLoading) {
+        return <Loader />
+    }
+    if (inntektsjusteringOppsummeringInnholdError) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+    if (!inntektsjusteringOppsummeringInnhold?.skjemaSammendrag) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -78,34 +78,12 @@ export const InntektsjusteringOppsummering = () => {
         setLaster(false)
     }
 
-    const {
-        tittel,
-        endreSvarLenke,
-        skalGaaAvMedAlderspensjon,
-        datoForAaGaaAvMedAlderspensjon,
-        arbeidsinntekt,
-        naeringsinntekt,
-        AFPInntekt,
-        AFPTjenesteordning,
-        inntektFraUtland,
-    } = innhold.skjemaSammendrag
-
-    const velgTekstForSkalGaaAvMedAlderspensjon = (
-        skalGaaAvMedAlderspensjonValue: SkalGaaAvMedAlderspensjon
-    ): string | undefined => {
-        switch (skalGaaAvMedAlderspensjonValue) {
-            case SkalGaaAvMedAlderspensjon.JA:
-                return skalGaaAvMedAlderspensjon?.value?.ja?.[spraak]
-            case SkalGaaAvMedAlderspensjon.NEI:
-                return skalGaaAvMedAlderspensjon?.value?.nei?.[spraak]
-            case SkalGaaAvMedAlderspensjon.VET_IKKE:
-                return skalGaaAvMedAlderspensjon?.value?.vetIkke?.[spraak]
-        }
-    }
+    const { tittel, endreSvarLenke } = inntektsjusteringOppsummeringInnhold.skjemaSammendrag
 
     return (
         !!innloggetBruker &&
-        !!innhold && (
+        !!fellesKomponenterInnhold &&
+        !!inntektsjusteringOppsummeringInnhold && (
             <main>
                 <HStack justify="center" padding="8">
                     <VStack gap="6" maxWidth="42.5rem">
@@ -113,7 +91,7 @@ export const InntektsjusteringOppsummering = () => {
 
                         <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                             <GuidePanel>
-                                <SanityRikTekst text={innhold.veiledning?.[spraak]} />
+                                <SanityRikTekst text={inntektsjusteringOppsummeringInnhold.veiledning?.[spraak]} />
                             </GuidePanel>
                         </Bleed>
 
@@ -132,22 +110,28 @@ export const InntektsjusteringOppsummering = () => {
                                         <FormSummary.Answer>
                                             <FormSummary.Label>
                                                 {finnAlder(innloggetBruker) === Alder.FEMTI_SYV_TIL_SEKSTI_SEKS
-                                                    ? skalGaaAvMedAlderspensjon?.label?.femtiSyvTilSekstiSeksAar?.[
-                                                          spraak
-                                                      ]
-                                                    : skalGaaAvMedAlderspensjon?.label?.sekstiSyvAar?.[spraak]}
+                                                    ? fellesKomponenterInnhold?.sammendragAvInntekt
+                                                          ?.skalGaaAvMedAlderspensjon?.label
+                                                          ?.femtiSyvTilSekstiSeksAar?.[spraak]
+                                                    : fellesKomponenterInnhold?.sammendragAvInntekt
+                                                          ?.skalGaaAvMedAlderspensjon?.label?.sekstiSyvAar?.[spraak]}
                                             </FormSummary.Label>
                                             <FormSummary.Value>
                                                 {!!inntekt.skalGaaAvMedAlderspensjon &&
                                                     velgTekstForSkalGaaAvMedAlderspensjon(
-                                                        inntekt.skalGaaAvMedAlderspensjon
+                                                        inntekt.skalGaaAvMedAlderspensjon,
+                                                        fellesKomponenterInnhold,
+                                                        spraak
                                                     )}
                                             </FormSummary.Value>
                                         </FormSummary.Answer>
                                         {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
                                             <FormSummary.Answer>
                                                 <FormSummary.Label>
-                                                    {datoForAaGaaAvMedAlderspensjon?.label?.[spraak]}
+                                                    {
+                                                        fellesKomponenterInnhold?.sammendragAvInntekt
+                                                            ?.datoForAaGaaAvMedAlderspensjon?.label?.[spraak]
+                                                    }
                                                 </FormSummary.Label>
                                                 <FormSummary.Value>
                                                     {!!inntekt.datoForAaGaaAvMedAlderspensjon &&
@@ -160,30 +144,51 @@ export const InntektsjusteringOppsummering = () => {
                                     </>
                                 )}
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>{arbeidsinntekt?.label?.[spraak]}</FormSummary.Label>
+                                    <FormSummary.Label>
+                                        {fellesKomponenterInnhold?.sammendragAvInntekt?.arbeidsinntekt?.label?.[spraak]}
+                                    </FormSummary.Label>
                                     <FormSummary.Value>{inntekt.arbeidsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
 
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>{naeringsinntekt?.label?.[spraak]}</FormSummary.Label>
+                                    <FormSummary.Label>
+                                        {
+                                            fellesKomponenterInnhold?.sammendragAvInntekt?.naeringsinntekt?.label?.[
+                                                spraak
+                                            ]
+                                        }
+                                    </FormSummary.Label>
                                     <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                                 {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
                                     <FormSummary.Answer>
-                                        <FormSummary.Label>{AFPInntekt?.label?.[spraak]}</FormSummary.Label>
+                                        <FormSummary.Label>
+                                            {fellesKomponenterInnhold?.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}
+                                        </FormSummary.Label>
                                         <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 
                                 {!!inntekt.AFPInntekt && (
                                     <FormSummary.Answer>
-                                        <FormSummary.Label>{AFPTjenesteordning?.label?.[spraak]}</FormSummary.Label>
+                                        <FormSummary.Label>
+                                            {
+                                                fellesKomponenterInnhold?.sammendragAvInntekt?.AFPTjenesteordning
+                                                    ?.label?.[spraak]
+                                            }
+                                        </FormSummary.Label>
                                         <FormSummary.Value>{inntekt.AFPTjenesteordning}</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 
                                 <FormSummary.Answer>
-                                    <FormSummary.Label>{inntektFraUtland?.label?.[spraak]}</FormSummary.Label>
+                                    <FormSummary.Label>
+                                        {
+                                            fellesKomponenterInnhold?.sammendragAvInntekt?.inntektFraUtland?.label?.[
+                                                spraak
+                                            ]
+                                        }
+                                    </FormSummary.Label>
                                     <FormSummary.Value>{inntekt.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>

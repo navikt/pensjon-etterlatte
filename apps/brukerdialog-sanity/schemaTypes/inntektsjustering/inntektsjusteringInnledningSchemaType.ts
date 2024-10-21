@@ -18,6 +18,31 @@ export const inntektsjusteringInnledningSchemaType = defineType({
             fields: spraakBlockFields,
         }),
         defineField({
+            name: 'oppgittInntektAlert',
+            title: 'Oppgitt inntekt alert',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'tittel',
+                    title: 'Tittel',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+                defineField({
+                    name: 'innhold',
+                    title: 'Innhold',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+                defineField({
+                    name: 'inntektIkkeKorrekt',
+                    title: 'Inntekt er ikke korrekt',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+            ],
+        }),
+        defineField({
             name: 'veiledning',
             title: 'Veiledning',
             type: 'object',

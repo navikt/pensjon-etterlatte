@@ -6,21 +6,51 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInnledning as InntektsjusteringInnledningInnhold } from '../../sanity.types.ts'
+import useSWR, { SWRResponse } from 'swr'
+import { apiURL } from '../../utils/api.ts'
+import { Inntekt } from '../../types/inntektsjustering.ts'
+import { useInntektDispatch } from '../../common/inntekt/InntektContext.tsx'
+import { useEffect } from 'react'
+import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { OppgittInntektAlert } from './OppgittInntektAlert.tsx'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringInnledningInnhold>(
-        '*[_type == "inntektsjusteringInnledning"]'
+    const inntektDispatch = useInntektDispatch()
+
+    const { data: eksisterendeInntekt }: SWRResponse<Inntekt, boolean, boolean> = useSWR(
+        `${apiURL}/api/inntektsjustering`
     )
 
-    if (error && !isLoading) {
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    } = useInnloggetInnbygger()
+
+    const {
+        innhold,
+        error: innholdError,
+        isLoading: innholdIsLoading,
+    } = useSanityInnhold<InntektsjusteringInnledningInnhold>('*[_type == "inntektsjusteringInnledning"]')
+
+    useEffect(() => {
+        if (eksisterendeInntekt) inntektDispatch.setInntekt(eksisterendeInntekt)
+    }, [eksisterendeInntekt, inntektDispatch])
+
+    if (innholdError && !innholdIsLoading) {
+        return <Navigate to="/system-utilgjengelig" />
+    }
+
+    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
     return (
+        !!innloggetBruker &&
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8">
@@ -29,6 +59,10 @@ export const InntektsjusteringInnledning = () => {
                         <div>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>
+
+                        {!!eksisterendeInntekt && (
+                            <OppgittInntektAlert inntekt={eksisterendeInntekt} innloggetBruker={innloggetBruker} />
+                        )}
 
                         <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                             <GuidePanel>
