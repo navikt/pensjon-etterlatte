@@ -208,7 +208,7 @@ export const fellesKomponenterSchemaType = defineType({
                                 }),
                                 defineField({
                                     name: 'sekstiSyvAar',
-                                    title: '66 år',
+                                    title: '67 år',
                                     type: 'object',
                                     fields: spraakStringFields,
                                 }),
