@@ -7,6 +7,7 @@ import no.nav.etterlatte.internal.Metrikker
 import no.nav.etterlatte.shuttingDown
 import org.slf4j.LoggerFactory
 import soeknad.StatistikkRepository
+import soeknad.Status
 import java.time.Duration
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
@@ -73,6 +74,22 @@ class PubliserMetrikkerJobb(
                     .builder("soknad_kilde") { antall.toDouble() }
                     .description("Kilden søknadene er fra")
                     .tag("kilde", kilde)
+                    .register(registry)
+            }
+
+        db.soeknaderMedHendelseStatus(Status.LAGRETKLADD)
+            ?.also { antall ->
+                Gauge
+                    .builder("soknader_lagretkladd") { antall.toDouble() }
+                    .description("Søknader som har vært lagret som kladd")
+                    .register(registry)
+            }
+
+        db.soeknaderMedHendelseStatus(Status.FERDIGSTILT)
+            ?.also { antall ->
+                Gauge
+                    .builder("soknader_ferdigstilt") { antall.toDouble() }
+                    .description("Søknader som har vært lagret som ferdigstilt")
                     .register(registry)
             }
 
