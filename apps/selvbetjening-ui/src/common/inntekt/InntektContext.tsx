@@ -7,12 +7,10 @@ interface InntektDispatcher {
     setInntekt: (inntekt: Inntekt) => void
 }
 
-// TODO: hente denne fra API når det er på plass
 const inntektContext = createContext(inntektDefaultValues)
 const inntektDispatch = createContext({} as InntektDispatcher)
 
 const ProvideInntektContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    // TODO: hente denne fra API når det er på plass
     const [inntekt, setInntekt] = useState<Inntekt>(inntektDefaultValues)
 
     const dispatcher: InntektDispatcher = {

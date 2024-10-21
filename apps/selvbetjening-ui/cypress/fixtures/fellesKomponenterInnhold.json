@@ -1,187 +1,5 @@
 [
   {
-    "spraakVelger": {
-      "label": {
-        "NN": "Vel språk",
-        "NB": "Velg språk",
-        "EN": "Choose language"
-      }
-    },
-    "_createdAt": "2024-09-13T11:57:45Z",
-    "_id": "06db7243-1201-45b1-a52d-937bfce5934c",
-    "_updatedAt": "2024-09-16T13:42:28Z",
-    "navigasjonMeny": {
-      "knapper": {
-        "fortsettSenereKnapp": {
-          "NN": "Hald seinare fram",
-          "NB": "Fortsett senere",
-          "EN": "Continue later"
-        },
-        "sendSoeknadKnapp": {
-          "NB": "Send søknad",
-          "EN": "Send application",
-          "NN": "Send søknad"
-        },
-        "forrigeStegKnapp": {
-          "NN": "Førre steig",
-          "NB": "Forrige steg",
-          "EN": "Previous step"
-        },
-        "nesteStegKnapp": {
-          "NN": "Neste steg",
-          "NB": "Neste steg",
-          "EN": "Next step"
-        },
-        "slettSoeknadenKnapp": {
-          "NN": "Slett søknaden",
-          "NB": "Slett søknaden",
-          "EN": "Delete the application"
-        }
-      },
-      "sistLagret": {
-        "NN": "Sist lagra",
-        "NB": "Sist lagret",
-        "EN": "Last saved"
-      }
-    },
-    "skjemaTittel": {
-      "EN": "Report income for the next year",
-      "NN": "Meld frå om inntekt til neste år",
-      "NB": "Meld fra om inntekt til neste år"
-    },
-    "knappMeny": {
-      "knapper": {
-        "slettSoeknadenKnapp": {
-          "NN": "Slett søknaden",
-          "NB": "Slett søknaden",
-          "EN": "Delete the application"
-        },
-        "fortsettSenereKnapp": {
-          "EN": "Continue later",
-          "NN": "Hald seinare fram",
-          "NB": "Fortsett senere"
-        },
-        "sendSoeknadKnapp": {
-          "NN": "Send søknad",
-          "NB": "Send søknad",
-          "EN": " Send application"
-        },
-        "forrigeStegKnapp": {
-          "NN": "Førre steig",
-          "NB": "Forrige steg",
-          "EN": "Previous step"
-        },
-        "nesteStegKnapp": {
-          "NN": "Neste steg",
-          "NB": "Neste steg",
-          "EN": " Next step"
-        }
-      },
-      "sistLagret": {
-        "NN": "Sist lagra",
-        "NB": "Sist lagret",
-        "EN": "Last saved"
-      }
-    },
-    "skjemaProgresjon": {
-      "visAlleSteg": {
-        "NN": "Vis alle steig",
-        "NB": "Vis alle steg",
-        "EN": "Show all steps"
-      },
-      "stegXAvX": {
-        "av": {
-          "EN": "of",
-          "NN": "av",
-          "NB": "av"
-        },
-        "steg": {
-          "NN": "Steg",
-          "NB": "Steg",
-          "EN": "Step"
-        }
-      },
-      "skjulAlleSteg": {
-        "NN": "Skjul alle steig",
-        "NB": "Skjul alle steg",
-        "EN": "Hide all steps"
-      },
-      "stegLabels": {
-        "steg2": {
-          "NN": "Inntekt til neste år",
-          "NB": "Inntekt til neste år",
-          "EN": "Income for next year"
-        },
-        "steg3": {
-          "NN": "Oppsummering",
-          "NB": "Oppsummering",
-          "EN": "Summary"
-        },
-        "steg4": {
-          "NB": "Kvittering",
-          "EN": "Receipt",
-          "NN": "Kvittering"
-        },
-        "steg1": {
-          "NN": "Innleiing",
-          "NB": "Innledning",
-          "EN": "Introduction"
-        }
-      }
-    },
-    "_rev": "UoZMYaFjA2jA0ws9rdjNo7",
-    "_type": "fellesKomponenter",
-    "dokumentTittel": "v1"
-  },
-  {
-    "spraakVelger": {
-      "label": {
-        "NB": "Velg språk",
-        "EN": "Choose language",
-        "NN": "Vel språk"
-      }
-    },
-    "_createdAt": "2024-09-13T11:57:45Z",
-    "_updatedAt": "2024-09-16T13:42:34Z",
-    "navigasjonMeny": {
-      "knapper": {
-        "nesteStegKnapp": {
-          "NN": "Neste steg",
-          "NB": "Neste steg",
-          "EN": "Next step"
-        },
-        "slettSoeknadenKnapp": {
-          "NN": "Slett søknaden",
-          "NB": "Slett søknaden",
-          "EN": "Delete the application"
-        },
-        "fortsettSenereKnapp": {
-          "NN": "Hald seinare fram",
-          "NB": "Fortsett senere",
-          "EN": "Continue later"
-        },
-        "sendSoeknadKnapp": {
-          "NN": "Send søknad",
-          "NB": "Send søknad",
-          "EN": "Send application"
-        },
-        "forrigeStegKnapp": {
-          "NN": "Førre steig",
-          "NB": "Forrige steg",
-          "EN": "Previous step"
-        }
-      },
-      "sistLagret": {
-        "NN": "Sist lagra",
-        "NB": "Sist lagret",
-        "EN": "Last saved"
-      }
-    },
-    "skjemaTittel": {
-      "NN": "Meld frå om inntekt til neste år",
-      "NB": "Meld fra om inntekt til neste år",
-      "EN": "Report income for the next year"
-    },
     "skjemaProgresjon": {
       "visAlleSteg": {
         "NN": "Vis alle steig",
@@ -201,36 +19,159 @@
         }
       },
       "skjulAlleSteg": {
+        "NB": "Skjul alle steg",
         "EN": "Hide all steps",
-        "NN": "Skjul alle steig",
-        "NB": "Skjul alle steg"
+        "NN": "Skjul alle steig"
       },
       "stegLabels": {
-        "steg4": {
-          "NN": "Kvittering",
-          "NB": "Kvittering",
-          "EN": "Receipt"
-        },
         "steg1": {
-          "NN": "Innleiing",
           "NB": "Innledning",
-          "EN": "Introduction"
+          "EN": "Introduction",
+          "NN": "Innleiing"
         },
         "steg2": {
+          "EN": "Income for next year",
           "NN": "Inntekt til neste år",
-          "NB": "Inntekt til neste år",
-          "EN": "Income for next year"
+          "NB": "Inntekt til neste år"
         },
         "steg3": {
+          "NN": "Oppsummering",
           "NB": "Oppsummering",
-          "EN": "Summary",
-          "NN": "Oppsummering"
+          "EN": "Summary"
+        },
+        "steg4": {
+          "EN": "Receipt",
+          "NN": "Kvittering",
+          "NB": "Kvittering"
         }
       }
     },
-    "_rev": "9b3ae284-9dfb-473d-ab66-b677c451ccf2",
-    "_type": "fellesKomponenter",
+    "_rev": "mvya9zzDXWakVjnX5GKPrm",
     "dokumentTittel": "v1",
-    "_id": "drafts.06db7243-1201-45b1-a52d-937bfce5934c"
+    "navigasjonMeny": {
+      "knapper": {
+        "fortsettSenereKnapp": {
+          "NN": "Hald seinare fram",
+          "NB": "Fortsett senere",
+          "EN": "Continue later"
+        },
+        "sendSoeknadKnapp": {
+          "NN": "Send til NAV",
+          "NB": "Send til NAV",
+          "EN": "Send to NAV"
+        },
+        "forrigeStegKnapp": {
+          "NN": "Førre steig",
+          "NB": "Forrige steg",
+          "EN": "Previous step"
+        },
+        "nesteStegKnapp": {
+          "NB": "Neste steg",
+          "EN": "Next step",
+          "NN": "Neste steg"
+        },
+        "slettSoeknadenKnapp": {
+          "NN": "Slett søknaden",
+          "NB": "Slett søknaden",
+          "EN": "Delete the application"
+        }
+      },
+      "sistLagret": {
+        "NB": "Sist lagret",
+        "EN": "Last saved",
+        "NN": "Sist lagra"
+      }
+    },
+    "skjemaTittel": {
+      "NN": "Meld frå om inntekt til neste år",
+      "NB": "Meld fra om inntekt til neste år",
+      "EN": "Report income for the next year"
+    },
+    "spraakVelger": {
+      "label": {
+        "NN": "Vel språk",
+        "NB": "Velg språk",
+        "EN": "Choose language"
+      }
+    },
+    "sammendragAvInntekt": {
+      "inntektFraUtland": {
+        "label": {
+          "NN": "Dette har du oppgitt som inntekter fra utland",
+          "NB": "Dette har du oppgitt som inntekter fra utland",
+          "EN": "Dette har du oppgitt som inntekter fra utland"
+        }
+      },
+      "skalGaaAvMedAlderspensjon": {
+        "value": {
+          "nei": {
+            "NN": "Nei",
+            "NB": "Nei",
+            "EN": "Nei"
+          },
+          "ja": {
+            "NN": "Ja",
+            "NB": "Ja",
+            "EN": "Ja"
+          },
+          "vetIkke": {
+            "NN": "Vet ikke",
+            "NB": "Vet ikke",
+            "EN": "Vet ikke"
+          }
+        },
+        "label": {
+          "sekstiSyvAar": {
+            "EN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
+            "NN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
+            "NB": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
+          },
+          "femtiSyvTilSekstiSeksAar": {
+            "NN": "Skal du gå av med alderspensjon til neste år? ",
+            "NB": "Skal du gå av med alderspensjon til neste år? ",
+            "EN": "Skal du gå av med alderspensjon til neste år? "
+          }
+        }
+      },
+      "datoForAaGaaAvMedAlderspensjon": {
+        "label": {
+          "EN": "Når planlegger du å gå av med alderspensjon? ",
+          "NN": "Når planlegger du å gå av med alderspensjon? ",
+          "NB": "Når planlegger du å gå av med alderspensjon? "
+        }
+      },
+      "AFPInntekt": {
+        "label": {
+          "NN": "Dette har du oppgitt som AFP",
+          "NB": "Dette har du oppgitt som AFP",
+          "EN": "Dette har du oppgitt som AFP"
+        }
+      },
+      "AFPTjenesteordning": {
+        "label": {
+          "NN": "Her får du tjenestepensjonsordning fra",
+          "NB": "Her får du tjenestepensjonsordning fra",
+          "EN": "Her får du tjenestepensjonsordning fra"
+        }
+      },
+      "naeringsinntekt": {
+        "label": {
+          "NB": "Dette har du oppgitt som næringsinntekt",
+          "EN": "Dette har du oppgitt som næringsinntekt",
+          "NN": "Dette har du oppgitt som næringsinntekt"
+        }
+      },
+      "arbeidsinntekt": {
+        "label": {
+          "NN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
+          "NB": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
+          "EN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger"
+        }
+      }
+    },
+    "_id": "06db7243-1201-45b1-a52d-937bfce5934c",
+    "_updatedAt": "2024-10-21T11:02:49Z",
+    "_createdAt": "2024-09-13T11:57:45Z",
+    "_type": "fellesKomponenter"
   }
 ]

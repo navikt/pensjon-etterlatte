@@ -384,6 +384,81 @@ export type FellesKomponenter = {
             }
         }
     }
+    sammendragAvInntekt?: {
+        skalGaaAvMedAlderspensjon?: {
+            label?: {
+                femtiSyvTilSekstiSeksAar?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                sekstiSyvAar?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+            value?: {
+                ja?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                nei?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                vetIkke?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+        }
+        datoForAaGaaAvMedAlderspensjon?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        arbeidsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        naeringsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPInntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPTjenesteordning?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        inntektFraUtland?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
 }
 
 export type InntektsjusteringKvittering = {
@@ -602,79 +677,6 @@ export type InntektsjusteringOppsummering = {
         }
         endreSvarLenke?: {
             tekst?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        skalGaaAvMedAlderspensjon?: {
-            label?: {
-                femtiSyvTilSekstiSeksAar?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                sekstiSyvAar?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-            }
-            value?: {
-                ja?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                nei?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                vetIkke?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-            }
-        }
-        datoForAaGaaAvMedAlderspensjon?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        arbeidsinntekt?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        naeringsinntekt?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        AFPInntekt?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        AFPTjenesteordning?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        inntektFraUtland?: {
-            label?: {
                 NB?: string
                 NN?: string
                 EN?: string
@@ -2918,6 +2920,23 @@ export type InntektsjusteringInnledning = {
             _type: 'block'
             _key: string
         }>
+    }
+    oppgittInntektAlert?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        innhold?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        inntektIkkeKorrekt?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
     }
     veiledning?: {
         NB?: Array<{
