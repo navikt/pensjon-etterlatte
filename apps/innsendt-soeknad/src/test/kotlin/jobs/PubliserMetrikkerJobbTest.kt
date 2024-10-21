@@ -34,6 +34,8 @@ internal class PubliserMetrikkerJobbTest {
             listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeOMS, "34"))
         every { dbMock.kilder() } returns mapOf(kildeBP to 40L, kildeOMS to 25L)
         every { dbMock.ukategorisert() } returns listOf(1L)
+        every { dbMock.soeknaderMedHendelseStatus(Status.LAGRETKLADD) } returns 1500
+        every { dbMock.soeknaderMedHendelseStatus(Status.FERDIGSTILT) } returns 1100
     }
 
     private fun metrikker(metrikk: String) = testreg.get(metrikk).gauges()
@@ -54,8 +56,9 @@ internal class PubliserMetrikkerJobbTest {
         hentVerdi(metrikker("soknad_tilstand"), mapOf("tilstand" to Status.SENDT.name, "kilde" to kildeOMS)) shouldBe 34
         verify(exactly = 1) { dbMock.kilder() }
         hentVerdi(metrikker("soknad_kilde"), mapOf("kilde" to kildeBP)) shouldBe 40
-        hentVerdi(metrikker("soknad_kilde"), mapOf("kilde" to kildeOMS)) shouldBe 25
         verify(exactly = 1) { dbMock.ukategorisert() }
+        hentVerdi(metrikker("soknader_ferdigstilt")) shouldBe 1100
+        hentVerdi(metrikker("soknader_lagretkladd")) shouldBe 1500
     }
 }
 

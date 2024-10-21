@@ -701,6 +701,23 @@ internal class SoeknadDaoIntegrationTest {
         assertEquals(1, kilder[kildeOMS])
     }
 
+    @Test
+    fun `soeknaderMedHendelseStatus skal telle antall soeknader med hendelse for gitt status`() {
+        val soeknad = LagretSoeknad(2004, "Ukategorisert", "{}")
+        val soeknad2 = LagretSoeknad(2005, "Ukategorisert", "{}")
+        lagreSoeknaderMedOpprettetTidspunkt(
+            soeknader = listOf(
+                SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now(), kildeBarnepensjon),
+                SoeknadTest(soeknad2.id, soeknad2.fnr, soeknad2.payload, ZonedDateTime.now(), kildeBarnepensjon),
+            ),
+            opprettKladdHendelse = true
+        )
+        db.soeknadSendt(soeknad2.id)
+
+        db.soeknaderMedHendelseStatus(Status.LAGRETKLADD) shouldBe 2
+        db.soeknaderMedHendelseStatus(Status.SENDT)
+    }
+
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
         dataSource.connection.use { conn ->
             val rs =
