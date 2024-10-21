@@ -9,22 +9,9 @@ import { Navigate } from 'react-router-dom'
 import { Alert, BodyShort, Heading, Label, VStack } from '@navikt/ds-react'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
-import { format, Locale } from 'date-fns'
-import { Spraak } from '../../common/spraak/spraak.ts'
-import { enGB, nb, nn } from 'date-fns/locale'
-
-const spraakTilDateFnsLocale = (spraak: Spraak): Locale => {
-    switch (spraak) {
-        case Spraak.BOKMAAL:
-            return nb
-        case Spraak.NYNORSK:
-            return nn
-        case Spraak.ENGELSK:
-            return enGB
-        default:
-            return nb
-    }
-}
+import { format } from 'date-fns'
+import { spraakTilDateFnsLocale } from '../../common/spraak/spraak.ts'
+import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
 
 export const OppgittInntektAlert = ({
     inntekt,
@@ -55,21 +42,6 @@ export const OppgittInntektAlert = ({
         return <Navigate to="/system-utilgjengelig" />
     }
 
-    const velgTekstForSkalGaaAvMedAlderspensjon = (
-        skalGaaAvMedAlderspensjonValue: SkalGaaAvMedAlderspensjon
-    ): string | undefined => {
-        switch (skalGaaAvMedAlderspensjonValue) {
-            case SkalGaaAvMedAlderspensjon.JA:
-                return fellesKomponenterInnhold?.sammendragAvInntekt?.skalGaaAvMedAlderspensjon?.value?.ja?.[spraak]
-            case SkalGaaAvMedAlderspensjon.NEI:
-                return fellesKomponenterInnhold?.sammendragAvInntekt?.skalGaaAvMedAlderspensjon?.value?.nei?.[spraak]
-            case SkalGaaAvMedAlderspensjon.VET_IKKE:
-                return fellesKomponenterInnhold?.sammendragAvInntekt?.skalGaaAvMedAlderspensjon?.value?.vetIkke?.[
-                    spraak
-                ]
-        }
-    }
-
     return (
         !!fellesKomponenterInnhold &&
         !!inntektsjusteringInnledningInnhold && (
@@ -94,7 +66,11 @@ export const OppgittInntektAlert = ({
                                     </Label>
                                     <BodyShort>
                                         {!!inntekt.skalGaaAvMedAlderspensjon &&
-                                            velgTekstForSkalGaaAvMedAlderspensjon(inntekt.skalGaaAvMedAlderspensjon)}
+                                            velgTekstForSkalGaaAvMedAlderspensjon(
+                                                inntekt.skalGaaAvMedAlderspensjon,
+                                                fellesKomponenterInnhold,
+                                                spraak
+                                            )}
                                     </BodyShort>
                                 </div>
                                 {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
