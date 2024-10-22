@@ -705,7 +705,7 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknadSendt(soeknad2.id)
 
         db.soeknaderMedHendelseStatus(Status.LAGRETKLADD) shouldBe 2
-        db.soeknaderMedHendelseStatus(Status.SENDT)
+        db.soeknaderMedHendelseStatus(Status.SENDT) shouldBe 1
     }
 
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
