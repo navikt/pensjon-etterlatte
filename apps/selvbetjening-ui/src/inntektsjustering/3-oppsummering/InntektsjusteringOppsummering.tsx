@@ -165,11 +165,11 @@ export const InntektsjusteringOppsummering = () => {
                                         <FormSummary.Label>
                                             {fellesKomponenterInnhold?.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}
                                         </FormSummary.Label>
-                                        <FormSummary.Value>{inntekt.AFPInntekt} kr</FormSummary.Value>
+                                        <FormSummary.Value>{inntekt.afpInntekt} kr</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 
-                                {!!inntekt.AFPInntekt && (
+                                {!!inntekt.afpInntekt && (
                                     <FormSummary.Answer>
                                         <FormSummary.Label>
                                             {
@@ -177,7 +177,7 @@ export const InntektsjusteringOppsummering = () => {
                                                     ?.label?.[spraak]
                                             }
                                         </FormSummary.Label>
-                                        <FormSummary.Value>{inntekt.AFPTjenesteordning}</FormSummary.Value>
+                                        <FormSummary.Value>{inntekt.afpTjenesteordning}</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 

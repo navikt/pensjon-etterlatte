@@ -166,16 +166,16 @@ export const SekstiSyvAarSkjema = () => {
                             </VStack>
 
                             <ControlledInntektTextField
-                                name="AFPInntekt"
+                                name="afpInntekt"
                                 control={control}
                                 label={AFPInntekt?.label?.[spraak]}
                                 description={AFPInntekt?.description?.[spraak]}
                             />
 
-                            {!!watch('AFPInntekt') && (
+                            {!!watch('afpInntekt') && (
                                 <Box maxWidth="25rem">
                                     <TextField
-                                        {...register('AFPTjenesteordning', {
+                                        {...register('afpTjenesteordning', {
                                             required: {
                                                 value: true,
                                                 message:
@@ -185,7 +185,7 @@ export const SekstiSyvAarSkjema = () => {
                                         })}
                                         label={AFPTjenestepensjonordning?.label?.[spraak]}
                                         description={AFPTjenestepensjonordning?.description?.[spraak]}
-                                        error={errors.AFPTjenesteordning?.message}
+                                        error={errors.afpTjenesteordning?.message}
                                     />
                                 </Box>
                             )}

@@ -4,8 +4,8 @@ export interface Inntekt {
     arbeidsinntekt: number
     naeringsinntekt: number
     inntektFraUtland: number
-    AFPInntekt: number
-    AFPTjenesteordning?: string
+    afpInntekt: number
+    afpTjenesteordning?: string
 }
 
 export enum SkalGaaAvMedAlderspensjon {
@@ -20,6 +20,6 @@ export const inntektDefaultValues: Inntekt = {
     arbeidsinntekt: 0,
     naeringsinntekt: 0,
     inntektFraUtland: 0,
-    AFPInntekt: 0,
-    AFPTjenesteordning: undefined,
+    afpInntekt: 0,
+    afpTjenesteordning: undefined,
 }
