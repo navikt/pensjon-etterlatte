@@ -41,7 +41,6 @@ export const RHFCombobox = ({ name, label, options, rules, required = true, ...r
                         }}
                         onBlur={onBlur}
                         error={errorMsg}
-                        shouldAutocomplete
                     />
                 )}
             />
