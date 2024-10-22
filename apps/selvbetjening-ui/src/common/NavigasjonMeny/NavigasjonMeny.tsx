@@ -30,7 +30,7 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLa
                         variant="secondary"
                         icon={<ArrowLeftIcon aria-hidden />}
                         iconPosition="left"
-                        onClick={() => navigate(`/inntektsjustering/${tilbakePath}`)}
+                        onClick={() => navigate(`/inntekt/${tilbakePath}`)}
                     >
                         {innhold.navigasjonMeny?.knapper?.forrigeStegKnapp?.[spraak]}
                     </Button>

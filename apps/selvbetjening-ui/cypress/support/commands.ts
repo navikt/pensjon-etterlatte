@@ -1,6 +1,6 @@
 import '@testing-library/cypress/add-commands'
 
-export const apiUrl = 'http://localhost:8080/selvbetjening/api'
+export const apiUrl = 'http://localhost:8080/omstillingsstonad/api'
 
 Cypress.Commands.add('testUniversellUtforming', () => {
     cy.injectAxe()
@@ -20,7 +20,7 @@ Cypress.Commands.add('lastInntektsjusteringInnledning', () => {
         { fixture: 'inntektsjusteringInnledningInnhold' }
     ).as('inntektsjusteringInnledningInnhold')
 
-    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/innledning')
+    cy.visit('http://localhost:5173/omstillingsstonad/inntekt/innledning')
 
     cy.wait(['@fellesKomponenterInnhold', '@innloggetInnbygger', '@inntektsjusteringInnledningInnhold'])
 })
@@ -38,7 +38,7 @@ Cypress.Commands.add('lastInntektsjusteringInntektTilNesteAar', () => {
         { fixture: 'inntektsjusteringInntektTilNesteAarInnhold' }
     ).as('inntektsjusteringInntektTilNesteAarInnhold')
 
-    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/inntekt-til-neste-aar')
+    cy.visit('http://localhost:5173/omstillingsstonad/inntekt/inntekt-til-neste-aar')
 
     cy.wait(['@fellesKomponenterInnhold', '@innloggetInnbygger', '@inntektsjusteringInntektTilNesteAarInnhold'])
 })
@@ -61,7 +61,7 @@ Cypress.Commands.add('lastInntetktsjusteringOppsummering', () => {
         { fixture: 'inntektsjusteringOppsummeringInnhold' }
     ).as('inntektsjusteringOppsummeringInnhold')
 
-    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/oppsummering')
+    cy.visit('http://localhost:5173/omstillingsstonad/inntekt/oppsummering')
 
     cy.wait(['@fellesKomponenterInnhold', '@innloggetInnbygger', '@inntektsjusteringOppsummeringInnhold'])
 })
@@ -76,7 +76,7 @@ Cypress.Commands.add('lastInntektsjusteringKvittering', () => {
         { fixture: 'inntektsjusteringKvitteringInnhold' }
     ).as('inntektsjusteringKvitteringInnhold')
 
-    cy.visit('http://localhost:5173/selvbetjening/inntektsjustering/kvittering')
+    cy.visit('http://localhost:5173/omstillingsstonad/inntekt/kvittering')
 
     cy.wait(['@fellesKomponenterInnhold', '@inntektsjusteringKvitteringInnhold'])
 })

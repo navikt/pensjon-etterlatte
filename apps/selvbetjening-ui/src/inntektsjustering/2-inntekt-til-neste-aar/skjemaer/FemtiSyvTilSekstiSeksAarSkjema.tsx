@@ -51,7 +51,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
 
     const onInntektSubmit = (inntekt: Inntekt) => {
         inntektDispatch.setInntekt(inntekt)
-        navigate(`/inntektsjustering/oppsummering`)
+        navigate(`/inntekt/oppsummering`)
     }
 
     const {
