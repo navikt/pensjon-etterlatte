@@ -1,6 +1,6 @@
 import '@testing-library/cypress/add-commands'
 
-const apiUrl = 'http://localhost:8080/selvbetjening/api'
+export const apiUrl = 'http://localhost:8080/selvbetjening/api'
 
 Cypress.Commands.add('testUniversellUtforming', () => {
     cy.injectAxe()

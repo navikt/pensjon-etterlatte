@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BodyShort, Button, Label, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Label, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { DeleteFilled } from '@navikt/ds-icons'
@@ -32,7 +32,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     })
 
     return (
-        <>
+        <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
             <SkjemaGruppe>
                 <RHFInput
                     name={`${selvstendigName}.beskrivelse` as const}
@@ -55,7 +55,9 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
 
             <SkjemaGruppe>
                 <Label>{t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}</Label>
-                <BodyShort textColor="subtle">{t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}</BodyShort>
+                <BodyShort textColor="subtle">
+                    {t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}
+                </BodyShort>
                 <SkjemaElement>
                     <NumberSelectRad>
                         <RHFNumberInput
@@ -102,13 +104,13 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             </SkjemaElement>
 
             {lengde > 1 && (
-                <div style={{ textAlign: 'right' }}>
+                <div>
                     <Button variant={'secondary'} type={'button'} onClick={() => fjern(index)}>
                         <DeleteFilled /> &nbsp;{t('knapp.fjern')}
                     </Button>
                 </div>
             )}
-        </>
+        </Box>
     )
 })
 
