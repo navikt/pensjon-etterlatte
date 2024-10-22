@@ -13,8 +13,8 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://etterlatte.intern.dev.nav.no/selvbetjening
-    - https://etterlatte.ekstern.dev.nav.no/selvbetjening
+    - https://etterlatte.intern.dev.nav.no/omstillingsstonad/inntekt
+    - https://etterlatte.ekstern.dev.nav.no/omstillingsstonad/inntekt
   liveness:
     path: /selvbetjening/isAlive
     initialDelay: 10

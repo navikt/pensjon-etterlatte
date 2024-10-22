@@ -26,25 +26,25 @@ const router = createBrowserRouter(
                 },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
-                    path: '/inntekt/innledning',
+                    path: '/innledning',
                     element: <InntektsjusteringInnledning />,
                 },
                 {
-                    path: '/inntekt/inntekt-til-neste-aar',
+                    path: '/inntekt-til-neste-aar',
                     element: <InntektsjusteringInntektTilNesteAar />,
                 },
                 {
-                    path: '/inntekt/oppsummering',
+                    path: '/oppsummering',
                     element: <InntektsjusteringOppsummering />,
                 },
                 {
-                    path: '/inntekt/kvittering',
+                    path: '/kvittering',
                     element: <InntektsjusteringKvittering />,
                 },
             ],
         },
     ],
-    { basename: '/omstillingsstonad' }
+    { basename: '/omstillingsstonad/inntekt' }
 )
 
 createRoot(document.getElementById('root')!).render(

@@ -71,7 +71,7 @@ export const InntektsjusteringOppsummering = () => {
         setApiFeil(false)
         const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
         if (res.ok) {
-            navigate('/inntekt/kvittering')
+            navigate('/kvittering')
         } else {
             setApiFeil(true)
         }
