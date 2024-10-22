@@ -251,10 +251,10 @@ class PostgresSoeknadRepository private constructor(
     }
 
     override fun soeknadTilDoffenArkivert(
-        soeknadId: SoeknadID,
+        id: SoeknadID,
         payload: String?,
     ) {
-        nyStatus(soeknadId = soeknadId, status = VENTERBEHANDLING, payload = payload ?: """{}""")
+        nyStatus(soeknadId = id, status = VENTERBEHANDLING, payload = payload ?: """{}""")
     }
 
     override fun finnKladd(

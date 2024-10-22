@@ -644,7 +644,7 @@ internal class SoeknadDaoIntegrationTest {
                     }
             }
 
-        assertEquals(Status.values().size, statusListe.size)
+        assertEquals(Status.entries.size, statusListe.size)
     }
 
     @Test
@@ -851,7 +851,7 @@ internal class SoeknadDaoIntegrationTest {
             }
         }
 
-    private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad>? =
+    private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad> =
         dataSource.connection.use {
             val pstmt = it.prepareStatement("SELECT * FROM innhold i WHERE i.fnr = ?")
             pstmt.setString(1, fnr)
