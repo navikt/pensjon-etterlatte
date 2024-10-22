@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
 import { useTranslation } from 'react-i18next'
-import { BodyShort, Button, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
@@ -72,7 +72,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     }, [ansettelsesforhold])
 
     return (
-        <>
+        <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
             {lengde > 1 && (
                 <Heading size={'small'}>{`${t('merOmSituasjonenDin.arbeidsforhold.arbeidssted')} ${
                     index + 1
@@ -205,14 +205,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
             * */}
 
             {lengde > 1 && (
-                <div
-                    style={{
-                        textAlign: 'right',
-                        borderBottom: '1px solid grey',
-                        paddingBottom: '1rem',
-                        marginBottom: '1rem',
-                    }}
-                >
+                <div>
                     <Button
                         variant={'secondary'}
                         type={'button'}
@@ -224,7 +217,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     </Button>
                 </div>
             )}
-        </>
+        </Box>
     )
 })
 

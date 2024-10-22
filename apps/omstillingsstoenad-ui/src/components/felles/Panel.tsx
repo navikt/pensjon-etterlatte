@@ -1,17 +1,13 @@
 import { Box } from '@navikt/ds-react'
 import { ComponentProps, ReactNode } from 'react'
 import { ResponsiveProp, SpacingScale } from '@navikt/ds-react/src/layout/utilities/types'
-interface PanelProps extends ComponentProps<"div">{
+
+interface PanelProps extends ComponentProps<'div'> {
     children: ReactNode
     border?: boolean
     padding?: ResponsiveProp<SpacingScale>
 }
-export const Panel = ({
-    children,
-    border = false,
-    padding = '4',
-    ...props
-}: PanelProps) => (
+export const Panel = ({ children, border = false, padding = '4', ...props }: PanelProps) => (
     <Box
         background={'surface-default'}
         padding={padding}

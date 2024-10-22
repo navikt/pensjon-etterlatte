@@ -1,6 +1,6 @@
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Button, Heading } from '@navikt/ds-react'
+import { Button, Heading, VStack } from '@navikt/ds-react'
 import ArbeidstakerInfokort from './ArbeidstakerInfokort'
 import { useEffect } from 'react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
@@ -40,19 +40,23 @@ const Arbeidstaker = () => {
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidsforhold.tittel')}</Heading>
             </SkjemaElement>
 
-            {fields.map((field: FieldArrayWithId, index: number) => (
-                <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
-            ))}
+            <VStack gap="4">
+                {fields.map((field: FieldArrayWithId, index: number) => (
+                    <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
+                ))}
 
-            <Button
-                variant={'secondary'}
-                type={'button'}
-                onClick={nyttArbeidsforhold}
-                disabled={fields.length >= 10}
-                data-testid={'legg-til-arbeidsforhold-knapp'}
-            >
-                + {t('knapp.leggTilArbeidsforhold')}
-            </Button>
+                <div>
+                    <Button
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={nyttArbeidsforhold}
+                        disabled={fields.length >= 10}
+                        data-testid={'legg-til-arbeidsforhold-knapp'}
+                    >
+                        + {t('knapp.leggTilArbeidsforhold')}
+                    </Button>
+                </div>
+            </VStack>
         </SkjemaGruppe>
     )
 }
