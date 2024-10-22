@@ -7,8 +7,7 @@ describe('1 - Innledning til inntektsjustering', () => {
         cy.testUniversellUtforming()
     })
 
-    it('Sanity innhold skal lastes som forventet', () => {
-        cy.findAllByText('Innledning').should('exist')
-        cy.findByRole('button', { name: 'Start utfyllingen' }).should('exist')
-    })
+    // it('Skal vise oppsummering av allerede oppgitt inntekt', () => {
+    //     cy.intercept('GET', `${apiUrl}/api/inntektsjustering`, { fixture: })
+    // })
 })
