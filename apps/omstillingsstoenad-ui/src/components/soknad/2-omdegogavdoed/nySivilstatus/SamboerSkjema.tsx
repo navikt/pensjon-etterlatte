@@ -2,17 +2,16 @@ import { useTranslation } from 'react-i18next'
 import { RHFFoedselsnummerInput, RHFInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { fnr } from '@navikt/fnrvalidator'
-import { Heading, HGrid } from '@navikt/ds-react'
+import { Box, Heading, HGrid } from '@navikt/ds-react'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import Bredde from '../../../../typer/bredde'
-import { Panel } from '../../../felles/Panel'
 
 const SamboerSkjema = () => {
     const { t } = useTranslation()
 
     return (
         <SkjemaElement>
-            <Panel border>
+            <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
                 <SkjemaElement>
                     <Heading size={'small'}>{t('situasjonenDin.nySivilstatus.samboerskap.samboer.tittel')}</Heading>
                 </SkjemaElement>
@@ -45,7 +44,7 @@ const SamboerSkjema = () => {
                         legend={t('situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift')}
                     />
                 </SkjemaElement>
-            </Panel>
+            </Box>
         </SkjemaElement>
     )
 }
