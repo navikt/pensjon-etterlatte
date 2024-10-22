@@ -110,16 +110,16 @@ export const OppgittInntektAlert = ({
                                 <Label>
                                     {fellesKomponenterInnhold.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}
                                 </Label>
-                                <BodyShort>{inntekt.AFPInntekt} kr</BodyShort>
+                                <BodyShort>{inntekt.afpInntekt} kr</BodyShort>
                             </div>
                         )}
 
-                        {!!inntekt.AFPInntekt && (
+                        {!!inntekt.afpInntekt && (
                             <div>
                                 <Label>
                                     {fellesKomponenterInnhold.sammendragAvInntekt?.AFPTjenesteordning?.label?.[spraak]}
                                 </Label>
-                                <BodyShort>{inntekt.AFPTjenesteordning}</BodyShort>
+                                <BodyShort>{inntekt.afpTjenesteordning}</BodyShort>
                             </div>
                         )}
                         <div>
