@@ -79,6 +79,7 @@ class PubliserMetrikkerJobb(
 
         db.soeknaderMedHendelseStatus(Status.LAGRETKLADD)
             ?.also { antall ->
+                logger.info("Hentet ${antall} søknader som har blitt lagret som kladd")
                 Gauge
                     .builder("soknader_lagretkladd") { antall.toDouble() }
                     .description("Søknader som har vært lagret som kladd")
@@ -87,6 +88,7 @@ class PubliserMetrikkerJobb(
 
         db.soeknaderMedHendelseStatus(Status.FERDIGSTILT)
             ?.also { antall ->
+                logger.info("Hentet ${antall} søknader som har blitt ferdigstilt")
                 Gauge
                     .builder("soknader_ferdigstilt") { antall.toDouble() }
                     .description("Søknader som har vært lagret som ferdigstilt")
