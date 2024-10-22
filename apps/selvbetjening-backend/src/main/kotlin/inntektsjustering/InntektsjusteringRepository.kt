@@ -76,7 +76,7 @@ class InntektsjusteringRepository(
                 setInt(6, inntektsjustering.inntektFraUtland)
                 setInt(7, inntektsjustering.AFPInntekt)
                 setString(8, inntektsjustering.AFPTjenesteordning)
-                setString(9, inntektsjustering.skalGaaAvMedAlderspensjon)
+                setString(9, inntektsjustering.skalGaaAvMedAlderspensjon ?: "NEI")
                 setDate(10, inntektsjustering.datoForAaGaaAvMedAlderspensjon?.let { dato -> Date.valueOf(dato) })
                 setString(11, PubliserInntektsjusteringStatus.LAGRET.value)
             }.execute()
