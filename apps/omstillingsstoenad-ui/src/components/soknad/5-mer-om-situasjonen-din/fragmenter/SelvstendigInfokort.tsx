@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BodyShort, Button, Label, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Label, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { DeleteFilled } from '@navikt/ds-icons'
@@ -12,7 +12,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { Panel } from '~components/felles/Panel'
 
 interface Props {
     lengde: number
@@ -33,7 +32,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     })
 
     return (
-        <Panel borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
+        <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
             <SkjemaGruppe>
                 <RHFInput
                     name={`${selvstendigName}.beskrivelse` as const}
@@ -111,7 +110,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     </Button>
                 </div>
             )}
-        </Panel>
+        </Box>
     )
 })
 

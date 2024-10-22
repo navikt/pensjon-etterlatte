@@ -13,7 +13,6 @@ import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 import useCountries from '../../../../hooks/useCountries'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { Panel } from '../../../felles/Panel'
 import { useValutaer } from '../../../../hooks/useValutaer'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
@@ -58,11 +57,12 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             {boddEllerArbeidetUtland === IValg.JA && (
                 <VStack gap="4">
                     {fields.map((field: FieldArrayWithId, index: number) => (
-                        <Panel
+                        <Box
                             borderColor={'border-info'}
                             borderWidth={'0 0 0 4'}
                             key={field.id}
                             background={'surface-selected'}
+                            padding="4"
                         >
                             <Box maxWidth="14rem">
                                 <SkjemaElement>
@@ -163,7 +163,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     </Button>
                                 </div>
                             )}
-                        </Panel>
+                        </Box>
                     ))}
 
                     <div>
