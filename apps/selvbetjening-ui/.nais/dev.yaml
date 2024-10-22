@@ -16,13 +16,13 @@ spec:
     - https://etterlatte.intern.dev.nav.no/omstillingsstonad/inntekt
     - https://etterlatte.ekstern.dev.nav.no/omstillingsstonad/inntekt
   liveness:
-    path: /selvbetjening/isAlive
+    path: /omstillingsstonad/inntekt/isAlive
     initialDelay: 10
     timeout: 5
     periodSeconds: 5
     failureThreshold: 30
   readiness:
-    path: /selvbetjening/isReady
+    path: /omstillingsstonad/inntekt/isReady
     initialDelay: 30
     periodSeconds: 5
     timeout: 5
@@ -35,7 +35,7 @@ spec:
       memory: 192Mi
   prometheus:
     enabled: true
-    path: /selvbetjening/metrics
+    path: /omstillingsstonad/inntekt/metrics
   observability:
     autoInstrumentation:
       enabled: true
@@ -54,12 +54,12 @@ spec:
       locale: nb
       autoLogin: true
       autoLoginIgnorePaths:
-        - /selvbetjening/internal/**
+        - /omstillingsstonad/inntekt/internal/**
   envFrom:
     - secret: selvbetjening-ui-sanity
   env:
     - name: BASE_PATH
-      value: /selvbetjening
+      value: /omstillingsstonad/inntekt
     - name: API_URL
       value: http://selvbetjening-backend
     - name: AUDIENCE
