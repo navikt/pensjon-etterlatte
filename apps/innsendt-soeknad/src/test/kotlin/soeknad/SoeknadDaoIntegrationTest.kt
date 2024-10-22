@@ -626,14 +626,14 @@ internal class SoeknadDaoIntegrationTest {
 
         assertEquals(8, rapport.size)
 
-        assertEquals("2", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("2", rapport.find { it.status == Status.SENDT && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeOMS }?.count)
-        assertEquals("1", rapport.find { it.status == Status.SENDT && it.kilde == kildeOMS }?.count)
-        assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeOMS }?.count)
-        assertEquals("1", rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
+        assertEquals(2, rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(1, rapport.find { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(2, rapport.find { it.status == Status.SENDT && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(1, rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(1, rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeOMS }?.count)
+        assertEquals(1, rapport.find { it.status == Status.SENDT && it.kilde == kildeOMS }?.count)
+        assertEquals(1, rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeOMS }?.count)
+        assertEquals(1, rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
     }
 
     @Test

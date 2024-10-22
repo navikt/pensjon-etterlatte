@@ -31,7 +31,7 @@ internal class PubliserMetrikkerJobbTest {
         every { dbMock.eldsteUsendte() } returns eldsteUsendt
         every { dbMock.eldsteUarkiverte() } returns eldsteUarkivert
         every { dbMock.rapport() } returns
-            listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, "12"), RapportLinje(Status.SENDT, kildeOMS, "34"))
+            listOf(RapportLinje(Status.FERDIGSTILT, kildeBP, 12), RapportLinje(Status.SENDT, kildeOMS, 34))
         every { dbMock.kilder() } returns mapOf(kildeBP to 40L, kildeOMS to 25L)
         every { dbMock.ukategorisert() } returns listOf(1L)
         every { dbMock.soeknaderMedHendelseStatus(Status.LAGRETKLADD) } returns 1500
@@ -44,21 +44,32 @@ internal class PubliserMetrikkerJobbTest {
     fun `Skal hente relevante metrics og logge til Prometheus`() {
         publiserMetrikkerJobb.publiserMetrikker()
 
-        verify(exactly = 1) { dbMock.eldsteUsendte() }
         hentVerdi(metrikker("alder_eldste_usendte")) shouldBe 60
-        verify(exactly = 1) { dbMock.eldsteUarkiverte() }
+        verify(exactly = 1) { dbMock.eldsteUsendte() }
+
         hentVerdi(metrikker("alder_eldste_uarkiverte")) shouldBe 120
-        verify(exactly = 1) { dbMock.rapport() }
+        verify(exactly = 1) { dbMock.eldsteUarkiverte() }
+
         hentVerdi(
             metrikker("soknad_tilstand"),
             mapOf("tilstand" to Status.FERDIGSTILT.name, "kilde" to kildeBP),
         ) shouldBe 12
-        hentVerdi(metrikker("soknad_tilstand"), mapOf("tilstand" to Status.SENDT.name, "kilde" to kildeOMS)) shouldBe 34
-        verify(exactly = 1) { dbMock.kilder() }
+
+        hentVerdi(
+            metrikker("soknad_tilstand"),
+            mapOf("tilstand" to Status.SENDT.name, "kilde" to kildeOMS)) shouldBe 34
+        verify(exactly = 1) { dbMock.rapport() }
+
         hentVerdi(metrikker("soknad_kilde"), mapOf("kilde" to kildeBP)) shouldBe 40
+        verify(exactly = 1) { dbMock.kilder() }
+
         verify(exactly = 1) { dbMock.ukategorisert() }
+
         hentVerdi(metrikker("soknader_ferdigstilt")) shouldBe 1100
+        verify(exactly = 1) { dbMock.soeknaderMedHendelseStatus(Status.FERDIGSTILT) }
+
         hentVerdi(metrikker("soknader_lagretkladd")) shouldBe 1500
+        verify(exactly = 1) { dbMock.soeknaderMedHendelseStatus(Status.LAGRETKLADD) }
     }
 }
 

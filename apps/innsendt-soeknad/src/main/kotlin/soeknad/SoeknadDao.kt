@@ -368,7 +368,7 @@ class PostgresSoeknadRepository private constructor(
             it
                 .prepareStatement(SELECT_RAPPORT)
                 .executeQuery()
-                .toList { RapportLinje(Status.valueOf(getString(1)), getString(2), getString(3)) }
+                .toList { RapportLinje(Status.valueOf(getString(1)), getString(2), getLong(3)) }
         }
 
     override fun kilder(): Map<String, Long> =

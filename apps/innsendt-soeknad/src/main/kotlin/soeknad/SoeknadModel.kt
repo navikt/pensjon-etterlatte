@@ -30,7 +30,7 @@ data class UlagretSoeknad(
 data class RapportLinje(
     val status: Status,
     val kilde: String,
-    val count: String,
+    val count: Long,
 )
 
 data class SlettetSoeknad(
