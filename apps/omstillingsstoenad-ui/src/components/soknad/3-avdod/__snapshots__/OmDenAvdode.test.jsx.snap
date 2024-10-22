@@ -199,7 +199,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                     </li>
                     <li>
                       <input
-                        aria-autocomplete="both"
+                        aria-autocomplete="list"
                         aria-controls="comboboxfield-r7-filtered-options"
                         aria-describedby="comboboxfield-r7-no-hits"
                         aria-expanded="false"
