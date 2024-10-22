@@ -492,16 +492,6 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     @Test
-    fun `Ukategoriserte søknader skal plukkes opp`() {
-        val soeknad = LagretSoeknad(2004, "Ukategorisert", "{}")
-        lagreSoeknaderMedOpprettetTidspunkt(
-            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now(), kildeBarnepensjon)),
-        )
-
-        db.ukategorisert() shouldContain soeknad.id
-    }
-
-    @Test
     fun `Alle hendelser skal lagres i hendelsestabellen`() {
         val kilde = "barnepensjon-ui"
         val soeknad = UlagretSoeknad("AlleHendelser", """{"harSamtykket":"true"}""", kilde)

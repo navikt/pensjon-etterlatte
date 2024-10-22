@@ -97,8 +97,6 @@ interface StatistikkRepository {
 
     fun kilder(): Map<String, Long>
 
-    fun ukategorisert(): List<Long>
-
     // Hvor mange søknader som har vært innom en gitt status
     fun soeknaderMedHendelseStatus(status: Status): Long?
 }
@@ -378,14 +376,6 @@ class PostgresSoeknadRepository private constructor(
                 .executeQuery()
                 .toList { getString(1) to getLong(2) }
                 .toMap()
-        }
-
-    override fun ukategorisert(): List<Long> =
-        connection.use {
-            it
-                .prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad_id from hendelse )""")
-                .executeQuery()
-                .toList { getLong("id") }
         }
 
     override fun soeknaderMedHendelseStatus(status: Status): Long? {

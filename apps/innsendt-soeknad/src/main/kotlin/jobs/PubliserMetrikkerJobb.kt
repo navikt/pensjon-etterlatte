@@ -24,6 +24,13 @@ class PubliserMetrikkerJobb(
 ) {
     private val logger = LoggerFactory.getLogger(PubliserMetrikkerJobb::class.java)
 
+    private lateinit var alderEldsteUsendte: Gauge
+    private lateinit var alderEldsteUarkiverte: Gauge
+    private lateinit var soknaderLagretKladd: Gauge
+    private lateinit var soknaderFerdigstilt: Gauge
+    private lateinit var soknadTilstand: MultiGauge
+    private lateinit var soknadKilde: MultiGauge
+
     fun schedule(): Timer {
         logger.info("Setter opp ${this.javaClass.simpleName}")
 
@@ -35,7 +42,7 @@ class PubliserMetrikkerJobb(
             runBlocking {
                 if (LeaderElection.isLeader() && !shuttingDown.get()) {
                     try {
-                        publiserMetrikker()
+                        publiserOgOppdaterMetrikker()
                     } catch (e: Exception) {
                         logger.error("Feil oppsto under oppretting av rapport/metrikker: ", e)
                     }
@@ -44,30 +51,86 @@ class PubliserMetrikkerJobb(
         }
     }
 
-    internal fun publiserMetrikker() {
-        Gauge
-            .builder("alder_eldste_usendte") {
-                db.eldsteUsendte()?.let {
-                    ChronoUnit.MINUTES.between(it, LocalDateTime.now()).toDouble()
+    internal fun publiserOgOppdaterMetrikker() {
+        publiserMetrikker()
+        oppdaterMultiGauges()
+    }
+
+    /**
+     * Publiserer metrikker, men bare hvis de ikke allerede er publiserte.
+     */
+    private fun publiserMetrikker() {
+        if (!this::alderEldsteUsendte.isInitialized) {
+            alderEldsteUsendte = Gauge
+                .builder("alder_eldste_usendte") {
+                    db.eldsteUsendte()?.let {
+                        ChronoUnit.MINUTES.between(it, LocalDateTime.now()).toDouble()
+                    }
                 }
-            }
-            .description("Alder på eldste usendte søknad")
-            .register(registry)
+                .description("Alder på eldste usendte søknad")
+                .register(registry)
+        }
 
-        Gauge
-            .builder("alder_eldste_uarkiverte") {
-                db.eldsteUarkiverte()?.let {
-                    ChronoUnit.MINUTES.between(it, LocalDateTime.now()).toDouble()
+        if (!this::alderEldsteUarkiverte.isInitialized) {
+            alderEldsteUarkiverte = Gauge
+                .builder("alder_eldste_uarkiverte") {
+                    db.eldsteUarkiverte()?.let {
+                        ChronoUnit.MINUTES.between(it, LocalDateTime.now()).toDouble()
+                    }
                 }
-            }
-            .description("Alder på eldste ikke-arkiverte søknad")
-            .register(registry)
+                .description("Alder på eldste ikke-arkiverte søknad")
+                .register(registry)
+        }
 
-        val statuses = MultiGauge.builder("soknad_tilstand")
-            .description("Tilstanden søknader er i")
-            .register(registry)
+        if (!this::soknadTilstand.isInitialized) {
+            soknadTilstand = MultiGauge
+                .builder("soknad_tilstand")
+                .description("Tilstanden søknader er i")
+                .register(registry)
+        }
 
-        statuses.register(
+        if (!this::soknadKilde.isInitialized) {
+            soknadKilde = MultiGauge
+                .builder("soknad_kilde")
+                .description("Kilden søknadene er fra")
+                .register(registry)
+        }
+
+        if (!this::soknaderLagretKladd.isInitialized) {
+            soknaderLagretKladd =
+                Gauge
+                    .builder("soknader_lagretkladd") {
+                        db.soeknaderMedHendelseStatus(Status.LAGRETKLADD)
+                            .also { antall -> logger.info("Hentet $antall søknader som har blitt lagret som kladd") }
+                            ?.toDouble()
+                    }
+                    .description("Søknader som har vært lagret som kladd")
+                    .register(registry)
+        }
+
+        if (!this::soknaderFerdigstilt.isInitialized) {
+            soknaderFerdigstilt =
+                Gauge
+                    .builder("soknader_ferdigstilt") {
+                        db.soeknaderMedHendelseStatus(Status.FERDIGSTILT)
+                            .also { antall -> logger.info("Hentet $antall søknader som har blitt ferdigstilt") }
+                            ?.toDouble()
+                    }
+                    .description("Søknader som har vært lagret som ferdigstilt")
+                    .register(registry)
+
+        }
+    }
+
+    private fun oppdaterMultiGauges() {
+        soknadKilde.register(
+            db.kilder()
+                .also { logger.info("Fant kilder: $it") }
+                .map { (kilde, antall) ->
+                    Row.of(Tags.of("kilde", kilde), antall)
+                }
+        )
+        soknadTilstand.register(
             db.rapport()
                 .also { logger.info("Fant tilstander: $it") }
                 .map {
@@ -80,38 +143,5 @@ class PubliserMetrikkerJobb(
                     )
                 }
         )
-
-        val kilder = MultiGauge
-            .builder("soknad_kilde")
-            .description("Kilden søknadene er fra")
-            .register(registry)
-
-        kilder.register(
-            db.kilder()
-                .also { logger.info("Fant kilder: $it") }
-                .map { (kilde, antall) ->
-                    Row.of(Tags.of("kilde", kilde), antall)
-                }
-        )
-
-        Gauge
-            .builder("soknader_lagretkladd") {
-                db.soeknaderMedHendelseStatus(Status.LAGRETKLADD)
-                    .also { antall -> logger.info("Hentet $antall søknader som har blitt lagret som kladd") }
-                    ?.toDouble()
-            }
-            .description("Søknader som har vært lagret som kladd")
-            .register(registry)
-
-        Gauge
-            .builder("soknader_ferdigstilt") {
-                db.soeknaderMedHendelseStatus(Status.FERDIGSTILT)
-                    .also { antall -> logger.info("Hentet $antall søknader som har blitt ferdigstilt") }
-                    ?.toDouble()
-            }
-            .description("Søknader som har vært lagret som ferdigstilt")
-            .register(registry)
-
-        logger.info("Ukategoriserte søknader: " + db.ukategorisert().toString())
     }
 }
