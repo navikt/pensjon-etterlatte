@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
-import { femtiSyvTilSekstiSeksAarSkjemaSchemaField } from './skjemaer/femtiSyvTilSekstiSeksAarSkjemaSchemaField'
-import { attenTilFemtiSeksAarSkjemaSchemaField } from './skjemaer/attenTilFemtiSeksAarSkjemaSchemaField'
+import { sekstiToTilSekstiSeksAarSkjemaSchemaField } from './skjemaer/sekstiToTilSekstiSeksAarSkjemaSchemaField'
+import { attenTilSekstiEnAarSkjemaSchemaField } from './skjemaer/attenTilSekstiEnAarSkjemaSchemaField'
 import { sekstiSyvAarSkjemaSchemaField } from './skjemaer/sekstiSyvAarSkjemaSchemaField'
 
 export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
@@ -19,8 +19,8 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
             title: 'Inntekt skjemaer',
             type: 'object',
             fields: [
-                attenTilFemtiSeksAarSkjemaSchemaField,
-                femtiSyvTilSekstiSeksAarSkjemaSchemaField,
+                attenTilSekstiEnAarSkjemaSchemaField,
+                sekstiToTilSekstiSeksAarSkjemaSchemaField,
                 sekstiSyvAarSkjemaSchemaField,
                 defineField({
                     name: 'ikkeGyldigForAaMeldeInnInntekt',
