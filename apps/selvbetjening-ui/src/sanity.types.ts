@@ -756,7 +756,7 @@ export type InntektsjusteringInntektTilNesteAar = {
     _rev: string
     dokumentTittel?: string
     inntektSkjemaer?: {
-        attenTilSekstiEnAar?: {
+        attenTilSekstiEnAarSkjema?: {
             hovedinnhold?: {
                 NB?: Array<{
                     children?: Array<{
