@@ -54,11 +54,11 @@ export const OppgittInntektAlert = ({
                     <BodyShort>{inntektsjusteringInnledningInnhold.oppgittInntektAlert?.innhold?.[spraak]}</BodyShort>
 
                     <VStack gap="2">
-                        {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                        {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
                             <>
                                 <div>
                                     <Label>
-                                        {finnAlder(innloggetBruker) === Alder.FEMTI_SYV_TIL_SEKSTI_SEKS
+                                        {finnAlder(innloggetBruker) === Alder.SEKSTI_TO_TIL_SEKSTI_SEKS
                                             ? fellesKomponenterInnhold?.sammendragAvInntekt?.skalGaaAvMedAlderspensjon
                                                   ?.label?.femtiSyvTilSekstiSeksAar?.[spraak]
                                             : fellesKomponenterInnhold?.sammendragAvInntekt?.skalGaaAvMedAlderspensjon
@@ -105,7 +105,7 @@ export const OppgittInntektAlert = ({
                             <BodyShort>{inntekt.naeringsinntekt} kr</BodyShort>
                         </div>
 
-                        {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                        {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
                             <div>
                                 <Label>
                                     {fellesKomponenterInnhold.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}

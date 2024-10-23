@@ -15,7 +15,7 @@ import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGrup
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
 
-export const FemtiSyvTilSekstiSeksAarSkjema = () => {
+export const SekstiToTilSekstiSeksAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
@@ -219,7 +219,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                 )}
                             </VStack>
 
-                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS}>
+                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.SEKSTI_TO_TIL_SEKSTI_SEKS}>
                                 {watch('skalGaaAvMedAlderspensjon') === SkalGaaAvMedAlderspensjon.JA ? (
                                     <SanityRikTekst text={sumAvInntekt?.skalGaaAvMedAlderspensjon?.ja?.[spraak]} />
                                 ) : (
