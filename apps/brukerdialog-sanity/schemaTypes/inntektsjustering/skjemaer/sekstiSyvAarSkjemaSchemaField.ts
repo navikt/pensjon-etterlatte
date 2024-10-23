@@ -88,13 +88,13 @@ export const sekstiSyvAarSkjemaSchemaField = defineField({
             fields: textFieldSchemaFields,
         }),
         defineField({
-            name: 'AFPInntekt',
+            name: 'afpInntekt',
             title: 'AFP offentlig eller privat',
             type: 'object',
             fields: textFieldSchemaFields,
         }),
         defineField({
-            name: 'AFPTjenestepensjonordning',
+            name: 'afpTjenestepensjonordning',
             title: 'AFP tjenestepensjonordning',
             type: 'object',
             fields: [...textFieldSchemaFields, errorVedTomInputSchemaField],
