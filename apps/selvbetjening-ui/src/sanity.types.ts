@@ -1651,11 +1651,18 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
-            AFPInntekt?: {
+            afpInntekt?: {
                 label?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
+                    afpOffentligEllerPrivat?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    afpPrivat?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
                 }
                 description?: {
                     NB?: string
@@ -1726,7 +1733,7 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
-            AFPTjenestepensjonordning?: {
+            afpTjenestepensjonordning?: {
                 label?: {
                     NB?: string
                     NN?: string
@@ -2438,7 +2445,7 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
-            AFPInntekt?: {
+            afpInntekt?: {
                 label?: {
                     NB?: string
                     NN?: string
@@ -2513,7 +2520,7 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
-            AFPTjenestepensjonordning?: {
+            afpTjenestepensjonordning?: {
                 label?: {
                     NB?: string
                     NN?: string

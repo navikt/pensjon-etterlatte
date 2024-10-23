@@ -61,8 +61,8 @@ export const SekstiSyvAarSkjema = () => {
         inntekterSomSkalMeldesInn,
         arbeidsinntekt,
         naeringsinntekt,
-        AFPInntekt,
-        AFPTjenestepensjonordning,
+        afpInntekt,
+        afpTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
     } = innhold.inntektSkjemaer.sekstiSyvAarSkjema
@@ -168,8 +168,8 @@ export const SekstiSyvAarSkjema = () => {
                             <ControlledInntektTextField
                                 name="afpInntekt"
                                 control={control}
-                                label={AFPInntekt?.label?.[spraak]}
-                                description={AFPInntekt?.description?.[spraak]}
+                                label={afpInntekt?.label?.[spraak]}
+                                description={afpInntekt?.description?.[spraak]}
                             />
 
                             {!!watch('afpInntekt') && (
@@ -179,12 +179,12 @@ export const SekstiSyvAarSkjema = () => {
                                             required: {
                                                 value: true,
                                                 message:
-                                                    AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ??
+                                                    afpTjenestepensjonordning?.errorVedTomInput?.[spraak] ??
                                                     'Må settes',
                                             },
                                         })}
-                                        label={AFPTjenestepensjonordning?.label?.[spraak]}
-                                        description={AFPTjenestepensjonordning?.description?.[spraak]}
+                                        label={afpTjenestepensjonordning?.label?.[spraak]}
+                                        description={afpTjenestepensjonordning?.description?.[spraak]}
                                         error={errors.afpTjenesteordning?.message}
                                     />
                                 </Box>

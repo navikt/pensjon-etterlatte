@@ -10,12 +10,12 @@ import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
-import { Alder } from '../../../types/person.ts'
+import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
 
-export const SekstiToTilSekstiSeksAarSkjema = () => {
+export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetBruker: IInnloggetBruker }) => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
@@ -62,11 +62,15 @@ export const SekstiToTilSekstiSeksAarSkjema = () => {
         inntekterSomSkalMeldesInn,
         arbeidsinntekt,
         naeringsinntekt,
-        AFPInntekt,
-        AFPTjenestepensjonordning,
+        afpInntekt,
+        afpTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
     } = innhold.inntektSkjemaer.sekstiToTilSekstiSeksAarSkjema
+
+    const skalViseAfpPrivat = (innloggetBruker: IInnloggetBruker): boolean => {
+        return innloggetBruker.foedselsaar! < 1963
+    }
 
     const nesteAar = new Date().getFullYear() + 1
     const foersteDagNesteAar = new Date(nesteAar, 0, 1)
@@ -182,8 +186,12 @@ export const SekstiToTilSekstiSeksAarSkjema = () => {
                             <ControlledInntektTextField
                                 name="afpInntekt"
                                 control={control}
-                                label={AFPInntekt?.label?.[spraak]}
-                                description={AFPInntekt?.description?.[spraak]}
+                                label={
+                                    skalViseAfpPrivat(innloggetBruker)
+                                        ? afpInntekt?.label?.afpPrivat?.[spraak]
+                                        : afpInntekt?.label?.afpOffentligEllerPrivat?.[spraak]
+                                }
+                                description={afpInntekt?.description?.[spraak]}
                             />
 
                             {!!watch('afpInntekt') && (
@@ -193,12 +201,12 @@ export const SekstiToTilSekstiSeksAarSkjema = () => {
                                             required: {
                                                 value: true,
                                                 message:
-                                                    AFPTjenestepensjonordning?.errorVedTomInput?.[spraak] ??
+                                                    afpTjenestepensjonordning?.errorVedTomInput?.[spraak] ??
                                                     'Må settes',
                                             },
                                         })}
-                                        label={AFPTjenestepensjonordning?.label?.[spraak]}
-                                        description={AFPTjenestepensjonordning?.description?.[spraak]}
+                                        label={afpTjenestepensjonordning?.label?.[spraak]}
+                                        description={afpTjenestepensjonordning?.description?.[spraak]}
                                         error={errors.afpTjenesteordning?.message}
                                     />
                                 </Box>
