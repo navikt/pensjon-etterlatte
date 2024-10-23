@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import '@navikt/ds-css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
-import { Landing } from './Landing.tsx'
 import { InntektsjusteringKvittering } from './inntektsjustering/4-kvittering/InntektsjusteringKvittering.tsx'
 import { fetcher } from './utils/api.ts'
 import { SWRConfig } from 'swr'
@@ -25,28 +24,27 @@ const router = createBrowserRouter(
                     path: '*',
                     element: <FantIkkeSiden />,
                 },
-                { path: '/', element: <Landing /> },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
                 {
-                    path: '/inntektsjustering/innledning',
+                    path: '/innledning',
                     element: <InntektsjusteringInnledning />,
                 },
                 {
-                    path: '/inntektsjustering/inntekt-til-neste-aar',
+                    path: '/inntekt-til-neste-aar',
                     element: <InntektsjusteringInntektTilNesteAar />,
                 },
                 {
-                    path: '/inntektsjustering/oppsummering',
+                    path: '/oppsummering',
                     element: <InntektsjusteringOppsummering />,
                 },
                 {
-                    path: '/inntektsjustering/kvittering',
+                    path: '/kvittering',
                     element: <InntektsjusteringKvittering />,
                 },
             ],
         },
     ],
-    { basename: '/selvbetjening' }
+    { basename: '/omstillingsstonad/inntekt' }
 )
 
 createRoot(document.getElementById('root')!).render(
