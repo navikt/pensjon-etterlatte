@@ -35,8 +35,6 @@ export const InntektsjusteringInntektTilNesteAar = () => {
     }
 
     const velgSkjemaForInntekt = (alder: Alder, bruker: IInnloggetBruker) => {
-        console.log(bruker)
-
         switch (alder) {
             case Alder.ATTEN_TIL_SEKSTI_EN:
                 return <AttenTilSekstiEnAarSkjema />
