@@ -15,7 +15,7 @@ import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGrup
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
 
-export const FemtiSyvTilSekstiSeksAarSkjema = () => {
+export const SekstiToTilSekstiSeksAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
@@ -45,7 +45,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
     if (innholdError) {
         return <Navigate to="/system-utilgjengelig" />
     }
-    if (!innhold?.inntektSkjemaer?.femtiSyvTilSekstiSeksAarSkjema) {
+    if (!innhold?.inntektSkjemaer?.sekstiToTilSekstiSeksAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -66,7 +66,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
         AFPTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
-    } = innhold.inntektSkjemaer.femtiSyvTilSekstiSeksAarSkjema
+    } = innhold.inntektSkjemaer.sekstiToTilSekstiSeksAarSkjema
 
     const nesteAar = new Date().getFullYear() + 1
     const foersteDagNesteAar = new Date(nesteAar, 0, 1)
@@ -219,7 +219,7 @@ export const FemtiSyvTilSekstiSeksAarSkjema = () => {
                                 )}
                             </VStack>
 
-                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.FEMTI_SYV_TIL_SEKSTI_SEKS}>
+                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.SEKSTI_TO_TIL_SEKSTI_SEKS}>
                                 {watch('skalGaaAvMedAlderspensjon') === SkalGaaAvMedAlderspensjon.JA ? (
                                     <SanityRikTekst text={sumAvInntekt?.skalGaaAvMedAlderspensjon?.ja?.[spraak]} />
                                 ) : (

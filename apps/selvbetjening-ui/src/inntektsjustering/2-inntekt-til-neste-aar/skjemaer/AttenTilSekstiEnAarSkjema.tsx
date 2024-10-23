@@ -12,7 +12,7 @@ import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektC
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
 import { Alder } from '../../../types/person.ts'
 
-export const AttenTilFemtiSeksAarSkjema = () => {
+export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
 
     const inntekt = useInntekt()
@@ -38,7 +38,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
     if (innholdError) {
         return <Navigate to="/system-utilgjengelig" />
     }
-    if (!innhold?.inntektSkjemaer?.attenTilFemtiSeksAar) {
+    if (!innhold?.inntektSkjemaer?.attenTilSekstiEnAar) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -48,7 +48,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
     }
 
     const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
-        innhold.inntektSkjemaer.attenTilFemtiSeksAar
+        innhold.inntektSkjemaer.attenTilSekstiEnAar
 
     return (
         !!innhold && (
@@ -98,7 +98,7 @@ export const AttenTilFemtiSeksAarSkjema = () => {
                         )}
                     </VStack>
 
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_FEMTI_SEKS}>
+                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_SEKSTI_EN}>
                         <SanityRikTekst text={sumAvInntekt?.[spraak]} />
                     </SumAvOppgittInntekt>
 

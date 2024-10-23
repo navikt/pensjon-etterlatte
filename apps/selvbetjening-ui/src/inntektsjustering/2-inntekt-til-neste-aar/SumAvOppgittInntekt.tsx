@@ -25,7 +25,7 @@ export const SumAvOppgittInntekt = ({
         if (isNaN(inntektTilNesteAar.inntektFraUtland)) inntekt += 0
         else inntekt += inntektTilNesteAar.inntektFraUtland
 
-        if (alder === Alder.FEMTI_SYV_TIL_SEKSTI_SEKS) {
+        if (alder === Alder.SEKSTI_TO_TIL_SEKSTI_SEKS) {
             if (!inntektTilNesteAar.afpInntekt || isNaN(inntektTilNesteAar.afpInntekt)) inntekt += 0
             else inntekt += inntektTilNesteAar.afpInntekt
         }

@@ -4,9 +4,9 @@ import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNeste
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { Navigate } from 'react-router-dom'
 import { Alder } from '../../types/person.ts'
-import { AttenTilFemtiSeksAarSkjema } from './skjemaer/AttenTilFemtiSeksAarSkjema.tsx'
+import { AttenTilSekstiEnAarSkjema } from './skjemaer/AttenTilSekstiEnAarSkjema.tsx'
 import { finnAlder } from './finnAlder.ts'
-import { FemtiSyvTilSekstiSeksAarSkjema } from './skjemaer/FemtiSyvTilSekstiSeksAarSkjema.tsx'
+import { SekstiToTilSekstiSeksAarSkjema } from './skjemaer/SekstiToTilSekstiSeksAarSkjema.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SekstiSyvAarSkjema } from './skjemaer/SekstiSyvAarSkjema.tsx'
 import { IkkeGyldigForAaMeldeInnInntekt } from './IkkeGyldigForAaMeldeInnInntekt.tsx'
@@ -36,10 +36,10 @@ export const InntektsjusteringInntektTilNesteAar = () => {
 
     const velgSkjemaForInntekt = (alder: Alder) => {
         switch (alder) {
-            case Alder.ATTEN_TIL_FEMTI_SEKS:
-                return <AttenTilFemtiSeksAarSkjema />
-            case Alder.FEMTI_SYV_TIL_SEKSTI_SEKS:
-                return <FemtiSyvTilSekstiSeksAarSkjema />
+            case Alder.ATTEN_TIL_SEKSTI_EN:
+                return <AttenTilSekstiEnAarSkjema />
+            case Alder.SEKSTI_TO_TIL_SEKSTI_SEKS:
+                return <SekstiToTilSekstiSeksAarSkjema />
             case Alder.SEKSTI_SYV:
                 return <SekstiSyvAarSkjema />
             case Alder.IKKE_GYLDIG:

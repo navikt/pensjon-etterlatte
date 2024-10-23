@@ -105,11 +105,11 @@ export const InntektsjusteringOppsummering = () => {
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
                             <FormSummary.Answers>
-                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
                                     <>
                                         <FormSummary.Answer>
                                             <FormSummary.Label>
-                                                {finnAlder(innloggetBruker) === Alder.FEMTI_SYV_TIL_SEKSTI_SEKS
+                                                {finnAlder(innloggetBruker) === Alder.SEKSTI_TO_TIL_SEKSTI_SEKS
                                                     ? fellesKomponenterInnhold?.sammendragAvInntekt
                                                           ?.skalGaaAvMedAlderspensjon?.label
                                                           ?.femtiSyvTilSekstiSeksAar?.[spraak]
@@ -160,7 +160,7 @@ export const InntektsjusteringOppsummering = () => {
                                     </FormSummary.Label>
                                     <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
-                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_FEMTI_SEKS && (
+                                {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
                                     <FormSummary.Answer>
                                         <FormSummary.Label>
                                             {fellesKomponenterInnhold?.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}
