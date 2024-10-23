@@ -38,7 +38,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
     if (innholdError) {
         return <Navigate to="/system-utilgjengelig" />
     }
-    if (!innhold?.inntektSkjemaer?.attenTilSekstiEnAar) {
+    if (!innhold?.inntektSkjemaer?.attenTilSekstiEnAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -48,7 +48,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
     }
 
     const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
-        innhold.inntektSkjemaer.attenTilSekstiEnAar
+        innhold.inntektSkjemaer.attenTilSekstiEnAarSkjema
 
     return (
         !!innhold && (
