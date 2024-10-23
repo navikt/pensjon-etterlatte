@@ -3,7 +3,7 @@ import { textFieldSchemaFields } from './fellesSchemaFields'
 import { spraakBlockFields, spraakStringFields } from '../../spraak'
 
 export const attenTilSekstiEnAarSkjemaSchemaField = defineField({
-    name: 'attenTilFemtiSeksAar',
+    name: 'attenTilSekstiEnAar',
     title: '18 til 61 år',
     options: {
         collapsible: true,

@@ -45,7 +45,7 @@ export const SekstiToTilSekstiSeksAarSkjema = () => {
     if (innholdError) {
         return <Navigate to="/system-utilgjengelig" />
     }
-    if (!innhold?.inntektSkjemaer?.femtiSyvTilSekstiSeksAarSkjema) {
+    if (!innhold?.inntektSkjemaer?.sekstiToTilSekstiSeksAarSkjema) {
         return <Navigate to="/system-utilgjengelig" />
     }
 
@@ -66,7 +66,7 @@ export const SekstiToTilSekstiSeksAarSkjema = () => {
         AFPTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
-    } = innhold.inntektSkjemaer.femtiSyvTilSekstiSeksAarSkjema
+    } = innhold.inntektSkjemaer.sekstiToTilSekstiSeksAarSkjema
 
     const nesteAar = new Date().getFullYear() + 1
     const foersteDagNesteAar = new Date(nesteAar, 0, 1)
