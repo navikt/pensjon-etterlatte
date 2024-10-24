@@ -1,10 +1,10 @@
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, ErrorSummary, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, ErrorSummary, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -14,6 +14,7 @@ import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 
 export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetBruker: IInnloggetBruker }) => {
     const spraak = useSpraak()
@@ -40,13 +41,13 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
     } = useForm<Inntekt>({ defaultValues: inntekt })
 
     if (innholdIsLoading) {
-        return <Loader />
+        return <SideLaster />
     }
     if (innholdError) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw innholdError
     }
     if (!innhold?.inntektSkjemaer?.sekstiToTilSekstiSeksAarSkjema) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw Error('Finner ikke sanity innhold for skjema 62-66 år')
     }
 
     const onInntektSubmit = (inntekt: Inntekt) => {

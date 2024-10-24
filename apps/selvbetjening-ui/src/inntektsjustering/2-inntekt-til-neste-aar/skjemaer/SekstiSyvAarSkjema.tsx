@@ -1,11 +1,11 @@
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useForm } from 'react-hook-form'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, ErrorSummary, Loader, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, ErrorSummary, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
@@ -14,6 +14,7 @@ import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Alder } from '../../../types/person.ts'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
@@ -40,13 +41,13 @@ export const SekstiSyvAarSkjema = () => {
     } = useForm<Inntekt>({ defaultValues: inntekt })
 
     if (innholdIsLoading) {
-        return <Loader />
+        return <SideLaster />
     }
     if (innholdError) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw innholdError
     }
     if (!innhold?.inntektSkjemaer?.sekstiSyvAarSkjema) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw Error('Finner ikke sanity innhold for skjema 67 år')
     }
 
     const onInntektSubmit = (inntekt: Inntekt) => {

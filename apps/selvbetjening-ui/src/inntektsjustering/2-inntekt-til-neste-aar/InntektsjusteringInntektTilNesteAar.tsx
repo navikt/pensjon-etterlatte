@@ -2,7 +2,6 @@ import { HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { Navigate } from 'react-router-dom'
 import { Alder, IInnloggetBruker } from '../../types/person.ts'
 import { AttenTilSekstiEnAarSkjema } from './skjemaer/AttenTilSekstiEnAarSkjema.tsx'
 import { finnAlder } from './finnAlder.ts'
@@ -10,6 +9,7 @@ import { SekstiToTilSekstiSeksAarSkjema } from './skjemaer/SekstiToTilSekstiSeks
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SekstiSyvAarSkjema } from './skjemaer/SekstiSyvAarSkjema.tsx'
 import { IkkeGyldigForAaMeldeInnInntekt } from './IkkeGyldigForAaMeldeInnInntekt.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
     const {
@@ -26,12 +26,12 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (innloggetBrukerIsLoading || innholdIsLoading) {
+        return <SideLaster />
     }
 
-    if (innholdError && !innholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (innholdError || innloggetBrukerError) {
+        throw innloggetBrukerError || innholdError
     }
 
     const velgSkjemaForInntekt = (alder: Alder, bruker: IInnloggetBruker) => {
