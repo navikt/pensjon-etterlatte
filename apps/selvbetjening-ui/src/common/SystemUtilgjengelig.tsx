@@ -4,8 +4,13 @@ import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
 import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from '../sanity.types.ts'
 import { SpraakVelger } from './spraak/SpraakVelger.tsx'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+import { useRouteError } from 'react-router-dom'
 
 export const SystemUtilgjengelig = () => {
+    const error = useRouteError()
+    //TODO, her må vi loggføre error utifra om vi er i dev eller prod
+    console.log(error)
+
     const spraak = useSpraak()
 
     const { innhold, isLoading } = useSanityInnhold<SystemUtilgjengeligInnhold>('*[_type == "systemUtilgjengelig"]')

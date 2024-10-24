@@ -1,11 +1,11 @@
 import { IInnloggetBruker } from '../../types/person.ts'
 import { createContext, ReactNode, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { apiURL } from '../../utils/api.ts'
+import { ApiError, apiURL } from '../../utils/api.ts'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined
-    error: boolean | undefined
+    error: ApiError | undefined
     isLoading: boolean
 }
 
@@ -13,12 +13,12 @@ const initialInnloggetBrukerState: IInnloggetBruker = {}
 
 const innloggetInnbyggerContext = createContext<InnloggetInnbyggerContext>({
     data: initialInnloggetBrukerState,
-    error: false,
+    error: undefined,
     isLoading: false,
 })
 
 const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    const { data, error, isLoading }: SWRResponse<IInnloggetBruker, boolean, boolean> = useSWR(
+    const { data, error, isLoading }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(
         `${apiURL}/api/person/innlogget/forenklet`
     )
 

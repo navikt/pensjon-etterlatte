@@ -1,18 +1,19 @@
 import { Button, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInnledning as InntektsjusteringInnledningInnhold } from '../../sanity.types.ts'
 import useSWR, { SWRResponse } from 'swr'
-import { apiURL } from '../../utils/api.ts'
+import { ApiError, apiURL } from '../../utils/api.ts'
 import { Inntekt } from '../../types/inntektsjustering.ts'
 import { useInntektDispatch } from '../../common/inntekt/InntektContext.tsx'
-import { useEffect } from 'react'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { OppgittInntektAlert } from './OppgittInntektAlert.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
+import { useEffect } from 'react'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
@@ -21,9 +22,11 @@ export const InntektsjusteringInnledning = () => {
 
     const inntektDispatch = useInntektDispatch()
 
-    const { data: eksisterendeInntekt }: SWRResponse<Inntekt, boolean, boolean> = useSWR(
-        `${apiURL}/api/inntektsjustering`
-    )
+    const {
+        data: eksisterendeInntekt,
+        error: eksisterendeInntektError,
+        isLoading: eksisterendeInntektIsLoading,
+    }: SWRResponse<Inntekt, ApiError, boolean> = useSWR(`${apiURL}/api/inntektsjustering`)
 
     const {
         data: innloggetBruker,
@@ -38,15 +41,19 @@ export const InntektsjusteringInnledning = () => {
     } = useSanityInnhold<InntektsjusteringInnledningInnhold>('*[_type == "inntektsjusteringInnledning"]')
 
     useEffect(() => {
-        if (eksisterendeInntekt) inntektDispatch.setInntekt(eksisterendeInntekt)
-    }, [eksisterendeInntekt, inntektDispatch])
+        if (eksisterendeInntektError && eksisterendeInntektError?.status !== 404) {
+            throw eksisterendeInntektError
+        } else {
+            if (eksisterendeInntekt) inntektDispatch.setInntekt(eksisterendeInntekt)
+        }
+    }, [eksisterendeInntekt, inntektDispatch, eksisterendeInntektError])
 
-    if (innholdError && !innholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (innholdIsLoading || innloggetBrukerIsLoading || eksisterendeInntektIsLoading) {
+        return <SideLaster />
     }
 
-    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (innholdError || innloggetBrukerError) {
+        throw innloggetBrukerError || innholdError
     }
 
     return (
