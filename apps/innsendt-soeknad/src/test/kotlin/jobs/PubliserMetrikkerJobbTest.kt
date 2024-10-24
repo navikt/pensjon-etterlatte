@@ -39,7 +39,7 @@ internal class PubliserMetrikkerJobbTest {
 
     @Test
     fun `Skal hente relevante metrics og logge til Prometheus`() {
-        publiserMetrikkerJobb.publiserOgOppdaterMetrikker()
+        publiserMetrikkerJobb.oppdaterMultiGauges()
 
         hentVerdi(metrikker("alder_eldste_usendte")) shouldBe 60
         verify(exactly = 1) { dbMock.eldsteUsendte() }
@@ -69,10 +69,11 @@ internal class PubliserMetrikkerJobbTest {
 
     @Test
     fun `Skal hente oppdaterte metrics etter endringer i DB`() {
-        publiserMetrikkerJobb.publiserOgOppdaterMetrikker()
+        publiserMetrikkerJobb.oppdaterMultiGauges()
 
         every { dbMock.eldsteUarkiverte() } returns LocalDateTime.now().minusHours(2)
         hentVerdi(metrikker("alder_eldste_uarkiverte")) shouldBe 120
+
         every { dbMock.eldsteUarkiverte() } returns LocalDateTime.now().minusHours(4)
         hentVerdi(metrikker("alder_eldste_uarkiverte")) shouldBe 240
     }
