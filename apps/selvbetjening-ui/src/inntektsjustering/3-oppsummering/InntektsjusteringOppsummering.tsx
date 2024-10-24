@@ -1,4 +1,4 @@
-import { Bleed, FormSummary, GuidePanel, HStack, Loader, VStack } from '@navikt/ds-react'
+import { Bleed, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -7,7 +7,7 @@ import {
     FellesKomponenter,
     InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold,
 } from '../../sanity.types.ts'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
 import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
@@ -20,6 +20,7 @@ import { apiURL, poster } from '../../utils/api.ts'
 import { useState } from 'react'
 import { FeilIAPIKall } from './FeilIAPIKall.tsx'
 import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
+import { SideLaster } from '../../common/SideLaster.tsx'
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()
@@ -48,22 +49,19 @@ export const InntektsjusteringOppsummering = () => {
         isLoading: inntektsjusteringOppsummeringInnholdIsLoading,
     } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>('*[_type == "inntektsjusteringOppsummering"]')
 
-    if (innloggetBrukerError && !innloggetBrukerIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (
+        innloggetBrukerIsLoading ||
+        fellesKomponenterInnholdIsLoading ||
+        inntektsjusteringOppsummeringInnholdIsLoading
+    ) {
+        return <SideLaster />
+    }
+    if (innloggetBrukerError || fellesKomponenterInnholdError || inntektsjusteringOppsummeringInnholdError) {
+        throw innloggetBrukerError || fellesKomponenterInnholdError || inntektsjusteringOppsummeringInnholdError
     }
 
-    if (fellesKomponenterInnholdError && !fellesKomponenterInnholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
-    }
-
-    if (inntektsjusteringOppsummeringInnholdIsLoading) {
-        return <Loader />
-    }
-    if (inntektsjusteringOppsummeringInnholdError) {
-        return <Navigate to="/system-utilgjengelig" />
-    }
     if (!inntektsjusteringOppsummeringInnhold?.skjemaSammendrag) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw new Error('Fant ikke sanity innhold for skjema sammendrag')
     }
 
     async function sendInnInntektsjustering() {

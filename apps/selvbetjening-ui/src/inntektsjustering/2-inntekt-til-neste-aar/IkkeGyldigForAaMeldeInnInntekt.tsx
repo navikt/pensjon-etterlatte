@@ -1,10 +1,10 @@
 import { Button, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { SideLaster } from '../../common/SideLaster.tsx'
 
 export const IkkeGyldigForAaMeldeInnInntekt = () => {
     const spraak = useSpraak()
@@ -17,8 +17,12 @@ export const IkkeGyldigForAaMeldeInnInntekt = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    if (innholdError && !innholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (innholdIsLoading) {
+        return <SideLaster />
+    }
+
+    if (innholdError) {
+        throw innholdError
     }
 
     return (
