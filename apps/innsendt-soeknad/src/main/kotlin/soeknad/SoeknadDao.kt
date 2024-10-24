@@ -97,7 +97,8 @@ interface StatistikkRepository {
 
     fun kilder(): Map<String, Long>
 
-    fun ukategorisert(): List<Long>
+    // Hvor mange søknader som har vært innom en gitt status
+    fun soeknaderMedHendelseStatus(status: Status): Long?
 }
 
 class PostgresSoeknadRepository private constructor(
@@ -250,10 +251,10 @@ class PostgresSoeknadRepository private constructor(
     }
 
     override fun soeknadTilDoffenArkivert(
-        soeknadId: SoeknadID,
+        id: SoeknadID,
         payload: String?,
     ) {
-        nyStatus(soeknadId = soeknadId, status = VENTERBEHANDLING, payload = payload ?: """{}""")
+        nyStatus(soeknadId = id, status = VENTERBEHANDLING, payload = payload ?: """{}""")
     }
 
     override fun finnKladd(
@@ -365,7 +366,7 @@ class PostgresSoeknadRepository private constructor(
             it
                 .prepareStatement(SELECT_RAPPORT)
                 .executeQuery()
-                .toList { RapportLinje(Status.valueOf(getString(1)), getString(2), getString(3)) }
+                .toList { RapportLinje(Status.valueOf(getString(1)), getString(2), getLong(3)) }
         }
 
     override fun kilder(): Map<String, Long> =
@@ -377,13 +378,18 @@ class PostgresSoeknadRepository private constructor(
                 .toMap()
         }
 
-    override fun ukategorisert(): List<Long> =
-        connection.use {
-            it
-                .prepareStatement("""SELECT s.id FROM soeknad s where s.id not in (select soeknad_id from hendelse )""")
+    override fun soeknaderMedHendelseStatus(status: Status): Long? {
+        return connection.use {
+            it.prepareStatement(
+                Queries.SELECT_COUNT_PER_HENDELSE_STATUS_LIST
+            )
+                .apply {
+                    setString(1, status.name)
+                }
                 .executeQuery()
-                .toList { getLong("id") }
+                .singleOrNull { getLong(1) }
         }
+    }
 
     private fun asLocalDateTime(timestamp: Timestamp): LocalDateTime =
         timestamp
@@ -517,5 +523,12 @@ private object Queries {
         AND NOT EXISTS (
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.opprettet >= (now() - interval '72 hours'))
         RETURNING i.soeknad_id, i.fnr
+        """.trimIndent()
+
+    val SELECT_COUNT_PER_HENDELSE_STATUS_LIST =
+        """
+        SELECT COUNT(DISTINCT soeknad_id) 
+        FROM hendelse h 
+        WHERE h.status_id = ?
         """.trimIndent()
 }

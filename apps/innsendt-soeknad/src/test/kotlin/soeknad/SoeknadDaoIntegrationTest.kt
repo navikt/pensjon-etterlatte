@@ -492,16 +492,6 @@ internal class SoeknadDaoIntegrationTest {
     }
 
     @Test
-    fun `Ukategoriserte søknader skal plukkes opp`() {
-        val soeknad = LagretSoeknad(2004, "Ukategorisert", "{}")
-        lagreSoeknaderMedOpprettetTidspunkt(
-            listOf(SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now(), kildeBarnepensjon)),
-        )
-
-        db.ukategorisert() shouldContain soeknad.id
-    }
-
-    @Test
     fun `Alle hendelser skal lagres i hendelsestabellen`() {
         val kilde = "barnepensjon-ui"
         val soeknad = UlagretSoeknad("AlleHendelser", """{"harSamtykket":"true"}""", kilde)
@@ -626,14 +616,14 @@ internal class SoeknadDaoIntegrationTest {
 
         assertEquals(8, rapport.size)
 
-        assertEquals("2", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("2", rapport.find { it.status == Status.SENDT && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeBarnepensjon }?.count)
-        assertEquals("1", rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeOMS }?.count)
-        assertEquals("1", rapport.find { it.status == Status.SENDT && it.kilde == kildeOMS }?.count)
-        assertEquals("1", rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeOMS }?.count)
-        assertEquals("1", rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
+        assertEquals(2, rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(1, rapport.find { it.status == Status.FERDIGSTILT && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(2, rapport.find { it.status == Status.SENDT && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(1, rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeBarnepensjon }?.count)
+        assertEquals(1, rapport.find { it.status == Status.LAGRETKLADD && it.kilde == kildeOMS }?.count)
+        assertEquals(1, rapport.find { it.status == Status.SENDT && it.kilde == kildeOMS }?.count)
+        assertEquals(1, rapport.find { it.status == Status.ARKIVERINGSFEIL && it.kilde == kildeOMS }?.count)
+        assertEquals(1, rapport.find { it.status == Status.VENTERBEHANDLING }?.count)
     }
 
     @Test
@@ -654,7 +644,7 @@ internal class SoeknadDaoIntegrationTest {
                     }
             }
 
-        assertEquals(Status.values().size, statusListe.size)
+        assertEquals(Status.entries.size, statusListe.size)
     }
 
     @Test
@@ -699,6 +689,23 @@ internal class SoeknadDaoIntegrationTest {
 
         assertEquals(5, kilder[kildeBarnepensjon])
         assertEquals(1, kilder[kildeOMS])
+    }
+
+    @Test
+    fun `soeknaderMedHendelseStatus skal telle antall soeknader med hendelse for gitt status`() {
+        val soeknad = LagretSoeknad(2004, "Ukategorisert", "{}")
+        val soeknad2 = LagretSoeknad(2005, "Ukategorisert", "{}")
+        lagreSoeknaderMedOpprettetTidspunkt(
+            soeknader = listOf(
+                SoeknadTest(soeknad.id, soeknad.fnr, soeknad.payload, ZonedDateTime.now(), kildeBarnepensjon),
+                SoeknadTest(soeknad2.id, soeknad2.fnr, soeknad2.payload, ZonedDateTime.now(), kildeBarnepensjon),
+            ),
+            opprettKladdHendelse = true
+        )
+        db.soeknadSendt(soeknad2.id)
+
+        db.soeknaderMedHendelseStatus(Status.LAGRETKLADD) shouldBe 2
+        db.soeknaderMedHendelseStatus(Status.SENDT) shouldBe 1
     }
 
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
@@ -844,7 +851,7 @@ internal class SoeknadDaoIntegrationTest {
             }
         }
 
-    private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad>? =
+    private fun finnAlleSoeknader(fnr: String): List<LagretSoeknad> =
         dataSource.connection.use {
             val pstmt = it.prepareStatement("SELECT * FROM innhold i WHERE i.fnr = ?")
             pstmt.setString(1, fnr)
