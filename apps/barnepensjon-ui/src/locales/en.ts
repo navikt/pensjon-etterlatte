@@ -40,6 +40,8 @@ const navigation = {
     continueApplicationButton: 'No, I want to continue',
     cancelApplicationButton: 'Yes, I want to quit now and continue later',
     deleteApplicationButton: 'Yes, I want to quit now and clear the application form',
+    goBackWithoutSavingBody: '',
+    goBackWithoutSaving: '',
 }
 
 const btn = {

@@ -39,6 +39,8 @@ const navigation = {
     continueApplicationButton: 'Nei, jeg vil fortsette',
     cancelApplicationButton: 'Ja, avbryt og fortsett senere',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
+    goBackWithoutSavingBody: 'Ønsker du å gå tilbake til forrige steg uten å lagre endringer?',
+    goBackWithoutSaving: 'Gå tilbake uten å lagre',
 }
 
 const btn = {

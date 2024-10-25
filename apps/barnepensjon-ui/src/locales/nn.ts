@@ -39,6 +39,8 @@ const navigation = {
     continueApplicationButton: 'Nei, eg vil halde fram',
     cancelApplicationButton: 'Ja, avbryt og hald fram seinare',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
+    goBackWithoutSavingBody: '',
+    goBackWithoutSaving: '',
 }
 
 const btn = {

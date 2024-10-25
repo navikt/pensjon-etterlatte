@@ -1,4 +1,5 @@
 import { BodyLong, Button, Modal } from '@navikt/ds-react'
+import useTranslation from '~hooks/useTranslation'
 
 interface ModalProps {
     prev?: () => void
@@ -7,19 +8,19 @@ interface ModalProps {
 }
 
 export const PrevStepModal = ({ prev, open, setOpen }: ModalProps) => {
-    // TODO: Legg til oversettelser
-    // TODO: Lag tester for å se om ting lagres riktig
+    const { t } = useTranslation('navigation')
+
     return (
         <Modal
             header={{
-                heading: 'Gå tilbake uten å lagre',
+                heading: t('goBackWithoutSaving'),
                 closeButton: true,
             }}
             onClose={() => setOpen(false)}
             open={open}
         >
             <Modal.Body>
-                <BodyLong>Ønsker du å gå tilbake til forrige steg uten å lagre endringer?</BodyLong>
+                <BodyLong>{t('goBackWithoutSavingBody')}</BodyLong>
             </Modal.Body>
             <Modal.Footer>
                 <Button
@@ -28,7 +29,7 @@ export const PrevStepModal = ({ prev, open, setOpen }: ModalProps) => {
                         setOpen(false)
                     }}
                 >
-                    Fortsett å fyll ut skjema
+                    {t('continueApplicationButton')}
                 </Button>
                 <Button
                     type="button"
@@ -38,7 +39,7 @@ export const PrevStepModal = ({ prev, open, setOpen }: ModalProps) => {
                         prev!()
                     }}
                 >
-                    Gå tilbake uten å lagre
+                    {t('goBackWithoutSaving')}
                 </Button>
             </Modal.Footer>
         </Modal>

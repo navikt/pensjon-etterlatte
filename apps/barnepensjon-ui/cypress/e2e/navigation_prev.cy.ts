@@ -20,7 +20,7 @@ describe('Navigation: "Back" button functionality', () => {
     })
 
     it('Should let you keep on filling out form', () => {
-        cy.clickBtn('Fortsett å fyll ut skjema')
+        cy.clickBtn('Nei, jeg vil fortsette')
         cy.get('#firstName').should('have.value', 'Ola')
     })
 
