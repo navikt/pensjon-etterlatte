@@ -8,6 +8,8 @@ import { StepProps } from '../Dialogue'
 import DeceasedParentForm from '../the-deceased/DeceasedParentForm'
 import DeceasedParentTitle from '../the-deceased/DeceasedParentTitle'
 import { isDev } from '../../../api/axios'
+import { useState } from 'react'
+import { PrevStepModal } from '~components/common/PrevStepModal'
 
 interface Props extends StepProps {
     fnrRegisteredParent?: string[]
@@ -16,10 +18,16 @@ interface Props extends StepProps {
 export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }: Props) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation()
+    const [open, setOpen] = useState(false)
 
-    const save = (data: IDeceasedParent) => {
+    const saveNext = (data: IDeceasedParent) => {
         dispatch({ type: type!, payload: { ...data } })
         next!()
+    }
+
+    const savePrev = (data: IDeceasedParent) => {
+        dispatch({ type: type!, payload: { ...data } })
+        prev!()
     }
 
     const methods = useForm<any>({
@@ -29,8 +37,18 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
 
     const {
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isDirty, isValid },
     } = methods
+
+    const handlePrev = () => {
+        if (!isDirty) prev!() // Hvis bruker ikke har gjort noe, gå tilbake uten validering
+        if (isValid) handleSubmit(savePrev)() // Hvis form er valid, valider og gå tilbake
+
+        // Hvis form ikke er valid og bruker har gjort noe, vis modal som lar bruker velge om de vil gå tilbake uten å lagre endringer
+        if (isDirty && !isValid) {
+            setOpen(true)
+        }
+    }
 
     return (
         <FormProvider {...methods}>
@@ -41,12 +59,18 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
 
                 <ErrorSummaryWrapper errors={errors} />
 
+                <PrevStepModal prev={prev} open={open} setOpen={setOpen} />
+
                 <Navigation
                     right={{
                         label: t(fnrRegisteredParent ? 'saveButton' : 'nextButton', { ns: 'btn' }),
-                        onClick: handleSubmit(save),
+                        onClick: handleSubmit(saveNext),
                     }}
-                    left={{ label: t('backButton', { ns: 'btn' }), variant: 'secondary', onClick: prev }}
+                    left={{
+                        label: t('backButton', { ns: 'btn' }),
+                        variant: 'secondary',
+                        onClick: handlePrev,
+                    }}
                     hideCancel={!!fnrRegisteredParent}
                 />
             </form>
