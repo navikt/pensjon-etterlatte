@@ -16,16 +16,19 @@ interface Props {
 
 const ProgressBar = styled.div<{ $prosess: string; $lastStep: boolean }>`
     height: 1rem;
-    background-color: #cce2f0;
-    color: #66a3c4;
+    background-color: var(--a-surface-neutral-subtle);
+    color: var(--a-surface-alt-3);
     border-radius: 1rem;
     margin-bottom: 0.5rem;
+    box-shadow:
+        inset 0 1px 3px #00000026,
+        inset 0 0 1px #0003;
     span {
-        background-color: #66a3c4;
+        background-color: var(--a-surface-alt-3);
         height: 1rem;
         display: block;
         width: ${(props) => props.$prosess};
-        border-radius: ${(props) => (props.$lastStep ? '1rem' : '1rem 0 0 1rem')};
+        border-radius: inherit;
     }
 `
 
