@@ -2,7 +2,7 @@ import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
-import { ActionTypes, IParent } from '../../../context/application/application'
+import { ActionTypes, IDeceasedParent, IParent } from '../../../context/application/application'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
@@ -70,7 +70,10 @@ export default function AboutParents({ next, prev }: StepProps) {
     }
 
     const isValid = () => {
-        if (childAndOneParentDeceased || guardianAndOneParentDeceased) return !isEmpty(state?.secondParent)
+        if (childAndOneParentDeceased || guardianAndOneParentDeceased) {
+            if ((state?.secondParent as IDeceasedParent)?.isValidated === false) return false
+            return !isEmpty(state?.secondParent)
+        }
         return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent)
     }
 
@@ -185,6 +188,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                     parent={state.secondParent!}
                                     edit={() => updateEditing(EditParent.SECOND)}
                                     remove={() => updateSecondParent({})}
+                                    isValidated={(state.secondParent as IDeceasedParent)?.isValidated}
                                 />
                             )}
                         </InfocardWrapper>

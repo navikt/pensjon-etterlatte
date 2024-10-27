@@ -40,8 +40,6 @@ const navigation = {
     continueApplicationButton: 'No, I want to continue',
     cancelApplicationButton: 'Yes, I want to quit now and continue later',
     deleteApplicationButton: 'Yes, I want to quit now and clear the application form',
-    goBackWithoutSavingBody: '',
-    goBackWithoutSaving: '',
 }
 
 const btn = {
@@ -286,6 +284,7 @@ const aboutParents = {
         'You must enter information about both your parents to continue the application. \n\n If you do not know the identity of your parent, select "Unknown parent".',
     guardianAndOneParentDeceased:
         'You do not need to fill in the surviving parent information. We collect this information when we process your application. \n\n If the child has lost one parent and you do not know the identity of the other parent, you must start the application process over again. Choose the alternative "Both parents".',
+    missingInformation: 'Missing information',
 }
 
 const livingParent = {
