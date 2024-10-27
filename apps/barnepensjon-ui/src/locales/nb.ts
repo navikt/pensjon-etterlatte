@@ -572,6 +572,7 @@ const steps = {
     YourSituation: 'Din situasjon',
     AboutChildren: 'Opplysninger om barna',
     Summary: 'Oppsummering',
+    step: 'Steg {activePage} av {possibleStep}',
 }
 
 const texts: Record<TNamespace, Record<TKey, Translation>> = {

@@ -1,11 +1,10 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { StepType } from '../../utils/steps'
-import { FormProgress } from '@navikt/ds-react'
 import { v4 as uuid } from 'uuid'
 import React, { useState } from 'react'
 import { ActionTypes } from '../../context/application/application'
 import PageNotFound from '../error/PageNotFound'
-import useTranslation from '../../hooks/useTranslation'
+import FormProgress from '~components/common/FormProgress'
 
 interface DialogueProps {
     steps: StepType[]
@@ -19,8 +18,6 @@ export interface StepProps {
 }
 
 export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
-    const { t } = useTranslation('steps')
-
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const currentIndex = steps.findIndex((step) => pathname.includes(step.path))
@@ -39,16 +36,11 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
     return (
         <>
             <FormProgress
-                totalSteps={steps.length}
-                activeStep={currentIndex + 1}
-                onStepChange={(step) => visitNavigate(step - 1)}
-            >
-                {steps.map((step: StepType) => (
-                    <FormProgress.Step key={uuid()} interactive={visitedPaths.includes(step)}>
-                        {t(step.label)}
-                    </FormProgress.Step>
-                ))}
-            </FormProgress>
+                activeStep={currentIndex}
+                setStep={visitNavigate}
+                possibleSteps={steps}
+                visitedSteps={visitedPaths}
+            />
 
             <Routes>
                 {steps.map((step: StepType) => (
