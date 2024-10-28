@@ -38,7 +38,7 @@ const loggMelding = async (data: LoggMelding) => {
     }
 
     try {
-        await poster(`${apiURL}/api/logg`, { body: data })
+        await poster(`${apiURL}/logg`, { body: data })
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${e}`)
     }
