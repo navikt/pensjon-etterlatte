@@ -6,6 +6,8 @@ import { SpraakVelger } from './spraak/SpraakVelger.tsx'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { useRouteError } from 'react-router-dom'
 import { useEffect } from 'react'
+import ErrorStackParser from 'error-stack-parser'
+import { logger } from '../utils/logger.ts'
 
 export const SystemUtilgjengelig = () => {
     const error = useRouteError()
@@ -15,8 +17,25 @@ export const SystemUtilgjengelig = () => {
     const { innhold, isLoading } = useSanityInnhold<SystemUtilgjengeligInnhold>('*[_type == "systemUtilgjengelig"]')
 
     useEffect(() => {
-        if (error) {
-            console.error(error)
+        if (error instanceof Error) {
+            const errorStackFrames = ErrorStackParser.parse(error)
+
+            if (errorStackFrames.length > 0) {
+                const stackFrame = errorStackFrames[0]
+
+                try {
+                    logger.error({
+                        lineno: stackFrame.lineNumber!,
+                        columno: stackFrame.columnNumber!,
+                        message: error.message,
+                        error: JSON.stringify(error),
+                    })
+                } catch {
+                    logger.generalError({ err: error, errorInfo: error.message })
+                }
+            } else {
+                logger.generalError({ err: error, errorInfo: error.message })
+            }
         }
     }, [error])
 

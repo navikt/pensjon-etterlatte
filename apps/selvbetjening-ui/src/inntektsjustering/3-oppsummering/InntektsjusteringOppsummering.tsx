@@ -96,9 +96,7 @@ export const InntektsjusteringOppsummering = () => {
                         <FormSummary>
                             <FormSummary.Header>
                                 <FormSummary.Heading level="2">{tittel?.[spraak]}</FormSummary.Heading>
-                                <FormSummary.EditLink
-                                    onClick={() => navigate(`/inntektsjustering/inntekt-til-neste-aar`)}
-                                >
+                                <FormSummary.EditLink onClick={() => navigate(`/inntekt-til-neste-aar`)}>
                                     {endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
