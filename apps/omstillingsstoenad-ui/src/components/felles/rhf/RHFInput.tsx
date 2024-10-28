@@ -241,7 +241,14 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
                 ...rules,
             }}
             render={({ field: { value, onChange } }) => (
-                <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
+                <TextField
+                    id={name}
+                    value={value || ''}
+                    onChange={onChange}
+                    error={feilmelding}
+                    {...rest}
+                    inputMode="tel"
+                />
             )}
         />
     )
@@ -282,6 +289,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
                     }}
                     error={feilmelding}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
@@ -371,6 +379,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, label, valgfri = fa
                     error={feilmelding}
                     label={valgfri ? `${label} (${t('felles.valgfri')})` : label}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
