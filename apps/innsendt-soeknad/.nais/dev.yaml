@@ -8,6 +8,8 @@ metadata:
 spec:
   image: {{image}}
   port: 8080
+  ingresses:
+    - "https://etterlatte-innsendt-soeknad.intern.dev.nav.no" # For å nå f.x. Prometheus-endepunkt ifm testing
   liveness:
     initialDelay: 5
     path: internal/isalive
