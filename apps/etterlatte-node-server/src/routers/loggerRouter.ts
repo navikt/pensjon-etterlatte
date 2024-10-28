@@ -87,7 +87,7 @@ const stringifyUserDevice = (device?: UserDeviceInfo): string | undefined => {
             const browser = `${device.browser.name} ${device.browser.version}`
             const os = `${device.os.name} ${device.os.version} (${device.os.versionName})`
 
-            console.log(device)
+            logger.info(device)
 
             return `${browser} - ${os}`
         } catch (e) {
