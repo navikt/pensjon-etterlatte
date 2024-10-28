@@ -7,7 +7,7 @@ export default defineConfig({
     e2e: {
         testIsolation: false,
         excludeSpecPattern: [
-                "/cypress/e2e/**"
+                "*.cy.ts"
         ]
     },
     trashAssetsBeforeRuns: true,
