@@ -58,6 +58,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="kontaktinfo.telefonnummer"
+            inputmode="tel"
             size="25"
             type="text"
             value=""

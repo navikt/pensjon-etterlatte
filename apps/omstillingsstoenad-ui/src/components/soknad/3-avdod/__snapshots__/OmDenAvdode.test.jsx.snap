@@ -85,6 +85,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           <input
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="foedselsnummer"
+            inputmode="numeric"
             size="25"
             type="tel"
             value=""
