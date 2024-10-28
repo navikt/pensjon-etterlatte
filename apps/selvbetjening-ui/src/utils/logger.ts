@@ -1,11 +1,11 @@
-import * as Bowser from 'bowser'
+import Bowser from 'bowser'
 import Parser = Bowser.Parser.Parser
 import { apiURL, poster } from './api.ts'
 
 const browser = Bowser.getParser(window.navigator.userAgent)
 
 interface LoggMelding {
-    type: 'info' | 'warning'
+    type: 'info' | 'error'
     stackInfo: StackInfo
     jsonContent: UserDeviceInfo
 }
@@ -14,7 +14,7 @@ interface StackInfo {
     readonly lineno: number
     readonly columno: number
     readonly message: string
-    readonly error: Error
+    readonly error: string
 }
 
 interface UserDeviceInfo {
@@ -57,12 +57,24 @@ export const logger = {
     },
     error: (stackInfo: StackInfo) => {
         const data: LoggMelding = {
-            type: 'info',
+            type: 'error',
             stackInfo,
             jsonContent: { ...defaultLoggingContext },
         }
         loggMelding(data).catch((err) => {
+            console.error(`Kunne ikke logge error melding: ${data}, error: ${err}`)
+        })
+    },
+    generalInfo: (info: object) => {
+        const data = { type: 'info', stackInfo: info, jsonContent: { ...defaultLoggingContext } }
+        loggMelding(data as LoggMelding).catch((err) => {
             console.error(`Kunne ikke logge info melding: ${data}, error: ${err}`)
+        })
+    },
+    generalError: (info: object) => {
+        const data = { type: 'error', stackInfo: info, jsonContent: { ...defaultLoggingContext } }
+        loggMelding(data as LoggMelding).catch((err) => {
+            console.error(`Kunne ikke logge error melding: ${data}, error: ${err}`)
         })
     },
 }
