@@ -1,9 +1,9 @@
-import { Loader, ReadMore, VStack } from '@navikt/ds-react'
+import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Inntekt } from '../../../types/inntektsjustering.ts'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
@@ -11,6 +11,7 @@ import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
 import { Alder } from '../../../types/person.ts'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
@@ -33,13 +34,14 @@ export const AttenTilSekstiEnAarSkjema = () => {
     })
 
     if (innholdIsLoading) {
-        return <Loader />
+        return <SideLaster />
     }
     if (innholdError) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw innholdError
     }
+
     if (!innhold?.inntektSkjemaer?.attenTilSekstiEnAarSkjema) {
-        return <Navigate to="/system-utilgjengelig" />
+        throw Error('Finner ikke sanity innhold for skjema 18-61 år')
     }
 
     const onInntektSubmit = (inntekt: Inntekt) => {

@@ -3,16 +3,19 @@ import { SpraakVelger } from './spraak/SpraakVelger.tsx'
 import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
 import { FantIkkeSiden as FantIkkeSidenInnhold } from '../sanity.types.ts'
 import { useSpraak } from './spraak/SpraakContext.tsx'
-import { Navigate } from 'react-router-dom'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+import { SideLaster } from './SideLaster.tsx'
 
 export const FantIkkeSiden = () => {
     const spraak = useSpraak()
 
     const { innhold, error, isLoading } = useSanityInnhold<FantIkkeSidenInnhold>('*[_type == "fantIkkeSiden"]')
 
-    if (error && !isLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (isLoading) {
+        return <SideLaster />
+    }
+    if (error) {
+        throw error
     }
 
     return (

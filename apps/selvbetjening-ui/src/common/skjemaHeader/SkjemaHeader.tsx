@@ -4,8 +4,8 @@ import { VarigLoonnstilskuddIcon } from '../../inntektsjustering/1-innledning/ic
 import { SkjemaProgresjon } from '../SkjemaProgresjon.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
+import { SideLaster } from '../SideLaster.tsx'
 
 interface Props {
     aktivtSteg: number
@@ -17,7 +17,12 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey }: Props) => {
 
     const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
-    if (error && !isLoading) return <Navigate to="/system-utilgjengelig" />
+    if (isLoading) {
+        return <SideLaster />
+    }
+    if (error) {
+        throw error
+    }
 
     return (
         !!innhold && (

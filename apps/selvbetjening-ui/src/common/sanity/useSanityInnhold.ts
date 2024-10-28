@@ -1,14 +1,14 @@
 import useSWR, { SWRResponse } from 'swr'
-import { apiURL } from '../../utils/api.ts'
+import { ApiError, apiURL } from '../../utils/api.ts'
 
 export const useSanityInnhold = <T>(
     sanityQuery: string
 ): {
     innhold: T | undefined
-    error: boolean | undefined
+    error: ApiError | undefined
     isLoading: boolean
 } => {
-    const { data, error, isLoading }: SWRResponse<T[], boolean, boolean> = useSWR(
+    const { data, error, isLoading }: SWRResponse<T[], ApiError, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams(`sanityQuery=${sanityQuery}`)
     )
 

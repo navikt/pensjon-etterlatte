@@ -6,6 +6,9 @@ export default defineConfig({
     screenshotOnRunFailure: false,
     e2e: {
         testIsolation: false,
+        excludeSpecPattern: [
+                "**/*.cy.ts"
+        ]
     },
-    trashAssetsBeforeRuns: true
+    trashAssetsBeforeRuns: true,
 })

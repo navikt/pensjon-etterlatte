@@ -2,10 +2,10 @@ import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { SideLaster } from '../../common/SideLaster.tsx'
 
 export const InntektsjusteringKvittering = () => {
     const spraak = useSpraak()
@@ -14,8 +14,11 @@ export const InntektsjusteringKvittering = () => {
         '*[_type == "inntektsjusteringKvittering"]'
     )
 
-    if (error && !isLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+    if (isLoading) {
+        return <SideLaster />
+    }
+    if (error) {
+        throw error
     }
 
     return (
