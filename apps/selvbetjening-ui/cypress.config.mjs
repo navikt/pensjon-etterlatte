@@ -6,9 +6,9 @@ export default defineConfig({
     screenshotOnRunFailure: false,
     e2e: {
         testIsolation: false,
+        excludeSpecPattern: [
+                "/cypress/e2e/**"
+        ]
     },
     trashAssetsBeforeRuns: true,
-    excludeSpecPattern: [
-            "/cypress/e2e/**"
-    ]
 })
