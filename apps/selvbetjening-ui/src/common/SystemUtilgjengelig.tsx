@@ -14,6 +14,7 @@ export const SystemUtilgjengelig = () => {
 
     const { innhold, isLoading } = useSanityInnhold<SystemUtilgjengeligInnhold>('*[_type == "systemUtilgjengelig"]')
 
+    //TODO: her må det logges
     useEffect(() => {
         if (error) {
             console.error(error)
