@@ -141,6 +141,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, '.'))}
                     error={feilmelding}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
@@ -174,6 +175,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
                         }}
                         error={feilmelding}
                         {...rest}
+                        inputMode="numeric"
                     />
                 )}
             />
@@ -214,6 +216,7 @@ export const RHFProsentInput = ({ name, rules, valgfri = false, ...rest }: RHFPr
                     }}
                     error={feilmelding}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
