@@ -471,8 +471,8 @@ const error = {
     'disabilityBenefitsIsGuardian.required': 'Oppgi om barnet får uføretrygd',
     'workAssessmentAllowance.required': 'Oppgi om du får arbeidsavklaringspengar (AAP)',
     'workAssessmentAllowanceIsGuardian.required': 'Oppgi om barnet får arbeidsavklaringspengar (AAP)',
-    'deceasedParentOne.required': 'Du mangler å fylle ut informasjon om den første forelderen',
-    'deceasedParentTwo.required': 'Du mangler å fylle ut informasjon om den andre forelderen',
+    'deceasedParentOne.required': 'Du må fylle ut informasjon om den første forelderen',
+    'deceasedParentTwo.required': 'Du må fylle ut informasjon om den andre forelderen',
 }
 
 const pageNotFound = {
