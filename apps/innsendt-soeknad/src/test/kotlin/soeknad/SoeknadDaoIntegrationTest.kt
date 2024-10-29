@@ -1,7 +1,8 @@
 package soeknad
 
-import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.doubles.percent
+import io.kotest.matchers.doubles.plusOrMinus
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import opprettInMemoryDatabase
@@ -708,6 +709,29 @@ internal class SoeknadDaoIntegrationTest {
         db.soeknaderMedHendelseStatus(Status.SENDT) shouldBe 1
     }
 
+    @Test
+    fun `ferdigstillelsesgrad skal telle med de som er opprettet siste 30 dager`() {
+        var teller : SoeknadID = 2000
+        val lagretSoeknad1 = LagretSoeknad(++teller, "05059054321", "{}")
+        val lagretSoeknad2 = LagretSoeknad(++teller, "01017012345", "{}")
+        val lagretSoeknad3 = LagretSoeknad(++teller, "31128054321", "{}")
+        val trettiEnDagerSiden = ZonedDateTime.now().minusDays(31)
+        val (soeknad1, _, _) = listOf(
+            SoeknadTest(lagretSoeknad1.id, lagretSoeknad1.fnr, lagretSoeknad1.payload, ZonedDateTime.now(), kildeBarnepensjon),
+            SoeknadTest(lagretSoeknad2.id, lagretSoeknad2.fnr, lagretSoeknad2.payload, ZonedDateTime.now(), kildeBarnepensjon),
+            SoeknadTest(lagretSoeknad3.id, lagretSoeknad3.fnr, lagretSoeknad3.payload, trettiEnDagerSiden, kildeBarnepensjon),
+        )
+        .also { soeknadList ->
+            lagreSoeknaderMedOpprettetTidspunkt(
+                soeknader = soeknadList,
+                opprettKladdHendelse = true)}
+
+        db.ferdigstillSoeknad(soeknad1.toUlagret())
+
+        db.ferdigstillelsesgradSiste30dagerProsent() shouldBe (50.0 plusOrMinus 0.1.percent)
+    }
+
+
     private fun finnSoeknad(id: SoeknadID): FerdigstiltSoeknad? =
         dataSource.connection.use { conn ->
             val rs =
@@ -874,4 +898,14 @@ internal class SoeknadDaoIntegrationTest {
         val opprettet: ZonedDateTime,
         val kilde: String,
     )
+    {
+        fun toUlagret() : UlagretSoeknad =
+            UlagretSoeknad(
+                fnr = fnr,
+                payload = data,
+                kilde = kilde,
+                type = null
+            )
+    }
+
 }

@@ -99,6 +99,8 @@ interface StatistikkRepository {
 
     // Hvor mange søknader som har vært innom en gitt status
     fun soeknaderMedHendelseStatus(status: Status): Long?
+
+    fun ferdigstillelsesgradSiste30dagerProsent(): Double
 }
 
 class PostgresSoeknadRepository private constructor(
@@ -391,6 +393,19 @@ class PostgresSoeknadRepository private constructor(
         }
     }
 
+    override fun ferdigstillelsesgradSiste30dagerProsent(): Double {
+        return requireNotNull(
+            connection.use {
+                it
+                    .prepareStatement(
+                        Queries.FERDIGSTILLELSESGRAD_SISTE_30_DAGER
+                    )
+                    .executeQuery()
+                    .singleOrNull { getDouble(1) }
+            }
+        )
+    }
+
     private fun asLocalDateTime(timestamp: Timestamp): LocalDateTime =
         timestamp
             .toLocalDateTime()
@@ -530,5 +545,21 @@ private object Queries {
         SELECT COUNT(DISTINCT soeknad_id) 
         FROM hendelse h 
         WHERE h.status_id = ?
+        """.trimIndent()
+
+    val FERDIGSTILLELSESGRAD_SISTE_30_DAGER =
+        """        
+        SELECT 100.0 *  
+            (SELECT CAST(COUNT(DISTINCT hf.soeknad_id) AS float)
+            FROM hendelse hf JOIN hendelse hk 
+              ON hk.soeknad_id = hf.soeknad_id
+            WHERE hf.status_id = 'FERDIGSTILT'
+              AND hk.status_id = 'LAGRETKLADD'
+              AND hk.opprettet >= (now() - interval '30 days'))
+        /
+            (SELECT CAST(COUNT(DISTINCT hk.soeknad_id) AS float)
+            FROM hendelse hk
+            WHERE hk.status_id = 'LAGRETKLADD'
+            AND hk.opprettet >= (now() - interval '30 days'))
         """.trimIndent()
 }

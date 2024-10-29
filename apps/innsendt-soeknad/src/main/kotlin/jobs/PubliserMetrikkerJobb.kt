@@ -20,7 +20,7 @@ import kotlin.concurrent.fixedRateTimer
 
 class PubliserMetrikkerJobb(
     private val db: StatistikkRepository,
-    private val registry: PrometheusMeterRegistry = Metrikker.registry,
+    registry: PrometheusMeterRegistry = Metrikker.registry,
 ) {
     private val logger = LoggerFactory.getLogger(PubliserMetrikkerJobb::class.java)
 
@@ -56,6 +56,14 @@ class PubliserMetrikkerJobb(
                     ?.toDouble()
             }
             .description("Søknader som har vært lagret som ferdigstilt")
+            .register(registry)
+
+        Gauge
+            .builder("ferdigstillelsesgrad") {
+                db.ferdigstillelsesgradSiste30dagerProsent()
+                    .also { grad -> logger.info("Hentet ferdigstillelsesgrad: $grad ") }
+            }
+            .description("Hvor stor andel av søknader som har blitt ferdigstilt vs lagret kladd de siste 30 dager")
             .register(registry)
     }
 
