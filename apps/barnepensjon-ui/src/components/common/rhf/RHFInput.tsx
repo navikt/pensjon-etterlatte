@@ -135,6 +135,7 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, '.'))}
                     error={feilmelding}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
@@ -195,6 +196,7 @@ export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
                     }}
                     error={feilmelding}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
@@ -222,7 +224,14 @@ export const RHFTelefonInput = ({ name, rules, valgfri, ...rest }: RHFProps) => 
                 ...rules,
             }}
             render={({ field: { value, onChange } }) => (
-                <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
+                <TextField
+                    id={name}
+                    value={value || ''}
+                    onChange={onChange}
+                    error={feilmelding}
+                    {...rest}
+                    inputMode="tel"
+                />
             )}
         />
     )
@@ -263,6 +272,7 @@ export const RHFFoedselsnummerInput = ({ name, rules, valgfri, ...rest }: RHFPro
                     }}
                     error={feilmelding}
                     {...rest}
+                    inputMode="numeric"
                 />
             )}
         />
@@ -356,6 +366,7 @@ export const RHFNumberInput = ({ name, minLength, maxLength, required = true, la
                         if (isValid(e)) onChange(e)
                     }}
                     error={feilmelding}
+                    inputMode="numeric"
                     {...rest}
                 />
             )}
