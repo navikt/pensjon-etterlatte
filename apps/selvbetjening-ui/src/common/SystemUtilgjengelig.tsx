@@ -26,7 +26,7 @@ export const SystemUtilgjengelig = () => {
                 try {
                     logger.error({
                         lineno: stackFrame.lineNumber!,
-                        columno: stackFrame.columnNumber!,
+                        columnno: stackFrame.columnNumber!,
                         message: error.message,
                         error: JSON.stringify(error),
                     })

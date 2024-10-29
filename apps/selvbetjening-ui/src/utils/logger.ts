@@ -13,7 +13,7 @@ interface LoggMelding {
 
 interface StackInfo {
     readonly lineno: number
-    readonly columno: number
+    readonly columnno: number
     readonly message: string
     readonly error: string
 }
