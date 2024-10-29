@@ -1,0 +1,77 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: selvbetjening-ui
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+spec:
+  image: {{ image }}
+  port: 8080
+  replicas:
+    min: 1
+    max: 2
+    cpuThresholdPercentage: 90
+  ingresses:
+    - https://www.nav.no/omstillingsstonad/inntekt
+    - https://etterlatte.intern.nav.no/omstillingsstonad/inntekt
+  liveness:
+    path: /omstillingsstonad/inntekt/isAlive
+    initialDelay: 10
+    timeout: 5
+    periodSeconds: 5
+    failureThreshold: 30
+  readiness:
+    path: /omstillingsstonad/inntekt/isReady
+    initialDelay: 30
+    periodSeconds: 5
+    timeout: 5
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 50m
+      memory: 192Mi
+  prometheus:
+    enabled: true
+    path: /omstillingsstonad/inntekt/metrics
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
+    logging:
+      destinations:
+        - id: elastic
+        - id: loki
+  tokenx:
+    enabled: true
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      level: idporten-loa-high
+      locale: nb
+      autoLogin: true
+      autoLoginIgnorePaths:
+        - /omstillingsstonad/inntekt/internal/**
+  envFrom:
+    - secret: selvbetjening-ui-sanity
+  env:
+    - name: BASE_PATH
+      value: /omstillingsstonad/inntekt
+    - name: API_URL
+      value: http://selvbetjening-backend
+    - name: AUDIENCE
+      value: prod-gcp:etterlatte:selvbetjening-backend
+  accessPolicy:
+    outbound:
+      external:
+        - host: www.nav.no
+        - host: tokendings.prod-gcp.nais.io
+        - host: u0dlg8d8.api.sanity.io
+        - host: u0dlg8d8.apicdn.sanity.io
+      rules:
+        - application: selvbetjening-backend
+        - application: nav-dekoratoren
+          namespace: personbruker

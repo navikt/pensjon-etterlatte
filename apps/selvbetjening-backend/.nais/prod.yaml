@@ -1,0 +1,66 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: selvbetjening-backend
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+spec:
+  image: {{image}}
+  port: 8080
+  liveness:
+    initialDelay: 5
+    path: internal/isalive
+  readiness:
+    initialDelay: 5
+    path: internal/isready
+  prometheus:
+    enabled: true
+    path: /metrics
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: java
+    logging:
+      destinations:
+        - id: elastic
+        - id: loki
+  secureLogs:
+    enabled: true
+  kafka:
+    pool: nav-prod
+  tokenx:
+    enabled: true
+  leaderElection: true
+  gcp:
+    sqlInstances:
+      - type: POSTGRES_14
+        name: selvbetjening-backend
+        tier: db-custom-1-3840
+        databases:
+          - name: selvbetjening-backend
+            envVarPrefix: DB
+  resources:
+    requests:
+      cpu: 20m
+      memory: 320Mi
+  replicas:
+    cpuThresholdPercentage: 90
+    max: 1
+    min: 1
+  env:
+    - name: KAFKA_RAPID_TOPIC
+      value: etterlatte.dodsmelding
+    - name: PDL_URL
+      value: https://pdl-api.prod-fss-pub.nais.io/graphql
+    - name: PDL_AZURE_SCOPE
+      value: api://prod-fss.pdl.pdl-api/.default
+    - name: PDL_AUDIENCE
+      value: "prod-fss:pdl:pdl-api"
+  accessPolicy:
+    outbound:
+      external:
+        - host: pdl-api.prod-fss-pub.nais.io
+    inbound:
+      rules:
+        - application: selvbetjening-ui

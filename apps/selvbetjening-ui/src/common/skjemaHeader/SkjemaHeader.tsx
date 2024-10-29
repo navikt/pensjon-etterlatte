@@ -1,4 +1,4 @@
-import { Heading, Hide, HStack, VStack } from '@navikt/ds-react'
+import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
 import { VarigLoonnstilskuddIcon } from '../../inntektsjustering/1-innledning/icons/VarigLoonnstilskuddIcon.tsx'
 import { SkjemaProgresjon } from '../SkjemaProgresjon.tsx'
@@ -34,9 +34,12 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey }: Props) => {
                     <Hide below="md">
                         <VarigLoonnstilskuddIcon />
                     </Hide>
-                    <Heading size="xlarge" level="1">
-                        {innhold.skjemaTittel?.[spraak]}
-                    </Heading>
+                    <VStack>
+                        <BodyShort size="small">Nav 17-09.02</BodyShort>
+                        <Heading size="xlarge" level="1">
+                            {innhold.skjemaTittel?.[spraak]}
+                        </Heading>
+                    </VStack>
                 </HStack>
 
                 {/* TODO: dette er litt hacky, må finne bedre måte å løse det på */}
