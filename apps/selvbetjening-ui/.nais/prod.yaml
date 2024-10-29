@@ -68,7 +68,7 @@ spec:
     outbound:
       external:
         - host: www.nav.no
-        - host: tokendings.dev-gcp.nais.io
+        - host: tokendings.prod-gcp.nais.io
         - host: u0dlg8d8.api.sanity.io
         - host: u0dlg8d8.apicdn.sanity.io
       rules:
