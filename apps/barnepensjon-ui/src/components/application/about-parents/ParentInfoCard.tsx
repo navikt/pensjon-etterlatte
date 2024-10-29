@@ -1,16 +1,9 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyShort, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
+import { BodyShort, Button, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import {
-    Infocard,
-    InfocardFooter,
-    InfocardFooterLink,
-    InfocardHeader,
-    InformationBox,
-    InformationElement,
-} from '../../common/card/InfoCard'
+import { Infocard, InfocardHeader, InformationBox, InformationElement } from '../../common/card/InfoCard'
 import { IParent } from '~context/application/application'
 
 interface Props {
@@ -18,15 +11,15 @@ interface Props {
     edit: () => void
     remove: () => void
     isValidated?: boolean
+    firstParent: boolean
 }
 
-const ParentInfoCard = memo(({ parent, edit, remove, isValidated }: Props) => {
+const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }: Props) => {
     const { t } = useTranslation('common')
-
     const foedselsnummer = parent.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Infocard>
+        <Infocard $hasError={!isValidated} id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}>
             <InfocardHeader>
                 <img alt="forelder" src={ikon} />
             </InfocardHeader>
@@ -37,7 +30,6 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated }: Props) => {
                 <Heading size={'small'} spacing>
                     {parent.firstName} {parent.lastName}
                 </Heading>
-
                 <InformationElement>
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}
                     <BodyShort>{t('fnrDnr')}</BodyShort>
@@ -46,21 +38,19 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated }: Props) => {
                     <BodyShort>{t('citizenship')}</BodyShort>
                     <BodyShort spacing>{parent.citizenship ?? '-'}</BodyShort>
                 </InformationElement>
-                {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
-            </InformationBox>
-
-            <InfocardFooter>
                 <VStack gap="4">
-                    <InfocardFooterLink href={'#'} onClick={edit}>
-                        <EditFilled />
-                        <BodyShort>{t('editButton', { ns: 'btn' })}</BodyShort>
-                    </InfocardFooterLink>
-                    <InfocardFooterLink href={'#'} onClick={remove}>
-                        <DeleteFilled />
-                        <BodyShort>{t('removeButton', { ns: 'btn' })}</BodyShort>
-                    </InfocardFooterLink>
+                    {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
+
+                    <VStack gap="2" align="center">
+                        <Button type="button" icon={<EditFilled fontSize={18} />} onClick={edit} variant="tertiary">
+                            {t('editButton', { ns: 'btn' })}
+                        </Button>
+                        <Button type="button" icon={<DeleteFilled fontSize={18} />} onClick={remove} variant="tertiary">
+                            {t('removeButton', { ns: 'btn' })}
+                        </Button>
+                    </VStack>
                 </VStack>
-            </InfocardFooter>
+            </InformationBox>
         </Infocard>
     )
 })

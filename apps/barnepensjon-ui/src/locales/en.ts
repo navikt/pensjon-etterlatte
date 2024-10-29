@@ -486,6 +486,8 @@ const error = {
     'disabilityBenefitsIsGuardian.required': 'State whether the child receives disability benefit',
     'workAssessmentAllowance.required': 'State whether you receives a Work Assessment Allowance (AAP)',
     'workAssessmentAllowanceIsGuardian.required': 'State whether the child receives a Work Assessment Allowance (AAP)',
+    'deceasedParentOne.required': 'You are required to fill in information about the first parent',
+    'deceasedParentTwo.required': 'You are required to fill in information about the second parent',
 }
 
 const pageNotFound = {
