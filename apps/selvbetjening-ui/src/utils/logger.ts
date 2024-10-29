@@ -1,32 +1,38 @@
-import Bowser from 'bowser'
-import Parser = Bowser.Parser.Parser
 import { apiURL, poster } from './api.ts'
+import Bowser from 'bowser'
+import OSDetails = Bowser.Parser.OSDetails
+import Details = Bowser.Parser.Details
 
 const browser = Bowser.getParser(window.navigator.userAgent)
 
 interface LoggMelding {
     type: 'info' | 'error'
     stackInfo: StackInfo
-    jsonContent: UserDeviceInfo
+    jsonContent: JsonContent
 }
 
 interface StackInfo {
     readonly lineno: number
-    readonly columno: number
+    readonly columnno: number
     readonly message: string
     readonly error: string
 }
 
-interface UserDeviceInfo {
+interface JsonContent {
     url: string
     userAgent: string
-    userDeviceInfo: Parser
+    userDeviceInfo: UserDeviceInfo
+}
+
+interface UserDeviceInfo {
+    browser: Details
+    os: OSDetails
 }
 
 const defaultLoggingContext = {
     url: window.location.href,
     userAgent: window.navigator.userAgent,
-    userDeviceInfo: browser.parse(),
+    userDeviceInfo: { browser: browser.parse().getBrowser(), os: browser.parse().getOS() },
 }
 
 const loggMelding = async (data: LoggMelding) => {

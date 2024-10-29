@@ -2,7 +2,7 @@ import express from 'express'
 import sourceMap, { NullableMappedPosition } from 'source-map'
 import * as fs from 'fs'
 import { sanitize, sanitizeUrl } from '../utils/sanitize'
-import {frontendLogger, logger as logger} from "../monitoring/logger";
+import { frontendLogger, logger as logger } from '../monitoring/logger'
 /* eslint @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 
 export const loggerRouter = express.Router()
@@ -36,26 +36,29 @@ loggerRouter.post('/', express.json(), (req, res) => {
     } else {
         if (logEvent.stackInfo && isStackInfoValid(logEvent.stackInfo)) {
             sourceMapMapper(logEvent.stackInfo!)
-                    .then((position) => {
-                        const message = logEvent.stackInfo?.message
-                        const stackInfoError = JSON.stringify(logEvent.stackInfo?.error)
-                        const component = `'${position.source}' (line: ${position.line}, col: ${position.column})`
+                .then((position) => {
+                    const message = logEvent.stackInfo?.message
+                    const stackInfoError = JSON.stringify(logEvent.stackInfo?.error)
+                    const component = `'${position.source}' (line: ${position.line}, col: ${position.column})`
 
-                        frontendLogger.error({
-                            message: message || 'Feil ved request',
-                            stack_trace: `Error occurred in ${component}:\n${message}\n${stackInfoError}`,
-                            ...mapCommonFields(logEvent.jsonContent, errorData),
-                        })
+                    frontendLogger.error({
+                        message: message || 'Feil ved request',
+                        stack_trace: `Error occurred in ${component}:\n${message}\n${stackInfoError}`,
+                        ...mapCommonFields(logEvent.jsonContent, errorData),
                     })
-                    .catch((err) => {
-                        logger.error(err)
+                })
+                .catch((err) => {
+                    logger.error(err)
 
-                        frontendLogger.error({
-                            message: logEvent.stackInfo?.message || errorData?.msg || 'Ukjent feil oppsto (sourceMapMapper)',
-                            stack_trace: errorData?.errorInfo ? JSON.stringify(errorData?.errorInfo) : JSON.stringify(logEvent),
-                            ...mapCommonFields(logEvent.jsonContent, errorData),
-                        })
+                    frontendLogger.error({
+                        message:
+                            logEvent.stackInfo?.message || errorData?.msg || 'Ukjent feil oppsto (sourceMapMapper)',
+                        stack_trace: errorData?.errorInfo
+                            ? JSON.stringify(errorData?.errorInfo)
+                            : JSON.stringify(logEvent),
+                        ...mapCommonFields(logEvent.jsonContent, errorData),
                     })
+                })
         } else {
             frontendLogger.error({
                 message: errorData?.msg || 'Ukjent feil oppsto',
