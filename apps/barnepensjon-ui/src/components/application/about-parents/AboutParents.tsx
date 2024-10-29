@@ -71,8 +71,7 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const isValid = () => {
         if (childAndOneParentDeceased || guardianAndOneParentDeceased) {
-            if ((state?.secondParent as IDeceasedParent)?.isValidated === false) return false
-            return !isEmpty(state?.secondParent)
+            return !!(state?.secondParent as IDeceasedParent)?.isValidated
         }
         return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent)
     }

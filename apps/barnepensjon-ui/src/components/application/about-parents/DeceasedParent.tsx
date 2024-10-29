@@ -33,7 +33,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
         prev!()
     }
 
-    const isValidated =
+    const isFormValidated =
         type === ActionTypes.UPDATE_FIRST_PARENT
             ? (state.firstParent as IDeceasedParent)?.isValidated
             : (state.secondParent as IDeceasedParent)?.isValidated
@@ -66,7 +66,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
                     left={{
                         label: t('backButton', { ns: 'btn' }),
                         variant: 'secondary',
-                        onClick: isValidated === true ? handleSubmit(savePrev) : savePrevWithoutValidation,
+                        onClick: !!isFormValidated ? handleSubmit(savePrev) : savePrevWithoutValidation,
                     }}
                     hideCancel={!!fnrRegisteredParent}
                 />

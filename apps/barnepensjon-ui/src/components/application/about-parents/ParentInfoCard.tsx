@@ -1,5 +1,5 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
+import { BodyShort, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
@@ -51,18 +51,14 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated }: Props) => {
 
             <InfocardFooter>
                 <VStack gap="4">
-                    <BodyLong>
-                        <InfocardFooterLink href={'#'} onClick={edit}>
-                            <EditFilled />
-                            <span>{t('editButton', { ns: 'btn' })}</span>
-                        </InfocardFooterLink>
-                    </BodyLong>
-                    <BodyLong>
-                        <InfocardFooterLink href={'#'} onClick={remove}>
-                            <DeleteFilled />
-                            <span>{t('removeButton', { ns: 'btn' })}</span>
-                        </InfocardFooterLink>
-                    </BodyLong>
+                    <InfocardFooterLink href={'#'} onClick={edit}>
+                        <EditFilled />
+                        <BodyShort>{t('editButton', { ns: 'btn' })}</BodyShort>
+                    </InfocardFooterLink>
+                    <InfocardFooterLink href={'#'} onClick={remove}>
+                        <DeleteFilled />
+                        <BodyShort>{t('removeButton', { ns: 'btn' })}</BodyShort>
+                    </InfocardFooterLink>
                 </VStack>
             </InfocardFooter>
         </Infocard>
