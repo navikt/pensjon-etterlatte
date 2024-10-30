@@ -83,7 +83,7 @@ export const InntektsjusteringOppsummering = () => {
         !!fellesKomponenterInnhold &&
         !!inntektsjusteringOppsummeringInnhold && (
             <main>
-                <HStack justify="center" padding="8">
+                <HStack justify="center" padding="8" minHeight="calc(100vh - 158px)">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={3} stegLabelKey="steg3" />
 
