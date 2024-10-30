@@ -1,4 +1,4 @@
-import { Button, HStack, VStack } from '@navikt/ds-react'
+import { Button, HStack, Page, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
@@ -59,7 +59,7 @@ export const InntektsjusteringInnledning = () => {
     return (
         !!innloggetBruker &&
         !!innhold && (
-            <main>
+            <Page.Block as="main">
                 <HStack justify="center" padding="8">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" />
@@ -82,7 +82,7 @@ export const InntektsjusteringInnledning = () => {
                         </div>
                     </VStack>
                 </HStack>
-            </main>
+            </Page.Block>
         )
     )
 }
