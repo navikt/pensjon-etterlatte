@@ -279,6 +279,7 @@ const aboutParents = {
         'Hvis du har mistet én forelder og den andre er ukjent, må du starte søknadsprosessen på nytt. Velg "Jeg har mistet begge foreldrene".',
     childAndBothParentsDeceasedGuidepanel:
         'Du må legge til opplysninger om begge foreldrene dine for å fortsette søknaden. \n\n Hvis du ikke kjenner identiteten til forelderen din, velger du "Ukjent forelder."',
+    missingInformation: 'Mangler informasjon',
 }
 
 const livingParent = {
@@ -473,6 +474,8 @@ const error = {
     'workAssessmentAllowance.required': 'Oppgi om du mottar arbeidsavklaringspenger (AAP)',
     'disabilityBenefitsIsGuardian.required': 'Oppgi om barnet mottar uføretrygd',
     'workAssessmentAllowanceIsGuardian.required': 'Oppgi om barnet mottar arbeidsavklaringspenger (AAP)',
+    'deceasedParentOne.required': 'Du må fylle ut informasjon om den første forelderen',
+    'deceasedParentTwo.required': 'Du må fylle ut informasjon om den andre forelderen',
 }
 
 const pageNotFound = {

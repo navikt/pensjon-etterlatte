@@ -2,8 +2,8 @@ import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
-import { ActionTypes, IParent } from '../../../context/application/application'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ActionTypes, IDeceasedParent, IParent } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import FormGroup from '../../common/FormGroup'
@@ -15,12 +15,43 @@ import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
 import { FormProvider, useForm } from 'react-hook-form'
 import FormElement from '../../common/FormElement'
-import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
+import { ApplicantRole, ApplicantSituation } from '~types/applicant'
+import ErrorSummaryWrapper from '~components/common/ErrorSummaryWrapper'
 
 enum EditParent {
     NONE,
     FIRST,
     SECOND,
+}
+
+const getValidationError = (firstParent?: IParent, secondParent?: IParent) => {
+    const firstParentError =
+        !(firstParent as IDeceasedParent)?.isValidated && !isEmpty(firstParent)
+            ? {
+                  deceasedParentOne: {
+                      message: '',
+                      type: 'required',
+                      ref: {
+                          name: 'deceasedParentOne',
+                      },
+                  },
+              }
+            : null
+
+    const secondParentError =
+        !(secondParent as IDeceasedParent)?.isValidated && !isEmpty(secondParent)
+            ? {
+                  deceasedParentTwo: {
+                      message: '',
+                      type: 'required',
+                      ref: {
+                          name: 'deceasedParentTwo',
+                      },
+                  },
+              }
+            : null
+
+    return { ...firstParentError, ...secondParentError }
 }
 
 export default function AboutParents({ next, prev }: StepProps) {
@@ -70,7 +101,9 @@ export default function AboutParents({ next, prev }: StepProps) {
     }
 
     const isValid = () => {
-        if (childAndOneParentDeceased || guardianAndOneParentDeceased) return !isEmpty(state?.secondParent)
+        if (childAndOneParentDeceased || guardianAndOneParentDeceased) {
+            return !!(state?.secondParent as IDeceasedParent)?.isValidated
+        }
         return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent)
     }
 
@@ -137,6 +170,8 @@ export default function AboutParents({ next, prev }: StepProps) {
                                     parent={state.firstParent!}
                                     edit={() => updateEditing(EditParent.FIRST)}
                                     remove={() => updateFirstParent({})}
+                                    isValidated={(state.firstParent as IDeceasedParent)?.isValidated}
+                                    firstParent={true}
                                 />
                             )}
 
@@ -185,10 +220,14 @@ export default function AboutParents({ next, prev }: StepProps) {
                                     parent={state.secondParent!}
                                     edit={() => updateEditing(EditParent.SECOND)}
                                     remove={() => updateSecondParent({})}
+                                    isValidated={(state.secondParent as IDeceasedParent)?.isValidated}
+                                    firstParent={false}
                                 />
                             )}
                         </InfocardWrapper>
                     </FormGroup>
+
+                    <ErrorSummaryWrapper errors={getValidationError(state.firstParent, state.secondParent)} />
 
                     <Navigation
                         left={{ onClick: prev }}

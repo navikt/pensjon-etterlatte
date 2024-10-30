@@ -1,74 +1,56 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Heading } from '@navikt/ds-react'
+import { BodyShort, Button, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import {
-    Infocard,
-    InfocardFooter,
-    InfocardFooterLink,
-    InfocardHeader,
-    InformationBox,
-    InformationElement,
-} from '../../common/card/InfoCard'
-import { IDeceasedParent, IParent } from '../../../context/application/application'
+import { Infocard, InfocardHeader, InformationBox, InformationElement } from '../../common/card/InfoCard'
+import { IParent } from '~context/application/application'
 
 interface Props {
     parent: IParent
     edit: () => void
     remove: () => void
+    isValidated?: boolean
+    firstParent: boolean
 }
 
-const ParentInfoCard = memo(({ parent, edit, remove }: Props) => {
+const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }: Props) => {
     const { t } = useTranslation('common')
-
     const foedselsnummer = parent.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Infocard>
+        <Infocard $hasError={!isValidated} id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}>
             <InfocardHeader>
                 <img alt="forelder" src={ikon} />
             </InfocardHeader>
 
             <InformationBox>
-                <BodyShort>
-                    {(parent as IDeceasedParent).dateOfDeath
-                        ? t('deceasedParent', { ns: 'aboutParents' })
-                        : t('survivingParent', { ns: 'aboutParents' })}
-                </BodyShort>
+                <BodyShort weight="semibold">{t('deceasedParent', { ns: 'aboutParents' })}</BodyShort>
 
                 <Heading size={'small'} spacing>
                     {parent.firstName} {parent.lastName}
                 </Heading>
-
                 <InformationElement>
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}
                     <BodyShort>{t('fnrDnr')}</BodyShort>
-                    <BodyShort spacing>
-                        {foedselsnummer}
-                    </BodyShort>
+                    <BodyShort spacing>{foedselsnummer ?? '-'}</BodyShort>
 
                     <BodyShort>{t('citizenship')}</BodyShort>
-                    <BodyShort spacing>
-                        {parent.citizenship}
-                    </BodyShort>
+                    <BodyShort spacing>{parent.citizenship ?? '-'}</BodyShort>
                 </InformationElement>
-            </InformationBox>
+                <VStack gap="4">
+                    {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
 
-            <InfocardFooter>
-                <BodyLong>
-                    <InfocardFooterLink href={'#'} onClick={edit}>
-                        <EditFilled />
-                        <span>{t('editButton', { ns: 'btn' })}</span>
-                    </InfocardFooterLink>
-                </BodyLong>
-                <BodyLong>
-                    <InfocardFooterLink href={'#'} onClick={remove}>
-                        <DeleteFilled />
-                        <span>{t('removeButton', { ns: 'btn' })}</span>
-                    </InfocardFooterLink>
-                </BodyLong>
-            </InfocardFooter>
+                    <VStack gap="2" align="center">
+                        <Button type="button" icon={<EditFilled fontSize={18} />} onClick={edit} variant="tertiary">
+                            {t('editButton', { ns: 'btn' })}
+                        </Button>
+                        <Button type="button" icon={<DeleteFilled fontSize={18} />} onClick={remove} variant="tertiary">
+                            {t('removeButton', { ns: 'btn' })}
+                        </Button>
+                    </VStack>
+                </VStack>
+            </InformationBox>
         </Infocard>
     )
 })

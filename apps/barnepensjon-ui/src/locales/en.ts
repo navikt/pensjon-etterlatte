@@ -284,6 +284,7 @@ const aboutParents = {
         'You must enter information about both your parents to continue the application. \n\n If you do not know the identity of your parent, select "Unknown parent".',
     guardianAndOneParentDeceased:
         'You do not need to fill in the surviving parent information. We collect this information when we process your application. \n\n If the child has lost one parent and you do not know the identity of the other parent, you must start the application process over again. Choose the alternative "Both parents".',
+    missingInformation: 'Missing information',
 }
 
 const livingParent = {
@@ -485,6 +486,8 @@ const error = {
     'disabilityBenefitsIsGuardian.required': 'State whether the child receives disability benefit',
     'workAssessmentAllowance.required': 'State whether you receives a Work Assessment Allowance (AAP)',
     'workAssessmentAllowanceIsGuardian.required': 'State whether the child receives a Work Assessment Allowance (AAP)',
+    'deceasedParentOne.required': 'You are required to fill in information about the first parent',
+    'deceasedParentTwo.required': 'You are required to fill in information about the second parent',
 }
 
 const pageNotFound = {

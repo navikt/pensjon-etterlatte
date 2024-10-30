@@ -1,13 +1,13 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { ActionTypes, IDeceasedParent } from '../../../context/application/application'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ActionTypes, IDeceasedParent } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import Navigation from '../../common/Navigation'
 import { StepProps } from '../Dialogue'
 import DeceasedParentForm from '../the-deceased/DeceasedParentForm'
 import DeceasedParentTitle from '../the-deceased/DeceasedParentTitle'
-import { isDev } from '../../../api/axios'
+import { isDev } from '~api/axios'
 
 interface Props extends StepProps {
     fnrRegisteredParent?: string[]
@@ -17,10 +17,26 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation()
 
-    const save = (data: IDeceasedParent) => {
-        dispatch({ type: type!, payload: { ...data } })
+    const saveNext = (data: IDeceasedParent) => {
+        dispatch({ type: type!, payload: { ...data, isValidated: true } })
         next!()
     }
+
+    const savePrev = (data: IDeceasedParent) => {
+        dispatch({ type: type!, payload: { ...data, isValidated: true } })
+        prev!()
+    }
+
+    const savePrevWithoutValidation = () => {
+        const values = getValues()
+        dispatch({ type: type!, payload: { ...values, isValidated: false } })
+        prev!()
+    }
+
+    const isFormValidated =
+        type === ActionTypes.UPDATE_FIRST_PARENT
+            ? (state.firstParent as IDeceasedParent)?.isValidated
+            : (state.secondParent as IDeceasedParent)?.isValidated
 
     const methods = useForm<any>({
         defaultValues: type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent },
@@ -30,6 +46,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
     const {
         handleSubmit,
         formState: { errors },
+        getValues,
     } = methods
 
     return (
@@ -44,9 +61,13 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
                 <Navigation
                     right={{
                         label: t(fnrRegisteredParent ? 'saveButton' : 'nextButton', { ns: 'btn' }),
-                        onClick: handleSubmit(save),
+                        onClick: handleSubmit(saveNext),
                     }}
-                    left={{ label: t('backButton', { ns: 'btn' }), variant: 'secondary', onClick: prev }}
+                    left={{
+                        label: t('backButton', { ns: 'btn' }),
+                        variant: 'secondary',
+                        onClick: !!isFormValidated ? handleSubmit(savePrev) : savePrevWithoutValidation,
+                    }}
                     hideCancel={!!fnrRegisteredParent}
                 />
             </form>

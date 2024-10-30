@@ -278,6 +278,7 @@ const aboutParents = {
         'Du må leggje til opplysningar om begge foreldra dine for å gå vidare med søknaden. \n\n Dersom du ikkje kjenner identiteten til forelderen din, vel du «Ukjend forelder».',
     guardianAndOneParentDeceased:
         'Du treng ikkje fylle ut informasjon om attlevande forelder. Vi innhentar denne informasjonen når vi behandlar søknaden. \n\n Dersom barnet har mista éin forelder og du ikkje veit identiteten til den andre forelderen, må du starte søknadsprosessen på nytt. Vel alternativet "Begge foreldra".',
+    missingInformation: 'Mangler informasjon',
 }
 
 const livingParent = {
@@ -470,6 +471,8 @@ const error = {
     'disabilityBenefitsIsGuardian.required': 'Oppgi om barnet får uføretrygd',
     'workAssessmentAllowance.required': 'Oppgi om du får arbeidsavklaringspengar (AAP)',
     'workAssessmentAllowanceIsGuardian.required': 'Oppgi om barnet får arbeidsavklaringspengar (AAP)',
+    'deceasedParentOne.required': 'Du må fylle ut informasjon om den første forelderen',
+    'deceasedParentTwo.required': 'Du må fylle ut informasjon om den andre forelderen',
 }
 
 const pageNotFound = {

@@ -80,6 +80,7 @@ export interface IDeceasedParent extends IParent {
     dateOfDeath: Date
     staysAbroad: IStaysAbroad
     occupationalInjury?: JaNeiVetIkke
+    isValidated?: boolean
 }
 
 export interface IStaysAbroad {
