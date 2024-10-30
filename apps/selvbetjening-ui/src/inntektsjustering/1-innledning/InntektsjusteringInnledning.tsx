@@ -60,7 +60,7 @@ export const InntektsjusteringInnledning = () => {
         !!innloggetBruker &&
         !!innhold && (
             <main>
-                <HStack justify="center" padding="8" height="calc(100vh - 158px)">
+                <HStack justify="center" padding="8" minHeight="calc(100vh - 158px)">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" />
                         <div>
