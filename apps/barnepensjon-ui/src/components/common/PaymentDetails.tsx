@@ -1,10 +1,10 @@
-import {Alert, BodyShort, Box, Heading, HelpText, Label, Link, RadioProps} from '@navikt/ds-react'
+import { Alert, BodyShort, Box, Heading, HelpText, Label, Link, RadioProps } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { BankkontoType, JaNeiVetIkke, KronerEllerProsentType } from '../../api/dto/FellesOpplysninger'
 import useTranslation from '../../hooks/useTranslation'
 import FormElement from './FormElement'
 import { RHFGeneralQuestionRadio, RHFRadio } from './rhf/RHFRadio'
-import { RHFBicInput, RHFIbanInput, RHFInput, RHFInputArea, RHFKontonummerInput, RHFProsentInput } from './rhf/RHFInput'
+import { RHFBicInput, RHFIbanInput, RHFInput, RHFInputArea, RHFKontonummerInput, RHFNumberInput } from './rhf/RHFInput'
 import FormGroup from './FormGroup'
 import { useFormContext } from 'react-hook-form'
 import { IAboutChildren, IAboutYou } from '../../types/person'
@@ -84,7 +84,7 @@ export default function PaymentDetails() {
                                 </FormElement>
                                 <FormElement>
                                     {withholdingTaxType && (
-                                        <RHFProsentInput
+                                        <RHFNumberInput
                                             name={'paymentDetails.taxWithhold.taxPercentage'}
                                             label={t(
                                                 withholdingTaxType === KronerEllerProsentType.KRONER
