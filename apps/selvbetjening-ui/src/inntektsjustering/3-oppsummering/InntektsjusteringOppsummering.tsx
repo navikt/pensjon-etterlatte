@@ -67,10 +67,14 @@ export const InntektsjusteringOppsummering = () => {
     async function sendInnInntektsjustering() {
         setLaster(true)
         setApiFeil(false)
-        const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
-        if (res.ok) {
-            navigate('/kvittering')
-        } else {
+        try {
+            const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
+            if ([200, 304].includes(res.status)) {
+                navigate('/kvittering')
+            } else {
+                setApiFeil(true)
+            }
+        } catch {
             setApiFeil(true)
         }
         setLaster(false)
