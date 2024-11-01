@@ -51,7 +51,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
         !!innloggetBruker &&
         !!innhold && (
             <main>
-                <HStack justify="center" padding="8" minHeight="calc(100vh - 158px)">
+                <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={2} stegLabelKey="steg2" />
 
