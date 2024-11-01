@@ -65,7 +65,6 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         <ControlledInntektTextField
                             name="arbeidsinntekt"
                             control={control}
-                            spraak={spraak}
                             label={arbeidsinntekt?.label?.[spraak]}
                             description={arbeidsinntekt?.description?.[spraak]}
                         />
@@ -79,7 +78,6 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         <ControlledInntektTextField
                             name="naeringsinntekt"
                             control={control}
-                            spraak={spraak}
                             label={naeringsinntekt?.label?.[spraak]}
                             description={naeringsinntekt?.description?.[spraak]}
                         />
@@ -93,7 +91,6 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         <ControlledInntektTextField
                             name="inntektFraUtland"
                             control={control}
-                            spraak={spraak}
                             label={inntektFraUtland?.label?.[spraak]}
                             description={inntektFraUtland?.description?.[spraak]}
                         />

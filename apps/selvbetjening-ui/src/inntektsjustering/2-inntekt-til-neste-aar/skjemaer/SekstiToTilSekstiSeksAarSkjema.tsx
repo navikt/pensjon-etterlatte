@@ -160,7 +160,6 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                                 <ControlledInntektTextField
                                     name="arbeidsinntekt"
                                     control={control}
-                                    spraak={spraak}
                                     label={arbeidsinntekt?.label?.[spraak]}
                                     description={arbeidsinntekt?.description?.[spraak]}
                                 />
@@ -176,7 +175,6 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                                 <ControlledInntektTextField
                                     name="naeringsinntekt"
                                     control={control}
-                                    spraak={spraak}
                                     label={naeringsinntekt?.label?.[spraak]}
                                     description={naeringsinntekt?.description?.[spraak]}
                                 />
@@ -190,7 +188,6 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                             <ControlledInntektTextField
                                 name="afpInntekt"
                                 control={control}
-                                spraak={spraak}
                                 label={
                                     skalViseAfpPrivat(innloggetBruker)
                                         ? afpInntekt?.label?.afpPrivat?.[spraak]
@@ -221,7 +218,6 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                                 <ControlledInntektTextField
                                     name="inntektFraUtland"
                                     control={control}
-                                    spraak={spraak}
                                     label={inntektFraUtland?.label?.[spraak]}
                                     description={inntektFraUtland?.description?.[spraak]}
                                 />

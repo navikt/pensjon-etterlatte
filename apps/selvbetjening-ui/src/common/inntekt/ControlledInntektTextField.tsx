@@ -1,22 +1,17 @@
 import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 import { Box, TextField } from '@navikt/ds-react'
-import { Spraak } from '../spraak/spraak.ts'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 interface Props<T extends FieldValues> {
     name: Path<T>
     control: Control<T>
-    spraak: Spraak
     label?: string
     description?: string
 }
 
-export const ControlledInntektTextField = <T extends FieldValues>({
-    name,
-    control,
-    spraak,
-    label,
-    description,
-}: Props<T>) => {
+export const ControlledInntektTextField = <T extends FieldValues>({ name, control, label, description }: Props<T>) => {
+    const spraak = useSpraak()
+
     return (
         <Controller
             name={name}
