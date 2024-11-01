@@ -27,13 +27,13 @@
     "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.26.2",
     "styled-components": "^6.1.13",
-    "typescript": "^5.6.2",
-    "uuid": "^10.0.0",
-    "vite": "^5.4.8",
+    "typescript": "^5.6.3",
+    "uuid": "^11.0.2",
+    "vite": "^5.4.10",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.1.1",
-    "web-vitals": "^4.2.3"
+    "web-vitals": "^4.2.4"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -44,8 +44,8 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/amplitude-js": "^8.16.4",
     "@types/jest": "^29.5.13",
-    "@types/lodash": "^4.17.9",
-    "@types/node": "^22.5.4",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^22.8.6",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
