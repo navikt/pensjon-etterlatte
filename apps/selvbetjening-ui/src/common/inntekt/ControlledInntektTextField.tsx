@@ -1,5 +1,6 @@
 import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 import { Box, TextField } from '@navikt/ds-react'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 interface Props<T extends FieldValues> {
     name: Path<T>
@@ -9,6 +10,8 @@ interface Props<T extends FieldValues> {
 }
 
 export const ControlledInntektTextField = <T extends FieldValues>({ name, control, label, description }: Props<T>) => {
+    const spraak = useSpraak()
+
     return (
         <Controller
             name={name}
@@ -20,7 +23,13 @@ export const ControlledInntektTextField = <T extends FieldValues>({ name, contro
                         description={description}
                         value={value}
                         // Fjerne alt som ikke er tall og gjøre om til Number
-                        onChange={(e) => onChange(Number(e.target.value.replace(/[^0-9.]/g, '')))}
+                        onChange={(e) =>
+                            onChange(
+                                new Intl.NumberFormat(spraak.toLowerCase()).format(
+                                    Number(e.target.value.replace(/[^0-9.]/g, ''))
+                                )
+                            )
+                        }
                         inputMode="numeric"
                     />
                 </Box>

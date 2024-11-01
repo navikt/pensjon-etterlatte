@@ -6,6 +6,7 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SideLaster } from '../../common/SideLaster.tsx'
+import './index.css'
 
 export const InntektsjusteringKvittering = () => {
     const spraak = useSpraak()
@@ -24,7 +25,7 @@ export const InntektsjusteringKvittering = () => {
     return (
         !!innhold && (
             <main>
-                <HStack justify="center" padding="8">
+                <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={4} stegLabelKey="steg4" />
 
@@ -32,7 +33,7 @@ export const InntektsjusteringKvittering = () => {
                             {innhold.tittel?.[spraak]}
                         </Heading>
 
-                        <Alert variant="success">
+                        <Alert variant="success" className="success-alert">
                             <SanityRikTekst text={innhold.suksess?.[spraak]} />
                         </Alert>
 

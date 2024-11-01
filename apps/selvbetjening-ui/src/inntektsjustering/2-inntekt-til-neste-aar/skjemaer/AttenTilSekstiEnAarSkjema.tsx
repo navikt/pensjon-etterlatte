@@ -2,7 +2,7 @@ import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
-import { Inntekt } from '../../../types/inntektsjustering.ts'
+import { Inntekt, InntektSkjema } from '../../../types/inntektsjustering.ts'
 import { useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
@@ -12,6 +12,7 @@ import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektC
 import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
 import { Alder } from '../../../types/person.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
+import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
@@ -29,8 +30,8 @@ export const AttenTilSekstiEnAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { control, watch, handleSubmit } = useForm<Inntekt>({
-        defaultValues: inntekt,
+    const { control, watch, handleSubmit } = useForm<InntektSkjema>({
+        defaultValues: inntektTilInntektSkjemaValues(inntekt, spraak),
     })
 
     if (innholdIsLoading) {
@@ -100,11 +101,17 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         )}
                     </VStack>
 
-                    <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.ATTEN_TIL_SEKSTI_EN}>
+                    <SumAvOppgittInntekt
+                        inntektTilNesteAar={inntektSkjemaValuesTilInntekt(watch())}
+                        alder={Alder.ATTEN_TIL_SEKSTI_EN}
+                    >
                         <SanityRikTekst text={sumAvInntekt?.[spraak]} />
                     </SumAvOppgittInntekt>
 
-                    <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
+                    <NavigasjonMeny
+                        tilbakePath="/innledning"
+                        onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
+                    />
                 </VStack>
             </form>
         )

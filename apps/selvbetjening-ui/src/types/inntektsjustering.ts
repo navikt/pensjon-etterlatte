@@ -1,3 +1,13 @@
+export interface InntektSkjema {
+    skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
+    datoForAaGaaAvMedAlderspensjon?: Date | string
+    arbeidsinntekt: string
+    naeringsinntekt: string
+    inntektFraUtland: string
+    afpInntekt: string
+    afpTjenesteordning?: string
+}
+
 export interface Inntekt {
     skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
     datoForAaGaaAvMedAlderspensjon?: Date | string

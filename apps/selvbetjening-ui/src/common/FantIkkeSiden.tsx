@@ -21,7 +21,7 @@ export const FantIkkeSiden = () => {
     return (
         !!innhold && (
             <main>
-                <HStack justify="center" padding="8">
+                <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
                         <HStack justify="end">
                             <SpraakVelger />

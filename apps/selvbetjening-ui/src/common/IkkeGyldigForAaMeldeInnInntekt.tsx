@@ -1,10 +1,10 @@
 import { Button, VStack } from '@navikt/ds-react'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
-import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../sanity.types.ts'
+import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+import { useSpraak } from './spraak/SpraakContext.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { SideLaster } from '../../common/SideLaster.tsx'
+import { SideLaster } from './SideLaster.tsx'
 
 export const IkkeGyldigForAaMeldeInnInntekt = () => {
     const spraak = useSpraak()

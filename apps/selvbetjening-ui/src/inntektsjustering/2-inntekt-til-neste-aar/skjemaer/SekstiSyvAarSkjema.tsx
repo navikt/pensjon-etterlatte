@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useForm } from 'react-hook-form'
-import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
+import { Inntekt, InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
 import { Box, ErrorSummary, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { ControlledRadioGruppe } from '../../../common/radio/ControlledRadioGruppe.tsx'
@@ -15,6 +15,7 @@ import { Alder } from '../../../types/person.ts'
 import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
+import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
@@ -38,7 +39,7 @@ export const SekstiSyvAarSkjema = () => {
         watch,
         handleSubmit,
         formState: { errors },
-    } = useForm<Inntekt>({ defaultValues: inntekt })
+    } = useForm<InntektSkjema>({ defaultValues: inntektTilInntektSkjemaValues(inntekt, spraak) })
 
     if (innholdIsLoading) {
         return <SideLaster />
@@ -141,6 +142,7 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="arbeidsinntekt"
                                     control={control}
+                                    spraak={spraak}
                                     label={arbeidsinntekt?.label?.[spraak]}
                                     description={arbeidsinntekt?.description?.[spraak]}
                                 />
@@ -156,6 +158,7 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="naeringsinntekt"
                                     control={control}
+                                    spraak={spraak}
                                     label={naeringsinntekt?.label?.[spraak]}
                                     description={naeringsinntekt?.description?.[spraak]}
                                 />
@@ -169,11 +172,12 @@ export const SekstiSyvAarSkjema = () => {
                             <ControlledInntektTextField
                                 name="afpInntekt"
                                 control={control}
+                                spraak={spraak}
                                 label={afpInntekt?.label?.[spraak]}
                                 description={afpInntekt?.description?.[spraak]}
                             />
 
-                            {!!watch('afpInntekt') && (
+                            {!!watch('afpInntekt') && watch('afpInntekt') !== '0' && (
                                 <Box maxWidth="25rem">
                                     <TextField
                                         {...register('afpTjenesteordning', {
@@ -195,6 +199,7 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="inntektFraUtland"
                                     control={control}
+                                    spraak={spraak}
                                     label={inntektFraUtland?.label?.[spraak]}
                                     description={inntektFraUtland?.description?.[spraak]}
                                 />
@@ -206,7 +211,10 @@ export const SekstiSyvAarSkjema = () => {
                                 )}
                             </VStack>
 
-                            <SumAvOppgittInntekt inntektTilNesteAar={watch()} alder={Alder.SEKSTI_TO_TIL_SEKSTI_SEKS}>
+                            <SumAvOppgittInntekt
+                                inntektTilNesteAar={inntektSkjemaValuesTilInntekt(watch())}
+                                alder={Alder.SEKSTI_TO_TIL_SEKSTI_SEKS}
+                            >
                                 {watch('skalGaaAvMedAlderspensjon') === SkalGaaAvMedAlderspensjon.JA ? (
                                     <SanityRikTekst text={sumAvInntekt?.skalGaaAvMedAlderspensjon?.ja?.[spraak]} />
                                 ) : (
@@ -228,7 +236,10 @@ export const SekstiSyvAarSkjema = () => {
                         </ErrorSummary>
                     )}
 
-                    <NavigasjonMeny tilbakePath="/innledning" onNeste={handleSubmit(onInntektSubmit)} />
+                    <NavigasjonMeny
+                        tilbakePath="/innledning"
+                        onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
+                    />
                 </VStack>
             </form>
         )

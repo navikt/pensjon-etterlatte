@@ -10,7 +10,7 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
 import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
-import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
+import { InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
 import { Alder } from '../../types/person.ts'
@@ -21,6 +21,8 @@ import { useState } from 'react'
 import { FeilIAPIKall } from './FeilIAPIKall.tsx'
 import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
+import { logger } from '../../utils/logger.ts'
+import { inntektTilInntektSkjemaValues } from '../../utils/inntekt.ts'
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()
@@ -67,14 +69,21 @@ export const InntektsjusteringOppsummering = () => {
     async function sendInnInntektsjustering() {
         setLaster(true)
         setApiFeil(false)
-        const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
-        if (res.ok) {
-            navigate('/kvittering')
-        } else {
+        try {
+            const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
+            if ([200, 304].includes(res.status)) {
+                navigate('/kvittering')
+            } else {
+                setApiFeil(true)
+            }
+        } catch (e) {
+            logger.generalError(e as object)
             setApiFeil(true)
         }
         setLaster(false)
     }
+
+    const inntektSkjemaValues: InntektSkjema = inntektTilInntektSkjemaValues(inntekt, spraak)
 
     const { tittel, endreSvarLenke } = inntektsjusteringOppsummeringInnhold.skjemaSammendrag
 
@@ -83,7 +92,7 @@ export const InntektsjusteringOppsummering = () => {
         !!fellesKomponenterInnhold &&
         !!inntektsjusteringOppsummeringInnhold && (
             <main>
-                <HStack justify="center" padding="8">
+                <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
                         <SkjemaHeader aktivtSteg={3} stegLabelKey="steg3" />
 
@@ -113,15 +122,16 @@ export const InntektsjusteringOppsummering = () => {
                                                           ?.skalGaaAvMedAlderspensjon?.label?.sekstiSyvAar?.[spraak]}
                                             </FormSummary.Label>
                                             <FormSummary.Value>
-                                                {!!inntekt.skalGaaAvMedAlderspensjon &&
+                                                {!!inntektSkjemaValues.skalGaaAvMedAlderspensjon &&
                                                     velgTekstForSkalGaaAvMedAlderspensjon(
-                                                        inntekt.skalGaaAvMedAlderspensjon,
+                                                        inntektSkjemaValues.skalGaaAvMedAlderspensjon,
                                                         fellesKomponenterInnhold,
                                                         spraak
                                                     )}
                                             </FormSummary.Value>
                                         </FormSummary.Answer>
-                                        {inntekt.skalGaaAvMedAlderspensjon === SkalGaaAvMedAlderspensjon.JA && (
+                                        {inntektSkjemaValues.skalGaaAvMedAlderspensjon ===
+                                            SkalGaaAvMedAlderspensjon.JA && (
                                             <FormSummary.Answer>
                                                 <FormSummary.Label>
                                                     {
@@ -130,10 +140,14 @@ export const InntektsjusteringOppsummering = () => {
                                                     }
                                                 </FormSummary.Label>
                                                 <FormSummary.Value>
-                                                    {!!inntekt.datoForAaGaaAvMedAlderspensjon &&
-                                                        format(inntekt.datoForAaGaaAvMedAlderspensjon, 'MMMM yyyy', {
-                                                            locale: spraakTilDateFnsLocale(spraak),
-                                                        })}
+                                                    {!!inntektSkjemaValues.datoForAaGaaAvMedAlderspensjon &&
+                                                        format(
+                                                            inntektSkjemaValues.datoForAaGaaAvMedAlderspensjon,
+                                                            'MMMM yyyy',
+                                                            {
+                                                                locale: spraakTilDateFnsLocale(spraak),
+                                                            }
+                                                        )}
                                                 </FormSummary.Value>
                                             </FormSummary.Answer>
                                         )}
@@ -143,7 +157,7 @@ export const InntektsjusteringOppsummering = () => {
                                     <FormSummary.Label>
                                         {fellesKomponenterInnhold?.sammendragAvInntekt?.arbeidsinntekt?.label?.[spraak]}
                                     </FormSummary.Label>
-                                    <FormSummary.Value>{inntekt.arbeidsinntekt} kr</FormSummary.Value>
+                                    <FormSummary.Value>{inntektSkjemaValues.arbeidsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
 
                                 <FormSummary.Answer>
@@ -154,18 +168,18 @@ export const InntektsjusteringOppsummering = () => {
                                             ]
                                         }
                                     </FormSummary.Label>
-                                    <FormSummary.Value>{inntekt.naeringsinntekt} kr</FormSummary.Value>
+                                    <FormSummary.Value>{inntektSkjemaValues.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                                 {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
                                     <FormSummary.Answer>
                                         <FormSummary.Label>
                                             {fellesKomponenterInnhold?.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}
                                         </FormSummary.Label>
-                                        <FormSummary.Value>{inntekt.afpInntekt} kr</FormSummary.Value>
+                                        <FormSummary.Value>{inntektSkjemaValues.afpInntekt} kr</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 
-                                {!!inntekt.afpInntekt && (
+                                {!!inntektSkjemaValues.afpInntekt && inntektSkjemaValues.afpInntekt !== '0' && (
                                     <FormSummary.Answer>
                                         <FormSummary.Label>
                                             {
@@ -173,7 +187,7 @@ export const InntektsjusteringOppsummering = () => {
                                                     ?.label?.[spraak]
                                             }
                                         </FormSummary.Label>
-                                        <FormSummary.Value>{inntekt.afpTjenesteordning}</FormSummary.Value>
+                                        <FormSummary.Value>{inntektSkjemaValues.afpTjenesteordning}</FormSummary.Value>
                                     </FormSummary.Answer>
                                 )}
 
@@ -185,7 +199,7 @@ export const InntektsjusteringOppsummering = () => {
                                             ]
                                         }
                                     </FormSummary.Label>
-                                    <FormSummary.Value>{inntekt.inntektFraUtland} kr</FormSummary.Value>
+                                    <FormSummary.Value>{inntektSkjemaValues.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
                         </FormSummary>
