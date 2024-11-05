@@ -44,6 +44,8 @@ import { BankkontoType, KronerEllerProsentType } from '../../../typer/utbetaling
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 import Datovelger from '~components/felles/Datovelger'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -107,6 +109,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     const { countries }: { countries: Options[] } = useCountries()
     const { state: bruker } = useBrukerContext()
     const { state: soeknad } = useSoknadContext()
+    const { logEvent } = useAmplitude()
 
     const endrerBarn = !!barn?.fornavn?.length
 
@@ -130,6 +133,12 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
         lagre(data)
         reset()
         window.scrollTo(0, 0)
+    }
+
+    const logErrors = (data: FieldErrors<IBarn>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'LeggTilBarnSkjema', id: error })
+        )
     }
 
     const avbrytOgLukk = () => {
@@ -501,7 +510,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                     id={'leggTilBarn'}
                                     variant={'primary'}
                                     type={'button'}
-                                    onClick={handleSubmit(leggTilOgLukk)}
+                                    onClick={handleSubmit(leggTilOgLukk, logErrors)}
                                     style={{ minWidth: '80px' }}
                                 >
                                     {endrerBarn ? t('knapp.lagreEndring') : t('knapp.leggTil')}

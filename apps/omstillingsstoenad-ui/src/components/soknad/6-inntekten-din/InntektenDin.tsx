@@ -9,14 +9,17 @@ import { useTranslation } from 'react-i18next'
 import { GuidePanel, Heading } from '@navikt/ds-react'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import { IInntekt } from '../../../typer/inntekt'
+import { IInntekt } from '~typer/inntekt'
 import Inntekt from './fragmenter/Inntekt'
 import YtelserNAV from './fragmenter/YtelserNAV'
 import YtelserAndre from './fragmenter/YtelserAndre'
 import PropTypes from 'prop-types'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
+    const { logEvent } = useAmplitude()
 
     const { state, dispatch } = useSoknadContext()
 
@@ -47,6 +50,12 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
         forrige!()
     }
 
+    const logErrors = (data: FieldErrors<IInntekt>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'InntektenDin', id: error })
+        )
+    }
+
     const erValidert = state.inntektenDin.erValidert
 
     return (
@@ -71,8 +80,11 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors} />
 
                 <Navigasjon
-                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
-                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                    forrige={{
+                        onClick:
+                            erValidert === true ? handleSubmit(lagreTilbake, logErrors) : lagreTilbakeUtenValidering,
+                    }}
+                    neste={{ onClick: handleSubmit(lagreNeste, logErrors) }}
                 />
             </form>
         </FormProvider>
