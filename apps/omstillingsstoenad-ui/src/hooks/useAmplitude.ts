@@ -7,6 +7,7 @@ export enum LogEvents {
     SEND_SOKNAD = 'send soknad',
     SIDEVISNING = 'sidevisning',
     KLIKK = 'klikk',
+    VALIDATION_ERROR = 'skjema validering feilet',
 }
 
 export const useAmplitude = () => {

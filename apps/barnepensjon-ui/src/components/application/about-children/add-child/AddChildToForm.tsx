@@ -22,6 +22,8 @@ import { useUserContext } from '~context/user/UserContext'
 import FormElement from '../../../common/FormElement'
 import { isDev } from '~api/axios'
 import { RHFGeneralQuestionRadio } from '~components/common/rhf/RHFRadio'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -88,6 +90,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: Options[] } = useCountries()
     const { state: user } = useUserContext()
+    const { logEvent } = useAmplitude()
 
     const methods = useForm<IChild>({
         defaultValues: {
@@ -107,6 +110,12 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
         save(data)
         reset()
         window.scrollTo(0, 0)
+    }
+
+    const logErrors = (data: FieldErrors<IChild>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'AddChildToForm', id: error })
+        )
     }
 
     const cancelAndClose = () => {
@@ -252,7 +261,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 id={'addChildren'}
                                 variant={'primary'}
                                 type={'button'}
-                                onClick={handleSubmit(addAndClose)}
+                                onClick={handleSubmit(addAndClose, logErrors)}
                                 style={{ minWidth: '80px' }}
                             >
                                 {child?.fnrDnr === undefined

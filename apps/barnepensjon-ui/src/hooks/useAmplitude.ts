@@ -18,6 +18,7 @@ export enum LogEvents {
     SYSTEM_UNAVAILABLE = 'system utilgjengelig',
     PAGE_NOT_FOUND = 'side ikke funnet',
     CLICK = 'klikk',
+    VALIDATION_ERROR = 'skjema validering feilet',
 }
 
 export const useAmplitude = () => {

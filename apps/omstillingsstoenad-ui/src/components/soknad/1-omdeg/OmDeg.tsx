@@ -4,7 +4,7 @@ import InnloggetBruker from './InnloggetBruker'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { ISoeker } from '../../../typer/person'
+import { ISoeker } from '~typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio } from '../../felles/rhf/RHFRadio'
@@ -18,14 +18,22 @@ import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import PropTypes from 'prop-types'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 const OmDeg: SoknadSteg = ({ neste }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const brukerState = useBrukerContext().state
+    const { logEvent } = useAmplitude()
+
     const lagre = (data: ISoeker) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: { ...deepCopy(data), erValidert: true } })
         neste!()
+    }
+
+    const logErrors = (data: FieldErrors<ISoeker>) => {
+        Object.keys(data).map((error) => logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'OmDeg', id: error }))
     }
 
     const methods = useForm<ISoeker>({
@@ -102,7 +110,7 @@ const OmDeg: SoknadSteg = ({ neste }) => {
 
                     <Feilmeldinger errors={errors} />
 
-                    <Navigasjon neste={{ onClick: handleSubmit(lagre) }} />
+                    <Navigasjon neste={{ onClick: handleSubmit(lagre, logErrors) }} />
                 </form>
             </FormProvider>
         </>

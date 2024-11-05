@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
-import { ActionTypes } from '../../../context/application/application'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { useUserContext } from '../../../context/user/UserContext'
+import { JaNeiVetIkke } from '~api/dto/FellesOpplysninger'
+import { ActionTypes } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
+import { useUserContext } from '~context/user/UserContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import Navigation from '../../common/Navigation'
@@ -12,26 +12,33 @@ import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 import FormElement from '../../common/FormElement'
-import { IAboutYou } from '../../../types/person'
+import { IAboutYou } from '~types/person'
 import PaymentDetails from '../../common/PaymentDetails'
 import useCountries, { Options } from '../../../hooks/useCountries'
-import { Bredde } from '../../../utils/bredde'
+import { Bredde } from '~utils/bredde'
 import Datepicker from '../../common/Datepicker'
 import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
-import { GridColumns, GridGap } from '../../../utils/grid'
+import { GridColumns, GridGap } from '~utils/grid'
 import FormGroup from '../../common/FormGroup'
-import { ApplicantRole } from '../../../types/applicant'
+import { ApplicantRole } from '~types/applicant'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
     const { countries }: { countries: Options[] } = useCountries()
+    const { logEvent } = useAmplitude()
 
     const save = (data: any) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
         next!()
+    }
+
+    const logErrors = (data: FieldErrors<any>) => {
+        Object.keys(data).map((error) => logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'AboutYou', id: error }))
     }
 
     const methods = useForm<IAboutYou>({
@@ -165,7 +172,7 @@ export default function AboutYou({ next }: StepProps) {
 
                     <ErrorSummaryWrapper errors={errors} />
 
-                    <Navigation right={{ onClick: handleSubmit(save) }} />
+                    <Navigation right={{ onClick: handleSubmit(save, logErrors) }} />
                 </form>
             </FormProvider>
         </>

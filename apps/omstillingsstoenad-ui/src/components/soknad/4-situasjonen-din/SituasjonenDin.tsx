@@ -1,7 +1,7 @@
 import React from 'react'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { ISituasjonenDin } from '../../../typer/person'
+import { ISituasjonenDin } from '~typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import Navigasjon from '../../felles/Navigasjon'
@@ -19,11 +19,14 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import { isDev } from '../../../api/axios'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 import PropTypes from 'prop-types'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const { countries }: { countries: any } = useCountries()
+    const { logEvent } = useAmplitude()
 
     const methods = useForm<ISituasjonenDin>({
         defaultValues: state.situasjonenDin || {},
@@ -52,6 +55,12 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_SITUASJONEN_DIN, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!()
+    }
+
+    const logErrors = (data: FieldErrors<ISituasjonenDin>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'SituasjonenDin', id: error })
+        )
     }
 
     const harOmsorg = watch('omsorgMinstFemti')
@@ -171,9 +180,10 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
 
                 <Navigasjon
                     forrige={{
-                        onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering,
+                        onClick:
+                            erValidert === true ? handleSubmit(lagreTilbake, logErrors) : lagreTilbakeUtenValidering,
                     }}
-                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                    neste={{ onClick: handleSubmit(lagreNeste, logErrors) }}
                 />
             </form>
         </FormProvider>
