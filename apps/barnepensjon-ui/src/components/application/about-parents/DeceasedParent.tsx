@@ -8,6 +8,8 @@ import { StepProps } from '../Dialogue'
 import DeceasedParentForm from '../the-deceased/DeceasedParentForm'
 import DeceasedParentTitle from '../the-deceased/DeceasedParentTitle'
 import { isDev } from '~api/axios'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 interface Props extends StepProps {
     fnrRegisteredParent?: string[]
@@ -16,6 +18,7 @@ interface Props extends StepProps {
 export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }: Props) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation()
+    const { logEvent } = useAmplitude()
 
     const saveNext = (data: IDeceasedParent) => {
         dispatch({ type: type!, payload: { ...data, isValidated: true } })
@@ -37,6 +40,12 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
         type === ActionTypes.UPDATE_FIRST_PARENT
             ? (state.firstParent as IDeceasedParent)?.isValidated
             : (state.secondParent as IDeceasedParent)?.isValidated
+
+    const logErrors = (data: FieldErrors<IDeceasedParent>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'DeceasedParent', id: error })
+        )
+    }
 
     const methods = useForm<any>({
         defaultValues: type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent },
@@ -61,12 +70,12 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
                 <Navigation
                     right={{
                         label: t(fnrRegisteredParent ? 'saveButton' : 'nextButton', { ns: 'btn' }),
-                        onClick: handleSubmit(saveNext),
+                        onClick: handleSubmit(saveNext, logErrors),
                     }}
                     left={{
                         label: t('backButton', { ns: 'btn' }),
                         variant: 'secondary',
-                        onClick: !!isFormValidated ? handleSubmit(savePrev) : savePrevWithoutValidation,
+                        onClick: !!isFormValidated ? handleSubmit(savePrev, logErrors) : savePrevWithoutValidation,
                     }}
                     hideCancel={!!fnrRegisteredParent}
                 />

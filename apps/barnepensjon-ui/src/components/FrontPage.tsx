@@ -1,11 +1,11 @@
 import { BodyLong, Button, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
-import { ActionTypes, IApplicant } from '../context/application/application'
-import { useApplicationContext } from '../context/application/ApplicationContext'
+import { ActionTypes, IApplicant } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
 import useTranslation from '../hooks/useTranslation'
 import FormGroup from './common/FormGroup'
 import Trans from './common/Trans'
-import { LogEvents, useAmplitude } from '../hooks/useAmplitude'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import LanguageSelect from './common/LanguageSelect'
 import FormElement from './common/FormElement'
 import styled from 'styled-components'
@@ -13,8 +13,9 @@ import ErrorSummaryWrapper from './common/ErrorSummaryWrapper'
 import { FormProvider, useForm } from 'react-hook-form'
 import { RHFRadio } from './common/rhf/RHFRadio'
 import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
-import { ApplicantRole, ApplicantSituation } from '../types/applicant'
+import { ApplicantRole, ApplicantSituation } from '~types/applicant'
 import { ProcessingDataChild, ProcessingDataParentAndGuardian } from './common/ProcessingData'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 export const ListItemWithIndent = styled(List.Item)`
     margin-left: 1rem;
@@ -52,6 +53,10 @@ export default function FrontPage() {
         if (data.applicantRole === ApplicantRole.PARENT) navigate('/skjema/forelder/steg/om-deg')
         else if (data.applicantRole === ApplicantRole.GUARDIAN) navigate('/skjema/verge/steg/om-deg')
         else if (data.applicantRole === ApplicantRole.CHILD) navigate('/skjema/barn/steg/om-deg')
+    }
+
+    const logErrors = (data: FieldErrors<IApplicant>) => {
+        Object.keys(data).map((error) => logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'FrontPage', id: error }))
     }
 
     const selectedRole = watch('applicantRole')
@@ -121,9 +126,7 @@ export default function FrontPage() {
                 <>
                     <FormGroup>
                         <Label spacing>{t('guardianApplicantInformationLabel')}</Label>
-                        <BodyLong spacing>
-                            {t('guardianApplicantInformation')}
-                        </BodyLong>
+                        <BodyLong spacing>{t('guardianApplicantInformation')}</BodyLong>
                         <BodyLong spacing>
                             <Trans value={t('guardiansMustSendDocumentation')} />
                         </BodyLong>
@@ -196,7 +199,7 @@ export default function FrontPage() {
             <ErrorSummaryWrapper errors={errors} />
 
             <FormGroup>
-                <Button size={'medium'} variant={'primary'} onClick={handleSubmit(next)}>
+                <Button size={'medium'} variant={'primary'} onClick={handleSubmit(next, logErrors)}>
                     {t('startApplication')}
                 </Button>
             </FormGroup>
