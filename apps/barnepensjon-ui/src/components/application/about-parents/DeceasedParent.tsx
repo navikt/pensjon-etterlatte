@@ -22,6 +22,14 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
 
     const saveNext = (data: IDeceasedParent) => {
         dispatch({ type: type!, payload: { ...data, isValidated: true } })
+
+        // Logger svar om avdød har bodd i utlandet for å sjekke opp mot hypotese
+        logEvent(LogEvents.QUESTION_ANSWERED, {
+            skjemanavn: 'DeceasedParent',
+            spørsmål: 'didTheDeceasedLiveAbroad',
+            svar: data.staysAbroad.hasStaysAbroad,
+        })
+
         next!()
     }
 

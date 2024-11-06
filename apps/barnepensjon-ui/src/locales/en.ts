@@ -300,10 +300,10 @@ const aboutTheDeceased = {
     phoneNumber: 'Telephone number (optional)',
     abroadStaysTitle: 'Time spent outside Norway',
     workOrLivingAbroadCanAffectPension:
-        'We need to know if the deceased lived or worked outside Norway. This can influence the calculation of the children’s pension and also entitle the child/children to pension rights from other countries.',
+        'We need this information to calculate the correct child pension and determine if the child/children have entitlements from other countries.',
     workOrLivingAbroadCanAffectPensionOver18:
-        'We need to know whether the deceased has lived or worked outside of Norway. This can affect our calculation of the children’s pension, and you may also have pension rights from another country.',
-    didTheDeceasedLiveAbroad: 'Did he or she live and/or work in a country other than Norway after the age of 16?',
+        'We need this information to calculate the correct child pension and determine if you have entitlements from other countries.',
+    didTheDeceasedLiveAbroad: 'Did he or she live and/or work abroad after the age of 16?',
     abroadInWhichCountry: 'Country',
     livedOrWorkedAbroad: 'Lived and/or worked?',
     stayedAbroadFromDate: 'From date',

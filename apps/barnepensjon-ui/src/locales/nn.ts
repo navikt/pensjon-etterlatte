@@ -294,10 +294,10 @@ const aboutTheDeceased = {
     phoneNumber: 'Telefonnummer (valfri)',
     abroadStaysTitle: 'Opphald utanfor Noreg',
     workOrLivingAbroadCanAffectPension:
-        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påvirke berekninga av barnepensjon og i tillegg gi barnet/barna pensjonsrettar frå andre land.',
+        'Vi treng å vite dette for å berekne riktig barnepensjon og for å vurdere om barnet/barna har rettar frå andre land',
     workOrLivingAbroadCanAffectPensionOver18:
-        'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan påverke utrekninga av barnepensjon og i tillegg gi deg pensjonsrettar frå andre land.',
-    didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i eit anna land enn Noreg etter fylte 16 år?',
+        'Vi treng å vite dette for å berekne riktig barnepensjon og for å vurdere om du har rettar frå andre land',
+    didTheDeceasedLiveAbroad: 'Har han eller ho budd og/eller arbeidd i utlandet etter fylte 16 år?',
     abroadInWhichCountry: 'Land',
     livedOrWorkedAbroad: 'Budd og/eller arbeidd?',
     stayedAbroadFromDate: 'Frå dato',
