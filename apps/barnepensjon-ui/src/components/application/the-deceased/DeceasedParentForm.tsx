@@ -1,4 +1,4 @@
-import { BodyLong, Heading } from '@navikt/ds-react'
+import { ReadMore } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import { IDeceasedParent } from '../../../context/application/application'
@@ -41,10 +41,6 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             </FormGroup>
 
             <FormGroup>
-                <Heading size="small">{t('occupationalInjuryTitle')}</Heading>
-                <BodyLong>
-                    {isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')}
-                </BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'occupationalInjury'}
@@ -52,13 +48,12 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                         vetIkke={true}
                     />
                 </FormElement>
+                <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                    {isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')}
+                </ReadMore>
             </FormGroup>
 
             <FormGroup>
-                <Heading size="small">{t('abroadStaysTitle')}</Heading>
-                <BodyLong>
-                    {isChild ? t('workOrLivingAbroadCanAffectPensionOver18') : t('workOrLivingAbroadCanAffectPension')}
-                </BodyLong>
                 <FormElement>
                     <RHFGeneralQuestionRadio
                         name={'staysAbroad.hasStaysAbroad'}
@@ -66,6 +61,9 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
                         vetIkke={true}
                     />
                 </FormElement>
+                <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                    {isChild ? t('workOrLivingAbroadCanAffectPensionOver18') : t('workOrLivingAbroadCanAffectPension')}
+                </ReadMore>
                 {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} currencies={currencies} />}
             </FormGroup>
         </>

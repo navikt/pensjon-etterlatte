@@ -7,6 +7,7 @@ export enum EventType {
     CANCEL_APPLICATION = 'avbryt soknad',
 }
 
+// Felles taksonomi for analytics https://github.com/navikt/analytics-taxonomy
 export enum LogEvents {
     START_APPLICATION = 'skjema startet',
     SELECT_SCENARIO = 'scenario valgt',
@@ -18,6 +19,7 @@ export enum LogEvents {
     SYSTEM_UNAVAILABLE = 'system utilgjengelig',
     PAGE_NOT_FOUND = 'side ikke funnet',
     CLICK = 'klikk',
+    QUESTION_ANSWERED = 'skjema spørsmål besvart',
     VALIDATION_ERROR = 'skjema validering feilet',
 }
 
