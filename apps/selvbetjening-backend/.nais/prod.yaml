@@ -61,7 +61,7 @@ spec:
     - name: PDL_AUDIENCE
       value: "prod-fss:pdl:pdl-api"
     - name: ETTERLATTE_API_URL
-      value: http://etterlatte-api:etterlatte
+      value: https://etterlatte-api.intern.nav.no
     - name: ETTERLATTE_API_AUDIENCE
       value: prod-gcp:etterlatte:etterlatte-api
   accessPolicy:

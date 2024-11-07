@@ -61,7 +61,7 @@ spec:
     - name: PDL_AUDIENCE
       value: "dev-fss:pdl:pdl-api"
     - name: ETTERLATTE_API_URL
-      value: http://etterlatte-api:etterlatte
+      value: https://etterlatte-api.intern.dev.nav.no
     - name: ETTERLATTE_API_AZURE_SCOPE
       value: api://dev-gcp:etterlatte.etterlatte-api/.default
   accessPolicy:
