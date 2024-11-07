@@ -23,7 +23,7 @@ class SakKlient(
             .get("$apiUrl/api/oms/har_sak") {
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
-                setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr.value))
+                setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr.toString()))
             }.body<HarOMSSakIGjennyResponse>()
     }
 }
