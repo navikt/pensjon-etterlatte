@@ -5,6 +5,7 @@
     "type": "module",
     "homepage": "/omstillingsstonad/soknad",
     "dependencies": {
+        "@amplitude/analytics-browser": "^2.11.9",
         "@navikt/ds-css": "^7.4.2",
         "@navikt/ds-icons": "3.4.3",
         "@navikt/ds-react": "^7.4.2",
@@ -12,7 +13,6 @@
         "@navikt/nav-dekoratoren-moduler": "^1.6.9",
         "@vitejs/plugin-react-swc": "^3.7.1",
         "@vitest/coverage-v8": "^2.1.4",
-        "amplitude-js": "^8.21.9",
         "axios": "1.7.7",
         "axios-retry": "^4.5.0",
         "bowser": "^2.11.0",
@@ -43,7 +43,6 @@
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "16.0.1",
         "@testing-library/react-hooks": "^8.0.1",
-        "@types/amplitude-js": "^8.16.4",
         "@types/jest": "29.5.14",
         "@types/lodash": "^4.17.13",
         "@types/react": "18.3.12",
@@ -65,8 +64,8 @@
         "license-checker-rseidelsohn": "^4.4.2",
         "lint-staged": "~15.2.7",
         "prettier": "3.3.3",
-        "typescript-eslint": "^8.5.0",
-        "pretty-quick": "4.0.0"
+        "pretty-quick": "4.0.0",
+        "typescript-eslint": "^8.5.0"
     },
     "scripts": {
         "start": "vite --base /omstillingsstonad/soknad",
