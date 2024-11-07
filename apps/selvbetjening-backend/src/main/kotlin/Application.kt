@@ -54,14 +54,10 @@ import no.nav.etterlatte.sak.sak
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
 import java.util.Timer
 import java.util.UUID
 import java.util.concurrent.atomic.AtomicBoolean
-
-val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
 
 fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
 
@@ -243,7 +239,4 @@ enum class AzureDefaultEnvVariables {
     AZURE_APP_JWK,
     AZURE_APP_WELL_KNOWN_URL,
     AZURE_APP_OUTBOUND_SCOPE,
-    ;
-
-    fun key() = name
 }
