@@ -4,7 +4,9 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.accept
 import io.ktor.client.request.get
+import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.client.utils.EmptyContent.contentType
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
@@ -20,7 +22,7 @@ class SakKlient(
         logger.info("Spør etterlatte-api om innbygger har OMS sak i gjenny")
 
         return httpClient
-            .get("$apiUrl/api/sak/oms/har_sak") {
+            .post("$apiUrl/api/sak/oms/har_sak") {
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
                 setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr.value))
