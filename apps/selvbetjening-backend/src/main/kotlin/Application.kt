@@ -48,6 +48,9 @@ import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.person
+import no.nav.etterlatte.sak.SakKlient
+import no.nav.etterlatte.sak.SakService
+import no.nav.etterlatte.sak.sak
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
@@ -106,6 +109,16 @@ fun main() {
             .also {
                 closables.add(it::close)
             }.let { PersonService(PersonKlient(it)) }
+    val sakService =
+        SakService(
+            SakKlient(
+                httpClient =
+                    httpClientClientCredentials(
+                        azureAppScope = config.getString("etterlatte-api.scope"),
+                    ),
+                apiUrl = config.getString("etterlatte-api.url"),
+            ),
+        )
 
     val rapidApplication =
         RapidApplication
@@ -115,6 +128,7 @@ fun main() {
                     metricsApi()
                     inntektsjustering(inntektsjusteringService)
                     person(peronService)
+                    sak(sakService)
                 }
             }.build {
                 datasourceBuilder.migrate()

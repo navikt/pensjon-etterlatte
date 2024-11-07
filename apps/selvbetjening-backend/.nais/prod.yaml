@@ -31,6 +31,9 @@ spec:
     pool: nav-prod
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   leaderElection: true
   gcp:
     sqlInstances:
