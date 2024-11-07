@@ -20,7 +20,7 @@ class SakKlient(
         logger.info("Spør etterlatte-api om innbygger har OMS sak i gjenny")
 
         return httpClient
-            .get("$apiUrl/api/oms/har_sak") {
+            .get("$apiUrl/api/sak/oms/har_sak") {
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
                 setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr))
