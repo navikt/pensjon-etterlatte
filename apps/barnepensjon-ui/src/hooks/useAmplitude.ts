@@ -1,4 +1,4 @@
-import amplitude from 'amplitude-js'
+import * as amplitude from '@amplitude/analytics-browser'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -28,12 +28,18 @@ export const useAmplitude = () => {
     const [prevLocation, setPrevLocation] = useState<any>(location)
 
     useEffect(() => {
-        amplitude?.getInstance().init('default', '', {
-            apiEndpoint: 'amplitude.nav.no/collect-auto',
-            saveEvents: false,
-            includeUtm: true,
-            includeReferrer: true,
-            platform: window.location.toString(),
+        amplitude.init('default', '', {
+            serverUrl: 'https://amplitude.nav.no/collect-auto',
+            ingestionMetadata: {
+                sourceName: window.location.toString(),
+            },
+            autocapture: {
+                attribution: false,
+                pageViews: true,
+                sessions: true,
+                formInteractions: false,
+                fileDownloads: false,
+            },
         })
     }, [])
 
@@ -48,7 +54,7 @@ export const useAmplitude = () => {
         setTimeout(() => {
             try {
                 if (amplitude) {
-                    amplitude.getInstance().logEvent(eventName, eventData)
+                    amplitude.logEvent(eventName, eventData)
                 }
             } catch (error) {
                 console.error(error)
