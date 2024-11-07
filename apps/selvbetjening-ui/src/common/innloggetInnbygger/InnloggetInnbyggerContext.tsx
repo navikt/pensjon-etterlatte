@@ -27,6 +27,8 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
         `${apiURL}/api/person/innlogget/forenklet`
     )
 
+    useSWR(`${apiURL}/api/sak/oms/har_sak`)
+
     if (isLoading) {
         return <SideLaster />
     }
