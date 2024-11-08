@@ -49,7 +49,7 @@ export default function FrontPage() {
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.START_APPLICATION, {
             skjemanavn: 'Søknad om barnepensjon - Innlogget',
-            skjemaId: 'Søknad om barnepensjon - Innlogget',
+            skjemaId: 'NAV 18-01.05',
         })
         logEvent(LogEvents.SELECT_SCENARIO, { type: data.applicantRole })
         logEvent(LogEvents.SELECT_SITUATION, { type: data.applicantSituation })
