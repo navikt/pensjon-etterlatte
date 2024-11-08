@@ -50,6 +50,14 @@ export const mockSelvbetjeningApi = (app: any) => {
         res.sendStatus(200)
     })
 
+    app.get(`${config.app.basePath}/api/api/sak/oms/har_sak`, (req: Request, res: Response) => {
+        const harOMSSak = {
+            harOMSSak: true,
+        }
+
+        res.send(harOMSSak)
+    })
+
     app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
         const sanityQuery = req.query.sanityQuery
         if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
