@@ -34,7 +34,13 @@ const SoknadForside = () => {
 
     const startSoeknad = () => {
         const foersteSteg = MuligeSteg[0]
-        logEvent(LogEvents.AAPNE_SOKNAD)
+
+        // Legger til - Innlogget for å skille fra fyll ut
+        logEvent(LogEvents.AAPNE_SOKNAD, {
+            skjemanavn: 'Søknad om omstillingsstønad - Innlogget',
+            skjemaId: 'NAV 17-01.06',
+        })
+
         navigate(`/skjema/steg/${foersteSteg.path}`)
     }
 
