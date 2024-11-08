@@ -31,3 +31,7 @@ class SakKlient(
 data class HarOMSSakIGjennyRequestBody(
     val foedselsnummer: String,
 )
+
+data class HarOMSSakIGjennyResponse(
+    val harOMSSak: Boolean,
+)
