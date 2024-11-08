@@ -7,11 +7,13 @@ import { IkkeGyldigForAaMeldeInnInntekt } from '../IkkeGyldigForAaMeldeInnInntek
 import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
+import { HarIkkeOMSSakAlert } from '../HarIkkeOMSSakAlert.tsx'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined
     error: ApiError | undefined
     isLoading: boolean
+    //TODO, kan jeg bare sende videre nedover om noe har gått galt i kallet mot sak apiet?
 }
 
 const initialInnloggetBrukerState: IInnloggetBruker = {}
@@ -23,17 +25,38 @@ const innloggetInnbyggerContext = createContext<InnloggetInnbyggerContext>({
 })
 
 const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    const { data, error, isLoading }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(
-        `${apiURL}/api/person/innlogget/forenklet`
-    )
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(`${apiURL}/api/person/innlogget/forenklet`)
 
-    useSWR(`${apiURL}/api/sak/oms/har_sak`)
+    const {
+        data: harOMSSakIGjenny,
+        isLoading: harOMSSakIGjennyIsLoading,
+    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har_sak`)
 
-    if (isLoading) {
+    if (innloggetBrukerIsLoading || harOMSSakIGjennyIsLoading) {
         return <SideLaster />
     }
 
-    if (finnAlder(data!) === Alder.IKKE_GYLDIG) {
+    // Hvis det er feil i API'et for å sjekke om bruker har OMS sak så stopper vi ikke bruker.
+    // Dette er for å la bruker fortsatt melde inn inntekt som om API'et er nede e.l.
+    if (!harOMSSakIGjenny?.harOMSSak) {
+        return (
+            <main>
+                <HStack justify="center" padding="8" minHeight="100vh">
+                    <VStack gap="6" maxWidth="42.5rem">
+                        <HStack justify="end">
+                            <SpraakVelger />
+                        </HStack>
+                        <HarIkkeOMSSakAlert />
+                    </VStack>
+                </HStack>
+            </main>
+        )
+    }
+    if (finnAlder(innloggetBruker!) === Alder.IKKE_GYLDIG) {
         return (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
@@ -49,7 +72,9 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
     }
 
     return (
-        <innloggetInnbyggerContext.Provider value={{ data, error, isLoading }}>
+        <innloggetInnbyggerContext.Provider
+            value={{ data: innloggetBruker, error: innloggetBrukerError, isLoading: innloggetBrukerIsLoading }}
+        >
             {children}
         </innloggetInnbyggerContext.Provider>
     )
