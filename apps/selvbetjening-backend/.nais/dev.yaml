@@ -31,6 +31,9 @@ spec:
     pool: nav-dev
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   leaderElection: true
   gcp:
     sqlInstances:
@@ -57,8 +60,16 @@ spec:
       value: api://dev-fss.pdl.pdl-api/.default
     - name: PDL_AUDIENCE
       value: "dev-fss:pdl:pdl-api"
+    - name: ETTERLATTE_API_URL
+      value: https://etterlatte-api.intern.dev.nav.no
+    - name: ETTERLATTE_API_AZURE_SCOPE
+      value: api://dev-gcp.etterlatte.etterlatte-api/.default
   accessPolicy:
     outbound:
+      rules:
+        - application: etterlatte-api
+          namespace: etterlatte
+          cluster: dev-gcp
       external:
         - host: pdl-api.dev-fss-pub.nais.io
     inbound:
