@@ -42,6 +42,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: IAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
+
+        // Logger svar om avdød har bodd i utlandet for å sjekke opp mot hypotese
+        logEvent(LogEvents.SPOERSMAAL_BESVART, {
+            skjemanavn: 'OmDenAvdode',
+            spørsmål: 'omDenAvdoede.boddEllerJobbetUtland.svar',
+            svar: data.boddEllerJobbetUtland?.svar,
+        })
+
         neste!()
     }
 
