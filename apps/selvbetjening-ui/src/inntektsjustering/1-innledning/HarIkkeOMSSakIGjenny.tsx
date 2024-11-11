@@ -1,12 +1,12 @@
 import { Button, VStack } from '@navikt/ds-react'
-import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../sanity.types.ts'
-import { SideLaster } from './SideLaster.tsx'
-import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
-import { useSpraak } from './spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { IkkeGyldigForAaMeldeInnInntekt } from '../../sanity.types.ts'
+import { SideLaster } from '../../common/SideLaster.tsx'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 
-export const HarIkkeOMSSakAlert = () => {
+export const HarIkkeOMSSakIGjenny = () => {
     const spraak = useSpraak()
 
     const {
