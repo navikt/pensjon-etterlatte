@@ -1,15 +1,47 @@
-import { Alert, Heading } from '@navikt/ds-react'
+import { Button, VStack } from '@navikt/ds-react'
+import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { IkkeGyldigForAaMeldeInnInntekt } from '../sanity.types.ts'
+import { SideLaster } from './SideLaster.tsx'
+import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+import { useSpraak } from './spraak/SpraakContext.tsx'
+import { ArrowRightIcon } from '@navikt/aksel-icons'
 
 export const HarIkkeOMSSakAlert = () => {
+    const spraak = useSpraak()
+
+    const {
+        innhold,
+        error: innholdError,
+        isLoading: innholdIsLoading,
+    } = useSanityInnhold<IkkeGyldigForAaMeldeInnInntekt>('*[_type == "ikkeGyldigForAaMeldeInntektTestBlocks"]')
+
+    if (innholdIsLoading) {
+        return <SideLaster />
+    }
+
+    if (innholdError) {
+        throw innholdError
+    }
+
     return (
-        <Alert variant="info">
-            <Heading size="small" level="3" spacing>
-                Dette skjemaet er ikke aktuelt for deg
-            </Heading>
-            <div>
-                Vi kan ikke se at du mottar omstillingsstønad, og du trenger derfor ikke å melde inntektsendring til
-                oss. Hvis dette ikke stemmer, vennligts LENKE_KOMMER_HER
-            </div>
-        </Alert>
+        !!innhold && (
+            <VStack gap="6">
+                <div>
+                    <SanityRikTekst text={innhold.harIkkeOMSSakIGjenny?.innhold?.[spraak]} />
+                </div>
+                <div>
+                    <Button
+                        as="a"
+                        variant="primary"
+                        icon={<ArrowRightIcon aria-hidden />}
+                        iconPosition="right"
+                        rel="noopener noreferrer"
+                        href={innhold.harIkkeOMSSakIGjenny?.gaaTilNAVKnapp?.lenke?.[spraak]}
+                    >
+                        {innhold.harIkkeOMSSakIGjenny?.gaaTilNAVKnapp?.tekst?.[spraak]}
+                    </Button>
+                </div>
+            </VStack>
+        )
     )
 }

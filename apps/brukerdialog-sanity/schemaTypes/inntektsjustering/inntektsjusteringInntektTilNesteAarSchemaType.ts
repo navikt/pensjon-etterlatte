@@ -49,6 +49,33 @@ export const inntektsjusteringInntektTilNesteAarSchemaType = defineType({
                         }),
                     ],
                 }),
+                defineField({
+                    name: 'harIkkeOMSSakIGjenny',
+                    title: 'Har ikke OMS sak i Gjenny',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'innhold', title: 'Innhold', type: 'object', fields: spraakBlockFields }),
+                        defineField({
+                            name: 'gaaTilNAVKnapp',
+                            title: 'Gå til nav knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'tekst',
+                                    title: 'Tekst',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                                defineField({
+                                    name: 'lenke',
+                                    title: 'Lenke',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ],
+                        }),
+                    ],
+                }),
             ],
         }),
     ],

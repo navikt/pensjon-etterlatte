@@ -6,6 +6,7 @@ import NodeCache from 'node-cache'
 import {
     fantIkkeSidenTestBlocks,
     fellesKomponenterTestBlocks,
+    ikkeGyldigForAaMeldeInntektTestBlocks,
     inntektsjusteringInnledningTestBlocks,
     inntektsjusteringInntektTilNesteAarTestBlocks,
     inntektsjusteringKvitteringTestBlocks,
@@ -68,6 +69,8 @@ export const mockSelvbetjeningApi = (app: any) => {
             res.send(inntektsjusteringOppsummeringTestBlocks)
         } else if (sanityQuery?.toString().includes('inntektsjusteringKvittering')) {
             res.send(inntektsjusteringKvitteringTestBlocks)
+        } else if (sanityQuery?.toString().includes('ikkeGyldigForAaMeldeInntekt')) {
+            res.send(ikkeGyldigForAaMeldeInntektTestBlocks)
         } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
             res.send(fellesKomponenterTestBlocks)
         } else if (sanityQuery?.toString().includes('fantIkkeSiden')) {

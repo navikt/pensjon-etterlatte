@@ -3,7 +3,7 @@ import { createContext, ReactNode, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
 import { ApiError, apiURL } from '../../utils/api.ts'
 import { finnAlder } from '../../inntektsjustering/2-inntekt-til-neste-aar/finnAlder.ts'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../IkkeGyldigForAaMeldeInnInntekt.tsx'
+import { IkkeGyldigAlder } from '../IkkeGyldigAlder.tsx'
 import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
@@ -14,6 +14,7 @@ interface InnloggetInnbyggerContext {
     error: ApiError | undefined
     isLoading: boolean
     //TODO, kan jeg bare sende videre nedover om noe har gått galt i kallet mot sak apiet?
+    // Hvis undefined, så "kunne vi ikke hente det"
 }
 
 const initialInnloggetBrukerState: IInnloggetBruker = {}
@@ -64,7 +65,7 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
                         <HStack justify="end">
                             <SpraakVelger />
                         </HStack>
-                        <IkkeGyldigForAaMeldeInnInntekt />
+                        <IkkeGyldigAlder />
                     </VStack>
                 </HStack>
             </main>
