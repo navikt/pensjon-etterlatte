@@ -21,23 +21,10 @@ const auth: AuthConfig = {
 export default defineConfig([
     {
         projectId: 'u0dlg8d8',
-        dataset: 'selvbetjening-ui-dev',
-        name: 'selvbetjening-ui-dev',
-        title: 'Selvbetjening dev',
-        basePath: '/selvbetjening-dev',
-        plugins: [structureTool(), visionTool()],
-        liveEdit: true,
-        auth: auth,
-        schema: {
-            types: [...inntektsjusteringSchemaTypes, fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
-        },
-    },
-    {
-        projectId: 'u0dlg8d8',
-        dataset: 'selvbetjening-ui-prod',
-        name: 'selvbetjening-ui-prod',
-        title: 'Selvbetjening prod',
-        basePath: '/selvbetjening-prod',
+        dataset: 'selvbetjening-ui',
+        name: 'selvbetjening-ui',
+        title: 'Selvbetjening',
+        basePath: '/selvbetjening-ui',
         plugins: [structureTool(), visionTool()],
         auth: auth,
         schema: {
