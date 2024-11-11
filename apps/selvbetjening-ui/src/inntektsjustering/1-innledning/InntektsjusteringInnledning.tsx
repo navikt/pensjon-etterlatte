@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Button, Heading, HStack, VStack } from '@navikt/ds-react'
+import { Button, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
