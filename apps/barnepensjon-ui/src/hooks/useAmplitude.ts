@@ -45,12 +45,15 @@ export const useAmplitude = () => {
 
     useEffect(() => {
         if (prevLocation?.pathname !== location?.pathname) {
-            logEvent(LogEvents.PAGE_CHANGE)
+            logEvent(LogEvents.PAGE_CHANGE, {
+                prevLocation: prevLocation?.pathname,
+                newLocation: location?.pathname,
+            })
         }
         setPrevLocation(location)
     }, [location]) // eslint-disable-line react-hooks/exhaustive-deps
 
-    const logEvent = (eventName: LogEvents, eventData?: any): void => {
+    const logEvent = (eventName: LogEvents, eventData: any): void => {
         setTimeout(() => {
             try {
                 if (amplitude) {

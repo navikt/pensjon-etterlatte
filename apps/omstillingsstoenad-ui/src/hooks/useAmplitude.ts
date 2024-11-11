@@ -34,12 +34,15 @@ export const useAmplitude = () => {
 
     useEffect(() => {
         if (prevLocation?.pathname !== location?.pathname) {
-            logEvent(LogEvents.SIDEVISNING)
+            logEvent(LogEvents.SIDEVISNING, {
+                prevLocation: prevLocation?.pathname,
+                newLocation: location?.pathname,
+            })
         }
         setPrevLocation(location)
     }, [location])
 
-    const logEvent = (eventName: LogEvents, eventData?: any): void => {
+    const logEvent = (eventName: LogEvents, eventData: any): void => {
         setTimeout(() => {
             try {
                 if (amplitude) {
