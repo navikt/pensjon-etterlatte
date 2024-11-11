@@ -1,4 +1,4 @@
-import { Alert, Button, HStack, VStack } from '@navikt/ds-react'
+import { Alert, BodyShort, Button, Heading, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
@@ -16,6 +16,7 @@ import { SideLaster } from '../../common/SideLaster.tsx'
 import { useEffect } from 'react'
 import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from './HarIkkeOMSSakIGjenny.tsx'
+import { FeilVedSjekkAvOMSSakIGjenny } from './FeilVedSjekkAvOMSSakIGjenny.tsx'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
@@ -90,7 +91,7 @@ export const InntektsjusteringInnledning = () => {
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>
 
-                        {harOMSSakIGjennyError && <Alert variant="warning">Feil under henting av sak</Alert>}
+                        {harOMSSakIGjennyError && <FeilVedSjekkAvOMSSakIGjenny />}
 
                         {!!eksisterendeInntekt && (
                             <OppgittInntektAlert inntekt={eksisterendeInntekt} innloggetBruker={innloggetBruker} />

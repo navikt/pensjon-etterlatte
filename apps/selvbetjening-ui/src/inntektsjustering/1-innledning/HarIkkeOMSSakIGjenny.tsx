@@ -1,6 +1,6 @@
 import { Button, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../../sanity.types.ts'
+import { InntektsjusteringInnledning } from '../../sanity.types.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -13,7 +13,7 @@ export const HarIkkeOMSSakIGjenny = () => {
         innhold,
         error: innholdError,
         isLoading: innholdIsLoading,
-    } = useSanityInnhold<IkkeGyldigForAaMeldeInnInntekt>('*[_type == "ikkeGyldigForAaMeldeInntektTestBlocks"]')
+    } = useSanityInnhold<InntektsjusteringInnledning>('*[_type == "inntektsjusteringInnledning"]')
 
     if (innholdIsLoading) {
         return <SideLaster />
