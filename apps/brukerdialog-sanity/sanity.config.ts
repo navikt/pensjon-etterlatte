@@ -22,19 +22,6 @@ export default defineConfig([
     {
         projectId: 'u0dlg8d8',
         dataset: 'selvbetjening-ui',
-        name: 'selvbetjening-ui-live-edit',
-        title: 'Selvbetjening live edit',
-        basePath: '/selvbetjening-ui',
-        plugins: [structureTool(), visionTool()],
-        auth: auth,
-        liveEdit: true,
-        schema: {
-            types: [...inntektsjusteringSchemaTypes, fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
-        },
-    },
-    {
-        projectId: 'u0dlg8d8',
-        dataset: 'selvbetjening-ui',
         name: 'selvbetjening-ui',
         title: 'Selvbetjening',
         basePath: '/selvbetjening-ui',
