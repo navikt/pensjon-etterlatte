@@ -48,6 +48,38 @@ export const inntektsjusteringInnledningSchemaType = defineType({
                             fields: spraakStringFields,
                         }),
                         defineField({ name: 'innhold', title: 'Innhold', type: 'object', fields: spraakBlockFields }),
+                        defineField({
+                            name: 'hvordanNavBehandlerPersonopplysningerSetning',
+                            title: 'Setning for hvordan Nav behandler personopplysninger',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'setningStart',
+                                    title: 'Setning start',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                                defineField({
+                                    name: 'lenkeTilNav',
+                                    title: 'Lenke til nav',
+                                    type: 'object',
+                                    fields: [
+                                        defineField({
+                                            name: 'tekst',
+                                            title: 'Tekst',
+                                            type: 'object',
+                                            fields: spraakStringFields,
+                                        }),
+                                        defineField({
+                                            name: 'lenke',
+                                            title: 'Lenke',
+                                            type: 'object',
+                                            fields: spraakStringFields,
+                                        }),
+                                    ],
+                                }),
+                            ],
+                        }),
                     ],
                 }),
             ],
