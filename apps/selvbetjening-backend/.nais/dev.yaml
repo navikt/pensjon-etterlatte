@@ -64,6 +64,8 @@ spec:
       value: https://etterlatte-api.intern.dev.nav.no
     - name: ETTERLATTE_API_AZURE_SCOPE
       value: api://dev-gcp.etterlatte.etterlatte-api/.default
+  envFrom:
+    - secret: my-application-unleash-api-token
   accessPolicy:
     outbound:
       rules:
@@ -72,6 +74,7 @@ spec:
           cluster: dev-gcp
       external:
         - host: pdl-api.dev-fss-pub.nais.io
+        - host: etterlatte-unleash-api.nav.cloud.nais.io
     inbound:
       rules:
         - application: selvbetjening-ui
