@@ -93,12 +93,37 @@ export const InntektsjusteringInnledning = () => {
 
                         <Accordion>
                             <Accordion.Item>
-                                <Accordion.Header>Informasjon vi henter om deg</Accordion.Header>
-                                <Accordion.Content>Vi henter så sjuuuukt mye info...</Accordion.Content>
+                                <Accordion.Header>
+                                    {
+                                        innhold.behandlingAvInformasjonAccordion?.informasjonViHenterItem?.tittel?.[
+                                            spraak
+                                        ]
+                                    }
+                                </Accordion.Header>
+                                <Accordion.Content>
+                                    <SanityRikTekst
+                                        text={
+                                            innhold.behandlingAvInformasjonAccordion?.informasjonViHenterItem
+                                                ?.innhold?.[spraak]
+                                        }
+                                    />
+                                </Accordion.Content>
                             </Accordion.Item>
                             <Accordion.Item>
-                                <Accordion.Header>Hvordan vi behandler personopplysninger</Accordion.Header>
-                                <Accordion.Content>Vi behandler de veeeeldig dårlig...</Accordion.Content>
+                                <Accordion.Header>
+                                    {
+                                        innhold.behandlingAvInformasjonAccordion
+                                            ?.hvordanViBehandlerPersonopplysningerItem?.tittel?.[spraak]
+                                    }
+                                </Accordion.Header>
+                                <Accordion.Content>
+                                    <SanityRikTekst
+                                        text={
+                                            innhold.behandlingAvInformasjonAccordion
+                                                ?.hvordanViBehandlerPersonopplysningerItem?.innhold?.[spraak]
+                                        }
+                                    />
+                                </Accordion.Content>
                             </Accordion.Item>
                         </Accordion>
 
