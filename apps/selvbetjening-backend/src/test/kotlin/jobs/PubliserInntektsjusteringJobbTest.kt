@@ -5,6 +5,7 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.jobs.PubliserInntektsjusteringJobb
 import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
@@ -21,12 +22,13 @@ internal class PubliserInntektsjusteringJobbTest {
     private lateinit var rapid: KafkaProdusent<String, String>
     private lateinit var inntektsjusteringService: InntektsjusteringService
     private lateinit var publiserJobb: PubliserInntektsjusteringJobb
+    private var featureToggleService: FeatureToggleService = mockk()
 
     @BeforeEach
     fun setup() {
         rapid = mockk(relaxed = true)
         inntektsjusteringService = mockk(relaxed = true)
-        publiserJobb = PubliserInntektsjusteringJobb(rapid, inntektsjusteringService)
+        publiserJobb = PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
     }
 
     @Test
