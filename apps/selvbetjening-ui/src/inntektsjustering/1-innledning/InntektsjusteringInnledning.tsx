@@ -1,4 +1,4 @@
-import { Accordion, Button, HStack, VStack } from '@navikt/ds-react'
+import { Accordion, BodyShort, Button, HStack, Link, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
@@ -123,6 +123,32 @@ export const InntektsjusteringInnledning = () => {
                                                 ?.hvordanViBehandlerPersonopplysningerItem?.innhold?.[spraak]
                                         }
                                     />
+
+                                    <BodyShort>
+                                        {
+                                            innhold.behandlingAvInformasjonAccordion
+                                                ?.hvordanViBehandlerPersonopplysningerItem
+                                                ?.hvordanNavBehandlerPersonopplysningerSetning?.setningStart?.[spraak]
+                                        }{' '}
+                                        <Link
+                                            href={
+                                                innhold.behandlingAvInformasjonAccordion
+                                                    ?.hvordanViBehandlerPersonopplysningerItem
+                                                    ?.hvordanNavBehandlerPersonopplysningerSetning?.lenkeTilNav
+                                                    ?.lenke?.[spraak]
+                                            }
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            inlineText
+                                        >
+                                            {
+                                                innhold.behandlingAvInformasjonAccordion
+                                                    ?.hvordanViBehandlerPersonopplysningerItem
+                                                    ?.hvordanNavBehandlerPersonopplysningerSetning?.lenkeTilNav
+                                                    ?.tekst?.[spraak]
+                                            }
+                                        </Link>
+                                    </BodyShort>
                                 </Accordion.Content>
                             </Accordion.Item>
                         </Accordion>

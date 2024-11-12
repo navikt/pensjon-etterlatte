@@ -3063,6 +3063,25 @@ export type InntektsjusteringInnledning = {
                     _key: string
                 }>
             }
+            hvordanNavBehandlerPersonopplysningerSetning?: {
+                setningStart?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                lenkeTilNav?: {
+                    tekst?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    lenke?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                }
+            }
         }
     }
     oppgittInntektAlert?: {
