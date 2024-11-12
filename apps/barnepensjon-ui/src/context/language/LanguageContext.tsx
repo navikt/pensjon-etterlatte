@@ -35,7 +35,9 @@ const LanguageProvider: FC<FCProps> = ({ children }) => {
     const [cookies, setCookie] = useCookies([dekoratorLanguageCookieName])
     const { [dekoratorLanguageCookieName]: dekoratørSpraak } = cookies
 
-    !dekoratørSpraak && setCookie(dekoratorLanguageCookieName, language)
+    if (!dekoratørSpraak) {
+        setCookie(dekoratorLanguageCookieName, language)
+    }
 
     const updateLanguage = (lang: Language) => {
         console.log('setting language and translations')
