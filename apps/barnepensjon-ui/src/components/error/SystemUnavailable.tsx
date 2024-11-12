@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import FormElement from '../common/FormElement'
 import styled from 'styled-components'
 import blomstHjerteHus from '../../assets/blomstHjerteHus.svg'
+import { SoeknadType } from '~api/dto/InnsendtSoeknad'
 
 const Icon = styled.img`
     height: 4rem;
@@ -21,7 +22,7 @@ export default function SystemUnavailable() {
     const { logEvent } = useAmplitude()
 
     useEffect(() => {
-        logEvent(LogEvents.SYSTEM_UNAVAILABLE)
+        logEvent(LogEvents.SYSTEM_UNAVAILABLE, { type: SoeknadType.BARNEPENSJON })
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const retry = () => {

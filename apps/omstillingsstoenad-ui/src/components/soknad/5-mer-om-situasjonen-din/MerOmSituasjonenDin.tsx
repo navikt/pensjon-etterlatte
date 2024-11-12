@@ -21,6 +21,8 @@ import Arbeidssoeker from './fragmenter/Arbeidssoeker'
 import AnnenSituasjon from './fragmenter/AnnenSituasjon'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 const DynamicSpacing = styled.div<{ $margin: boolean }>`
     margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
@@ -28,6 +30,7 @@ const DynamicSpacing = styled.div<{ $margin: boolean }>`
 
 const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
+    const { logEvent } = useAmplitude()
 
     const { state, dispatch } = useSoknadContext()
     const brukerState = useBrukerContext().state
@@ -67,6 +70,12 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             payload: { ...deepCopy(verdier), erValidert: false },
         })
         forrige!()
+    }
+
+    const logErrors = (data: FieldErrors<IMerOmSituasjonenDin>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'MerOmSituasjonenDin', id: error })
+        )
     }
 
     const erValidert = state.merOmSituasjonenDin.erValidert
@@ -123,8 +132,11 @@ const MerOmSituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors} />
 
                 <Navigasjon
-                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
-                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                    forrige={{
+                        onClick:
+                            erValidert === true ? handleSubmit(lagreTilbake, logErrors) : lagreTilbakeUtenValidering,
+                    }}
+                    neste={{ onClick: handleSubmit(lagreNeste, logErrors) }}
                 />
             </form>
         </FormProvider>

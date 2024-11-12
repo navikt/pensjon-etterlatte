@@ -63,7 +63,7 @@ export default function Summary({ prev }: StepProps) {
             .catch((e: Error) => {
                 setLoading(false)
                 setIsOpen(false)
-                logEvent(LogEvents.SEND_APPLICATION_ERROR)
+                logEvent(LogEvents.SEND_APPLICATION_ERROR, { type: SoeknadType.BARNEPENSJON })
 
                 if (e.message === 'FERDIGSTILT') setError(t('errorFromConflict'))
                 else setError(t('errorWhenSending'))
@@ -154,11 +154,7 @@ export default function Summary({ prev }: StepProps) {
                 </Modal.Header>
 
                 <Modal.Body>
-                    {loading ? (
-                        <Loader size={'xlarge'} />
-                    ) : (
-                        <BodyShortMuted>{t('sendApplicationBody')}</BodyShortMuted>
-                    )}
+                    {loading ? <Loader size={'xlarge'} /> : <BodyShortMuted>{t('sendApplicationBody')}</BodyShortMuted>}
                 </Modal.Body>
                 {!loading && (
                     <NavRow>

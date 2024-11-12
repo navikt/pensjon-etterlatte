@@ -1,7 +1,7 @@
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { IAvdoed } from '../../../typer/person'
+import { IAvdoed } from '~typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { useTranslation } from 'react-i18next'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -20,6 +20,8 @@ import { isDev } from '../../../api/axios'
 import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 import PropTypes from 'prop-types'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
@@ -29,6 +31,7 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap },
         shouldUnregister: true,
     })
+    const { logEvent } = useAmplitude()
 
     const {
         handleSubmit,
@@ -39,6 +42,14 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
 
     const lagreNeste = (data: IAvdoed) => {
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: { ...deepCopy(data), erValidert: true } })
+
+        // Logger svar om avdød har bodd i utlandet for å sjekke opp mot hypotese
+        logEvent(LogEvents.SPOERSMAAL_BESVART, {
+            skjemanavn: 'OmDenAvdode',
+            spørsmål: 'omDenAvdoede.boddEllerJobbetUtland.svar',
+            svar: data.boddEllerJobbetUtland?.svar,
+        })
+
         neste!()
     }
 
@@ -51,6 +62,10 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
         const verdier = getValues()
         dispatch({ type: ActionTypes.OPPDATER_AVDOED, payload: { ...deepCopy(verdier), erValidert: false } })
         forrige!()
+    }
+
+    const logErrors = (data: FieldErrors<IAvdoed>) => {
+        Object.keys(data).map((error) => logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'OmDenAvdode', id: error }))
     }
 
     const erValidert = state.omDenAvdoede.erValidert
@@ -129,8 +144,11 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
                 <Feilmeldinger errors={errors} />
 
                 <Navigasjon
-                    forrige={{ onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering }}
-                    neste={{ onClick: handleSubmit(lagreNeste) }}
+                    forrige={{
+                        onClick:
+                            erValidert === true ? handleSubmit(lagreTilbake, logErrors) : lagreTilbakeUtenValidering,
+                    }}
+                    neste={{ onClick: handleSubmit(lagreNeste, logErrors) }}
                 />
             </form>
         </FormProvider>

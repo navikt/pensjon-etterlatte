@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { ActionTypes } from '../../../context/application/application'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ActionTypes } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
-import { ApplicationReasonType, EducationType, ISituationChild } from '../../../types/situation'
+import { ApplicationReasonType, EducationType, ISituationChild } from '~types/situation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
@@ -12,14 +12,23 @@ import { RHFGeneralQuestionRadio, RHFInlineRadio } from '../../common/rhf/RHFRad
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import { RadioProps } from '@navikt/ds-react'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 export default function YourSituation({ next, prev }: StepProps) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation('yourSituation')
+    const { logEvent } = useAmplitude()
 
     const save = (data: ISituationChild) => {
         dispatch({ type: ActionTypes.UPDATE_YOUR_SITUATION, payload: { ...data } })
         next!()
+    }
+
+    const logErrors = (data: FieldErrors<ISituationChild>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'YourSituation', id: error })
+        )
     }
 
     const methods = useForm<ISituationChild>({
@@ -75,7 +84,7 @@ export default function YourSituation({ next, prev }: StepProps) {
                 </FormGroup>
                 <ErrorSummaryWrapper errors={errors} />
 
-                <Navigation right={{ onClick: handleSubmit(save) }} left={{ onClick: prev }} />
+                <Navigation right={{ onClick: handleSubmit(save, logErrors) }} left={{ onClick: prev }} />
             </form>
         </FormProvider>
     )

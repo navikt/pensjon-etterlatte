@@ -8,7 +8,7 @@ import { finnAlder } from './finnAlder.ts'
 import { SekstiToTilSekstiSeksAarSkjema } from './skjemaer/SekstiToTilSekstiSeksAarSkjema.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SekstiSyvAarSkjema } from './skjemaer/SekstiSyvAarSkjema.tsx'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../../common/IkkeGyldigForAaMeldeInnInntekt.tsx'
+import { IkkeGyldigAlder } from '../../common/IkkeGyldigAlder.tsx'
 import { SideLaster } from '../../common/SideLaster.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
@@ -43,7 +43,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
             case Alder.SEKSTI_SYV:
                 return <SekstiSyvAarSkjema />
             case Alder.IKKE_GYLDIG:
-                return <IkkeGyldigForAaMeldeInnInntekt />
+                return <IkkeGyldigAlder />
         }
     }
 

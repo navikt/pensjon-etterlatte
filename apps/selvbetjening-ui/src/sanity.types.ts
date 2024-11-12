@@ -461,6 +461,85 @@ export type FellesKomponenter = {
     }
 }
 
+export type IkkeGyldigForAaMeldeInnInntekt = {
+    _id: string
+    _type: 'ikkeGyldigForAaMeldeInnInntekt'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    ikkeGyldigAlder?: {
+        innhold?: {
+            NB?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+            NN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+            EN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+        }
+        gaaTilNAVKnapp?: {
+            tekst?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            lenke?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+}
+
 export type InntektsjusteringKvittering = {
     _id: string
     _type: 'inntektsjusteringKvittering'
@@ -2792,76 +2871,6 @@ export type InntektsjusteringInntektTilNesteAar = {
                 }
             }
         }
-        ikkeGyldigForAaMeldeInnInntekt?: {
-            innhold?: {
-                NB?: Array<{
-                    children?: Array<{
-                        marks?: Array<string>
-                        text?: string
-                        _type: 'span'
-                        _key: string
-                    }>
-                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                    listItem?: 'bullet' | 'number'
-                    markDefs?: Array<{
-                        href?: string
-                        _type: 'link'
-                        _key: string
-                    }>
-                    level?: number
-                    _type: 'block'
-                    _key: string
-                }>
-                NN?: Array<{
-                    children?: Array<{
-                        marks?: Array<string>
-                        text?: string
-                        _type: 'span'
-                        _key: string
-                    }>
-                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                    listItem?: 'bullet' | 'number'
-                    markDefs?: Array<{
-                        href?: string
-                        _type: 'link'
-                        _key: string
-                    }>
-                    level?: number
-                    _type: 'block'
-                    _key: string
-                }>
-                EN?: Array<{
-                    children?: Array<{
-                        marks?: Array<string>
-                        text?: string
-                        _type: 'span'
-                        _key: string
-                    }>
-                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-                    listItem?: 'bullet' | 'number'
-                    markDefs?: Array<{
-                        href?: string
-                        _type: 'link'
-                        _key: string
-                    }>
-                    level?: number
-                    _type: 'block'
-                    _key: string
-                }>
-            }
-            gaaTilNAVKnapp?: {
-                tekst?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                lenke?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-            }
-        }
     }
 }
 
@@ -2928,6 +2937,153 @@ export type InntektsjusteringInnledning = {
             _key: string
         }>
     }
+    behandlingAvInformasjonAccordion?: {
+        informasjonViHenterItem?: {
+            tittel?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            innhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+        }
+        hvordanViBehandlerPersonopplysningerItem?: {
+            tittel?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            innhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+            hvordanNavBehandlerPersonopplysningerSetning?: {
+                setningStart?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                lenkeTilNav?: {
+                    tekst?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                    lenke?: {
+                        NB?: string
+                        NN?: string
+                        EN?: string
+                    }
+                }
+            }
+        }
+    }
     oppgittInntektAlert?: {
         tittel?: {
             NB?: string
@@ -2945,61 +3101,157 @@ export type InntektsjusteringInnledning = {
             EN?: string
         }
     }
-    veiledning?: {
-        NB?: Array<{
-            children?: Array<{
-                marks?: Array<string>
-                text?: string
-                _type: 'span'
+    ikkeGyldigAlder?: {
+        innhold?: {
+            NB?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
                 _key: string
             }>
-            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-            listItem?: 'bullet' | 'number'
-            markDefs?: Array<{
-                href?: string
-                _type: 'link'
+            NN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
                 _key: string
             }>
-            level?: number
-            _type: 'block'
-            _key: string
-        }>
-        NN?: Array<{
-            children?: Array<{
-                marks?: Array<string>
-                text?: string
-                _type: 'span'
+            EN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
                 _key: string
             }>
-            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-            listItem?: 'bullet' | 'number'
-            markDefs?: Array<{
-                href?: string
-                _type: 'link'
+        }
+        gaaTilNAVKnapp?: {
+            tekst?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            lenke?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+    harIkkeOMSSakIGjenny?: {
+        innhold?: {
+            NB?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
                 _key: string
             }>
-            level?: number
-            _type: 'block'
-            _key: string
-        }>
-        EN?: Array<{
-            children?: Array<{
-                marks?: Array<string>
-                text?: string
-                _type: 'span'
+            NN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
                 _key: string
             }>
-            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
-            listItem?: 'bullet' | 'number'
-            markDefs?: Array<{
-                href?: string
-                _type: 'link'
+            EN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
                 _key: string
             }>
-            level?: number
-            _type: 'block'
-            _key: string
-        }>
+        }
+        gaaTilNAVKnapp?: {
+            tekst?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            lenke?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+    feilVedSjekkAvOMSSakIGjenny?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        innhold?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
     }
     startUtfyllingKnapp?: {
         NB?: string
@@ -3023,6 +3275,7 @@ export type AllSanitySchemaTypes =
     | SystemUtilgjengelig
     | FantIkkeSiden
     | FellesKomponenter
+    | IkkeGyldigForAaMeldeInnInntekt
     | InntektsjusteringKvittering
     | InntektsjusteringOppsummering
     | InntektsjusteringInntektTilNesteAar

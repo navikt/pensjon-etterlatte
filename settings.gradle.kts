@@ -5,3 +5,5 @@ include(
     "apps:innsendt-soeknad",
     "libs:utils",
 )
+include("libs:etterlatte-funksjonsbrytere")
+findProject(":libs:etterlatte-funksjonsbrytere")?.name = "etterlatte-funksjonsbrytere"

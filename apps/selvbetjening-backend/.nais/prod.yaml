@@ -31,6 +31,9 @@ spec:
     pool: nav-prod
   tokenx:
     enabled: true
+  azure:
+    application:
+      enabled: true
   leaderElection: true
   gcp:
     sqlInstances:
@@ -57,10 +60,21 @@ spec:
       value: api://prod-fss.pdl.pdl-api/.default
     - name: PDL_AUDIENCE
       value: "prod-fss:pdl:pdl-api"
+    - name: ETTERLATTE_API_URL
+      value: https://etterlatte-api.intern.nav.no
+    - name: ETTERLATTE_API_AZURE_SCOPE
+      value: api://prod-gcp.etterlatte.etterlatte-api/.default
+  envFrom:
+    - secret: my-application-unleash-api-token
   accessPolicy:
     outbound:
+      rules:
+        - application: etterlatte-api
+          namespace: etterlatte
+          cluster: prod-gcp
       external:
         - host: pdl-api.prod-fss-pub.nais.io
+        - host: etterlatte-unleash-api.nav.cloud.nais.io
     inbound:
       rules:
         - application: selvbetjening-ui

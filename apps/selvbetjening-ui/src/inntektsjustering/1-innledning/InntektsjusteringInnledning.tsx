@@ -1,4 +1,4 @@
-import { Button, HStack, VStack } from '@navikt/ds-react'
+import { Accordion, BodyShort, Button, HStack, Link, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
@@ -14,6 +14,9 @@ import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/Innlogget
 import { OppgittInntektAlert } from './OppgittInntektAlert.tsx'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { useEffect } from 'react'
+import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
+import { HarIkkeOMSSakIGjenny } from './HarIkkeOMSSakIGjenny.tsx'
+import { FeilVedSjekkAvOMSSakIGjenny } from './FeilVedSjekkAvOMSSakIGjenny.tsx'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
@@ -27,6 +30,12 @@ export const InntektsjusteringInnledning = () => {
         error: eksisterendeInntektError,
         isLoading: eksisterendeInntektIsLoading,
     }: SWRResponse<Inntekt, ApiError, boolean> = useSWR(`${apiURL}/api/inntektsjustering`)
+
+    const {
+        data: harOMSSakIGjenny,
+        isLoading: harOMSSakIGjennyIsLoading,
+        error: harOMSSakIGjennyError,
+    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har_sak`)
 
     const {
         data: innloggetBruker,
@@ -48,12 +57,27 @@ export const InntektsjusteringInnledning = () => {
         }
     }, [eksisterendeInntekt, inntektDispatch, eksisterendeInntektError])
 
-    if (innholdIsLoading || innloggetBrukerIsLoading || eksisterendeInntektIsLoading) {
+    if (innholdIsLoading || innloggetBrukerIsLoading || eksisterendeInntektIsLoading || harOMSSakIGjennyIsLoading) {
         return <SideLaster />
     }
 
     if (innholdError || innloggetBrukerError) {
         throw innloggetBrukerError || innholdError
+    }
+
+    if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {
+        return (
+            <main>
+                <HStack justify="center" padding="8" minHeight="100vh">
+                    <VStack gap="6" maxWidth="42.5rem">
+                        <HStack justify="end">
+                            <SpraakVelger />
+                        </HStack>
+                        <HarIkkeOMSSakIGjenny />
+                    </VStack>
+                </HStack>
+            </main>
+        )
     }
 
     return (
@@ -66,6 +90,70 @@ export const InntektsjusteringInnledning = () => {
                         <div>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>
+
+                        <Accordion>
+                            <Accordion.Item>
+                                <Accordion.Header>
+                                    {
+                                        innhold.behandlingAvInformasjonAccordion?.informasjonViHenterItem?.tittel?.[
+                                            spraak
+                                        ]
+                                    }
+                                </Accordion.Header>
+                                <Accordion.Content>
+                                    <SanityRikTekst
+                                        text={
+                                            innhold.behandlingAvInformasjonAccordion?.informasjonViHenterItem
+                                                ?.innhold?.[spraak]
+                                        }
+                                    />
+                                </Accordion.Content>
+                            </Accordion.Item>
+                            <Accordion.Item>
+                                <Accordion.Header>
+                                    {
+                                        innhold.behandlingAvInformasjonAccordion
+                                            ?.hvordanViBehandlerPersonopplysningerItem?.tittel?.[spraak]
+                                    }
+                                </Accordion.Header>
+                                <Accordion.Content>
+                                    <SanityRikTekst
+                                        text={
+                                            innhold.behandlingAvInformasjonAccordion
+                                                ?.hvordanViBehandlerPersonopplysningerItem?.innhold?.[spraak]
+                                        }
+                                    />
+
+                                    <BodyShort>
+                                        {
+                                            innhold.behandlingAvInformasjonAccordion
+                                                ?.hvordanViBehandlerPersonopplysningerItem
+                                                ?.hvordanNavBehandlerPersonopplysningerSetning?.setningStart?.[spraak]
+                                        }{' '}
+                                        <Link
+                                            href={
+                                                innhold.behandlingAvInformasjonAccordion
+                                                    ?.hvordanViBehandlerPersonopplysningerItem
+                                                    ?.hvordanNavBehandlerPersonopplysningerSetning?.lenkeTilNav
+                                                    ?.lenke?.[spraak]
+                                            }
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            inlineText
+                                        >
+                                            {
+                                                innhold.behandlingAvInformasjonAccordion
+                                                    ?.hvordanViBehandlerPersonopplysningerItem
+                                                    ?.hvordanNavBehandlerPersonopplysningerSetning?.lenkeTilNav
+                                                    ?.tekst?.[spraak]
+                                            }
+                                        </Link>
+                                    </BodyShort>
+                                </Accordion.Content>
+                            </Accordion.Item>
+                        </Accordion>
+
+                        {harOMSSakIGjennyError && <FeilVedSjekkAvOMSSakIGjenny />}
 
                         {!!eksisterendeInntekt && (
                             <OppgittInntektAlert inntekt={eksisterendeInntekt} innloggetBruker={innloggetBruker} />

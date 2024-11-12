@@ -1,7 +1,7 @@
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { useTranslation } from 'react-i18next'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { ISoekerOgAvdoed } from '../../../typer/person'
+import { ISoekerOgAvdoed } from '~typer/person'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import { FormProvider, useForm } from 'react-hook-form'
 import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema'
@@ -12,10 +12,13 @@ import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { isDev } from '../../../api/axios'
 import PropTypes from 'prop-types'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
+    const { logEvent } = useAmplitude()
 
     const methods = useForm<ISoekerOgAvdoed>({
         defaultValues: state.omDegOgAvdoed || {},
@@ -46,6 +49,12 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
         forrige!()
     }
 
+    const logErrors = (data: FieldErrors<ISoekerOgAvdoed>) => {
+        Object.keys(data).map((error) =>
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'OmDegOgAvdoed', id: error })
+        )
+    }
+
     return (
         <>
             <SkjemaElement>
@@ -62,9 +71,12 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
 
                     <Navigasjon
                         forrige={{
-                            onClick: erValidert === true ? handleSubmit(lagreTilbake) : lagreTilbakeUtenValidering,
+                            onClick:
+                                erValidert === true
+                                    ? handleSubmit(lagreTilbake, logErrors)
+                                    : lagreTilbakeUtenValidering,
                         }}
-                        neste={{ onClick: handleSubmit(lagreNeste) }}
+                        neste={{ onClick: handleSubmit(lagreNeste, logErrors) }}
                     />
                 </form>
             </FormProvider>

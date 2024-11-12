@@ -29,6 +29,8 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggleProperties
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
@@ -48,17 +50,23 @@ import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.person
+import no.nav.etterlatte.sak.SakKlient
+import no.nav.etterlatte.sak.SakService
+import no.nav.etterlatte.sak.sak
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import no.nav.security.token.support.v2.tokenValidationSupport
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
 import java.util.Timer
 import java.util.UUID
 import java.util.concurrent.atomic.AtomicBoolean
 
-val sikkerLogg: Logger = LoggerFactory.getLogger("sikkerLogg")
+private fun featureToggleProperties(config: Config) =
+    FeatureToggleProperties(
+        applicationName = config.getString("funksjonsbrytere.unleash.applicationName"),
+        host = config.getString("funksjonsbrytere.unleash.host"),
+        apiKey = config.getString("funksjonsbrytere.unleash.token"),
+    )
 
 fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
 
@@ -106,6 +114,21 @@ fun main() {
             .also {
                 closables.add(it::close)
             }.let { PersonService(PersonKlient(it)) }
+    val sakService =
+        SakService(
+            SakKlient(
+                httpClient =
+                    httpClientClientCredentials(
+                        azureAppScope = config.getString("etterlatte-api.scope"),
+                    ),
+                apiUrl = config.getString("etterlatte-api.url"),
+            ),
+        )
+
+    val featureToggleService: FeatureToggleService =
+        FeatureToggleService.initialiser(
+            properties = featureToggleProperties(config),
+        )
 
     val rapidApplication =
         RapidApplication
@@ -115,13 +138,14 @@ fun main() {
                     metricsApi()
                     inntektsjustering(inntektsjusteringService)
                     person(peronService)
+                    sak(sakService)
                 }
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService)
+                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
                     .schedule()
-                    .addShutdownHook()
+                    ?.addShutdownHook()
             }
     rapidApplication.start()
 }
@@ -229,7 +253,4 @@ enum class AzureDefaultEnvVariables {
     AZURE_APP_JWK,
     AZURE_APP_WELL_KNOWN_URL,
     AZURE_APP_OUTBOUND_SCOPE,
-    ;
-
-    fun key() = name
 }

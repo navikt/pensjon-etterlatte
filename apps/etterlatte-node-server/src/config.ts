@@ -12,7 +12,7 @@ const app = {
 
 const sanity = {
     token: process.env.SANITY_API_TOKEN,
-    dataset: env.isProdCluster ? 'selvbetjening-ui-prod' : 'selvbetjening-ui-dev',
+    dataset: 'selvbetjening-ui',
     projectId: process.env.SANITY_PROJECT_ID,
 }
 
