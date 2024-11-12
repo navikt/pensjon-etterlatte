@@ -29,6 +29,8 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggleProperties
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
@@ -58,6 +60,13 @@ import org.slf4j.event.Level
 import java.util.Timer
 import java.util.UUID
 import java.util.concurrent.atomic.AtomicBoolean
+
+private fun featureToggleProperties(config: Config) =
+    FeatureToggleProperties(
+        applicationName = config.getString("funksjonsbrytere.unleash.applicationName"),
+        host = config.getString("funksjonsbrytere.unleash.host"),
+        apiKey = config.getString("funksjonsbrytere.unleash.token"),
+    )
 
 fun clusternavn(): String? = System.getenv()["NAIS_CLUSTER_NAME"]
 
@@ -116,6 +125,11 @@ fun main() {
             ),
         )
 
+    val featureToggleService: FeatureToggleService =
+        FeatureToggleService.initialiser(
+            properties = featureToggleProperties(config),
+        )
+
     val rapidApplication =
         RapidApplication
             .Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
@@ -129,9 +143,9 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService)
+                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
                     .schedule()
-                    .addShutdownHook()
+                    ?.addShutdownHook()
             }
     rapidApplication.start()
 }
