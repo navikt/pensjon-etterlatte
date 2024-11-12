@@ -1,4 +1,4 @@
-import { Button, HStack, VStack } from '@navikt/ds-react'
+import { Accordion, Button, HStack, VStack } from '@navikt/ds-react'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
@@ -90,6 +90,17 @@ export const InntektsjusteringInnledning = () => {
                         <div>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>
+
+                        <Accordion>
+                            <Accordion.Item>
+                                <Accordion.Header>Informasjon vi henter om deg</Accordion.Header>
+                                <Accordion.Content>Vi henter så sjuuuukt mye info...</Accordion.Content>
+                            </Accordion.Item>
+                            <Accordion.Item>
+                                <Accordion.Header>Hvordan vi behandler personopplysninger</Accordion.Header>
+                                <Accordion.Content>Vi behandler de veeeeldig dårlig...</Accordion.Content>
+                            </Accordion.Item>
+                        </Accordion>
 
                         {harOMSSakIGjennyError && <FeilVedSjekkAvOMSSakIGjenny />}
 
