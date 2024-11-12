@@ -13,11 +13,10 @@ import { IInntekt } from '~typer/inntekt'
 import Inntekt from './fragmenter/Inntekt'
 import YtelserNAV from './fragmenter/YtelserNAV'
 import YtelserAndre from './fragmenter/YtelserAndre'
-import PropTypes from 'prop-types'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
-const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
+const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { logEvent } = useAmplitude()
 
@@ -89,11 +88,6 @@ const InntektenDin: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
-}
-
-InntektenDin.propTypes = {
-    neste: PropTypes.func,
-    forrige: PropTypes.func,
 }
 
 export default InntektenDin

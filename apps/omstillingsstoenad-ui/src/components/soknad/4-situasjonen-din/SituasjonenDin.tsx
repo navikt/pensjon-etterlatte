@@ -18,11 +18,10 @@ import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { isDev } from '../../../api/axios'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
-import PropTypes from 'prop-types'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
-const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
+const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const { countries }: { countries: any } = useCountries()
@@ -188,11 +187,6 @@ const SituasjonenDin: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
-}
-
-SituasjonenDin.propTypes = {
-    neste: PropTypes.func,
-    forrige: PropTypes.func,
 }
 
 export default SituasjonenDin

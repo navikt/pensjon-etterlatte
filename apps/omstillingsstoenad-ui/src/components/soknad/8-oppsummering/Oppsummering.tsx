@@ -20,12 +20,11 @@ import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonen
 import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
-import PropTypes from 'prop-types'
 import { erMellomOktoberogDesember } from '~utils/dato'
 import { StegPath } from '~typer/steg'
 import { Link as RouterLink } from 'react-router-dom'
 
-const Oppsummering: SoknadSteg = ({ forrige }) => {
+const Oppsummering = ({ forrige }: SoknadSteg) => {
     const navigate = useNavigate()
     const { t } = useTranslation()
 
@@ -196,10 +195,6 @@ const Oppsummering: SoknadSteg = ({ forrige }) => {
             </Modal>
         </>
     )
-}
-
-Oppsummering.propTypes = {
-    forrige: PropTypes.func,
 }
 
 export default Oppsummering

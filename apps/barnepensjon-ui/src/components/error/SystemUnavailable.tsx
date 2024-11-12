@@ -23,7 +23,7 @@ export default function SystemUnavailable() {
 
     useEffect(() => {
         logEvent(LogEvents.SYSTEM_UNAVAILABLE, { type: SoeknadType.BARNEPENSJON })
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [])
 
     const retry = () => {
         window.location.href = import.meta.env.BASE_URL

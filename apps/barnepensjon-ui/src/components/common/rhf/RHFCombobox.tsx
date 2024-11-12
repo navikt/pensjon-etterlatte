@@ -37,7 +37,11 @@ export const RHFCombobox = ({ name, label, options, rules, required = true, ...r
                         options={options}
                         selectedOptions={value ? [value] : ['']}
                         onToggleSelected={(option, isSelected) => {
-                            isSelected ? onChange(option) : onChange('')
+                            if (isSelected) {
+                                onChange(option)
+                            } else {
+                                onChange('')
+                            }
                         }}
                         onBlur={onBlur}
                         error={errorMsg}
