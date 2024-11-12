@@ -51,7 +51,7 @@ export const useAmplitude = () => {
             })
         }
         setPrevLocation(location)
-    }, [location]) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [location])
 
     const logEvent = (eventName: LogEvents, eventData: any): void => {
         setTimeout(() => {
