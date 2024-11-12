@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 
 export enum LogEvents {
     ALDER = 'alder',
-    PAGE_CHANGE = 'sidevisning',
+    SIDEVISNING = 'sidevisning',
+    INGEN_OMS_SAK = 'ingen oms sak',
 }
 
 // Felles taksonomi for analytics https://github.com/navikt/analytics-taxonomy
@@ -30,7 +31,7 @@ export const useAmplitude = () => {
 
     useEffect(() => {
         if (prevLocation?.pathname !== location?.pathname) {
-            logEvent(LogEvents.PAGE_CHANGE, {
+            logEvent(LogEvents.SIDEVISNING, {
                 prevLocation: prevLocation?.pathname,
                 newLocation: location?.pathname,
             })
@@ -38,7 +39,7 @@ export const useAmplitude = () => {
         setPrevLocation(location)
     }, [location]) // eslint-disable-line react-hooks/exhaustive-deps
 
-    const logEvent = (eventName: LogEvents, eventData: object): void => {
+    const logEvent = (eventName: LogEvents, eventData?: object): void => {
         setTimeout(() => {
             try {
                 if (amplitude) {
