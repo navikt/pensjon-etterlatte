@@ -19,11 +19,10 @@ import Datovelger from '../../felles/Datovelger'
 import { isDev } from '../../../api/axios'
 import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
-import PropTypes from 'prop-types'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
-const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
+const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const { countries }: { countries: Options[] } = useCountries()
@@ -153,11 +152,6 @@ const OmDenAvdode: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
-}
-
-OmDenAvdode.propTypes = {
-    neste: PropTypes.func,
-    forrige: PropTypes.func,
 }
 
 export default OmDenAvdode

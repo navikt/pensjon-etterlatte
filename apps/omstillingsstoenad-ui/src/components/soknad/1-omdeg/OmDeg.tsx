@@ -17,11 +17,10 @@ import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
-import PropTypes from 'prop-types'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
-const OmDeg: SoknadSteg = ({ neste }) => {
+const OmDeg = ({ neste }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const brukerState = useBrukerContext().state
@@ -115,10 +114,6 @@ const OmDeg: SoknadSteg = ({ neste }) => {
             </FormProvider>
         </>
     )
-}
-
-OmDeg.propTypes = {
-    neste: PropTypes.func,
 }
 
 export default OmDeg

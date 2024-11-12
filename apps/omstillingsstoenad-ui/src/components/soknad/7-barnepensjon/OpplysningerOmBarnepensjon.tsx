@@ -17,9 +17,8 @@ import styled from 'styled-components'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { isDev } from '../../../api/axios'
-import PropTypes from 'prop-types'
 
-const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
+const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
 
@@ -170,11 +169,6 @@ const OpplysningerOmBarnepensjon: SoknadSteg = ({ neste, forrige }) => {
             </form>
         </FormProvider>
     )
-}
-
-OpplysningerOmBarnepensjon.propTypes = {
-    neste: PropTypes.func,
-    forrige: PropTypes.func,
 }
 
 export default OpplysningerOmBarnepensjon
