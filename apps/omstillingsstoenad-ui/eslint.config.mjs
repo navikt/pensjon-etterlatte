@@ -18,6 +18,7 @@ const compat = new FlatCompat({
 });
 
 export default [{
+    files: ["**/*.ts", "**/*.tsx"],
     ignores: ["node_modules/*", "nais/*", "build/*"],
 }, ...compat.extends("plugin:react/recommended", "plugin:@typescript-eslint/recommended"), {
     plugins: {
