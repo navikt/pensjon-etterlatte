@@ -1,6 +1,7 @@
 package no.nav.etterlatte.jobs
 
 import kotlinx.coroutines.runBlocking
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggle
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
@@ -13,6 +14,12 @@ import java.time.temporal.ChronoUnit
 import java.util.Timer
 import java.util.UUID
 import kotlin.concurrent.fixedRateTimer
+
+enum class InntektjusteringToggles(
+    val value: String,
+) : FeatureToggle {
+    PUBLISER_MOTTATTE_INNTEKTSJUSTERINGER("publiser-mottatte-inntektsjusteringer"),
+}
 
 class PubliserInntektsjusteringJobb(
     private val rapid: KafkaProdusent<String, String>,
