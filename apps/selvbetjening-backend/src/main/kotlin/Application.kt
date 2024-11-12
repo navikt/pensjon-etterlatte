@@ -143,9 +143,9 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService)
+                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
                     .schedule()
-                    .addShutdownHook()
+                    ?.addShutdownHook()
             }
     rapidApplication.start()
 }

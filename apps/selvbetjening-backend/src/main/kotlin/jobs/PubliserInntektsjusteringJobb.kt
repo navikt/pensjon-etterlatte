@@ -2,6 +2,7 @@ package no.nav.etterlatte.jobs
 
 import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggle
+import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
@@ -19,15 +20,27 @@ enum class InntektjusteringToggles(
     val value: String,
 ) : FeatureToggle {
     PUBLISER_MOTTATTE_INNTEKTSJUSTERINGER("publiser-mottatte-inntektsjusteringer"),
+    ;
+
+    override fun key(): String = this.value
 }
 
 class PubliserInntektsjusteringJobb(
     private val rapid: KafkaProdusent<String, String>,
     private val inntektsjusteringService: InntektsjusteringService,
+    private val featureToggleService: FeatureToggleService,
 ) {
     private val logger = LoggerFactory.getLogger(PubliserInntektsjusteringJobb::class.java)
 
-    fun schedule(): Timer {
+    fun schedule(): Timer? {
+        if (!featureToggleService.isEnabled(
+                InntektjusteringToggles.PUBLISER_MOTTATTE_INNTEKTSJUSTERINGER,
+                defaultValue = false,
+            )
+        ) {
+            return null
+        }
+
         logger.info("Setter opp ${this.javaClass.simpleName}")
 
         return fixedRateTimer(
