@@ -22,12 +22,13 @@ internal class PubliserInntektsjusteringJobbTest {
     private lateinit var rapid: KafkaProdusent<String, String>
     private lateinit var inntektsjusteringService: InntektsjusteringService
     private lateinit var publiserJobb: PubliserInntektsjusteringJobb
-    private var featureToggleService: FeatureToggleService = mockk()
+    private lateinit var featureToggleService: FeatureToggleService
 
     @BeforeEach
     fun setup() {
         rapid = mockk(relaxed = true)
         inntektsjusteringService = mockk(relaxed = true)
+        featureToggleService = mockk(relaxed = true)
         publiserJobb = PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
     }
 
