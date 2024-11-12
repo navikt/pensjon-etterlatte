@@ -1,21 +1,19 @@
 import { Button, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
-import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../sanity.types.ts'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { useSpraak } from './spraak/SpraakContext.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { SideLaster } from './SideLaster.tsx'
+import { IkkeGyldigForAaMeldeInnInntekt } from '../sanity.types.ts'
 
-export const IkkeGyldigForAaMeldeInnInntekt = () => {
+export const IkkeGyldigAlder = () => {
     const spraak = useSpraak()
 
     const {
         innhold,
         error: innholdError,
         isLoading: innholdIsLoading,
-    } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
-        '*[_type == "inntektsjusteringInntektTilNesteAar"]'
-    )
+    } = useSanityInnhold<IkkeGyldigForAaMeldeInnInntekt>('*[_type == "ikkeGyldigForAaMeldeInntektTestBlocks"]')
 
     if (innholdIsLoading) {
         return <SideLaster />
@@ -29,7 +27,7 @@ export const IkkeGyldigForAaMeldeInnInntekt = () => {
         !!innhold && (
             <VStack gap="6">
                 <div>
-                    <SanityRikTekst text={innhold.inntektSkjemaer?.ikkeGyldigForAaMeldeInnInntekt?.innhold?.[spraak]} />
+                    <SanityRikTekst text={innhold.ikkeGyldigAlder?.innhold?.[spraak]} />
                 </div>
                 <div>
                     <Button
@@ -38,9 +36,9 @@ export const IkkeGyldigForAaMeldeInnInntekt = () => {
                         icon={<ArrowRightIcon aria-hidden />}
                         iconPosition="right"
                         rel="noopener noreferrer"
-                        href={innhold.inntektSkjemaer?.ikkeGyldigForAaMeldeInnInntekt?.gaaTilNAVKnapp?.lenke?.[spraak]}
+                        href={innhold.ikkeGyldigAlder?.gaaTilNAVKnapp?.lenke?.[spraak]}
                     >
-                        {innhold.inntektSkjemaer?.ikkeGyldigForAaMeldeInnInntekt?.gaaTilNAVKnapp?.tekst?.[spraak]}
+                        {innhold.ikkeGyldigAlder?.gaaTilNAVKnapp?.tekst?.[spraak]}
                     </Button>
                 </div>
             </VStack>

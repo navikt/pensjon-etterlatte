@@ -6,6 +6,7 @@ import NodeCache from 'node-cache'
 import {
     fantIkkeSidenTestBlocks,
     fellesKomponenterTestBlocks,
+    ikkeGyldigForAaMeldeInntektTestBlocks,
     inntektsjusteringInnledningTestBlocks,
     inntektsjusteringInntektTilNesteAarTestBlocks,
     inntektsjusteringKvitteringTestBlocks,
@@ -50,6 +51,14 @@ export const mockSelvbetjeningApi = (app: any) => {
         res.sendStatus(200)
     })
 
+    app.get(`${config.app.basePath}/api/api/sak/oms/har_sak`, (req: Request, res: Response) => {
+        const harOMSSak = {
+            harOMSSak: true,
+        }
+
+        res.send(harOMSSak)
+    })
+
     app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
         const sanityQuery = req.query.sanityQuery
         if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
@@ -60,6 +69,8 @@ export const mockSelvbetjeningApi = (app: any) => {
             res.send(inntektsjusteringOppsummeringTestBlocks)
         } else if (sanityQuery?.toString().includes('inntektsjusteringKvittering')) {
             res.send(inntektsjusteringKvitteringTestBlocks)
+        } else if (sanityQuery?.toString().includes('ikkeGyldigForAaMeldeInntekt')) {
+            res.send(ikkeGyldigForAaMeldeInntektTestBlocks)
         } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
             res.send(fellesKomponenterTestBlocks)
         } else if (sanityQuery?.toString().includes('fantIkkeSiden')) {

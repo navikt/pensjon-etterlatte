@@ -3,7 +3,7 @@ import { createContext, ReactNode, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
 import { ApiError, apiURL } from '../../utils/api.ts'
 import { finnAlder } from '../../inntektsjustering/2-inntekt-til-neste-aar/finnAlder.ts'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../IkkeGyldigForAaMeldeInnInntekt.tsx'
+import { IkkeGyldigAlder } from '../IkkeGyldigAlder.tsx'
 import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
@@ -23,17 +23,17 @@ const innloggetInnbyggerContext = createContext<InnloggetInnbyggerContext>({
 })
 
 const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    const { data, error, isLoading }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(
-        `${apiURL}/api/person/innlogget/forenklet`
-    )
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(`${apiURL}/api/person/innlogget/forenklet`)
 
-    useSWR(`${apiURL}/api/sak/oms/har_sak`)
-
-    if (isLoading) {
+    if (innloggetBrukerIsLoading) {
         return <SideLaster />
     }
 
-    if (finnAlder(data!) === Alder.IKKE_GYLDIG) {
+    if (finnAlder(innloggetBruker!) === Alder.IKKE_GYLDIG) {
         return (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
@@ -41,7 +41,7 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
                         <HStack justify="end">
                             <SpraakVelger />
                         </HStack>
-                        <IkkeGyldigForAaMeldeInnInntekt />
+                        <IkkeGyldigAlder />
                     </VStack>
                 </HStack>
             </main>
@@ -49,7 +49,9 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
     }
 
     return (
-        <innloggetInnbyggerContext.Provider value={{ data, error, isLoading }}>
+        <innloggetInnbyggerContext.Provider
+            value={{ data: innloggetBruker, error: innloggetBrukerError, isLoading: innloggetBrukerIsLoading }}
+        >
             {children}
         </innloggetInnbyggerContext.Provider>
     )
