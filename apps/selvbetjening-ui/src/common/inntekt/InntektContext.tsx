@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-
 import { Inntekt, inntektDefaultValues } from '../../types/inntektsjustering.ts'
 import { createContext, ReactNode, useContext, useState } from 'react'
 
