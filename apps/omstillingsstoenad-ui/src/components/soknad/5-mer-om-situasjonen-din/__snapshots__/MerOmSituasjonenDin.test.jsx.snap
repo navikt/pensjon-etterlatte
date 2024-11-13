@@ -2468,6 +2468,65 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
               </div>
             </div>
             <div
+              style="display: none;"
+            >
+              <div
+                class="sc-cHqXqK jvHoMc"
+              >
+                <div
+                  class="width-50"
+                >
+                  <div
+                    class="navds-form-field navds-form-field--medium"
+                  >
+                    <label
+                      class="navds-form-field__label navds-label"
+                      for="selvstendig.[0].forventerEndretArbeidssituasjon.beskrivelse"
+                    >
+                      merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse
+                    </label>
+                    <div
+                      class="navds-form-field__description navds-body-short navds-body-short--medium"
+                      id="textarea-description-r6b"
+                    >
+                      felles.ikkeSensitiveOpplysninger
+                    </div>
+                    <textarea
+                      aria-describedby="textarea-description-r6b r6c"
+                      class="navds-textarea__input navds-body-short navds-body-short--medium"
+                      id="selvstendig.[0].forventerEndretArbeidssituasjon.beskrivelse"
+                      rows="3"
+                      style="--__ac-textarea-height: -4px; overflow: hidden;"
+                    />
+                    <textarea
+                      aria-hidden="true"
+                      class="navds-textarea__input navds-body-short navds-body-short--medium"
+                      readonly=""
+                      style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0);"
+                      tabindex="-1"
+                    />
+                    <span
+                      class="navds-sr-only"
+                      id="r6c"
+                    >
+                      Tekstområde med plass til 200 tegn.
+                    </span>
+                    <p
+                      class="navds-textarea__counter navds-body-short navds-body-short--medium"
+                    >
+                      200 counterLeft
+                    </p>
+                    <div
+                      aria-live="polite"
+                      aria-relevant="additions removals"
+                      class="navds-form-field__error"
+                      id="textarea-error-r6b"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
               class="sc-cHqXqK jvHoMc"
             >
               <div

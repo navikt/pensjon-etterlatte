@@ -8,9 +8,9 @@ import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const Selvstendig = () => {
     const { t } = useTranslation()
-    const { control } = useFormContext()
+    const { control, getValues, setValue } = useFormContext()
 
-    const { fields, append, remove } = useFieldArray<any>({
+    const { fields, append } = useFieldArray<any>({
         control,
         name: 'selvstendig',
         shouldUnregister: true,
@@ -22,6 +22,11 @@ const Selvstendig = () => {
         }
     })
 
+    const fjern = (index: number) => {
+        const fjernFraListeBasertPaaIndex = getValues('selvstendig').filter((_: any, i: number) => i !== index)
+        setValue('selvstendig', fjernFraListeBasertPaaIndex)
+    }
+
     return (
         <SkjemaGruppe>
             <SkjemaElement>
@@ -30,9 +35,8 @@ const Selvstendig = () => {
 
             <VStack gap="4">
                 {fields.map((field: FieldArrayWithId, index: number) => (
-                    <SelvstendigInfokort key={field.id} lengde={fields.length} index={index} fjern={remove} />
+                    <SelvstendigInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
                 ))}
-
                 <div>
                     <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
                         + {t('knapp.leggTilNaeringer')}

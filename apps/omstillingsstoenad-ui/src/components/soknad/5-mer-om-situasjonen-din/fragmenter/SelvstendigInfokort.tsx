@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BodyShort, Box, Button, Label, ReadMore } from '@navikt/ds-react'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
@@ -22,7 +22,9 @@ interface Props {
 const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     const { t } = useTranslation()
 
-    const { watch } = useFormContext()
+    const [visEndretArbeidssituasjon, setVisEndretArbeidssituasjon] = useState(false)
+
+    const { watch, setValue } = useFormContext()
     const selvstendigName = `selvstendig.[${index}]`
 
     const endretArbeidssituasjon = watch(`${selvstendigName}.forventerEndretArbeidssituasjon.svar`)
@@ -30,6 +32,13 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     const arbeidsmengdeValg = Object.values(Arbeidsmengde).map((value) => {
         return { label: t(value), value }
     })
+
+    useEffect(() => {
+        setVisEndretArbeidssituasjon(endretArbeidssituasjon === IValg.JA)
+        if (endretArbeidssituasjon === IValg.NEI) {
+            setValue(`${selvstendigName}.forventerEndretArbeidssituasjon.svar`, IValg.NEI)
+        }
+    }, [endretArbeidssituasjon])
 
     return (
         <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
@@ -87,16 +96,17 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 />
             </SkjemaElement>
 
-            {endretArbeidssituasjon === IValg.JA && (
+            <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
                 <SkjemaElement>
                     <RHFInputArea
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
                         maxLength={200}
                         className={'width-50'}
+                        valgfri={!visEndretArbeidssituasjon}
                     />
                 </SkjemaElement>
-            )}
+            </div>
             <SkjemaElement>
                 <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor')}
