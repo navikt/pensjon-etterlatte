@@ -69,7 +69,7 @@ export const InntektsjusteringInnledning = () => {
     }
 
     if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {
-        logEvent(LogEvents.INGEN_OMS_SAK)
+        logEvent(LogEvents.INGEN_OMS_SAK, { data: {} })
 
         return (
             <main>
