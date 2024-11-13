@@ -29,7 +29,7 @@ const Arbeidstaker = () => {
         }
     }
 
-    const fjern = (index: number) => {
+    const fjernArbeidsforhold = (index: number) => {
         const fjernFraListeBasertPaaIndex = getValues('arbeidsforhold').filter((_: any, i: number) => i !== index)
         setValue('arbeidsforhold', fjernFraListeBasertPaaIndex)
     }
@@ -42,7 +42,12 @@ const Arbeidstaker = () => {
 
             <VStack gap="4">
                 {fields.map((field: FieldArrayWithId, index: number) => (
-                    <ArbeidstakerInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
+                    <ArbeidstakerInfokort
+                        key={field.id}
+                        lengde={fields.length}
+                        index={index}
+                        fjern={fjernArbeidsforhold}
+                    />
                 ))}
 
                 <div>

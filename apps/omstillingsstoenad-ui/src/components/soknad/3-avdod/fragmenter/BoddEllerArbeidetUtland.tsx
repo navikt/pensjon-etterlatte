@@ -41,7 +41,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
         }
     })
 
-    const fjern = (index: number) => {
+    const fjernOppholdUtland = (index: number) => {
         const fjernFraListeBasertPaaIndex = (getValues('boddEllerJobbetUtland.oppholdUtland') || []).filter(
             (_: any, i: number) => i !== index
         )
@@ -163,7 +163,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     <Button
                                         variant={'secondary'}
                                         type={'button'}
-                                        onClick={() => fjern(index)}
+                                        onClick={() => fjernOppholdUtland(index)}
                                         icon={<DeleteFilled />}
                                     >
                                         {t('knapp.fjern')}
