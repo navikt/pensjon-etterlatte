@@ -25,11 +25,11 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { allCountries }: { allCountries: any } = useCountries()
     const { valutaer }: { valutaer: any } = useValutaer()
 
-    const { control, watch } = useFormContext<IAvdoed>()
+    const { control, getValues, setValue, watch } = useFormContext<IAvdoed>()
 
     const boddEllerArbeidetUtland = watch('boddEllerJobbetUtland.svar')
 
-    const { fields, append, remove } = useFieldArray<any>({
+    const { fields, append } = useFieldArray<any>({
         control,
         name: 'boddEllerJobbetUtland.oppholdUtland',
         shouldUnregister: true,
@@ -40,6 +40,13 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             append({})
         }
     })
+
+    const fjern = (index: number) => {
+        const fjernFraListeBasertPaaIndex = (getValues('boddEllerJobbetUtland.oppholdUtland') || []).filter(
+            (_: any, i: number) => i !== index
+        )
+        setValue('boddEllerJobbetUtland.oppholdUtland', fjernFraListeBasertPaaIndex)
+    }
 
     return (
         <SkjemaGruppe>
@@ -156,7 +163,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     <Button
                                         variant={'secondary'}
                                         type={'button'}
-                                        onClick={() => remove(index)}
+                                        onClick={() => fjern(index)}
                                         icon={<DeleteFilled />}
                                     >
                                         {t('knapp.fjern')}
