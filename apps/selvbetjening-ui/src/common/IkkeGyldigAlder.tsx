@@ -13,7 +13,7 @@ export const IkkeGyldigAlder = () => {
         innhold,
         error: innholdError,
         isLoading: innholdIsLoading,
-    } = useSanityInnhold<IkkeGyldigForAaMeldeInnInntekt>('*[_type == "ikkeGyldigForAaMeldeInntektTestBlocks"]')
+    } = useSanityInnhold<IkkeGyldigForAaMeldeInnInntekt>('*[_type == "ikkeGyldigForAaMeldeInnInntekt"]')
 
     if (innholdIsLoading) {
         return <SideLaster />
