@@ -17,9 +17,12 @@ import { useEffect } from 'react'
 import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from './HarIkkeOMSSakIGjenny.tsx'
 import { FeilVedSjekkAvOMSSakIGjenny } from './FeilVedSjekkAvOMSSakIGjenny.tsx'
+import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
+
+    const { logEvent } = useAmplitude()
 
     const spraak = useSpraak()
 
@@ -66,6 +69,8 @@ export const InntektsjusteringInnledning = () => {
     }
 
     if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {
+        logEvent(LogEvents.INGEN_OMS_SAK, { data: {} })
+
         return (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
