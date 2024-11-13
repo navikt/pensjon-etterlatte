@@ -32,7 +32,7 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey }: Props) => {
                 </HStack>
                 <HStack gap="4" align="center">
                     <Hide below="md">
-                        <VarigLoonnstilskuddIcon />
+                        <VarigLoonnstilskuddIcon aria-hidden />
                     </Hide>
                     <VStack>
                         <BodyShort size="small">Nav 17-09.02</BodyShort>
