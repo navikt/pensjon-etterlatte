@@ -7,6 +7,7 @@ import { IkkeGyldigAlder } from '../IkkeGyldigAlder.tsx'
 import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
+import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined
@@ -23,6 +24,8 @@ const innloggetInnbyggerContext = createContext<InnloggetInnbyggerContext>({
 })
 
 const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
+    const { logEvent } = useAmplitude()
+
     const {
         data: innloggetBruker,
         error: innloggetBrukerError,
@@ -33,7 +36,10 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
         return <SideLaster />
     }
 
-    if (finnAlder(innloggetBruker!) === Alder.IKKE_GYLDIG) {
+    const alder: Alder = finnAlder(innloggetBruker!)
+
+    if (alder === Alder.IKKE_GYLDIG) {
+        logEvent(LogEvents.ALDER, { alder })
         return (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
@@ -46,6 +52,8 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
                 </HStack>
             </main>
         )
+    } else {
+        logEvent(LogEvents.ALDER, { alder })
     }
 
     return (

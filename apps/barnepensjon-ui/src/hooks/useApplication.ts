@@ -44,7 +44,6 @@ export default function useApplication() {
                 }
             })
             .finally(() => setLoading(false))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     useEffect(() => {
@@ -65,7 +64,6 @@ export default function useApplication() {
                     // TODO: Handle exception
                 })
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state?.meta?.readyForSaving])
 
     return loading

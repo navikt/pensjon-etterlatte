@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-
 import { createContext, ReactNode, useContext, useState } from 'react'
 import { hentSpraakFraLocalStorage, lagreSpraakILocalStorage } from './localStorage.ts'
 import { Spraak } from './spraak.ts'

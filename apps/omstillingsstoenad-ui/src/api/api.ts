@@ -1,4 +1,4 @@
-import {axiosInstance as api, isDev} from './axios'
+import { axiosInstance as api, isDev } from './axios'
 import { ISoeknad } from '../context/soknad/soknad'
 import { SoeknadRequest, SoeknadType } from './dto/InnsendtSoeknad'
 
@@ -9,7 +9,7 @@ export const hentInnloggetPerson = async (type: SoeknadType) => {
     try {
         const response = await api.get(`/api/person/innlogget?soeknadType=${type}`)
         return response.data
-    } catch (e) {
+    } catch {
         throw new Error('Det skjedde en feil')
     }
 }
@@ -37,7 +37,7 @@ export const slettSoeknad = async () => {
     try {
         const response = await api.delete('/api/api/kladd')
         return response.data
-    } catch (e) {
+    } catch {
         throw new Error('Det skjedde en feil')
     }
 }
@@ -56,7 +56,7 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
     try {
         const response = await api.post('/api/api/kladd', body)
         return response.data
-    } catch (e) {
+    } catch {
         throw new Error('Det skjedde en feil')
     }
 }
@@ -98,17 +98,19 @@ export const hentValutaer = async () => {
 
 export const loggFunc = async (data: any) => {
     if (isDev) {
-        console.log(`Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${JSON.stringify(data)}`)
+        console.log(
+            `Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${JSON.stringify(data)}`
+        )
         return
     }
 
     try {
-        const response = await api.post("/api/logg", data);
-        return response.status;
+        const response = await api.post('/api/logg', data)
+        return response.status
     } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`);
+        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
     }
-};
+}
 
 const getErrorMessage = (error: unknown) => {
     if (error instanceof Error) return error.message

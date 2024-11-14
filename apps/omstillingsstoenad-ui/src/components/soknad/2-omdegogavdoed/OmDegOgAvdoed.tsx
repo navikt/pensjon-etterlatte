@@ -11,11 +11,10 @@ import Navigasjon from '../../felles/Navigasjon'
 import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { isDev } from '../../../api/axios'
-import PropTypes from 'prop-types'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
-const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
+const OmDegOgAvdoed = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const { logEvent } = useAmplitude()
@@ -82,11 +81,6 @@ const OmDegOgAvdoed: SoknadSteg = ({ neste, forrige }) => {
             </FormProvider>
         </>
     )
-}
-
-OmDegOgAvdoed.propTypes = {
-    neste: PropTypes.func,
-    forrige: PropTypes.func,
 }
 
 export default OmDegOgAvdoed

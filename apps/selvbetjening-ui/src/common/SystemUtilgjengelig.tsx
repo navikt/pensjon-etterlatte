@@ -9,6 +9,12 @@ import { useEffect } from 'react'
 import ErrorStackParser from 'error-stack-parser'
 import { logger } from '../utils/logger.ts'
 
+const fallbackTekster = {
+    NB: 'Skjemaet er utilgjengelig',
+    NN: 'Skjemaet er utilgjengeleg',
+    EN: 'The form is unavailable',
+}
+
 export const SystemUtilgjengelig = () => {
     const error = useRouteError()
 
@@ -62,7 +68,7 @@ export const SystemUtilgjengelig = () => {
                             </BodyShort>
                         </div>
                     ) : (
-                        <Alert variant="error">Selvbetjening er nede...</Alert>
+                        <Alert variant="error">{fallbackTekster[spraak]}</Alert>
                     )}
                 </VStack>
             </HStack>
