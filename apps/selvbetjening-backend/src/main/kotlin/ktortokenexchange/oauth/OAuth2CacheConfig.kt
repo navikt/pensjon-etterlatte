@@ -34,7 +34,7 @@ data class OAuth2CacheConfig(
                 response: OAuth2AccessTokenResponse,
                 currentTime: Long,
             ): Long {
-                val expiresIn = response.expiresIn ?: 60
+                val expiresIn = response.expires_in ?: 60
                 val seconds = if (expiresIn > skewInSeconds) expiresIn - skewInSeconds else expiresIn.toLong()
                 return TimeUnit.SECONDS.toNanos(seconds)
             }

@@ -81,7 +81,7 @@ class TokenSupportSecurityContextMediator(
                             .tokenExchange(
                                 it.encodedToken,
                                 audience,
-                            ).accessToken,
+                            ).access_token,
                     ) { "AccessToken må være definert, var null. Audience: $audience" }
                 },
             ) { "Innbytta token må være definert, var null. Audience: $audience" }
