@@ -3,7 +3,6 @@ import { EqualsIcon } from '@navikt/aksel-icons'
 import { Inntekt } from '../../types/inntektsjustering.ts'
 import { Alder } from '../../types/person.ts'
 import { ReactNode } from 'react'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 
 export const SumAvOppgittInntekt = ({
     inntektTilNesteAar,
@@ -14,8 +13,6 @@ export const SumAvOppgittInntekt = ({
     alder: Alder
     children: ReactNode | Array<ReactNode>
 }) => {
-    const spraak = useSpraak()
-
     const sumAvInntektStringBuilder = (inntektTilNesteAar: Inntekt): string => {
         let inntekt = 0
 
@@ -33,7 +30,7 @@ export const SumAvOppgittInntekt = ({
             else inntekt += inntektTilNesteAar.afpInntekt
         }
 
-        return `${new Intl.NumberFormat(spraak.toLowerCase()).format(inntekt)} kr`
+        return `${new Intl.NumberFormat('nb').format(inntekt)} kr`
     }
 
     return (
