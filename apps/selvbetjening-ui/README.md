@@ -5,7 +5,7 @@
 ## Kom i gang
 
 For å kjøre prosjektet må du installere Node/NPM. Dette kan forenkles ved å [installere nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).\
-*Må bruke en stabil versjon av node (v22+).*
+_Må bruke en stabil versjon av node (v22+)._
 
 Dersom du ikke har installert Yarn kan du kjøre:\
 `npm install --global yarn`
@@ -24,8 +24,7 @@ Installere prosjektet:\
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start`
 
-Åpne [http://localhost:3000/selvbetjening](http://localhost:3000/selvbetjening) i nettleseren.
-
+Åpne [http://localhost:5173/omstillingsstonad/inntekt/innledning](http://localhost:3000/selvbetjening) i nettleseren.
 
 ### Testing
 
@@ -34,9 +33,9 @@ Teste prosjektet:\
 
 Kjøre cypress tester (krever at prosjektet kjører lokalt først):
 
-- `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
+-   `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
 
-- `yarn cy:test` Kjører testene headless fra CLI.
+-   `yarn cy:test` Kjører testene headless fra CLI.
 
 ### Koble til APIet lokalt
 
@@ -47,22 +46,20 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
-[https://etterlatte.intern.dev.nav.no/selvbetjening](https://etterlatte.intern.dev.nav.no/selvbetjening)
+[https://etterlatte.ekstern.dev.nav.no/omstillingsstonad/inntekt/innledning](https://etterlatte.intern.dev.nav.no/selvbetjening)
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 
 Innloggingsdetaljer kan oppdrives av noen i teamet.
 
-# NAV Avhengigheter
+# Nav avhengigheter
 
 ## Dekoratøren
 
 https://github.com/navikt/nav-dekoratoren
 
-## NAV Frontend-moduler / Designsystemet
+## Aksel
 
-Tar i bruk designsystemet til NAV.
+Tar i bruk designsystemet til Nav, Aksel.
 
-Les mer her: https://design.nav.no eller se [prosjektet sitt repo](https://github.com/navikt/nav-frontend-moduler).
-
-Vil på sikt gå helt over til [Designsystemet](https://navikt.github.io/Designsystemet) når det er ferdig.
+Les mer her: https://aksel.nav.no.
