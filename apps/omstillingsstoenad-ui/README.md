@@ -50,18 +50,15 @@ Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via
 
 Innloggingsdetaljer kan oppdrives av noen i teamet.
 
-# NAV Avhengigheter
+# NAV avhengigheter
 
 ## Dekoratøren
 
 https://github.com/navikt/nav-dekoratoren
 
-## NAV Frontend-moduler / Designsystemet
+## Aksel
 
-Tar i bruk designsystemet til NAV.
+Tar i bruk designsystemet til Nav, Aksel.
 
-Les mer her: [https://aksel.nav.no/komponenter](https://aksel.nav.no/komponenter).
+Les mer her: https://aksel.nav.no
 
-# Annet
-
-Bruker `react-scripts`: https://www.npmjs.com/package/react-scripts med `CSS`.

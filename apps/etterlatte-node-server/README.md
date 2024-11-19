@@ -8,24 +8,22 @@ Felles node backend for Team Etterlatte.
 
 `etterlatte-node-server` bygges til et Docker-image sammen med valgte forntend.
 
-
 Frontend appen sin NAIS config må også inneholde følgende verdier under `env`:
 
-| Nøkkel     | Beskrivelse |
-| ---        | ---         |
-|`BASE_PATH` | Del av ingress hvor appen ligger. Eks. nav.no/produkt/soknad gir base path `/produkt/soknad`  |        
-|`API_URL`   | URL til APIet i Kubernetes-clusteret |   
-|`AUDIENCE`  | Audience for å kalle på APIet |   
+| Nøkkel      | Beskrivelse                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| `BASE_PATH` | Del av ingress hvor appen ligger. Eks. nav.no/produkt/soknad gir base path `/produkt/soknad` |
+| `API_URL`   | URL til APIet i Kubernetes-clusteret                                                         |
+| `AUDIENCE`  | Audience for å kalle på APIet                                                                |
 
 (se [barnepensjon-ui](../barnepensjon-ui/.nais), [omstillingsstoenad-ui](../omstillingsstoenad-ui/.nais) eller
 [selvbetjening-ui](../selvbetjening-ui/.nais) for referanser)
 
-## Kjøre lokalt 
+## Kjøre lokalt
 
 Vi bruker personal access token til autentisering for å hente intern pakker til prosjektet.
 Du må derfor sette `export NPM_TOKEN='DITT_TOKEN'` som miljøvariabel.
 Dette tokenet må autoriseres mot navikt.
-
 
 Installere prosjektet:\
 `yarn install`
@@ -39,9 +37,9 @@ Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
 Kjøre prosjektet (BASE_PATH=/omstillingsstonad/soknad):\
 `yarn start:oms`
 
-Kjøre prosjektet (BASE_PATH=/selvbetjening):\
+Kjøre prosjektet (BASE_PATH=/omstillingsstonad/inntekt):\
 `yarn start:selvbetjening`
 
 ### OBS!
 
-Grunnet manglende støtte for lokalt token er det kun mulig å kjøre mock-api lokalt. 
+Grunnet manglende støtte for lokalt token er det kun mulig å kjøre mock-api lokalt.

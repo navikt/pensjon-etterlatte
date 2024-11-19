@@ -19,6 +19,9 @@ Baksystemapplikasjon for håndtering av søknader (lagring, uthenting, sending, 
 [omstillingsstoenad-ui](apps/omstillingsstoenad-ui) \
 Brukergrensesnittet for "Søknad om omstillingsstønad".
 
+[selvbetjening-ui](apps/selvbetjening-ui) \
+Brukergrenesnitt for selvbetjeningsløsningene til etterlatteytelsen
+
 # Flyt
 
 ### Søknad mottatt
@@ -33,6 +36,11 @@ classDef text fill:none,color:#ddd
 
 barnepensjon-ui --> innsendt-soeknad
 omstillingsstonad-ui --> innsendt-soeknad
+selvbetjening-ui --> selvbetjening-backend
+
+selvbetjening-backend --> pdl
+selvbetjening-backend <--> selvbetjening-backend-v2[(selvbetjening <br/> database)]
+selvbetjening-backend <-.-> etterlatte-gyldig-soeknad
 
 innsendt-soeknad <-.-> etterlatte-gyldig-soeknad
 etterlatte-gyldig-soeknad --> etterlatte-behandling
@@ -46,6 +54,12 @@ subgraph frontend["Søknadsdialog"]
     omstillingsstonad-ui:::app
     innsendt-soeknad:::app
     innsendt-soeknad-v2:::db
+end
+
+subgraph selvbetjening["Selvbetjening"]
+    selvbetjening-ui:::app
+    selvbetjening-backend:::app
+    selvbetjening-backend-v2:::db
 end
 
 subgraph gjenny["Gjenny"]
