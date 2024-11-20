@@ -572,6 +572,9 @@ const steps = {
     YourSituation: 'Din situasjon',
     AboutChildren: 'Opplysningar om barna',
     Summary: 'Oppsummering',
+    Step: 'Steg {activePage} av {totalPages}',
+    showAllSteps: 'Vis alle steig',
+    hideAllSteps: 'Skjul alle steig',
 }
 
 const texts: Record<TNamespace, Record<TKey, Translation>> = {

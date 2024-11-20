@@ -43,6 +43,11 @@ export default function Dialogue({ steps, pathPrefix }: DialogueProps) {
                 activeStep={currentIndex + 1}
                 onStepChange={(step) => visitNavigate(step - 1)}
                 interactiveSteps={false}
+                translations={{
+                    step: t('Step', { activePage: String(currentIndex + 1), totalPages: String(steps.length) }),
+                    showAllSteps: t('showAllSteps'),
+                    hideAllSteps: t('hideAllSteps'),
+                }}
             >
                 {steps.map((step: StepType) => (
                     <FormProgress.Step key={uuid()}>{t(step.label)}</FormProgress.Step>

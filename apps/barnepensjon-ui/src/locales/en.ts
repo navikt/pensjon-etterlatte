@@ -587,6 +587,9 @@ const steps = {
     YourSituation: 'Your situation',
     AboutChildren: 'Information about the children',
     Summary: 'Summary',
+    Step: 'Step {activePage} of {totalPages}',
+    showAllSteps: 'Show all steps',
+    hideAllSteps: 'Hide all steps',
 }
 
 const texts: Record<TNamespace, Record<TKey, Translation>> = {
