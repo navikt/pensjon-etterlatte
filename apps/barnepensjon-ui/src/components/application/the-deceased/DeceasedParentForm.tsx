@@ -13,6 +13,8 @@ import StaysAbroad from './StaysAbroad'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { useCurrencies } from '../../../hooks/useCurrencies'
 import { ApplicantRole } from '../../../types/applicant'
+import { useEffect } from 'react'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 interface Props {
     fnrRegisteredParent: string[]
@@ -23,11 +25,22 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { countries }: { countries: Options[] } = useCountries()
     const { currencies }: { currencies: any } = useCurrencies()
     const { state } = useApplicationContext()
+    const { logEvent } = useAmplitude()
 
     const { watch } = useFormContext<IDeceasedParent>()
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
 
     const staysAbroad = watch('staysAbroad.hasStaysAbroad')
+
+    useEffect(() => {
+        if (staysAbroad) {
+            logEvent(LogEvents.CLICK, {
+                skjemanavn: 'DeceaseParentForm',
+                spørsmål: 'didTheDeceasedLiveAbroad',
+                svar: staysAbroad,
+            })
+        }
+    }, [staysAbroad])
 
     return (
         <>
