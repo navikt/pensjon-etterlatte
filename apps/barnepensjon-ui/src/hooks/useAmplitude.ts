@@ -23,12 +23,18 @@ export enum LogEvents {
     VALIDATION_ERROR = 'skjema validering feilet',
 }
 
+const getAmplitudeKey = () => {
+    if (window.location.href.includes('dev.nav.no')) return 'c2b699e504e5a989f1bcb638bf07cf78' // dev
+    if (window.location.href.includes('nav.no')) return '10798841ebeba333b8ece6c046322d76' // prod
+    return '' // other e.g. localhost
+}
+
 export const useAmplitude = () => {
     const location = useLocation()
     const [prevLocation, setPrevLocation] = useState<any>(location)
 
     useEffect(() => {
-        amplitude.init('10798841ebeba333b8ece6c046322d76', '', {
+        amplitude.init(getAmplitudeKey(), '', {
             serverUrl: 'https://amplitude.nav.no/collect-auto',
             ingestionMetadata: {
                 sourceName: window.location.toString(),
