@@ -9,7 +9,7 @@ export enum LogEvents {
 
 export const useAmplitude = () => {
     useEffect(() => {
-        amplitude.init('default', '', {
+        amplitude.init('10798841ebeba333b8ece6c046322d76', '', {
             serverUrl: 'https://amplitude.nav.no/collect-auto',
             ingestionMetadata: {
                 sourceName: window.location.toString(),
