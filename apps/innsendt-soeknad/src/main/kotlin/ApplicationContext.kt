@@ -27,6 +27,8 @@ import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.krr.KrrKlient
+import no.nav.etterlatte.sak.SakKlient
+import no.nav.etterlatte.sak.SakService
 import no.nav.etterlatte.soeknad.SoeknadService
 import soeknad.PostgresSoeknadRepository
 
@@ -49,6 +51,8 @@ class ApplicationContext(
     val kodeverkService: KodeverkService
 
     val personService: PersonService
+
+    val sakService: SakService
 
     private val krrKlient: KrrKlient
     private val adressebeskyttelseService: AdressebeskyttelseService
@@ -91,6 +95,17 @@ class ApplicationContext(
             tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
                 .also { closables.add(it::close) }
                 .let { PersonService(PersonKlient(it), kodeverkService, krrKlient) }
+
+        sakService =
+            SakService(
+                SakKlient(
+                    httpClient =
+                        httpClientClientCredentials(
+                            azureAppScope = config.getString("etterlatte-api.scope"),
+                        ),
+                    apiUrl = config.getString("etterlatte-api.url"),
+                ),
+            )
     }
 
     private fun tokenSecuredEndpoint(endpointConfig: Config) =

@@ -29,6 +29,7 @@ import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.person.personApi
+import no.nav.etterlatte.sak.sak
 import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.helse.rapids_rivers.RapidApplication
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
@@ -63,6 +64,7 @@ fun main() {
                             personApi(personService)
                             kodeverkApi(kodeverkService)
                             soknadApi(soeknadService)
+                            sak(sakService)
                         }
                     }
                 }.build {
