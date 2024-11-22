@@ -25,6 +25,14 @@ export const mockApi = (app: any) => {
         setTimeout(() => res.json(innloggetBruker), 1000)
     )
 
+    app.get(`${config.app.basePath}/api/api/sak/oms/har_sak`, (req: Request, res: Response) => {
+        const harOMSSak = {
+            harOMSSak: true,
+        }
+
+        res.send(harOMSSak)
+    })
+
     app.post(`${config.app.basePath}/api/api/soeknad`, (req: Request, res: Response) => {
         const id = cache.get('id')
 

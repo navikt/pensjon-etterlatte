@@ -15,6 +15,18 @@ export const hentInnloggetPerson = async (type: SoeknadType) => {
 }
 
 /**
+ * Henter info om bruker har søkt om oms før fra APIet basert på innlogget bruker sitt fnr.
+ */
+export const hentHarSoektOms = async () => {
+    try {
+        const response = await api.get('/api/api/sak/oms/har_sak')
+        return response.data
+    } catch {
+        throw new Error('Det skjedde en feil')
+    }
+}
+
+/**
  * Henter søknad fra APIet basert på innlogget bruker sitt fnr.
  */
 export const hentSoeknad = async () => {
