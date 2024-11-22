@@ -48,20 +48,16 @@ const SoknadForside = () => {
     }
 
     useEffect(() => {
-        try {
-            if (brukerState.foedselsnummer) {
-                hentHarSoektOms().then((result: boolean) => {
-                    setHarSoektOms(result)
-                    if (result) {
-                        logEvent(LogEvents.ALERT_VIST, {
-                            variant: 'info',
-                            tekst: 'Bruker har allerede søkt om omstillingsstønad',
-                        })
-                    }
-                })
-            }
-        } catch (e) {
-            throw new Error('Det skjedde en feil ved henting av harSoektOms')
+        if (brukerState.foedselsnummer) {
+            hentHarSoektOms().then((result: boolean) => {
+                setHarSoektOms(result)
+                if (result) {
+                    logEvent(LogEvents.ALERT_VIST, {
+                        variant: 'info',
+                        tekst: 'Bruker har allerede søkt om omstillingsstønad',
+                    })
+                }
+            })
         }
     }, [brukerState])
 
