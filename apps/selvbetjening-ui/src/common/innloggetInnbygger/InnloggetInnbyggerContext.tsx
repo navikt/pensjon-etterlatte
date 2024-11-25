@@ -3,11 +3,9 @@ import { createContext, ReactNode, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
 import { ApiError, apiURL } from '../../utils/api.ts'
 import { finnAlder } from '../../inntektsjustering/2-inntekt-til-neste-aar/finnAlder.ts'
-import { IkkeGyldigAlder } from '../IkkeGyldigAlder.tsx'
 import { SideLaster } from '../SideLaster.tsx'
-import { HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
+import { Navigate } from 'react-router-dom'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined
@@ -40,18 +38,7 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
 
     if (alder === Alder.IKKE_GYLDIG) {
         logEvent(LogEvents.ALDER, { alder })
-        return (
-            <main>
-                <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="42.5rem">
-                        <HStack justify="end">
-                            <SpraakVelger />
-                        </HStack>
-                        <IkkeGyldigAlder />
-                    </VStack>
-                </HStack>
-            </main>
-        )
+        return <Navigate to="ikke-gyldig-alder" />
     } else {
         logEvent(LogEvents.ALDER, { alder })
     }

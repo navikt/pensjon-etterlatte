@@ -13,6 +13,7 @@ import { InntektsjusteringInntektTilNesteAar } from './inntektsjustering/2-innte
 import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
 import { ProvideInntektContext } from './common/inntekt/InntektContext.tsx'
 import { ProvideInnloggetInnbyggerContext } from './common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { IkkeGyldigAlder } from './inntektsjustering/ikkeGyldigAlder/IkkeGyldigAlder.tsx'
 
 const router = createBrowserRouter(
     [
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
                     element: <FantIkkeSiden />,
                 },
                 { path: '/system-utilgjengelig', element: <SystemUtilgjengelig /> },
+                { path: '/ikke-gyldig-alder', element: <IkkeGyldigAlder /> },
                 {
                     path: '/innledning',
                     element: <InntektsjusteringInnledning />,
