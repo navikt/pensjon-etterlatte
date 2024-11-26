@@ -23,6 +23,8 @@ import { SkjemaElement } from '../felles/SkjemaElement'
 import { erForGammel } from '../../utils/alder'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { ListItemWithIndent } from '../felles/StyledComponents'
+import { useEffect, useState } from 'react'
+import { hentHarSoektOms } from '~api/api'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -30,6 +32,7 @@ const SoknadForside = () => {
     const { t } = useTranslation()
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext()
     const { state: brukerState } = useBrukerContext()
+    const [harSoektOms, setHarSoektOms] = useState<boolean>(false)
     useLanguage()
 
     const startSoeknad = () => {
@@ -43,6 +46,20 @@ const SoknadForside = () => {
 
         navigate(`/skjema/steg/${foersteSteg.path}`)
     }
+
+    useEffect(() => {
+        if (brukerState.foedselsnummer) {
+            hentHarSoektOms().then((result: boolean) => {
+                setHarSoektOms(result)
+                if (result) {
+                    logEvent(LogEvents.ALERT_VIST, {
+                        variant: 'info',
+                        tekst: 'Bruker har allerede søkt om omstillingsstønad',
+                    })
+                }
+            })
+        }
+    }, [brukerState])
 
     return (
         <>
@@ -75,6 +92,47 @@ const SoknadForside = () => {
             </SkjemaGruppe>
 
             <Spraakvalg />
+
+            {harSoektOms && (
+                <SkjemaElement>
+                    <Alert variant={'info'}>
+                        <Heading size={'small'} spacing>
+                            {t('forside.harSoektOms.tittel')}
+                        </Heading>
+                        <BodyShort spacing>{t('forside.harSoektOms.avsnitt')}</BodyShort>
+                        <List>
+                            <ListItemWithIndent>
+                                {t('forside.harSoektOms.innhold.li1.del1')}{' '}
+                                <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li1.lenke.tekst')}
+                                </Link>{' '}
+                                {t('forside.harSoektOms.innhold.li1.del2')}
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                {t('forside.harSoektOms.innhold.li2.del1')}{' '}
+                                <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li2.lenke.tekst')}
+                                </Link>{' '}
+                                {t('forside.harSoektOms.innhold.li2.del2')}
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                {t('forside.harSoektOms.innhold.li3')}{' '}
+                                <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li3.lenke.tekst')}
+                                </Link>
+                                .
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                {t('forside.harSoektOms.innhold.li4')}{' '}
+                                <Link href={t('forside.harSoektOms.innhold.li4.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li4.lenke.tekst')}
+                                </Link>
+                                .
+                            </ListItemWithIndent>
+                        </List>
+                    </Alert>
+                </SkjemaElement>
+            )}
 
             <SkjemaGruppe>
                 <Heading spacing size={'large'}>

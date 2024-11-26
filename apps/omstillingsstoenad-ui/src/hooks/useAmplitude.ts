@@ -10,6 +10,7 @@ export enum LogEvents {
     KLIKK = 'klikk',
     VALIDATION_ERROR = 'skjema validering feilet',
     SPOERSMAAL_BESVART = 'skjema spørsmål besvart',
+    ALERT_VIST = 'alert vist',
 }
 
 const getAmplitudeKey = () => {
