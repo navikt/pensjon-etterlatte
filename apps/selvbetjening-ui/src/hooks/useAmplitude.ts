@@ -8,9 +8,9 @@ export enum LogEvents {
 }
 
 const getAmplitudeKey = () => {
-    if (window.location.href.includes('dev.nav.no')) return 'c2b699e504e5a989f1bcb638bf07cf78' // dev
+    if (window.location.href.includes('dev.nav.no')) return 'b0ea5ed50acc6bdf505e3f6cdf76b99d' // dev
     if (window.location.href.includes('nav.no')) return '10798841ebeba333b8ece6c046322d76' // prod
-    return '' // other e.g. localhost
+    return '119ddb1e1aa52564d90038ac65926a7d' // other e.g. localhost
 }
 
 export const useAmplitude = () => {
