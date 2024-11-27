@@ -49,9 +49,9 @@ const SoknadForside = () => {
 
     useEffect(() => {
         if (brukerState.foedselsnummer) {
-            hentHarSoektOms().then((result: boolean) => {
-                setHarSoektOms(result)
-                if (result) {
+            hentHarSoektOms().then((result: { harOMSSak: boolean }) => {
+                setHarSoektOms(result.harOMSSak)
+                if (result.harOMSSak) {
                     logEvent(LogEvents.ALERT_VIST, {
                         variant: 'info',
                         tekst: 'Bruker har allerede søkt om omstillingsstønad',
