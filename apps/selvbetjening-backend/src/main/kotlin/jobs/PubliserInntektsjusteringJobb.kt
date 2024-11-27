@@ -7,7 +7,6 @@ import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.shuttingDown
-import no.nav.etterlatte.toJson
 import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.LoggerFactory
 import java.time.Duration
@@ -92,7 +91,7 @@ class PubliserInntektsjusteringJobb(
             mapOf(
                 "@event_name" to "inntektsjustering_innsendt",
                 "@fnr_bruker" to inntektsjustering.fnr,
-                "@inntektsjustering_innhold" to inntektsjustering.toJson(),
+                "@inntektsjustering_innhold" to inntektsjustering,
             ),
         )
 }
