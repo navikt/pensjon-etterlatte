@@ -1,6 +1,5 @@
 package no.nav.etterlatte.inntektsjustering
 
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import java.util.UUID
@@ -11,7 +10,7 @@ class InntektsjusteringService(
     fun hentInntektsjusteringForFnr(fnr: Foedselsnummer): Inntektsjustering? =
         inntektsjusteringRepository.hentInntektsjusteringForFnr(fnr)
 
-    fun hentInntektsjusteringForStatus(status: PubliserInntektsjusteringStatus) =
+    fun hentInntektsjusteringForStatus(status: InntektsjusteringStatus) =
         inntektsjusteringRepository.hentAlleInntektsjusteringerForStatus(status)
 
     fun lagreInntektsjustering(
@@ -21,7 +20,7 @@ class InntektsjusteringService(
         val lagretInntektsjustering =
             inntektsjusteringRepository.hentInntektsjusteringForFnrOgStatus(
                 fnr,
-                PubliserInntektsjusteringStatus.LAGRET,
+                InntektsjusteringStatus.LAGRET,
             )
 
         if (lagretInntektsjustering == null) {
@@ -33,7 +32,7 @@ class InntektsjusteringService(
 
     fun oppdaterStatusForId(
         id: UUID,
-        status: PubliserInntektsjusteringStatus,
+        status: InntektsjusteringStatus,
     ) {
         inntektsjusteringRepository.oppdaterStatusForId(id, status)
     }

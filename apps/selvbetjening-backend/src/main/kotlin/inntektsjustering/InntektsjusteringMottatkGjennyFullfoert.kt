@@ -1,6 +1,5 @@
 package no.nav.etterlatte.inntektsjustering
 
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection
@@ -31,7 +30,7 @@ internal class InntektsjusteringMottatkGjennyFullfoert(
                 UUID.fromString(it)
             }
         logger.info("Inntektsjustering mottak fullført i Gjenny id=$id")
-        service.oppdaterStatusForId(id, PubliserInntektsjusteringStatus.PUBLISERT)
+        service.oppdaterStatusForId(id, InntektsjusteringStatus.FERDIGSTILT)
         logger.info("Inntektsjustering satt til publisert =$id")
     }
 

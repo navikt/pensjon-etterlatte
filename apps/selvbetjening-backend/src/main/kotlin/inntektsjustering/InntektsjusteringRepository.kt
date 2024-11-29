@@ -6,7 +6,6 @@ import no.nav.etterlatte.inntektsjustering.Queries.HENT_FOR_STATUS
 import no.nav.etterlatte.inntektsjustering.Queries.LAGRE
 import no.nav.etterlatte.inntektsjustering.Queries.OPPDATER
 import no.nav.etterlatte.inntektsjustering.Queries.OPPDATER_STATUS
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.database.firstOrNull
@@ -38,7 +37,7 @@ class InntektsjusteringRepository(
 
     fun hentInntektsjusteringForFnrOgStatus(
         fnr: Foedselsnummer,
-        status: PubliserInntektsjusteringStatus,
+        status: InntektsjusteringStatus,
     ) = connection.use {
         it
             .prepareStatement(HENT_FOR_FNR_OG_STATUS)
@@ -49,7 +48,7 @@ class InntektsjusteringRepository(
             .firstOrNull { this.toInntektsjustering() }
     }
 
-    fun hentAlleInntektsjusteringerForStatus(status: PubliserInntektsjusteringStatus) =
+    fun hentAlleInntektsjusteringerForStatus(status: InntektsjusteringStatus) =
         connection.use {
             it
                 .prepareStatement(HENT_FOR_STATUS)
@@ -78,7 +77,7 @@ class InntektsjusteringRepository(
                 setString(8, inntektsjustering.afpTjenesteordning)
                 setString(9, inntektsjustering.skalGaaAvMedAlderspensjon ?: "NEI")
                 setDate(10, inntektsjustering.datoForAaGaaAvMedAlderspensjon?.let { dato -> Date.valueOf(dato) })
-                setString(11, PubliserInntektsjusteringStatus.LAGRET.value)
+                setString(11, InntektsjusteringStatus.LAGRET.value)
             }.execute()
     }
 
@@ -102,7 +101,7 @@ class InntektsjusteringRepository(
 
     fun oppdaterStatusForId(
         id: UUID,
-        status: PubliserInntektsjusteringStatus,
+        status: InntektsjusteringStatus,
     ) = connection.use {
         it
             .prepareStatement(OPPDATER_STATUS)

@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggle
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringStatus
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.shuttingDown
@@ -59,13 +60,13 @@ class PubliserInntektsjusteringJobb(
         runCatching {
             val nyeInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
-                    PubliserInntektsjusteringStatus.LAGRET,
+                    InntektsjusteringStatus.LAGRET,
                 )
             nyeInntektsjusteringer.forEach { publiser(it) }
 
             val forsoekteInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
-                    PubliserInntektsjusteringStatus.SENDT,
+                    InntektsjusteringStatus.SENDT,
                 )
 
             forsoekteInntektsjusteringer.forEach {
@@ -83,7 +84,7 @@ class PubliserInntektsjusteringJobb(
             rapid.publiser(UUID.randomUUID().toString(), melding.toJson())
             inntektsjusteringService.oppdaterStatusForId(
                 inntektsjustering.id,
-                PubliserInntektsjusteringStatus.SENDT,
+                InntektsjusteringStatus.SENDT,
             )
             logger.info("Inntektsjustering sendt til Gjenny id: ${inntektsjustering.id}")
         }.onFailure { e ->
@@ -102,10 +103,4 @@ class PubliserInntektsjusteringJobb(
                 "@inntektsjustering_innhold" to inntektsjustering,
             ),
         )
-}
-
-enum class PubliserInntektsjusteringStatus {
-    LAGRET,
-    SENDT,
-    PUBLISERT, // TODO rename til ferdigstilt
 }
