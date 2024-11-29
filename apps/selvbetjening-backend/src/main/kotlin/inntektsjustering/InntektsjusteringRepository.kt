@@ -14,7 +14,6 @@ import java.sql.Date
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.Types
-import java.time.ZoneId
 import java.util.UUID
 import javax.sql.DataSource
 
@@ -22,8 +21,6 @@ class InntektsjusteringRepository(
     private val ds: DataSource,
 ) {
     private val connection get() = ds.connection
-
-    private val postgresTimeZone = ZoneId.of("UTC")
 
     fun hentInntektsjusteringForFnr(fnr: Foedselsnummer) =
         connection.use {
@@ -43,7 +40,7 @@ class InntektsjusteringRepository(
             .prepareStatement(HENT_FOR_FNR_OG_STATUS)
             .apply {
                 setString(1, fnr.value)
-                setString(2, status.value)
+                setString(2, status.name)
             }.executeQuery()
             .firstOrNull { this.toInntektsjustering() }
     }
@@ -53,7 +50,7 @@ class InntektsjusteringRepository(
             it
                 .prepareStatement(HENT_FOR_STATUS)
                 .apply {
-                    setString(1, status.value)
+                    setString(1, status.name)
                 }.executeQuery()
                 .toList {
                     this.toInntektsjustering()
@@ -77,7 +74,7 @@ class InntektsjusteringRepository(
                 setString(8, inntektsjustering.afpTjenesteordning)
                 setString(9, inntektsjustering.skalGaaAvMedAlderspensjon ?: "NEI")
                 setDate(10, inntektsjustering.datoForAaGaaAvMedAlderspensjon?.let { dato -> Date.valueOf(dato) })
-                setString(11, InntektsjusteringStatus.LAGRET.value)
+                setString(11, InntektsjusteringStatus.LAGRET.name)
             }.execute()
     }
 
@@ -106,7 +103,7 @@ class InntektsjusteringRepository(
         it
             .prepareStatement(OPPDATER_STATUS)
             .apply {
-                setString(1, status.value)
+                setString(1, status.name)
                 setObject(2, id)
             }.execute()
     }

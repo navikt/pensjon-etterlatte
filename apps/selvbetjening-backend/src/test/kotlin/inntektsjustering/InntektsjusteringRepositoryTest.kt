@@ -5,7 +5,7 @@ import io.kotest.matchers.shouldNotBe
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringStatus
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
@@ -111,12 +111,12 @@ class InntektsjusteringRepositoryTest {
             ),
         )
 
-        val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        val resultat = db.hentAlleInntektsjusteringerForStatus(InntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 1
 
         val inntektsjustering = resultat[0]
-        db.oppdaterStatusForId(inntektsjustering.id, PubliserInntektsjusteringStatus.PUBLISERT)
-        db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET).size shouldBe 0
+        db.oppdaterStatusForId(inntektsjustering.id, InntektsjusteringStatus.FERDIGSTILT)
+        db.hentAlleInntektsjusteringerForStatus(InntektsjusteringStatus.LAGRET).size shouldBe 0
     }
 
     @Test
@@ -147,7 +147,7 @@ class InntektsjusteringRepositoryTest {
             ),
         )
 
-        val resultat = db.hentAlleInntektsjusteringerForStatus(PubliserInntektsjusteringStatus.LAGRET)
+        val resultat = db.hentAlleInntektsjusteringerForStatus(InntektsjusteringStatus.LAGRET)
         resultat.size shouldBe 2
         resultat[0].fnr shouldBe SPYDIG_EGG.value
         resultat[1].fnr shouldBe VAKKER_PENN.value
