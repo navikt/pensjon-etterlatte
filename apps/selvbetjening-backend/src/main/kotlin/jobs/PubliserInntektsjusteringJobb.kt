@@ -57,12 +57,21 @@ class PubliserInntektsjusteringJobb(
 
     fun publiserInntektsjusteringer() {
         runCatching {
-            val inntektsjusteringer =
+            val nyeInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
                     PubliserInntektsjusteringStatus.LAGRET,
                 )
+            nyeInntektsjusteringer.forEach { publiser(it) }
 
-            inntektsjusteringer.forEach { publiser(it) }
+            val forsoekteInntektsjusteringer =
+                inntektsjusteringService.hentInntektsjusteringForStatus(
+                    PubliserInntektsjusteringStatus.SENDT,
+                )
+
+            forsoekteInntektsjusteringer.forEach {
+                logger.warn("Inntektjustering tidligere sendt til Gjenny sendes på nytt med id=${it.id}")
+                publiser(it)
+            }
         }.onFailure { e ->
             logger.error("Feil oppsto under jobb for publisering av inntektsjusteringer: ", e)
         }
@@ -72,12 +81,11 @@ class PubliserInntektsjusteringJobb(
         runCatching {
             val melding = opprettMelding(inntektsjustering)
             rapid.publiser(UUID.randomUUID().toString(), melding.toJson())
-
             inntektsjusteringService.oppdaterStatusForId(
                 inntektsjustering.id,
-                PubliserInntektsjusteringStatus.PUBLISERT,
+                PubliserInntektsjusteringStatus.SENDT,
             )
-            logger.info("Inntektsjustering publisert og oppdatert id: ${inntektsjustering.id}")
+            logger.info("Inntektsjustering sendt til Gjenny id: ${inntektsjustering.id}")
         }.onFailure { e ->
             logger.error(
                 "Feil oppsto under publisering av inntektsjustering for id: ${inntektsjustering.id}",
@@ -96,10 +104,8 @@ class PubliserInntektsjusteringJobb(
         )
 }
 
-enum class PubliserInntektsjusteringStatus(
-    val value: String,
-) {
-    LAGRET("LAGRET"),
-    PUBLISERT("PUBLISERT"),
-    IKKE_PUBLISERT("IKKE_PUBLISERT"),
+enum class PubliserInntektsjusteringStatus {
+    LAGRET,
+    SENDT,
+    PUBLISERT, // TODO rename til ferdigstilt
 }
