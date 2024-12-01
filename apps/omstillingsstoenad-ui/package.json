@@ -12,7 +12,7 @@
         "@navikt/fnrvalidator": "1.3.0",
         "@navikt/nav-dekoratoren-moduler": "^1.6.9",
         "@vitejs/plugin-react-swc": "^3.7.1",
-        "@vitest/coverage-v8": "^2.1.4",
+        "@vitest/coverage-v8": "^2.1.6",
         "axios": "1.7.7",
         "axios-retry": "^4.5.0",
         "bowser": "^2.11.0",
@@ -35,7 +35,7 @@
         "vite": "^5.4.10",
         "vite-plugin-svgr": "^4.2.0",
         "vite-tsconfig-paths": "^5.0.1",
-        "vitest": "^2.1.4"
+        "vitest": "^2.1.6"
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -56,17 +56,17 @@
         "@typescript-eslint/parser": "^8.12.2",
         "axe-core": "^4.10.2",
         "chai-dom": "^1.12.0",
-        "cypress": "^13.15.1",
+        "cypress": "^13.16.0",
         "cypress-axe": "^1.5.0",
         "eslint": "^9.13.0",
         "eslint-plugin-jest": "^28.8.3",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-react": "^7.37.2",
         "globals": "^15.12.0",
-        "husky": "~9.1.6",
+        "husky": "~9.1.7",
         "license-checker-rseidelsohn": "^4.4.2",
         "lint-staged": "~15.2.7",
-        "prettier": "3.3.3",
+        "prettier": "3.4.1",
         "pretty-quick": "4.0.0",
         "typescript-eslint": "^8.12.2"
     },
