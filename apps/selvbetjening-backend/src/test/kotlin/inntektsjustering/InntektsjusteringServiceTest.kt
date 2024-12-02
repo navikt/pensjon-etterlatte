@@ -7,7 +7,7 @@ import io.mockk.verify
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringLagre
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringStatus
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import org.junit.jupiter.api.BeforeAll
@@ -46,7 +46,7 @@ class InntektsjusteringServiceTest {
     @Test
     fun `oppdater inntektsjustering hvis den eksisterer`() {
         val id = mockk<UUID>()
-        every { repository.hentInntektsjusteringForFnrOgStatus(fnr, PubliserInntektsjusteringStatus.LAGRET) } returns
+        every { repository.hentInntektsjusteringForFnrOgStatus(fnr, InntektsjusteringStatus.LAGRET) } returns
             inntektsjusteringResponseMock
         every { inntektsjusteringResponseMock.id } returns id
         every { repository.oppdaterInntektsjustering(id, any()) } returns 1
