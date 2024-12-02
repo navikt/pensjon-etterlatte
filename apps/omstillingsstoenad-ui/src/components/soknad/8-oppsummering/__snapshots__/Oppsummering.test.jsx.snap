@@ -106,6 +106,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         />
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/om-deg"
         >
           <svg
@@ -267,6 +268,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </div>
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/om-den-avdoede"
         >
           <svg
@@ -340,6 +342,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         />
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/om-deg-og-avdoed"
         >
           <svg
@@ -469,6 +472,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </div>
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/situasjonen-din"
         >
           <svg
@@ -582,6 +586,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </div>
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/mer-om-situasjonen-din"
         >
           <svg
@@ -717,6 +722,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </div>
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/inntekten-din"
         >
           <svg
@@ -796,6 +802,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </div>
         <a
           class=""
+          data-discover="true"
           href="/skjema/steg/om-barn"
         >
           <svg
