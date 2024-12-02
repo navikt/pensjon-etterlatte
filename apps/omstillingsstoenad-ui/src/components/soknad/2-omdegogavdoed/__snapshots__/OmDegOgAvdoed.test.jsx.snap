@@ -197,7 +197,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                     fill="none"
                     focusable="false"
                     height="1em"
-                    pointer-events="none"
                     role="img"
                     viewBox="0 0 24 24"
                     width="1em"

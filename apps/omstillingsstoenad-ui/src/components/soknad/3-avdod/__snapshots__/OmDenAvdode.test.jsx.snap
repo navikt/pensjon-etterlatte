@@ -192,6 +192,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                 >
                   <ul
                     class="navds-chips navds-combobox__selected-options navds-chips--medium navds-body-short navds-body-short--small"
+                    data-type="single"
                   >
                     <li>
                       <div
@@ -318,7 +319,6 @@ exports[`Om den avdøde > Snapshot 1`] = `
                     fill="none"
                     focusable="false"
                     height="1em"
-                    pointer-events="none"
                     role="img"
                     viewBox="0 0 24 24"
                     width="1em"
