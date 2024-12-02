@@ -916,7 +916,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                 fill="none"
                                 focusable="false"
                                 height="1em"
-                                pointer-events="none"
                                 role="img"
                                 viewBox="0 0 24 24"
                                 width="1em"
@@ -2099,7 +2098,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
-                        style="--__ac-textarea-height: -4px; overflow: hidden;"
+                        style="--__ac-textarea-height: -4px; --__axc-textarea-height: -4px; overflow: hidden;"
                       />
                       <textarea
                         aria-hidden="true"
@@ -2135,6 +2134,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 <button
                   aria-expanded="false"
                   class="navds-read-more__button navds-body-short"
+                  data-state="closed"
                   type="button"
                 >
                   <svg
@@ -2162,6 +2162,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                  data-state="closed"
                 >
                   merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor
                 </div>
@@ -2496,7 +2497,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       class="navds-textarea__input navds-body-short navds-body-short--medium"
                       id="selvstendig.[0].forventerEndretArbeidssituasjon.beskrivelse"
                       rows="3"
-                      style="--__ac-textarea-height: -4px; overflow: hidden;"
+                      style="--__ac-textarea-height: -4px; --__axc-textarea-height: -4px; overflow: hidden;"
                     />
                     <textarea
                       aria-hidden="true"
@@ -2535,6 +2536,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 <button
                   aria-expanded="false"
                   class="navds-read-more__button navds-body-short"
+                  data-state="closed"
                   type="button"
                 >
                   <svg
@@ -2562,6 +2564,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                  data-state="closed"
                 >
                   merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor
                 </div>
@@ -2955,6 +2958,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         <button
           aria-expanded="false"
           class="navds-read-more__button navds-body-short"
+          data-state="closed"
           type="button"
         >
           <svg
@@ -2982,6 +2986,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         <div
           aria-hidden="true"
           class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+          data-state="closed"
         >
           merOmSituasjonenDin.utdanning.hvorfor
         </div>
@@ -4050,7 +4055,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                 fill="none"
                                 focusable="false"
                                 height="1em"
-                                pointer-events="none"
                                 role="img"
                                 viewBox="0 0 24 24"
                                 width="1em"
@@ -5233,7 +5237,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
-                        style="--__ac-textarea-height: -4px; overflow: hidden;"
+                        style="--__ac-textarea-height: -4px; --__axc-textarea-height: -4px; overflow: hidden;"
                       />
                       <textarea
                         aria-hidden="true"
@@ -5269,6 +5273,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                 <button
                   aria-expanded="false"
                   class="navds-read-more__button navds-body-short"
+                  data-state="closed"
                   type="button"
                 >
                   <svg
@@ -5296,6 +5301,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                  data-state="closed"
                 >
                   merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor
                 </div>
@@ -5690,6 +5696,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         <button
           aria-expanded="false"
           class="navds-read-more__button navds-body-short"
+          data-state="closed"
           type="button"
         >
           <svg
@@ -5717,6 +5724,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         <div
           aria-hidden="true"
           class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+          data-state="closed"
         >
           merOmSituasjonenDin.utdanning.hvorfor
         </div>

@@ -25,6 +25,7 @@ exports[`Oppsummering > Snapshot 1`] = `
   >
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
@@ -133,6 +134,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     </div>
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
@@ -293,6 +295,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     </div>
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
@@ -365,6 +368,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     </div>
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
@@ -493,6 +497,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     </div>
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
@@ -605,6 +610,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     </div>
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
@@ -739,6 +745,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     </div>
     <div
       class="navds-accordion__item"
+      data-expanded="false"
     >
       <button
         aria-expanded="false"
