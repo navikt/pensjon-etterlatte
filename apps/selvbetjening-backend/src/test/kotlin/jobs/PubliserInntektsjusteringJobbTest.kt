@@ -7,8 +7,8 @@ import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringStatus
 import no.nav.etterlatte.jobs.PubliserInntektsjusteringJobb
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringStatus
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import org.junit.jupiter.api.BeforeEach
@@ -34,7 +34,7 @@ internal class PubliserInntektsjusteringJobbTest {
 
     @Test
     fun `skal publisere inntektsjusteringer og oppdatere status`() {
-        val inntektsjustering =
+        val nyInntektsjustering =
             Inntektsjustering(
                 id = UUID.randomUUID(),
                 fnr = "12345678901",
@@ -48,18 +48,29 @@ internal class PubliserInntektsjusteringJobbTest {
                 datoForAaGaaAvMedAlderspensjon = null,
                 tidspunkt = Instant.now(),
             )
+        val forsoektInntektsjustering =
+            nyInntektsjustering.copy(
+                id = UUID.randomUUID(),
+            )
 
-        every { inntektsjusteringService.hentInntektsjusteringForStatus(any()) } returns listOf(inntektsjustering)
+        every { inntektsjusteringService.hentInntektsjusteringForStatus(InntektsjusteringStatus.LAGRET) } returns
+            listOf(
+                nyInntektsjustering,
+            )
+        every { inntektsjusteringService.hentInntektsjusteringForStatus(InntektsjusteringStatus.SENDT) } returns
+            listOf(
+                forsoektInntektsjustering,
+            )
         every { inntektsjusteringService.oppdaterStatusForId(any(), any()) } just Runs
 
         publiserJobb.publiserInntektsjusteringer()
 
-        verify(exactly = 1) {
+        verify(exactly = 2) {
             rapid.publiser(any(), any())
-            inntektsjusteringService.oppdaterStatusForId(
-                inntektsjustering.id,
-                PubliserInntektsjusteringStatus.PUBLISERT,
-            )
+        }
+        verify(exactly = 1) {
+            inntektsjusteringService.oppdaterStatusForId(nyInntektsjustering.id, InntektsjusteringStatus.SENDT)
+            inntektsjusteringService.oppdaterStatusForId(forsoektInntektsjustering.id, InntektsjusteringStatus.SENDT)
         }
     }
 }

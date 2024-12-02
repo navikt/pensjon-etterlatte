@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggle
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringStatus
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.inntektsjustering.Inntektsjustering
 import no.nav.etterlatte.shuttingDown
@@ -57,12 +58,21 @@ class PubliserInntektsjusteringJobb(
 
     fun publiserInntektsjusteringer() {
         runCatching {
-            val inntektsjusteringer =
+            val nyeInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
-                    PubliserInntektsjusteringStatus.LAGRET,
+                    InntektsjusteringStatus.LAGRET,
+                )
+            nyeInntektsjusteringer.forEach { publiser(it) }
+
+            val forsoekteInntektsjusteringer =
+                inntektsjusteringService.hentInntektsjusteringForStatus(
+                    InntektsjusteringStatus.SENDT,
                 )
 
-            inntektsjusteringer.forEach { publiser(it) }
+            forsoekteInntektsjusteringer.forEach {
+                logger.warn("Inntektjustering tidligere sendt til Gjenny sendes på nytt med id=${it.id}")
+                publiser(it)
+            }
         }.onFailure { e ->
             logger.error("Feil oppsto under jobb for publisering av inntektsjusteringer: ", e)
         }
@@ -72,12 +82,11 @@ class PubliserInntektsjusteringJobb(
         runCatching {
             val melding = opprettMelding(inntektsjustering)
             rapid.publiser(UUID.randomUUID().toString(), melding.toJson())
-
             inntektsjusteringService.oppdaterStatusForId(
                 inntektsjustering.id,
-                PubliserInntektsjusteringStatus.PUBLISERT,
+                InntektsjusteringStatus.SENDT,
             )
-            logger.info("Inntektsjustering publisert og oppdatert id: ${inntektsjustering.id}")
+            logger.info("Inntektsjustering sendt til Gjenny id: ${inntektsjustering.id}")
         }.onFailure { e ->
             logger.error(
                 "Feil oppsto under publisering av inntektsjustering for id: ${inntektsjustering.id}",
@@ -94,12 +103,4 @@ class PubliserInntektsjusteringJobb(
                 "@inntektsjustering_innhold" to inntektsjustering,
             ),
         )
-}
-
-enum class PubliserInntektsjusteringStatus(
-    val value: String,
-) {
-    LAGRET("LAGRET"),
-    PUBLISERT("PUBLISERT"),
-    IKKE_PUBLISERT("IKKE_PUBLISERT"),
 }

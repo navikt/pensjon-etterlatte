@@ -31,6 +31,7 @@ import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleProperties
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
+import no.nav.etterlatte.inntektsjustering.InntektsjusteringMottatkGjennyFullfoert
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
 import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
 import no.nav.etterlatte.inntektsjustering.inntektsjustering
@@ -143,6 +144,8 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
+                InntektsjusteringMottatkGjennyFullfoert(rapidConnection, inntektsjusteringService)
+
                 PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
                     .schedule()
                     ?.addShutdownHook()
