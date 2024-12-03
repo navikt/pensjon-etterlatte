@@ -113,6 +113,7 @@ fun ResultSet.toInntektsjustering() =
     Inntektsjustering(
         id = UUID.fromString(getString("id")),
         fnr = getString("fnr"),
+        mottattDato = getTimestamp("innsendt").toLocalDateTime(),
         inntektsaar = getInt("inntektsaar"),
         arbeidsinntekt = getInt("arbeidsinntekt"),
         naeringsinntekt = getInt("naeringsinntekt"),
