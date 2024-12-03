@@ -30,20 +30,20 @@ export const InntektSkjemaLukket = () => {
                         <HStack justify="end">
                             <SpraakVelger />
                         </HStack>
+                        <div>
+                            <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
+                            <Button
+                                as="a"
+                                variant="primary"
+                                icon={<ArrowRightIcon aria-hidden />}
+                                iconPosition="right"
+                                rel="noopener noreferrer"
+                                href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
+                            >
+                                {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
+                            </Button>
+                        </div>
                     </VStack>
-                    <div>
-                        <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
-                        <Button
-                            as="a"
-                            variant="primary"
-                            icon={<ArrowRightIcon aria-hidden />}
-                            iconPosition="right"
-                            rel="noopener noreferrer"
-                            href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
-                        >
-                            {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
-                        </Button>
-                    </div>
                 </HStack>
             </main>
         )
