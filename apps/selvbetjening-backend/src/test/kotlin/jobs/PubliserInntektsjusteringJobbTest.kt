@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import java.time.Instant
+import java.time.LocalDateTime
 import java.util.UUID
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -38,6 +39,7 @@ internal class PubliserInntektsjusteringJobbTest {
             Inntektsjustering(
                 id = UUID.randomUUID(),
                 fnr = "12345678901",
+                mottattDato = LocalDateTime.now(),
                 inntektsaar = 2024,
                 arbeidsinntekt = 100,
                 naeringsinntekt = 200,
