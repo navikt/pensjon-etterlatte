@@ -1,0 +1,51 @@
+import { Button, HStack, VStack } from '@navikt/ds-react'
+import { SpraakVelger } from './spraak/SpraakVelger.tsx'
+import { useSpraak } from './spraak/SpraakContext.tsx'
+import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { InntektSkjemaLukket as InntektSkjemaLukketInnhold } from '../sanity.types.ts'
+import { SideLaster } from './SideLaster.tsx'
+import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+
+export const InntektSkjemaLukket = () => {
+    const spraak = useSpraak()
+
+    const { innhold, error, isLoading } = useSanityInnhold<InntektSkjemaLukketInnhold>(
+        '*[_type == "inntektSkjemaLukket"]'
+    )
+
+    if (isLoading) {
+        return <SideLaster />
+    }
+
+    if (error) {
+        throw error
+    }
+
+    return (
+        !!innhold && (
+            <main>
+                <HStack justify="center" padding="8" minHeight="100vh">
+                    <VStack gap="6" maxWidth="42.5rem">
+                        <HStack justify="end">
+                            <SpraakVelger />
+                        </HStack>
+                    </VStack>
+                    <div>
+                        <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
+                        <Button
+                            as="a"
+                            variant="primary"
+                            icon={<ArrowRightIcon aria-hidden />}
+                            iconPosition="right"
+                            rel="noopener noreferrer"
+                            href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
+                        >
+                            {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
+                        </Button>
+                    </div>
+                </HStack>
+            </main>
+        )
+    )
+}

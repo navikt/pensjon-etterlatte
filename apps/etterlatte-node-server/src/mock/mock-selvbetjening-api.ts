@@ -11,6 +11,7 @@ import {
     inntektsjusteringInntektTilNesteAarTestBlocks,
     inntektsjusteringKvitteringTestBlocks,
     inntektsjusteringOppsummeringTestBlocks,
+    inntektSkjemaLukketTestBlocks,
     systemUtilgjengeligTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
@@ -77,6 +78,8 @@ export const mockSelvbetjeningApi = (app: any) => {
             res.send(fantIkkeSidenTestBlocks)
         } else if (sanityQuery?.toString().includes('systemUtilgjengelig')) {
             res.send(systemUtilgjengeligTestBlocks)
+        } else if (sanityQuery?.toString().includes('inntektSkjemaLukket')) {
+            res.send(inntektSkjemaLukketTestBlocks)
         } else {
             res.send(testBlocks)
         }

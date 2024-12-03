@@ -1,5 +1,7 @@
 import { Inntekt, inntektDefaultValues } from '../../types/inntektsjustering.ts'
 import { createContext, ReactNode, useContext, useState } from 'react'
+import { isAfter } from 'date-fns'
+import { InntektSkjemaLukket } from '../InntektSkjemaLukket.tsx'
 
 interface InntektDispatcher {
     setInntekt: (inntekt: Inntekt) => void
@@ -13,6 +15,11 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
 
     const dispatcher: InntektDispatcher = {
         setInntekt,
+    }
+
+    // Hvis dagen i dag er etter 1. Januar, ikke la bruker gå videre i skjemaet
+    if (isAfter(new Date(), new Date(new Date().getFullYear(), 0, 1, 4))) {
+        return <InntektSkjemaLukket />
     }
 
     return (

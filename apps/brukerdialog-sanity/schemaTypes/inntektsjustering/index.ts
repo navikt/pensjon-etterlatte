@@ -4,6 +4,7 @@ import { inntektsjusteringOppsummeringSchemaType } from './inntektsjusteringOpps
 import { inntektsjusteringKvitteringSchemaType } from './inntektsjusteringKvitteringSchemaType'
 import { inntektsjusteringInntektTilNesteAarSchemaType } from './inntektsjusteringInntektTilNesteAarSchemaType'
 import { ikkeGyldigForAaMeldeInntektSchemaType } from './IkkeGyldigForAaMeldeInntektSchemaType'
+import { inntektSkjemaLukketSchemaType } from './inntektSkjemaLukket'
 
 export const inntektsjusteringSchemaTypes = [
     inntektsjusteringInnledningSchemaType,
@@ -11,5 +12,6 @@ export const inntektsjusteringSchemaTypes = [
     inntektsjusteringOppsummeringSchemaType,
     inntektsjusteringKvitteringSchemaType,
     ikkeGyldigForAaMeldeInntektSchemaType,
+    inntektSkjemaLukketSchemaType,
     fellesKomponenterSchemaType,
 ]
