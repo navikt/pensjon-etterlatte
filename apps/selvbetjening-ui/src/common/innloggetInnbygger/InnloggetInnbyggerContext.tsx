@@ -34,8 +34,8 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
         isLoading: innloggetBrukerIsLoading,
     }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(`${apiURL}/api/person/innlogget/forenklet`)
 
-    // Hvis dagen i dag er etter 1. Januar, ikke la bruker gå videre i skjemaet
-    if (isAfter(new Date(), new Date(new Date().getFullYear(), 0, 1, 4))) {
+    // Hvis dagen i dag er etter 1. Januar 2025 kl. 04:00, ikke la bruker gå videre i skjemaet
+    if (isAfter(new Date(), new Date(2025, 0, 1, 4))) {
         return <InntektSkjemaLukket />
     }
 
