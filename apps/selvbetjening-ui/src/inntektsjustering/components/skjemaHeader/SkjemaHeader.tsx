@@ -1,11 +1,11 @@
 import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
-import { VarigLoonnstilskuddIcon } from '../../inntektsjustering/1-innledning/icons/VarigLoonnstilskuddIcon.tsx'
-import { SkjemaProgresjon } from '../SkjemaProgresjon.tsx'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../sanity.types.ts'
-import { useSpraak } from '../spraak/SpraakContext.tsx'
-import { SideLaster } from '../SideLaster.tsx'
+import { SpraakVelger } from '../../../common/spraak/SpraakVelger.tsx'
+import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
+import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
+import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
+import { FellesKomponenter } from '../../../sanity.types.ts'
+import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 
 interface Props {
     aktivtSteg: number

@@ -1,5 +1,5 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { Alder, IInnloggetBruker } from '../../types/person.ts'

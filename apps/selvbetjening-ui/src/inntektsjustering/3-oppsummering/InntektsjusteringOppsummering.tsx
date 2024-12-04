@@ -1,5 +1,5 @@
 import { Bleed, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
