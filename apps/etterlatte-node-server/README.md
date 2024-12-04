@@ -37,7 +37,7 @@ Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
 Kjøre prosjektet (BASE_PATH=/omstillingsstonad/soknad):\
 `yarn start:oms`
 
-Kjøre prosjektet (BASE_PATH=/omstillingsstonad/inntekt):\
+Kjøre prosjektet (BASE_PATH=/omstillingsstonad):\
 `yarn start:selvbetjening`
 
 ### OBS!

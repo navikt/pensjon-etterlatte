@@ -24,7 +24,7 @@ Installere prosjektet:\
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start`
 
-Åpne [http://localhost:5173/omstillingsstonad/inntekt/innledning](http://localhost:3000/selvbetjening) i nettleseren.
+Åpne [http://localhost:5173/omstillingsstonad/inntekt/innledning](http://localhost:5173/omstillingsstonad/inntekt/innledning) i nettleseren.
 
 ### Testing
 
@@ -33,9 +33,9 @@ Teste prosjektet:\
 
 Kjøre cypress tester (krever at prosjektet kjører lokalt først):
 
--   `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
+- `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
 
--   `yarn cy:test` Kjører testene headless fra CLI.
+- `yarn cy:test` Kjører testene headless fra CLI.
 
 ### Koble til APIet lokalt
 

@@ -47,7 +47,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
 
     const onInntektSubmit = (inntekt: Inntekt) => {
         inntektDispatch.setInntekt(inntekt)
-        navigate(`/oppsummering`)
+        navigate('/oppsummering')
     }
 
     const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =

@@ -142,7 +142,6 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="arbeidsinntekt"
                                     control={control}
-                                    spraak={spraak}
                                     label={arbeidsinntekt?.label?.[spraak]}
                                     description={arbeidsinntekt?.description?.[spraak]}
                                 />
@@ -158,7 +157,6 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="naeringsinntekt"
                                     control={control}
-                                    spraak={spraak}
                                     label={naeringsinntekt?.label?.[spraak]}
                                     description={naeringsinntekt?.description?.[spraak]}
                                 />
@@ -172,7 +170,6 @@ export const SekstiSyvAarSkjema = () => {
                             <ControlledInntektTextField
                                 name="afpInntekt"
                                 control={control}
-                                spraak={spraak}
                                 label={afpInntekt?.label?.[spraak]}
                                 description={afpInntekt?.description?.[spraak]}
                             />
@@ -199,7 +196,6 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="inntektFraUtland"
                                     control={control}
-                                    spraak={spraak}
                                     label={inntektFraUtland?.label?.[spraak]}
                                     description={inntektFraUtland?.description?.[spraak]}
                                 />
