@@ -8,6 +8,8 @@ import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
+import { InntektSkjemaLukket } from '../InntektSkjemaLukket.tsx'
+import { isAfter } from 'date-fns'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined
@@ -31,6 +33,11 @@ const ProvideInnloggetInnbyggerContext = ({ children }: { children: ReactNode | 
         error: innloggetBrukerError,
         isLoading: innloggetBrukerIsLoading,
     }: SWRResponse<IInnloggetBruker, ApiError, boolean> = useSWR(`${apiURL}/api/person/innlogget/forenklet`)
+
+    // Hvis dagen i dag er etter 1. Januar 2025 kl. 04:00, ikke la bruker gå videre i skjemaet
+    if (isAfter(new Date(), new Date(2025, 0, 1, 4))) {
+        return <InntektSkjemaLukket />
+    }
 
     if (innloggetBrukerIsLoading) {
         return <SideLaster />
