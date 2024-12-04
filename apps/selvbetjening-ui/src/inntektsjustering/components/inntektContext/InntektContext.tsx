@@ -3,9 +3,8 @@ import { isAfter } from 'date-fns'
 import { HStack, VStack } from '@navikt/ds-react'
 import useSWR, { SWRResponse } from 'swr'
 import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.ts'
-import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude.ts'
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
-import { ApiError, apiURL } from '../../../utils/api.ts'
+import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { logger } from '../../../utils/logger.ts'
 import { InntektSkjemaLukket } from '../inntektSkjemaLukket/InntektSkjemaLukket.tsx'
@@ -13,6 +12,7 @@ import { SpraakVelger } from '../../../common/spraak/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from '../../1-innledning/HarIkkeOMSSakIGjenny.tsx'
 import { finnAlder } from '../../2-inntekt-til-neste-aar/finnAlder.ts'
 import { IkkeGyldigAlder } from '../ikkeGyldigAlder/IkkeGyldigAlder.tsx'
+import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
 
 interface InntektDispatcher {
     setInntekt: (inntekt: Inntekt) => void

@@ -1,7 +1,7 @@
 import { IInnloggetBruker } from '../../types/person.ts'
 import { createContext, ReactNode, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { ApiError, apiURL } from '../../utils/api.ts'
+import { ApiError, apiURL } from '../api/api.ts'
 import { SideLaster } from '../SideLaster.tsx'
 
 interface InnloggetInnbyggerContext {

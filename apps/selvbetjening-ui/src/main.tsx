@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@navikt/ds-css'
-import { fetcher } from './utils/api.ts'
+import { fetcher } from './common/api/api.ts'
 import { SWRConfig } from 'swr'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 import { InntektsjusteringRoot } from './inntektsjustering/InntektjusteringRoot.tsx'

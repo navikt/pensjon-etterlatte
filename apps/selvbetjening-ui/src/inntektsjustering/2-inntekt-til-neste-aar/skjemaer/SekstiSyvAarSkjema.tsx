@@ -10,7 +10,7 @@ import { ControlledRadioGruppe } from '../../../common/radioGruppe/ControlledRad
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Alder } from '../../../types/person.ts'
-import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
+import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { formaterFieldErrors } from '../../../utils/error.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
