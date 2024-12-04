@@ -23,7 +23,6 @@ import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { logger } from '../../utils/logger.ts'
 import { inntektTilInntektSkjemaValues } from '../../utils/inntekt.ts'
-import { inntektjusteringBasePath } from '../inntektjusteringRoutes.tsx'
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()
@@ -73,7 +72,7 @@ export const InntektsjusteringOppsummering = () => {
         try {
             const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
             if ([200, 304].includes(res.status)) {
-                navigate(`${inntektjusteringBasePath}/kvittering`)
+                navigate(`/kvittering`)
             } else {
                 setApiFeil(true)
             }
@@ -106,10 +105,7 @@ export const InntektsjusteringOppsummering = () => {
                         <FormSummary>
                             <FormSummary.Header>
                                 <FormSummary.Heading level="2">{tittel?.[spraak]}</FormSummary.Heading>
-                                <FormSummary.EditLink
-                                    href="#"
-                                    onClick={() => navigate(`${inntektjusteringBasePath}/inntekt-til-neste-aar`)}
-                                >
+                                <FormSummary.EditLink href="#" onClick={() => navigate(`/inntekt-til-neste-aar`)}>
                                     {endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
@@ -211,7 +207,7 @@ export const InntektsjusteringOppsummering = () => {
                         {apiFeil && <FeilIAPIKall />}
 
                         <NavigasjonMeny
-                            tilbakePath={`${inntektjusteringBasePath}/inntekt-til-neste-aar`}
+                            tilbakePath={`/inntekt-til-neste-aar`}
                             onNeste={sendInnInntektsjustering}
                             nesteLaster={laster}
                             skalSendeSoeknad

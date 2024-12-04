@@ -16,7 +16,6 @@ import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.ts
 import { formaterFieldErrors } from '../../../utils/error.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
-import { inntektjusteringBasePath } from '../../inntektjusteringRoutes.tsx'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
@@ -54,7 +53,7 @@ export const SekstiSyvAarSkjema = () => {
 
     const onInntektSubmit = (inntekt: Inntekt) => {
         inntektDispatch.setInntekt(inntekt)
-        navigate(`${inntektjusteringBasePath}/oppsummering`)
+        navigate(`/oppsummering`)
     }
 
     const {
@@ -234,7 +233,7 @@ export const SekstiSyvAarSkjema = () => {
                     )}
 
                     <NavigasjonMeny
-                        tilbakePath={`${inntektjusteringBasePath}/innledning`}
+                        tilbakePath={`/innledning`}
                         onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
                     />
                 </VStack>
