@@ -3,13 +3,13 @@ import { createContext, ReactNode, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
 import { ApiError, apiURL } from '../../utils/api.ts'
 import { finnAlder } from '../../inntektsjustering/2-inntekt-til-neste-aar/finnAlder.ts'
-import { IkkeGyldigAlder } from '../IkkeGyldigAlder.tsx'
 import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
 import { isAfter } from 'date-fns'
 import { InntektSkjemaLukket } from '../../inntektsjustering/inntektSkjemaLukket/InntektSkjemaLukket.tsx'
+import { IkkeGyldigAlder } from '../../inntektsjustering/components/ikkeGyldigAlder/IkkeGyldigAlder.tsx'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined

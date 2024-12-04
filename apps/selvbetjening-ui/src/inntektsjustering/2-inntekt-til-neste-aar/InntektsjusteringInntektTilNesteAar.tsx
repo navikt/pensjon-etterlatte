@@ -8,7 +8,7 @@ import { finnAlder } from './finnAlder.ts'
 import { SekstiToTilSekstiSeksAarSkjema } from './skjemaer/SekstiToTilSekstiSeksAarSkjema.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SekstiSyvAarSkjema } from './skjemaer/SekstiSyvAarSkjema.tsx'
-import { IkkeGyldigAlder } from '../../common/IkkeGyldigAlder.tsx'
+import { IkkeGyldigAlder } from '../components/ikkeGyldigAlder/IkkeGyldigAlder.tsx'
 import { SideLaster } from '../../common/SideLaster.tsx'
 
 export const InntektsjusteringInntektTilNesteAar = () => {
