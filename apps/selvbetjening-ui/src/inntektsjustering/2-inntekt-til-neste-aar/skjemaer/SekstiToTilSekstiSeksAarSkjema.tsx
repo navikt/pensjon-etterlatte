@@ -255,7 +255,7 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                     )}
 
                     <NavigasjonMeny
-                        tilbakePath={`/innledning`}
+                        tilbakePath="/innledning"
                         onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
                     />
                 </VStack>

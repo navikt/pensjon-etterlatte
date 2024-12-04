@@ -72,7 +72,7 @@ export const InntektsjusteringOppsummering = () => {
         try {
             const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
             if ([200, 304].includes(res.status)) {
-                navigate(`/kvittering`)
+                navigate('/kvittering')
             } else {
                 setApiFeil(true)
             }
@@ -207,7 +207,7 @@ export const InntektsjusteringOppsummering = () => {
                         {apiFeil && <FeilIAPIKall />}
 
                         <NavigasjonMeny
-                            tilbakePath={`/inntekt-til-neste-aar`}
+                            tilbakePath="/inntekt-til-neste-aar"
                             onNeste={sendInnInntektsjustering}
                             nesteLaster={laster}
                             skalSendeSoeknad
