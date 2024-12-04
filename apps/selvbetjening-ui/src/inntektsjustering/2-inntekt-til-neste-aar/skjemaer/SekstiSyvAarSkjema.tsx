@@ -1,5 +1,4 @@
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
-import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
@@ -16,6 +15,7 @@ import { formaterFieldErrors } from '../../../utils/error.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
+import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()

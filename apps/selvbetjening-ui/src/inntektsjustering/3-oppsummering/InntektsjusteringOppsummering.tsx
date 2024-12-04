@@ -9,7 +9,6 @@ import {
 } from '../../sanity.types.ts'
 import { useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/NavigasjonMeny/NavigasjonMeny.tsx'
-import { useInntekt } from '../../common/inntekt/InntektContext.tsx'
 import { InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
@@ -23,6 +22,7 @@ import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { logger } from '../../utils/logger.ts'
 import { inntektTilInntektSkjemaValues } from '../../utils/inntekt.ts'
+import { useInntekt } from '../components/inntektContext/InntektContext.tsx'
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()

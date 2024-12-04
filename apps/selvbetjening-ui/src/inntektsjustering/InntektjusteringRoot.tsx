@@ -5,8 +5,7 @@ import { InntektsjusteringInnledning } from './1-innledning/InntektsjusteringInn
 import { InntektsjusteringInntektTilNesteAar } from './2-inntekt-til-neste-aar/InntektsjusteringInntektTilNesteAar.tsx'
 import { InntektsjusteringOppsummering } from './3-oppsummering/InntektsjusteringOppsummering.tsx'
 import { InntektsjusteringKvittering } from './4-kvittering/InntektsjusteringKvittering.tsx'
-import { ProvideInntektContext } from '../common/inntekt/InntektContext.tsx'
-import { ProvideInnloggetInnbyggerContext } from '../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { ProvideInntektContext } from './components/inntektContext/InntektContext.tsx'
 
 const router = createBrowserRouter(
     [
@@ -44,9 +43,7 @@ const router = createBrowserRouter(
 export const InntektsjusteringRoot = () => {
     return (
         <ProvideInntektContext>
-            <ProvideInnloggetInnbyggerContext>
-                <RouterProvider router={router} />
-            </ProvideInnloggetInnbyggerContext>
+            <RouterProvider router={router} />
         </ProvideInntektContext>
     )
 }

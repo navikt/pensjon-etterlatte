@@ -8,11 +8,11 @@ import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
-import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
 import { Alder } from '../../../types/person.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
+import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
