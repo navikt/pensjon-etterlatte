@@ -8,8 +8,8 @@ import { SideLaster } from '../SideLaster.tsx'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraak/SpraakVelger.tsx'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
-import { InntektSkjemaLukket } from '../InntektSkjemaLukket.tsx'
 import { isAfter } from 'date-fns'
+import { InntektSkjemaLukket } from '../../inntektsjustering/inntektSkjemaLukket/InntektSkjemaLukket.tsx'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined
