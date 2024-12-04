@@ -10,9 +10,9 @@ import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { Alder } from '../../../types/person.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
+import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()

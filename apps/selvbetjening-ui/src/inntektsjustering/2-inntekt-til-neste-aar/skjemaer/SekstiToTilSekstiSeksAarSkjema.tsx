@@ -11,11 +11,11 @@ import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.ts
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
-import { formaterFieldErrors } from '../../../utils/error.ts'
+import { formaterFieldErrors } from '../../../common/skjemaError/skjemaError.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
+import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
 
 export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetBruker: IInnloggetBruker }) => {
     const spraak = useSpraak()

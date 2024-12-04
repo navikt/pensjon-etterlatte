@@ -6,7 +6,7 @@ import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { logger } from '../../../utils/logger.ts'
+import { logger } from '../../../common/logger/logger.ts'
 import { InntektSkjemaLukket } from '../inntektSkjemaLukket/InntektSkjemaLukket.tsx'
 import { SpraakVelger } from '../../../common/spraak/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from '../../1-innledning/HarIkkeOMSSakIGjenny.tsx'

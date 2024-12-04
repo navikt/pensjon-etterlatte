@@ -1,6 +1,6 @@
 import { FieldError, FieldErrors } from 'react-hook-form'
 
-interface Error {
+interface SkjemaError {
     name: string
     message: string
 }
@@ -23,7 +23,7 @@ const fieldErrorsSomListe = (errors: FieldErrors): Array<FieldError> => {
     })
 }
 
-export const formaterFieldErrors = (errors: FieldErrors): Array<Error> => {
+export const formaterFieldErrors = (errors: FieldErrors): Array<SkjemaError> => {
     return fieldErrorsSomListe(errors)
         .filter((error) => !!error)
         .map((error) => ({ name: error.ref!.name, message: error.message! }))

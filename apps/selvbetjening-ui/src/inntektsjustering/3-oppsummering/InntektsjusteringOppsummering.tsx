@@ -18,11 +18,11 @@ import { spraakTilDateFnsLocale } from '../../common/spraak/spraak.ts'
 import { apiURL, poster } from '../../common/api/api.ts'
 import { useState } from 'react'
 import { FeilIAPIKall } from './FeilIAPIKall.tsx'
-import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
+import { velgTekstForSkalGaaAvMedAlderspensjon } from '../utils/velgTekst.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
-import { logger } from '../../utils/logger.ts'
-import { inntektTilInntektSkjemaValues } from '../../utils/inntekt.ts'
+import { logger } from '../../common/logger/logger.ts'
 import { useInntekt } from '../components/inntektContext/InntektContext.tsx'
+import { inntektTilInntektSkjemaValues } from '../2-inntekt-til-neste-aar/skjemaer/utils.ts'
 
 export const InntektsjusteringOppsummering = () => {
     const navigate = useNavigate()

@@ -11,7 +11,7 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
 import { format } from 'date-fns'
 import { spraakTilDateFnsLocale } from '../../common/spraak/spraak.ts'
-import { velgTekstForSkalGaaAvMedAlderspensjon } from '../../utils/velgTekst.ts'
+import { velgTekstForSkalGaaAvMedAlderspensjon } from '../utils/velgTekst.ts'
 
 export const OppgittInntektAlert = ({
     inntekt,

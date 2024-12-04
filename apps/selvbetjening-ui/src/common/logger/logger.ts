@@ -1,4 +1,4 @@
-import { apiURL, poster } from '../common/api/api.ts'
+import { apiURL, poster } from '../api/api.ts'
 import Bowser from 'bowser'
 import OSDetails = Bowser.Parser.OSDetails
 import Details = Bowser.Parser.Details

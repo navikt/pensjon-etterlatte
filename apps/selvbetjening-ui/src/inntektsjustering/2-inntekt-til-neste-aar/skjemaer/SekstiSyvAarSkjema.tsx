@@ -11,11 +11,11 @@ import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledM
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Alder } from '../../../types/person.ts'
 import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
-import { formaterFieldErrors } from '../../../utils/error.ts'
+import { formaterFieldErrors } from '../../../common/skjemaError/skjemaError.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
+import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
