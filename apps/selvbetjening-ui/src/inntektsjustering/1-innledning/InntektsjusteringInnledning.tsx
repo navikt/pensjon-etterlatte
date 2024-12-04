@@ -18,6 +18,7 @@ import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from './HarIkkeOMSSakIGjenny.tsx'
 import { FeilVedSjekkAvOMSSakIGjenny } from './FeilVedSjekkAvOMSSakIGjenny.tsx'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
+import { inntektjusteringBasePath } from '../inntektjusteringRoutes.tsx'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
@@ -168,7 +169,7 @@ export const InntektsjusteringInnledning = () => {
                             <Button
                                 icon={<ArrowRightIcon aria-hidden />}
                                 iconPosition="right"
-                                onClick={() => navigate('/inntekt-til-neste-aar')}
+                                onClick={() => navigate(`${inntektjusteringBasePath}/inntekt-til-neste-aar`)}
                             >
                                 {innhold.startUtfyllingKnapp?.[spraak]}
                             </Button>

@@ -16,6 +16,7 @@ import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.ts
 import { formaterFieldErrors } from '../../../utils/error.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
+import { inntektjusteringBasePath } from '../../inntektjusteringRoutes.tsx'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
@@ -53,7 +54,7 @@ export const SekstiSyvAarSkjema = () => {
 
     const onInntektSubmit = (inntekt: Inntekt) => {
         inntektDispatch.setInntekt(inntekt)
-        navigate(`/oppsummering`)
+        navigate(`${inntektjusteringBasePath}/oppsummering`)
     }
 
     const {
@@ -142,7 +143,6 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="arbeidsinntekt"
                                     control={control}
-                                    spraak={spraak}
                                     label={arbeidsinntekt?.label?.[spraak]}
                                     description={arbeidsinntekt?.description?.[spraak]}
                                 />
@@ -158,7 +158,6 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="naeringsinntekt"
                                     control={control}
-                                    spraak={spraak}
                                     label={naeringsinntekt?.label?.[spraak]}
                                     description={naeringsinntekt?.description?.[spraak]}
                                 />
@@ -172,7 +171,6 @@ export const SekstiSyvAarSkjema = () => {
                             <ControlledInntektTextField
                                 name="afpInntekt"
                                 control={control}
-                                spraak={spraak}
                                 label={afpInntekt?.label?.[spraak]}
                                 description={afpInntekt?.description?.[spraak]}
                             />
@@ -199,7 +197,6 @@ export const SekstiSyvAarSkjema = () => {
                                 <ControlledInntektTextField
                                     name="inntektFraUtland"
                                     control={control}
-                                    spraak={spraak}
                                     label={inntektFraUtland?.label?.[spraak]}
                                     description={inntektFraUtland?.description?.[spraak]}
                                 />
@@ -237,7 +234,7 @@ export const SekstiSyvAarSkjema = () => {
                     )}
 
                     <NavigasjonMeny
-                        tilbakePath="/innledning"
+                        tilbakePath={`${inntektjusteringBasePath}/innledning`}
                         onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
                     />
                 </VStack>

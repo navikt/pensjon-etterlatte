@@ -5,7 +5,7 @@ import { InntektsjusteringInntektTilNesteAar } from './2-inntekt-til-neste-aar/I
 import { InntektsjusteringOppsummering } from './3-oppsummering/InntektsjusteringOppsummering.tsx'
 import { InntektsjusteringKvittering } from './4-kvittering/InntektsjusteringKvittering.tsx'
 
-const inntektjusteringBasePath = '/inntekt'
+export const inntektjusteringBasePath = '/inntekt'
 
 export const inntektjusteringRoutes: RouteObject[] = [
     { path: `${inntektjusteringBasePath}/system-utilgjengelig`, element: <SystemUtilgjengelig /> },

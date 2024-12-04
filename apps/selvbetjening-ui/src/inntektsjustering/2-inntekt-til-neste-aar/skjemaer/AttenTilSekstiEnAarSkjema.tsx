@@ -13,6 +13,7 @@ import { ControlledInntektTextField } from '../../../common/inntekt/ControlledIn
 import { Alder } from '../../../types/person.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
+import { inntektjusteringBasePath } from '../../inntektjusteringRoutes.tsx'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
@@ -47,7 +48,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
 
     const onInntektSubmit = (inntekt: Inntekt) => {
         inntektDispatch.setInntekt(inntekt)
-        navigate(`/oppsummering`)
+        navigate(`${inntektjusteringBasePath}/oppsummering`)
     }
 
     const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
@@ -109,7 +110,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     </SumAvOppgittInntekt>
 
                     <NavigasjonMeny
-                        tilbakePath="/innledning"
+                        tilbakePath={`${inntektjusteringBasePath}/innledning`}
                         onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
                     />
                 </VStack>
