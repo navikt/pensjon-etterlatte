@@ -11,7 +11,7 @@ enum FeatureStatus {
     PAA = 'PAA',
     AV = 'AV',
     UDEFINERT = 'UDEFINERT',
-    HENTING_FEILA = 'HENTING_FEILA',
+    HENTING_FEILET = 'HENTING_FEILET',
 }
 
 unleashRouter.post('/', express.json(), (req: Request, res: Response) => {
