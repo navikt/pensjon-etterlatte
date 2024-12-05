@@ -36,7 +36,7 @@ unleashRouter.post('/', express.json(), (req: Request, res: Response) => {
                 message: `Fikk feilmelding fra Unleash for toggle ${sanitize(toggle)}, bruker defaultverdi false`,
                 stack_trace: JSON.stringify(e),
             })
-            return FeatureStatus.HENTING_FEILA
+            return FeatureStatus.HENTING_FEILET
         }
     }
 
