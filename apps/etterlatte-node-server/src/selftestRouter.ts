@@ -7,11 +7,11 @@ export const selftestRouter = express.Router()
 selftestRouter.get('/', express.json(), async (req, res) => {
     try {
         const applicationName = process.env.NAIS_APP_NAME
-        logger.info('Selftest - applicationName: ', applicationName)
+        logger.info(`Selftest - applicationName: ${applicationName}`)
         const statuscode = await fetch(`${config.app.apiUrl}/internal/selftest`)
             .then((res) => res.status)
             .catch((err) => {
-                logger.warn(`Innsendt-soeknad is down.`, err)
+                logger.warn('Innsendt-soeknad is down.', err)
                 return 500
             })
 
