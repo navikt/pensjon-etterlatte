@@ -68,6 +68,7 @@ spec:
         - host: dekoratoren.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
       rules:
+        - application: etterlatte-api
         - application: innsendt-soeknad
         - application: nav-dekoratoren
           namespace: personbruker

@@ -92,12 +92,13 @@ spec:
     - name: NAV_CONSUMER_ID
       value: "srvbarnepensjon"
     - name: ETTERLATTE_API_URL
-      value: https://etterlatte-api.intern.nav.no
+      value: http://etterlatte-api
     - name: ETTERLATTE_API_AZURE_SCOPE
       value: api://prod-gcp.etterlatte.etterlatte-api/.default
   accessPolicy:
     outbound:
       rules:
+        - application: etterlatte-api
         - application: digdir-krr-proxy
           namespace: team-rocket
         - application: kodeverk-api

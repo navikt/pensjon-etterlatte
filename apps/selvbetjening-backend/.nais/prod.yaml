@@ -61,7 +61,7 @@ spec:
     - name: PDL_AUDIENCE
       value: "prod-fss:pdl:pdl-api"
     - name: ETTERLATTE_API_URL
-      value: https://etterlatte-api.intern.nav.no
+      value: http://etterlatte-api
     - name: ETTERLATTE_API_AZURE_SCOPE
       value: api://prod-gcp.etterlatte.etterlatte-api/.default
   envFrom:
@@ -70,8 +70,6 @@ spec:
     outbound:
       rules:
         - application: etterlatte-api
-          namespace: etterlatte
-          cluster: prod-gcp
       external:
         - host: pdl-api.prod-fss-pub.nais.io
         - host: etterlatte-unleash-api.nav.cloud.nais.io
