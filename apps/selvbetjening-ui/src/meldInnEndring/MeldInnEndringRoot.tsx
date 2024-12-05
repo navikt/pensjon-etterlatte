@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { SystemUtilgjengelig } from '../common/SystemUtilgjengelig.tsx'
 import { FantIkkeSiden } from '../common/FantIkkeSiden.tsx'
 import { MeldInnEndringSkjema } from './meldInnEndringSkjema/MeldInnEndringSkjema.tsx'
+import { useState } from 'react'
 
 const router = createBrowserRouter(
     [
@@ -22,5 +23,8 @@ const router = createBrowserRouter(
 )
 
 export const MeldInnEndringRoot = () => {
-    return <RouterProvider router={router} />
+    // TODO: denne vil bli erstattet med unleash feature toggle i neste PR
+    const [skalVise] = useState<boolean>(false)
+
+    return skalVise && <RouterProvider router={router} />
 }
