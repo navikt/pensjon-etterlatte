@@ -11,6 +11,7 @@ import rTracer from 'cls-rtracer'
 import { selftestRouter } from './selftestRouter'
 import { loggerRouter } from './routers/loggerRouter'
 import sanityRouter from './routers/sanityRouter'
+import { unleashRouter } from './routers/unleashRouter'
 
 const basePath = config.app.basePath
 const buildPath = path.resolve(__dirname, '../build')
@@ -44,6 +45,7 @@ logger.info('Setting up session and proxy')
 
 app.use(`${basePath}/api/logg`, loggerRouter)
 app.use(`${basePath}/api/sanity`, sanityRouter)
+app.use(`${basePath}/api/feature`, unleashRouter)
 
 app.get(`${basePath}/session`, session())
 

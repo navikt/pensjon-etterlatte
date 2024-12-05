@@ -57,6 +57,7 @@ spec:
         - /omstillingsstonad/internal/**
   envFrom:
     - secret: selvbetjening-ui-sanity
+    - secret: my-application-unleash-api-token
   env:
     - name: BASE_PATH
       value: /omstillingsstonad
@@ -71,6 +72,7 @@ spec:
         - host: tokendings.prod-gcp.nais.io
         - host: u0dlg8d8.api.sanity.io
         - host: u0dlg8d8.apicdn.sanity.io
+        - host: etterlatte-unleash-api.nav.cloud.nais.io
       rules:
         - application: selvbetjening-backend
         - application: nav-dekoratoren
