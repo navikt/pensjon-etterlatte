@@ -5,6 +5,7 @@ import { PaperplaneIcon } from '@navikt/aksel-icons'
 enum EndringerAaMeldeInn {
     INNTEKT = 'Inntekt',
     AKTIVITET = 'Aktivitet',
+    ANNET = 'Annet',
 }
 
 export const MeldInnEndringSkjema = () => {
