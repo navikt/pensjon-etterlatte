@@ -85,6 +85,7 @@ spec:
   accessPolicy:
     outbound:
       rules:
+        - application: etterlatte-api
         - application: digdir-krr-proxy
           namespace: team-rocket
         - application: kodeverk-api
