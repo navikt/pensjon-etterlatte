@@ -19,7 +19,7 @@ const sanity = {
 const featureToggle = {
     host: process.env.UNLEASH_SERVER_API_URL || '',
     token: process.env.UNLEASH_SERVER_API_TOKEN || '',
-    applicationName: process.env.NAIS_APP_NAME || 'etterlatte-saksbehandling-ui',
+    applicationName: process.env.NAIS_APP_NAME || '',
 }
 
 export default {
