@@ -1,1 +1,3 @@
-export const MeldInnSkjema = () => {}
+export const MeldInnEndringSkjema = () => {
+    return <></>
+}

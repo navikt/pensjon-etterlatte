@@ -6,6 +6,7 @@ import { SWRConfig } from 'swr'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 import { InntektsjusteringRoot } from './inntektsjustering/InntektjusteringRoot.tsx'
 import { ProvideInnloggetInnbyggerContext } from './common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { MeldInnEndringRoot } from './meldInnEndring/MeldInnEndringRoot.tsx'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
             <ProvideSpraakContext>
                 <ProvideInnloggetInnbyggerContext>
                     <InntektsjusteringRoot />
+                    <MeldInnEndringRoot />
                 </ProvideInnloggetInnbyggerContext>
             </ProvideSpraakContext>
         </SWRConfig>
