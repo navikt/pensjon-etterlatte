@@ -6,6 +6,7 @@ import io.ktor.client.plugins.auth.AuthProvider
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.http.HttpHeaders
 import io.ktor.http.auth.HttpAuthHeader
+import no.nav.etterlatte.AzureDefaultEnvVariables
 import no.nav.security.token.support.client.core.ClientAuthenticationProperties
 import no.nav.security.token.support.client.core.ClientProperties
 import no.nav.security.token.support.client.core.oauth2.ClientCredentialsTokenClient
@@ -21,15 +22,15 @@ class ClientCredentialAuthProvider(
     private val clientPropertiesConfig =
         ClientProperties(
             tokenEndpointUrl = null,
-            wellKnownUrl = config["AZURE_APP_WELL_KNOWN_URL"]?.let { URI(it) },
+            wellKnownUrl = config[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]?.let { URI(it) },
             grantType = GrantType.CLIENT_CREDENTIALS,
-            scope = config["AZURE_APP_OUTBOUND_SCOPE"]?.split(",") ?: emptyList(),
+            scope = config[AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name]?.split(",") ?: emptyList(),
             authentication =
                 ClientAuthenticationProperties
                     .builder(
-                        clientId = config.getOrThrow("AZURE_APP_CLIENT_ID"),
+                        clientId = config.getOrThrow(AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name),
                         clientAuthMethod = ClientAuthenticationMethod.PRIVATE_KEY_JWT,
-                    ).clientJwk(config.getOrThrow("AZURE_APP_JWK"))
+                    ).clientJwk(config.getOrThrow(AzureDefaultEnvVariables.AZURE_APP_JWK.name))
                     .build(),
             resourceUrl = null,
             tokenExchange = null,
