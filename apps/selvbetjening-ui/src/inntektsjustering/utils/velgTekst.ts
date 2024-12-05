@@ -1,6 +1,6 @@
-import { SkalGaaAvMedAlderspensjon } from '../types/inntektsjustering.ts'
-import { FellesKomponenter } from '../sanity.types.ts'
-import { Spraak } from '../common/spraak/spraak.ts'
+import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
+import { FellesKomponenter } from '../../sanity.types.ts'
+import { Spraak } from '../../common/spraak/spraak.ts'
 
 export const velgTekstForSkalGaaAvMedAlderspensjon = (
     skalGaaAvMedAlderspensjonValue: SkalGaaAvMedAlderspensjon,

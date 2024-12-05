@@ -1,5 +1,5 @@
-import { Inntekt, InntektSkjema } from '../types/inntektsjustering.ts'
-import { Spraak } from '../common/spraak/spraak.ts'
+import { Inntekt, InntektSkjema } from '../../../types/inntektsjustering.ts'
+import { Spraak } from '../../../common/spraak/spraak.ts'
 
 export const inntektTilInntektSkjemaValues = (inntekt: Inntekt, spraak: Spraak): InntektSkjema => {
     return {

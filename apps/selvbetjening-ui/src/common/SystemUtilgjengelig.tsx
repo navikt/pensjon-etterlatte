@@ -7,7 +7,7 @@ import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { useRouteError } from 'react-router-dom'
 import { useEffect } from 'react'
 import ErrorStackParser from 'error-stack-parser'
-import { logger } from '../utils/logger.ts'
+import { logger } from './logger/logger.ts'
 
 const fallbackTekster = {
     NB: 'Skjemaet er utilgjengelig',

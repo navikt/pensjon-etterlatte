@@ -4,25 +4,19 @@ import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInnledning as InntektsjusteringInnledningInnhold } from '../../sanity.types.ts'
 import useSWR, { SWRResponse } from 'swr'
-import { ApiError, apiURL } from '../../utils/api.ts'
+import { ApiError, apiURL } from '../../common/api/api.ts'
 import { Inntekt } from '../../types/inntektsjustering.ts'
-import { useInntektDispatch } from '../../common/inntekt/InntektContext.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { OppgittInntektAlert } from './OppgittInntektAlert.tsx'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { useEffect } from 'react'
-import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
-import { HarIkkeOMSSakIGjenny } from './HarIkkeOMSSakIGjenny.tsx'
-import { FeilVedSjekkAvOMSSakIGjenny } from './FeilVedSjekkAvOMSSakIGjenny.tsx'
-import { LogEvents, useAmplitude } from '../../hooks/useAmplitude.ts'
+import { useInntektDispatch } from '../components/inntektContext/InntektContext.tsx'
 
 export const InntektsjusteringInnledning = () => {
     const navigate = useNavigate()
-
-    const { logEvent } = useAmplitude()
 
     const spraak = useSpraak()
 
@@ -33,12 +27,6 @@ export const InntektsjusteringInnledning = () => {
         error: eksisterendeInntektError,
         isLoading: eksisterendeInntektIsLoading,
     }: SWRResponse<Inntekt, ApiError, boolean> = useSWR(`${apiURL}/api/inntektsjustering`)
-
-    const {
-        data: harOMSSakIGjenny,
-        isLoading: harOMSSakIGjennyIsLoading,
-        error: harOMSSakIGjennyError,
-    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har_sak`)
 
     const {
         data: innloggetBruker,
@@ -60,29 +48,12 @@ export const InntektsjusteringInnledning = () => {
         }
     }, [eksisterendeInntekt, inntektDispatch, eksisterendeInntektError])
 
-    if (innholdIsLoading || innloggetBrukerIsLoading || eksisterendeInntektIsLoading || harOMSSakIGjennyIsLoading) {
+    if (innholdIsLoading || innloggetBrukerIsLoading || eksisterendeInntektIsLoading) {
         return <SideLaster />
     }
 
     if (innholdError || innloggetBrukerError) {
         throw innloggetBrukerError || innholdError
-    }
-
-    if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {
-        logEvent(LogEvents.INGEN_OMS_SAK, { data: {} })
-
-        return (
-            <main>
-                <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="42.5rem">
-                        <HStack justify="end">
-                            <SpraakVelger />
-                        </HStack>
-                        <HarIkkeOMSSakIGjenny />
-                    </VStack>
-                </HStack>
-            </main>
-        )
     }
 
     return (
@@ -157,8 +128,6 @@ export const InntektsjusteringInnledning = () => {
                                 </Accordion.Content>
                             </Accordion.Item>
                         </Accordion>
-
-                        {harOMSSakIGjennyError && <FeilVedSjekkAvOMSSakIGjenny />}
 
                         {!!eksisterendeInntekt && (
                             <OppgittInntektAlert inntekt={eksisterendeInntekt} innloggetBruker={innloggetBruker} />

@@ -1,5 +1,5 @@
 import useSWR, { SWRResponse } from 'swr'
-import { ApiError, apiURL } from '../../utils/api.ts'
+import { ApiError, apiURL } from '../api/api.ts'
 
 export const useSanityInnhold = <T>(
     sanityQuery: string

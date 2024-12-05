@@ -1,5 +1,5 @@
 import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../../sanity.types.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'

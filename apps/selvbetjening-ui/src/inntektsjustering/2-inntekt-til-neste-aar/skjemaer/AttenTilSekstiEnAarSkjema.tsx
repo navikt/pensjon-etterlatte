@@ -1,6 +1,6 @@
 import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
-import { NavigasjonMeny } from '../../../common/NavigasjonMeny/NavigasjonMeny.tsx'
+import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Inntekt, InntektSkjema } from '../../../types/inntektsjustering.ts'
 import { useNavigate } from 'react-router-dom'
@@ -8,11 +8,11 @@ import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../../sanity.types.ts'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
-import { useInntekt, useInntektDispatch } from '../../../common/inntekt/InntektContext.tsx'
-import { ControlledInntektTextField } from '../../../common/inntekt/ControlledInntektTextField.tsx'
 import { Alder } from '../../../types/person.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from '../../../utils/inntekt.ts'
+import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
+import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
+import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
