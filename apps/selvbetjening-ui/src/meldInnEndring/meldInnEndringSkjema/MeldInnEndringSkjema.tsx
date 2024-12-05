@@ -1,5 +1,6 @@
-import { BodyShort, Box, Heading, HStack, Select, Textarea, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HStack, Select, Textarea, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../../common/spraak/SpraakVelger.tsx'
+import { PaperplaneIcon } from '@navikt/aksel-icons'
 
 enum EndringerAaMeldeInn {
     INNTEKT = 'Inntekt',
@@ -22,7 +23,7 @@ export const MeldInnEndringSkjema = () => {
                         personopplysninger. Hvis du vil ettersende dokumenter kan du gjøre det her LEGG INN LENKE.
                     </BodyShort>
                     <Box maxWidth="20rem">
-                        <Select label="Hva det gjelder">
+                        <Select label="Hvilken type endring gjelder det?">
                             <option value="">Velg årsak</option>
                             {Object.entries(EndringerAaMeldeInn).map(([key, value]) => (
                                 <option key={key} value={key}>
@@ -34,6 +35,11 @@ export const MeldInnEndringSkjema = () => {
                     <Box maxWidth="30rem">
                         <Textarea label="Beskrivelse" maxLength={500} />
                     </Box>
+                    <div>
+                        <Button icon={<PaperplaneIcon aria-hidden />} iconPosition="right">
+                            Meld inn
+                        </Button>
+                    </div>
                 </VStack>
             </HStack>
         </main>
