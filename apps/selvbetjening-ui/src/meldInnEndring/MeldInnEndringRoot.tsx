@@ -24,7 +24,7 @@ const router = createBrowserRouter(
 
 export const MeldInnEndringRoot = () => {
     // TODO: denne vil bli erstattet med unleash feature toggle i neste PR
-    const [skalVise] = useState<boolean>(true)
+    const [skalVise] = useState<boolean>(false)
 
     return skalVise && <RouterProvider router={router} />
 }
