@@ -13,16 +13,16 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://www.nav.no/omstillingsstonad
-    - https://etterlatte.intern.nav.no/omstillingsstonad
+    - https://www.nav.no/inntekt/omstillingsstonad
+    - https://etterlatte.intern.nav.no/inntekt/omstillingsstonad
   liveness:
-    path: /omstillingsstonad/isAlive
+    path: /omstillingsstonad/inntekt/isAlive
     initialDelay: 10
     timeout: 5
     periodSeconds: 5
     failureThreshold: 30
   readiness:
-    path: /omstillingsstonad/isReady
+    path: /omstillingsstonad/inntekt/isReady
     initialDelay: 30
     periodSeconds: 5
     timeout: 5
@@ -35,7 +35,7 @@ spec:
       memory: 192Mi
   prometheus:
     enabled: true
-    path: /omstillingsstonad/metrics
+    path: /omstillingsstonad/inntekt/metrics
   observability:
     autoInstrumentation:
       enabled: true
@@ -54,13 +54,13 @@ spec:
       locale: nb
       autoLogin: true
       autoLoginIgnorePaths:
-        - /omstillingsstonad/internal/**
+        - /omstillingsstonad/inntekt/internal/**
   envFrom:
     - secret: selvbetjening-ui-sanity
     - secret: my-application-unleash-api-token
   env:
     - name: BASE_PATH
-      value: /omstillingsstonad
+      value: /omstillingsstonad/inntekt
     - name: API_URL
       value: http://selvbetjening-backend
     - name: AUDIENCE
