@@ -19,7 +19,7 @@ const router = createBrowserRouter(
             ],
         },
     ],
-    { basename: '/omstillingsstonad/meld-inn-endring' }
+    { basename: '/omstillingsstonad/skjema/meld-inn-endring' }
 )
 
 export const MeldInnEndringRoot = () => {

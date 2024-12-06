@@ -37,7 +37,7 @@ const router = createBrowserRouter(
             ],
         },
     ],
-    { basename: '/omstillingsstonad/inntekt' }
+    { basename: '/omstillingsstonad/skjema/inntekt' }
 )
 
 export const InntektsjusteringRoot = () => {
