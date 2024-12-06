@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "start": "vite --base /omstillingsstonad",
-    "build": "tsc && yarn eslint && vite build --outDir build --base /omstillingsstonad && yarn lisenssjekk",
+    "start": "vite --base /omstillingsstonad/inntekt",
+    "build": "tsc && yarn eslint && vite build --outDir build --base /omstillingsstonad/inntekt && yarn lisenssjekk",
     "test": "vitest",
     "cy:test": "TZ=Europe/Oslo cypress run",
     "cy:open": "TZ=Europe/Oslo cypress open",
