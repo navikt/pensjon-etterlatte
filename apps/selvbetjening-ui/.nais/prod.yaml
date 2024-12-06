@@ -13,8 +13,8 @@ spec:
     max: 2
     cpuThresholdPercentage: 90
   ingresses:
-    - https://www.nav.no/inntekt/omstillingsstonad
-    - https://etterlatte.intern.nav.no/inntekt/omstillingsstonad
+    - https://www.nav.no/omstillingsstonad/inntekt
+    - https://etterlatte.intern.nav.no/omstillingsstonad/inntekt
   liveness:
     path: /omstillingsstonad/inntekt/isAlive
     initialDelay: 10
