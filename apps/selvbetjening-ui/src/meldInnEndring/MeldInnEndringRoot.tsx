@@ -19,12 +19,12 @@ const router = createBrowserRouter(
             ],
         },
     ],
-    { basename: '/omstillingsstonad/meld-inn-endring' }
+    { basename: '/omstillingsstonad/skjema/meld-inn-endring' }
 )
 
 export const MeldInnEndringRoot = () => {
     // TODO: denne vil bli erstattet med unleash feature toggle i neste PR
-    const [skalVise] = useState<boolean>(false)
+    const [skalVise] = useState<boolean>(true)
 
     return skalVise && <RouterProvider router={router} />
 }
