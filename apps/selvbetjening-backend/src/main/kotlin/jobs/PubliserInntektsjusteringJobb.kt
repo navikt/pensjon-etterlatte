@@ -20,6 +20,7 @@ enum class InntektjusteringToggles(
     val value: String,
 ) : FeatureToggle {
     PUBLISER_MOTTATTE_INNTEKTSJUSTERINGER("publiser-mottatte-inntektsjusteringer"),
+    PUBLISER_KUN_EN_INNTEKTSJUSTERING("publiser-kun-en-inntektsjustering"),
     ;
 
     override fun key(): String = this.value
@@ -62,12 +63,23 @@ class PubliserInntektsjusteringJobb(
                 inntektsjusteringService.hentInntektsjusteringForStatus(
                     InntektsjusteringStatus.LAGRET,
                 )
-            nyeInntektsjusteringer.forEach { publiser(it) }
+
+            // Kun midlertidig for å verifisere at fungerer et par ganger i  prod
+            if (featureToggleService.isEnabled(
+                    InntektjusteringToggles.PUBLISER_MOTTATTE_INNTEKTSJUSTERINGER,
+                    defaultValue = false,
+                )
+            ) {
+                publiser(nyeInntektsjusteringer.first())
+                return
+            }
 
             val forsoekteInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
                     InntektsjusteringStatus.SENDT,
                 )
+
+            nyeInntektsjusteringer.forEach { publiser(it) }
 
             forsoekteInntektsjusteringer.forEach {
                 logger.warn("Inntektjustering tidligere sendt til Gjenny sendes på nytt med id=${it.id}")
