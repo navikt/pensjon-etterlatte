@@ -74,12 +74,12 @@ class PubliserInntektsjusteringJobb(
                 return
             }
 
-            nyeInntektsjusteringer.forEach { publiser(it) }
-
             val forsoekteInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
                     InntektsjusteringStatus.SENDT,
                 )
+
+            nyeInntektsjusteringer.forEach { publiser(it) }
 
             forsoekteInntektsjusteringer.forEach {
                 logger.warn("Inntektjustering tidligere sendt til Gjenny sendes på nytt med id=${it.id}")
