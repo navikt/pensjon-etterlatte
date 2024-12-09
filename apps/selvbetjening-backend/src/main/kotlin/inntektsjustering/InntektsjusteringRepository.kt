@@ -13,7 +13,9 @@ import no.nav.etterlatte.libs.utils.database.toList
 import java.sql.Date
 import java.sql.PreparedStatement
 import java.sql.ResultSet
+import java.sql.Timestamp
 import java.sql.Types
+import java.time.Instant
 import java.util.UUID
 import javax.sql.DataSource
 
@@ -92,7 +94,8 @@ class InntektsjusteringRepository(
                 setString(5, inntektsjustering.afpTjenesteordning)
                 setString(6, inntektsjustering.skalGaaAvMedAlderspensjon)
                 setDate(7, inntektsjustering.datoForAaGaaAvMedAlderspensjon?.let { dato -> Date.valueOf(dato) })
-                setObject(8, id)
+                setTimestamp(8, Timestamp.from(Instant.now()))
+                setObject(9, id)
             }.executeUpdate()
     }
 
@@ -104,7 +107,8 @@ class InntektsjusteringRepository(
             .prepareStatement(OPPDATER_STATUS)
             .apply {
                 setString(1, status.name)
-                setObject(2, id)
+                setTimestamp(2, Timestamp.from(Instant.now()))
+                setObject(3, id)
             }.execute()
     }
 }
@@ -156,7 +160,8 @@ private object Queries {
     val OPPDATER_STATUS =
         """
         UPDATE inntektsjustering
-        SET status = ? WHERE id = ?
+        SET status = ?, sist_endret = ?
+         WHERE id = ?
         """.trimIndent()
 
     val OPPDATER =
@@ -169,7 +174,8 @@ private object Queries {
             afp_inntekt = ?,
             afp_tjenesteordning = ?,
             skal_gaa_av_med_alderspensjon = ?,
-            dato_for_aa_gaa_av_med_alderspensjon = ?
+            dato_for_aa_gaa_av_med_alderspensjon = ?,
+            sist_endret = ?
         WHERE id = ?
         """.trimIndent()
 }
