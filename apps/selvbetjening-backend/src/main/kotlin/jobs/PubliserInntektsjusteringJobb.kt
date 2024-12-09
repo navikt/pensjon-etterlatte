@@ -66,7 +66,7 @@ class PubliserInntektsjusteringJobb(
 
             // Kun midlertidig for å verifisere at fungerer et par ganger i  prod
             if (featureToggleService.isEnabled(
-                    InntektjusteringToggles.PUBLISER_MOTTATTE_INNTEKTSJUSTERINGER,
+                    InntektjusteringToggles.PUBLISER_KUN_EN_INNTEKTSJUSTERING,
                     defaultValue = false,
                 )
             ) {
