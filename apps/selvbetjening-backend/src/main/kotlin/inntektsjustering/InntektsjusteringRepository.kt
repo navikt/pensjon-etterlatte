@@ -14,6 +14,7 @@ import java.sql.Date
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.Types
+import java.time.Instant
 import java.util.UUID
 import javax.sql.DataSource
 
@@ -156,7 +157,8 @@ private object Queries {
     val OPPDATER_STATUS =
         """
         UPDATE inntektsjustering
-        SET status = ? WHERE id = ?
+        SET status = ?, sist_endret = ${Instant.now()}
+         WHERE id = ?
         """.trimIndent()
 
     val OPPDATER =
@@ -169,7 +171,8 @@ private object Queries {
             afp_inntekt = ?,
             afp_tjenesteordning = ?,
             skal_gaa_av_med_alderspensjon = ?,
-            dato_for_aa_gaa_av_med_alderspensjon = ?
+            dato_for_aa_gaa_av_med_alderspensjon = ?,
+            sist_endret = ${Instant.now()}
         WHERE id = ?
         """.trimIndent()
 }
