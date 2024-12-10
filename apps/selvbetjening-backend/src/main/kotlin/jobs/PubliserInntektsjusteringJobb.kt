@@ -64,16 +64,6 @@ class PubliserInntektsjusteringJobb(
                     InntektsjusteringStatus.LAGRET,
                 )
 
-            // Kun midlertidig for å verifisere at fungerer et par ganger i  prod
-            if (featureToggleService.isEnabled(
-                    InntektjusteringToggles.PUBLISER_KUN_EN_INNTEKTSJUSTERING,
-                    defaultValue = false,
-                )
-            ) {
-                publiser(nyeInntektsjusteringer.first())
-                return
-            }
-
             val forsoekteInntektsjusteringer =
                 inntektsjusteringService.hentInntektsjusteringForStatus(
                     InntektsjusteringStatus.SENDT,
