@@ -8,10 +8,8 @@ import {
     BetingetOpplysning,
     EnumSvar,
     JaNeiVetIkke,
-    KronerEllerProsentType,
     OppholdUtland,
     Opplysning,
-    SkatteTrekk,
     UtbetalingsInformasjon,
     Utenlandsadresse,
 } from './FellesOpplysninger'
@@ -109,47 +107,6 @@ const mapUtbetalingsinfo = (
             },
         }
     } else if (!!person.paymentDetails?.bankAccount) {
-        let skattetrekk: SkatteTrekk | undefined
-        if (person.paymentDetails?.taxWithhold?.answer === JaNeiVetIkke.JA) {
-            skattetrekk = {
-                svar: {
-                    spoersmaal: t('doYouWantUsToWithholdTax', { ns: 'paymentDetails' }),
-                    svar: {
-                        verdi: person.paymentDetails.taxWithhold.answer,
-                        innhold: t(person.paymentDetails.taxWithhold.answer, { ns: 'radiobuttons' }),
-                    },
-                },
-                trekk:
-                    person.paymentDetails.taxWithhold.type! === KronerEllerProsentType.KRONER
-                        ? {
-                              spoersmaal: t('desiredTaxKroner', { ns: 'paymentDetails' }),
-                              svar: {
-                                  innhold:
-                                      person.paymentDetails.taxWithhold.taxPercentage! +
-                                      ' ' +
-                                      t(person.paymentDetails.taxWithhold.type!),
-                              },
-                          }
-                        : {
-                              spoersmaal: t('desiredTaxPercentage', { ns: 'paymentDetails' }),
-                              svar: {
-                                  innhold:
-                                      person.paymentDetails.taxWithhold.taxPercentage! +
-                                      ' ' +
-                                      t(person.paymentDetails.taxWithhold.type!),
-                              },
-                          },
-                beskrivelse: person.paymentDetails.taxWithhold.description!
-                    ? {
-                          spoersmaal: t('taxPercentageDescription', { ns: 'paymentDetails' }),
-                          svar: {
-                              innhold: person.paymentDetails.taxWithhold.description!,
-                          },
-                      }
-                    : undefined,
-            }
-        }
-
         return {
             spoersmaal: t('accountType', { ns: 'paymentDetails' }),
             svar: {
@@ -163,7 +120,6 @@ const mapUtbetalingsinfo = (
                         innhold: person.paymentDetails.bankAccount!,
                     },
                 },
-                skattetrekk,
             },
         }
     } else return undefined

@@ -89,8 +89,6 @@ Cypress.Commands.add('addChild', (gotoNext: boolean = false) => {
     cy.get('.navds-confirmation-panel').find('[type="checkbox"]').check()
     cy.get('#accountTypeSelection').get('[value="NORSK"]').check({ force: true })
     cy.get('.navds-form-field:contains("Oppgi norsk kontonummer")').find('input').type('1201.05.0101011')
-    cy.get('#taxWithholdAnswer').find('[type="radio"]').check({ force: true })
-    cy.get('.navds-fieldset:contains("skattetrekk")').find('input').last().type('22', { force: true })
 
     cy.clickBtn(Button.Add)
 

@@ -54,10 +54,6 @@
         "appliesForChildrensPension": true,
         "paymentDetails": {
           "accountType": "NORSK",
-          "taxWithhold": {
-            "answer": "JA",
-            "taxPercentage": "22"
-          },
           "bankAccount": "1231.23.12312"
         }
       }
