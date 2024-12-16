@@ -86,6 +86,17 @@ export default function ReceiptPage() {
                 </BodyLong>
             </FormGroup>
 
+            <FormGroup>
+                <Heading size={'medium'}>{t('taxDeductionTitle')}</Heading>
+                <BodyLong spacing>{t('taxDeductionDescription1')}</BodyLong>
+
+                <BodyLong spacing>
+                    {t('taxDeductionDescription2')} <br />
+                    <Link href={t('taxDeductionLinkHref')}>{t('taxDeductionLinkText')}</Link>
+                </BodyLong>
+                <BodyLong>{t('taxDeductionDescription3')}</BodyLong>
+            </FormGroup>
+
             <FormGroupCenter>
                 <Button
                     variant={'secondary'}

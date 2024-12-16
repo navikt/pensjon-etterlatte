@@ -534,6 +534,12 @@ const receipt = {
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider/en',
     closeApplicationButton: `Read more about children's pension`,
     closeApplicationButtonHref: 'https://www.nav.no/barnepensjon/en',
+    taxDeductionTitle: '',
+    taxDeductionDescription1: '',
+    taxDeductionDescription2: '',
+    taxDeductionLinkText: '',
+    taxDeductionLinkHref: 'https://www.nav.no/barnepensjon/en#tax',
+    taxDeductionDescription3: '',
 }
 
 const yourSituation = {

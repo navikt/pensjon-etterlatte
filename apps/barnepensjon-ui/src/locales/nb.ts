@@ -523,6 +523,13 @@ const receipt = {
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
     closeApplicationButton: 'Les mer om barnepensjon',
     closeApplicationButtonHref: 'https://www.nav.no/barnepensjon',
+    taxDeductionTitle: 'Skattetrekk',
+    taxDeductionDescription1: 'Vi trekker 17 prosent av barnepensjonen din.',
+    taxDeductionDescription2:
+        'Bor du i utlandet og har begrenset skatteplikt til Norge, kan du søke Skatteetaten om skattefritak. For at vi ikke skal trekke skatt må du sende oss vedtak om fritak.',
+    taxDeductionLinkText: 'Du kan lese mer om skatt på barnepensjon på nav.no',
+    taxDeductionLinkHref: 'https://www.nav.no/barnepensjon#skattetrekk',
+    taxDeductionDescription3: 'Har du spørsmål om skatt og skattetrekk kan du kontakte Skatteetaten.',
 }
 
 const yourSituation = {

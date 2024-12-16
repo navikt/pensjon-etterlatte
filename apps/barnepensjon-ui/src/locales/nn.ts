@@ -520,6 +520,12 @@ const receipt = {
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider/nn',
     closeApplicationButton: 'Les meir om barnepensjon',
     closeApplicationButtonHref: 'https://www.nav.no/barnepensjon',
+    taxDeductionTitle: '',
+    taxDeductionDescription1: '',
+    taxDeductionDescription2: '',
+    taxDeductionLinkText: '',
+    taxDeductionLinkHref: 'https://www.nav.no/barnepensjon#skattetrekk',
+    taxDeductionDescription3: '',
 }
 
 const yourSituation = {
