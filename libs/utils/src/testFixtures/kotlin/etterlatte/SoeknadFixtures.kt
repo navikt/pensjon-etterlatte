@@ -139,7 +139,6 @@ object InnsendtSoeknadFixtures {
                             utenlandskBankAdresse = null,
                             iban = null,
                             swift = null,
-                            skattetrekk = null,
                         ),
                 ),
             soeker =
