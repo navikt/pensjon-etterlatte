@@ -11,8 +11,3 @@ export enum BankkontoType {
     norsk = 'bankkontoType.norsk',
     utenlandsk = 'bankkontoType.utenlandsk',
 }
-
-export enum KronerEllerProsentType {
-    kroner = 'felles.kroner',
-    prosent = 'felles.prosent',
-}

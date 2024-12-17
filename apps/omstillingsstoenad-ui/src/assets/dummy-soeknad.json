@@ -241,10 +241,6 @@
           "soeker": true,
           "kontonummer": {
             "svar": "radiobuttons.ja"
-          },
-          "forskuddstrekk": {
-            "svar": "radiobuttons.nei",
-            "trekkprosent": "21%"
           }
         }
       }
