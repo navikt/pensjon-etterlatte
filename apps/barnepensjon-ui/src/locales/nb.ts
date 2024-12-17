@@ -379,10 +379,9 @@ const summary = {
         'Vi har allerede mottatt en søknad på et eller flere av barna det søkes for.\n\n' +
         'Dersom du ønsker å endre informasjon på en innsendt søknad må du benytte skjema ' +
         '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Diverse dokumentasjon</a>. ' +
-        'Det kreves også egne skjema for endring av ' +
-        '<a href="https://www.nav.no/start/soknad-endring-bankkontonummer">kontonummer</a> eller ' +
-        '<a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">frivillig skattetrekk</a>. ' +
-        'Felles for disse er at de må sendes inn pr post.\n\n' +
+        'Det kreves også eget skjema for endring av ' +
+        '<a href="https://www.nav.no/start/soknad-endring-bankkontonummer">kontonummer</a>. ' +
+        'Dette må sendes inn pr post.\n\n' +
         'Sender du inn endringer må du gi oss beskjed ved å kontakte oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi venter med saksbehandlingen av søknaden.',
     errorWhenSending:
         'En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">her.</a>',

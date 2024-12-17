@@ -387,9 +387,8 @@ const summary = {
         'We have already received an application for one or more of the children named in the application.\n\n' +
         'If you want to change any information on a submitted application, you must use the form ' +
         '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Miscellaneous documentation</a>. ' +
-        'You also need to submit the appropriate form to change <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/en">account number</a> ' +
-        'or <a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">voluntary tax deduction</a>. ' +
-        'All of these must be sent by conventional mail.\n\n If you send any changes, you must contact us by phone ' +
+        'You also need to submit the appropriate form to change <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/en">account number</a>. ' +
+        'This must be sent by conventional mail.\n\n If you send any changes, you must contact us by phone ' +
         '<a href="tel:+47 55 55 33 34">55 55 33 34</a>, so that we can postpone processing the application.',
     errorWhenSending:
         'An error occurred while submitting. Please wait a moment and try again. If the error persists, you can report it <a href="https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler">here.</a>',
