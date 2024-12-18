@@ -101,7 +101,11 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                         {ukjentFoedselsnummer && (
                             <VStack gap="4">
                                 <Alert variant={'info'}>{t('omDenAvdoede.ukjentFoedselsnummerInfo')}</Alert>
-                                <Datovelger name={'foedselsdato'} label={t('omDenAvdoede.foedselsdato')} />
+                                <Datovelger
+                                    name={'foedselsdato'}
+                                    label={t('omDenAvdoede.foedselsdato')}
+                                    maxDate={new Date()}
+                                />
                             </VStack>
                         )}
                     </SkjemaElement>
