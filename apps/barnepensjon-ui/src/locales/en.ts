@@ -534,6 +534,14 @@ const receipt = {
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider/en',
     closeApplicationButton: `Read more about children's pension`,
     closeApplicationButtonHref: 'https://www.nav.no/barnepensjon/en',
+    taxDeductionTitle: 'Tax deduction',
+    taxDeductionDescription1: "We are deducting 17 percent from your children's pension.",
+    taxDeductionDescription2:
+        'If you live in a foreign country and have limited tax liability in Norway, you can apply to the Tax Administration for an exemption from tax. For us not to deduct tax, you must send us a copy of the decision confirming your exemption.',
+    taxDeductionLinkText: "You can find further information about taxation on children's pension at nav.no",
+    taxDeductionLinkHref: 'https://www.nav.no/barnepensjon/en#tax',
+    taxDeductionDescription3:
+        'If you have any questions about tax and tax deductions you can contact the Norwegian Tax Administration.',
 }
 
 const yourSituation = {
