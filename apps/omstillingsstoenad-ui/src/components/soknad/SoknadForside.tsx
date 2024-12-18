@@ -99,35 +99,22 @@ const SoknadForside = () => {
                         <Heading size={'small'} spacing>
                             {t('forside.harSoektOms.tittel')}
                         </Heading>
-                        <BodyShort spacing>{t('forside.harSoektOms.avsnitt')}</BodyShort>
+                        <BodyLong spacing>{t('forside.harSoektOms.avsnitt')}</BodyLong>
                         <List>
                             <ListItemWithIndent>
-                                {t('forside.harSoektOms.innhold.li1.del1')}{' '}
                                 <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
                                     {t('forside.harSoektOms.innhold.li1.lenke.tekst')}
                                 </Link>{' '}
-                                {t('forside.harSoektOms.innhold.li1.del2')}
                             </ListItemWithIndent>
                             <ListItemWithIndent>
-                                {t('forside.harSoektOms.innhold.li2.del1')}{' '}
                                 <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>
                                     {t('forside.harSoektOms.innhold.li2.lenke.tekst')}
-                                </Link>{' '}
-                                {t('forside.harSoektOms.innhold.li2.del2')}
+                                </Link>
                             </ListItemWithIndent>
                             <ListItemWithIndent>
-                                {t('forside.harSoektOms.innhold.li3')}{' '}
                                 <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>
                                     {t('forside.harSoektOms.innhold.li3.lenke.tekst')}
                                 </Link>
-                                .
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                {t('forside.harSoektOms.innhold.li4')}{' '}
-                                <Link href={t('forside.harSoektOms.innhold.li4.lenke.href')} inlineText>
-                                    {t('forside.harSoektOms.innhold.li4.lenke.tekst')}
-                                </Link>
-                                .
                             </ListItemWithIndent>
                         </List>
                     </Alert>
