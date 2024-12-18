@@ -43,13 +43,6 @@ export interface UtbetalingsInformasjon {
     utenlandskBankAdresse?: Opplysning<FritekstSvar>
     iban?: Opplysning<FritekstSvar>
     swift?: Opplysning<FritekstSvar>
-    skattetrekk?: SkatteTrekk
-}
-
-export interface SkatteTrekk {
-    svar: Opplysning<EnumSvar<JaNeiVetIkke>>
-    trekk?: Opplysning<FritekstSvar>
-    beskrivelse?: Opplysning<FritekstSvar>
 }
 
 export interface Kontaktinfo {

@@ -83,23 +83,6 @@ const paymentDetails = {
     swift: 'Bankens S.W.I.F.T (BIC) adresse',
     swiftHelpText:
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kallast også SWIFT, og er påkrevd ved betaling til ei rekke land.',
-    doYouWantUsToWithholdTax: 'Vil du at vi skal leggje inn skattetrekk for barnepensjonen?',
-    desiredTaxPercentage: 'Frivillig skattetrekk i prosent per månad',
-    desiredTaxKroner: 'Frivillig skattetrekk i kroner per månad',
-    taxWithholdTitle: 'Frivillig skattetrekk',
-    taxWithholdDescription1:
-        'Barnepensjon er skattepliktig, men vi trekkjer ikkje skatt av beløpet utan at det er avtalt. Du kan leggje til eit frivillig skattetrekk anten som prosentdel av pensjonen eller som fast beløp. Dette sikrar at skatten blir rett, og gir mindre risiko for restskatt.',
-    taxWithholdDescription2: ' ',
-    taxWithholdDescription2Href:
-        'https://www.skatteetaten.no/nn/person/skatt/hjelp-til-rett-skatt/familie-og-helse/barn/barn-og-ungdom-med-eiga-inntekt-eller-formue/',
-    taxWithholdDescription2HrefText: 'Kontakt Skatteetaten dersom du har spørsmål om kor stort skattetrekket vil vere',
-    taxWithholdDescription3:
-        'Du kan trygt ta pause frå søknaden i opptil 72 timar, men du må då hugse å lagre denne sida ved å trykkje på «Neste» før du tek pause.',
-    taxPercentageType: 'Vil du ha frivillig skattetrekk i kroner eller i prosent?',
-    taxPercentageDescription:
-        'Vi må få beskjed dersom det ikkje skal vere trekk i desember eller andre delar av året (valfritt)',
-    taxWithholdMustBeSentYearly:
-        'Du beheld det frivillige skattetrekket i åra vidare fram til du sjølv melder frå om endring.',
 }
 
 const radiobuttons = {
@@ -394,9 +377,8 @@ const summary = {
         'Vi har allereie fått ein søknad på eitt eller fleire av barna det blir søkt for.\n\n' +
         'Dersom du ønskjer å endre informasjon på ein innsend søknad, nyttar du skjemaet ' +
         '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Diverse dokumentasjon</a>. ' +
-        'Eige skjema må også fyllast ut ved endring av <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/nn">kontonummer</a> ' +
-        'eller <a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">frivillig skattetrekk</a>. ' +
-        'Felles for desse er at dei må sendast inn per post.\n\n Viss du sender inn endringar, må du gi oss beskjed ' +
+        'Eige skjema må også fyllast ut ved endring av <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/nn">kontonummer</a>. ' +
+        'Dette må sendast inn per post.\n\n Viss du sender inn endringar, må du gi oss beskjed ' +
         'ved å ringje oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi ventar med å behandle søknaden.',
     errorWhenSending:
         'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nn/tilbakemeldinger/feil-og-mangler">her.</a>',
@@ -433,9 +415,6 @@ const error = {
         'For å sende inn søknaden må du søkje om barnepensjon for minst eitt barn. Du kan endre utfyllinga ved å klikke på «endre» ved sida av barnet du ønskjer å søkje for.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygda under opphald i eit anna land enn Noreg',
     'occupationalInjury.required': 'Oppgi om dødsfallet skuldast yrkesskade eller yrkessjukdom',
-    'paymentDetails.taxWithhold.answer.required': 'Oppgi om du vil at vi skal leggje til skattetrekk',
-    'paymentDetails.taxWithhold.type.required': 'Oppgi om du vil ha frivillig skattetrekk i kroner eller i prosent',
-    'paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi eit gyldig skattetrekk',
     'paymentDetails.bankAccount.required': 'Norsk kontonummer må fyllast ut (11 siffer)',
     'paymentDetails.bankAccount.pattern': 'Kontonummer ikkje gyldig. Må bestå av 11 siffer',
     'paymentDetails.accountType.required': 'Du må velja mellom norsk eller utanlandsk bankkonto for utbetaling',

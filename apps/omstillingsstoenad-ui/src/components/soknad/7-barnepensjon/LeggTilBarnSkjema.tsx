@@ -3,31 +3,13 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { BarnRelasjon, IBarn } from '../../../typer/person'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import {
-    RHFFoedselsnummerInput,
-    RHFInput,
-    RHFInputArea,
-    RHFKontonummerInput,
-    RHFNumberInput,
-} from '../../felles/rhf/RHFInput'
+import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from '../../felles/rhf/RHFInput'
 import { IValg } from '../../../typer/Spoersmaal'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import { erMyndig } from '../../../utils/alder'
 import { fnr } from '@navikt/fnrvalidator'
-import {
-    Alert,
-    BodyShort,
-    Box,
-    Button,
-    GuidePanel,
-    Heading,
-    HGrid,
-    Label,
-    Link,
-    RadioProps,
-    VStack,
-} from '@navikt/ds-react'
+import { Alert, BodyShort, Box, Button, GuidePanel, Heading, HGrid, Label, RadioProps, VStack } from '@navikt/ds-react'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import useCountries, { Options } from '../../../hooks/useCountries'
 import ikon from '../../../assets/ikoner/barn1.svg'
@@ -39,8 +21,7 @@ import { SkjemaElement } from '../../felles/SkjemaElement'
 import Bredde from '../../../typer/bredde'
 import { isDev } from '../../../api/axios'
 import { Panel } from '../../felles/Panel'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { BankkontoType, KronerEllerProsentType } from '../../../typer/utbetaling'
+import { BankkontoType } from '~typer/utbetaling'
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 import Datovelger from '~components/felles/Datovelger'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
@@ -108,7 +89,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     const { t } = useTranslation()
     const { countries }: { countries: Options[] } = useCountries()
     const { state: bruker } = useBrukerContext()
-    const { state: soeknad } = useSoknadContext()
     const { logEvent } = useAmplitude()
 
     const endrerBarn = !!barn?.fornavn?.length
@@ -156,8 +136,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     const foedselsdato: any = watch('foedselsdato')
     const ukjentFoedselsnummer: any = watch('ukjentFoedselsnummer')
     const annetKontonummerBarnepensjon = watch('barnepensjon.kontonummer.svar')
-    const forskuddstrekkBarnepensjon = watch('barnepensjon.forskuddstrekk.svar')
-    const forskuddstrekkType = watch('barnepensjon.forskuddstrekk.type')
     const bankkontoType = watch('barnepensjon.utbetalingsInformasjon.bankkontoType')
 
     const kanSoekeOmBarnepensjon = (): boolean => {
@@ -181,12 +159,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
-    const bankkontoErNorsk = (): boolean => {
-        if (annetKontonummerBarnepensjon === IValg.JA)
-            return soeknad.omDeg.utbetalingsInformasjon?.bankkontoType === BankkontoType.norsk
-        return bankkontoType === BankkontoType.norsk
-    }
 
     return (
         <>
@@ -379,96 +351,6 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                                         )}
                                                     </SkjemaGruppe>
                                                 </SkjemaElement>
-                                            )}
-
-                                            {bankkontoErNorsk() && (
-                                                <SkjemaGruppe>
-                                                    <Label>{t('omBarn.barnepensjon.forskuddstrekk.tittel')}</Label>
-                                                    <BodyShort spacing>
-                                                        {t('omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del1')}
-                                                    </BodyShort>
-                                                    <BodyShort spacing>
-                                                        {t('omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del2')}
-                                                        <Link
-                                                            href={t(
-                                                                'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.href'
-                                                            )}
-                                                            inlineText
-                                                        >
-                                                            {t(
-                                                                'omBarn.barnepensjon.forskuddstrekk.hjelpetekst.lenke.tekst'
-                                                            )}
-                                                        </Link>
-                                                        .
-                                                    </BodyShort>
-                                                    <BodyShort>
-                                                        {t('omBarn.barnepensjon.forskuddstrekk.hjelpetekst.del3')}
-                                                    </BodyShort>
-                                                    <br />
-                                                    <RHFSpoersmaalRadio
-                                                        name={'barnepensjon.forskuddstrekk.svar'}
-                                                        legend={t('omBarn.barnepensjon.forskuddstrekk.svar')}
-                                                    />
-
-                                                    {forskuddstrekkBarnepensjon === IValg.JA && (
-                                                        <>
-                                                            <SkjemaElement>
-                                                                <RHFRadio
-                                                                    name={'barnepensjon.forskuddstrekk.type'}
-                                                                    legend={t(
-                                                                        'omBarn.barnepensjon.forskuddstrekk.type'
-                                                                    )}
-                                                                >
-                                                                    {Object.values(KronerEllerProsentType).map(
-                                                                        (value) => {
-                                                                            return {
-                                                                                children: t(value),
-                                                                                value,
-                                                                            } as RadioProps
-                                                                        }
-                                                                    )}
-                                                                </RHFRadio>
-                                                            </SkjemaElement>
-                                                            <SkjemaElement>
-                                                                {forskuddstrekkType && (
-                                                                    <RHFNumberInput
-                                                                        htmlSize={Bredde.S}
-                                                                        name={
-                                                                            'barnepensjon.forskuddstrekk.trekkprosent'
-                                                                        }
-                                                                        label={t(
-                                                                            forskuddstrekkType ===
-                                                                                KronerEllerProsentType.kroner
-                                                                                ? 'omBarn.barnepensjon.forskuddstrekk.trekk.kroner'
-                                                                                : 'omBarn.barnepensjon.forskuddstrekk.trekk.prosent'
-                                                                        )}
-                                                                    />
-                                                                )}
-                                                            </SkjemaElement>
-                                                            <SkjemaElement>
-                                                                <RHFInputArea
-                                                                    name={'barnepensjon.forskuddstrekk.beskrivelse'}
-                                                                    label={t(
-                                                                        'omBarn.barnepensjon.forskuddstrekk.beskrivelse'
-                                                                    )}
-                                                                    maxLength={200}
-                                                                    resize={'vertical'}
-                                                                    valgfri
-                                                                />
-                                                            </SkjemaElement>
-                                                            <Panel border>
-                                                                <Alert
-                                                                    variant={'info'}
-                                                                    className={'navds-alert--inline'}
-                                                                >
-                                                                    <BodyShort>
-                                                                        {t('omBarn.barnepensjon.forskuddstrekk.info')}
-                                                                    </BodyShort>
-                                                                </Alert>
-                                                            </Panel>
-                                                        </>
-                                                    )}
-                                                </SkjemaGruppe>
                                             )}
                                         </>
                                     )}

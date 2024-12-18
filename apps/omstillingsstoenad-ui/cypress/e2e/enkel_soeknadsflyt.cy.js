@@ -319,7 +319,6 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
                 // under 18 år
                 selectValueForId('harBarnetVerge.svar', barn.harBarnetVerge.svar)
                 selectValueForId('barnepensjon.kontonummer.svar', barn.barnepensjon.kontonummer.svar)
-                selectValueForId('barnepensjon.forskuddstrekk.svar', barn.barnepensjon.forskuddstrekk.svar)
             }
             getById('leggTilBarn').click()
         })

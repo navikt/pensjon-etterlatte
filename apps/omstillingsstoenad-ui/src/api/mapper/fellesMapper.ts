@@ -6,7 +6,6 @@ import {
     EnumSvar,
     JaNeiVetIkke,
     Opplysning,
-    SkatteTrekk,
     UtbetalingsInformasjon,
     Utenlandsadresse,
 } from '../dto/FellesOpplysninger'
@@ -21,11 +20,7 @@ import {
     PersonType,
     Verge,
 } from '../dto/Person'
-import {
-    BankkontoType as GammelBankkontoType,
-    IUtbetalingsInformasjon,
-    KronerEllerProsentType,
-} from '../../typer/utbetaling'
+import { BankkontoType as GammelBankkontoType, IUtbetalingsInformasjon } from '../../typer/utbetaling'
 import { IValg } from '../../typer/Spoersmaal'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
@@ -233,7 +228,6 @@ export const hentUtbetalingsInformasjonBarn = (
             ...gjenlevendeSinKonto,
             opplysning: {
                 ...gjenlevendeSinKonto?.opplysning,
-                skattetrekk: hentSkattetrekk(t, soeker),
             },
         }
     } else if (soeker.barnepensjon?.kontonummer?.svar === IValg.NEI) {
@@ -245,51 +239,10 @@ export const hentUtbetalingsInformasjonBarn = (
             ...barnetSinKonto,
             opplysning: {
                 ...barnetSinKonto?.opplysning,
-                skattetrekk: hentSkattetrekk(t, soeker),
             },
         }
     }
 
-    return undefined
-}
-
-const hentSkattetrekk = (t: TFunction, soeker: IBarn): SkatteTrekk | undefined => {
-    if (soeker.barnepensjon?.forskuddstrekk?.svar === IValg.JA) {
-        return {
-            svar: {
-                spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.svar'),
-                svar: valgTilSvar(t, soeker.barnepensjon!.forskuddstrekk!.svar!),
-            },
-            trekk:
-                soeker.barnepensjon!.forskuddstrekk!.type! === KronerEllerProsentType.kroner
-                    ? {
-                          spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.trekk.kroner'),
-                          svar: {
-                              innhold:
-                                  soeker.barnepensjon!.forskuddstrekk!.trekkprosent! +
-                                  ' ' +
-                                  t(soeker.barnepensjon!.forskuddstrekk!.type!),
-                          },
-                      }
-                    : {
-                          spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.trekk.prosent'),
-                          svar: {
-                              innhold:
-                                  soeker.barnepensjon!.forskuddstrekk!.trekkprosent! +
-                                  ' ' +
-                                  t(soeker.barnepensjon!.forskuddstrekk!.type!),
-                          },
-                      },
-            beskrivelse: soeker.barnepensjon!.forskuddstrekk!.beskrivelse
-                ? {
-                      spoersmaal: t('omBarn.barnepensjon.forskuddstrekk.beskrivelse'),
-                      svar: {
-                          innhold: soeker.barnepensjon!.forskuddstrekk!.beskrivelse!,
-                      },
-                  }
-                : undefined,
-        }
-    }
     return undefined
 }
 

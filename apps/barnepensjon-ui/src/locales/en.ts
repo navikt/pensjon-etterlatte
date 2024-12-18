@@ -85,23 +85,6 @@ const paymentDetails = {
     swift: 'The bank’s SWIFT code or BIC',
     swiftHelpText:
         'BIC stands for Bank Identifier Code, and is a unique code that identifies the bank. The BIC, which in some countries is called the SWIFT code, is required when making payments to a number of countries.',
-    doYouWantUsToWithholdTax: "Do you want us to make a tax deduction for the children's pension?",
-    desiredTaxPercentage: 'Voluntary tax deduction in percentage per month',
-    desiredTaxKroner: 'Voluntary tax deduction in kroner per month',
-    taxWithholdTitle: 'Voluntary tax deduction',
-    taxWithholdDescription1:
-        "A children's pension is taxable, but we do not deduct tax from the amount unless we have agreed with you to do so. You can add a voluntary tax deduction as a percentage of your pension or as a fixed amount. This ensures that your tax payment is correct, and it minimises the risk of back taxes.",
-    taxWithholdDescription2: 'If you have questions about the amount of the tax deduction, you must ',
-    taxWithholdDescription2Href:
-        'https://www.skatteetaten.no/en/person/taxes/get-the-taxes-right/family-and-health/children/children-and-young-people-with-their-own-income-or-capital/',
-    taxWithholdDescription2HrefText: 'contact the Norwegian Tax Administration',
-    taxWithholdDescription3:
-        'You can pause the application process for up to 72 hours, but you must save this page by pressing "Next" before you take a break.',
-    taxPercentageType: 'Do you want to make a voluntary tax deduction in kroner or as a percentage?',
-    taxPercentageDescription:
-        'Please notify us if you do no want a deduction made in December or in other parts of year (optional)',
-    taxWithholdMustBeSentYearly:
-        'You retain the voluntary tax deduction in future years until you notify us about a change.',
 }
 
 const radiobuttons = {
@@ -404,9 +387,8 @@ const summary = {
         'We have already received an application for one or more of the children named in the application.\n\n' +
         'If you want to change any information on a submitted application, you must use the form ' +
         '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Miscellaneous documentation</a>. ' +
-        'You also need to submit the appropriate form to change <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/en">account number</a> ' +
-        'or <a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">voluntary tax deduction</a>. ' +
-        'All of these must be sent by conventional mail.\n\n If you send any changes, you must contact us by phone ' +
+        'You also need to submit the appropriate form to change <a href="https://www.nav.no/start/soknad-endring-bankkontonummer/en">account number</a>. ' +
+        'This must be sent by conventional mail.\n\n If you send any changes, you must contact us by phone ' +
         '<a href="tel:+47 55 55 33 34">55 55 33 34</a>, so that we can postpone processing the application.',
     errorWhenSending:
         'An error occurred while submitting. Please wait a moment and try again. If the error persists, you can report it <a href="https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler">here.</a>',
@@ -445,10 +427,6 @@ const error = {
     'memberFolketrygdenAbroad.required':
         'State whether you are a member of the Norwegian National Insurance Scheme during your stay in a country other than Norway',
     'occupationalInjury.required': 'State whether the death was due to an occupational injury or occupational illness',
-    'paymentDetails.taxWithhold.answer.required': 'State whether you wish to add tax deductions ',
-    'paymentDetails.taxWithhold.type.required':
-        'State whether you wish to add tax deductions in kroner or as percentage',
-    'paymentDetails.taxWithhold.taxPercentage.required': 'Enter a valid voluntary tax deduction',
     'paymentDetails.bankAccount.required': 'Norwegian bank account number is a required field (11 digits)',
     'paymentDetails.bankAccount.pattern': 'Invalid account number It must have 11 digits',
     'paymentDetails.accountType.required':

@@ -350,9 +350,5 @@ const createChild = (firstName: string, lastName: string, fnrDnr: string): IChil
     paymentDetails: {
         accountType: BankkontoType.NORSK,
         bankAccount: '1233.22.12332',
-        taxWithhold: {
-            answer: JaNeiVetIkke.JA,
-            taxPercentage: '21%',
-        },
     },
 })

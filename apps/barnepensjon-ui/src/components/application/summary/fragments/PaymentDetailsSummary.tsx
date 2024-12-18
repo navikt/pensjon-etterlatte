@@ -1,12 +1,12 @@
-import { BankkontoType, KronerEllerProsentType } from '../../../../api/dto/FellesOpplysninger'
+import { BankkontoType } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
-import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
+import { TextGroup } from '../TextGroup'
 import { IPaymentDetails } from '../../../../types/person'
 
 export default function PaymentDetailsSummary({ paymentDetails }: { paymentDetails: IPaymentDetails }) {
     const { t } = useTranslation('paymentDetails')
 
-    const { accountType, bankAccount, taxWithhold, foreignBankName, foreignBankAddress, iban, swift } = paymentDetails
+    const { accountType, bankAccount, foreignBankName, foreignBankAddress, iban, swift } = paymentDetails
 
     return (
         <>
@@ -19,28 +19,6 @@ export default function PaymentDetailsSummary({ paymentDetails }: { paymentDetai
                     <TextGroup title={t('foreignBankAddress')} content={foreignBankAddress} />
                     <TextGroup title={t('iban')} content={iban} />
                     <TextGroup title={t('swift')} content={swift} />
-                </>
-            )}
-
-            {taxWithhold?.answer && (
-                <>
-                    <TextGroupJaNeiVetIkke title={t('doYouWantUsToWithholdTax')} content={taxWithhold.answer} />
-
-                    {taxWithhold.taxPercentage && (
-                        <>
-                            <TextGroup
-                                title={t(
-                                    taxWithhold.type === KronerEllerProsentType.KRONER
-                                        ? 'desiredTaxKroner'
-                                        : 'desiredTaxPercentage'
-                                )}
-                                content={taxWithhold.taxPercentage + ' ' + t(taxWithhold.type!)}
-                            />
-                            {taxWithhold.description && (
-                                <TextGroup title={t('taxPercentageDescription')} content={taxWithhold.description} />
-                            )}
-                        </>
-                    )}
                 </>
             )}
         </>

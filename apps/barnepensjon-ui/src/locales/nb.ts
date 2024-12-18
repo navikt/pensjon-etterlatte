@@ -83,23 +83,6 @@ const paymentDetails = {
     swift: 'Bankens S.W.I.F.T (BIC) adresse',
     swiftHelpText:
         'BIC står for Bank Identifier Code, og er den koden som identifiserer banken. BIC kalles også SWIFT, og er påkrevd ved betaling til en rekke land.',
-    doYouWantUsToWithholdTax: 'Ønsker du at vi legger inn et skattetrekk for barnepensjonen?',
-    desiredTaxPercentage: 'Frivillig skattetrekk i prosent per måned',
-    desiredTaxKroner: 'Frivillig skattetrekk i kroner per måned',
-    taxWithholdTitle: 'Frivillig skattetrekk',
-    taxWithholdDescription1:
-        'Barnepensjon er skattepliktig, men vi trekker ikke skatt av beløpet uten at det er avtalt. Du kan legge til et frivillig skattetrekk som en prosentandel av pensjonen eller som et fast beløp. Dette sikrer at skatten blir riktig og gir mindre risiko for restskatt.',
-    taxWithholdDescription2: 'Har du spørsmål om størrelsen på skattetrekket må du ',
-    taxWithholdDescription2Href:
-        'https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/familie-og-helse/barn/barn-og-ungdom-med-egen-inntekt-eller-formue/',
-    taxWithholdDescription2HrefText: 'ta kontakt med Skatteetaten',
-    taxWithholdDescription3:
-        'Du kan trygt ta pause fra søknaden i inntil 72 timer, men du må lagre denne siden ved å trykke på "Neste" før du tar pause.',
-    taxPercentageType: 'Ønsker du frivillig skattetrekk i kroner eller prosent?',
-    taxPercentageDescription:
-        'Vi trenger beskjed hvis det ikke skal være trekk i desember eller andre deler av året (valgfritt)',
-    taxWithholdMustBeSentYearly:
-        'Du beholder det frivillige skattetrekket i årene fremover til du selv melder fra om endring.',
 }
 
 const radiobuttons = {
@@ -396,10 +379,9 @@ const summary = {
         'Vi har allerede mottatt en søknad på et eller flere av barna det søkes for.\n\n' +
         'Dersom du ønsker å endre informasjon på en innsendt søknad må du benytte skjema ' +
         '<a href="https://www.nav.no/soknader/nb/person/diverse/div-dokumentasjon">Diverse dokumentasjon</a>. ' +
-        'Det kreves også egne skjema for endring av ' +
-        '<a href="https://www.nav.no/start/soknad-endring-bankkontonummer">kontonummer</a> eller ' +
-        '<a href="https://www.nav.no/skattetrekk#trekke-mer-skatt">frivillig skattetrekk</a>. ' +
-        'Felles for disse er at de må sendes inn pr post.\n\n' +
+        'Det kreves også eget skjema for endring av ' +
+        '<a href="https://www.nav.no/start/soknad-endring-bankkontonummer">kontonummer</a>. ' +
+        'Dette må sendes inn pr post.\n\n' +
         'Sender du inn endringer må du gi oss beskjed ved å kontakte oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi venter med saksbehandlingen av søknaden.',
     errorWhenSending:
         'En feil oppsto ved sending. Vent litt og prøv på nytt. Dersom feilen vedvarer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler">her.</a>',
@@ -436,9 +418,6 @@ const error = {
         'For å sende inn søknaden må du søke om barnepensjon for minst ett barn. Du kan endre utfyllingen ved å klikke på "endre" ved det barnet du ønsker å søke for.',
     'memberFolketrygdenAbroad.required': 'Oppgi om du er medlem i folketrygden under opphold i et annet land enn Norge',
     'occupationalInjury.required': 'Oppgi om dødsfallet skyldes yrkesskade eller yrkessykdom',
-    'paymentDetails.taxWithhold.answer.required': 'Oppgi om du ønsker skattetrekk for barnepensjonen',
-    'paymentDetails.taxWithhold.type.required': 'Oppgi frivillig skattetrekk i kroner eller i prosent',
-    'paymentDetails.taxWithhold.taxPercentage.required': 'Oppgi et gyldig skattetrekk',
     'paymentDetails.bankAccount.required': 'Norsk kontonummer må fylles ut (11 siffer)',
     'paymentDetails.bankAccount.pattern': 'Kontonummer ikke gyldig. Må bestå av 11 siffer',
     'paymentDetails.accountType.required': 'Du må velge mellom norsk eller utenlandsk bankkonto for utbetaling',
