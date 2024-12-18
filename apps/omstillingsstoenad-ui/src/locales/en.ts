@@ -145,7 +145,7 @@ export default {
     'forside.over67.avsnitt3.del2': ' for further guidance on this matter.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':
-        'We see that you have recently submitted this application. If you re-send the application, processing will take longer. If you wish to inform us of any changes or have new information, you can do the following:',
+        'We can see that you recently submitted this application. If you submit the same application again, it could take longer to process. If you want to change or add something to your first one, this is what you can do:',
     'forside.harSoektOms.innhold.li1.lenke.href': 'https://www.nav.no/kontonummer/en',
     'forside.harSoektOms.innhold.li1.lenke.tekst': 'change your bank account number',
     'forside.harSoektOms.innhold.li2.lenke.href': 'https://www.nav.no/start/ettersend-soknad-omstillingstonad/en',
