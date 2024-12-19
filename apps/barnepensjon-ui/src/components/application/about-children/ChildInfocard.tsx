@@ -1,18 +1,10 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Heading, Tag } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, Tag, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import ikon from '../../../assets/barn1.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import {
-    Infocard,
-    InfocardFooter,
-    InfocardFooterLink,
-    InfocardHeader,
-    InformationBox,
-    InformationBoxContent,
-    InformationElement,
-} from '../../common/card/InfoCard'
+import { Infocard, InfocardHeader, InformationBox, InformationBoxContent } from '../../common/card/InfoCard'
 import { IChild } from '../../../types/person'
 import FormElement from '../../common/FormElement'
 import { format } from 'date-fns'
@@ -41,7 +33,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                         {child.firstName} {child.lastName}
                     </Heading>
                 </InformationBoxContent>
-                <InformationElement>
+                <Box paddingBlock="2">
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('infoCard_fnr')}</BodyShort>
@@ -75,29 +67,26 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                             <Tag variant={'warning'}>{t('childNotApplyingForPension')}</Tag>
                         </FormElement>
                     )}
-                </InformationElement>
-            </InformationBox>
-
-            <InfocardFooter>
-                <BodyLong>
-                    <InfocardFooterLink
-                        href={'#'}
-                        onClick={(e: any) => {
-                            e.preventDefault()
-                            setActiveChildIndex()
-                        }}
+                </Box>
+                <VStack gap="2">
+                    <Button
+                        type="button"
+                        icon={<EditFilled fontSize={18} />}
+                        onClick={setActiveChildIndex}
+                        variant="tertiary"
                     >
-                        <EditFilled />
-                        <span>{t('editButton', { ns: 'btn' })}</span>
-                    </InfocardFooterLink>
-                </BodyLong>
-                <BodyLong>
-                    <InfocardFooterLink href={'#'} onClick={() => remove(index)}>
-                        <DeleteFilled />
-                        <span>{t('removeChildButton')}</span>
-                    </InfocardFooterLink>
-                </BodyLong>
-            </InfocardFooter>
+                        {t('editButton', { ns: 'btn' })}
+                    </Button>
+                    <Button
+                        type="button"
+                        icon={<DeleteFilled fontSize={18} />}
+                        onClick={() => remove(index)}
+                        variant="tertiary"
+                    >
+                        {t('removeChildButton')}
+                    </Button>
+                </VStack>
+            </InformationBox>
         </Infocard>
     )
 })

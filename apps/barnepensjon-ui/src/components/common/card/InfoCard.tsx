@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from '@navikt/ds-react'
 
 export const InfocardWrapper = styled.div`
     display: flex;
@@ -40,17 +39,6 @@ export const InfocardHeader = styled.div`
     opacity: 0.4;
 `
 
-export const InfocardFooter = styled.div`
-    margin-bottom: 1rem;
-`
-
-export const InfocardFooterLink = styled(Link)`
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    text-align: center;
-`
-
 export const InformationBox = styled.div`
     padding: 2rem 2rem;
     text-align: center;
@@ -58,8 +46,4 @@ export const InformationBox = styled.div`
 
 export const InformationBoxContent = styled.div`
     text-align: center;
-`
-
-export const InformationElement = styled.div`
-    margin: 10px 0 10px 0;
 `
