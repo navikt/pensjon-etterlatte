@@ -1,9 +1,9 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyShort, Button, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InformationBox, InformationElement } from '../../common/card/InfoCard'
+import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
 import { IParent } from '~context/application/application'
 
 interface Props {
@@ -30,14 +30,14 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                 <Heading size={'small'} spacing>
                     {parent.firstName} {parent.lastName}
                 </Heading>
-                <InformationElement>
+                <Box paddingBlock="2">
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}
                     <BodyShort>{t('fnrDnr')}</BodyShort>
                     <BodyShort spacing>{foedselsnummer ?? '-'}</BodyShort>
 
                     <BodyShort>{t('citizenship')}</BodyShort>
                     <BodyShort spacing>{parent.citizenship ?? '-'}</BodyShort>
-                </InformationElement>
+                </Box>
                 <VStack gap="4">
                     {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
 
