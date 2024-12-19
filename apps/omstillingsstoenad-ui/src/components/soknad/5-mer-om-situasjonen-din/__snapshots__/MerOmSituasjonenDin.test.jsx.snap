@@ -3124,7 +3124,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
-            style="color: rgb(198, 93, 78);"
             type="button"
           >
             <span
@@ -5862,7 +5861,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
-            style="color: rgb(198, 93, 78);"
             type="button"
           >
             <span

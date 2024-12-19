@@ -752,7 +752,6 @@ exports[`Omsorg for barn > Snapshot 1`] = `
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
             id="slett-soeknad"
-            style="color: rgb(198, 93, 78);"
             type="button"
           >
             <span

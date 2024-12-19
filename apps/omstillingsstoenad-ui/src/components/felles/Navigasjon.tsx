@@ -148,7 +148,7 @@ const Navigasjon = ({
                         <Button
                             id={'slett-soeknad'}
                             variant={'tertiary'}
-                            style={{ color: '#C65D4E' }}
+                            style={{ color: 'var(--a-surface-danger)' }}
                             type={'button'}
                             onClick={avbrytOgslettSoeknad}
                         >
