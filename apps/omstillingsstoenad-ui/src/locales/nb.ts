@@ -611,7 +611,7 @@ export default {
     'omBarn.dagligOmsorg': 'Har du daglig omsorg for dette barnet?',
     'omBarn.barnepensjon.soekt': 'Søker om barnepensjon',
     'omBarn.barnepensjon.ikkeSoekt': 'Søker ikke om barnepensjon',
-    'omBarn.barnepensjon.soeker': 'Søk om barnepensjon for dette barnet',
+    'omBarn.barnepensjon.soeker': 'Jeg søker om barnepensjon for dette barnet',
     'omBarn.barnepensjon.soekerInfo': 'Du kan søke om barnepensjon for barn under 18 år som du har felles med avdøde.',
     'omBarn.barnepensjon.soekerCheckboks': 'Ja, jeg søker om barnepensjon for barnet',
     'omBarn.barnepensjon.kontonummer.svar':
