@@ -223,7 +223,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                     {ukjentFoedselsnummer && (
                                         <VStack gap="4">
                                             <Alert variant={'info'}>{t('omBarn.ukjentFoedselsnummerInfo')}</Alert>
-                                            <Datovelger name={'foedselsdato'} label={t('omBarn.foedselsdato')} />
+                                            <Datovelger
+                                                name={'foedselsdato'}
+                                                label={t('omBarn.foedselsdato')}
+                                                maxDate={new Date()}
+                                            />
                                         </VStack>
                                     )}
                                 </SkjemaElement>
