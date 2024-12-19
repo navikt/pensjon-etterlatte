@@ -99,6 +99,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
         shouldUnregister: true,
     })
 
+    const editsChild = !!child?.firstName?.length
+
     const {
         formState: { errors },
         handleSubmit,
@@ -264,9 +266,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 onClick={handleSubmit(addAndClose, logErrors)}
                                 style={{ minWidth: '80px' }}
                             >
-                                {child?.fnrDnr === undefined
-                                    ? t('addButton', { ns: 'btn' })
-                                    : t('saveButton', { ns: 'btn' })}
+                                {editsChild ? t('saveChangesButton', { ns: 'btn' }) : t('addButton', { ns: 'btn' })}
                             </Button>
                         </NavRow>
                     </ChangeChildPanelContent>
