@@ -2095,6 +2095,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       </div>
                       <textarea
                         aria-describedby="textarea-description-r51 r52"
+                        autocomplete="off"
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
@@ -2494,6 +2495,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     </div>
                     <textarea
                       aria-describedby="textarea-description-r6b r6c"
+                      autocomplete="off"
                       class="navds-textarea__input navds-body-short navds-body-short--medium"
                       id="selvstendig.[0].forventerEndretArbeidssituasjon.beskrivelse"
                       rows="3"
@@ -5233,6 +5235,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       </div>
                       <textarea
                         aria-describedby="textarea-description-r22 r23"
+                        autocomplete="off"
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"

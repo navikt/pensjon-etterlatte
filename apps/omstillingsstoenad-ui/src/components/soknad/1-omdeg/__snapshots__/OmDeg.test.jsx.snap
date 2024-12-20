@@ -56,6 +56,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             omDeg.kontaktinfo.telefonnummer
           </label>
           <input
+            autocomplete="tel"
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="kontaktinfo.telefonnummer"
             inputmode="tel"
@@ -181,6 +182,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               omDeg.utbetalingsInformasjon.utenlandskBankNavn
             </label>
             <input
+              autocomplete="off"
               class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="utbetalingsInformasjon.utenlandskBankNavn"
               type="text"
@@ -209,6 +211,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               omDeg.utbetalingsInformasjon.utenlandskBankAdresse
             </label>
             <input
+              autocomplete="off"
               class="navds-text-field__input navds-body-short navds-body-short--medium"
               id="utbetalingsInformasjon.utenlandskBankAdresse"
               type="text"
@@ -330,6 +333,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             </div>
           </label>
           <input
+            autocomplete="off"
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="utbetalingsInformasjon.iban"
             size="35"
@@ -451,6 +455,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             </div>
           </label>
           <input
+            autocomplete="off"
             class="navds-text-field__input navds-body-short navds-body-short--medium"
             id="utbetalingsInformasjon.swift"
             size="25"
