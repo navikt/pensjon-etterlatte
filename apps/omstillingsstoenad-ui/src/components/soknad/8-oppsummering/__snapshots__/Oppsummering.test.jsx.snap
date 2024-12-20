@@ -110,6 +110,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/om-deg"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
@@ -272,6 +273,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/om-den-avdoede"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
@@ -346,6 +348,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/om-deg-og-avdoed"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
@@ -476,6 +479,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/situasjonen-din"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
@@ -590,6 +594,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/mer-om-situasjonen-din"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
@@ -726,6 +731,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/inntekten-din"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
@@ -806,6 +812,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           href="/skjema/steg/om-barn"
         >
           <svg
+            aria-hidden="true"
             fill="none"
             focusable="false"
             height="1em"
