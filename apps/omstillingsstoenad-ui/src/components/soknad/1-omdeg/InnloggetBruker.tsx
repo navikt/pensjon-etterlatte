@@ -60,7 +60,7 @@ const InnloggetBruker = memo(() => {
                     <BodyShort>{t('omDeg.advarsel')}</BodyShort>
                     <Link href={t('omDeg.advarsel.href')} target="_blank" rel="noreferrer">
                         {t('omDeg.advarsel.href.tekst')}
-                        <ExternalLink />
+                        <ExternalLink aria-hidden />
                     </Link>
                 </Alert>
             )}

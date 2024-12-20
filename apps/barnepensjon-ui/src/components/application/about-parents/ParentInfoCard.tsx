@@ -42,10 +42,20 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                     {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
 
                     <VStack gap="2" align="center">
-                        <Button type="button" icon={<EditFilled fontSize={18} />} onClick={edit} variant="tertiary">
+                        <Button
+                            type="button"
+                            icon={<EditFilled fontSize={18} aria-hidden />}
+                            onClick={edit}
+                            variant="tertiary"
+                        >
                             {t('editButton', { ns: 'btn' })}
                         </Button>
-                        <Button type="button" icon={<DeleteFilled fontSize={18} />} onClick={remove} variant="tertiary">
+                        <Button
+                            type="button"
+                            icon={<DeleteFilled fontSize={18} aria-hidden />}
+                            onClick={remove}
+                            variant="tertiary"
+                        >
                             {t('removeButton', { ns: 'btn' })}
                         </Button>
                     </VStack>

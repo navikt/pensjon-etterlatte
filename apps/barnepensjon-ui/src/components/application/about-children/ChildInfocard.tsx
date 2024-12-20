@@ -71,7 +71,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                 <VStack gap="2">
                     <Button
                         type="button"
-                        icon={<EditFilled fontSize={18} />}
+                        icon={<EditFilled fontSize={18} aria-hidden />}
                         onClick={setActiveChildIndex}
                         variant="tertiary"
                     >
@@ -79,7 +79,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </Button>
                     <Button
                         type="button"
-                        icon={<DeleteFilled fontSize={18} />}
+                        icon={<DeleteFilled fontSize={18} aria-hidden />}
                         onClick={() => remove(index)}
                         variant="tertiary"
                     >

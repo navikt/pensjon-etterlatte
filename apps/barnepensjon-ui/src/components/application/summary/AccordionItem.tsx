@@ -20,8 +20,8 @@ export const AccordionItem = ({ title, children, defaultOpen = false, path, path
             <Accordion.Content>
                 {children}
                 <Link to={path}>
-                    <EditFilled />
-                    <span style={{paddingLeft: '0.25rem'}}>{pathText}</span>
+                    <EditFilled aria-hidden />
+                    <span style={{ paddingLeft: '0.25rem' }}>{pathText}</span>
                 </Link>
             </Accordion.Content>
         </Accordion.Item>
