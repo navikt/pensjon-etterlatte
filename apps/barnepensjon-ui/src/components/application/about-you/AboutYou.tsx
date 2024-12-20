@@ -131,6 +131,7 @@ export default function AboutYou({ next }: StepProps) {
                                     label={t('phoneNumberOptional', { ns: 'common' })}
                                     valgfri={true}
                                     htmlSize={Bredde.S}
+                                    autoComplete="tel"
                                 />
                             </FormElement>
                         )}

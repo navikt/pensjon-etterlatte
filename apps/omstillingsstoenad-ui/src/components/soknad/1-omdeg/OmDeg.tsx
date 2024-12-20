@@ -73,6 +73,7 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                                     name={'kontaktinfo.telefonnummer'}
                                     label={t('omDeg.kontaktinfo.telefonnummer')}
                                     valgfri={true}
+                                    autoComplete="tel"
                                 />
                             </SkjemaElement>
                         )}
@@ -98,6 +99,7 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                                     name={'utbetalingsInformasjon.kontonummer'}
                                     label={t('omDeg.utbetalingsInformasjon.kontonummer')}
                                     description={t('omDeg.utbetalingsInformasjon.informasjon')}
+                                    autoComplete="off"
                                 />
                             )}
 

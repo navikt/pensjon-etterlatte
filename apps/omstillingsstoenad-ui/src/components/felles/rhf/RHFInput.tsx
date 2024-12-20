@@ -86,6 +86,7 @@ export const RHFInputArea = ({ name, rules, className, valgfri, description, ...
                                 ? `${description}\n\n${t('felles.ikkeSensitiveOpplysninger')}`
                                 : t('felles.ikkeSensitiveOpplysninger')
                         }
+                        autoComplete="off"
                     />
                 </div>
             )}
@@ -176,6 +177,7 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
                         error={feilmelding}
                         {...rest}
                         inputMode="numeric"
+                        autoComplete="off"
                     />
                 )}
             />

@@ -24,6 +24,7 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                 <RHFInput
                     name={`${prefix}utbetalingsInformasjon.utenlandskBankNavn`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankNavn')}
+                    autoComplete="off"
                 />
             </SkjemaElement>
 
@@ -31,6 +32,7 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                 <RHFInput
                     name={`${prefix}utbetalingsInformasjon.utenlandskBankAdresse`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankAdresse')}
+                    autoComplete="off"
                 />
             </SkjemaElement>
             <SkjemaElement>
@@ -43,6 +45,7 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                             &nbsp;<HelpText>{t('omDeg.utbetalingsInformasjon.ibanHjelpetekst')}</HelpText>
                         </HelpTextLabel>
                     }
+                    autoComplete="off"
                 />
             </SkjemaElement>
             <SkjemaElement>
@@ -55,6 +58,7 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                             &nbsp;<HelpText>{t('omDeg.utbetalingsInformasjon.swiftHjelpetekst')}</HelpText>
                         </HelpTextLabel>
                     }
+                    autoComplete="off"
                 />
             </SkjemaElement>
         </>
