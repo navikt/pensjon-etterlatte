@@ -22,7 +22,7 @@ export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pat
             <Accordion.Content>
                 {children}
                 <Link to={path} className={senderSoeknad ? 'disabled' : ''}>
-                    <EditFilled />
+                    <EditFilled aria-hidden />
                     <span style={{ paddingLeft: '0.25rem' }}>{t(`endreSvarOppsummering.${pathText}`)}</span>
                 </Link>
             </Accordion.Content>
