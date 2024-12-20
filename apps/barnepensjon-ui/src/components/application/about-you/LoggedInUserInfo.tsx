@@ -28,7 +28,8 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                 <Alert variant={'info'}>
                     <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
                     <Link href={t('incorrectInfoMustBeCorrectedHref', { ns: 'loggedInUserInfo' })} target={'_blank'}>
-                        {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })} <ExternalLink />
+                        {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })}{' '}
+                        <ExternalLink aria-hidden />
                     </Link>
                 </Alert>
             </FormElement>
