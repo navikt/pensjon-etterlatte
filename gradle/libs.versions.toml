@@ -4,9 +4,9 @@ license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 [versions]
 token-version = "5.0.13"
 ktor-version = "2.3.13"
-jupiter-version = "5.11.3"
+jupiter-version = "5.11.4"
 testcontainers-version = "1.20.4"
-flyway-version = "11.0.0"
+flyway-version = "11.1.0"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -37,12 +37,12 @@ jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.re
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version" }
 
 logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.16" }
-logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.12" }
+logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.15" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.1" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.2" }
 
-mockk = { module = "io.mockk:mockk", version = "1.13.13" }
+mockk = { module = "io.mockk:mockk", version = "1.13.14" }
 
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.9.1" }
 
