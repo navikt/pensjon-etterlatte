@@ -17,12 +17,13 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
+        data-responsive="true"
       >
         <div
           class="navds-guide"
         >
           <svg
-            aria-label="NAV veileder illustrasjon"
+            aria-label="Illustrasjon av veileder"
             fill="none"
             focusable="false"
             height="85"
@@ -133,15 +134,15 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r17"
+                aria-labelledby="r15"
                 class="navds-checkbox__input"
-                id="checkbox-r16"
+                id="checkbox-r14"
                 type="checkbox"
                 value="inntekt.loenn"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r16"
+                for="checkbox-r14"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -168,7 +169,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r17"
+                    id="r15"
                   >
                     inntekt.loenn
                   </span>
@@ -179,15 +180,15 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1a"
+                aria-labelledby="r18"
                 class="navds-checkbox__input"
-                id="checkbox-r19"
+                id="checkbox-r17"
                 type="checkbox"
                 value="inntekt.naering"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r19"
+                for="checkbox-r17"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -214,7 +215,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1a"
+                    id="r18"
                   >
                     inntekt.naering
                   </span>
@@ -225,15 +226,15 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1d"
+                aria-labelledby="r1b"
                 class="navds-checkbox__input"
-                id="checkbox-r1c"
+                id="checkbox-r1a"
                 type="checkbox"
                 value="inntekt.pensjonEllerUfoere"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r1c"
+                for="checkbox-r1a"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -260,7 +261,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1d"
+                    id="r1b"
                   >
                     inntekt.pensjonEllerUfoere
                   </span>
@@ -271,15 +272,15 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1g"
+                aria-labelledby="r1e"
                 class="navds-checkbox__input"
-                id="checkbox-r1f"
+                id="checkbox-r1d"
                 type="checkbox"
                 value="inntekt.ytelser"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r1f"
+                for="checkbox-r1d"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -306,7 +307,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1g"
+                    id="r1e"
                   >
                     inntekt.ytelser
                   </span>
@@ -317,15 +318,15 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r1j"
+                aria-labelledby="r1h"
                 class="navds-checkbox__input"
-                id="checkbox-r1i"
+                id="checkbox-r1g"
                 type="checkbox"
                 value="inntekt.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r1i"
+                for="checkbox-r1g"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -352,7 +353,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r1j"
+                    id="r1h"
                   >
                     inntekt.annen
                   </span>
@@ -364,7 +365,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r15"
+            id="fieldset-error-r13"
           />
         </fieldset>
       </div>
@@ -393,7 +394,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-r1m"
+              id="fieldset-description-r1k"
             >
               inntektenDin.ytelserNAV.hvorfor
             </div>
@@ -404,16 +405,16 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="r1o"
+                  aria-labelledby="r1m"
                   class="navds-radio__input"
-                  id="radio-r1n"
+                  id="radio-r1l"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-r1n"
+                  for="radio-r1l"
                 >
                   <span
                     class="navds-radio__content"
@@ -421,7 +422,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="r1o"
+                      id="r1m"
                     >
                       radiobuttons.ja
                     </span>
@@ -432,16 +433,16 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="r1r"
+                  aria-labelledby="r1p"
                   class="navds-radio__input"
-                  id="radio-r1q"
+                  id="radio-r1o"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-r1q"
+                  for="radio-r1o"
                 >
                   <span
                     class="navds-radio__content"
@@ -449,7 +450,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="r1r"
+                      id="r1p"
                     >
                       radiobuttons.nei
                     </span>
@@ -461,7 +462,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-r1m"
+              id="fieldset-error-r1k"
             />
           </fieldset>
         </div>
@@ -491,7 +492,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-r1u"
+              id="fieldset-description-r1s"
             >
               inntektenDin.ytelserAndre.hvorfor
             </div>
@@ -502,16 +503,16 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="r20"
+                  aria-labelledby="r1u"
                   class="navds-radio__input"
-                  id="radio-r1v"
+                  id="radio-r1t"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-r1v"
+                  for="radio-r1t"
                 >
                   <span
                     class="navds-radio__content"
@@ -519,7 +520,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="r20"
+                      id="r1u"
                     >
                       radiobuttons.ja
                     </span>
@@ -530,16 +531,16 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="r23"
+                  aria-labelledby="r21"
                   class="navds-radio__input"
-                  id="radio-r22"
+                  id="radio-r20"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-r22"
+                  for="radio-r20"
                 >
                   <span
                     class="navds-radio__content"
@@ -547,7 +548,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="r23"
+                      id="r21"
                     >
                       radiobuttons.nei
                     </span>
@@ -559,7 +560,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-r1u"
+              id="fieldset-error-r1s"
             />
           </fieldset>
         </div>
@@ -624,7 +625,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r27"
+              aria-labelledby="title-r25"
               fill="none"
               focusable="false"
               height="1em"
@@ -634,7 +635,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r27"
+                id="title-r25"
               >
                 Lukk
               </title>
@@ -729,12 +730,13 @@ exports[`Inntekten din > Snapshot 1`] = `
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
+        data-responsive="true"
       >
         <div
           class="navds-guide"
         >
           <svg
-            aria-label="NAV veileder illustrasjon"
+            aria-label="Illustrasjon av veileder"
             fill="none"
             focusable="false"
             height="85"
@@ -845,15 +847,15 @@ exports[`Inntekten din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r3"
+                aria-labelledby="r2"
                 class="navds-checkbox__input"
-                id="checkbox-r2"
+                id="checkbox-r1"
                 type="checkbox"
                 value="inntekt.loenn"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r2"
+                for="checkbox-r1"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -880,7 +882,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r3"
+                    id="r2"
                   >
                     inntekt.loenn
                   </span>
@@ -891,15 +893,15 @@ exports[`Inntekten din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r6"
+                aria-labelledby="r5"
                 class="navds-checkbox__input"
-                id="checkbox-r5"
+                id="checkbox-r4"
                 type="checkbox"
                 value="inntekt.naering"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r5"
+                for="checkbox-r4"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -926,7 +928,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r6"
+                    id="r5"
                   >
                     inntekt.naering
                   </span>
@@ -937,15 +939,15 @@ exports[`Inntekten din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="r9"
+                aria-labelledby="r8"
                 class="navds-checkbox__input"
-                id="checkbox-r8"
+                id="checkbox-r7"
                 type="checkbox"
                 value="inntekt.pensjonEllerUfoere"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-r8"
+                for="checkbox-r7"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -972,7 +974,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="r9"
+                    id="r8"
                   >
                     inntekt.pensjonEllerUfoere
                   </span>
@@ -983,15 +985,15 @@ exports[`Inntekten din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="rc"
+                aria-labelledby="rb"
                 class="navds-checkbox__input"
-                id="checkbox-rb"
+                id="checkbox-ra"
                 type="checkbox"
                 value="inntekt.ytelser"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-rb"
+                for="checkbox-ra"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1018,7 +1020,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="rc"
+                    id="rb"
                   >
                     inntekt.ytelser
                   </span>
@@ -1029,15 +1031,15 @@ exports[`Inntekten din > Snapshot 1`] = `
               class="navds-checkbox navds-checkbox--medium"
             >
               <input
-                aria-labelledby="rf"
+                aria-labelledby="re"
                 class="navds-checkbox__input"
-                id="checkbox-re"
+                id="checkbox-rd"
                 type="checkbox"
                 value="inntekt.annen"
               />
               <label
                 class="navds-checkbox__label"
-                for="checkbox-re"
+                for="checkbox-rd"
               >
                 <span
                   class="navds-checkbox__icon"
@@ -1064,7 +1066,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                   <span
                     aria-hidden="true"
                     class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                    id="rf"
+                    id="re"
                   >
                     inntekt.annen
                   </span>
@@ -1076,7 +1078,7 @@ exports[`Inntekten din > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-r1"
+            id="fieldset-error-r0"
           />
         </fieldset>
       </div>
@@ -1105,7 +1107,7 @@ exports[`Inntekten din > Snapshot 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-ri"
+              id="fieldset-description-rh"
             >
               inntektenDin.ytelserNAV.hvorfor
             </div>
@@ -1116,16 +1118,16 @@ exports[`Inntekten din > Snapshot 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="rk"
+                  aria-labelledby="rj"
                   class="navds-radio__input"
-                  id="radio-rj"
+                  id="radio-ri"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rj"
+                  for="radio-ri"
                 >
                   <span
                     class="navds-radio__content"
@@ -1133,7 +1135,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="rk"
+                      id="rj"
                     >
                       radiobuttons.ja
                     </span>
@@ -1144,16 +1146,16 @@ exports[`Inntekten din > Snapshot 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="rn"
+                  aria-labelledby="rm"
                   class="navds-radio__input"
-                  id="radio-rm"
+                  id="radio-rl"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rm"
+                  for="radio-rl"
                 >
                   <span
                     class="navds-radio__content"
@@ -1161,7 +1163,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="rn"
+                      id="rm"
                     >
                       radiobuttons.nei
                     </span>
@@ -1173,7 +1175,7 @@ exports[`Inntekten din > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-ri"
+              id="fieldset-error-rh"
             />
           </fieldset>
         </div>
@@ -1203,7 +1205,7 @@ exports[`Inntekten din > Snapshot 1`] = `
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-rq"
+              id="fieldset-description-rp"
             >
               inntektenDin.ytelserAndre.hvorfor
             </div>
@@ -1214,16 +1216,16 @@ exports[`Inntekten din > Snapshot 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="rs"
+                  aria-labelledby="rr"
                   class="navds-radio__input"
-                  id="radio-rr"
+                  id="radio-rq"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-rr"
+                  for="radio-rq"
                 >
                   <span
                     class="navds-radio__content"
@@ -1231,7 +1233,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="rs"
+                      id="rr"
                     >
                       radiobuttons.ja
                     </span>
@@ -1242,16 +1244,16 @@ exports[`Inntekten din > Snapshot 1`] = `
                 class="radioBorder navds-radio navds-radio--medium"
               >
                 <input
-                  aria-labelledby="rv"
+                  aria-labelledby="ru"
                   class="navds-radio__input"
-                  id="radio-ru"
+                  id="radio-rt"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-ru"
+                  for="radio-rt"
                 >
                   <span
                     class="navds-radio__content"
@@ -1259,7 +1261,7 @@ exports[`Inntekten din > Snapshot 1`] = `
                     <span
                       aria-hidden="true"
                       class="navds-body-short navds-body-short--medium"
-                      id="rv"
+                      id="ru"
                     >
                       radiobuttons.nei
                     </span>
@@ -1271,7 +1273,7 @@ exports[`Inntekten din > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-rq"
+              id="fieldset-error-rp"
             />
           </fieldset>
         </div>
@@ -1336,7 +1338,7 @@ exports[`Inntekten din > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-r13"
+              aria-labelledby="title-r12"
               fill="none"
               focusable="false"
               height="1em"
@@ -1346,7 +1348,7 @@ exports[`Inntekten din > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-r13"
+                id="title-r12"
               >
                 Lukk
               </title>

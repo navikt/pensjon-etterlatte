@@ -214,36 +214,26 @@ exports[`Om den avdøde > Snapshot 1`] = `
                       />
                     </li>
                   </ul>
-                  <div>
-                    <button
-                      aria-expanded="false"
-                      class="navds-combobox__button-toggle-list"
-                      tabindex="-1"
-                      type="button"
+                  <div
+                    aria-hidden="true"
+                    class="navds-combobox__button-toggle-list"
+                  >
+                    <svg
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <span
-                        class="navds-sr-only"
-                      >
-                        Alternativer
-                      </span>
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          clip-rule="evenodd"
-                          d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </button>
+                      <path
+                        clip-rule="evenodd"
+                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
                   </div>
                 </div>
                 <div
