@@ -315,7 +315,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('foedselsnummer').type(barn.foedselsnummer)
             getById('statsborgerskap').type(barn.statsborgerskap).type('{downArrow}').type('{enter}')
             selectValueForId('bosattUtland.svar', barn.bosattUtland.svar)
-            if (barn.foedselsnummer === '07010776133') {
+            if (barn.foedselsnummer === '14812290208') {
                 // under 18 år
                 selectValueForId('harBarnetVerge.svar', barn.harBarnetVerge.svar)
                 selectValueForId('barnepensjon.kontonummer.svar', barn.barnepensjon.kontonummer.svar)
