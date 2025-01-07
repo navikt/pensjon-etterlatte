@@ -1,11 +1,11 @@
-package no.nav.etterlatte.no.nav.etterlatte.endringer
+package omsendringer
 
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
-import no.nav.etterlatte.endringer.EndringType
-import no.nav.etterlatte.endringer.Endringer
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.no.nav.etterlatte.no.nav.etterlatte.endringer.EndringerRepository
+import no.nav.etterlatte.omsendringer.OmsEndringType
+import no.nav.etterlatte.omsendringer.OmsMeldInnEndringRepository
+import no.nav.etterlatte.omsendringer.OmsMeldtInnEndring
 import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -17,10 +17,10 @@ import java.time.Instant
 import java.util.UUID
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class EndringerRepositoryTest {
+class OmsMeldInnEndringRepositoryTest {
     @Container
     private val postgreSQLContainer = PostgreSQLContainer<Nothing>("postgres:14")
-    private lateinit var repository: EndringerRepository
+    private lateinit var repository: OmsMeldInnEndringRepository
     private lateinit var dsbHolder: DataSourceBuilder
 
     @BeforeAll
@@ -28,7 +28,7 @@ class EndringerRepositoryTest {
         val (_, dsb) = opprettInMemoryDatabase(postgreSQLContainer)
         dsbHolder = dsb
         dsb.migrate()
-        repository = EndringerRepository(dsb.dataSource)
+        repository = OmsMeldInnEndringRepository(dsb.dataSource)
     }
 
     @AfterAll
@@ -39,10 +39,10 @@ class EndringerRepositoryTest {
     @Test
     fun `lagre endring`() {
         val endringer =
-            Endringer(
+            OmsMeldtInnEndring(
                 id = UUID.randomUUID(),
                 fnr = Foedselsnummer.of("09038520129"),
-                type = EndringType.ANNET,
+                type = OmsEndringType.ANNET,
                 endringer = "Beskrivelse av alle endringer til bruker",
                 tidspunkt = Instant.now(),
             )

@@ -1,21 +1,18 @@
-package no.nav.etterlatte.no.nav.etterlatte.endringer
+package no.nav.etterlatte.omsendringer
 
-import no.nav.etterlatte.endringer.Endringer
-import no.nav.etterlatte.endringer.EndringerRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.no.nav.etterlatte.no.nav.etterlatte.endringer.EndringerRepository
 import java.time.Instant
 import java.util.UUID
 
-class EndringerService(
-    val repository: EndringerRepository,
+class OmsMeldInnEndringService(
+    val repository: OmsMeldInnEndringRepository,
 ) {
     fun lagreEndringer(
         fnr: Foedselsnummer,
-        request: EndringerRequest,
+        request: OmsMeldtInnEndringRequest,
     ) {
         repository.lagreEndringer(
-            Endringer(
+            OmsMeldtInnEndring(
                 id = UUID.randomUUID(),
                 fnr = fnr,
                 type = request.type,

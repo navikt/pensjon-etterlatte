@@ -1,16 +1,12 @@
-package no.nav.etterlatte.no.nav.etterlatte.no.nav.etterlatte.endringer
+package no.nav.etterlatte.omsendringer
 
-import no.nav.etterlatte.endringer.EndringType
-import no.nav.etterlatte.endringer.Endringer
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.database.firstOrNull
-import no.nav.etterlatte.no.nav.etterlatte.no.nav.etterlatte.endringer.Queries.HENT_ENDRING
-import no.nav.etterlatte.no.nav.etterlatte.no.nav.etterlatte.endringer.Queries.LAGRE_ENDRINGER
 import java.sql.Timestamp
 import java.util.UUID
 import javax.sql.DataSource
 
-class EndringerRepository(
+class OmsMeldInnEndringRepository(
     private val ds: DataSource,
 ) {
     private val connection get() = ds.connection
@@ -18,25 +14,25 @@ class EndringerRepository(
     fun hentEndring(id: UUID) =
         connection.use {
             it
-                .prepareStatement(HENT_ENDRING)
+                .prepareStatement(Queries.HENT_ENDRING)
                 .apply {
                     setObject(1, id)
                 }.executeQuery()
                 .firstOrNull {
-                    Endringer(
+                    OmsMeldtInnEndring(
                         id = UUID.fromString(getString("id")),
                         fnr = Foedselsnummer.of(getString("fnr")),
-                        type = EndringType.valueOf(getString("type")),
+                        type = OmsEndringType.valueOf(getString("type")),
                         endringer = getString("endringer"),
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
                     )
                 }
         }
 
-    fun lagreEndringer(endringer: Endringer) =
+    fun lagreEndringer(endringer: OmsMeldtInnEndring) =
         connection.use {
             it
-                .prepareStatement(LAGRE_ENDRINGER)
+                .prepareStatement(Queries.LAGRE_ENDRINGER)
                 .apply {
                     setObject(1, endringer.id)
                     setString(2, endringer.fnr.value)
@@ -50,11 +46,11 @@ class EndringerRepository(
 private object Queries {
     val HENT_ENDRING =
         """
-        SELECT * FROM endringer WHERE id = ?
+        SELECT * FROM oms_meld_inn_endring WHERE id = ?
         """.trimIndent()
 
     val LAGRE_ENDRINGER =
         """
-        INSERT INTO endringer (id, fnr, type, endringer, tidspunkt) values (?,?,?,?,?)
+        INSERT INTO oms_meld_inn_endring (id, fnr, type, endringer, tidspunkt) values (?,?,?,?,?)
         """.trimIndent()
 }

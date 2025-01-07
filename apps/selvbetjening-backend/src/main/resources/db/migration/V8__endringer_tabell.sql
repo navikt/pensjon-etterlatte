@@ -1,4 +1,4 @@
-CREATE TABLE endringer
+CREATE TABLE oms_meld_inn_endring
 (
     id        uuid      NOT NULL,
     fnr       TEXT      NOT NULL,
