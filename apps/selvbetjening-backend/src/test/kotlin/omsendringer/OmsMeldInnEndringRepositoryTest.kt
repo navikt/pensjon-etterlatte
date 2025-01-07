@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
-import java.time.Instant
 import java.util.UUID
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -44,7 +43,6 @@ class OmsMeldInnEndringRepositoryTest {
                 fnr = Foedselsnummer.of("09038520129"),
                 type = OmsEndringType.ANNET,
                 endringer = "Beskrivelse av alle endringer til bruker",
-                tidspunkt = Instant.now(),
             )
 
         repository.lagreEndringer(endringer)

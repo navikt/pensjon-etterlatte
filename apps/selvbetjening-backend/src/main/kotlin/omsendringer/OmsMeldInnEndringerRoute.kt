@@ -10,6 +10,7 @@ import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import java.time.Instant
+import java.time.temporal.ChronoUnit
 import java.util.UUID
 
 fun Route.omsMeldInnEndring(service: OmsMeldInnEndringService) {
@@ -29,11 +30,11 @@ data class OmsMeldtInnEndringRequest(
 )
 
 data class OmsMeldtInnEndring(
-    val id: UUID,
+    val id: UUID = UUID.randomUUID(),
     val fnr: Foedselsnummer,
     val type: OmsEndringType,
     val endringer: String,
-    val tidspunkt: Instant,
+    val tidspunkt: Instant = Instant.now().truncatedTo(ChronoUnit.SECONDS),
 )
 
 enum class OmsEndringType {
