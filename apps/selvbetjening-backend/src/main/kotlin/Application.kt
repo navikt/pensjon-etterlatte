@@ -50,6 +50,8 @@ import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.omsendringer.OmsMeldInnEndringRepository
 import no.nav.etterlatte.omsendringer.OmsMeldInnEndringService
+import no.nav.etterlatte.omsendringer.OmsMeldtInnEndringMottakFullfoert
+import no.nav.etterlatte.omsendringer.PubliserOmsMeldtInnEndringJobb
 import no.nav.etterlatte.omsendringer.omsMeldInnEndring
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
@@ -153,11 +155,15 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-                InntektsjusteringMottatkGjennyFullfoert(rapidConnection, inntektsjusteringService)
-
                 PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
                     .schedule()
                     ?.addShutdownHook()
+                InntektsjusteringMottatkGjennyFullfoert(rapidConnection, inntektsjusteringService)
+
+                PubliserOmsMeldtInnEndringJobb(rapid, omsMeldInnEndringService, featureToggleService)
+                    .schedule()
+                    ?.addShutdownHook()
+                OmsMeldtInnEndringMottakFullfoert(rapidConnection, omsMeldInnEndringService)
             }
     rapidApplication.start()
 }
