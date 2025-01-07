@@ -9,6 +9,7 @@ export enum FeatureToggleStatus {
     HENTING_FEILET = 'HENTING_FEILET',
 }
 export enum FeatureToggleNavn {
+    OMS_INNTEKTSJUSTERING_SKJEMA = 'oms-inntektsjustering-skjema',
     OMS_MELD_INN_ENDRING_SKJEMA = 'oms-meld-inn-endring-skjema',
 }
 
@@ -25,13 +26,17 @@ export const ProvideFeatureTogglesContext = ({ children }: { children: ReactNode
     const [featureToggles, setFeatureToggles] = useState<Array<FeatureToggle>>(initialFeatureTogglesState)
 
     const hentFeatureToggles = async (): Promise<Array<FeatureToggle>> => {
-        const featureToggles: Array<FeatureToggle> = []
+        const featureToggles: FeatureToggle[] = []
 
         try {
             const res = await poster(`${apiURL}/feature`, { body: Object.values(FeatureToggleNavn) })
 
             if ([200, 304].includes(res.status)) {
-                res.json().then((toggles) => featureToggles.concat(toggles))
+                res.json().then((toggles) => {
+                    if (Array.isArray(toggles)) {
+                        toggles.map((toggle) => featureToggles.push(toggle))
+                    }
+                })
             }
         } catch (e) {
             logger.generalError(e as object)

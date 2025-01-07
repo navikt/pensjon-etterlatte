@@ -6,6 +6,12 @@ import { InntektsjusteringInntektTilNesteAar } from './2-inntekt-til-neste-aar/I
 import { InntektsjusteringOppsummering } from './3-oppsummering/InntektsjusteringOppsummering.tsx'
 import { InntektsjusteringKvittering } from './4-kvittering/InntektsjusteringKvittering.tsx'
 import { ProvideInntektContext } from './components/inntektContext/InntektContext.tsx'
+import {
+    FeatureToggleNavn,
+    FeatureToggleStatus,
+    useFeatureToggle,
+} from '../common/featureToggles/FeatureTogglesContext.tsx'
+import { InntektSkjemaLukket } from './components/inntektSkjemaLukket/InntektSkjemaLukket.tsx'
 
 const router = createBrowserRouter(
     [
@@ -41,9 +47,15 @@ const router = createBrowserRouter(
 )
 
 export const InntektsjusteringRoot = () => {
+    const omsInntetksjusteringSkjemaFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_INNTEKTSJUSTERING_SKJEMA)
+
     return (
         <ProvideInntektContext>
-            <RouterProvider router={router} />
+            {omsInntetksjusteringSkjemaFeatureToggle.status === FeatureToggleStatus.PAA ? (
+                <RouterProvider router={router} />
+            ) : (
+                <InntektSkjemaLukket />
+            )}
         </ProvideInntektContext>
     )
 }

@@ -21,8 +21,8 @@ createRoot(document.getElementById('root')!).render(
             <ProvideFeatureTogglesContext>
                 <ProvideSpraakContext>
                     <ProvideInnloggetInnbyggerContext>
-                        <MeldInnEndringRoot />
                         <InntektsjusteringRoot />
+                        <MeldInnEndringRoot />
                     </ProvideInnloggetInnbyggerContext>
                 </ProvideSpraakContext>
             </ProvideFeatureTogglesContext>

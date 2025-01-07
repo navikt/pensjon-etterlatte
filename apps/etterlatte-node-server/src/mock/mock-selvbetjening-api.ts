@@ -87,18 +87,16 @@ export const mockSelvbetjeningApi = (app: any) => {
     })
 
     app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {
-        const featureTogglesNavn: string[] = req.body
-
-        const alleFeatureToggles = []
-
-        if (featureTogglesNavn.includes('oms-meld-inn-endring-skjema')) {
-            alleFeatureToggles.push({
+        res.send([
+            {
                 name: 'oms-meld-inn-endring-skjema',
                 status: FeatureToggleStatus.PAA,
-            })
-        }
-
-        res.send(alleFeatureToggles)
+            },
+            {
+                name: 'oms-inntektsjustering-skjema',
+                status: FeatureToggleStatus.PAA,
+            },
+        ])
     })
 
     app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
