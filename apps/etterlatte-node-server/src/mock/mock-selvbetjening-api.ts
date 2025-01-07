@@ -1,6 +1,6 @@
 import { STOR_SNERK_FORENKLET } from './mock-user'
 import parser from 'body-parser'
-import { NextFunction, Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
 import {
@@ -86,20 +86,19 @@ export const mockSelvbetjeningApi = (app: any) => {
         }
     })
 
-    app.post(`${config.app.basePath}/api/feature`, (req: Request, res: Response) => {
-        const toggles = req.query.features
+    app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {
+        const featureTogglesNavn: string[] = req.body.featureTogglesNavn
 
-        if (toggles?.toString().includes('oms-meld-inn-endring-skjema')) {
-            res.send({
-                toggle: 'oms-meld-inn-endring-skjema',
-                enabled: FeatureStatus.PAA,
-            })
-        } else {
-            res.send({
-                toggle: '',
-                enabled: FeatureStatus.UDEFINERT,
+        const alleFeatureToggles = []
+
+        if (featureTogglesNavn.includes('oms-meld-inn-endring-skjema')) {
+            alleFeatureToggles.push({
+                name: 'oms-meld-inn-endring-skjema',
+                status: FeatureStatus.PAA,
             })
         }
+
+        res.send(alleFeatureToggles)
     })
 
     app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {
