@@ -2,7 +2,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { SystemUtilgjengelig } from '../common/SystemUtilgjengelig.tsx'
 import { FantIkkeSiden } from '../common/FantIkkeSiden.tsx'
 import { MeldInnEndringSkjema } from './meldInnEndringSkjema/MeldInnEndringSkjema.tsx'
-import { useState } from 'react'
+import {
+    FeatureToggleNavn,
+    FeatureToggleStatus,
+    useFeatureToggle,
+} from '../common/featureToggles/FeatureTogglesContext.tsx'
 
 const router = createBrowserRouter(
     [
@@ -23,7 +27,9 @@ const router = createBrowserRouter(
 )
 
 export const MeldInnEndringRoot = () => {
-    const [skalVise] = useState<boolean>(true)
+    const omsMeldInnEndringerSkjemaFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_MELD_INN_ENDRING_SKJEMA)
 
-    return skalVise && <RouterProvider router={router} />
+    return (
+        omsMeldInnEndringerSkjemaFeatureToggle.status === FeatureToggleStatus.PAA && <RouterProvider router={router} />
+    )
 }

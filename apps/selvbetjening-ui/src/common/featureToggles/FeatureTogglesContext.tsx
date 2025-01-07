@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 import { apiURL, poster } from '../api/api.ts'
 import { logger } from '../logger/logger.ts'
 
@@ -45,4 +45,17 @@ export const ProvideFeatureTogglesContext = ({ children }: { children: ReactNode
     }, [])
 
     return <featureTogglesContext.Provider value={featureToggles}>{children}</featureTogglesContext.Provider>
+}
+
+export const useFeatureToggle = (featureToggleNavn: FeatureToggleNavn): FeatureToggle => {
+    const funnetFeatureToggle = useContext(featureTogglesContext).find((toggle) => toggle.name === featureToggleNavn)
+
+    if (!!funnetFeatureToggle) {
+        return funnetFeatureToggle
+    } else {
+        return {
+            name: featureToggleNavn,
+            status: FeatureToggleStatus.UDEFINERT,
+        }
+    }
 }
