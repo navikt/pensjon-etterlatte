@@ -87,7 +87,7 @@ export const mockSelvbetjeningApi = (app: any) => {
     })
 
     app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {
-        const featureTogglesNavn: string[] = req.body.featureTogglesNavn
+        const featureTogglesNavn: string[] = req.body
 
         const alleFeatureToggles = []
 

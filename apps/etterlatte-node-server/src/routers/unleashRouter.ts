@@ -16,7 +16,7 @@ export enum FeatureToggleStatus {
 
 if (config.env.isSelvbetjeningUIApp) {
     unleashRouter.post('/', express.json(), (req: Request, res: Response) => {
-        const featureTogglesName: string[] = req.body.featureTogglesName
+        const featureTogglesName: string[] = req.body
 
         const statusPaaFeatureToggle = (name: string): FeatureToggleStatus => {
             const context: Context = {
