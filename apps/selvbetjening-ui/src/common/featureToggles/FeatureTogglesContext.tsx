@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import useSWR from 'swr'
 import { apiURL, poster } from '../api/api.ts'
 import { logger } from '../logger/logger.ts'
 
