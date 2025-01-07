@@ -15,6 +15,7 @@ import {
     systemUtilgjengeligTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
+import { FeatureStatus } from '../routers/unleashRouter'
 
 const cache = new NodeCache()
 
@@ -82,6 +83,22 @@ export const mockSelvbetjeningApi = (app: any) => {
             res.send(inntektSkjemaLukketTestBlocks)
         } else {
             res.send(testBlocks)
+        }
+    })
+
+    app.post(`${config.app.basePath}/api/feature`, (req: Request, res: Response) => {
+        const toggles = req.query.features
+
+        if (toggles?.toString().includes('oms-meld-inn-endring-skjema')) {
+            res.send({
+                toggle: 'oms-meld-inn-endring-skjema',
+                enabled: FeatureStatus.PAA,
+            })
+        } else {
+            res.send({
+                toggle: '',
+                enabled: FeatureStatus.UDEFINERT,
+            })
         }
     })
 
