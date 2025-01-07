@@ -48,6 +48,9 @@ import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
+import no.nav.etterlatte.omsendringer.OmsMeldInnEndringRepository
+import no.nav.etterlatte.omsendringer.OmsMeldInnEndringService
+import no.nav.etterlatte.omsendringer.omsMeldInnEndring
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
 import no.nav.etterlatte.person.person
@@ -110,6 +113,11 @@ fun main() {
             InntektsjusteringRepository(datasourceBuilder.dataSource),
         )
 
+    val omsMeldInnEndringService =
+        OmsMeldInnEndringService(
+            OmsMeldInnEndringRepository(datasourceBuilder.dataSource),
+        )
+
     val peronService =
         tokenSecuredEndpoint(config.getConfig("no.nav.etterlatte.tjenester.pdl"))
             .also {
@@ -140,6 +148,7 @@ fun main() {
                     inntektsjustering(inntektsjusteringService)
                     person(peronService)
                     sak(sakService)
+                    omsMeldInnEndring(omsMeldInnEndringService)
                 }
             }.build {
                 datasourceBuilder.migrate()
