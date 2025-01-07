@@ -15,7 +15,7 @@ import {
     systemUtilgjengeligTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
-import { FeatureStatus } from '../routers/unleashRouter'
+import { FeatureToggleStatus } from '../routers/unleashRouter'
 
 const cache = new NodeCache()
 
@@ -94,7 +94,7 @@ export const mockSelvbetjeningApi = (app: any) => {
         if (featureTogglesNavn.includes('oms-meld-inn-endring-skjema')) {
             alleFeatureToggles.push({
                 name: 'oms-meld-inn-endring-skjema',
-                status: FeatureStatus.PAA,
+                status: FeatureToggleStatus.PAA,
             })
         }
 

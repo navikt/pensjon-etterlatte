@@ -7,6 +7,7 @@ import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
 import { InntektsjusteringRoot } from './inntektsjustering/InntektjusteringRoot.tsx'
 import { ProvideInnloggetInnbyggerContext } from './common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { MeldInnEndringRoot } from './meldInnEndring/MeldInnEndringRoot.tsx'
+import { ProvideFeatureTogglesContext } from './common/featureToggles/FeatureTogglesContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -17,12 +18,14 @@ createRoot(document.getElementById('root')!).render(
                 revalidateOnFocus: false,
             }}
         >
-            <ProvideSpraakContext>
-                <ProvideInnloggetInnbyggerContext>
-                    <InntektsjusteringRoot />
-                    <MeldInnEndringRoot />
-                </ProvideInnloggetInnbyggerContext>
-            </ProvideSpraakContext>
+            <ProvideFeatureTogglesContext>
+                <ProvideSpraakContext>
+                    <ProvideInnloggetInnbyggerContext>
+                        <InntektsjusteringRoot />
+                        <MeldInnEndringRoot />
+                    </ProvideInnloggetInnbyggerContext>
+                </ProvideSpraakContext>
+            </ProvideFeatureTogglesContext>
         </SWRConfig>
     </StrictMode>
 )
