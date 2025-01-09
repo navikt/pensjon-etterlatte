@@ -4,10 +4,68 @@ import '@navikt/ds-css'
 import { fetcher } from './common/api/api.ts'
 import { SWRConfig } from 'swr'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
-import { InntektsjusteringRoot } from './inntektsjustering/InntektjusteringRoot.tsx'
 import { ProvideInnloggetInnbyggerContext } from './common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
-import { MeldInnEndringRoot } from './meldInnEndring/MeldInnEndringRoot.tsx'
 import { ProvideFeatureTogglesContext } from './common/featureToggles/FeatureTogglesContext.tsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
+import { InntektsjusteringInnledning } from './inntektsjustering/1-innledning/InntektsjusteringInnledning.tsx'
+import { InntektsjusteringInntektTilNesteAar } from './inntektsjustering/2-inntekt-til-neste-aar/InntektsjusteringInntektTilNesteAar.tsx'
+import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummering/InntektsjusteringOppsummering.tsx'
+import { InntektsjusteringKvittering } from './inntektsjustering/4-kvittering/InntektsjusteringKvittering.tsx'
+import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
+import { MeldInnEndringSkjema } from './meldInnEndring/meldInnEndringSkjema/MeldInnEndringSkjema.tsx'
+import { InntektsjusteringOutlet } from './inntektsjustering/InntektsjusteringOutlet.tsx'
+import { MeldInnEndringOutlet } from './meldInnEndring/MeldInnEndringOutlet.tsx'
+
+const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            children: [
+                {
+                    path: '/inntekt',
+                    element: <InntektsjusteringOutlet />,
+                    children: [
+                        {
+                            path: '*',
+                            element: <FantIkkeSiden />,
+                        },
+                        { path: `/inntekt/system-utilgjengelig`, element: <SystemUtilgjengelig /> },
+                        {
+                            path: `/inntekt/innledning`,
+                            element: <InntektsjusteringInnledning />,
+                        },
+                        {
+                            path: `/inntekt/inntekt-til-neste-aar`,
+                            element: <InntektsjusteringInntektTilNesteAar />,
+                        },
+                        {
+                            path: `/inntekt/oppsummering`,
+                            element: <InntektsjusteringOppsummering />,
+                        },
+                        {
+                            path: `/inntekt/kvittering`,
+                            element: <InntektsjusteringKvittering />,
+                        },
+                    ],
+                },
+                {
+                    path: '/meld-inn-endring',
+                    element: <MeldInnEndringOutlet />,
+                    children: [
+                        {
+                            path: '*',
+                            element: <FantIkkeSiden />,
+                        },
+                        { path: `/meld-inn-endring/system-utilgjengelig`, element: <SystemUtilgjengelig /> },
+                        { path: '/meld-inn-endring/meld-inn', element: <MeldInnEndringSkjema /> },
+                    ],
+                },
+            ],
+        },
+    ],
+    { basename: '/omstillingsstonad/skjema' }
+)
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
@@ -21,8 +79,7 @@ createRoot(document.getElementById('root')!).render(
             <ProvideFeatureTogglesContext>
                 <ProvideSpraakContext>
                     <ProvideInnloggetInnbyggerContext>
-                        <InntektsjusteringRoot />
-                        <MeldInnEndringRoot />
+                        <RouterProvider router={router} />
                     </ProvideInnloggetInnbyggerContext>
                 </ProvideSpraakContext>
             </ProvideFeatureTogglesContext>
