@@ -19,7 +19,7 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLa
 
     const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
-    if (error && !isLoading) return <Navigate to="/system-utilgjengelig" />
+    if (error && !isLoading) return <Navigate to="/inntekt/system-utilgjengelig" />
 
     return (
         !!innhold && (

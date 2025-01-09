@@ -18,10 +18,10 @@ export const FeilIAPIKall = () => {
         return <Loader />
     }
     if (innholdError) {
-        return <Navigate to="/system-utilgjengelig" />
+        return <Navigate to="/inntekt/system-utilgjengelig" />
     }
     if (!innhold?.feilIOpprettelseAvInntekt) {
-        return <Navigate to="/system-utilgjengelig" />
+        return <Navigate to="/inntekt/system-utilgjengelig" />
     }
 
     return (

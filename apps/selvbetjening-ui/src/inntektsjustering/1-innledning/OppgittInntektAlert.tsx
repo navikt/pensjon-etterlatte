@@ -35,11 +35,11 @@ export const OppgittInntektAlert = ({
     } = useSanityInnhold<InntektsjusteringInnledningInnhold>('*[_type == "inntektsjusteringInnledning"]')
 
     if (fellesKomponenterInnholdError && !fellesKomponenterInnholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+        return <Navigate to="/inntekt/system-utilgjengelig" />
     }
 
     if (inntektsjusteringInnledningInnholdError && !inntektsjusteringInnledningInnholdIsLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+        return <Navigate to="/inntekt/system-utilgjengelig" />
     }
 
     return (
