@@ -53,7 +53,7 @@ export const SekstiSyvAarSkjema = () => {
 
     const onInntektSubmit = (inntekt: Inntekt) => {
         inntektDispatch.setInntekt(inntekt)
-        navigate(`/oppsummering`)
+        navigate(`/inntekt/oppsummering`)
     }
 
     const {
@@ -233,7 +233,7 @@ export const SekstiSyvAarSkjema = () => {
                     )}
 
                     <NavigasjonMeny
-                        tilbakePath="/innledning"
+                        tilbakePath="/inntekt/innledning"
                         onNeste={handleSubmit((inntekt) => onInntektSubmit(inntektSkjemaValuesTilInntekt(inntekt)))}
                     />
                 </VStack>

@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
-import { isAfter } from 'date-fns'
 import { HStack, VStack } from '@navikt/ds-react'
 import useSWR, { SWRResponse } from 'swr'
 import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.ts'
@@ -7,7 +6,6 @@ import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { logger } from '../../../common/logger/logger.ts'
-import { InntektSkjemaLukket } from '../inntektSkjemaLukket/InntektSkjemaLukket.tsx'
 import { SpraakVelger } from '../../../common/spraak/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from '../../1-innledning/HarIkkeOMSSakIGjenny.tsx'
 import { finnAlder } from '../../2-inntekt-til-neste-aar/finnAlder.ts'
@@ -52,11 +50,6 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
 
     const dispatcher: InntektDispatcher = {
         setInntekt,
-    }
-
-    // Hvis dagen i dag er etter 1. Januar 2025 kl. 04:00, ikke la bruker gå videre i skjemaet
-    if (isAfter(new Date(), new Date(2025, 0, 1, 4))) {
-        return <InntektSkjemaLukket />
     }
 
     if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {

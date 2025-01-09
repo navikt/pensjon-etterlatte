@@ -1,6 +1,6 @@
 import { STOR_SNERK_FORENKLET } from './mock-user'
 import parser from 'body-parser'
-import { NextFunction, Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
 import {
@@ -15,6 +15,7 @@ import {
     systemUtilgjengeligTestBlocks,
     testBlocks,
 } from './data/sanityBlocks'
+import { FeatureToggleStatus } from '../routers/unleashRouter'
 
 const cache = new NodeCache()
 
@@ -83,6 +84,19 @@ export const mockSelvbetjeningApi = (app: any) => {
         } else {
             res.send(testBlocks)
         }
+    })
+
+    app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {
+        res.send([
+            {
+                name: 'oms-meld-inn-endring-skjema',
+                status: FeatureToggleStatus.PAA,
+            },
+            {
+                name: 'oms-inntektsjustering-skjema',
+                status: FeatureToggleStatus.PAA,
+            },
+        ])
     })
 
     app.get(`${config.app.basePath}/session`, async (req: Request, res: Response) => {

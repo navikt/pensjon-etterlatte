@@ -13,7 +13,7 @@ export const SpraakVelger = () => {
     const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
     if (error && !isLoading) {
-        return <Navigate to="/system-utilgjengelig" />
+        return <Navigate to="/inntekt/system-utilgjengelig" />
     }
 
     return (

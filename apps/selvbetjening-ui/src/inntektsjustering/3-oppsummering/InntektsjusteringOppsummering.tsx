@@ -72,7 +72,7 @@ export const InntektsjusteringOppsummering = () => {
         try {
             const res = await poster(`${apiURL}/api/inntektsjustering`, { body: inntekt })
             if ([200, 304].includes(res.status)) {
-                navigate('/kvittering')
+                navigate('/inntekt/kvittering')
             } else {
                 setApiFeil(true)
             }
@@ -105,7 +105,10 @@ export const InntektsjusteringOppsummering = () => {
                         <FormSummary>
                             <FormSummary.Header>
                                 <FormSummary.Heading level="2">{tittel?.[spraak]}</FormSummary.Heading>
-                                <FormSummary.EditLink href="#" onClick={() => navigate(`/inntekt-til-neste-aar`)}>
+                                <FormSummary.EditLink
+                                    href="#"
+                                    onClick={() => navigate(`/inntekt/inntekt-til-neste-aar`)}
+                                >
                                     {endreSvarLenke?.tekst?.[spraak]}
                                 </FormSummary.EditLink>
                             </FormSummary.Header>
@@ -207,7 +210,7 @@ export const InntektsjusteringOppsummering = () => {
                         {apiFeil && <FeilIAPIKall />}
 
                         <NavigasjonMeny
-                            tilbakePath="/inntekt-til-neste-aar"
+                            tilbakePath="/inntekt/inntekt-til-neste-aar"
                             onNeste={sendInnInntektsjustering}
                             nesteLaster={laster}
                             skalSendeSoeknad
