@@ -26,23 +26,12 @@ export const ProvideFeatureTogglesContext = ({ children }: { children: ReactNode
     const [featureToggles, setFeatureToggles] = useState<Array<FeatureToggle>>(initialFeatureTogglesState)
 
     const hentFeatureToggles = async (): Promise<Array<FeatureToggle>> => {
-        const featureToggles: FeatureToggle[] = []
-
-        try {
-            const res = await poster(`${apiURL}/feature`, { body: Object.values(FeatureToggleNavn) })
-
-            if ([200, 304].includes(res.status)) {
-                res.json().then((toggles) => {
-                    if (Array.isArray(toggles)) {
-                        toggles.map((toggle) => featureToggles.push(toggle))
-                    }
-                })
-            }
-        } catch (e) {
-            logger.generalError(e as object)
-        }
-
-        return featureToggles
+        return await poster(`${apiURL}/feature`, { body: Object.values(FeatureToggleNavn) })
+            .then((res) => ([200, 304].includes(res.status) ? res.json() : []))
+            .catch((e) => {
+                logger.generalError(e as object)
+                return []
+            })
     }
 
     useEffect(() => {
