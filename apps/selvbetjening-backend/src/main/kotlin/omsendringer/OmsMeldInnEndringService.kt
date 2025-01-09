@@ -1,9 +1,10 @@
 package no.nav.etterlatte.omsendringer
 
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import java.util.UUID
 
 class OmsMeldInnEndringService(
-    val repository: OmsMeldInnEndringRepository,
+    private val repository: OmsMeldInnEndringRepository,
 ) {
     fun lagreEndringer(
         fnr: Foedselsnummer,
@@ -16,5 +17,14 @@ class OmsMeldInnEndringService(
                 endringer = request.endringer,
             ),
         )
+    }
+
+    fun hentEndringerMedStatus(lagret: OmsMeldtInnEndringStatus) = repository.hentEndringerMedStatus(lagret)
+
+    fun oppdaterStatusForId(
+        id: UUID,
+        status: OmsMeldtInnEndringStatus,
+    ) {
+        repository.oppdaterStatusForId(id, status)
     }
 }
