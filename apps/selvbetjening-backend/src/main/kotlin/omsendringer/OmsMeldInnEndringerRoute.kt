@@ -42,3 +42,9 @@ enum class OmsEndringType {
     INNTEKT_OG_AKTIVITET,
     ANNET,
 }
+
+enum class OmsMeldtInnEndringStatus {
+    LAGRET,
+    SENDT,
+    FERDIGSTILT,
+}
