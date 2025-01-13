@@ -22,13 +22,37 @@ export default defineConfig([
     {
         projectId: 'u0dlg8d8',
         dataset: 'selvbetjening-ui',
-        name: 'selvbetjening-ui',
-        title: 'Selvbetjening',
-        basePath: '/selvbetjening-ui',
+        name: 'inntektsjustering',
+        title: 'Inntektsjustering',
+        basePath: '/inntektsjustering',
         plugins: [structureTool(), visionTool()],
-        auth: auth,
+        auth,
         schema: {
-            types: [...inntektsjusteringSchemaTypes, fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
+            types: [...inntektsjusteringSchemaTypes],
+        },
+    },
+    {
+        projectId: 'u0dlg8d8',
+        dataset: 'selvbetjening-ui',
+        name: 'meld-inn-endring',
+        title: 'Meld inn endring',
+        basePath: '/meld-inn-endring',
+        plugins: [structureTool(), visionTool()],
+        auth,
+        schema: {
+            types: [],
+        },
+    },
+    {
+        projectId: 'u0dlg8d8',
+        dataset: 'selvbetjening-ui',
+        name: 'felleskomponenter',
+        title: 'Felleskomponenter',
+        basePath: '/felleskomponenter',
+        plugins: [structureTool(), visionTool()],
+        auth,
+        schema: {
+            types: [fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType],
         },
     },
 ])
