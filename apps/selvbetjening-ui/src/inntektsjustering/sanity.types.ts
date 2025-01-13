@@ -138,13 +138,6 @@ export type FellesKomponenter = {
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    spraakVelger?: {
-        label?: {
-            NB?: string
-            NN?: string
-            EN?: string
-        }
-    }
     skjemaTittel?: {
         NB?: string
         NN?: string

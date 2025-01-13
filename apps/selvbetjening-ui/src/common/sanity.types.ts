@@ -285,6 +285,20 @@ export type FantIkkeSiden = {
     }
 }
 
+export type SpraakVelger = {
+    _id: string
+    _type: 'spraakVelger'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    label?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+}
+
 export type AllSanitySchemaTypes =
     | SanityImagePaletteSwatch
     | SanityImagePalette
@@ -299,4 +313,5 @@ export type AllSanitySchemaTypes =
     | SanityAssetSourceData
     | SystemUtilgjengelig
     | FantIkkeSiden
+    | SpraakVelger
 export declare const internalGroqTypeReferenceTo: unique symbol

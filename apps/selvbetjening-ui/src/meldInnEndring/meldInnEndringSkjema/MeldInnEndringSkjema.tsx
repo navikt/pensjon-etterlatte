@@ -1,5 +1,5 @@
 import { BodyShort, Box, Button, Heading, HStack, Select, Textarea, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../../inntektsjustering/components/spraakVelger/SpraakVelger.tsx'
+import { SpraakVelger } from '../../common/spraakVelger/SpraakVelger.tsx'
 import { PaperplaneIcon } from '@navikt/aksel-icons'
 
 enum EndringerAaMeldeInn {

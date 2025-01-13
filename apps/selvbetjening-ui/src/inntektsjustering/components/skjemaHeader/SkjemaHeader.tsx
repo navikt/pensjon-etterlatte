@@ -1,5 +1,5 @@
 import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
+import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'

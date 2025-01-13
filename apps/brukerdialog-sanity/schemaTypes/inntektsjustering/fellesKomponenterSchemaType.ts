@@ -12,27 +12,6 @@ export const fellesKomponenterSchemaType = defineType({
             type: 'string',
         }),
         defineField({
-            name: 'spraakVelger',
-            title: 'Språk velger',
-            type: 'object',
-            options: {
-                collapsible: true,
-                collapsed: true,
-            },
-            fields: [
-                defineField({
-                    name: 'label',
-                    title: 'Label',
-                    type: 'object',
-                    options: {
-                        collapsible: true,
-                        collapsed: false,
-                    },
-                    fields: spraakStringFields,
-                }),
-            ],
-        }),
-        defineField({
             name: 'skjemaTittel',
             title: 'Skjema tittel',
             type: 'object',

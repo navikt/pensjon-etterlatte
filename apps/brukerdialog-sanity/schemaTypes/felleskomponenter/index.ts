@@ -1,4 +1,9 @@
 import { fantIkkeSidenSchemaType } from './fantIkkeSidenSchemaType'
 import { systemUtilgjengeligSchemaType } from './systemUtilgjengeligSchemaType'
+import { spraakVelgerSchemaType } from './spraakVelgerSchemaType'
 
-export const felleskomponenterSchemaType = [fantIkkeSidenSchemaType, systemUtilgjengeligSchemaType]
+export const felleskomponenterSchemaType = [
+    spraakVelgerSchemaType,
+    fantIkkeSidenSchemaType,
+    systemUtilgjengeligSchemaType,
+]
