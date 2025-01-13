@@ -16,15 +16,13 @@ Deretter sjekk at det ble installert riktig:\
 Du er også nødt til å installere `naisdevice` og sette opp `kubectl` for at koblinger mot GCP skal fungere.\
 Les mer her: https://doc.nais.io
 
-## Kjøre lokalt
-
 Installere prosjektet:\
 `yarn install`
 
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start`
 
-Åpne [http://localhost:5173/omstillingsstonad/inntekt/innledning](http://localhost:5173/omstillingsstonad/inntekt/innledning) i nettleseren.
+Åpne [http://localhost:5173/omstillingsstonad/skjema/inntekt/innledning](http://localhost:5173/omstillingsstonad/inntekt/innledning) i nettleseren.
 
 ### Testing
 

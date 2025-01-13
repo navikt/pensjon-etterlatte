@@ -31,13 +31,24 @@ Installere prosjektet:\
 Kjøre prosjektet (uten BASE_PATH):\
 `yarn start`
 
+### Kjøre barnepensjon og omstillingstønad søknader lokalt
+
 Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
 `yarn start:bp`
 
 Kjøre prosjektet (BASE_PATH=/omstillingsstonad/soknad):\
 `yarn start:oms`
 
-Kjøre prosjektet (BASE_PATH=/omstillingsstonad):\
+### Kjøre selvbetjening lokalt
+
+For å kunne koble selvbetjening mot Sanity trenger du følgende miljøvariabler i en `.env` fil, verdiene til disse miljøvariablene kan du få utlevert av en i team etterlatte.
+
+| Nøkkel              | Beskrivelse                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| `SANITY_API_TOKEN`  | Token for å autentisere seg mot etterlatte sitt Sanity prosjekt |
+| `SANITY_PROJECT_ID` | Prosjekt ID hvor etterlatte sitt Sanity prosjekt lever          |
+
+Kjøre prosjektet (BASE_PATH=/omstillingsstonad/skjema):\
 `yarn start:selvbetjening`
 
 ### OBS!
