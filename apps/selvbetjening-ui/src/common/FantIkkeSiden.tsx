@@ -1,5 +1,5 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from './spraak/SpraakVelger.tsx'
+import { SpraakVelger } from '../inntektsjustering/components/spraakVelger/SpraakVelger.tsx'
 import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
 import { FantIkkeSiden as FantIkkeSidenInnhold } from '../sanity.types.ts'
 import { useSpraak } from './spraak/SpraakContext.tsx'

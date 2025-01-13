@@ -1,8 +1,8 @@
 import { Button, HGrid, VStack } from '@navikt/ds-react'
 import { ArrowLeftIcon, ArrowRightIcon, PaperplaneIcon } from '@navikt/aksel-icons'
 import { Navigate, useNavigate } from 'react-router-dom'
-import { useSpraak } from '../spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
 
 interface Props {

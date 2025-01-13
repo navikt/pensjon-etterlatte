@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { spraakBlockFields } from './spraak'
+import { spraakBlockFields } from '../spraak'
 
 export const fantIkkeSidenSchemaType = defineType({
     name: 'fantIkkeSiden',

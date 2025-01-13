@@ -4,7 +4,7 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import {
     FellesKomponenter,
     InntektsjusteringInnledning as InntektsjusteringInnledningInnhold,
-} from '../../sanity.types.ts'
+} from '../sanity.types.ts'
 import { Navigate } from 'react-router-dom'
 import { Alert, BodyShort, Heading, Label, VStack } from '@navikt/ds-react'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'

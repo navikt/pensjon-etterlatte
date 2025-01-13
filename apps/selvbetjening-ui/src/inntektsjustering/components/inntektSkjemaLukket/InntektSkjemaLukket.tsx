@@ -2,10 +2,10 @@ import { Button, HStack, VStack } from '@navikt/ds-react'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { SpraakVelger } from '../../../common/spraak/SpraakVelger.tsx'
+import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { InntektSkjemaLukket as InntektSkjemaLukketInnhold } from '../../../sanity.types.ts'
+import { InntektSkjemaLukket as InntektSkjemaLukketInnhold } from '../../sanity.types.ts'
 
 export const InntektSkjemaLukket = () => {
     const spraak = useSpraak()

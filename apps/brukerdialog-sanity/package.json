@@ -8,7 +8,8 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
-    "generer-typer:selvbetjening": "sanity schema extract --workspace selvbetjening-ui && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src && rm -rf schema.json",
+    "generer-typer:inntektsjustering": "sanity schema extract --workspace inntektsjustering && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/inntektsjustering && rm -rf schema.json",
+    "generer-typer:meld-inn-endring": "sanity schema extract --workspace meld-inn-endring && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/meldInnEndring && rm -rf schema.json",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
