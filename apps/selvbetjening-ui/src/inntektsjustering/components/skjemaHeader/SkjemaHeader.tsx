@@ -1,9 +1,9 @@
 import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../../../common/spraak/SpraakVelger.tsx'
+import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../../sanity.types.ts'
+import { FellesKomponenter } from '../../sanity.types.ts'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 

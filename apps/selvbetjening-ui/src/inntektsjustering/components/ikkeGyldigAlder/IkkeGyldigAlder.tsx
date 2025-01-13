@@ -1,6 +1,6 @@
 import { Button, VStack } from '@navikt/ds-react'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../../../sanity.types.ts'
+import { IkkeGyldigForAaMeldeInnInntekt } from '../../sanity.types.ts'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'

@@ -2,7 +2,7 @@ import { FormProgress } from '@navikt/ds-react'
 import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../../sanity.types.ts'
+import { FellesKomponenter } from '../../sanity.types.ts'
 
 export const SkjemaProgresjon = ({ aktivtSteg }: { aktivtSteg: number }) => {
     const spraak = useSpraak()

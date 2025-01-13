@@ -1,7 +1,7 @@
 import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../../sanity.types.ts'
+import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'

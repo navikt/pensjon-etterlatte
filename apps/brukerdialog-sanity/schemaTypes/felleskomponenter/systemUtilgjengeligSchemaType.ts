@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { spraakBlockFields, spraakStringFields } from './spraak'
+import { spraakBlockFields, spraakStringFields } from '../spraak'
 
 export const systemUtilgjengeligSchemaType = defineType({
     name: 'systemUtilgjengelig',

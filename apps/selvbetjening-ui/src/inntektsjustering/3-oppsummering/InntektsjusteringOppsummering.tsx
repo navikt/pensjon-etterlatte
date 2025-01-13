@@ -6,9 +6,9 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import {
     FellesKomponenter,
     InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold,
-} from '../../sanity.types.ts'
+} from '../sanity.types.ts'
 import { useNavigate } from 'react-router-dom'
-import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { NavigasjonMeny } from '../components/navigasjonMeny/NavigasjonMeny.tsx'
 import { InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'

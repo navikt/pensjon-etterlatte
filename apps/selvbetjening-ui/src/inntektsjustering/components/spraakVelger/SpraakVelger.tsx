@@ -1,8 +1,8 @@
-import { Spraak } from './spraak.ts'
+import { Spraak } from '../../../common/spraak/spraak.ts'
 import { Select } from '@navikt/ds-react'
 import { Navigate } from 'react-router-dom'
-import { useSpraak, useSpraakDispatch } from './SpraakContext.tsx'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { useSpraak, useSpraakDispatch } from '../../../common/spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { FellesKomponenter } from '../../sanity.types.ts'
 
 export const SpraakVelger = () => {
