@@ -1,6 +1,6 @@
 import { STOR_SNERK_FORENKLET } from './mock-user'
 import parser from 'body-parser'
-import express, { NextFunction, Request, Response } from 'express'
+import express, { NextFunction, Request, response, Response } from 'express'
 import config from '../config'
 import NodeCache from 'node-cache'
 import {
@@ -16,6 +16,8 @@ import {
     testBlocks,
 } from './data/sanityBlocks'
 import { FeatureToggleStatus } from '../routers/unleashRouter'
+import { sanityClient } from '../routers/sanityProxy'
+import { logger } from '../monitoring/logger'
 
 const cache = new NodeCache()
 
@@ -61,29 +63,38 @@ export const mockSelvbetjeningApi = (app: any) => {
         res.send(harOMSSak)
     })
 
-    app.get(`${config.app.basePath}/api/sanity`, (req: Request, res: Response) => {
-        const sanityQuery = req.query.sanityQuery
-        if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
-            res.send(inntektsjusteringInnledningTestBlocks)
-        } else if (sanityQuery?.toString().includes('inntektsjusteringInntektTilNesteAar')) {
-            res.send(inntektsjusteringInntektTilNesteAarTestBlocks)
-        } else if (sanityQuery?.toString().includes('inntektsjusteringOppsummering')) {
-            res.send(inntektsjusteringOppsummeringTestBlocks)
-        } else if (sanityQuery?.toString().includes('inntektsjusteringKvittering')) {
-            res.send(inntektsjusteringKvitteringTestBlocks)
-        } else if (sanityQuery?.toString().includes('ikkeGyldigForAaMeldeInntekt')) {
-            res.send(ikkeGyldigForAaMeldeInntektTestBlocks)
-        } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
-            res.send(fellesKomponenterTestBlocks)
-        } else if (sanityQuery?.toString().includes('fantIkkeSiden')) {
-            res.send(fantIkkeSidenTestBlocks)
-        } else if (sanityQuery?.toString().includes('systemUtilgjengelig')) {
-            res.send(systemUtilgjengeligTestBlocks)
-        } else if (sanityQuery?.toString().includes('inntektSkjemaLukket')) {
-            res.send(inntektSkjemaLukketTestBlocks)
-        } else {
-            res.send(testBlocks)
+    app.get(`${config.app.basePath}/api/sanity`, async (req: Request, res: Response) => {
+        try {
+            const sanityQuery = req.query.sanityQuery
+            const sanityResponse = await sanityClient.fetch(sanityQuery?.toString() || '')
+            res.status(200).send(JSON.stringify(sanityResponse))
+        } catch (error) {
+            console.log(error)
+
+            res.status(500).send('Error')
         }
+
+        // if (sanityQuery?.toString().includes('inntektsjusteringInnledning')) {
+        //     res.send(inntektsjusteringInnledningTestBlocks)
+        // } else if (sanityQuery?.toString().includes('inntektsjusteringInntektTilNesteAar')) {
+        //     res.send(inntektsjusteringInntektTilNesteAarTestBlocks)
+        // } else if (sanityQuery?.toString().includes('inntektsjusteringOppsummering')) {
+        //     res.send(inntektsjusteringOppsummeringTestBlocks)
+        // } else if (sanityQuery?.toString().includes('inntektsjusteringKvittering')) {
+        //     res.send(inntektsjusteringKvitteringTestBlocks)
+        // } else if (sanityQuery?.toString().includes('ikkeGyldigForAaMeldeInntekt')) {
+        //     res.send(ikkeGyldigForAaMeldeInntektTestBlocks)
+        // } else if (sanityQuery?.toString().includes('fellesKomponenter')) {
+        //     res.send(fellesKomponenterTestBlocks)
+        // } else if (sanityQuery?.toString().includes('fantIkkeSiden')) {
+        //     res.send(fantIkkeSidenTestBlocks)
+        // } else if (sanityQuery?.toString().includes('systemUtilgjengelig')) {
+        //     res.send(systemUtilgjengeligTestBlocks)
+        // } else if (sanityQuery?.toString().includes('inntektSkjemaLukket')) {
+        //     res.send(inntektSkjemaLukketTestBlocks)
+        // } else {
+        //     res.send(testBlocks)
+        // }
     })
 
     app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {

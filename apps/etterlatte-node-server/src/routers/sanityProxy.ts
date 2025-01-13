@@ -3,7 +3,7 @@ import { createClient } from '@sanity/client'
 import config from '../config'
 import { logger } from '../monitoring/logger'
 
-const sanityClient = createClient({
+export const sanityClient = createClient({
     projectId: config.sanity.projectId,
     dataset: config.sanity.dataset,
     token: config.sanity.token,
