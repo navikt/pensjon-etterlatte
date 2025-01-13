@@ -1,7 +1,7 @@
 import { Alert, BodyShort, Detail, HStack, Link, VStack } from '@navikt/ds-react'
 import { useSpraak } from './spraak/SpraakContext.tsx'
 import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
-import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from '../sanity.types.ts'
+import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from './sanity.types.ts'
 import { SpraakVelger } from '../inntektsjustering/components/spraakVelger/SpraakVelger.tsx'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { useRouteError } from 'react-router-dom'
