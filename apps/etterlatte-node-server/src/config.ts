@@ -1,3 +1,7 @@
+import { config } from 'dotenv'
+
+config()
+
 const env = {
     isProdCluster: process.env.NAIS_CLUSTER_NAME === 'prod-gcp',
     isSelvbetjeningUIApp: process.env.NAIS_APP_NAME === 'selvbetjening-ui',
