@@ -1,5 +1,5 @@
 import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -27,7 +27,7 @@ export const InntektsjusteringKvittering = () => {
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
-                        <SkjemaHeader aktivtSteg={4} stegLabelKey="steg4" />
+                        <SkjemaHeader aktivtSteg={4} stegLabelKey="steg4" skjemaNavn="inntektsjustering" />
 
                         <Heading size="large" level="2">
                             {innhold.tittel?.[spraak]}

@@ -1,5 +1,5 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../sanity.types.ts'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { Alder, IInnloggetBruker } from '../../types/person.ts'
@@ -53,7 +53,7 @@ export const InntektsjusteringInntektTilNesteAar = () => {
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
-                        <SkjemaHeader aktivtSteg={2} stegLabelKey="steg2" />
+                        <SkjemaHeader aktivtSteg={2} stegLabelKey="steg2" skjemaNavn="inntektsjustering" />
 
                         {velgSkjemaForInntekt(finnAlder(innloggetBruker), innloggetBruker)}
                     </VStack>
