@@ -131,6 +131,76 @@ export type SanityAssetSourceData = {
     url?: string
 }
 
+export type MeldInnEndringInnledning = {
+    _id: string
+    _type: 'meldInnEndringInnledning'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    hovedinnhold?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+    }
+    startUtfyllingKnapp?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+}
+
 export type AllSanitySchemaTypes =
     | SanityImagePaletteSwatch
     | SanityImagePalette
@@ -143,4 +213,5 @@ export type AllSanitySchemaTypes =
     | Geopoint
     | Slug
     | SanityAssetSourceData
+    | MeldInnEndringInnledning
 export declare const internalGroqTypeReferenceTo: unique symbol

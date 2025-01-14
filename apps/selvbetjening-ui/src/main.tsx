@@ -16,6 +16,7 @@ import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
 import { MeldInnEndringSkjema } from './meldInnEndring/meldInnEndringSkjema/MeldInnEndringSkjema.tsx'
 import { InntektsjusteringOutlet } from './inntektsjustering/InntektsjusteringOutlet.tsx'
 import { MeldInnEndringOutlet } from './meldInnEndring/MeldInnEndringOutlet.tsx'
+import { MeldInnEndringInnledning } from './meldInnEndring/1-innledning/MeldInnEndringInnledning.tsx'
 
 const router = createBrowserRouter(
     [
@@ -58,7 +59,8 @@ const router = createBrowserRouter(
                             element: <FantIkkeSiden />,
                         },
                         { path: `/meld-inn-endring/system-utilgjengelig`, element: <SystemUtilgjengelig /> },
-                        { path: '/meld-inn-endring/meld-inn', element: <MeldInnEndringSkjema /> },
+                        { path: '/meld-inn-endring/innledning', element: <MeldInnEndringInnledning /> },
+                        { path: '/meld-inn-endring/meld-fra-om-endring', element: <MeldInnEndringSkjema /> },
                     ],
                 },
             ],
