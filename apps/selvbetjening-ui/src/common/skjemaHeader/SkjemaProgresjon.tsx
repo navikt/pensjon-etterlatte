@@ -2,12 +2,20 @@ import { FormProgress } from '@navikt/ds-react'
 import { Navigate } from 'react-router-dom'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../inntektsjustering/sanity.types.ts'
+import { SkjemaHeader } from '../sanity.types.ts'
 
-export const SkjemaProgresjon = ({ aktivtSteg }: { aktivtSteg: number }) => {
+export const SkjemaProgresjon = ({
+    aktivtSteg,
+    skjemaNavn,
+}: {
+    aktivtSteg: number
+    skjemaNavn: 'inntektsjustering' | 'meld-inn-endring'
+}) => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
+    const { innhold, error, isLoading } = useSanityInnhold<SkjemaHeader>(
+        `*[_type == "skjemaHeader" ${encodeURIComponent('&&')} dokumentTittel == "${skjemaNavn}"]`
+    )
 
     if (error && !isLoading) {
         return <Navigate to="/inntekt/system-utilgjengelig" />
