@@ -13,10 +13,10 @@ import { InntektsjusteringInntektTilNesteAar } from './inntektsjustering/2-innte
 import { InntektsjusteringOppsummering } from './inntektsjustering/3-oppsummering/InntektsjusteringOppsummering.tsx'
 import { InntektsjusteringKvittering } from './inntektsjustering/4-kvittering/InntektsjusteringKvittering.tsx'
 import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'
-import { MeldInnEndringSkjema } from './meldInnEndring/meldInnEndringSkjema/MeldInnEndringSkjema.tsx'
 import { InntektsjusteringOutlet } from './inntektsjustering/InntektsjusteringOutlet.tsx'
 import { MeldInnEndringOutlet } from './meldInnEndring/MeldInnEndringOutlet.tsx'
 import { MeldInnEndringInnledning } from './meldInnEndring/1-innledning/MeldInnEndringInnledning.tsx'
+import { MeldInnEndringMeldFra } from './meldInnEndring/2-meld-fra-om-endring/MeldInnEndringMeldFra.tsx'
 
 const router = createBrowserRouter(
     [
@@ -61,7 +61,7 @@ const router = createBrowserRouter(
                         },
                         { path: `/meld-inn-endring/system-utilgjengelig`, element: <SystemUtilgjengelig /> },
                         { path: '/meld-inn-endring/innledning', element: <MeldInnEndringInnledning /> },
-                        { path: '/meld-inn-endring/meld-fra-om-endring', element: <MeldInnEndringSkjema /> },
+                        { path: '/meld-inn-endring/meld-fra-om-endring', element: <MeldInnEndringMeldFra /> },
                     ],
                 },
             ],
