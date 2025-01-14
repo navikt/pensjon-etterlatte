@@ -1,4 +1,4 @@
-package omsendringer
+package omsmeldinnendring
 
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder

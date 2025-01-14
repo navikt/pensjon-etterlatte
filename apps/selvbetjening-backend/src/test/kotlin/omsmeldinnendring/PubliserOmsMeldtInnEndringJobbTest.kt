@@ -1,4 +1,4 @@
-package omsendringer
+package omsmeldinnendring
 
 import io.mockk.Runs
 import io.mockk.every
