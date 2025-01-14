@@ -1,25 +1,24 @@
-import { Spraak } from '../../../common/spraak/spraak.ts'
+import { Spraak } from '../spraak/spraak.ts'
 import { Select } from '@navikt/ds-react'
-import { Navigate } from 'react-router-dom'
-import { useSpraak, useSpraakDispatch } from '../../../common/spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../sanity.types.ts'
+import { useSpraak, useSpraakDispatch } from '../spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SpraakVelger as SpraakVelgerInnhold } from '../sanity.types.ts'
 
 export const SpraakVelger = () => {
     const spraak = useSpraak()
 
     const spraakDispatch = useSpraakDispatch()
 
-    const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
+    const { innhold, error, isLoading } = useSanityInnhold<SpraakVelgerInnhold>('*[_type == "spraakVelger"]')
 
     if (error && !isLoading) {
-        return <Navigate to="/inntekt/system-utilgjengelig" />
+        throw Error('Kunne ikke laste sanity innhold')
     }
 
     return (
         !!innhold && (
             <Select
-                label={innhold.spraakVelger?.label?.[spraak]}
+                label={innhold.label?.[spraak]}
                 value={spraak}
                 onChange={(e) => spraakDispatch.setSpraak(e.target.value as Spraak)}
             >

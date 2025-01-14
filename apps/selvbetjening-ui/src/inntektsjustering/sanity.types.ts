@@ -138,64 +138,6 @@ export type FellesKomponenter = {
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    spraakVelger?: {
-        label?: {
-            NB?: string
-            NN?: string
-            EN?: string
-        }
-    }
-    skjemaTittel?: {
-        NB?: string
-        NN?: string
-        EN?: string
-    }
-    skjemaProgresjon?: {
-        stegXAvX?: {
-            steg?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            av?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        visAlleSteg?: {
-            NB?: string
-            NN?: string
-            EN?: string
-        }
-        skjulAlleSteg?: {
-            NB?: string
-            NN?: string
-            EN?: string
-        }
-        stegLabels?: {
-            steg1?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            steg2?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            steg3?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            steg4?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-    }
     navigasjonMeny?: {
         sistLagret?: {
             NB?: string

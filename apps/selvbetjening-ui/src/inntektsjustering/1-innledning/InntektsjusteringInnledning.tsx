@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { InntektsjusteringInnledning as InntektsjusteringInnledningInnhold } from '../sanity.types.ts'
 import useSWR, { SWRResponse } from 'swr'
 import { ApiError, apiURL } from '../../common/api/api.ts'
@@ -62,7 +62,7 @@ export const InntektsjusteringInnledning = () => {
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
-                        <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" />
+                        <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" skjemaNavn="inntektsjustering" />
                         <div>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>

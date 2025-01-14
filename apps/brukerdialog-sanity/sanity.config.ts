@@ -3,6 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { inntektsjusteringSchemaTypes } from './schemaTypes/inntektsjustering'
 import { felleskomponenterSchemaType } from './schemaTypes/felleskomponenter'
+import { meldInnEndringSchemaType } from './schemaTypes/meldInnEndring'
 
 const auth: AuthConfig = {
     redirectOnSingle: true,
@@ -39,7 +40,7 @@ export default defineConfig([
         plugins: [structureTool(), visionTool()],
         auth,
         schema: {
-            types: [],
+            types: [...meldInnEndringSchemaType],
         },
     },
     {

@@ -2,20 +2,23 @@ import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
-import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../sanity.types.ts'
-import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
-import { SideLaster } from '../../../common/SideLaster.tsx'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
+import { SideLaster } from '../SideLaster.tsx'
 
 interface Props {
     aktivtSteg: number
     stegLabelKey: 'steg1' | 'steg2' | 'steg3' | 'steg4'
+    skjemaNavn: 'inntektsjustering' | 'meld-inn-endring'
 }
 
-export const SkjemaHeader = ({ aktivtSteg, stegLabelKey }: Props) => {
+export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
+    const { innhold, error, isLoading } = useSanityInnhold<SkjemaHeaderInnhold>(
+        `*[_type == "skjemaHeader" ${encodeURIComponent('&&')} dokumentTittel == "${skjemaNavn}"]`
+    )
 
     if (isLoading) {
         return <SideLaster />
@@ -47,7 +50,7 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey }: Props) => {
                     {innhold.skjemaProgresjon?.stegLabels?.[stegLabelKey]?.[spraak]}
                 </Heading>
 
-                <SkjemaProgresjon aktivtSteg={aktivtSteg} />
+                <SkjemaProgresjon aktivtSteg={aktivtSteg} skjemaNavn={skjemaNavn} />
             </VStack>
         )
     )

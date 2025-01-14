@@ -285,6 +285,80 @@ export type FantIkkeSiden = {
     }
 }
 
+export type SkjemaHeader = {
+    _id: string
+    _type: 'skjemaHeader'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    skjemaTittel?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+    skjemaProgresjon?: {
+        stegXAvX?: {
+            steg?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            av?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        visAlleSteg?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        skjulAlleSteg?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        stegLabels?: {
+            steg1?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            steg2?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            steg3?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            steg4?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+}
+
+export type SpraakVelger = {
+    _id: string
+    _type: 'spraakVelger'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    label?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+}
+
 export type AllSanitySchemaTypes =
     | SanityImagePaletteSwatch
     | SanityImagePalette
@@ -299,4 +373,6 @@ export type AllSanitySchemaTypes =
     | SanityAssetSourceData
     | SystemUtilgjengelig
     | FantIkkeSiden
+    | SkjemaHeader
+    | SpraakVelger
 export declare const internalGroqTypeReferenceTo: unique symbol

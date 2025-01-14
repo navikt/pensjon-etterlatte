@@ -1,5 +1,5 @@
 import { Bleed, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../components/skjemaHeader/SkjemaHeader.tsx'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -94,7 +94,7 @@ export const InntektsjusteringOppsummering = () => {
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
-                        <SkjemaHeader aktivtSteg={3} stegLabelKey="steg3" />
+                        <SkjemaHeader aktivtSteg={3} stegLabelKey="steg3" skjemaNavn="inntektsjustering" />
 
                         <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                             <GuidePanel>
