@@ -8,7 +8,7 @@ import io.mockk.verify
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.omsendringer.OmsEndringType
+import no.nav.etterlatte.omsendringer.OmsEndring
 import no.nav.etterlatte.omsendringer.OmsMeldInnEndringService
 import no.nav.etterlatte.omsendringer.OmsMeldtInnEndring
 import no.nav.etterlatte.omsendringer.OmsMeldtInnEndringStatus
@@ -38,8 +38,8 @@ class PubliserOmsMeldtInnEndringJobbTest {
         val ny =
             OmsMeldtInnEndring(
                 fnr = Foedselsnummer.of("09038520129"),
-                type = OmsEndringType.ANNET,
-                endringer = "asdfasdf",
+                endring = OmsEndring.ANNET,
+                beskrivelse = "asdfasdf",
             )
         val forsoekt =
             ny.copy(
