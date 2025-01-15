@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Endring, MeldtInnEndring } from '../../types/meldInnEndring.ts'
-import { HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
+import { ErrorSummary, HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
 import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -10,11 +10,22 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
 import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
 import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
+import { formaterFieldErrors } from '../../common/skjemaError/skjemaError.ts'
+import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { useNavigate } from 'react-router-dom'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
 
-    const { register, control, watch } = useForm<MeldtInnEndring>()
+    const navigate = useNavigate()
+
+    const {
+        register,
+        control,
+        watch,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<MeldtInnEndring>()
 
     const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
         '*[_type == "meldInnEndringMeldFra"]'
@@ -86,6 +97,22 @@ export const MeldInnEndringMeldFra = () => {
                                     })}
                                     label={innhold.beskrivelseAvEndring?.label?.[spraak]}
                                     description={innhold.beskrivelseAvEndring?.description?.[spraak]}
+                                    error={errors?.beskrivelse?.message}
+                                />
+
+                                {!!Object.keys(errors)?.length && (
+                                    <ErrorSummary heading="Du må fikse disse feilene">
+                                        {formaterFieldErrors(errors).map((error) => (
+                                            <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
+                                                {error.message}
+                                            </ErrorSummary.Item>
+                                        ))}
+                                    </ErrorSummary>
+                                )}
+
+                                <NavigasjonMeny
+                                    tilbakePath="/meld-inn-endring/innledning"
+                                    onNeste={handleSubmit(() => navigate('/meld-inn-endring/oppsummering'))}
                                 />
                             </VStack>
                         </form>
