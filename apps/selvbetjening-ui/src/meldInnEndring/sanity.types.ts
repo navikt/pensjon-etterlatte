@@ -831,6 +831,11 @@ export type MeldInnEndringMeldFra = {
                 }>
             }
         }
+        errorVedTomInput?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
     }
 }
 

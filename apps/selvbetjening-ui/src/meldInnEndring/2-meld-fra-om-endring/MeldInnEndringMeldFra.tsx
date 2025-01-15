@@ -9,6 +9,7 @@ import { SideLaster } from '../../common/SideLaster.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
 import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
+import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
@@ -33,6 +34,8 @@ export const MeldInnEndringMeldFra = () => {
                 return <InformasjonOmAktivitetOgInntekt />
             case Endring.INNTEKT:
                 return <InformasjonOmInntekt />
+            case Endring.ANNET:
+                return <InformasjonOmAnnet />
             default:
                 return <></>
         }
@@ -71,13 +74,18 @@ export const MeldInnEndringMeldFra = () => {
                                         </>
                                     }
                                 />
+
                                 {velgVisningAvInformasjonForEndring(watch('endring'))}
+
                                 <Textarea
                                     {...register('beskrivelse', {
-                                        required: { value: true, message: 'Du må legge inn en beskrivelse' },
+                                        required: {
+                                            value: true,
+                                            message: innhold.beskrivelseAvEndring?.errorVedTomInput?.[spraak] ?? '',
+                                        },
                                     })}
-                                    label="Beskriv endringen din"
-                                    description="Gi en kort beskrivelse"
+                                    label={innhold.beskrivelseAvEndring?.label?.[spraak]}
+                                    description={innhold.beskrivelseAvEndring?.description?.[spraak]}
                                 />
                             </VStack>
                         </form>
