@@ -1,9 +1,9 @@
-package omsendringer
+package omsmeldinnendring
 
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.omsendringer.OmsEndringType
+import no.nav.etterlatte.omsendringer.OmsEndring
 import no.nav.etterlatte.omsendringer.OmsMeldInnEndringRepository
 import no.nav.etterlatte.omsendringer.OmsMeldtInnEndring
 import no.nav.etterlatte.omsendringer.OmsMeldtInnEndringStatus
@@ -50,8 +50,8 @@ class OmsMeldInnEndringRepositoryTest {
             OmsMeldtInnEndring(
                 id = UUID.randomUUID(),
                 fnr = Foedselsnummer.of("09038520129"),
-                type = OmsEndringType.ANNET,
-                endringer = "Beskrivelse av alle endringer til bruker",
+                endring = OmsEndring.ANNET,
+                beskrivelse = "Beskrivelse av alle endringer til bruker",
             )
 
         repository.lagreEndringer(endringer)
@@ -66,8 +66,8 @@ class OmsMeldInnEndringRepositoryTest {
             OmsMeldtInnEndring(
                 id = UUID.randomUUID(),
                 fnr = Foedselsnummer.of("09038520129"),
-                type = OmsEndringType.ANNET,
-                endringer = "Beskrivelse av alle endringer til bruker",
+                endring = OmsEndring.ANNET,
+                beskrivelse = "Beskrivelse av alle endringer til bruker",
             )
         repository.lagreEndringer(endring)
 

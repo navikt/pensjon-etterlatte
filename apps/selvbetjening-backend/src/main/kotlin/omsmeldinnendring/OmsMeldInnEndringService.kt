@@ -13,8 +13,8 @@ class OmsMeldInnEndringService(
         repository.lagreEndringer(
             OmsMeldtInnEndring(
                 fnr = fnr,
-                type = request.type,
-                endringer = request.endringer,
+                endring = request.type,
+                beskrivelse = request.endringer,
             ),
         )
     }

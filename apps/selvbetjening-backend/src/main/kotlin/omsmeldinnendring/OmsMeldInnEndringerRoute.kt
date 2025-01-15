@@ -25,21 +25,21 @@ fun Route.omsMeldInnEndring(service: OmsMeldInnEndringService) {
 }
 
 data class OmsMeldtInnEndringRequest(
-    val type: OmsEndringType,
+    val type: OmsEndring,
     val endringer: String,
 )
 
 data class OmsMeldtInnEndring(
     val id: UUID = UUID.randomUUID(),
     val fnr: Foedselsnummer,
-    val type: OmsEndringType,
-    val endringer: String,
+    val endring: OmsEndring,
+    val beskrivelse: String,
     val tidspunkt: Instant = Instant.now().truncatedTo(ChronoUnit.SECONDS),
 )
 
-enum class OmsEndringType {
+enum class OmsEndring {
     INNTEKT,
-    INNTEKT_OG_AKTIVITET,
+    AKTIVITET_OG_INNTEKT,
     ANNET,
 }
 

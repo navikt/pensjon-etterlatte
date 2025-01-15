@@ -28,8 +28,8 @@ class OmsMeldInnEndringRepository(
                     OmsMeldtInnEndring(
                         id = UUID.fromString(getString("id")),
                         fnr = Foedselsnummer.of(getString("fnr")),
-                        type = OmsEndringType.valueOf(getString("type")),
-                        endringer = getString("endringer"),
+                        endring = OmsEndring.valueOf(getString("type")),
+                        beskrivelse = getString("endringer"),
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
                     )
                 }
@@ -42,8 +42,8 @@ class OmsMeldInnEndringRepository(
                 .apply {
                     setObject(1, endringer.id)
                     setString(2, endringer.fnr.value)
-                    setString(3, endringer.type.name)
-                    setString(4, endringer.endringer)
+                    setString(3, endringer.endring.name)
+                    setString(4, endringer.beskrivelse)
                     setString(5, OmsMeldtInnEndringStatus.LAGRET.name)
                     setTimestamp(6, Timestamp.from(endringer.tidspunkt))
                 }.execute()
@@ -76,8 +76,8 @@ private fun ResultSet.toOmsMeldtInnEndring() =
     OmsMeldtInnEndring(
         id = UUID.fromString(getString("id")),
         fnr = Foedselsnummer.of(getString("fnr")),
-        type = OmsEndringType.valueOf(getString("type")),
-        endringer = getString("endringer"),
+        endring = OmsEndring.valueOf(getString("type")),
+        beskrivelse = getString("endringer"),
         tidspunkt = getTimestamp("tidspunkt").toInstant(),
     )
 
