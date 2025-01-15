@@ -12,56 +12,6 @@ export const fellesKomponenterSchemaType = defineType({
             type: 'string',
         }),
         defineField({
-            name: 'navigasjonMeny',
-            title: 'Navigasjon meny',
-            type: 'object',
-            fields: [
-                defineField({
-                    name: 'sistLagret',
-                    title: 'Sist lagret',
-                    type: 'object',
-                    fields: spraakStringFields,
-                }),
-                defineField({
-                    name: 'knapper',
-                    title: 'Knapper',
-                    type: 'object',
-                    fields: [
-                        defineField({
-                            name: 'forrigeStegKnapp',
-                            title: 'Forrige steg knapp',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
-                            name: 'nesteStegKnapp',
-                            title: 'Neste steg knapp',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
-                            name: 'sendSoeknadKnapp',
-                            title: 'Send søknad knapp',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
-                            name: 'fortsettSenereKnapp',
-                            title: 'Fortsett senere knapp',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
-                            name: 'slettSoeknadenKnapp',
-                            title: 'Slett søknaden knapp',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                    ],
-                }),
-            ],
-        }),
-        defineField({
             name: 'sammendragAvInntekt',
             title: 'Sammendrag av inntekt',
             type: 'object',

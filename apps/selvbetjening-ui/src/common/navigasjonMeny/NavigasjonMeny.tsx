@@ -1,25 +1,25 @@
 import { Button, HGrid, VStack } from '@navikt/ds-react'
 import { ArrowLeftIcon, ArrowRightIcon, PaperplaneIcon } from '@navikt/aksel-icons'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
-import { FellesKomponenter } from '../../sanity.types.ts'
+import { useNavigate } from 'react-router-dom'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { NavigasjonsMeny as NavigasjonsMenyInnhold } from '../sanity.types.ts'
 
 interface Props {
     tilbakePath: string
-    skalSendeSoeknad?: boolean
+    skalSendeInnSkjema?: boolean
     onNeste?: () => void
     nesteLaster?: boolean
 }
 
-export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLaster }: Props) => {
+export const NavigasjonMeny = ({ tilbakePath, skalSendeInnSkjema, onNeste, nesteLaster }: Props) => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
+    const { innhold, error, isLoading } = useSanityInnhold<NavigasjonsMenyInnhold>('*[_type == "navigasjonMeny"]')
 
-    if (error && !isLoading) return <Navigate to="/inntekt/system-utilgjengelig" />
+    if (error && !isLoading) throw error
 
     return (
         !!innhold && (
@@ -32,19 +32,17 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeSoeknad, onNeste, nesteLa
                         iconPosition="left"
                         onClick={() => navigate(tilbakePath)}
                     >
-                        {innhold.navigasjonMeny?.knapper?.forrigeStegKnapp?.[spraak]}
+                        {innhold.forrigeStegKnapp?.[spraak]}
                     </Button>
                     <Button
                         type="button"
                         variant="primary"
-                        icon={skalSendeSoeknad ? <PaperplaneIcon aria-hidden /> : <ArrowRightIcon aria-hidden />}
+                        icon={skalSendeInnSkjema ? <PaperplaneIcon aria-hidden /> : <ArrowRightIcon aria-hidden />}
                         iconPosition="right"
                         onClick={onNeste}
                         loading={nesteLaster}
                     >
-                        {skalSendeSoeknad
-                            ? innhold.navigasjonMeny?.knapper?.sendSoeknadKnapp?.[spraak]
-                            : innhold.navigasjonMeny?.knapper?.nesteStegKnapp?.[spraak]}
+                        {skalSendeInnSkjema ? innhold.sendTilNavKnapp?.[spraak] : innhold.nesteStegKnapp?.[spraak]}
                     </Button>
                 </HGrid>
             </VStack>

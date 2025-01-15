@@ -1,6 +1,6 @@
 import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
-import { NavigasjonMeny } from '../../components/navigasjonMeny/NavigasjonMeny.tsx'
+import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Inntekt, InntektSkjema } from '../../../types/inntektsjustering.ts'
 import { useNavigate } from 'react-router-dom'

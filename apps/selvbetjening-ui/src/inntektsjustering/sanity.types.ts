@@ -138,40 +138,6 @@ export type FellesKomponenter = {
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    navigasjonMeny?: {
-        sistLagret?: {
-            NB?: string
-            NN?: string
-            EN?: string
-        }
-        knapper?: {
-            forrigeStegKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            nesteStegKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            sendSoeknadKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            fortsettSenereKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            slettSoeknadenKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-    }
     sammendragAvInntekt?: {
         skalGaaAvMedAlderspensjon?: {
             label?: {

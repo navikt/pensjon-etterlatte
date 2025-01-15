@@ -8,7 +8,7 @@ import {
     InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold,
 } from '../sanity.types.ts'
 import { useNavigate } from 'react-router-dom'
-import { NavigasjonMeny } from '../components/navigasjonMeny/NavigasjonMeny.tsx'
+import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
@@ -213,7 +213,7 @@ export const InntektsjusteringOppsummering = () => {
                             tilbakePath="/inntekt/inntekt-til-neste-aar"
                             onNeste={sendInnInntektsjustering}
                             nesteLaster={laster}
-                            skalSendeSoeknad
+                            skalSendeInnSkjema
                         />
                     </VStack>
                 </HStack>
