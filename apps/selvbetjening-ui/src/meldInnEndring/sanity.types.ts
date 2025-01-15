@@ -168,14 +168,18 @@ export type MeldInnEndringMeldFra = {
                 }
             }
             inntekt?: {
-                NB?: string
-                NN?: string
-                EN?: string
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
             }
             annet?: {
-                NB?: string
-                NN?: string
-                EN?: string
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
             }
         }
         errorVedTomInput?: {

@@ -63,13 +63,27 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                             name: 'inntekt',
                             title: 'Inntekt',
                             type: 'object',
-                            fields: spraakStringFields,
+                            fields: [
+                                defineField({
+                                    name: 'label',
+                                    title: 'Label',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ],
                         }),
                         defineField({
                             name: 'annet',
                             title: 'Annet',
                             type: 'object',
-                            fields: spraakStringFields,
+                            fields: [
+                                defineField({
+                                    name: 'label',
+                                    title: 'Label',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ],
                         }),
                     ],
                 }),
