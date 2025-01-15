@@ -8,6 +8,7 @@ import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
+import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
@@ -30,6 +31,8 @@ export const MeldInnEndringMeldFra = () => {
         switch (endring) {
             case Endring.AKTIVITET_OG_INNTEKT:
                 return <InformasjonOmAktivitetOgInntekt />
+            case Endring.INNTEKT:
+                return <InformasjonOmInntekt />
             default:
                 return <></>
         }

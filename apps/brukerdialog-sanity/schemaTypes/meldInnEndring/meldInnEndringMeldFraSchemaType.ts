@@ -210,7 +210,7 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                                     name: 'innhold',
                                     title: 'Innhold',
                                     type: 'object',
-                                    fields: spraakBlockFields,
+                                    fields: spraakStringFields,
                                 }),
                             ],
                         }),
