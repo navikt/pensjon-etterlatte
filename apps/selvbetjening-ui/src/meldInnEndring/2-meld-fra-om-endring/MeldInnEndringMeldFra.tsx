@@ -7,11 +7,12 @@ import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
 
-    const { register, control } = useForm<MeldtInnEndring>()
+    const { register, control, watch } = useForm<MeldtInnEndring>()
 
     const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
         '*[_type == "meldInnEndringMeldFra"]'
@@ -23,6 +24,15 @@ export const MeldInnEndringMeldFra = () => {
 
     if (error) {
         throw error
+    }
+
+    const velgVisningAvInformasjonForEndring = (endring?: Endring) => {
+        switch (endring) {
+            case Endring.AKTIVITET_OG_INNTEKT:
+                return <InformasjonOmAktivitetOgInntekt />
+            default:
+                return <></>
+        }
     }
 
     return (
@@ -37,8 +47,8 @@ export const MeldInnEndringMeldFra = () => {
                                     name="endring"
                                     control={control}
                                     legend={innhold.endring?.legend?.[spraak]}
-                                    description={innhold.endring?.legend?.[spraak]}
-                                    errorVedTomInput={innhold.endring?.legend?.[spraak]}
+                                    description={innhold.endring?.description?.[spraak]}
+                                    errorVedTomInput={innhold.endring?.errorVedTomInput?.[spraak]}
                                     radios={
                                         <>
                                             <Radio
@@ -49,11 +59,16 @@ export const MeldInnEndringMeldFra = () => {
                                             >
                                                 {innhold.endring?.radios?.aktivitetOgInntekt?.label?.[spraak]}
                                             </Radio>
-                                            <Radio value={Endring.INNTEKT}>s</Radio>
-                                            <Radio value={Endring.ANNET}>Annet</Radio>
+                                            <Radio value={Endring.INNTEKT}>
+                                                {innhold.endring?.radios?.inntekt?.label?.[spraak]}
+                                            </Radio>
+                                            <Radio value={Endring.ANNET}>
+                                                {innhold.endring?.radios?.annet?.label?.[spraak]}
+                                            </Radio>
                                         </>
                                     }
                                 />
+                                {velgVisningAvInformasjonForEndring(watch('endring'))}
                                 <Textarea
                                     {...register('beskrivelse', {
                                         required: { value: true, message: 'Du må legge inn en beskrivelse' },

@@ -1,0 +1,59 @@
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { KomponentLaster } from '../../common/KomponentLaster.tsx'
+import { Accordion, Heading, VStack } from '@navikt/ds-react'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+
+export const InformasjonOmAktivitetOgInntekt = () => {
+    const spraak = useSpraak()
+
+    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
+
+    if (isLoading) {
+        return <KomponentLaster />
+    }
+
+    if (error) {
+        throw error
+    }
+
+    if (!innhold?.informasjonOmEndring?.aktivitetOgInntekt) {
+        throw Error('Finner ikke sanity innhold for informasjon om endring for aktivitet og inntekt')
+    }
+
+    const { tittel, endringAccordion, hovedinnhold } = innhold.informasjonOmEndring.aktivitetOgInntekt
+
+    return (
+        <VStack gap="6" maxWidth="42.5rem">
+            <Heading size="medium">{tittel?.[spraak]}</Heading>
+
+            <Accordion>
+                <Accordion.Item>
+                    <Accordion.Header>{endringAccordion?.jobbItem?.tittel?.[spraak]}</Accordion.Header>
+                    <Accordion.Content>
+                        <SanityRikTekst text={endringAccordion?.jobbItem?.innhold?.[spraak]} />
+                    </Accordion.Content>
+                </Accordion.Item>
+                <Accordion.Item>
+                    <Accordion.Header>{endringAccordion?.studierItem?.tittel?.[spraak]}</Accordion.Header>
+                    <Accordion.Content>
+                        <SanityRikTekst text={endringAccordion?.studierItem?.innhold?.[spraak]} />
+                    </Accordion.Content>
+                </Accordion.Item>
+                <Accordion.Item>
+                    <Accordion.Header>{endringAccordion?.annenAktivitetItem?.tittel?.[spraak]}</Accordion.Header>
+                    <Accordion.Content>
+                        <SanityRikTekst text={endringAccordion?.annenAktivitetItem?.innhold?.[spraak]} />
+                    </Accordion.Content>
+                </Accordion.Item>
+            </Accordion>
+
+            <div>
+                <SanityRikTekst text={hovedinnhold?.[spraak]} />
+            </div>
+        </VStack>
+    )
+}
