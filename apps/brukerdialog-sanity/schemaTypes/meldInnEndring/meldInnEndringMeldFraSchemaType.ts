@@ -87,6 +87,12 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     type: 'object',
                     fields: [
                         defineField({
+                            name: 'tittel',
+                            title: 'Tittel',
+                            type: 'object',
+                            fields: spraakStringFields,
+                        }),
+                        defineField({
                             name: 'endringAccordion',
                             title: 'Accordion om endringer',
                             type: 'object',
@@ -164,6 +170,12 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     type: 'object',
                     fields: [
                         defineField({
+                            name: 'tittel',
+                            title: 'Tittel',
+                            type: 'object',
+                            fields: spraakStringFields,
+                        }),
+                        defineField({
                             name: 'hovedinnhold',
                             title: 'Hovedinnhold',
                             type: 'object',
@@ -201,6 +213,12 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     title: 'Annet',
                     type: 'object',
                     fields: [
+                        defineField({
+                            name: 'tittel',
+                            title: 'Tittel',
+                            type: 'object',
+                            fields: spraakStringFields,
+                        }),
                         defineField({
                             name: 'hovedinnhold',
                             title: 'Hovedinnhold',
