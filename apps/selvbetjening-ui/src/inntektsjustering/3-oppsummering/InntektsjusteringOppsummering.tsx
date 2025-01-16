@@ -3,10 +3,7 @@ import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import {
-    FellesKomponenter,
-    InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold,
-} from '../sanity.types.ts'
+import { InntektsjusteringOppsummering as innhold } from '../sanity.types.ts'
 import { useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
@@ -40,29 +37,19 @@ export const InntektsjusteringOppsummering = () => {
     } = useInnloggetInnbygger()
 
     const {
-        innhold: fellesKomponenterInnhold,
-        error: fellesKomponenterInnholdError,
-        isLoading: fellesKomponenterInnholdIsLoading,
-    } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
+        innhold,
+        error: innholdError,
+        isLoading: innholdIsLoading,
+    } = useSanityInnhold<innhold>('*[_type == "inntektsjusteringOppsummering"]')
 
-    const {
-        innhold: inntektsjusteringOppsummeringInnhold,
-        error: inntektsjusteringOppsummeringInnholdError,
-        isLoading: inntektsjusteringOppsummeringInnholdIsLoading,
-    } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>('*[_type == "inntektsjusteringOppsummering"]')
-
-    if (
-        innloggetBrukerIsLoading ||
-        fellesKomponenterInnholdIsLoading ||
-        inntektsjusteringOppsummeringInnholdIsLoading
-    ) {
+    if (innloggetBrukerIsLoading || innholdIsLoading) {
         return <SideLaster />
     }
-    if (innloggetBrukerError || fellesKomponenterInnholdError || inntektsjusteringOppsummeringInnholdError) {
-        throw innloggetBrukerError || fellesKomponenterInnholdError || inntektsjusteringOppsummeringInnholdError
+    if (innloggetBrukerError || innholdError) {
+        throw innloggetBrukerError || innholdError
     }
 
-    if (!inntektsjusteringOppsummeringInnhold?.skjemaSammendrag) {
+    if (!innhold?.skjemaSammendrag) {
         throw new Error('Fant ikke sanity innhold for skjema sammendrag')
     }
 
@@ -85,12 +72,11 @@ export const InntektsjusteringOppsummering = () => {
 
     const inntektSkjemaValues: InntektSkjema = inntektTilInntektSkjemaValues(inntekt, spraak)
 
-    const { tittel, endreSvarLenke } = inntektsjusteringOppsummeringInnhold.skjemaSammendrag
+    const { tittel, endreSvarLenke } = innhold.skjemaSammendrag
 
     return (
         !!innloggetBruker &&
-        !!fellesKomponenterInnhold &&
-        !!inntektsjusteringOppsummeringInnhold && (
+        !!innhold && (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="42.5rem">
@@ -98,7 +84,7 @@ export const InntektsjusteringOppsummering = () => {
 
                         <Bleed marginInline={{ xs: '0', md: '10 0' }}>
                             <GuidePanel>
-                                <SanityRikTekst text={inntektsjusteringOppsummeringInnhold.veiledning?.[spraak]} />
+                                <SanityRikTekst text={innhold.veiledning?.[spraak]} />
                             </GuidePanel>
                         </Bleed>
 
@@ -118,17 +104,16 @@ export const InntektsjusteringOppsummering = () => {
                                         <FormSummary.Answer>
                                             <FormSummary.Label>
                                                 {finnAlder(innloggetBruker) === Alder.SEKSTI_TO_TIL_SEKSTI_SEKS
-                                                    ? fellesKomponenterInnhold?.sammendragAvInntekt
-                                                          ?.skalGaaAvMedAlderspensjon?.label
+                                                    ? innhold.skjemaSammendrag?.skalGaaAvMedAlderspensjon?.label
                                                           ?.femtiSyvTilSekstiSeksAar?.[spraak]
-                                                    : fellesKomponenterInnhold?.sammendragAvInntekt
-                                                          ?.skalGaaAvMedAlderspensjon?.label?.sekstiSyvAar?.[spraak]}
+                                                    : innhold.skjemaSammendrag?.skalGaaAvMedAlderspensjon?.label
+                                                          ?.sekstiSyvAar?.[spraak]}
                                             </FormSummary.Label>
                                             <FormSummary.Value>
                                                 {!!inntektSkjemaValues.skalGaaAvMedAlderspensjon &&
                                                     velgTekstForSkalGaaAvMedAlderspensjon(
                                                         inntektSkjemaValues.skalGaaAvMedAlderspensjon,
-                                                        fellesKomponenterInnhold,
+                                                        innhold,
                                                         spraak
                                                     )}
                                             </FormSummary.Value>
@@ -138,8 +123,8 @@ export const InntektsjusteringOppsummering = () => {
                                             <FormSummary.Answer>
                                                 <FormSummary.Label>
                                                     {
-                                                        fellesKomponenterInnhold?.sammendragAvInntekt
-                                                            ?.datoForAaGaaAvMedAlderspensjon?.label?.[spraak]
+                                                        innhold?.skjemaSammendrag?.datoForAaGaaAvMedAlderspensjon
+                                                            ?.label?.[spraak]
                                                     }
                                                 </FormSummary.Label>
                                                 <FormSummary.Value>
@@ -158,25 +143,21 @@ export const InntektsjusteringOppsummering = () => {
                                 )}
                                 <FormSummary.Answer>
                                     <FormSummary.Label>
-                                        {fellesKomponenterInnhold?.sammendragAvInntekt?.arbeidsinntekt?.label?.[spraak]}
+                                        {innhold?.skjemaSammendrag?.arbeidsinntekt?.label?.[spraak]}
                                     </FormSummary.Label>
                                     <FormSummary.Value>{inntektSkjemaValues.arbeidsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
 
                                 <FormSummary.Answer>
                                     <FormSummary.Label>
-                                        {
-                                            fellesKomponenterInnhold?.sammendragAvInntekt?.naeringsinntekt?.label?.[
-                                                spraak
-                                            ]
-                                        }
+                                        {innhold?.skjemaSammendrag?.naeringsinntekt?.label?.[spraak]}
                                     </FormSummary.Label>
                                     <FormSummary.Value>{inntektSkjemaValues.naeringsinntekt} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                                 {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
                                     <FormSummary.Answer>
                                         <FormSummary.Label>
-                                            {fellesKomponenterInnhold?.sammendragAvInntekt?.AFPInntekt?.label?.[spraak]}
+                                            {innhold?.skjemaSammendrag?.AFPInntekt?.label?.[spraak]}
                                         </FormSummary.Label>
                                         <FormSummary.Value>{inntektSkjemaValues.afpInntekt} kr</FormSummary.Value>
                                     </FormSummary.Answer>
@@ -185,10 +166,7 @@ export const InntektsjusteringOppsummering = () => {
                                 {!!inntektSkjemaValues.afpInntekt && inntektSkjemaValues.afpInntekt !== '0' && (
                                     <FormSummary.Answer>
                                         <FormSummary.Label>
-                                            {
-                                                fellesKomponenterInnhold?.sammendragAvInntekt?.AFPTjenesteordning
-                                                    ?.label?.[spraak]
-                                            }
+                                            {innhold?.skjemaSammendrag?.AFPTjenesteordning?.label?.[spraak]}
                                         </FormSummary.Label>
                                         <FormSummary.Value>{inntektSkjemaValues.afpTjenesteordning}</FormSummary.Value>
                                     </FormSummary.Answer>
@@ -196,11 +174,7 @@ export const InntektsjusteringOppsummering = () => {
 
                                 <FormSummary.Answer>
                                     <FormSummary.Label>
-                                        {
-                                            fellesKomponenterInnhold?.sammendragAvInntekt?.inntektFraUtland?.label?.[
-                                                spraak
-                                            ]
-                                        }
+                                        {innhold?.skjemaSammendrag?.inntektFraUtland?.label?.[spraak]}
                                     </FormSummary.Label>
                                     <FormSummary.Value>{inntektSkjemaValues.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>

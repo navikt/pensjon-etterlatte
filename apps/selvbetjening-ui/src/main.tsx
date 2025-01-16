@@ -17,6 +17,7 @@ import { InntektsjusteringOutlet } from './inntektsjustering/InntektsjusteringOu
 import { MeldInnEndringOutlet } from './meldInnEndring/MeldInnEndringOutlet.tsx'
 import { MeldInnEndringInnledning } from './meldInnEndring/1-innledning/MeldInnEndringInnledning.tsx'
 import { MeldInnEndringMeldFra } from './meldInnEndring/2-meld-fra-om-endring/MeldInnEndringMeldFra.tsx'
+import { MeldInnEndringOppsummering } from './meldInnEndring/3-oppsummering/MeldInnEndringOppsummering.tsx'
 
 const router = createBrowserRouter(
     [
@@ -62,6 +63,7 @@ const router = createBrowserRouter(
                         { path: `/meld-inn-endring/system-utilgjengelig`, element: <SystemUtilgjengelig /> },
                         { path: '/meld-inn-endring/innledning', element: <MeldInnEndringInnledning /> },
                         { path: '/meld-inn-endring/meld-fra-om-endring', element: <MeldInnEndringMeldFra /> },
+                        { path: '/meld-inn-endring/oppsummering', element: <MeldInnEndringOppsummering /> },
                     ],
                 },
             ],
