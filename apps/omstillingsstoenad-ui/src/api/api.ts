@@ -26,6 +26,15 @@ export const hentHarSoektOms = async () => {
     }
 }
 
+export const hentHarSoektOmsLoepende = async () => {
+    try {
+        const response = await api.get('/api/api/sak/oms/har_loepende_sak')
+        return response.data
+    } catch {
+        throw new Error('Det skjedde en feil')
+    }
+}
+
 /**
  * Henter søknad fra APIet basert på innlogget bruker sitt fnr.
  */
