@@ -19,7 +19,7 @@ export const MeldInnEndringOppsummering = () => {
         innhold,
         error: innholdError,
         isLoading: innholdIsLoading,
-    } = useSanityInnhold<MeldInnEndringOppsummeringInnhold>('*[_type == "meldInnEndringOppsummering"]')
+    } = useSanityInnhold<MeldInnEndringOppsummeringInnhold>('*[_type == "meldInnEndringOppsummeringSchemaType"]')
 
     if (innholdIsLoading) {
         return <SideLaster />

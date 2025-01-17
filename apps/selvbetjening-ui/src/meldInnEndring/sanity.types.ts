@@ -133,7 +133,7 @@ export type SanityAssetSourceData = {
 
 export type MeldInnEndringOppsummering = {
     _id: string
-    _type: 'meldInnEndringOppsummering'
+    _type: 'meldInnEndringOppsummeringSchemaType'
     _createdAt: string
     _updatedAt: string
     _rev: string

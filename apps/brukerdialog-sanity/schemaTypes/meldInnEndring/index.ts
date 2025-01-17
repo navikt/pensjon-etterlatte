@@ -1,9 +1,11 @@
 import { meldInnEndringInnledningSchemaType } from './meldInnEndringInnledningSchemaType'
 import { meldInnEndringMeldFraSchemaType } from './meldInnEndringMeldFraSchemaType'
-import { meldInnEndringOppsummering } from './meldInnEndringOppsummering'
+import { meldInnEndringOppsummeringSchemaType } from './meldInnEndringOppsummeringSchemaType'
+import { meldInnEndringKvitteringSchemaType } from './meldInnEndringKvitteringSchemaType'
 
 export const meldInnEndringSchemaType = [
     meldInnEndringInnledningSchemaType,
     meldInnEndringMeldFraSchemaType,
-    meldInnEndringOppsummering,
+    meldInnEndringOppsummeringSchemaType,
+    meldInnEndringKvitteringSchemaType,
 ]
