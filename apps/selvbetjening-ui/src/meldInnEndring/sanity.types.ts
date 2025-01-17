@@ -131,6 +131,179 @@ export type SanityAssetSourceData = {
     url?: string
 }
 
+export type MeldInnEndringOppsummering = {
+    _id: string
+    _type: 'meldInnEndringOppsummering'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    veiledning?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+    }
+    skjemaSammendrag?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        endreSvarLenke?: {
+            tekst?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        endring?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+            value?: {
+                aktivitetOgInntekt?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                inntekt?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                annet?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+        }
+        beskrivelseAvEndring?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+    }
+    feilIOppretelseAvEndring?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        innhold?: {
+            NB?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+            NN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+            EN?: Array<{
+                children?: Array<{
+                    marks?: Array<string>
+                    text?: string
+                    _type: 'span'
+                    _key: string
+                }>
+                style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                listItem?: 'bullet' | 'number'
+                markDefs?: Array<{
+                    href?: string
+                    _type: 'link'
+                    _key: string
+                }>
+                level?: number
+                _type: 'block'
+                _key: string
+            }>
+        }
+    }
+}
+
 export type MeldInnEndringMeldFra = {
     _id: string
     _type: 'meldInnEndringMeldFra'
@@ -921,6 +1094,7 @@ export type AllSanitySchemaTypes =
     | Geopoint
     | Slug
     | SanityAssetSourceData
+    | MeldInnEndringOppsummering
     | MeldInnEndringMeldFra
     | MeldInnEndringInnledning
 export declare const internalGroqTypeReferenceTo: unique symbol

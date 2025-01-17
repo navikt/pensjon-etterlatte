@@ -285,6 +285,30 @@ export type FantIkkeSiden = {
     }
 }
 
+export type NavigasjonsMeny = {
+    _id: string
+    _type: 'navigasjonsMeny'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    forrigeStegKnapp?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+    nesteStegKnapp?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+    sendTilNavKnapp?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+}
+
 export type SkjemaHeader = {
     _id: string
     _type: 'skjemaHeader'
@@ -373,6 +397,7 @@ export type AllSanitySchemaTypes =
     | SanityAssetSourceData
     | SystemUtilgjengelig
     | FantIkkeSiden
+    | NavigasjonsMeny
     | SkjemaHeader
     | SpraakVelger
 export declare const internalGroqTypeReferenceTo: unique symbol

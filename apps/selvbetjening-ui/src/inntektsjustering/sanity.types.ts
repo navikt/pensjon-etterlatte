@@ -131,124 +131,6 @@ export type SanityAssetSourceData = {
     url?: string
 }
 
-export type FellesKomponenter = {
-    _id: string
-    _type: 'fellesKomponenter'
-    _createdAt: string
-    _updatedAt: string
-    _rev: string
-    dokumentTittel?: string
-    navigasjonMeny?: {
-        sistLagret?: {
-            NB?: string
-            NN?: string
-            EN?: string
-        }
-        knapper?: {
-            forrigeStegKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            nesteStegKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            sendSoeknadKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            fortsettSenereKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-            slettSoeknadenKnapp?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-    }
-    sammendragAvInntekt?: {
-        skalGaaAvMedAlderspensjon?: {
-            label?: {
-                femtiSyvTilSekstiSeksAar?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                sekstiSyvAar?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-            }
-            value?: {
-                ja?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                nei?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-                vetIkke?: {
-                    NB?: string
-                    NN?: string
-                    EN?: string
-                }
-            }
-        }
-        datoForAaGaaAvMedAlderspensjon?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        arbeidsinntekt?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        naeringsinntekt?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        AFPInntekt?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        AFPTjenesteordning?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-        inntektFraUtland?: {
-            label?: {
-                NB?: string
-                NN?: string
-                EN?: string
-            }
-        }
-    }
-}
-
 export type InntektSkjemaLukket = {
     _id: string
     _type: 'inntektSkjemaLukket'
@@ -621,6 +503,79 @@ export type InntektsjusteringOppsummering = {
         }
         endreSvarLenke?: {
             tekst?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        skalGaaAvMedAlderspensjon?: {
+            label?: {
+                femtiSyvTilSekstiSeksAar?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                sekstiSyvAar?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+            value?: {
+                ja?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                nei?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                vetIkke?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+        }
+        datoForAaGaaAvMedAlderspensjon?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        arbeidsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        naeringsinntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPInntekt?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        AFPTjenesteordning?: {
+            label?: {
+                NB?: string
+                NN?: string
+                EN?: string
+            }
+        }
+        inntektFraUtland?: {
+            label?: {
                 NB?: string
                 NN?: string
                 EN?: string
@@ -3137,7 +3092,6 @@ export type AllSanitySchemaTypes =
     | Geopoint
     | Slug
     | SanityAssetSourceData
-    | FellesKomponenter
     | InntektSkjemaLukket
     | IkkeGyldigForAaMeldeInnInntekt
     | InntektsjusteringKvittering
