@@ -37,20 +37,19 @@ export const MeldInnEndringKvittering = () => {
                         <Alert variant="success" className="success-alert">
                             <SanityRikTekst text={innhold.suksess?.[spraak]} />
                         </Alert>
+                        <div>
+                            <Button
+                                as="a"
+                                variant="tertiary"
+                                icon={<ArrowRightIcon aria-hidden />}
+                                iconPosition="right"
+                                rel="noopener noreferrer"
+                                href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
+                            >
+                                {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
+                            </Button>
+                        </div>
                     </VStack>
-
-                    <div>
-                        <Button
-                            as="a"
-                            variant="tertiary"
-                            icon={<ArrowRightIcon aria-hidden />}
-                            iconPosition="right"
-                            rel="noopener noreferrer"
-                            href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
-                        >
-                            {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
-                        </Button>
-                    </div>
                 </HStack>
             </main>
         )
