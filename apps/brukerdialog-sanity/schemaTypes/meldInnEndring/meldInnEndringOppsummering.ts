@@ -79,6 +79,14 @@ export const meldInnEndringOppsummering = defineType({
                         }),
                     ],
                 }),
+                defineField({
+                    name: 'beskrivelseAvEndring',
+                    title: 'Beksrivelse av endring',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'label', title: 'Label', type: 'object', fields: spraakStringFields }),
+                    ],
+                }),
             ],
         }),
         defineField({
