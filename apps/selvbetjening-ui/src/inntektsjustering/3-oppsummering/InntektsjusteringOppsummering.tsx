@@ -3,7 +3,7 @@ import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringOppsummering as innhold } from '../sanity.types.ts'
+import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../sanity.types.ts'
 import { useNavigate } from 'react-router-dom'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
@@ -40,7 +40,7 @@ export const InntektsjusteringOppsummering = () => {
         innhold,
         error: innholdError,
         isLoading: innholdIsLoading,
-    } = useSanityInnhold<innhold>('*[_type == "inntektsjusteringOppsummering"]')
+    } = useSanityInnhold<InntektsjusteringOppsummeringInnhold>('*[_type == "inntektsjusteringOppsummering"]')
 
     if (innloggetBrukerIsLoading || innholdIsLoading) {
         return <SideLaster />
