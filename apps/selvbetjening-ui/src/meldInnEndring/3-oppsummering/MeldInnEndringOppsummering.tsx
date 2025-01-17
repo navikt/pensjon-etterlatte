@@ -38,7 +38,7 @@ export const MeldInnEndringOppsummering = () => {
 
     const sendInnEndring = async () => {
         setLaster(true)
-        setApiFeil(true)
+        setApiFeil(false)
         try {
             const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body: meldInnInntext })
             if ([200, 304].includes(res.status)) {

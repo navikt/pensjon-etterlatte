@@ -42,6 +42,17 @@ export const mockSelvbetjeningApi = (app: any) => {
         res.sendStatus(200)
     })
 
+    app.post(`${config.app.basePath}/api/api/oms/meld_inn_endringer`, (req: Request, res: Response) => {
+        const lagret = {
+            tidspunkt: Date.now(),
+            ...req.body,
+        }
+
+        cache.set(innloggetBruker.foedselsnummer, JSON.stringify(lagret))
+
+        res.sendStatus(200)
+    })
+
     app.get(`${config.app.basePath}/api/api/sak/oms/har_sak`, (req: Request, res: Response) => {
         const harOMSSak = {
             harOMSSak: true,
