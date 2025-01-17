@@ -131,9 +131,91 @@ export type SanityAssetSourceData = {
     url?: string
 }
 
+export type MeldInnEndringKvittering = {
+    _id: string
+    _type: 'meldInnEndringKvittering'
+    _createdAt: string
+    _updatedAt: string
+    _rev: string
+    dokumentTittel?: string
+    tittel?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+    suksess?: {
+        NB?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        NN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+        EN?: Array<{
+            children?: Array<{
+                marks?: Array<string>
+                text?: string
+                _type: 'span'
+                _key: string
+            }>
+            style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+            listItem?: 'bullet' | 'number'
+            markDefs?: Array<{
+                href?: string
+                _type: 'link'
+                _key: string
+            }>
+            level?: number
+            _type: 'block'
+            _key: string
+        }>
+    }
+    gaaTilNAVKnapp?: {
+        tekst?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        lenke?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+    }
+}
+
 export type MeldInnEndringOppsummering = {
     _id: string
-    _type: 'meldInnEndringOppsummeringSchemaType'
+    _type: 'meldInnEndringOppsummering'
     _createdAt: string
     _updatedAt: string
     _rev: string
@@ -1094,6 +1176,7 @@ export type AllSanitySchemaTypes =
     | Geopoint
     | Slug
     | SanityAssetSourceData
+    | MeldInnEndringKvittering
     | MeldInnEndringOppsummering
     | MeldInnEndringMeldFra
     | MeldInnEndringInnledning

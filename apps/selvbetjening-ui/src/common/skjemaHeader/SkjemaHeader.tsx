@@ -6,6 +6,7 @@ import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { SideLaster } from '../SideLaster.tsx'
+import { FyllUtSkjemaIcon } from './icons/FyllUtSkjemaIcon.tsx'
 
 interface Props {
     aktivtSteg: number
@@ -35,7 +36,8 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) =>
                 </HStack>
                 <HStack gap="4" align="center">
                     <Hide below="md">
-                        <VarigLoonnstilskuddIcon aria-hidden />
+                        {skjemaNavn === 'inntektsjustering' && <VarigLoonnstilskuddIcon aria-hidden />}
+                        {skjemaNavn === 'meld-inn-endring' && <FyllUtSkjemaIcon aria-hidden />}
                     </Hide>
                     <VStack>
                         <BodyShort size="small">Nav 17-09.02</BodyShort>
