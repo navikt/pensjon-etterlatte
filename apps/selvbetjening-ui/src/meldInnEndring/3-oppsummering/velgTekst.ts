@@ -3,7 +3,7 @@ import { MeldInnEndringOppsummering } from '../sanity.types.ts'
 import { Spraak } from '../../common/spraak/spraak.ts'
 
 export const velgTekstForEndring = (
-    endring: Endring,
+    endring: Endring | undefined,
     meldInnEndringOppsummeringInnhold: MeldInnEndringOppsummering,
     spraak: Spraak
 ): string | undefined => {

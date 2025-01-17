@@ -13,9 +13,16 @@ import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
 import { formaterFieldErrors } from '../../common/skjemaError/skjemaError.ts'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { useNavigate } from 'react-router-dom'
+import {
+    useMeldInnEndring,
+    useMeldInnEndringDispatch,
+} from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
+
+    const meldInnEndring = useMeldInnEndring()
+    const meldInnEndringDispatch = useMeldInnEndringDispatch()
 
     const navigate = useNavigate()
 
@@ -25,7 +32,7 @@ export const MeldInnEndringMeldFra = () => {
         watch,
         handleSubmit,
         formState: { errors },
-    } = useForm<MeldtInnEndring>()
+    } = useForm<MeldtInnEndring>({ defaultValues: meldInnEndring })
 
     const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
         '*[_type == "meldInnEndringMeldFra"]'
@@ -37,6 +44,11 @@ export const MeldInnEndringMeldFra = () => {
 
     if (error) {
         throw error
+    }
+
+    const onMeldInnInntektSubmit = (meldInnEndring: MeldtInnEndring) => {
+        meldInnEndringDispatch.setMeldInnEndring(meldInnEndring)
+        navigate('/meld-inn-endring/oppsummering')
     }
 
     const velgVisningAvInformasjonForEndring = (endring?: Endring) => {
@@ -112,7 +124,7 @@ export const MeldInnEndringMeldFra = () => {
 
                                 <NavigasjonMeny
                                     tilbakePath="/meld-inn-endring/innledning"
-                                    onNeste={handleSubmit(() => navigate('/meld-inn-endring/oppsummering'))}
+                                    onNeste={handleSubmit(onMeldInnInntektSubmit)}
                                 />
                             </VStack>
                         </form>

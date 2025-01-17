@@ -7,12 +7,13 @@ import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useNavigate } from 'react-router-dom'
 import { velgTekstForEndring } from './velgTekst.ts'
-import { Endring } from '../../types/meldInnEndring.ts'
+import { useMeldInnEndring } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
 
 export const MeldInnEndringOppsummering = () => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
+    const meldInnInntext = useMeldInnEndring()
 
     const {
         innhold,
@@ -58,14 +59,14 @@ export const MeldInnEndringOppsummering = () => {
                                         {innhold.skjemaSammendrag?.endring?.label?.[spraak]}
                                     </FormSummary.Label>
                                     <FormSummary.Value>
-                                        {velgTekstForEndring(Endring.AKTIVITET_OG_INNTEKT, innhold, spraak)}
+                                        {velgTekstForEndring(meldInnInntext.endring, innhold, spraak)}
                                     </FormSummary.Value>
                                 </FormSummary.Answer>
                                 <FormSummary.Answer>
                                     <FormSummary.Label>
                                         {innhold.skjemaSammendrag?.beskrivelseAvEndring?.label?.[spraak]}
                                     </FormSummary.Label>
-                                    <FormSummary.Value>asd</FormSummary.Value>
+                                    <FormSummary.Value>{meldInnInntext.beskrivelse}</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
                         </FormSummary>
