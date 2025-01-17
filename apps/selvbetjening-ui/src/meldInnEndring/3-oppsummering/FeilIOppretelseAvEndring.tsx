@@ -5,7 +5,7 @@ import { KomponentLaster } from '../../common/KomponentLaster.tsx'
 import { Alert, Heading } from '@navikt/ds-react'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 
-export const FeilIInnsendingAvEndring = () => {
+export const FeilIOppretelseAvEndring = () => {
     const spraak = useSpraak()
 
     const {
