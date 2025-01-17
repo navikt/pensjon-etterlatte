@@ -5,6 +5,11 @@ export enum Endring {
 }
 
 export interface MeldtInnEndring {
-    endring: Endring
+    endring?: Endring
     beskrivelse: string
+}
+
+export const meldInnEndringDefaultValues: MeldtInnEndring = {
+    endring: undefined,
+    beskrivelse: '',
 }
