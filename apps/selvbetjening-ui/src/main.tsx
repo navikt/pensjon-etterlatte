@@ -18,6 +18,7 @@ import { MeldInnEndringOutlet } from './meldInnEndring/MeldInnEndringOutlet.tsx'
 import { MeldInnEndringInnledning } from './meldInnEndring/1-innledning/MeldInnEndringInnledning.tsx'
 import { MeldInnEndringMeldFra } from './meldInnEndring/2-meld-fra-om-endring/MeldInnEndringMeldFra.tsx'
 import { MeldInnEndringOppsummering } from './meldInnEndring/3-oppsummering/MeldInnEndringOppsummering.tsx'
+import { MeldInnEndringKvittering } from './meldInnEndring/4-kvittering/MeldInnEndringKvittering.tsx'
 
 const router = createBrowserRouter(
     [
@@ -64,6 +65,7 @@ const router = createBrowserRouter(
                         { path: '/meld-inn-endring/innledning', element: <MeldInnEndringInnledning /> },
                         { path: '/meld-inn-endring/meld-fra-om-endring', element: <MeldInnEndringMeldFra /> },
                         { path: '/meld-inn-endring/oppsummering', element: <MeldInnEndringOppsummering /> },
+                        { path: '/meld-inn-endring/kvittering', element: <MeldInnEndringKvittering /> },
                     ],
                 },
             ],

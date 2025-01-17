@@ -25,8 +25,8 @@ fun Route.omsMeldInnEndring(service: OmsMeldInnEndringService) {
 }
 
 data class OmsMeldtInnEndringRequest(
-    val type: OmsEndring,
-    val endringer: String,
+    val endring: OmsEndring,
+    val beskrivelse: String,
 )
 
 data class OmsMeldtInnEndring(

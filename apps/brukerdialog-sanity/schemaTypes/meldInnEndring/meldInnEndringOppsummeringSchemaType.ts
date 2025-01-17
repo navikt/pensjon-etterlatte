@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
 
-export const meldInnEndringOppsummering = defineType({
+export const meldInnEndringOppsummeringSchemaType = defineType({
     name: 'meldInnEndringOppsummering',
     title: '3 - Oppsummering av endring',
     type: 'document',

@@ -28,8 +28,8 @@ class OmsMeldInnEndringRepository(
                     OmsMeldtInnEndring(
                         id = UUID.fromString(getString("id")),
                         fnr = Foedselsnummer.of(getString("fnr")),
-                        endring = OmsEndring.valueOf(getString("type")),
-                        beskrivelse = getString("endringer"),
+                        endring = OmsEndring.valueOf(getString("endring")),
+                        beskrivelse = getString("beskrivelse"),
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
                     )
                 }
@@ -76,8 +76,8 @@ private fun ResultSet.toOmsMeldtInnEndring() =
     OmsMeldtInnEndring(
         id = UUID.fromString(getString("id")),
         fnr = Foedselsnummer.of(getString("fnr")),
-        endring = OmsEndring.valueOf(getString("type")),
-        beskrivelse = getString("endringer"),
+        endring = OmsEndring.valueOf(getString("endring")),
+        beskrivelse = getString("beskrivelse"),
         tidspunkt = getTimestamp("tidspunkt").toInstant(),
     )
 
@@ -89,7 +89,7 @@ private object Queries {
 
     val LAGRE_ENDRINGER =
         """
-        INSERT INTO oms_meld_inn_endring (id, fnr, type, endringer, status, tidspunkt) values (?,?,?,?,?,?)
+        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt) values (?,?,?,?,?,?)
         """.trimIndent()
 
     val HENT_ENDRING_MED_STATUS =

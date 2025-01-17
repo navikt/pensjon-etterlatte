@@ -8,12 +8,20 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useNavigate } from 'react-router-dom'
 import { velgTekstForEndring } from './velgTekst.ts'
 import { useMeldInnEndring } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
+import { useState } from 'react'
+import { logger } from '../../common/logger/logger.ts'
+import { apiURL, poster } from '../../common/api/api.ts'
+import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { FeilIOppretelseAvEndring } from './FeilIOppretelseAvEndring.tsx'
 
 export const MeldInnEndringOppsummering = () => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
     const meldInnInntext = useMeldInnEndring()
+
+    const [laster, setLaster] = useState<boolean>(false)
+    const [apiFeil, setApiFeil] = useState<boolean>(false)
 
     const {
         innhold,
@@ -26,6 +34,21 @@ export const MeldInnEndringOppsummering = () => {
     }
     if (innholdError) {
         throw innholdError
+    }
+
+    const sendInnEndring = async () => {
+        setLaster(true)
+        setApiFeil(false)
+        try {
+            const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body: meldInnInntext })
+            if ([200, 304].includes(res.status)) {
+                navigate('/meld-inn-endring/kvittering')
+            }
+        } catch (e) {
+            logger.generalError(e as object)
+            setApiFeil(true)
+        }
+        setLaster(false)
     }
 
     return (
@@ -70,6 +93,15 @@ export const MeldInnEndringOppsummering = () => {
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
                         </FormSummary>
+
+                        {apiFeil && <FeilIOppretelseAvEndring />}
+
+                        <NavigasjonMeny
+                            tilbakePath="/meld-inn-endring/meld-fra-om-endring"
+                            onNeste={sendInnEndring}
+                            nesteLaster={laster}
+                            skalSendeInnSkjema
+                        />
                     </VStack>
                 </HStack>
             </main>
