@@ -32,7 +32,7 @@ const SoknadForside = () => {
     const { t } = useTranslation()
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext()
     const { state: brukerState } = useBrukerContext()
-    const [, setHarSoektOms] = useState<boolean>(false)
+    const [harSoektOms, setHarSoektOms] = useState<boolean>(false)
     useLanguage()
 
     const startSoeknad = () => {
@@ -51,7 +51,6 @@ const SoknadForside = () => {
         if (brukerState.foedselsnummer) {
             hentHarSoektOms().then((result: { harOMSSak: boolean }) => {
                 setHarSoektOms(result.harOMSSak)
-                console.log('har søkt om oms:', result.harOMSSak)
                 if (result.harOMSSak) {
                     logEvent(LogEvents.ALERT_VIST, {
                         variant: 'info',
@@ -94,33 +93,33 @@ const SoknadForside = () => {
 
             <Spraakvalg />
 
-            {/*{harSoektOms && (*/}
-            {/*    <SkjemaElement>*/}
-            {/*        <Alert variant={'info'}>*/}
-            {/*            <Heading size={'small'} spacing>*/}
-            {/*                {t('forside.harSoektOms.tittel')}*/}
-            {/*            </Heading>*/}
-            {/*            <BodyLong spacing>{t('forside.harSoektOms.avsnitt')}</BodyLong>*/}
-            {/*            <List>*/}
-            {/*                <ListItemWithIndent>*/}
-            {/*                    <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>*/}
-            {/*                        {t('forside.harSoektOms.innhold.li1.lenke.tekst')}*/}
-            {/*                    </Link>{' '}*/}
-            {/*                </ListItemWithIndent>*/}
-            {/*                <ListItemWithIndent>*/}
-            {/*                    <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>*/}
-            {/*                        {t('forside.harSoektOms.innhold.li2.lenke.tekst')}*/}
-            {/*                    </Link>*/}
-            {/*                </ListItemWithIndent>*/}
-            {/*                <ListItemWithIndent>*/}
-            {/*                    <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>*/}
-            {/*                        {t('forside.harSoektOms.innhold.li3.lenke.tekst')}*/}
-            {/*                    </Link>*/}
-            {/*                </ListItemWithIndent>*/}
-            {/*            </List>*/}
-            {/*        </Alert>*/}
-            {/*    </SkjemaElement>*/}
-            {/*)}*/}
+            {harSoektOms && (
+                <SkjemaElement>
+                    <Alert variant={'info'}>
+                        <Heading size={'small'} spacing>
+                            {t('forside.harSoektOms.tittel')}
+                        </Heading>
+                        <BodyLong spacing>{t('forside.harSoektOms.avsnitt')}</BodyLong>
+                        <List>
+                            <ListItemWithIndent>
+                                <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li1.lenke.tekst')}
+                                </Link>{' '}
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li2.lenke.tekst')}
+                                </Link>
+                            </ListItemWithIndent>
+                            <ListItemWithIndent>
+                                <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>
+                                    {t('forside.harSoektOms.innhold.li3.lenke.tekst')}
+                                </Link>
+                            </ListItemWithIndent>
+                        </List>
+                    </Alert>
+                </SkjemaElement>
+            )}
 
             <SkjemaGruppe>
                 <Heading spacing size={'large'}>
