@@ -19,7 +19,7 @@ export const hentInnloggetPerson = async (type: SoeknadType) => {
  */
 export const hentHarSoektOms = async () => {
     try {
-        const response = await api.get('/api/api/sak/oms/har_sak')
+        const response = await api.get('/api/api/sak/oms/har-loepende-sak')
         return response.data
     } catch {
         throw new Error('Det skjedde en feil')
