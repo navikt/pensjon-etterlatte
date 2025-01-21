@@ -9,7 +9,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, {}).as('hentSoeknad') // Ingen kladd eksisterer
         cy.intercept('POST', `${basePath}/api/api/kladd`, {})
-        cy.intercept('GET', `${basePath}/api/api/sak/oms/har_sak`, { harOMSSak: false }).as('hentSoeknad')
+        cy.intercept('GET', `${basePath}/api/api/sak/oms/har-loepende-sak`, { harOMSSak: false }).as('hentSoeknad')
 
         cy.visit('localhost:5173/omstillingsstonad/soknad', {
             onBeforeLoad: (obj) => {

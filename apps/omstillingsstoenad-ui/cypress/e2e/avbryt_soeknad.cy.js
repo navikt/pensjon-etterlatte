@@ -7,7 +7,7 @@ describe('Skal avbryte en soeknad', () => {
             fixture: 'testbruker',
         }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, { fixture: 'kladd' }).as('hentSoeknad')
-        cy.intercept('GET', `${basePath}/api/api/sak/oms/har_sak`, { harOMSSak: false }).as('hentSoeknad')
+        cy.intercept('GET', `${basePath}/api/api/sak/oms/har-loepende-sak`, { harOMSSak: false }).as('hentSoeknad')
 
         cy.visit('localhost:5173/omstillingsstonad/soknad', {
             onBeforeLoad: (obj) => {
