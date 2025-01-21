@@ -18,7 +18,7 @@ fun Route.sak(service: SakService) {
                 call.respond(HarOMSSakIGjennyResponse(harOMSSak))
             }
 
-            get("/har_loepende_sak") {
+            get("/har-loepende-sak") {
                 val fnr = fnrFromToken()
 
                 val harOMSSak = service.harLoependeOMSSak(fnr)

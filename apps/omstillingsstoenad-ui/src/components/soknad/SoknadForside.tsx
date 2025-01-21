@@ -24,7 +24,7 @@ import { erForGammel } from '../../utils/alder'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { ListItemWithIndent } from '../felles/StyledComponents'
 import { useEffect, useState } from 'react'
-import { hentHarSoektOmsLoepende } from '~api/api'
+import { hentHarSoektOms } from '~api/api'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -49,7 +49,7 @@ const SoknadForside = () => {
 
     useEffect(() => {
         if (brukerState.foedselsnummer) {
-            hentHarSoektOmsLoepende().then((result: { harOMSSak: boolean }) => {
+            hentHarSoektOms().then((result: { harOMSSak: boolean }) => {
                 setHarSoektOms(result.harOMSSak)
                 console.log('har søkt om oms:', result.harOMSSak)
                 if (result.harOMSSak) {
