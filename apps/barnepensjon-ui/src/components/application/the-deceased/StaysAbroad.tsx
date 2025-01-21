@@ -2,16 +2,15 @@ import useTranslation from '../../../hooks/useTranslation'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import { RHFNumberInput } from '../../common/rhf/RHFInput'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
-import { IDeceasedParent, IStaysAbroad } from '../../../context/application/application'
+import { IDeceasedParent, IStaysAbroad } from '~context/application/application'
 import { BodyShort, Box, Button, HGrid, Label, VStack } from '@navikt/ds-react'
 import { RHFSelect } from '../../common/rhf/RHFSelect'
 import { useEffect } from 'react'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
-import { OppholdUtlandType } from '../../../api/dto/FellesOpplysninger'
+import { OppholdUtlandType } from '~api/dto/FellesOpplysninger'
 import Datepicker from '../../common/Datepicker'
 import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
-import { GridColumns, GridGap } from '../../../utils/grid'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 import { Options } from '~hooks/useCountries'
 
@@ -50,7 +49,12 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
         <>
             {fields.map((field: FieldArrayWithId, index: number) => (
                 <FormElement key={field.id}>
-                    <Box borderWidth="1" padding="4">
+                    <Box
+                        borderColor={'border-info'}
+                        borderWidth={'0 0 0 4'}
+                        background={'surface-selected'}
+                        padding="4"
+                    >
                         <Box maxWidth="14rem">
                             <RHFCombobox
                                 name={`staysAbroad.abroadStays[${index}].country`}
@@ -68,7 +72,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                                 })}
                             />
                         </FormElement>
-                        <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                        <VStack gap="4">
                             <Datepicker
                                 name={`staysAbroad.abroadStays[${index}].fromDate`}
                                 label={t('stayedAbroadFromDate')}
@@ -81,7 +85,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                                 valgfri={true}
                                 maxDate={new Date()}
                             />
-                        </HGrid>
+                        </VStack>
                         <FormElement>
                             <RHFGeneralQuestionRadio
                                 name={`staysAbroad.abroadStays[${index}].medlemFolketrygd`}
@@ -119,18 +123,16 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                         </FormElement>
 
                         {fields.length > 1 && (
-                            <VStack align="end">
-                                <FormElement>
-                                    <Button
-                                        variant={'secondary'}
-                                        type={'button'}
-                                        onClick={() => remove(index)}
-                                        icon={<DeleteFilled />}
-                                    >
-                                        {t('deleteButton', { ns: 'btn' })}
-                                    </Button>
-                                </FormElement>
-                            </VStack>
+                            <FormElement>
+                                <Button
+                                    variant={'secondary'}
+                                    type={'button'}
+                                    onClick={() => remove(index)}
+                                    icon={<DeleteFilled />}
+                                >
+                                    {t('deleteButton', { ns: 'btn' })}
+                                </Button>
+                            </FormElement>
                         )}
                     </Box>
                 </FormElement>
