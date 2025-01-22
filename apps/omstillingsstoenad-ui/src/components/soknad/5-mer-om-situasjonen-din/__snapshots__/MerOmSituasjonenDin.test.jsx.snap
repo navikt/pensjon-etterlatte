@@ -968,7 +968,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                     aria-atomic="true"
                                     aria-live="polite"
                                     class="navds-sr-only"
-                                    id="react-day-picker-4"
+                                    id="react-day-picker-3"
                                   >
                                     januar 2024
                                   </span>
@@ -1288,7 +1288,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   </button>
                                 </div>
                                 <table
-                                  aria-labelledby="react-day-picker-4"
+                                  aria-labelledby="react-day-picker-3"
                                   class="rdp-table"
                                   role="grid"
                                 >
