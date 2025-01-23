@@ -54,6 +54,7 @@
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.19.0",
     "@typescript-eslint/parser": "^8.19.0",
+    "concurrently": "^9.1.2",
     "cypress": "^13.17.0",
     "eslint": "^9.17.0",
     "eslint-config-react-app": "7.0.1",
@@ -67,7 +68,9 @@
     "prettier": "^3.4.2"
   },
   "scripts": {
+    "dev": "concurrently \"yarn start\" \"yarn start:node\"",
     "start": "vite --base /barnepensjon/soknad",
+    "start:node": "cd ../etterlatte-node-server && yarn start:bp",
     "build": "tsc && eslint src && vite build --outDir build --base /barnepensjon/soknad && yarn lisenssjekk",
     "preview": "vite preview --port 5173",
     "lint": "eslint src --ext .ts,.tsx",

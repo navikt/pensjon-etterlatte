@@ -19,6 +19,9 @@ Les mer her: https://doc.nais.io
 Installere prosjektet:\
 `yarn install`
 
+Kjøre opp både frontend og [etterlatte-node-server](../etterlatte-node-server) samtidig:\
+`yarn dev`
+
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start`
 
@@ -31,9 +34,9 @@ Teste prosjektet:\
 
 Kjøre cypress tester (krever at prosjektet kjører lokalt først):
 
--   `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
+- `yarn cy:open` Åpner Cypress konsollet i din nettleser for å interaktivt kunne se kjøringene.
 
--   `yarn cy:test` Kjører testene headless fra CLI.
+- `yarn cy:test` Kjører testene headless fra CLI.
 
 ### Koble til APIet lokalt
 
