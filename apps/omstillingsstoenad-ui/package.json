@@ -56,6 +56,7 @@
         "@typescript-eslint/parser": "^8.19.0",
         "axe-core": "^4.10.2",
         "chai-dom": "^1.12.0",
+        "concurrently": "^9.1.2",
         "cypress": "^13.17.0",
         "cypress-axe": "^1.5.0",
         "eslint": "^9.17.0",
@@ -71,7 +72,9 @@
         "typescript-eslint": "^8.19.0"
     },
     "scripts": {
+        "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /omstillingsstonad/soknad",
+        "start:node": "cd ../etterlatte-node-server && yarn start:oms",
         "build": "tsc && eslint src && vite build --outDir build --base /omstillingsstonad/soknad && yarn lisenssjekk",
         "test": "vitest",
         "test:coverage": "vitest run --coverage",

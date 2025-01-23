@@ -19,6 +19,9 @@ Les mer her: https://doc.nais.io
 Installere prosjektet:\
 `yarn install`
 
+Kjøre opp både frontend og node-server lokalt:\
+`yarn dev`
+
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start` 
 
