@@ -15,10 +15,8 @@ const fieldErrorsSomListe = (errors: FieldErrors): Array<FieldError> => {
 
         if (kanskjeFieldError?.type && typeof kanskjeFieldError.type !== 'object') {
             return kanskjeFieldError
-        } else if (value as FieldErrors) {
-            return fieldErrorsSomListe(value)
         } else {
-            return []
+            return fieldErrorsSomListe(value)
         }
     })
 }
