@@ -13,6 +13,7 @@ import { SideLaster } from '../../../common/SideLaster.tsx'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
+import { SammendragAvSkjemaFeil } from '../../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
@@ -30,7 +31,12 @@ export const AttenTilSekstiEnAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { control, watch, handleSubmit } = useForm<InntektSkjema>({
+    const {
+        control,
+        watch,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<InntektSkjema>({
         defaultValues: inntektTilInntektSkjemaValues(inntekt, spraak),
     })
 
@@ -107,6 +113,8 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     >
                         <SanityRikTekst text={sumAvInntekt?.[spraak]} />
                     </SumAvOppgittInntekt>
+
+                    <SammendragAvSkjemaFeil errors={errors} />
 
                     <NavigasjonMeny
                         tilbakePath="/inntekt/innledning"

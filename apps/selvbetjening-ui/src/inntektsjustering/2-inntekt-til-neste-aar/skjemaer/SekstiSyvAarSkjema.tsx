@@ -4,18 +4,18 @@ import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useForm } from 'react-hook-form'
 import { Inntekt, InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, ErrorSummary, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { ControlledRadioGruppe } from '../../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
 import { Alder } from '../../../types/person.ts'
 import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
-import { formaterFieldErrors } from '../../../common/skjemaError/skjemaError.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
+import { SammendragAvSkjemaFeil } from '../../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
@@ -222,15 +222,7 @@ export const SekstiSyvAarSkjema = () => {
                         </>
                     )}
 
-                    {!!Object.keys(errors)?.length && (
-                        <ErrorSummary heading="Du må fikse disse feilene">
-                            {formaterFieldErrors(errors).map((error) => (
-                                <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
-                                    {error.message}
-                                </ErrorSummary.Item>
-                            ))}
-                        </ErrorSummary>
-                    )}
+                    <SammendragAvSkjemaFeil errors={errors} />
 
                     <NavigasjonMeny
                         tilbakePath="/inntekt/innledning"
