@@ -98,19 +98,23 @@ export const MeldInnEndringMeldFra = () => {
                                     }
                                 />
 
-                                {velgVisningAvInformasjonForEndring(watch('endring'))}
-
-                                <Textarea
-                                    {...register('beskrivelse', {
-                                        required: {
-                                            value: true,
-                                            message: innhold.beskrivelseAvEndring?.errorVedTomInput?.[spraak] ?? '',
-                                        },
-                                    })}
-                                    label={innhold.beskrivelseAvEndring?.label?.[spraak]}
-                                    description={innhold.beskrivelseAvEndring?.description?.[spraak]}
-                                    error={errors?.beskrivelse?.message}
-                                />
+                                {!!watch('endring') && (
+                                    <>
+                                        {velgVisningAvInformasjonForEndring(watch('endring'))}
+                                        <Textarea
+                                            {...register('beskrivelse', {
+                                                required: {
+                                                    value: true,
+                                                    message:
+                                                        innhold.beskrivelseAvEndring?.errorVedTomInput?.[spraak] ?? '',
+                                                },
+                                            })}
+                                            label={innhold.beskrivelseAvEndring?.label?.[spraak]}
+                                            description={innhold.beskrivelseAvEndring?.description?.[spraak]}
+                                            error={errors?.beskrivelse?.message}
+                                        />
+                                    </>
+                                )}
 
                                 <SammendragAvSkjemaFeil errors={errors} />
 
