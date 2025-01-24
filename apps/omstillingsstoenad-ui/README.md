@@ -53,7 +53,7 @@ Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via
 
 Innloggingsdetaljer kan oppdrives av noen i teamet.
 
-# NAV avhengigheter
+# Nav avhengigheter
 
 ## Dekoratøren
 

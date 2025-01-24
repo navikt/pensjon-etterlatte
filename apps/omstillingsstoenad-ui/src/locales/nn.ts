@@ -64,9 +64,9 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         'For at vi skal kunne rekne ut rett omstillingsstønad, treng vi informasjon om arbeidsinntekta di. Viss du er fødd før 1964, treng vi informasjon om inntekta du hadde året før den avdøde gjekk bort. Oppgi brutto inntekt, det vil seie inntekt før skatt. Du finn brutto inntekt på lønsslippen din.\n',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
-    'forside.slikBehandlerVi.tittel': 'Slik behandlar NAV personopplysningane dine',
+    'forside.slikBehandlerVi.tittel': 'Slik behandlar Nav personopplysningane dine',
     'forside.slikBehandlerVi.innhold':
-        'Når du sender inn ein søknad om yting, vil NAV hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at NAV skal kunne innfri plikta etter folketrygdlova kapittel 17 til å bidra til økonomisk tryggleik ved dødsfall.',
+        'Når du sender inn ein søknad om yting, vil Nav hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at Nav skal kunne innfri plikta etter folketrygdlova kapittel 17 til å bidra til økonomisk tryggleik ved dødsfall.',
     'forside.innsamlingAvInfo.tittel': 'Vi samlar inn og behandlar personopplysningar for å',
     'forside.innsamlingAvInfo.innholdListe.li1':
         'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
@@ -74,7 +74,7 @@ export default {
     'forside.innsamlingAvInfo.innholdListe.li3': 'betale ut ytinga',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor NAV. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor Nav. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n',
     'forside.uthentingAvInfo.innholdListe.li1':
         'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
@@ -82,7 +82,7 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li3':
         'opplysningar frå Arbeidsgivar- og arbeidstakarregisteret om arbeidsforhold',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'opplysningar om anna fortløpande støtte frå NAV (t.d. alderspensjon eller uføretrygd)',
+        'opplysningar om anna fortløpande støtte frå Nav (t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5': 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li6':
         'informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
@@ -97,7 +97,7 @@ export default {
     'forside.personvern.tredjeperson.li4': 'sivilstand',
     'forside.utleveringAvOpplysninger.tittel': 'Utlevering av opplysningane dine',
     'forside.utleveringAvOpplysninger.innhold':
-        'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at NAV har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
+        'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at Nav har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
     'forside.lagringstid.tittel': 'Kor lenge opplysningane dine blir lagra',
     'forside.lagringstid.innhold':
         'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
@@ -120,10 +120,10 @@ export default {
     'forside.automatiskbehandling.innholdListe.li4': 'gjeldande vedtak',
     'forside.automatiskbehandling.innhold5':
         'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
-    'forside.personvern.tittel': 'Personvernerklæringa i NAV',
+    'forside.personvern.tittel': 'Personvernerklæringa i Nav',
     'forside.personvern.innhold': 'Her kan du lese meir om ',
     'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
-    'forside.personvern.tekst': 'korleis NAV behandlar personopplysningane dine.',
+    'forside.personvern.tekst': 'korleis Nav behandlar personopplysningane dine.',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',
@@ -216,14 +216,14 @@ export default {
     'merOmSituasjonenDin.utdanning.annenUtdanningPlaceholder': 'Til dømes kurs, enkeltår på universitet eller høgskule',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger': 'Informasjon om stønad til skulepengar',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
-        'Du kan få stønad til dekning av skulepengar som attlevande ektefelle dersom du gjennomfører utdanning som er godkjent av NAV. Utdanninga må vere nødvendig og hensiktsmessig for å kome i eller behalde arbeid.\n\nStønad til skulepengar skal dekke dei faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skulepengar ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til ei øvre grense.',
+        'Du kan få stønad til dekning av skulepengar som attlevande ektefelle dersom du gjennomfører utdanning som er godkjent av Nav. Utdanninga må vere nødvendig og hensiktsmessig for å kome i eller behalde arbeid.\n\nStønad til skulepengar skal dekke dei faktiske utgiftene du har til studieavgift, semesteravgift, eksamensgebyr og/eller skulepengar ved privat utdanningsinstitusjon. Stønaden dekker dokumenterte utgifter opp til ei øvre grense.',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.bekreftelse': 'Eg har utgifter til skulepengar',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning':
         'Informasjon om tilleggsstønad til skuleutgifter',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
-        'Som attlevande ektefelle kan du også søke om tilleggsstønad viss du gjennomfører utdanning som er godkjent av NAV. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanninga, til dømes utgifter til læremiddel, reiser, flytting og ekstra utgifter til bustad.',
+        'Som attlevande ektefelle kan du også søke om tilleggsstønad viss du gjennomfører utdanning som er godkjent av Nav. Du kan få støtte til dekning av nødvendige utgifter som du har under utdanninga, til dømes utgifter til læremiddel, reiser, flytting og ekstra utgifter til bustad.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'Eg har utgifter til utdanning',
-    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Har du ein aktivitetsplan i samarbeid med NAV?',
+    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Har du ein aktivitetsplan i samarbeid med Nav?',
     'merOmSituasjonenDin.selvstendig.tittel': 'Om næringa',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen': 'Kva heiter firmaet?',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse': 'Legg inn namnet på føretaket eller bedrifta.',
@@ -274,7 +274,7 @@ export default {
     'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'Kva heiter den nye verksemda?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': 'Har du ein forretningsplan?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar':
-        'Er dette i samarbeid med NAV for at du skal bli sjølvforsørgd?',
+        'Er dette i samarbeid med Nav for at du skal bli sjølvforsørgd?',
     'merOmSituasjonenDin.tilbudOmJobb.tittel': 'Om arbeidsforholdet ditt',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidssted': 'Namn på ny arbeidsstad',
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato': 'Når skal du byrje å jobbe?',
@@ -290,18 +290,18 @@ export default {
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.type': 'Type arbeidsmengde',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar': 'Har du ein sluttdato?',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger': 'Sluttdato',
-    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Har du ein aktivitetsplan i samarbeid med NAV?',
+    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Har du ein aktivitetsplan i samarbeid med Nav?',
     'merOmSituasjonenDin.arbeidssoeker.tittel': 'Om arbeidssøkinga',
-    'merOmSituasjonenDin.arbeidssoeker.svar': 'Er du registrert som arbeidssøkjar hos NAV?',
+    'merOmSituasjonenDin.arbeidssoeker.svar': 'Er du registrert som arbeidssøkjar hos Nav?',
     'merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar': 'Har du ein aktivitetsplan?',
     'merOmSituasjonenDin.andreYtelser.tittel': 'Ytingar',
     'merOmSituasjonenDin.andreYtelser.ingress':
-        'Nokre ytingar frå NAV vert rekna som inntekt og har betydning for kor mykje omstillingsstønad du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med omstillingsstønad.',
+        'Nokre ytingar frå Nav vert rekna som inntekt og har betydning for kor mykje omstillingsstønad du får. Uføretrygd, alderspensjon, avtalefesta pensjon (AFP) kan ikkje kombinerast med omstillingsstønad.',
     'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.svar':
         'Har du søkt om andre ytingar som du ikkje har fått svar på?',
     'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.ytelser': 'Kva har du søkt om?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
-        'Får du eller har du søkt om avtalefesta pensjon (AFP) eller annan pensjon frå andre enn NAV?',
+        'Får du eller har du søkt om avtalefesta pensjon (AFP) eller annan pensjon frå andre enn Nav?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.beskrivelse': 'Kva for pensjonsordning?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder': 'Til dømes Skandia, KLP, SPK, Oslo pensjonsforsikring',
     'merOmSituasjonenDin.andreYtelser.mottarPensjonUtland.svar': 'Får du pensjon frå eit anna land enn Noreg?',
@@ -476,7 +476,7 @@ export default {
     'inntektenDin.ingenInntekt.beskrivelse': 'Beskriv kva type utbetaling du får',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.tittel': 'Kva blir rekna som inntekt?',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivande inntekt reknar ein mellom anna\n',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1': 'visse ytingar frå NAV',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1': 'visse ytingar frå Nav',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li2': 'fastløn',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li3': 'ekstratimar og overtid',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li4': 'næringsinntekt',
@@ -485,15 +485,15 @@ export default {
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li7': 'feriepengar',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li8':
         'bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjersle for deltaking i styre, utval, representantskap eller liknande, kvalifiseringsstønad, omsorgsløn og fosterheimsgodtgjersle.',
-    'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Ytingar frå NAV ',
+    'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Ytingar frå Nav ',
     'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Kva inntekter eller utbetalingar har du?',
     'inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar': 'Har du ein aktivitetsplan?',
-    'inntektenDin.ytelserNAV.tittel': 'Søknad om ytingar frå NAV',
-    'inntektenDin.ytelserNAV.svar': 'Har du søkt om ytingar frå NAV, men ikkje fått svar på søknaden enno?',
+    'inntektenDin.ytelserNAV.tittel': 'Søknad om ytingar frå Nav',
+    'inntektenDin.ytelserNAV.svar': 'Har du søkt om ytingar frå Nav, men ikkje fått svar på søknaden enno?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Kva ytingar har du søkt om?',
-    'inntektenDin.ytelserNAV.hvorfor': 'Vi treng å vite dette, då enkelte ytingar frå NAV blir rekna som inntekt.',
+    'inntektenDin.ytelserNAV.hvorfor': 'Vi treng å vite dette, då enkelte ytingar frå Nav blir rekna som inntekt.',
     'inntektenDin.ytelserAndre.tittel': 'Søknad om ytingar frå andre',
-    'inntektenDin.ytelserAndre.svar': 'Har du søkt om ytingar frå andre enn NAV, men ikkje fått svar på søknaden enno?',
+    'inntektenDin.ytelserAndre.svar': 'Har du søkt om ytingar frå andre enn Nav, men ikkje fått svar på søknaden enno?',
     'inntektenDin.ytelserAndre.soekteYtelser': 'Kva har du søkt om?',
     'inntektenDin.ytelserAndre.pensjonsordning': 'Oppgi kva pensjonsordning det dreier seg om',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse': 'Døme: Statens pensjonskasse, Oslo pensjonsforsikring',
@@ -517,7 +517,7 @@ export default {
     'omDeg.utbetalingsInformasjon.tittel': 'Oppgi bankopplysingar',
     'omDeg.utbetalingsInformasjon.bankkontoType': 'Ønsker du å få utbetalinga på norsk eller utanlandsk bankkonto?',
     'omDeg.utbetalingsInformasjon.kontonummer': 'Oppgi norsk kontonummer for utbetaling',
-    'omDeg.utbetalingsInformasjon.informasjon': 'Du kan berre ha eitt kontonummer registrert hos NAV.',
+    'omDeg.utbetalingsInformasjon.informasjon': 'Du kan berre ha eitt kontonummer registrert hos Nav.',
     'omDeg.utbetalingsInformasjon.utenlandskBankNavn': 'Bankens navn',
     'omDeg.utbetalingsInformasjon.utenlandskBankAdresse': 'Bankens fulle adresse',
     'omDeg.utbetalingsInformasjon.iban': 'IBAN-nummer',
@@ -579,7 +579,7 @@ export default {
     'omDenAvdoede.doedsfallAarsak.tittel': 'Yrkesskade eller yrkessjukdom',
     'omDenAvdoede.doedsfallAarsak': 'Skuldast dødsfallet yrkesskade eller yrkessjukdom?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
-        'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av NAV kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
+        'Viss dødsfallet skuldast yrkesskade eller yrkessjukdom godkjent av Nav kan det avgjere om du får omstillingsstønad og kor mykje du kan få.',
     'omBarn.tittel': 'Barnepensjon',
     'omBarn.tittelModal': 'Om barnet',
     'omBarn.informasjon.tittel': 'Søknad om barnepensjon',
@@ -632,7 +632,7 @@ export default {
     'omBarn.soeknadOmBarnetilsyn.bekreftelse': 'Eg har utgifter til barnetilsyn',
     'omBarn.soeknadOmTilleggsstoenadBarnepass': 'Informasjon om tilleggsstønad til pass av barn',
     'omBarn.soeknadOmTilleggsstoenadBarnepass.beskrivelse':
-        'Du kan få dekt delar av utgiftene til pass av barn dersom du er attlevande ektefelle som gjennomfører nødvendig og hensiktsmessig utdanning godkjent av NAV, eller er registrert som reell arbeidssøkar hos NAV og sender meldekort.',
+        'Du kan få dekt delar av utgiftene til pass av barn dersom du er attlevande ektefelle som gjennomfører nødvendig og hensiktsmessig utdanning godkjent av Nav, eller er registrert som reell arbeidssøkar hos Nav og sender meldekort.',
     'omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse': 'Eg har utgifter til pass av barn',
     'omBarn.ikkeSoekt': 'Det er ikkje søkt om barnepensjon',
     'oppsummering.tittel': 'Oppsummering',
@@ -650,7 +650,7 @@ export default {
     'oppsummering.ikkeFylltUtAarsinntekt.tittel': ' inntekten din for å legge til svar.',
     'soeknadKvittering.tittel': 'Søknaden din er sendt til oss',
     'soeknadKvittering.mottatt':
-        'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
+        'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos Nav. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
     'soeknadKvittering.endring.tittel': 'Du må melde frå om endringar',
     'soeknadKvittering.endring.informasjon':
         'Du må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan til dømes vere viss:',
@@ -665,7 +665,7 @@ export default {
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
-    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt NAV.',
+    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt Nav.',
     'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
         'https://www.nav.no/saksbehandlingstider/nn#omstillingsstonad',
@@ -751,7 +751,7 @@ export default {
     'inntekt.loenn': 'Arbeidsinntekt',
     'inntekt.naering': 'Næringsinntekt',
     'inntekt.pensjonEllerUfoere': 'Pensjon eller uføretrygd',
-    'inntekt.ytelser': 'Ytingar frå NAV',
+    'inntekt.ytelser': 'Ytingar frå Nav',
     'inntekt.annen': 'Inga inntekt eller anna utbetaling',
     'inntekt.norge': 'Noreg',
     'inntekt.utland': 'Utland',
@@ -768,9 +768,9 @@ export default {
     'soekbarYtelse.opplaeringspenger': 'Opplæringspengar',
     'soekbarYtelse.ufoeretrygd': 'Uføretrygd',
     'soekbarYtelse.ufoerepensjon': 'Uførepensjon',
-    'soekbarYtelse.ufoeretrygdFraNAV': 'Uføretrygd frå NAV',
+    'soekbarYtelse.ufoeretrygdFraNAV': 'Uføretrygd frå Nav',
     'soekbarYtelse.alderspensjon': 'Alderspensjon',
-    'soekbarYtelse.alderspensjonFraNAV': 'Alderspensjon frå NAV',
+    'soekbarYtelse.alderspensjonFraNAV': 'Alderspensjon frå Nav',
     'soekbarYtelse.avtalefestetPensjonOffentlig': 'Avtalefesta pensjon i offentleg sektor',
     'soekbarYtelse.avtalefestetPensjonPrivat': 'Avtalefesta pensjon i privat sektor',
     'soekbarYtelse.saeralderpensjon': 'Særalderspensjon',
@@ -929,7 +929,7 @@ export default {
     'feil.utdanning.naavaerendeUtdanning.studieform.required': 'Oppgi studieform',
     'feil.utdanning.naavaerendeUtdanning.studieprosent.required': 'Oppgi studieprosent',
     'feil.utdanning.naavaerendeUtdanning.godkjentUtdanning.required': 'Oppgi om utdanninga er godkjend av Lånekassen',
-    'feil.utdanning.aktivitetsplan.svar.required': 'Oppgi om du har ein aktivitetsplan i samarbeid med NAV',
+    'feil.utdanning.aktivitetsplan.svar.required': 'Oppgi om du har ein aktivitetsplan i samarbeid med Nav',
     'feil.ingenJobbBeskrivelse.required': 'Gi ei nærare skildring av situasjonen',
     'feil.andreYtelser.kravOmAnnenStonad.svar.required': 'Oppgi om du ventar svar på andre ytingar',
     'feil.andreYtelser.kravOmAnnenStonad.beskrivelse.required': 'Oppgi ytingar du har søkt om',
@@ -992,7 +992,7 @@ export default {
     'feil.etablererVirksomhet.orgnr.minLength':
         'Organisasjonsnummeret er ufullstendig. Eit organisasjonsnummer består av 9 siffer',
     'feil.etablererVirksomhet.forretningsplan.svar.required': 'Oppgi status rundt forretningsplan',
-    'feil.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar.required': 'Oppgi om det er i samarbeid med NAV',
+    'feil.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar.required': 'Oppgi om det er i samarbeid med Nav',
     'feil.tilbudOmJobb.arbeidssted.required': 'Oppgi namnet på arbeidsstaden',
     'feil.tilbudOmJobb.ansettelsesdato.required': 'Oppgi oppstartsdato',
     'feil.tilbudOmJobb.ansettelsesforhold.required': 'Oppgi tilsetjingsforhold',
@@ -1000,8 +1000,8 @@ export default {
     'feil.tilbudOmJobb.arbeidsmengde.type.required': 'Vel anten prosent eller timar',
     'feil.tilbudOmJobb.midlertidig.svar.required': 'Oppgi om du har ein sluttdato',
     'feil.tilbudOmJobb.midlertidig.sluttdatoVelger.required': 'Oppgi sluttdato',
-    'feil.tilbudOmJobb.aktivitetsplan.svar.required': 'Oppgi om du har ein aktivitetsplan i samarbeid med NAV',
-    'feil.arbeidssoeker.svar.required': 'Oppgi om du er registrert som arbeidssøkjar hos NAV',
+    'feil.tilbudOmJobb.aktivitetsplan.svar.required': 'Oppgi om du har ein aktivitetsplan i samarbeid med Nav',
+    'feil.arbeidssoeker.svar.required': 'Oppgi om du er registrert som arbeidssøkjar hos Nav',
     'feil.arbeidssoeker.aktivitetsplan.svar.required': 'Oppgi om du har ein aktivitetsplan',
     'feil.annenSituasjon.beskrivelse.required': 'Vel det som beskriv situasjonen din',
     'feil.annenSituasjon.annet.beskrivelse.required': 'Beskriv situasjonen din',
@@ -1078,7 +1078,7 @@ export default {
     'feil.ingenInntekt.svar.required': 'Oppgi om du har inntekt eller noen andre utbetalinger',
     'feil.ingenInntekt.beloep.required': 'Oppgi beløp',
     'feil.ingenInntekt.beskrivelse.required': 'Beskriv kva type utbetaling du får',
-    'feil.ytelserNAV.svar.required': 'Oppgi om du har søkt om andre ytingar frå NAV',
+    'feil.ytelserNAV.svar.required': 'Oppgi om du har søkt om andre ytingar frå Nav',
     'feil.ytelserNAV.soekteYtelser.required': 'Kryss av for kva andre ytingar frå NAV du har søkt om',
     'feil.ytelserAndre.svar.required': 'Oppgi om du har søkt om andre ytingar',
     'feil.ytelserAndre.soekteYtelser.required': 'Kryss av for kva andre ytingar du har søkt om',
