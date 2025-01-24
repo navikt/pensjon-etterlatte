@@ -36,7 +36,7 @@ export const InformasjonOmInntekt = () => {
             </div>
 
             <ReadMore header={hvorforViSpoerOmInntektReadMore?.tittel?.[spraak]}>
-                {hvorforViSpoerOmInntektReadMore?.innhold?.[spraak]}
+                <SanityRikTekst text={hvorforViSpoerOmInntektReadMore?.innhold?.[spraak]} />
             </ReadMore>
 
             <div>
