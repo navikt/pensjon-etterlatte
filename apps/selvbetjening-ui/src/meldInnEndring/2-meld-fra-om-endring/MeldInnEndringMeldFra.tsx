@@ -113,7 +113,7 @@ export const MeldInnEndringMeldFra = () => {
                                 />
 
                                 {!!Object.keys(errors)?.length && (
-                                    <ErrorSummary heading="Du må fikse disse feilene">
+                                    <ErrorSummary heading={innhold.sammendragAvFeil?.tittel?.[spraak]}>
                                         {formaterFieldErrors(errors).map((error) => (
                                             <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
                                                 {error.message}

@@ -1092,6 +1092,13 @@ export type MeldInnEndringMeldFra = {
             EN?: string
         }
     }
+    sammendragAvFeil?: {
+        tittel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+    }
 }
 
 export type MeldInnEndringInnledning = {
