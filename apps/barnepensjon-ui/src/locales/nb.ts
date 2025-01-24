@@ -107,13 +107,13 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen, kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Behandling av personopplysninger i søknaden',
-    howWeProcessDataTitle: 'Slik behandler NAV personopplysningene dine',
+    howWeProcessDataTitle: 'Slik behandler Nav personopplysningene dine',
     howWeProcessDataContentParent:
-        'Når du sender inn en søknad om ytelse, innhenter og behandler NAV personopplysninger om den som søker ytelsen. Når du sender inn en søknad om ytelse på vegne av ditt barn, innhenter og behandler vi opplysninger om barnet. Dette er nødvendig for at den du søker for skal få gode tjenester og riktige ytelser og for å oppfylle NAVs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
+        'Når du sender inn en søknad om ytelse, innhenter og behandler Nav personopplysninger om den som søker ytelsen. Når du sender inn en søknad om ytelse på vegne av ditt barn, innhenter og behandler vi opplysninger om barnet. Dette er nødvendig for at den du søker for skal få gode tjenester og riktige ytelser og for å oppfylle Navs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
     howWeProcessDataContentGuardian:
-        'Når du sender inn en søknad om ytelse, innhenter og behandler NAV personopplysninger om den som søker ytelsen. Når du sender inn en søknad om ytelse på vegne av et barn du er verge for, innhenter og behandler vi opplysninger om barnet. Dette er nødvendig for at den du søker for skal få gode tjenester og riktige ytelser og for å oppfylle NAVs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
+        'Når du sender inn en søknad om ytelse, innhenter og behandler Nav personopplysninger om den som søker ytelsen. Når du sender inn en søknad om ytelse på vegne av et barn du er verge for, innhenter og behandler vi opplysninger om barnet. Dette er nødvendig for at den du søker for skal få gode tjenester og riktige ytelser og for å oppfylle Navs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
     howWeProcessDataContentChild:
-        'Når du sender inn en søknad om ytelse, innhenter og behandler NAV personopplysninger om deg. Dette er nødvendig for at du skal få gode tjenester og riktige ytelser og for å oppfylle NAVs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
+        'Når du sender inn en søknad om ytelse, innhenter og behandler Nav personopplysninger om deg. Dette er nødvendig for at du skal få gode tjenester og riktige ytelser og for å oppfylle Navs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
     collectAndProcessTitle: 'Vi samler inn og behandler personopplysninger for å',
     collectAndProcess_li1_parent: 'identifisere og kommunisere med deg som søker på vegne av barnet',
     collectAndProcess_li1_guardian: 'identifisere og kommunisere med deg som er representant for søker',
@@ -123,13 +123,13 @@ const frontPage = {
     collectAndProcess_li3: 'betale ut ytelsen',
     weWillRetrieveInfo: 'Vi henter informasjonen vi trenger',
     infoWeRetrieve_parent:
-        'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være verge som har rett til å representere barnet/barna overfor NAV. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente',
+        'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være verge som har rett til å representere barnet/barna overfor Nav. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente',
     infoWeRetrieve_guardian:
         'For å behandle søknaden om barnepensjon, henter vi inn opplysninger om deg som søker på vegne av barnet/barna og tredjepersoner som er relevant for søknaden. Relevante tredjepersoner kan være gjenlevende forelder. \n\nI tillegg til informasjonen du gir oss om barnet/barna gjennom søknadsdialogen kan vi hente',
     infoWeRetrieve_child:
-        'For å behandle søknaden din, henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være gjenlevende forelder eller verge som har rett til å representere deg overfor NAV. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente',
+        'For å behandle søknaden din, henter vi inn opplysninger om deg som søker og tredjepersoner som er relevant for søknaden din. Relevante tredjepersoner kan være gjenlevende forelder eller verge som har rett til å representere deg overfor Nav. \n\nI tillegg til informasjonen du gir oss gjennom søknadsdialogen kan vi hente',
     infoWeRetrieve_li1: 'personopplysninger fra Folkeregisteret (personnummer, adresse og statsborgerskap)',
-    infoWeRetrieve_li2: 'opplysninger om annen løpende støtte fra NAV (perioder med mottak av uføretrygd)',
+    infoWeRetrieve_li2: 'opplysninger om annen løpende støtte fra Nav (perioder med mottak av uføretrygd)',
     infoWeRetrieve_li3: 'informasjon fra utenlandske trygdemyndigheter der dette er aktuelt',
     infoWeRetrieve_li4: 'opplysninger om straffegjennomføring og opphold på institusjon',
     survivingParentInfo_parent:
@@ -137,7 +137,7 @@ const frontPage = {
     survivingParentInfo_guardian:
         'Når du sender inn en søknad om ytelse på vegne av et barn du er verge for, henter vi følgende informasjon om gjenlevende forelder',
     survivingParentInfo_child:
-        'Når du søker om barnepensjon, innhenter NAV informasjon om eventuell gjenlevende forelder. Da har vi behov for å hente inn',
+        'Når du søker om barnepensjon, innhenter Nav informasjon om eventuell gjenlevende forelder. Da har vi behov for å hente inn',
     survivingParentInfo_li1: 'navn',
     survivingParentInfo_li2: 'fødselsnummer',
     survivingParentInfo_li3: 'adresse',
@@ -146,7 +146,7 @@ const frontPage = {
     disclosureOfInformationTitle: 'Utlevering av opplysninger',
     disclosureOfInformationTitle_child: 'Utlevering av dine opplysninger',
     disclosureOfInformationContent:
-        'I forbindelse med behandling av søknad om barnepensjon utleverer vi enkelte personopplysninger til andre mottakere. Utlevering skjer som oftest i forbindelse med innhenting av opplysninger for å bevise at NAV har lov til å samle inn informasjon om identifiserte enkeltpersoner. For søkere med tilknytning til utland kan det også utleveres informasjon til andre lands trygdemyndigheter.',
+        'I forbindelse med behandling av søknad om barnepensjon utleverer vi enkelte personopplysninger til andre mottakere. Utlevering skjer som oftest i forbindelse med innhenting av opplysninger for å bevise at Nav har lov til å samle inn informasjon om identifiserte enkeltpersoner. For søkere med tilknytning til utland kan det også utleveres informasjon til andre lands trygdemyndigheter.',
     durationDataIsStoredTitle: 'Hvor lenge lagres dine opplysninger',
     durationDataIsStoredContent:
         'Personopplysningene lagres i 10 år etter siste utbetaling etter økonomiregelverkets bestemmelser.',
@@ -169,11 +169,11 @@ const frontPage = {
     automaticProcessingContent_li3: 'type ytelse',
     automaticProcessingContent_li4: 'gjeldende vedtak',
     automaticProcessingContent5: 'Endringene gjøres i saksbehandlingssystemet.',
-    aboutPrivacyTitle: 'Personvernerklæringen i NAV',
+    aboutPrivacyTitle: 'Personvernerklæringen i Nav',
     aboutPrivacy:
-        'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan NAV behandler personopplysninger.</a>',
+        'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan Nav behandler personopplysninger.</a>',
     aboutPrivacy_child:
-        'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan NAV behandler personopplysningene dine.</a>',
+        'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan Nav behandler personopplysningene dine.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Jeg bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
@@ -232,7 +232,7 @@ const aboutYou = {
     workAssessmentAllowance: 'Får du arbeidsavklaringspenger (AAP)?',
     workAssessmentAllowanceInfo:
         'Får du arbeidsavklaringspenger (AAP) samtidig som barnepensjon, vil arbeidsavklaringspengene trekkes krone for krone for barnepensjonen.',
-    paymentsFromNav: 'Utbetalinger fra NAV',
+    paymentsFromNav: 'Utbetalinger fra Nav',
     bankAccountNumberAndPayment: 'Kontonummer og utbetaling',
 }
 
@@ -296,9 +296,9 @@ const aboutTheDeceased = {
     occupationalInjuryTitle: 'Yrkesskade eller yrkessykdom',
     occupationalInjury: 'Skyldes dødsfallet yrkesskade eller yrkessykdom?',
     whyWeAskAboutOccupationalInjury:
-        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av Nav, kan det avgjøre om barnet/barna får barnepensjon og hvor mye det/de kan få.',
     whyWeAskAboutOccupationalInjuryOver18:
-        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av NAV, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
+        'Hvis dødsfallet skyldes yrkesskade eller yrkessykdom godkjent av Nav, kan det avgjøre om du får barnepensjon og hvor mye du kan få.',
     BODD: 'Bodd',
     ARBEIDET: 'Arbeidet',
     amountAbroad: 'Årlig beløp',
@@ -499,7 +499,7 @@ const invalidApplicant = {
 const receipt = {
     pageTitle: 'Søknaden er sendt til oss',
     contact:
-        'Vi har mottatt søknaden din om barnepensjon. Saken din er nå til behandling hos NAV. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.',
+        'Vi har mottatt søknaden din om barnepensjon. Saken din er nå til behandling hos Nav. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.',
     youMustNotifyRegardingChanges: 'Du må melde fra om endringer',
     importantChangesCanAffectYourRights:
         'Du må melde fra med en gang det skjer viktige endringer. Det kan for eksempel være hvis:',
@@ -519,7 +519,7 @@ const receipt = {
         'Forelder eller verge kan ikke følge saken til barnet digitalt. Hvis du har spørsmål om søknaden, må du kontakte oss på telefon 55 55 33 34. Lurer du på hvor lang tid behandlingen vil ta? Her kan du se ',
     viewCaseInfoContent2: 'Barn over 18 år kan selv sjekke status i saken sin ved å logge inn i ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
-    viewCaseInfoLinkText2: 'mitt NAV',
+    viewCaseInfoLinkText2: 'mitt Nav',
     processingTimeLink: 'forventet saksbehandlingstid.',
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider',
     closeApplicationButton: 'Les mer om barnepensjon',

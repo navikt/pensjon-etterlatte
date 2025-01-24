@@ -64,9 +64,9 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
-    'forside.slikBehandlerVi.tittel': 'How NAV processes your personal data',
+    'forside.slikBehandlerVi.tittel': 'How Nav processes your personal data',
     'forside.slikBehandlerVi.innhold':
-        'NAV needs some personal information about you in order to process your benefits application. We cannot offer the correct services or benefits without this information. NAV is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian – pursuant to Chapter 17 of the National Insurance Act.',
+        'Nav needs some personal information about you in order to process your benefits application. We cannot offer the correct services or benefits without this information. Nav is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian – pursuant to Chapter 17 of the National Insurance Act.',
     'forside.innsamlingAvInfo.tittel': 'We collect and process personal data to:',
     'forside.innsamlingAvInfo.innholdListe.li1':
         'identify and communicate with you as an applicant or representative of an applicant',
@@ -74,7 +74,7 @@ export default {
     'forside.innsamlingAvInfo.innholdListe.li3': 'pay your benefits',
     'forside.uthentingAvInfo.tittel': 'We collect all the information we need',
     'forside.uthentingAvInfo.innhold':
-        'In order to process your application, we need to gather information about you as the applicant and information about third others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with NAV. \n\n In addition to the information you provide during the application process, NAV is also authorised to collect:',
+        'In order to process your application, we need to gather information about you as the applicant and information about third others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with Nav. \n\n In addition to the information you provide during the application process, Nav is also authorised to collect:',
     'forside.uthentingAvInfo.innholdListe.li1':
         'personal data from the National Population Register (national identification number, address, nationality, marital status)',
     'forside.uthentingAvInfo.innholdListe.li2':
@@ -82,7 +82,7 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li3':
         'information about employment from employers and the National Register of Employees',
     'forside.uthentingAvInfo.innholdListe.li4':
-        'information about other benefits you may be receiving from NAV (such as retirement pension or disability pension)',
+        'information about other benefits you may be receiving from Nav (such as retirement pension or disability pension)',
     'forside.uthentingAvInfo.innholdListe.li5':
         'information from foreign national insurance/social security authorities (if applicable)',
     'forside.uthentingAvInfo.innholdListe.li6':
@@ -99,7 +99,7 @@ export default {
     'forside.personvern.tredjeperson.li4': 'marital status',
     'forside.utleveringAvOpplysninger.tittel': 'Disclosure of your information',
     'forside.utleveringAvOpplysninger.innhold':
-        'In connection with processing applications for transitional benefits, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that NAV is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.',
+        'In connection with processing applications for transitional benefits, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that Nav is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.',
     'forside.lagringstid.tittel': 'How long is your data stored?',
     'forside.lagringstid.innhold':
         'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
@@ -122,10 +122,10 @@ export default {
     'forside.automatiskbehandling.innholdListe.li4': 'current applicable decision',
     'forside.automatiskbehandling.innhold5':
         'The changes are made in the case processing system itself, and do not involve the transfer of information.',
-    'forside.personvern.tittel': "NAV's Privacy Policy",
+    'forside.personvern.tittel': "Nav's Privacy Policy",
     'forside.personvern.innhold': 'Read more about ',
     'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
-    'forside.personvern.tekst': 'how NAV processes personal data here.',
+    'forside.personvern.tekst': 'how Nav processes personal data here.',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
         'You must provide us with the correct information so that we can process your application.',
@@ -141,7 +141,7 @@ export default {
     'forside.over67.avsnitt2.lenke.tekst': 'entitled to a higher old-age pension.',
     'forside.over67.avsnitt3.del1': 'Please ',
     'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss/en',
-    'forside.over67.avsnitt3.lenke.tekst': 'contact NAV',
+    'forside.over67.avsnitt3.lenke.tekst': 'contact Nav',
     'forside.over67.avsnitt3.del2': ' for further guidance on this matter.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':
@@ -222,14 +222,14 @@ export default {
         'For example: courses, individual years at university or college',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger': 'Information about benefits for school fees',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.beskrivelse':
-        'You can receive benefits to cover school fees as a surviving spouse if you complete education which is approved by NAV. The education must be necessary and appropriate for you to become employed. \n\nBenefits for school fees cover the actual expenses for student fees, semester fees, exam fees and/or school fees at private institutions of education. The benefit covers the documented fees up to an upper limit.',
+        'You can receive benefits to cover school fees as a surviving spouse if you complete education which is approved by Nav. The education must be necessary and appropriate for you to become employed. \n\nBenefits for school fees cover the actual expenses for student fees, semester fees, exam fees and/or school fees at private institutions of education. The benefit covers the documented fees up to an upper limit.',
     'merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.bekreftelse': 'I pay school fees',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning':
         'Information about supplemental benefits for school expenses',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.beskrivelse':
-        'As a surviving spouse you can apply for supplemental benefits if you are completing education which has been approved by NAV. You can receive benefits to cover necessary expenses in your education, for example for learning materials, travel, moving and extra expenses for housing.',
+        'As a surviving spouse you can apply for supplemental benefits if you are completing education which has been approved by Nav. You can receive benefits to cover necessary expenses in your education, for example for learning materials, travel, moving and extra expenses for housing.',
     'merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse': 'I have school expenses',
-    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Do you have an activity plan in collaboration with NAV?',
+    'merOmSituasjonenDin.utdanning.aktivitetsplan.svar': 'Do you have an activity plan in collaboration with Nav?',
     'merOmSituasjonenDin.selvstendig.tittel': 'Type of business',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen': 'What is the name of the company?',
     'merOmSituasjonenDin.selvstendig.hvaHeterNaeringen.beskrivelse': 'Enter the name of the enterprise or company.',
@@ -281,7 +281,7 @@ export default {
     'merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten': 'What is the name of the organization?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar': 'Do you have a business plan?',
     'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar':
-        'Is this in cooperation with NAV, with the intention of becoming economically independent?',
+        'Is this in cooperation with Nav, with the intention of becoming economically independent?',
     'merOmSituasjonenDin.tilbudOmJobb.tittel': 'About your working conditions',
     'merOmSituasjonenDin.tilbudOmJobb.arbeidssted': 'Name of new workplace',
     'merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold': 'What king of employment conditions will you have?',
@@ -297,18 +297,18 @@ export default {
     'merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.type': 'Type of working hours',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar': 'Do you have a termination date?',
     'merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger': 'Termination date',
-    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Do you have an activity plan in collaboration with NAV?',
+    'merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar': 'Do you have an activity plan in collaboration with Nav?',
     'merOmSituasjonenDin.arbeidssoeker.tittel': 'About job seeking',
-    'merOmSituasjonenDin.arbeidssoeker.svar': 'Are you registered as a job seeker with NAV?',
+    'merOmSituasjonenDin.arbeidssoeker.svar': 'Are you registered as a job seeker with Nav?',
     'merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar': 'Have you been issued an Activities Plan?',
     'merOmSituasjonenDin.andreYtelser.tittel': 'Benefits',
     'merOmSituasjonenDin.andreYtelser.ingress':
-        'Some benefits from NAV are regarded as income and have an impact on how much survivor’s pension you are entitled to. Disability benefit, old-age pension and contractual early retirement pension (AFP) cannot be combined with survivor’s pension.',
+        'Some benefits from Nav are regarded as income and have an impact on how much survivor’s pension you are entitled to. Disability benefit, old-age pension and contractual early retirement pension (AFP) cannot be combined with survivor’s pension.',
     'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.svar':
         'Have you applied for other benefits that you have not received an answer to yet?',
     'merOmSituasjonenDin.andreYtelser.kravOmAnnenStonad.ytelser': 'What have you applied for?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.svar':
-        'Are you receiving or have you applied for a contractual early retirement pension (AFP) or other pension from someone other than NAV?',
+        'Are you receiving or have you applied for a contractual early retirement pension (AFP) or other pension from someone other than Nav?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.beskrivelse': 'Which pension scheme?',
     'merOmSituasjonenDin.andreYtelser.annenPensjon.placeholder':
         'For example: Skandia, KLP, SPK, Oslo pensjonsforsikring',
@@ -351,7 +351,7 @@ export default {
     'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Income earned from working in Norway',
     'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Income from work earned abroad',
     'inntektenDin.loennsinntekt.info':
-        'If your income changes after you submit your application, you must notify NAV about these changes.',
+        'If your income changes after you submit your application, you must notify Nav about these changes.',
     'inntektenDin.loennsinntekt.bruttoinntekt':
         'The income you declare shall be gross income, that is, income before tax. You can find information on gross income from employment on your pay slip.',
     'inntektenDin.loennsinntekt.bruttoinntekt.utland':
@@ -418,7 +418,7 @@ export default {
     'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Business income in Norway',
     'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Business income abroad',
     'inntektenDin.naeringsinntekt.info':
-        'If your income changes after you submit your application, you must notify NAV about these changes.',
+        'If your income changes after you submit your application, you must notify Nav about these changes.',
     'inntektenDin.naeringsinntekt.bruttoinntekt':
         'The income you declare shall be gross income, that is, income before tax.',
     'inntektenDin.naeringsinntekt.bruttoinntekt.utland':
@@ -497,7 +497,7 @@ export default {
     'inntektenDin.ingenInntekt.beskrivelse': 'Describe which types of payments you are receiving',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.tittel': 'What is considered income?',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold': 'Among other things, the term pensionable income includes',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1': 'some benefits paid by NAV',
+    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1': 'some benefits paid by Nav',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li2': 'fixed salary',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li3': 'additional hours and overtime',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li4': 'self-employment income',
@@ -506,17 +506,17 @@ export default {
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li7': 'holiday pay',
     'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li8':
         'bonuses and other pensionable premiums and remunerations. This also includes compensation in the form of commissions, fees, royalties or other remuneration for participation in boards, committees, assemblies, etc., as well as qualification benefit, care pay and foster home allowance.',
-    'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Benefits from NAV',
+    'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Benefits from Nav',
     'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Which incomes or disbursements are you receiving?',
     'inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar': 'Have you been issued an Activities Plan?',
     'inntektenDin.ytelserNAV.tittel':
-        'Application for benefits from the Norwegian Labour and Welfare Administration (NAV)',
-    'inntektenDin.ytelserNAV.svar': 'Have you applied for benefits from NAV but not yet received a reply?',
+        'Application for benefits from the Norwegian Labour and Welfare Administration (Nav)',
+    'inntektenDin.ytelserNAV.svar': 'Have you applied for benefits from Nav but not yet received a reply?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Which benefits did you apply for?',
-    'inntektenDin.ytelserNAV.hvorfor': 'We need this information because some benefits from NAV are considered income.',
+    'inntektenDin.ytelserNAV.hvorfor': 'We need this information because some benefits from Nav are considered income.',
     'inntektenDin.ytelserAndre.tittel': 'Application for benefits from others',
     'inntektenDin.ytelserAndre.svar':
-        'Have you applied for benefits from others than NAV but not yet received a reply?',
+        'Have you applied for benefits from others than Nav but not yet received a reply?',
     'inntektenDin.ytelserAndre.soekteYtelser': 'What did you apply for?',
     'inntektenDin.ytelserAndre.pensjonsordning': 'State which pension scheme',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse':
@@ -543,7 +543,7 @@ export default {
     'omDeg.utbetalingsInformasjon.bankkontoType':
         'Do you want the pension to be paid into a Norwegian bank account or a foreign bank account?',
     'omDeg.utbetalingsInformasjon.kontonummer': 'Enter the Norwegian bank account number for payment',
-    'omDeg.utbetalingsInformasjon.informasjon': 'You can only have one bank account number registered with NAV.',
+    'omDeg.utbetalingsInformasjon.informasjon': 'You can only have one bank account number registered with Nav.',
     'omDeg.utbetalingsInformasjon.utenlandskBankNavn': 'Name of bank',
     'omDeg.utbetalingsInformasjon.utenlandskBankAdresse': 'Full address of the bank',
     'omDeg.utbetalingsInformasjon.iban': 'IBAN',
@@ -607,7 +607,7 @@ export default {
     'omDenAvdoede.doedsfallAarsak.tittel': 'Occupational injury or occupational illness',
     'omDenAvdoede.doedsfallAarsak': 'Was the death caused by an occupational injury or occupational illness?',
     'omDenAvdoede.doedsfallAarsakHvorfor':
-        "A death caused by an occupational injury or illness approved by NAV may be decisive as to whether you are entitled to a survivor's pension and the size of the pension.",
+        "A death caused by an occupational injury or illness approved by Nav may be decisive as to whether you are entitled to a survivor's pension and the size of the pension.",
     'omBarn.tittel': "Children's pension",
     'omBarn.tittelModal': 'About the child',
     'omBarn.informasjon.tittel': 'Application for children’s pension',
@@ -663,7 +663,7 @@ export default {
     'omBarn.soeknadOmBarnetilsyn.bekreftelse': 'I have child care expenses',
     'omBarn.soeknadOmTilleggsstoenadBarnepass': 'Information about supplemental benefits for child care',
     'omBarn.soeknadOmTilleggsstoenadBarnepass.beskrivelse':
-        'Some of your child care expenses may be covered if you are a surviving spouse who is completing necessary and appropriate education approved by NAV, or you are registered at NAV as a real job seeker submitting employment status forms.',
+        'Some of your child care expenses may be covered if you are a surviving spouse who is completing necessary and appropriate education approved by Nav, or you are registered at Nav as a real job seeker submitting employment status forms.',
     'omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse': 'I have child care expenses',
     'omBarn.ikkeSoekt': `You have not applied for children's pension`,
     'oppsummering.tittel': 'Summary',
@@ -681,7 +681,7 @@ export default {
     'oppsummering.ikkeFylltUtAarsinntekt.tittel': 'Change answers about your income',
     'soeknadKvittering.tittel': 'Your application has been submitted',
     'soeknadKvittering.mottatt':
-        'We have received your application for transitional benefits. NAV will now process and review your case. We will contact you if we need more information or documentation from you.',
+        'We have received your application for transitional benefits. Nav will now process and review your case. We will contact you if we need more information or documentation from you.',
     'soeknadKvittering.endring.tittel': 'You must notify us of any changes',
     'soeknadKvittering.endring.informasjon':
         'You must notify us promptly if any important changes occur in your life. Examples include:',
@@ -697,7 +697,7 @@ export default {
     'soeknadKvittering.seSaken.informasjon.innhold1':
         'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
-    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal NAV page.',
+    'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal Nav page.',
     'soeknadKvittering.seSaken.informasjon.innhold2':
         'Curious about how long this will take? That information is available here: ',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
@@ -783,7 +783,7 @@ export default {
     'inntekt.loenn': 'Income from work',
     'inntekt.naering': 'Business income',
     'inntekt.pensjonEllerUfoere': 'Pension or disability pension',
-    'inntekt.ytelser': 'Benefits from NAV',
+    'inntekt.ytelser': 'Benefits from Nav',
     'inntekt.annen': 'No income or other payments',
     'inntekt.norge': 'Norway',
     'inntekt.utland': 'Abroad',
@@ -800,9 +800,9 @@ export default {
     'soekbarYtelse.opplaeringspenger': 'Training allowance',
     'soekbarYtelse.ufoeretrygd': 'Disability allowance',
     'soekbarYtelse.ufoerepensjon': 'Disability pension',
-    'soekbarYtelse.ufoeretrygdFraNAV': 'Disability pension from NAV',
+    'soekbarYtelse.ufoeretrygdFraNAV': 'Disability pension from Nav',
     'soekbarYtelse.alderspensjon': 'Retirement pension',
-    'soekbarYtelse.alderspensjonFraNAV': 'Retirement pension from NAV',
+    'soekbarYtelse.alderspensjonFraNAV': 'Retirement pension from Nav',
     'soekbarYtelse.avtalefestetPensjonOffentlig': 'AFP contractual pension in the public sector',
     'soekbarYtelse.avtalefestetPensjonPrivat': 'AFP contractual pension in the private sector',
     'soekbarYtelse.saeralderpensjon': 'Job-specific retirement pension',
@@ -964,7 +964,7 @@ export default {
     'feil.utdanning.naavaerendeUtdanning.studieprosent.required': 'State percent of study',
     'feil.utdanning.naavaerendeUtdanning.godkjentUtdanning.required':
         'State whether your studies are approved by the Norwegian State Educational Loan Fund',
-    'feil.utdanning.aktivitetsplan.svar.required': 'State whether you have an activities plan in cooperation with NAV',
+    'feil.utdanning.aktivitetsplan.svar.required': 'State whether you have an activities plan in cooperation with Nav',
     'feil.ingenJobbBeskrivelse.required': 'Describe your situation in more detail',
     'feil.andreYtelser.kravOmAnnenStonad.svar.required':
         'State whether you are waiting for a response to applications for other benefits',
@@ -1036,7 +1036,7 @@ export default {
         'The organization number is incomplete. An organization number consists of 9 digits',
     'feil.etablererVirksomhet.forretningsplan.svar.required': 'State status of business plan',
     'feil.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar.required':
-        'State whether this is a cooperation with NAV',
+        'State whether this is a cooperation with Nav',
     'feil.tilbudOmJobb.arbeidssted.required': 'State name of workplace',
     'feil.tilbudOmJobb.ansettelsesdato.required': 'State start date',
     'feil.tilbudOmJobb.ansettelsesforhold.required': 'State conditions of employment',
@@ -1045,8 +1045,8 @@ export default {
     'feil.tilbudOmJobb.midlertidig.svar.required': 'State whether you have an end date',
     'feil.tilbudOmJobb.midlertidig.sluttdatoVelger.required': 'State end date',
     'feil.tilbudOmJobb.aktivitetsplan.svar.required':
-        'State whether you have an activities plan in cooperation with NAV',
-    'feil.arbeidssoeker.svar.required': 'State whether you are registered as a job seeker with NAV',
+        'State whether you have an activities plan in cooperation with Nav',
+    'feil.arbeidssoeker.svar.required': 'State whether you are registered as a job seeker with Nav',
     'feil.arbeidssoeker.aktivitetsplan.svar.required': 'State whether you have an activities plan',
     'feil.annenSituasjon.beskrivelse.required': 'Choose what describes your situation',
     'feil.annenSituasjon.annet.beskrivelse.required': 'You must describe your situation',
@@ -1123,7 +1123,7 @@ export default {
     'feil.ingenInntekt.svar.required': 'State if you have an income or other type of benefits',
     'feil.ingenInntekt.beloep.required': 'State the amount',
     'feil.ingenInntekt.beskrivelse.required': 'Describe which types of payments you are receiving',
-    'feil.ytelserNAV.svar.required': 'State whether you have applied for other benefits from NAV',
+    'feil.ytelserNAV.svar.required': 'State whether you have applied for other benefits from Nav',
     'feil.ytelserNAV.soekteYtelser.required': 'Tick which other benefits from NAV you applied for',
     'feil.ytelserAndre.svar.required': 'State whether you have applied for other benefits',
     'feil.ytelserAndre.soekteYtelser.required': 'Tick which other benefits you applied for',

@@ -109,13 +109,13 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Processing of personal data in the application',
-    howWeProcessDataTitle: 'How NAV processes your personal data',
+    howWeProcessDataTitle: 'How Nav processes your personal data',
     howWeProcessDataContentParent:
-        'When you submit an application for a benefit, NAV will collect and process personal data about the applicant. When you submit an application for a benefit on behalf of your child, we will collect and process information about the child. This is necessary to ensure that the applicant has access to good services and the right benefits, and to comply with NAV’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
+        'When you submit an application for a benefit, Nav will collect and process personal data about the applicant. When you submit an application for a benefit on behalf of your child, we will collect and process information about the child. This is necessary to ensure that the applicant has access to good services and the right benefits, and to comply with Nav’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
     howWeProcessDataContentGuardian:
-        'When you submit an application for a benefit, NAV will collect and process personal data about the applicant. When you submit an application for a benefit on behalf of a child who is your ward, we will collect and process information about the child. This is necessary to ensure that the applicant has access to good services and the right benefits, and to comply with NAV’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
+        'When you submit an application for a benefit, Nav will collect and process personal data about the applicant. When you submit an application for a benefit on behalf of a child who is your ward, we will collect and process information about the child. This is necessary to ensure that the applicant has access to good services and the right benefits, and to comply with Nav’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
     howWeProcessDataContentChild:
-        'When you submit an application for a benefit, NAV will collect and process personal data about you. This is necessary to ensure that you have access to good services and the right benefits, and to comply with NAV’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
+        'When you submit an application for a benefit, Nav will collect and process personal data about you. This is necessary to ensure that you have access to good services and the right benefits, and to comply with Nav’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
     collectAndProcessTitle: 'We collect and process personal data to',
     collectAndProcess_li1_parent: 'identify and communicate with you as the applicant on behalf of the child',
     collectAndProcess_li1_guardian: 'identify and communicate with you as a representative of the applicant',
@@ -125,15 +125,15 @@ const frontPage = {
     collectAndProcess_li3: 'pay your benefits',
     weWillRetrieveInfo: 'We will collect any information we need',
     infoWeRetrieve_parent:
-        'In order to process the application for children’s pension, we collect information about you, as the applicant on behalf of the child(ren), and any third parties relevant for the application. Relevant third parties may the any guardians who have the right to represent the child(ren) in dealings with NAV. \n\nIn addition to the information you provide about the child(ren) in the application dialogue, we can also collect',
+        'In order to process the application for children’s pension, we collect information about you, as the applicant on behalf of the child(ren), and any third parties relevant for the application. Relevant third parties may the any guardians who have the right to represent the child(ren) in dealings with Nav. \n\nIn addition to the information you provide about the child(ren) in the application dialogue, we can also collect',
     infoWeRetrieve_guardian:
         'In order to process the application for children’s pension, we collect information about you, as the applicant on behalf of the child(ren), and any third parties relevant for the application. Relevant third parties could include a surviving parent. \n\nIn addition to the information you provide about the child(ren) in the application dialogue, we can also collect',
     infoWeRetrieve_child:
-        'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with NAV. \n\nIn addition to the information you provide during the application process, NAV is also authorised to collect: ',
+        'In order to process your application, we collect information about you as the applicant and information about others that is relevant to your application. Relevant others can be surviving parents or a guardian authorised to represent you in dealings with Nav. \n\nIn addition to the information you provide during the application process, Nav is also authorised to collect: ',
     infoWeRetrieve_li1:
         'personal data from the National Population Register (national identification number, address and nationality)',
     infoWeRetrieve_li2:
-        'information about other current benefits or support from NAV (periods when you received disability pension)',
+        'information about other current benefits or support from Nav (periods when you received disability pension)',
     infoWeRetrieve_li3: 'information from foreign national insurance/social security authorities (if applicable)',
     infoWeRetrieve_li4: 'information about imprisonment and stays at institutions',
     survivingParentInfo_parent:
@@ -141,7 +141,7 @@ const frontPage = {
     survivingParentInfo_guardian:
         'When you submit an application for a benefit on behalf of a child who is your ward, we will collect and process the following information about the surviving parent',
     survivingParentInfo_child:
-        'When you apply for children’s pension, NAV will collect information about the surviving parent, if applicable. In such cases, we need to collect',
+        'When you apply for children’s pension, Nav will collect information about the surviving parent, if applicable. In such cases, we need to collect',
     survivingParentInfo_li1: 'name',
     survivingParentInfo_li2: 'national identity number  ',
     survivingParentInfo_li3: 'address',
@@ -150,7 +150,7 @@ const frontPage = {
     disclosureOfInformationTitle: 'Release of information',
     disclosureOfInformationTitle_child: 'Disclosure of your information',
     disclosureOfInformationContent:
-        "In connection with processing applications for children's pensions, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that NAV is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.",
+        "In connection with processing applications for children's pensions, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that Nav is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.",
     durationDataIsStoredTitle: 'How long is your data stored?',
     durationDataIsStoredContent:
         'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
@@ -173,11 +173,11 @@ const frontPage = {
     automaticProcessingContent_li3: 'type of benefits',
     automaticProcessingContent_li4: 'current applicable decision',
     automaticProcessingContent5: 'The changes are made in the case processing system itself.',
-    aboutPrivacyTitle: "NAV's Privacy Policy",
+    aboutPrivacyTitle: "Nav's Privacy Policy",
     aboutPrivacy:
-        'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how NAV processes personal data.</a>',
+        'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how Nav processes personal data.</a>',
     aboutPrivacy_child:
-        'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how NAV processes personal data here.</a>',
+        'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how Nav processes personal data here.</a>',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
     consentToNav: 'I hereby confirm that the information I provide is correct and complete.',
@@ -238,7 +238,7 @@ const aboutYou = {
     workAssessmentAllowance: 'Are you receiving a Work Assessment Allowance (AAP)?',
     workAssessmentAllowanceInfo:
         'If you receive Work Assessment Allowance (AAP) at the same time as a children’s pension, the Work Assessment Allowance will be deducted kroner-for-kroner for the children’s pension.',
-    paymentsFromNav: 'Payments from NAV',
+    paymentsFromNav: 'Payments from Nav',
     bankAccountNumberAndPayment: 'Bank account number and payment',
 }
 
@@ -302,9 +302,9 @@ const aboutTheDeceased = {
     occupationalInjuryTitle: 'Occupational injury or occupational illness',
     occupationalInjury: 'Was the death caused by an occupational injury or occupational illness?',
     whyWeAskAboutOccupationalInjury:
-        'If the death was caused by an occupational injury or occupational illness approved by NAV, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
+        'If the death was caused by an occupational injury or occupational illness approved by Nav, this may determine whether the child/children will receive the children’s pension and the amount the child/children is/are entitled to.',
     whyWeAskAboutOccupationalInjuryOver18:
-        "If the death is due to an occupational injury or occupational illness approved by NAV, this can determine whether you are eligible for a children's pension and how much you can receive.",
+        "If the death is due to an occupational injury or occupational illness approved by Nav, this can determine whether you are eligible for a children's pension and how much you can receive.",
     BODD: 'Lived',
     ARBEIDET: 'Worked',
     amountAbroad: 'Annual amount',
@@ -510,7 +510,7 @@ const invalidApplicant = {
 const receipt = {
     pageTitle: 'The application has been sent to us',
     contact:
-        "We have received your application for a children's pension. NAV will now process and review your case. We will contact you if we need more information or documentation from you.",
+        "We have received your application for a children's pension. Nav will now process and review your case. We will contact you if we need more information or documentation from you.",
     youMustNotifyRegardingChanges: 'You must notify us of any changes',
     importantChangesCanAffectYourRights:
         'You must immediately notify us of any important changes. Examples of this include:',
@@ -530,7 +530,7 @@ const receipt = {
         "Parents or guardians cannot follow the child's case digitally. If you have any questions about the application, please contact us by phone +47 55 55 33 34. Curious about how long this will take? You can see the anticipated processing time here ",
     viewCaseInfoContent2: 'Children over the age of 18 can check the status of their case by logging on at ',
     viewCaseInfoLinkHref2: 'https://www.nav.no/min-side',
-    viewCaseInfoLinkText2: 'mitt NAV (my NAV)',
+    viewCaseInfoLinkText2: 'mitt Nav (my Nav)',
     processingTimeLink: 'processing time.',
     processingTimeHref: 'https://www.nav.no/saksbehandlingstider/en',
     closeApplicationButton: `Read more about children's pension`,

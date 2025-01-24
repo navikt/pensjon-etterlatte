@@ -280,7 +280,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
         getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
-        // Ytelser fra NAV
+        // Ytelser fra Nav
         selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)
 
         // Ingen eller annen inntekt

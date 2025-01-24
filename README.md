@@ -67,7 +67,7 @@ subgraph gjenny["Gjenny"]
     etterlatte-behandling:::app
 end
 
-subgraph ekstern["NAV felles"]
+subgraph ekstern["Nav felles"]
     kodeverk
     pdl
 end
@@ -108,6 +108,6 @@ køyrast manuelt med `yarn lisenssjekk`
 
 Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på GitHub.
 
-## For NAV-ansatte
+## For Nav-ansatte
 
 Interne henvendelser kan sendes via Slack i kanalen #po-pensjon-team-etterlatte.
