@@ -1,4 +1,4 @@
-import { ReadMore, VStack } from '@navikt/ds-react'
+import { ErrorSummary, ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -13,6 +13,7 @@ import { SideLaster } from '../../../common/SideLaster.tsx'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
+import { formaterFieldErrors } from '../../../common/skjemaError/skjemaError.ts'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
@@ -30,7 +31,12 @@ export const AttenTilSekstiEnAarSkjema = () => {
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )
 
-    const { control, watch, handleSubmit } = useForm<InntektSkjema>({
+    const {
+        control,
+        watch,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<InntektSkjema>({
         defaultValues: inntektTilInntektSkjemaValues(inntekt, spraak),
     })
 
@@ -107,6 +113,16 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     >
                         <SanityRikTekst text={sumAvInntekt?.[spraak]} />
                     </SumAvOppgittInntekt>
+
+                    {!!Object.keys(errors)?.length && (
+                        <ErrorSummary heading="Du må fikse disse feilene">
+                            {formaterFieldErrors(errors).map((error) => (
+                                <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
+                                    {error.message}
+                                </ErrorSummary.Item>
+                            ))}
+                        </ErrorSummary>
+                    )}
 
                     <NavigasjonMeny
                         tilbakePath="/inntekt/innledning"
