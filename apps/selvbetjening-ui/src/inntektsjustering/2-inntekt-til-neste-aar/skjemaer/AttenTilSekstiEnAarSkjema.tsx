@@ -1,4 +1,4 @@
-import { ErrorSummary, ReadMore, VStack } from '@navikt/ds-react'
+import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { SumAvOppgittInntekt } from '../SumAvOppgittInntekt.tsx'
@@ -13,7 +13,7 @@ import { SideLaster } from '../../../common/SideLaster.tsx'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
-import { formaterFieldErrors } from '../../../common/skjemaError/skjemaError.ts'
+import { SammendragAvSkjemaFeil } from '../../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 
 export const AttenTilSekstiEnAarSkjema = () => {
     const spraak = useSpraak()
@@ -56,7 +56,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
         navigate('/inntekt/oppsummering')
     }
 
-    const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt, sammendragAvFeil } =
+    const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
         innhold.inntektSkjemaer.attenTilSekstiEnAarSkjema
 
     return (
@@ -114,15 +114,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         <SanityRikTekst text={sumAvInntekt?.[spraak]} />
                     </SumAvOppgittInntekt>
 
-                    {!!Object.keys(errors)?.length && (
-                        <ErrorSummary heading={sammendragAvFeil?.tittel?.[spraak]}>
-                            {formaterFieldErrors(errors).map((error) => (
-                                <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
-                                    {error.message}
-                                </ErrorSummary.Item>
-                            ))}
-                        </ErrorSummary>
-                    )}
+                    <SammendragAvSkjemaFeil errors={errors} />
 
                     <NavigasjonMeny
                         tilbakePath="/inntekt/innledning"

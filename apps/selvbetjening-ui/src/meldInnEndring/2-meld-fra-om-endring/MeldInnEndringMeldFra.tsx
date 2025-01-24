@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Endring, MeldtInnEndring } from '../../types/meldInnEndring.ts'
-import { ErrorSummary, HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
+import { HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
 import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -10,13 +10,13 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
 import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
 import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
-import { formaterFieldErrors } from '../../common/skjemaError/skjemaError.ts'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { useNavigate } from 'react-router-dom'
 import {
     useMeldInnEndring,
     useMeldInnEndringDispatch,
 } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
+import { SammendragAvSkjemaFeil } from '../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
@@ -112,15 +112,7 @@ export const MeldInnEndringMeldFra = () => {
                                     error={errors?.beskrivelse?.message}
                                 />
 
-                                {!!Object.keys(errors)?.length && (
-                                    <ErrorSummary heading={innhold.sammendragAvFeil?.tittel?.[spraak]}>
-                                        {formaterFieldErrors(errors).map((error) => (
-                                            <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
-                                                {error.message}
-                                            </ErrorSummary.Item>
-                                        ))}
-                                    </ErrorSummary>
-                                )}
+                                <SammendragAvSkjemaFeil errors={errors} />
 
                                 <NavigasjonMeny
                                     tilbakePath="/meld-inn-endring/innledning"

@@ -274,18 +274,5 @@ export const meldInnEndringMeldFraSchemaType = defineType({
             type: 'object',
             fields: [...textFieldSchemaFields, errorVedTomInputSchemaField],
         }),
-        defineField({
-            name: 'sammendragAvFeil',
-            title: 'Sammendrag av feil',
-            type: 'object',
-            fields: [
-                defineField({
-                    name: 'tittel',
-                    title: 'Tittel',
-                    type: 'object',
-                    fields: spraakStringFields,
-                }),
-            ],
-        }),
     ],
 })

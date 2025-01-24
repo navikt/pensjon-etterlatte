@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Inntekt, InntektSkjema, SkalGaaAvMedAlderspensjon } from '../../../types/inntektsjustering.ts'
-import { Box, ErrorSummary, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
+import { Box, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { InntektsjusteringInntektTilNesteAar as InntektsjusteringInntektTilNesteAarInnhold } from '../../sanity.types.ts'
 import { useNavigate } from 'react-router-dom'
@@ -11,11 +11,11 @@ import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.ts
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ControlledRadioGruppe } from '../../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
-import { formaterFieldErrors } from '../../../common/skjemaError/skjemaError.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { ControlledInntektTextField } from '../../components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { useInntekt, useInntektDispatch } from '../../components/inntektContext/InntektContext.tsx'
 import { inntektSkjemaValuesTilInntekt, inntektTilInntektSkjemaValues } from './utils.ts'
+import { SammendragAvSkjemaFeil } from '../../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 
 export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetBruker: IInnloggetBruker }) => {
     const spraak = useSpraak()
@@ -68,7 +68,6 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
         afpTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
-        sammendragAvFeil,
     } = innhold.inntektSkjemaer.sekstiToTilSekstiSeksAarSkjema
 
     const skalViseAfpPrivat = (innloggetBruker: IInnloggetBruker): boolean => {
@@ -245,15 +244,7 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                         </>
                     )}
 
-                    {!!Object.keys(errors)?.length && (
-                        <ErrorSummary heading={sammendragAvFeil?.tittel?.[spraak]}>
-                            {formaterFieldErrors(errors).map((error) => (
-                                <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
-                                    {error.message}
-                                </ErrorSummary.Item>
-                            ))}
-                        </ErrorSummary>
-                    )}
+                    <SammendragAvSkjemaFeil errors={errors} />
 
                     <NavigasjonMeny
                         tilbakePath="/inntekt/innledning"
