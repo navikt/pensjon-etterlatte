@@ -67,6 +67,7 @@ export const SekstiSyvAarSkjema = () => {
         afpTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
+        sammendragAvFeil,
     } = innhold.inntektSkjemaer.sekstiSyvAarSkjema
 
     const nesteAar = new Date().getFullYear() + 1
@@ -223,7 +224,7 @@ export const SekstiSyvAarSkjema = () => {
                     )}
 
                     {!!Object.keys(errors)?.length && (
-                        <ErrorSummary heading="Du må fikse disse feilene">
+                        <ErrorSummary heading={sammendragAvFeil?.tittel?.[spraak]}>
                             {formaterFieldErrors(errors).map((error) => (
                                 <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
                                     {error.message}

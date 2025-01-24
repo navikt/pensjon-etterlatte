@@ -993,6 +993,13 @@ export type InntektsjusteringInntektTilNesteAar = {
                     _key: string
                 }>
             }
+            sammendragAvFeil?: {
+                tittel?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
         }
         sekstiToTilSekstiSeksAarSkjema?: {
             hovedinnhold?: {
@@ -1903,6 +1910,13 @@ export type InntektsjusteringInntektTilNesteAar = {
                     }
                 }
             }
+            sammendragAvFeil?: {
+                tittel?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
         }
         sekstiSyvAarSkjema?: {
             hovedinnhold?: {
@@ -2688,6 +2702,13 @@ export type InntektsjusteringInntektTilNesteAar = {
                             _key: string
                         }>
                     }
+                }
+            }
+            sammendragAvFeil?: {
+                tittel?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
                 }
             }
         }

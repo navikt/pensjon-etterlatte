@@ -56,7 +56,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
         navigate('/inntekt/oppsummering')
     }
 
-    const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt } =
+    const { hovedinnhold, arbeidsinntekt, naeringsinntekt, inntektFraUtland, sumAvInntekt, sammendragAvFeil } =
         innhold.inntektSkjemaer.attenTilSekstiEnAarSkjema
 
     return (
@@ -115,7 +115,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     </SumAvOppgittInntekt>
 
                     {!!Object.keys(errors)?.length && (
-                        <ErrorSummary heading="Du må fikse disse feilene">
+                        <ErrorSummary heading={sammendragAvFeil?.tittel?.[spraak]}>
                             {formaterFieldErrors(errors).map((error) => (
                                 <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
                                     {error.message}

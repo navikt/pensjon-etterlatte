@@ -68,6 +68,7 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
         afpTjenestepensjonordning,
         inntektFraUtland,
         sumAvInntekt,
+        sammendragAvFeil,
     } = innhold.inntektSkjemaer.sekstiToTilSekstiSeksAarSkjema
 
     const skalViseAfpPrivat = (innloggetBruker: IInnloggetBruker): boolean => {
@@ -245,7 +246,7 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                     )}
 
                     {!!Object.keys(errors)?.length && (
-                        <ErrorSummary heading="Du må fikse disse feilene">
+                        <ErrorSummary heading={sammendragAvFeil?.tittel?.[spraak]}>
                             {formaterFieldErrors(errors).map((error) => (
                                 <ErrorSummary.Item key={error.name} href={`#${error.name}`}>
                                     {error.message}
