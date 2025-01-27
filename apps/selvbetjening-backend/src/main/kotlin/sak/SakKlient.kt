@@ -16,11 +16,11 @@ class SakKlient(
 ) {
     private val logger = LoggerFactory.getLogger(SakKlient::class.java)
 
-    suspend fun harOMSSakIGjenny(fnr: Foedselsnummer): HarOMSSakIGjennyResponse {
-        logger.info("Spør etterlatte-api om innbygger har OMS sak i gjenny")
+    suspend fun harOMSLoependeSakIGjenny(fnr: Foedselsnummer): HarOMSSakIGjennyResponse {
+        logger.info("Spør etterlatte-api om innbygger har løpende OMS sak i gjenny")
 
         return httpClient
-            .post("$apiUrl/api/sak/oms/har_sak") {
+            .post("$apiUrl/api/sak/oms/har-loepende-sak") {
                 accept(ContentType.Application.Json)
                 contentType(ContentType.Application.Json)
                 setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr.value))

@@ -10,10 +10,10 @@ import no.nav.etterlatte.fnrFromToken
 fun Route.sak(service: SakService) {
     route("/api/sak") {
         route("/oms") {
-            get("/har_sak") {
+            get("/har-loepende-sak") {
                 val fnr = fnrFromToken()
 
-                val harOMSSak = service.harOMSSak(fnr)
+                val harOMSSak = service.harLoependeOMSSak(fnr)
 
                 call.respond(HarOMSSakIGjennyResponse(harOMSSak))
             }

@@ -34,7 +34,7 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
         data: harOMSSakIGjenny,
         isLoading: harOMSSakIGjennyIsLoading,
         error: harOMSSakIGjennyError,
-    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har_sak`)
+    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har-loepende-sak`)
 
     if (innloggetBrukerIsLoading || harOMSSakIGjennyIsLoading) {
         return <SideLaster />
