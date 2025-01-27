@@ -10,4 +10,10 @@ class SakService(
 
         return response.harOMSSak
     }
+
+    suspend fun harLoependeOMSSak(fnr: Foedselsnummer): Boolean {
+        val response = klient.harOMSLoependeSakIGjenny(fnr)
+
+        return response.harOMSSak
+    }
 }

@@ -1,19 +1,21 @@
 import { Button, VStack } from '@navikt/ds-react'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringInnledning } from '../sanity.types.ts'
-import { SideLaster } from '../../common/SideLaster.tsx'
-import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SideLaster } from '../SideLaster.tsx'
+import { SanityRikTekst } from '../sanity/SanityRikTekst.tsx'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { HarIkkeOMSSakIGjenny as HarIkkeOMSSakIGjennyInnhold } from '../sanity.types.ts'
 
-export const HarIkkeOMSSakIGjenny = () => {
+export const HarIkkeOMSSakIGjenny = ({ skjemaNavn }: { skjemaNavn: 'inntektsjustering' | 'meld-inn-endring' }) => {
     const spraak = useSpraak()
 
     const {
         innhold,
         error: innholdError,
         isLoading: innholdIsLoading,
-    } = useSanityInnhold<InntektsjusteringInnledning>('*[_type == "inntektsjusteringInnledning"]')
+    } = useSanityInnhold<HarIkkeOMSSakIGjennyInnhold>(
+        `*[_type == "harIkkeOMSSakIGjenny" ${encodeURIComponent('&&')} dokumentTittel == "${skjemaNavn}"]`
+    )
 
     if (innholdIsLoading) {
         return <SideLaster />
@@ -27,7 +29,7 @@ export const HarIkkeOMSSakIGjenny = () => {
         !!innhold && (
             <VStack gap="6">
                 <div>
-                    <SanityRikTekst text={innhold.harIkkeOMSSakIGjenny?.innhold?.[spraak]} />
+                    <SanityRikTekst text={innhold.innhold?.[spraak]} />
                 </div>
                 <div>
                     <Button
@@ -36,9 +38,9 @@ export const HarIkkeOMSSakIGjenny = () => {
                         icon={<ArrowRightIcon aria-hidden />}
                         iconPosition="right"
                         rel="noopener noreferrer"
-                        href={innhold.harIkkeOMSSakIGjenny?.gaaTilNAVKnapp?.lenke?.[spraak]}
+                        href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
                     >
-                        {innhold.harIkkeOMSSakIGjenny?.gaaTilNAVKnapp?.tekst?.[spraak]}
+                        {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
                     </Button>
                 </div>
             </VStack>

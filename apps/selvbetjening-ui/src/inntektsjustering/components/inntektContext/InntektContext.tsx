@@ -5,9 +5,8 @@ import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { logger } from '../../../common/logger/logger.ts'
 import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
-import { HarIkkeOMSSakIGjenny } from '../../1-innledning/HarIkkeOMSSakIGjenny.tsx'
+import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
 import { finnAlder } from '../../2-inntekt-til-neste-aar/finnAlder.ts'
 import { IkkeGyldigAlder } from '../ikkeGyldigAlder/IkkeGyldigAlder.tsx'
 import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
@@ -34,7 +33,7 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
         data: harOMSSakIGjenny,
         isLoading: harOMSSakIGjennyIsLoading,
         error: harOMSSakIGjennyError,
-    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har_sak`)
+    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har-loepende-sak`)
 
     if (innloggetBrukerIsLoading || harOMSSakIGjennyIsLoading) {
         return <SideLaster />
@@ -45,7 +44,7 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
     }
 
     if (harOMSSakIGjennyError) {
-        logger.generalError(harOMSSakIGjennyError)
+        throw harOMSSakIGjennyError
     }
 
     const dispatcher: InntektDispatcher = {
@@ -62,7 +61,7 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
                         <HStack justify="end">
                             <SpraakVelger />
                         </HStack>
-                        <HarIkkeOMSSakIGjenny />
+                        <HarIkkeOMSSakIGjenny skjemaNavn="inntektsjustering" />
                     </VStack>
                 </HStack>
             </main>
