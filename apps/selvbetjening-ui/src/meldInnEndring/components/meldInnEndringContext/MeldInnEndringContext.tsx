@@ -6,7 +6,7 @@ import { SideLaster } from '../../../common/SideLaster.tsx'
 import { LogEvents } from '../../../common/amplitude/useAmplitude.ts'
 import { HStack, VStack } from '@navikt/ds-react'
 import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
-import { HarIkkeOMSSakIGjenny } from '../../../inntektsjustering/1-innledning/HarIkkeOMSSakIGjenny.tsx'
+import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
 import { logEvent } from '@amplitude/analytics-browser'
 
 interface MeldInnEndringDispatcher {
@@ -46,7 +46,7 @@ const ProvideMeldInnEndringContext = ({ children }: { children: ReactNode | Arra
                         <HStack justify="end">
                             <SpraakVelger />
                         </HStack>
-                        <HarIkkeOMSSakIGjenny />
+                        <HarIkkeOMSSakIGjenny skjemaNavn="meld-inn-endring" />
                     </VStack>
                 </HStack>
             </main>
