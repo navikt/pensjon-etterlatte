@@ -5,7 +5,6 @@ import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { logger } from '../../../common/logger/logger.ts'
 import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
 import { HarIkkeOMSSakIGjenny } from '../../1-innledning/HarIkkeOMSSakIGjenny.tsx'
 import { finnAlder } from '../../2-inntekt-til-neste-aar/finnAlder.ts'
@@ -45,7 +44,7 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
     }
 
     if (harOMSSakIGjennyError) {
-        logger.generalError(harOMSSakIGjennyError)
+        throw harOMSSakIGjennyError
     }
 
     const dispatcher: InntektDispatcher = {
