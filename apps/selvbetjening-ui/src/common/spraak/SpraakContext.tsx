@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 import { hentSpraakFraLocalStorage, lagreSpraakILocalStorage } from './localStorage.ts'
 import { Spraak } from './spraak.ts'
 
@@ -18,6 +18,10 @@ const ProvideSpraakContext = ({ children }: { children: ReactNode | Array<ReactN
             setState(spraak)
         },
     }
+
+    useEffect(() => {
+        document.documentElement.lang = state.toLowerCase()
+    }, [state])
 
     return (
         <spraakContext.Provider value={state}>
