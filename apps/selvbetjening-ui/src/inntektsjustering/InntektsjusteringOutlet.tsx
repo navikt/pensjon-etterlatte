@@ -11,9 +11,9 @@ import { useEffect } from 'react'
 export const InntektsjusteringOutlet = () => {
     const omsInntetksjusteringSkjemaFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_INNTEKTSJUSTERING_SKJEMA)
 
-    useEffect(() => {
-        document.title = 'Inntekt neste år'
-    }, [])
+    // useEffect(() => {
+    //     document.title = 'Inntekt neste år'
+    // }, [])
 
     return (
         <ProvideInntektContext>
