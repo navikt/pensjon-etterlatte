@@ -1,4 +1,4 @@
-# pensjon-etterlatte
+# pensjon-etterlatte-brukerdialog
 
 Monorepo for ny løsning for ytelser til etterlatte.
 
