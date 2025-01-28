@@ -23,7 +23,7 @@ const ProvideMeldInnEndringContext = ({ children }: { children: ReactNode | Arra
         data: harOMSSakIGjenny,
         isLoading: harOMSSakIGjennyIsLoading,
         error: harOMSSakIGjennyError,
-    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har-loepende-sak`)
+    }: SWRResponse<{ harOMSSak: boolean }, ApiError, boolean> = useSWR(`${apiURL}/api/sak/oms/har_sak`)
 
     if (harOMSSakIGjennyIsLoading) {
         return <SideLaster />
