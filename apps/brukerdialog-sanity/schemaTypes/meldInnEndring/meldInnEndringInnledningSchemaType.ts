@@ -12,8 +12,14 @@ export const meldInnEndringInnledningSchemaType = defineType({
             type: 'string',
         }),
         defineField({
-            name: 'hovedinnhold',
-            title: 'Hovedinnhold',
+            name: 'tittel',
+            title: 'Tittel',
+            type: 'object',
+            fields: spraakStringFields,
+        }),
+        defineField({
+            name: 'veiledning',
+            title: 'Veiledning',
             type: 'object',
             fields: spraakBlockFields,
         }),
