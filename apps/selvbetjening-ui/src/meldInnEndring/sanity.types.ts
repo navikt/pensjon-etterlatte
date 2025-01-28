@@ -1152,7 +1152,12 @@ export type MeldInnEndringInnledning = {
     _updatedAt: string
     _rev: string
     dokumentTittel?: string
-    hovedinnhold?: {
+    tittel?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
+    veiledning?: {
         NB?: Array<{
             children?: Array<{
                 marks?: Array<string>

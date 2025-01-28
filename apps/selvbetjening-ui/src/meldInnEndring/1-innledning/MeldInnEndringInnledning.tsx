@@ -3,7 +3,7 @@ import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { MeldInnEndringInnledning as MeldFraOmEndringInnledningInnhold } from '../sanity.types.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
-import { Button, HStack, VStack } from '@navikt/ds-react'
+import { Bleed, Button, GuidePanel, Heading, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
@@ -31,12 +31,18 @@ export const MeldInnEndringInnledning = () => {
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="42.5rem">
+                    <VStack gap="6" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" skjemaNavn="meld-inn-endring" />
 
-                        <div>
-                            <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
-                        </div>
+                        <Heading size="medium" level="3">
+                            {innhold.tittel?.[spraak]}
+                        </Heading>
+
+                        <Bleed marginInline={{ xs: '0', md: '10 0' }}>
+                            <GuidePanel>
+                                <SanityRikTekst text={innhold.veiledning?.[spraak]} />
+                            </GuidePanel>
+                        </Bleed>
 
                         <div>
                             <Button

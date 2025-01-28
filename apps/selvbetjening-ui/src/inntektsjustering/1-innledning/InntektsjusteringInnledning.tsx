@@ -61,7 +61,7 @@ export const InntektsjusteringInnledning = () => {
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="42.5rem">
+                    <VStack gap="6" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={1} stegLabelKey="steg1" skjemaNavn="inntektsjustering" />
                         <div>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />

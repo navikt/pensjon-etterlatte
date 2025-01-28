@@ -1,4 +1,4 @@
-import { Bleed, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
+import { FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -55,14 +55,12 @@ export const MeldInnEndringOppsummering = () => {
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="42.5rem">
+                    <VStack gap="6" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={3} stegLabelKey="steg3" skjemaNavn="meld-inn-endring" />
 
-                        <Bleed marginInline={{ xs: '0', md: '10 0' }}>
-                            <GuidePanel>
-                                <SanityRikTekst text={innhold.veiledning?.[spraak]} />
-                            </GuidePanel>
-                        </Bleed>
+                        <GuidePanel poster>
+                            <SanityRikTekst text={innhold.veiledning?.[spraak]} />
+                        </GuidePanel>
 
                         <FormSummary>
                             <FormSummary.Header>
