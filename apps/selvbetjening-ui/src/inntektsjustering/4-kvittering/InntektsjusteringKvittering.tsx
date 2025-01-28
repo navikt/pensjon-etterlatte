@@ -26,7 +26,7 @@ export const InntektsjusteringKvittering = () => {
         !!innhold && (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="42.5rem">
+                    <VStack gap="6" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={4} stegLabelKey="steg4" skjemaNavn="inntektsjustering" />
 
                         <Heading size="large" level="2">
