@@ -6,9 +6,14 @@ import {
 import { Outlet } from 'react-router-dom'
 import { Heading } from '@navikt/ds-react'
 import { ProvideMeldInnEndringContext } from './components/meldInnEndringContext/MeldInnEndringContext.tsx'
+import { useEffect } from 'react'
 
 export const MeldInnEndringOutlet = () => {
     const omsMeldInnEndringerSkjemaFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_MELD_INN_ENDRING_SKJEMA)
+
+    useEffect(() => {
+        document.title = 'Meld inn endring'
+    }, [])
 
     return omsMeldInnEndringerSkjemaFeatureToggle.status === FeatureToggleStatus.PAA ? (
         <ProvideMeldInnEndringContext>
