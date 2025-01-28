@@ -6,7 +6,6 @@ import {
 } from '../common/featureToggles/FeatureTogglesContext.tsx'
 import { InntektSkjemaLukket } from './components/inntektSkjemaLukket/InntektSkjemaLukket.tsx'
 import { Outlet } from 'react-router-dom'
-import { useEffect } from 'react'
 
 export const InntektsjusteringOutlet = () => {
     const omsInntetksjusteringSkjemaFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_INNTEKTSJUSTERING_SKJEMA)
