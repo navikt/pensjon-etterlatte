@@ -1,22 +1,22 @@
-import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from '../../api/dto/FellesOpplysninger'
-import { IAboutChildren, IAboutYou } from '../../types/person'
-import { ISituationChild } from '../../types/situation'
-import { Language } from '../language/language'
-import { ApplicantRole, ApplicantSituation } from '../../types/applicant'
+import { BankkontoType, JaNeiVetIkke, OppholdUtlandType } from "../../api/dto/FellesOpplysninger";
+import { IAboutChildren, IAboutYou } from "../../types/person";
+import { ISituationChild } from "../../types/situation";
+import { Language } from "../language/language";
+import { ApplicantRole, ApplicantSituation } from "../../types/applicant";
 
 export const emptyApplication: IApplication = {
     aboutYou: { paymentDetails: { accountType: BankkontoType.NORSK } },
-}
+};
 
 export interface IApplication {
-    meta?: IApplicationMeta
-    applicant?: IApplicant
-    aboutYou: IAboutYou
-    yourSituation?: ISituationChild
-    firstParent?: IParent | IDeceasedParent
-    secondParent?: IParent | IDeceasedParent
-    unknownParent?: boolean
-    aboutChildren?: IAboutChildren
+    meta?: IApplicationMeta;
+    applicant?: IApplicant;
+    aboutYou: IAboutYou;
+    yourSituation?: ISituationChild;
+    firstParent?: IParent | IDeceasedParent;
+    secondParent?: IParent | IDeceasedParent;
+    unknownParent?: boolean;
+    aboutChildren?: IAboutChildren;
 }
 
 export enum ActionTypes {
@@ -39,63 +39,64 @@ export enum ActionTypes {
 }
 
 export interface IApplicationAction {
-    type: ActionTypes
-    payload?: unknown
+    type: ActionTypes;
+    // biome-ignore lint/suspicious/noExplicitAny: disabler nå for å få det til å funke
+    payload?: any;
 }
 
 export interface ApplicationProps {
-    state: IApplication
-    dispatch: (action: IApplicationAction) => void
+    state: IApplication;
+    dispatch: (action: IApplicationAction) => void;
 }
 
 export interface IApplicationMeta {
-    readyForSaving?: boolean
-    savedTimestamp?: Date
-    showContinueModal?: boolean
-    currentPath?: string
-    language?: Language
+    readyForSaving?: boolean;
+    savedTimestamp?: Date;
+    showContinueModal?: boolean;
+    currentPath?: string;
+    language?: Language;
 }
 
 export interface IApplicant {
-    consent: boolean
-    applicantRole: ApplicantRole
-    applicantSituation?: ApplicantSituation
+    consent: boolean;
+    applicantRole: ApplicantRole;
+    applicantSituation?: ApplicantSituation;
 }
 
 export interface IParent {
-    firstName: string
-    lastName: string
-    fnrDnr: string
-    fnrIsUnknown?: boolean
-    dateOfBirth?: string
-    citizenship: string
+    firstName: string;
+    lastName: string;
+    fnrDnr: string;
+    fnrIsUnknown?: boolean;
+    dateOfBirth?: string;
+    citizenship: string;
 }
 
 export interface ILivingParent extends IParent {
-    address?: string
-    phoneNumber?: string
+    address?: string;
+    phoneNumber?: string;
 }
 
 export interface IDeceasedParent extends IParent {
-    dateOfDeath: Date
-    staysAbroad: IStaysAbroad
-    occupationalInjury?: JaNeiVetIkke
-    isValidated?: boolean
+    dateOfDeath: Date;
+    staysAbroad: IStaysAbroad;
+    occupationalInjury?: JaNeiVetIkke;
+    isValidated?: boolean;
 }
 
 export interface IStaysAbroad {
-    hasStaysAbroad: JaNeiVetIkke
-    abroadStays?: IAbroadStay[]
+    hasStaysAbroad: JaNeiVetIkke;
+    abroadStays?: IAbroadStay[];
 }
 
 export interface IAbroadStay {
-    country: string
-    fromDate?: Date
-    toDate?: Date
-    type: OppholdUtlandType[]
-    medlemFolketrygd: JaNeiVetIkke
+    country: string;
+    fromDate?: Date;
+    toDate?: Date;
+    type: OppholdUtlandType[];
+    medlemFolketrygd: JaNeiVetIkke;
     pension: {
-        amount?: string
-        currency?: string
-    }
+        amount?: string;
+        currency?: string;
+    };
 }
