@@ -52,7 +52,8 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                         value: false,
                     }}
                     required={false}
-                    legend={''}
+                    legend={t('fnrIsUnknown')}
+                    hideLegend
                 />
 
                 {fnrIsUnknown && (

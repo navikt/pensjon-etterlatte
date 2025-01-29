@@ -105,7 +105,9 @@ exports[`Om den avdøde > Snapshot 1`] = `
           >
             <legend
               class="navds-fieldset__legend navds-sr-only navds-label"
-            />
+            >
+              omDenAvdoede.ukjentFoedselsnummer
+            </legend>
             <div
               class="navds-checkboxes"
             >

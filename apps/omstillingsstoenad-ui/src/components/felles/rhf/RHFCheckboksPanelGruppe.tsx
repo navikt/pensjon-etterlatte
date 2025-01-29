@@ -104,9 +104,10 @@ interface RHFCheckboksProps {
     name: FieldPath<FieldValues>
     label: string
     required?: boolean
+    legend?: string
 }
 
-export function RHFCheckboks({ name, label, required }: RHFCheckboksProps) {
+export function RHFCheckboks({ name, label, required, legend }: RHFCheckboksProps) {
     const { t } = useTranslation('error')
 
     const {
@@ -124,7 +125,7 @@ export function RHFCheckboks({ name, label, required }: RHFCheckboksProps) {
                 control={control}
                 rules={{ required }}
                 render={({ field: { value, onChange } }) => (
-                    <CheckboxGroup legend={''} hideLegend={true} error={feilmelding} defaultValue={[value]}>
+                    <CheckboxGroup legend={legend ?? ''} hideLegend error={feilmelding} defaultValue={[value]}>
                         <Checkbox
                             key={name}
                             value={value || false}

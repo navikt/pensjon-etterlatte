@@ -46,8 +46,14 @@ const EtablererVirksomhet = () => {
             <SkjemaElement>
                 <RHFCheckboksGruppe
                     name={'etablererVirksomhet.manglerOrgnr'}
-                    checkboxes={[{ children: t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr'), value: t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr') }]}
-                    legend={''}
+                    checkboxes={[
+                        {
+                            children: t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr'),
+                            value: t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr'),
+                        },
+                    ]}
+                    legend={t('merOmSituasjonenDin.etablererVirksomhet.manglerOrgnr')}
+                    hideLegend
                     required={false}
                 />
             </SkjemaElement>
