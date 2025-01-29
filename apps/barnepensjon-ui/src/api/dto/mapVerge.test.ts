@@ -4,7 +4,7 @@ import { User } from "../../context/user/user";
 import { JaNeiVetIkke } from "./FellesOpplysninger";
 import { describe, expect, it } from "vitest";
 
-// biome-ignore lint/suspicious/noExplicitAny
+// biome-ignore lint/suspicious/noExplicitAny: gamle tester, gidder ikke fikse
 const t = (key: string, _: any) => key;
 const user: User = {
     fornavn: "Stor",
