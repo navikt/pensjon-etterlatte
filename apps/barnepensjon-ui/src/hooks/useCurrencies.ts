@@ -1,74 +1,74 @@
-import { useEffect, useState } from "react";
-import { getCurrencies } from "../api/api";
-import useTranslation from "./useTranslation";
+import { useEffect, useState } from 'react'
+import { getCurrencies } from '../api/api'
+import useTranslation from './useTranslation'
 
 interface useCurrencies {
-    currencies: options[];
+    currencies: options[]
 }
 
 export interface options {
-    label: string;
-    value: string;
+    label: string
+    value: string
 }
 
 interface Currency {
-    isoKode: string;
-    gyldigFra: string;
-    gyldigTil: string;
+    isoKode: string
+    gyldigFra: string
+    gyldigTil: string
     beskrivelse: {
-        term: string;
-        tekst: string;
-    };
+        term: string
+        tekst: string
+    }
 }
 
 const sortByText = (a: Currency, b: Currency) => {
     if (a.beskrivelse.tekst > b.beskrivelse.tekst) {
-        return 1;
+        return 1
     }
-    return -1;
-};
+    return -1
+}
 
 export const moveMostUsedCurrenciesToBeginning = (currencies: Currency[]) => {
-    const frequentlyUsed = ["SEK", "NOK", "EUR"];
+    const frequentlyUsed = ['SEK', 'NOK', 'EUR']
 
-    const frequentlyUsedCurrencies = currencies.filter((currency) => frequentlyUsed.includes(currency.isoKode));
+    const frequentlyUsedCurrencies = currencies.filter((currency) => frequentlyUsed.includes(currency.isoKode))
 
-    if (frequentlyUsedCurrencies) frequentlyUsedCurrencies.forEach((currency) => currencies.unshift(currency));
+    if (frequentlyUsedCurrencies) frequentlyUsedCurrencies.forEach((currency) => currencies.unshift(currency))
 
-    return currencies;
-};
+    return currencies
+}
 
 export const useCurrencies = (): useCurrencies => {
-    const [currencies, setCurrencies] = useState<Currency[]>([]);
-    const { t } = useTranslation("common");
+    const [currencies, setCurrencies] = useState<Currency[]>([])
+    const { t } = useTranslation('common')
 
     useEffect(() => {
-        (async () => {
+        ;(async () => {
             try {
-                let currencyList: Currency[] = await getCurrencies();
-                currencyList = currencyList.sort(sortByText);
-                setCurrencies(moveMostUsedCurrenciesToBeginning(currencyList));
+                let currencyList: Currency[] = await getCurrencies()
+                currencyList = currencyList.sort(sortByText)
+                setCurrencies(moveMostUsedCurrenciesToBeginning(currencyList))
             } catch (e) {
-                console.log(e);
+                console.log(e)
             }
-        })();
-    }, []);
+        })()
+    }, [])
 
     const optionsList = (currency: Currency[]): options[] => {
         const currencyList = currency.map((currency) => {
-            const tekst = currency.beskrivelse.term + " (" + currency.isoKode + ")";
+            const tekst = currency.beskrivelse.term + ' (' + currency.isoKode + ')'
             return {
                 label: tekst,
                 value: tekst,
-            };
-        });
+            }
+        })
 
         currencyList.unshift({
-            label: t("chooseCurrency"),
-            value: t(""),
-        });
-        return currencyList;
-    };
+            label: t('chooseCurrency'),
+            value: t(''),
+        })
+        return currencyList
+    }
 
-    return { currencies: optionsList(currencies) };
-};
+    return { currencies: optionsList(currencies) }
+}
