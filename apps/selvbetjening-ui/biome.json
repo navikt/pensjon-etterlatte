@@ -4,7 +4,6 @@
   "files": { "ignoreUnknown": false, "ignore": [] },
   "formatter": {
     "enabled": true,
-    "useEditorconfig": true,
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 4,
