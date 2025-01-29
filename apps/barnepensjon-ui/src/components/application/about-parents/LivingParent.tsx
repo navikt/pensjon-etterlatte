@@ -1,75 +1,75 @@
-import { FormProvider, useForm } from 'react-hook-form'
-import { ILivingParent } from '~context/application/application'
-import { useApplicationContext } from '~context/application/ApplicationContext'
-import useTranslation from '../../../hooks/useTranslation'
-import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import FormElement from '../../common/FormElement'
-import FormGroup from '../../common/FormGroup'
-import Navigation from '../../common/Navigation'
-import PersonInfo from '../../common/PersonInfo'
-import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
-import StepHeading from '../../common/StepHeading'
-import { StepProps } from '../Dialogue'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FormProvider, useForm } from "react-hook-form";
+import { IDeceasedParent, ILivingParent, IParent } from "~context/application/application";
+import { useApplicationContext } from "~context/application/ApplicationContext";
+import useTranslation from "../../../hooks/useTranslation";
+import ErrorSummaryWrapper from "../../common/ErrorSummaryWrapper";
+import FormElement from "../../common/FormElement";
+import FormGroup from "../../common/FormGroup";
+import Navigation from "../../common/Navigation";
+import PersonInfo from "../../common/PersonInfo";
+import { RHFInput, RHFTelefonInput } from "../../common/rhf/RHFInput";
+import StepHeading from "../../common/StepHeading";
+import { StepProps } from "../Dialogue";
+import { FieldErrors } from "react-hook-form/dist/types/errors";
+import { LogEvents, useAmplitude } from "~hooks/useAmplitude";
 
 interface Props extends StepProps {
-    fnrRegisteredParent?: string[]
+    fnrRegisteredParent?: string[];
 }
 
 export default function LivingParent({ next, prev, type, fnrRegisteredParent }: Props) {
-    const { state, dispatch } = useApplicationContext()
-    const { t } = useTranslation('livingParent')
-    const { logEvent } = useAmplitude()
+    const { state, dispatch } = useApplicationContext();
+    const { t } = useTranslation("livingParent");
+    const { logEvent } = useAmplitude();
 
     const save = (data: ILivingParent) => {
-        dispatch({ type: type!, payload: { ...data } })
-        next!()
-    }
+        dispatch({ type: type!, payload: { ...data } });
+        next!();
+    };
 
     const logErrors = (data: FieldErrors<ILivingParent>) => {
         Object.keys(data).map((error) =>
-            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'LivingParent', id: error })
-        )
-    }
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: "LivingParent", id: error }),
+        );
+    };
 
-    const methods = useForm<any>({
+    const methods = useForm<IParent | IDeceasedParent>({
         defaultValues: { ...state.firstParent },
         shouldUnregister: true,
-    })
+    });
 
     const {
         handleSubmit,
         formState: { errors },
         watch,
-    } = methods
+    } = methods;
 
     return (
         <FormProvider {...methods}>
             <form>
-                <StepHeading>{t('title')}</StepHeading>
+                <StepHeading>{t("title")}</StepHeading>
 
                 <FormGroup>
-                    <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
+                    <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch("fnrIsUnknown")} />
                 </FormGroup>
                 <FormElement>
-                    <RHFInput name={'address'} label={t('address')} valgfri={true} />
+                    <RHFInput name={"address"} label={t("address")} valgfri={true} />
                 </FormElement>
                 <FormElement>
                     <RHFTelefonInput
-                        name={'phoneNumber'}
-                        label={t('phoneNumberOptional', { ns: 'common' })}
+                        name={"phoneNumber"}
+                        label={t("phoneNumberOptional", { ns: "common" })}
                         valgfri={true}
                     />
                 </FormElement>
                 <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation
-                    right={{ label: t('saveButton', { ns: 'btn' }), onClick: handleSubmit(save, logErrors) }}
-                    left={{ label: t('backButton', { ns: 'btn' }), variant: 'secondary', onClick: prev }}
+                    right={{ label: t("saveButton", { ns: "btn" }), onClick: handleSubmit(save, logErrors) }}
+                    left={{ label: t("backButton", { ns: "btn" }), variant: "secondary", onClick: prev }}
                     hideCancel={true}
                 />
             </form>
         </FormProvider>
-    )
+    );
 }

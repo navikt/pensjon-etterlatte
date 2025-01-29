@@ -29,11 +29,11 @@ const defaultContext = {
 export interface IStackLineNoColumnNo {
     readonly lineno: number;
     readonly columnno: number;
-    readonly message: any;
-    readonly error: any;
+    readonly message: string;
+    readonly error: string;
 }
 
-export const loggFunc = async (data: any) => {
+export const loggFunc = async (data: unknown) => {
     if (isDev) {
         console.log(
             `Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${JSON.stringify(data)}`,

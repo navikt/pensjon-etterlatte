@@ -32,7 +32,7 @@ export default function AboutYou({ next }: StepProps) {
     const { countries }: { countries: Options[] } = useCountries();
     const { logEvent } = useAmplitude();
 
-    const save = (data: any) => {
+    const save = (data: IAboutYou) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } });
         next!();
     };

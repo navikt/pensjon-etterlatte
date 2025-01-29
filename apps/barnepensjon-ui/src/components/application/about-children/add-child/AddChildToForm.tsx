@@ -128,7 +128,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
     const parents = watch("parents");
     const fnr = watch("fnrDnr");
-    const dateOfBirth: any = watch("dateOfBirth");
+    const dateOfBirth: string | undefined = watch("dateOfBirth");
     const appliesForChildrensPension: boolean | undefined = watch("appliesForChildrensPension");
     const childHasGuardianship = watch("childHasGuardianship.answer");
     const loggedInUserIsGuardian = watch("loggedInUserIsGuardian");
