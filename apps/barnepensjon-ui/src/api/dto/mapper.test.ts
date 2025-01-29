@@ -34,7 +34,7 @@ const user: User = {
     sivilstatus: "GIFT",
 };
 
-// biome-ignore lint/suspicious/noExplicitAny
+// biome-ignore lint/suspicious/noExplicitAny: gamle tester, gidder ikke fikse
 const t = (key: string, _: any) => key;
 const isChild = false;
 
@@ -46,17 +46,17 @@ describe("Generelle tester", () => {
 
         try {
             mapTilBarnepensjonSoeknadListe(t, application, user, isChild);
-            // biome-ignore lint/suspicious/noExplicitAny
+            // biome-ignore lint/suspicious/noExplicitAny: gamle tester, gidder ikke fikse
         } catch (e: any) {
             expect(e.message).toEqual("Kan ikke sende inn søknad med tom liste over barn!");
         }
     });
 
-    // biome-ignore lint/suspicious/noExplicitAny
     it("Stopp mapping hvis bruker har ikke samtykket", () => {
         try {
             const application: IApplication = { aboutChildren: { children: [{}] }, aboutYou: {} };
             mapTilBarnepensjonSoeknadListe(t, application, user, isChild);
+            // biome-ignore lint/suspicious/noExplicitAny: gamle tester, gidder ikke fikse
         } catch (e: any) {
             expect(e).toEqual("Kan ikke sende inn søknad uten å ha samtykket!");
         }
