@@ -29,9 +29,7 @@
       "abroadStays": [
         {
           "country": "Algerie",
-          "type": [
-            "BODD"
-          ],
+          "type": ["BODD"],
           "fromDate": "2010-01-01",
           "medlemFolketrygd": "NEI",
           "pensionAmount": "10000"

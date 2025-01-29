@@ -21,9 +21,7 @@
       "abroadStays": [
         {
           "country": "Algerie",
-          "type": [
-            "ARBEIDET"
-          ],
+          "type": ["ARBEIDET"],
           "fromDate": "2019-01-01",
           "medlemFolketrygd": "JA",
           "pensionAmount": "1000"

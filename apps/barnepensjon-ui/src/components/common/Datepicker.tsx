@@ -1,38 +1,38 @@
-import { format, parseISO } from "date-fns";
-import { get } from "lodash";
-import { ReactNode } from "react";
-import { Controller, FieldError, useFormContext } from "react-hook-form";
-import { useLanguageContext } from "../../context/language/LanguageContext";
-import useTranslation from "../../hooks/useTranslation";
-import { getErrorKey } from "../../utils/errors";
-import { useDatepicker, DatePicker, DatePickerProps } from "@navikt/ds-react";
+import { format, parseISO } from 'date-fns'
+import { get } from 'lodash'
+import { ReactNode } from 'react'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import { useLanguageContext } from '../../context/language/LanguageContext'
+import useTranslation from '../../hooks/useTranslation'
+import { getErrorKey } from '../../utils/errors'
+import { useDatepicker, DatePicker, DatePickerProps } from '@navikt/ds-react'
 
 interface DatepickerProps {
-    name: string;
-    label: ReactNode;
-    description?: ReactNode;
-    minDate?: Date | string;
-    maxDate?: Date | string;
-    valgfri?: boolean;
-    className?: string;
+    name: string
+    label: ReactNode
+    description?: ReactNode
+    minDate?: Date | string
+    maxDate?: Date | string
+    valgfri?: boolean
+    className?: string
 }
 
 const formatDate = (dato?: Date | string) => {
     try {
-        if (!dato) return undefined;
-        else if (typeof dato === "string") return format(parseISO(dato), "yyyy-MM-dd");
-        else return format(parseISO(dato.toISOString()), "yyyy-MM-dd");
+        if (!dato) return undefined
+        else if (typeof dato === 'string') return format(parseISO(dato), 'yyyy-MM-dd')
+        else return format(parseISO(dato.toISOString()), 'yyyy-MM-dd')
     } catch {
-        return undefined;
+        return undefined
     }
-};
+}
 
 const parseDateMaxMin = (dato: Date | string) => {
-    if (typeof dato === "string") return parseISO(dato);
-    else return parseISO(dato.toISOString());
-};
+    if (typeof dato === 'string') return parseISO(dato)
+    else return parseISO(dato.toISOString())
+}
 
-const isValid = (date: Date | string): boolean => !!formatDate(date);
+const isValid = (date: Date | string): boolean => !!formatDate(date)
 
 const Datepicker = ({
     name,
@@ -43,21 +43,21 @@ const Datepicker = ({
     valgfri,
     className,
 }: DatepickerProps) => {
-    const { t } = useTranslation("common");
-    const { language } = useLanguageContext();
+    const { t } = useTranslation('common')
+    const { language } = useLanguageContext()
 
     const {
         control,
         formState: { errors },
-    } = useFormContext();
+    } = useFormContext()
 
-    const error: FieldError = get(errors, name) as FieldError;
-    const errorMessage = !!error ? t(getErrorKey(error), { ns: "error" }) : undefined;
+    const error: FieldError = get(errors, name) as FieldError
+    const errorMessage = !!error ? t(getErrorKey(error), { ns: 'error' }) : undefined
 
-    const labelWithOptional = `${label} ${valgfri ? `(${t("optional")})` : ""}`;
+    const labelWithOptional = `${label} ${valgfri ? `(${t('optional')})` : ''}`
     const descriptionWithFormat = description
-        ? `${description} ${t("dateFormat")}`
-        : `${t("dateSRLabel")} ${t("dateFormat")}`;
+        ? `${description} ${t('dateFormat')}`
+        : `${t('dateSRLabel')} ${t('dateFormat')}`
 
     return (
         <section className={`skjemaelement ${className}`}>
@@ -73,11 +73,11 @@ const Datepicker = ({
                     const { datepickerProps, inputProps } = useDatepicker({
                         fromDate: minDate ? parseDateMaxMin(minDate) : undefined,
                         toDate: maxDate ? parseDateMaxMin(maxDate) : undefined,
-                        locale: language as DatePickerProps["locale"],
-                        inputFormat: "dd.MM.yyyy",
+                        locale: language as DatePickerProps['locale'],
+                        inputFormat: 'dd.MM.yyyy',
                         defaultSelected: value ? new Date(value) : undefined,
                         onDateChange: (date) => onChange(formatDate(date)),
-                    });
+                    })
                     return (
                         <DatePicker {...datepickerProps} dropdownCaption>
                             <DatePicker.Input
@@ -88,11 +88,11 @@ const Datepicker = ({
                                 description={descriptionWithFormat}
                             />
                         </DatePicker>
-                    );
+                    )
                 }}
             />
         </section>
-    );
-};
+    )
+}
 
-export default Datepicker;
+export default Datepicker

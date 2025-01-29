@@ -1,7 +1,7 @@
-import { Controller, FieldError, FieldPath, FieldValues, useFormContext } from "react-hook-form";
-import { get } from "lodash";
-import useTranslation from "../../../hooks/useTranslation";
-import { getErrorKey } from "../../../utils/errors";
+import { Controller, FieldError, FieldPath, FieldValues, useFormContext } from 'react-hook-form'
+import { get } from 'lodash'
+import useTranslation from '../../../hooks/useTranslation'
+import { getErrorKey } from '../../../utils/errors'
 import {
     ConfirmationPanel,
     CheckboxGroup,
@@ -9,28 +9,28 @@ import {
     CheckboxProps,
     CheckboxGroupProps,
     ConfirmationPanelProps,
-} from "@navikt/ds-react";
+} from '@navikt/ds-react'
 
 const handleSelect = (array: Array<unknown>, addOrRemove: unknown) => {
     return array?.includes(addOrRemove)
         ? array?.filter((value) => value !== addOrRemove)
-        : [...(array ?? []), addOrRemove];
-};
+        : [...(array ?? []), addOrRemove]
+}
 
-interface RHFConfirmationPanelProps extends Omit<ConfirmationPanelProps, "onChange" | "children" | "checked"> {
-    name: FieldPath<FieldValues>;
-    valgfri?: boolean;
+interface RHFConfirmationPanelProps extends Omit<ConfirmationPanelProps, 'onChange' | 'children' | 'checked'> {
+    name: FieldPath<FieldValues>
+    valgfri?: boolean
 }
 
 export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmationPanelProps) {
-    const { t } = useTranslation("error");
+    const { t } = useTranslation('error')
     const {
         control,
         formState: { errors },
-    } = useFormContext();
+    } = useFormContext()
 
-    const error: FieldError = get(errors, name) as FieldError;
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined;
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -49,25 +49,25 @@ export function RHFConfirmationPanel({ name, valgfri, ...rest }: RHFConfirmation
                 )}
             />
         </div>
-    );
+    )
 }
 
-interface RHFCheckboksGruppeProps extends Omit<CheckboxGroupProps, "onChange" | "children"> {
-    name: FieldPath<FieldValues>;
-    checkboxes: CheckboxProps[];
-    required: boolean;
+interface RHFCheckboksGruppeProps extends Omit<CheckboxGroupProps, 'onChange' | 'children'> {
+    name: FieldPath<FieldValues>
+    checkboxes: CheckboxProps[]
+    required: boolean
 }
 
 export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFCheckboksGruppeProps) {
-    const { t } = useTranslation("error");
+    const { t } = useTranslation('error')
 
     const {
         control,
         formState: { errors },
-    } = useFormContext();
+    } = useFormContext()
 
-    const error: FieldError = get(errors, name) as FieldError;
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined;
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -80,7 +80,7 @@ export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFC
                         {checkboxes.map((checkbox: CheckboxProps) => (
                             <Checkbox
                                 key={checkbox.value as string}
-                                value={checkbox.value || ""}
+                                value={checkbox.value || ''}
                                 onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
                             >
                                 {checkbox.children}
@@ -90,25 +90,25 @@ export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFC
                 )}
             />
         </div>
-    );
+    )
 }
 
-interface RHFCheckboksProps extends Omit<CheckboxGroupProps, "onChange" | "children"> {
-    name: FieldPath<FieldValues>;
-    checkbox: CheckboxProps;
-    required: boolean;
+interface RHFCheckboksProps extends Omit<CheckboxGroupProps, 'onChange' | 'children'> {
+    name: FieldPath<FieldValues>
+    checkbox: CheckboxProps
+    required: boolean
 }
 
 export function RHFCheckboks({ name, checkbox, required, ...rest }: RHFCheckboksProps) {
-    const { t } = useTranslation("error");
+    const { t } = useTranslation('error')
 
     const {
         control,
         formState: { errors },
-    } = useFormContext();
+    } = useFormContext()
 
-    const error: FieldError = get(errors, name) as FieldError;
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined;
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
 
     return (
         <div id={name}>
@@ -129,5 +129,5 @@ export function RHFCheckboks({ name, checkbox, required, ...rest }: RHFCheckboks
                 )}
             />
         </div>
-    );
+    )
 }

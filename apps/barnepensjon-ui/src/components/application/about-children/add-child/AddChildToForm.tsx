@@ -1,29 +1,29 @@
-import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore } from "@navikt/ds-react";
-import { fnr as fnrValidator } from "@navikt/fnrvalidator";
-import { useEffect } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import styled from "styled-components";
-import ikon from "../../../../assets/barn1.svg";
-import useCountries, { Options } from "../../../../hooks/useCountries";
-import useTranslation from "../../../../hooks/useTranslation";
-import { IChild, ParentRelationType } from "~types/person";
-import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from "~utils/age";
-import ErrorSummaryWrapper from "../../../common/ErrorSummaryWrapper";
-import FormGroup from "../../../common/FormGroup";
-import { NavRow } from "../../../common/Navigation";
-import { RHFConfirmationPanel } from "../../../common/rhf/RHFCheckboksPanelGruppe";
-import PaymentDetails from "../../../common/PaymentDetails";
-import { GuardianDetails } from "./GuardianDetails";
-import { LivesAbroadQuestion } from "./LivesAbroadQuestion";
-import PersonInfo from "../../../common/PersonInfo";
-import ParentQuestion from "./ParentQuestion";
-import { IsGuardianQuestion } from "./IsGuardianQuestion";
-import { useUserContext } from "~context/user/UserContext";
-import FormElement from "../../../common/FormElement";
-import { isDev } from "~api/axios";
-import { RHFGeneralQuestionRadio } from "~components/common/rhf/RHFRadio";
-import { FieldErrors } from "react-hook-form/dist/types/errors";
-import { LogEvents, useAmplitude } from "~hooks/useAmplitude";
+import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore } from '@navikt/ds-react'
+import { fnr as fnrValidator } from '@navikt/fnrvalidator'
+import { useEffect } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
+import styled from 'styled-components'
+import ikon from '../../../../assets/barn1.svg'
+import useCountries, { Options } from '../../../../hooks/useCountries'
+import useTranslation from '../../../../hooks/useTranslation'
+import { IChild, ParentRelationType } from '~types/person'
+import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
+import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
+import FormGroup from '../../../common/FormGroup'
+import { NavRow } from '../../../common/Navigation'
+import { RHFConfirmationPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
+import PaymentDetails from '../../../common/PaymentDetails'
+import { GuardianDetails } from './GuardianDetails'
+import { LivesAbroadQuestion } from './LivesAbroadQuestion'
+import PersonInfo from '../../../common/PersonInfo'
+import ParentQuestion from './ParentQuestion'
+import { IsGuardianQuestion } from './IsGuardianQuestion'
+import { useUserContext } from '~context/user/UserContext'
+import FormElement from '../../../common/FormElement'
+import { isDev } from '~api/axios'
+import { RHFGeneralQuestionRadio } from '~components/common/rhf/RHFRadio'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -40,7 +40,7 @@ const ChangeChildPanel = styled(Panel)`
     @media screen and (min-width: 650px) {
         max-width: 100%;
     }
-`;
+`
 
 const ChangeChildPanelHeader = styled.div`
     box-sizing: border-box;
@@ -58,7 +58,7 @@ const ChangeChildPanelHeader = styled.div`
         flex: 0 1 auto;
         padding-left: 3em;
     }
-`;
+`
 
 const Overskrift = styled(Heading)`
     flex: 0 1 auto;
@@ -67,109 +67,109 @@ const Overskrift = styled(Heading)`
     transform: translateX(-50%);
     align-self: center;
     color: white;
-`;
+`
 
 const ChangeChildPanelContent = styled.div`
     padding: 2em;
-`;
+`
 
 interface Props {
-    cancel: (removeActive?: boolean) => void;
-    save: (data: IChild) => void;
-    child: IChild;
-    fnrRegisteredChild: string[];
-    isChild: boolean;
-    isGuardian: boolean;
+    cancel: (removeActive?: boolean) => void
+    save: (data: IChild) => void
+    child: IChild
+    fnrRegisteredChild: string[]
+    isChild: boolean
+    isGuardian: boolean
 }
 
 const checkFnr = (fnr?: string): boolean => {
-    return (fnr && fnrValidator(fnr).status === "valid") || false;
-};
+    return (fnr && fnrValidator(fnr).status === 'valid') || false
+}
 
 const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGuardian }: Props) => {
-    const { t } = useTranslation("aboutChildren");
-    const { countries }: { countries: Options[] } = useCountries();
-    const { state: user } = useUserContext();
-    const { logEvent } = useAmplitude();
+    const { t } = useTranslation('aboutChildren')
+    const { countries }: { countries: Options[] } = useCountries()
+    const { state: user } = useUserContext()
+    const { logEvent } = useAmplitude()
 
     const methods = useForm<IChild>({
         defaultValues: {
             ...child,
         },
         shouldUnregister: true,
-    });
+    })
 
-    const editsChild = !!child?.firstName?.length;
+    const editsChild = !!child?.firstName?.length
 
     const {
         formState: { errors },
         handleSubmit,
         reset,
         watch,
-    } = methods;
+    } = methods
 
     const addAndClose = (data: IChild) => {
-        save(data);
-        reset();
-        window.scrollTo(0, 0);
-    };
+        save(data)
+        reset()
+        window.scrollTo(0, 0)
+    }
 
     const logErrors = (data: FieldErrors<IChild>) => {
         Object.keys(data).map((error) =>
-            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: "AddChildToForm", id: error }),
-        );
-    };
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'AddChildToForm', id: error })
+        )
+    }
 
     const cancelAndClose = () => {
-        if (child.fnrDnr === undefined && child.dateOfBirth === undefined) cancel(true);
-        else cancel();
-        window.scrollTo(0, 0);
-    };
+        if (child.fnrDnr === undefined && child.dateOfBirth === undefined) cancel(true)
+        else cancel()
+        window.scrollTo(0, 0)
+    }
 
-    const parents = watch("parents");
-    const fnr = watch("fnrDnr");
-    const dateOfBirth: string | undefined = watch("dateOfBirth");
-    const appliesForChildrensPension: boolean | undefined = watch("appliesForChildrensPension");
-    const childHasGuardianship = watch("childHasGuardianship.answer");
-    const loggedInUserIsGuardian = watch("loggedInUserIsGuardian");
-    const livesAbroadAnswer = watch("staysAbroad.answer");
+    const parents = watch('parents')
+    const fnr = watch('fnrDnr')
+    const dateOfBirth: string | undefined = watch('dateOfBirth')
+    const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
+    const childHasGuardianship = watch('childHasGuardianship.answer')
+    const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
+    const livesAbroadAnswer = watch('staysAbroad.answer')
 
     const canApplyForChildrensPension = (): boolean => {
         if (parents === ParentRelationType.BOTH) {
-            if (isGuardian) return true;
-            return !childOver18();
+            if (isGuardian) return true
+            return !childOver18()
         }
 
-        return false;
-    };
+        return false
+    }
 
     const childOver18 = () => {
         return (
             (checkFnr(fnr) && isLegalAge(getAgeFromFoedselsnummer(fnr!))) ||
             (dateOfBirth && isLegalAge(getAgeFromDate(dateOfBirth)))
-        );
-    };
+        )
+    }
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <FormProvider {...methods}>
-            <form autoComplete={isDev ? "on" : "off"}>
+            <form autoComplete={isDev ? 'on' : 'off'}>
                 <ChangeChildPanel>
                     <ChangeChildPanelHeader>
                         <img alt="barn" src={ikon} />
-                        <Overskrift size={"small"}>{!isChild ? t("titleModal") : t("aboutTheSiblingTitle")}</Overskrift>
+                        <Overskrift size={'small'}>{!isChild ? t('titleModal') : t('aboutTheSiblingTitle')}</Overskrift>
                     </ChangeChildPanelHeader>
 
                     <ChangeChildPanelContent>
                         <FormGroup>
-                            <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch("fnrIsUnknown")} />
+                            <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
                             {childOver18() && !isGuardian && (
                                 <Panel border>
-                                    <Alert id={"above18Warning"} inline={true} variant={"info"}>
-                                        <BodyLong>{t("onlyChildrenUnder18Necessary")}</BodyLong>
+                                    <Alert id={'above18Warning'} inline={true} variant={'info'}>
+                                        <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
                                     </Alert>
                                 </Panel>
                             )}
@@ -207,20 +207,20 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                 <>
                                                     <FormElement>
                                                         <RHFGeneralQuestionRadio
-                                                            name={"disabilityBenefitsIsGuardian"}
-                                                            legend={t("disabilityBenefitsIsGuardian")}
+                                                            name={'disabilityBenefitsIsGuardian'}
+                                                            legend={t('disabilityBenefitsIsGuardian')}
                                                         />
-                                                        <ReadMore header={t("whyWeAsk", { ns: "common" })}>
-                                                            {t("disabilityBenefitsInfo")}
+                                                        <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                                            {t('disabilityBenefitsInfo')}
                                                         </ReadMore>
                                                     </FormElement>
                                                     <FormElement>
                                                         <RHFGeneralQuestionRadio
-                                                            name={"workAssessmentAllowanceIsGuardian"}
-                                                            legend={t("workAssessmentAllowanceIsGuardian")}
+                                                            name={'workAssessmentAllowanceIsGuardian'}
+                                                            legend={t('workAssessmentAllowanceIsGuardian')}
                                                         />
-                                                        <ReadMore header={t("whyWeAsk", { ns: "common" })}>
-                                                            {t("workAssessmentAllowanceInfo")}
+                                                        <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                                                            {t('workAssessmentAllowanceInfo')}
                                                         </ReadMore>
                                                     </FormElement>
                                                 </>
@@ -233,12 +233,12 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                         />
 
                                         <FormGroup>
-                                            <Label>{t("applyForThisChild")}</Label>
+                                            <Label>{t('applyForThisChild')}</Label>
                                             <RHFConfirmationPanel
-                                                name={"appliesForChildrensPension"}
-                                                label={t("userAppliesForChildrensPension")}
+                                                name={'appliesForChildrensPension'}
+                                                label={t('userAppliesForChildrensPension')}
                                                 valgfri={true}
-                                                size={"medium"}
+                                                size={'medium'}
                                             />
                                         </FormGroup>
 
@@ -250,30 +250,30 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                         <ErrorSummaryWrapper errors={errors} />
                         <NavRow>
                             <Button
-                                id={"cancelAddChildren"}
-                                variant={"secondary"}
-                                type={"button"}
+                                id={'cancelAddChildren'}
+                                variant={'secondary'}
+                                type={'button'}
                                 onClick={cancelAndClose}
-                                style={{ minWidth: "80px" }}
+                                style={{ minWidth: '80px' }}
                             >
-                                {t("cancelButton", { ns: "btn" })}
+                                {t('cancelButton', { ns: 'btn' })}
                             </Button>
 
                             <Button
-                                id={"addChildren"}
-                                variant={"primary"}
-                                type={"button"}
+                                id={'addChildren'}
+                                variant={'primary'}
+                                type={'button'}
                                 onClick={handleSubmit(addAndClose, logErrors)}
-                                style={{ minWidth: "80px" }}
+                                style={{ minWidth: '80px' }}
                             >
-                                {editsChild ? t("saveChangesButton", { ns: "btn" }) : t("addButton", { ns: "btn" })}
+                                {editsChild ? t('saveChangesButton', { ns: 'btn' }) : t('addButton', { ns: 'btn' })}
                             </Button>
                         </NavRow>
                     </ChangeChildPanelContent>
                 </ChangeChildPanel>
             </form>
         </FormProvider>
-    );
-};
+    )
+}
 
-export default AddChildToForm;
+export default AddChildToForm

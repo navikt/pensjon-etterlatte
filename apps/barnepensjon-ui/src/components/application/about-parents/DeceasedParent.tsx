@@ -1,93 +1,93 @@
-import { FormProvider, useForm } from "react-hook-form";
-import { ActionTypes, IDeceasedParent } from "~context/application/application";
-import { useApplicationContext } from "~context/application/ApplicationContext";
-import useTranslation from "../../../hooks/useTranslation";
-import ErrorSummaryWrapper from "../../common/ErrorSummaryWrapper";
-import Navigation from "../../common/Navigation";
-import { StepProps } from "../Dialogue";
-import DeceasedParentForm from "../the-deceased/DeceasedParentForm";
-import DeceasedParentTitle from "../the-deceased/DeceasedParentTitle";
-import { isDev } from "~api/axios";
-import { LogEvents, useAmplitude } from "~hooks/useAmplitude";
-import { FieldErrors } from "react-hook-form/dist/types/errors";
+import { FormProvider, useForm } from 'react-hook-form'
+import { ActionTypes, IDeceasedParent } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
+import useTranslation from '../../../hooks/useTranslation'
+import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import Navigation from '../../common/Navigation'
+import { StepProps } from '../Dialogue'
+import DeceasedParentForm from '../the-deceased/DeceasedParentForm'
+import DeceasedParentTitle from '../the-deceased/DeceasedParentTitle'
+import { isDev } from '~api/axios'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 interface Props extends StepProps {
-    fnrRegisteredParent?: string[];
+    fnrRegisteredParent?: string[]
 }
 
 export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }: Props) {
-    const { state, dispatch } = useApplicationContext();
-    const { t } = useTranslation();
-    const { logEvent } = useAmplitude();
+    const { state, dispatch } = useApplicationContext()
+    const { t } = useTranslation()
+    const { logEvent } = useAmplitude()
 
     const saveNext = (data: IDeceasedParent) => {
-        dispatch({ type: type!, payload: { ...data, isValidated: true } });
+        dispatch({ type: type!, payload: { ...data, isValidated: true } })
 
         // Logger svar om avdød har bodd i utlandet for å sjekke opp mot hypotese
         logEvent(LogEvents.QUESTION_ANSWERED, {
-            skjemanavn: "DeceasedParent",
-            spørsmål: "didTheDeceasedLiveAbroad",
+            skjemanavn: 'DeceasedParent',
+            spørsmål: 'didTheDeceasedLiveAbroad',
             svar: data.staysAbroad.hasStaysAbroad,
-        });
+        })
 
-        next!();
-    };
+        next!()
+    }
 
     const savePrev = (data: IDeceasedParent) => {
-        dispatch({ type: type!, payload: { ...data, isValidated: true } });
-        prev!();
-    };
+        dispatch({ type: type!, payload: { ...data, isValidated: true } })
+        prev!()
+    }
 
     const savePrevWithoutValidation = () => {
-        const values = getValues();
-        dispatch({ type: type!, payload: { ...values, isValidated: false } });
-        prev!();
-    };
+        const values = getValues()
+        dispatch({ type: type!, payload: { ...values, isValidated: false } })
+        prev!()
+    }
 
     const isFormValidated =
         type === ActionTypes.UPDATE_FIRST_PARENT
             ? (state.firstParent as IDeceasedParent)?.isValidated
-            : (state.secondParent as IDeceasedParent)?.isValidated;
+            : (state.secondParent as IDeceasedParent)?.isValidated
 
     const logErrors = (data: FieldErrors<IDeceasedParent>) => {
         Object.keys(data).map((error) =>
-            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: "DeceasedParent", id: error }),
-        );
-    };
+            logEvent(LogEvents.VALIDATION_ERROR, { skjemanavn: 'DeceasedParent', id: error })
+        )
+    }
 
     const methods = useForm<IDeceasedParent>({
         defaultValues: type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent },
         shouldUnregister: true,
-    });
+    })
 
     const {
         handleSubmit,
         formState: { errors },
         getValues,
-    } = methods;
+    } = methods
 
     return (
         <FormProvider {...methods}>
-            <form autoComplete={isDev ? "on" : "off"}>
+            <form autoComplete={isDev ? 'on' : 'off'}>
                 <DeceasedParentTitle type={type!} situation={state?.applicant?.applicantSituation} />
 
-                <DeceasedParentForm fnrRegisteredParent={fnrRegisteredParent || [""]} />
+                <DeceasedParentForm fnrRegisteredParent={fnrRegisteredParent || ['']} />
 
                 <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation
                     right={{
-                        label: t(fnrRegisteredParent ? "saveButton" : "nextButton", { ns: "btn" }),
+                        label: t(fnrRegisteredParent ? 'saveButton' : 'nextButton', { ns: 'btn' }),
                         onClick: handleSubmit(saveNext, logErrors),
                     }}
                     left={{
-                        label: t("backButton", { ns: "btn" }),
-                        variant: "secondary",
+                        label: t('backButton', { ns: 'btn' }),
+                        variant: 'secondary',
                         onClick: !!isFormValidated ? handleSubmit(savePrev, logErrors) : savePrevWithoutValidation,
                     }}
                     hideCancel={!!fnrRegisteredParent}
                 />
             </form>
         </FormProvider>
-    );
+    )
 }

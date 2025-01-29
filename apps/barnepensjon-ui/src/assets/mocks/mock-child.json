@@ -1,30 +1,30 @@
 {
-    "applicant": {
-        "consent": true,
-        "applicantRole": "CHILD",
-        "applicantSituation": "BOTH_PARENTS_DECEASED"
+  "applicant": {
+    "consent": true,
+    "applicantRole": "CHILD",
+    "applicantSituation": "BOTH_PARENTS_DECEASED"
+  },
+  "meta": {
+    "savedTimestamp": "2022-03-02T11:23:29.077Z",
+    "readyForSaving": false
+  },
+  "aboutYou": {
+    "residesInNorway": "JA",
+    "paymentDetails": {
+      "accountType": "NORSK",
+      "bankAccount": "1231.23.12312"
+    }
+  },
+  "firstParent": {
+    "firstName": "Apple",
+    "lastName": "Bees",
+    "fnrDnr": "11078431921",
+    "citizenship": "Bonaire, sint eustatius og saba",
+    "dateOfDeath": "2022-01-12",
+    "staysAbroad": {
+      "hasStaysAbroad": "NEI"
     },
-    "meta": {
-        "savedTimestamp": "2022-03-02T11:23:29.077Z",
-        "readyForSaving": false
-    },
-    "aboutYou": {
-        "residesInNorway": "JA",
-        "paymentDetails": {
-            "accountType": "NORSK",
-            "bankAccount": "1231.23.12312"
-        }
-    },
-    "firstParent": {
-        "firstName": "Apple",
-        "lastName": "Bees",
-        "fnrDnr": "11078431921",
-        "citizenship": "Bonaire, sint eustatius og saba",
-        "dateOfDeath": "2022-01-12",
-        "staysAbroad": {
-            "hasStaysAbroad": "NEI"
-        },
-        "occupationalInjury": "JA"
-    },
-    "unknownParent": true
+    "occupationalInjury": "JA"
+  },
+  "unknownParent": true
 }

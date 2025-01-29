@@ -46,5 +46,4 @@ describe('Front Page', { testIsolation: false }, () => {
         cy.agreeToTerms()
         cy.url().should('include', 'skjema/barn/steg/om-deg')
     })
-
 })

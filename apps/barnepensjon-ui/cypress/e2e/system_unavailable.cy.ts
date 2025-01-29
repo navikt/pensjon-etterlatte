@@ -2,7 +2,9 @@ import { basePath, Button } from '../util/constants'
 
 describe('System Unavailable', { testIsolation: false }, () => {
     before(() => {
-        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { statusCode: 404 }).as('loggedInUser')
+        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { statusCode: 404 }).as(
+            'loggedInUser'
+        )
 
         cy.visit('http://localhost:5173/barnepensjon/soknad')
 
@@ -15,7 +17,9 @@ describe('System Unavailable', { testIsolation: false }, () => {
     })
 
     it('should send you to the front page when clicking the retry button if systems are up', function () {
-        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: 'user' }).as('loggedInUser')
+        cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=BARNEPENSJON`, { fixture: 'user' }).as(
+            'loggedInUser'
+        )
         cy.intercept('GET', `${basePath}/api/api/kladd`, '10000000').as('getApplication')
 
         cy.clickBtn(Button.TryAgain)

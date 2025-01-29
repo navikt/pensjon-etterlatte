@@ -1,8 +1,8 @@
-import { BodyShort, Label } from "@navikt/ds-react";
-import useTranslation from "../../../hooks/useTranslation";
-import { JaNeiVetIkke } from "../../../api/dto/FellesOpplysninger";
-import styled from "styled-components";
-import { dtf } from "~utils/date";
+import { BodyShort, Label } from '@navikt/ds-react'
+import useTranslation from '../../../hooks/useTranslation'
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import styled from 'styled-components'
+import { dtf } from '~utils/date'
 
 const TextGroupDiv = styled.div`
     padding-bottom: 0.5rem;
@@ -10,24 +10,24 @@ const TextGroupDiv = styled.div`
     .typo-normal {
         margin: 0.2rem 0;
     }
-`;
+`
 
 const stringify = (content?: string | undefined) => {
-    if (!content) return "";
+    if (!content) return ''
     else {
-        const textWithDate = content.match(/\d{4}-\d{2}-\d{2}/);
+        const textWithDate = content.match(/\d{4}-\d{2}-\d{2}/)
         if (!!textWithDate?.length) {
-            return content.replace(textWithDate[0], dtf.format(new Date(textWithDate[0])));
+            return content.replace(textWithDate[0], dtf.format(new Date(textWithDate[0])))
         } else {
-            return content;
+            return content
         }
     }
-};
+}
 
 interface TextGroupProps {
-    id?: string;
-    title: string;
-    content?: string | undefined;
+    id?: string
+    title: string
+    content?: string | undefined
 }
 
 export const TextGroup = ({ id, title, content }: TextGroupProps) => {
@@ -36,15 +36,15 @@ export const TextGroup = ({ id, title, content }: TextGroupProps) => {
             <Label>{title}</Label>
             <BodyShort id={id}>{stringify(content)}</BodyShort>
         </TextGroupDiv>
-    );
-};
+    )
+}
 
-interface TextGroupGeneralQuestionProps extends Omit<TextGroupProps, "content"> {
-    content?: JaNeiVetIkke;
+interface TextGroupGeneralQuestionProps extends Omit<TextGroupProps, 'content'> {
+    content?: JaNeiVetIkke
 }
 
 export const TextGroupJaNeiVetIkke = ({ id, title, content }: TextGroupGeneralQuestionProps) => {
-    const { t } = useTranslation("radiobuttons");
+    const { t } = useTranslation('radiobuttons')
 
-    return <TextGroup id={id} title={title} content={t(content || "")} />;
-};
+    return <TextGroup id={id} title={title} content={t(content || '')} />
+}

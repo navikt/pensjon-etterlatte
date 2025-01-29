@@ -1,22 +1,22 @@
-import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from "@navikt/ds-react";
-import { isEmpty } from "lodash";
-import React, { useState } from "react";
-import ikon from "../../../assets/ukjent_person.svg";
-import { ActionTypes, IDeceasedParent, IParent } from "~context/application/application";
-import { useApplicationContext } from "~context/application/ApplicationContext";
-import useTranslation from "../../../hooks/useTranslation";
-import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from "../../common/card/InfoCard";
-import FormGroup from "../../common/FormGroup";
-import Navigation from "../../common/Navigation";
-import StepHeading from "../../common/StepHeading";
-import { StepProps } from "../Dialogue";
-import DeceasedParent from "./DeceasedParent";
-import LivingParent from "./LivingParent";
-import ParentInfoCard from "./ParentInfoCard";
-import { FormProvider, useForm } from "react-hook-form";
-import FormElement from "../../common/FormElement";
-import { ApplicantRole, ApplicantSituation } from "~types/applicant";
-import ErrorSummaryWrapper from "~components/common/ErrorSummaryWrapper";
+import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
+import { isEmpty } from 'lodash'
+import React, { useState } from 'react'
+import ikon from '../../../assets/ukjent_person.svg'
+import { ActionTypes, IDeceasedParent, IParent } from '~context/application/application'
+import { useApplicationContext } from '~context/application/ApplicationContext'
+import useTranslation from '../../../hooks/useTranslation'
+import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
+import FormGroup from '../../common/FormGroup'
+import Navigation from '../../common/Navigation'
+import StepHeading from '../../common/StepHeading'
+import { StepProps } from '../Dialogue'
+import DeceasedParent from './DeceasedParent'
+import LivingParent from './LivingParent'
+import ParentInfoCard from './ParentInfoCard'
+import { FormProvider, useForm } from 'react-hook-form'
+import FormElement from '../../common/FormElement'
+import { ApplicantRole, ApplicantSituation } from '~types/applicant'
+import ErrorSummaryWrapper from '~components/common/ErrorSummaryWrapper'
 
 enum EditParent {
     NONE,
@@ -29,109 +29,109 @@ const getValidationError = (firstParent?: IParent, secondParent?: IParent) => {
         !(firstParent as IDeceasedParent)?.isValidated && !isEmpty(firstParent)
             ? {
                   deceasedParentOne: {
-                      message: "",
-                      type: "required",
+                      message: '',
+                      type: 'required',
                       ref: {
-                          name: "deceasedParentOne",
+                          name: 'deceasedParentOne',
                       },
                   },
               }
-            : null;
+            : null
 
     const secondParentError =
         !(secondParent as IDeceasedParent)?.isValidated && !isEmpty(secondParent)
             ? {
                   deceasedParentTwo: {
-                      message: "",
-                      type: "required",
+                      message: '',
+                      type: 'required',
                       ref: {
-                          name: "deceasedParentTwo",
+                          name: 'deceasedParentTwo',
                       },
                   },
               }
-            : null;
+            : null
 
-    return { ...firstParentError, ...secondParentError };
-};
+    return { ...firstParentError, ...secondParentError }
+}
 
 export default function AboutParents({ next, prev }: StepProps) {
-    const [isOpen, setIsOpen] = useState(false);
-    const { t } = useTranslation("aboutParents");
-    const { state, dispatch } = useApplicationContext();
+    const [isOpen, setIsOpen] = useState(false)
+    const { t } = useTranslation('aboutParents')
+    const { state, dispatch } = useApplicationContext()
 
-    const [editing, setEditing] = useState<EditParent>(EditParent.NONE);
+    const [editing, setEditing] = useState<EditParent>(EditParent.NONE)
 
-    const stopEditing = () => setEditing(EditParent.NONE);
+    const stopEditing = () => setEditing(EditParent.NONE)
 
     const updateFirstParent = (payload: IParent | Record<string, never>) =>
-        dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload });
+        dispatch({ type: ActionTypes.UPDATE_FIRST_PARENT, payload })
     const updateSecondParent = (payload: IParent | Record<string, never>) =>
-        dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload });
-    const updateUnknownParent = (payload: boolean) => dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload });
+        dispatch({ type: ActionTypes.UPDATE_SECOND_PARENT, payload })
+    const updateUnknownParent = (payload: boolean) => dispatch({ type: ActionTypes.UPDATE_UNKNOWN_PARENT, payload })
 
-    const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD;
-    const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN;
+    const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD
+    const isGuardian = state.applicant?.applicantRole === ApplicantRole.GUARDIAN
 
-    const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED;
+    const bothParentsDeceased = state.applicant?.applicantSituation === ApplicantSituation.BOTH_PARENTS_DECEASED
 
-    const childAndOneParentDeceased = isChild && !bothParentsDeceased;
+    const childAndOneParentDeceased = isChild && !bothParentsDeceased
 
-    const guardianAndOneParentDeceased = isGuardian && !bothParentsDeceased;
+    const guardianAndOneParentDeceased = isGuardian && !bothParentsDeceased
 
-    const childAndBothParentsDeceased = isChild && bothParentsDeceased;
+    const childAndBothParentsDeceased = isChild && bothParentsDeceased
 
     const methods = useForm({
         defaultValues: { unknownParent: !!state.unknownParent },
         shouldUnregister: true,
-    });
+    })
 
-    const { watch, setValue, handleSubmit, getValues } = methods;
+    const { watch, setValue, handleSubmit, getValues } = methods
 
-    const unknownParent = watch("unknownParent");
+    const unknownParent = watch('unknownParent')
 
     const save = () => {
-        const values = getValues();
-        updateUnknownParent(values.unknownParent);
-        next!();
-    };
+        const values = getValues()
+        updateUnknownParent(values.unknownParent)
+        next!()
+    }
 
     const setUnknownParent = (value: boolean) => {
-        setValue("unknownParent", value);
-        updateUnknownParent(value);
-    };
+        setValue('unknownParent', value)
+        updateUnknownParent(value)
+    }
 
     const isValid = () => {
         if (childAndOneParentDeceased || guardianAndOneParentDeceased) {
-            return !!(state?.secondParent as IDeceasedParent)?.isValidated;
+            return !!(state?.secondParent as IDeceasedParent)?.isValidated
         }
-        return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent);
-    };
+        return !isEmpty(state?.firstParent) && (!isEmpty(state?.secondParent) || !!state.unknownParent)
+    }
 
     const fnrRegisteredParent = (): string[] => {
-        let fnr = "";
-        if (editing === EditParent.FIRST && state.secondParent?.fnrDnr) fnr = state.secondParent?.fnrDnr;
-        if (editing === EditParent.SECOND && state.firstParent?.fnrDnr) fnr = state.firstParent?.fnrDnr;
-        return [fnr];
-    };
+        let fnr = ''
+        if (editing === EditParent.FIRST && state.secondParent?.fnrDnr) fnr = state.secondParent?.fnrDnr
+        if (editing === EditParent.SECOND && state.firstParent?.fnrDnr) fnr = state.firstParent?.fnrDnr
+        return [fnr]
+    }
 
     const updateEditing = (value: EditParent) => {
-        setEditing(value);
-        if (unknownParent !== undefined) setUnknownParent(unknownParent);
-    };
+        setEditing(value)
+        if (unknownParent !== undefined) setUnknownParent(unknownParent)
+    }
 
     const guidePanelText = () => {
-        if (childAndOneParentDeceased) return t("childAndOneParentDeceasedGuidepanel");
-        if (childAndBothParentsDeceased) return t("childAndBothParentsDeceasedGuidepanel");
-        if (guardianAndOneParentDeceased) return t("guardianAndOneParentDeceased");
-        if (bothParentsDeceased) return t("chooseUnknowParent");
-        else return t("bothParentsRequired");
-    };
+        if (childAndOneParentDeceased) return t('childAndOneParentDeceasedGuidepanel')
+        if (childAndBothParentsDeceased) return t('childAndBothParentsDeceasedGuidepanel')
+        if (guardianAndOneParentDeceased) return t('guardianAndOneParentDeceased')
+        if (bothParentsDeceased) return t('chooseUnknowParent')
+        else return t('bothParentsRequired')
+    }
 
     return (
         <FormProvider {...methods}>
             {editing === EditParent.NONE && (
                 <>
-                    <StepHeading>{t("aboutParentsTitle")}</StepHeading>
+                    <StepHeading>{t('aboutParentsTitle')}</StepHeading>
                     <FormGroup>
                         <GuidePanel>
                             <BodyShort>{guidePanelText()}</BodyShort>
@@ -146,21 +146,21 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         <img alt="forelder" src={ikon} />
                                     </InfocardHeader>
                                     <InformationBox>
-                                        <strong>{bothParentsDeceased ? t("firstParent") : t("survivingParent")}</strong>
+                                        <strong>{bothParentsDeceased ? t('firstParent') : t('survivingParent')}</strong>
                                     </InformationBox>
                                     <InformationBox>
                                         {childAndOneParentDeceased || guardianAndOneParentDeceased ? (
-                                            <BodyShort>{t("childAndOneParentDeceased")}</BodyShort>
+                                            <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
                                         ) : (
                                             <Button
                                                 title={
-                                                    bothParentsDeceased ? t("firstParent") : t("addSurvivingParentBtn")
+                                                    bothParentsDeceased ? t('firstParent') : t('addSurvivingParentBtn')
                                                 }
-                                                variant={"primary"}
-                                                type={"button"}
+                                                variant={'primary'}
+                                                type={'button'}
                                                 onClick={() => updateEditing(EditParent.FIRST)}
                                             >
-                                                {t("addParentBtn")}
+                                                {t('addParentBtn')}
                                             </Button>
                                         )}
                                     </InformationBox>
@@ -181,20 +181,20 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         <img alt="forelder" src={ikon} />
                                     </InfocardHeader>
                                     <InformationBox>
-                                        <strong>{bothParentsDeceased ? t("secondParent") : t("deceasedParent")}</strong>
+                                        <strong>{bothParentsDeceased ? t('secondParent') : t('deceasedParent')}</strong>
                                     </InformationBox>
                                     <InformationBox>
-                                        <div style={{ marginBottom: "1rem" }}>
+                                        <div style={{ marginBottom: '1rem' }}>
                                             <Button
                                                 title={
-                                                    bothParentsDeceased ? t("secondParent") : t("addDeceasedParentBtn")
+                                                    bothParentsDeceased ? t('secondParent') : t('addDeceasedParentBtn')
                                                 }
-                                                variant={"primary"}
-                                                type={"button"}
+                                                variant={'primary'}
+                                                type={'button'}
                                                 onClick={() => updateEditing(EditParent.SECOND)}
                                                 disabled={state.unknownParent}
                                             >
-                                                {t("addParentBtn")}
+                                                {t('addParentBtn')}
                                             </Button>
                                         </div>
 
@@ -203,14 +203,14 @@ export default function AboutParents({ next, prev }: StepProps) {
                                                 value={true}
                                                 onClick={() => {
                                                     if (state.unknownParent) {
-                                                        setUnknownParent(false);
+                                                        setUnknownParent(false)
                                                     } else {
-                                                        setIsOpen(true);
+                                                        setIsOpen(true)
                                                     }
                                                 }}
                                                 checked={!!state.unknownParent}
                                             >
-                                                {t("unknownParent")}
+                                                {t('unknownParent')}
                                             </Checkbox>
                                         )}
                                     </InformationBox>
@@ -271,40 +271,40 @@ export default function AboutParents({ next, prev }: StepProps) {
                 </FormElement>
             )}
 
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t("unknownParent")}>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('unknownParent')}>
                 <Modal.Header>
-                    <Heading size={"small"}>{t("unknownParent")}</Heading>
+                    <Heading size={'small'}>{t('unknownParent')}</Heading>
                 </Modal.Header>
                 <Modal.Body>
-                    <BodyShort>{isChild ? t("unknownParentQuestion") : t("unknownParentQuestionGuardian")}</BodyShort>
+                    <BodyShort>{isChild ? t('unknownParentQuestion') : t('unknownParentQuestionGuardian')}</BodyShort>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button
-                        id={"avbryt-ja-btn"}
-                        variant={"primary"}
-                        type={"button"}
+                        id={'avbryt-ja-btn'}
+                        variant={'primary'}
+                        type={'button'}
                         onClick={() => {
-                            setUnknownParent(true);
-                            setIsOpen(false);
+                            setUnknownParent(true)
+                            setIsOpen(false)
                         }}
-                        style={{ margin: "10px" }}
+                        style={{ margin: '10px' }}
                     >
-                        {isChild ? t("yesUnknownParent", { ns: "btn" }) : t("yesUnknownParentGuardian", { ns: "btn" })}
+                        {isChild ? t('yesUnknownParent', { ns: 'btn' }) : t('yesUnknownParentGuardian', { ns: 'btn' })}
                     </Button>
                     <Button
-                        id={"avbryt-nei-btn"}
-                        variant={"secondary"}
-                        type={"button"}
+                        id={'avbryt-nei-btn'}
+                        variant={'secondary'}
+                        type={'button'}
                         onClick={() => {
-                            setUnknownParent(false);
-                            setIsOpen(false);
+                            setUnknownParent(false)
+                            setIsOpen(false)
                         }}
-                        style={{ margin: "10px" }}
+                        style={{ margin: '10px' }}
                     >
-                        {isChild ? t("noUnknownParent", { ns: "btn" }) : t("noUnknownParentGuardian", { ns: "btn" })}
+                        {isChild ? t('noUnknownParent', { ns: 'btn' }) : t('noUnknownParentGuardian', { ns: 'btn' })}
                     </Button>
                 </Modal.Footer>
             </Modal>
         </FormProvider>
-    );
+    )
 }
