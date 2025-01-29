@@ -1,29 +1,29 @@
 {
-  "applicant": {
-    "consent": true,
-    "applicantRole": "CHILD",
-    "applicantSituation": "ONE_PARENT_DECEASED"
-  },
-  "meta": {
-    "savedTimestamp": "2022-03-02T11:23:29.077Z",
-    "readyForSaving": false
-  },
-  "aboutYou": {
-    "residesInNorway": "JA",
-    "paymentDetails": {
-      "accountType": "NORSK",
-      "bankAccount": "1231.23.12312"
-    }
-  },
-  "secondParent": {
-    "firstName": "Jon",
-    "lastName": "Dough",
-    "fnrDnr": "04096222195",
-    "citizenship": "Algerie",
-    "dateOfDeath": "2022-02-25",
-    "staysAbroad": {
-      "hasStaysAbroad": "VET_IKKE"
+    "applicant": {
+        "consent": true,
+        "applicantRole": "CHILD",
+        "applicantSituation": "ONE_PARENT_DECEASED"
     },
-    "occupationalInjury": "NEI"
-  }
+    "meta": {
+        "savedTimestamp": "2022-03-02T11:23:29.077Z",
+        "readyForSaving": false
+    },
+    "aboutYou": {
+        "residesInNorway": "JA",
+        "paymentDetails": {
+            "accountType": "NORSK",
+            "bankAccount": "1231.23.12312"
+        }
+    },
+    "secondParent": {
+        "firstName": "Jon",
+        "lastName": "Dough",
+        "fnrDnr": "04096222195",
+        "citizenship": "Algerie",
+        "dateOfDeath": "2022-02-25",
+        "staysAbroad": {
+            "hasStaysAbroad": "VET_IKKE"
+        },
+        "occupationalInjury": "NEI"
+    }
 }

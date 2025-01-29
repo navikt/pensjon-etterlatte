@@ -1,62 +1,62 @@
 {
-  "applicant": {
-    "consent": true,
-    "applicantRole": "GUARDIAN",
-    "applicantSituation": "ONE_PARENT_DECEASED"
-  },
-  "meta": {
-    "readyForSaving": false,
-    "currentPath": "/skjema/verge/steg/om-barn",
-    "savedTimestamp": "2022-03-31T10:50:16.071Z"
-  },
-  "aboutYou": {},
-  "firstParent": {
-    "firstName": "Mamma",
-    "lastName": "Mia",
-    "fnrDnr": "09011350027",
-    "citizenship": "Algerie",
-    "address": "Veinummer",
-    "phoneNumber": "123451235"
-  },
-  "secondParent": {
-    "firstName": "Pappa",
-    "lastName": "Slappa",
-    "fnrDnr": "20110875720",
-    "citizenship": "Anguilla",
-    "dateOfDeath": "2020-01-01",
-    "staysAbroad": {
-      "hasStaysAbroad": "JA",
-      "abroadStays": [
-        {
-          "country": "Algerie",
-          "type": ["BODD"],
-          "fromDate": "2010-01-01",
-          "medlemFolketrygd": "NEI",
-          "pensionAmount": "10000"
-        }
-      ]
+    "applicant": {
+        "consent": true,
+        "applicantRole": "GUARDIAN",
+        "applicantSituation": "ONE_PARENT_DECEASED"
     },
-    "occupationalInjury": "JA"
-  },
-  "aboutChildren": {
-    "children": [
-      {
-        "firstName": "Barn",
-        "lastName": "Solomon",
+    "meta": {
+        "readyForSaving": false,
+        "currentPath": "/skjema/verge/steg/om-barn",
+        "savedTimestamp": "2022-03-31T10:50:16.071Z"
+    },
+    "aboutYou": {},
+    "firstParent": {
+        "firstName": "Mamma",
+        "lastName": "Mia",
         "fnrDnr": "09011350027",
-        "citizenship": "Caymanøyene",
-        "parents": "BOTH",
+        "citizenship": "Algerie",
+        "address": "Veinummer",
+        "phoneNumber": "123451235"
+    },
+    "secondParent": {
+        "firstName": "Pappa",
+        "lastName": "Slappa",
+        "fnrDnr": "20110875720",
+        "citizenship": "Anguilla",
+        "dateOfDeath": "2020-01-01",
         "staysAbroad": {
-          "answer": "NEI"
+            "hasStaysAbroad": "JA",
+            "abroadStays": [
+                {
+                    "country": "Algerie",
+                    "type": ["BODD"],
+                    "fromDate": "2010-01-01",
+                    "medlemFolketrygd": "NEI",
+                    "pensionAmount": "10000"
+                }
+            ]
         },
-        "loggedInUserIsGuardian": "JA",
-        "appliesForChildrensPension": true,
-        "paymentDetails": {
-          "accountType": "NORSK",
-          "bankAccount": "1231.23.12312"
-        }
-      }
-    ],
-    "erValidert": true
-  }
+        "occupationalInjury": "JA"
+    },
+    "aboutChildren": {
+        "children": [
+            {
+                "firstName": "Barn",
+                "lastName": "Solomon",
+                "fnrDnr": "09011350027",
+                "citizenship": "Caymanøyene",
+                "parents": "BOTH",
+                "staysAbroad": {
+                    "answer": "NEI"
+                },
+                "loggedInUserIsGuardian": "JA",
+                "appliesForChildrensPension": true,
+                "paymentDetails": {
+                    "accountType": "NORSK",
+                    "bankAccount": "1231.23.12312"
+                }
+            }
+        ],
+        "erValidert": true
+    }
 }

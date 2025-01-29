@@ -1,61 +1,61 @@
 {
-  "applicant": {
-    "consent": true,
-    "applicantRole": "PARENT"
-  },
-  "meta": {
-    "readyForSaving": false,
-    "currentPath": "/skjema/forelder/steg/om-barn",
-    "savedTimestamp": "2022-03-31T10:45:57.413Z",
-    "language": "en"
-  },
-  "aboutYou": {},
-  "secondParent": {
-    "firstName": "Stor",
-    "lastName": "Sjøbjørn",
-    "fnrDnr": "20110875720",
-    "citizenship": "Angola",
-    "dateOfDeath": "2020-01-01",
-    "staysAbroad": {
-      "hasStaysAbroad": "JA",
-      "abroadStays": [
-        {
-          "country": "Algerie",
-          "type": ["ARBEIDET"],
-          "fromDate": "2019-01-01",
-          "medlemFolketrygd": "JA",
-          "pensionAmount": "1000"
-        }
-      ]
+    "applicant": {
+        "consent": true,
+        "applicantRole": "PARENT"
     },
-    "occupationalInjury": "JA"
-  },
-  "aboutChildren": {
-    "children": [
-      {
-        "firstName": "Poppy",
-        "lastName": "Solomon",
-        "fnrDnr": "09011350027",
-        "citizenship": "Belgia",
-        "parents": "BOTH",
+    "meta": {
+        "readyForSaving": false,
+        "currentPath": "/skjema/forelder/steg/om-barn",
+        "savedTimestamp": "2022-03-31T10:45:57.413Z",
+        "language": "en"
+    },
+    "aboutYou": {},
+    "secondParent": {
+        "firstName": "Stor",
+        "lastName": "Sjøbjørn",
+        "fnrDnr": "20110875720",
+        "citizenship": "Angola",
+        "dateOfDeath": "2020-01-01",
         "staysAbroad": {
-          "answer": "JA",
-          "country": "Am. samoa",
-          "address": "Utenlandsveien 23"
+            "hasStaysAbroad": "JA",
+            "abroadStays": [
+                {
+                    "country": "Algerie",
+                    "type": ["ARBEIDET"],
+                    "fromDate": "2019-01-01",
+                    "medlemFolketrygd": "JA",
+                    "pensionAmount": "1000"
+                }
+            ]
         },
-        "childHasGuardianship": {
-          "answer": "JA",
-          "firstName": "Verge",
-          "lastName": "Vergeson",
-          "fnr": "09011350027"
-        },
-        "appliesForChildrensPension": true,
-        "paymentDetails": {
-          "accountType": "NORSK",
-          "bankAccount": "1231.23.12312"
-        }
-      }
-    ],
-    "erValidert": true
-  }
+        "occupationalInjury": "JA"
+    },
+    "aboutChildren": {
+        "children": [
+            {
+                "firstName": "Poppy",
+                "lastName": "Solomon",
+                "fnrDnr": "09011350027",
+                "citizenship": "Belgia",
+                "parents": "BOTH",
+                "staysAbroad": {
+                    "answer": "JA",
+                    "country": "Am. samoa",
+                    "address": "Utenlandsveien 23"
+                },
+                "childHasGuardianship": {
+                    "answer": "JA",
+                    "firstName": "Verge",
+                    "lastName": "Vergeson",
+                    "fnr": "09011350027"
+                },
+                "appliesForChildrensPension": true,
+                "paymentDetails": {
+                    "accountType": "NORSK",
+                    "bankAccount": "1231.23.12312"
+                }
+            }
+        ],
+        "erValidert": true
+    }
 }
