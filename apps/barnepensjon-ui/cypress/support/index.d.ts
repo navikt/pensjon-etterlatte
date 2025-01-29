@@ -1,13 +1,13 @@
 declare namespace Cypress {
-    interface Chainable<Subject = any> {
-        startApplication(userFixture: string): Chainable<null>
-        agreeToTerms(gotoNext?: boolean): Chainable<null>
-        useScenario(role: string, situation?: string, gotoNext?: boolean): Chainable<null>
-        acceptInformationAboutYou(): Chainable<null>
-        useSimpleLiving(gotoNext?: boolean): Chainable<null>
-        useSimpleDeceased(gotoNext?: boolean): Chainable<null>
-        useAdvancedDeceased(gotoNext?: boolean): Chainable<null>
-        addChild(gotoNext?: boolean): Chainable<null>
-        clickBtn(btn: string, index?: number): Chainable<null>
+    interface Chainable<T> {
+        startApplication(userFixture: string): Chainable<T>;
+        agreeToTerms(gotoNext?: boolean): Chainable<T>;
+        useScenario(role: string, situation?: string, gotoNext?: boolean): Chainable<T>;
+        acceptInformationAboutYou(): Chainable<T>;
+        useSimpleLiving(gotoNext?: boolean): Chainable<T>;
+        useSimpleDeceased(gotoNext?: boolean): Chainable<T>;
+        useAdvancedDeceased(gotoNext?: boolean): Chainable<T>;
+        addChild(gotoNext?: boolean): Chainable<T>;
+        clickBtn(btn: string, index?: number): Chainable<T>;
     }
 }

@@ -41,7 +41,6 @@
 			"security": { "noDangerouslySetInnerHtmlWithChildren": "error" },
 			"style": {
 				"noArguments": "error",
-				"noNamespace": "error",
 				"noVar": "error",
 				"useAsConstAssertion": "error",
 				"useConst": "error"
