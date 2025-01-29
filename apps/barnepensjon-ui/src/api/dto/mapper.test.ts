@@ -52,11 +52,11 @@ describe("Generelle tester", () => {
         }
     });
 
+    // biome-ignore lint/suspicious/noExplicitAny
     it("Stopp mapping hvis bruker har ikke samtykket", () => {
         try {
             const application: IApplication = { aboutChildren: { children: [{}] }, aboutYou: {} };
             mapTilBarnepensjonSoeknadListe(t, application, user, isChild);
-            // biome-ignore lint/suspicious/noExplicitAny
         } catch (e: any) {
             expect(e).toEqual("Kan ikke sende inn søknad uten å ha samtykket!");
         }
