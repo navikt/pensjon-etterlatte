@@ -96,7 +96,11 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                             />
                         )}
 
-                        <RHFCheckboks name={'ukjentFoedselsnummer'} label={t('omDenAvdoede.ukjentFoedselsnummer')} />
+                        <RHFCheckboks
+                            name={'ukjentFoedselsnummer'}
+                            label={t('omDenAvdoede.ukjentFoedselsnummer')}
+                            legend={t('omDenAvdoede.ukjentFoedselsnummer')}
+                        />
 
                         {ukjentFoedselsnummer && (
                             <VStack gap="4">
