@@ -81,9 +81,7 @@ export function RHFCheckboksGruppe({ name, checkboxes, required, ...rest }: RHFC
                             <Checkbox
                                 key={checkbox.value as string}
                                 value={checkbox.value || ""}
-                                onChange={(e) =>
-                                    onChange(handleSelect(value, (e.target as HTMLInputElement).value as any))
-                                }
+                                onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
                             >
                                 {checkbox.children}
                             </Checkbox>

@@ -59,7 +59,7 @@ export const useAmplitude = () => {
         setPrevLocation(location);
     }, [location]);
 
-    const logEvent = (eventName: LogEvents, eventData: Record<string, any> | undefined): void => {
+    const logEvent = (eventName: LogEvents, eventData: Record<string, unknown> | undefined): void => {
         setTimeout(() => {
             try {
                 if (amplitude) {
