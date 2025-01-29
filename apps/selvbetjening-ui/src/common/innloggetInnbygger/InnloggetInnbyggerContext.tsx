@@ -1,8 +1,8 @@
-import { IInnloggetBruker } from '../../types/person.ts'
-import { createContext, ReactNode, useContext } from 'react'
+import { ReactNode, createContext, useContext } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { ApiError, apiURL } from '../api/api.ts'
+import { IInnloggetBruker } from '../../types/person.ts'
 import { SideLaster } from '../SideLaster.tsx'
+import { ApiError, apiURL } from '../api/api.ts'
 
 interface InnloggetInnbyggerContext {
     data: IInnloggetBruker | undefined

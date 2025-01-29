@@ -1,216 +1,214 @@
 [
-  {
-    "_updatedAt": "2024-10-21T10:57:52Z",
-    "startUtfyllingKnapp": {
-      "NN": "Start utfyllinga",
-      "NB": "Start utfyllingen",
-      "EN": "Start the filling"
-    },
-    "_createdAt": "2024-09-16T09:35:03Z",
-    "_type": "inntektsjusteringInnledning",
-    "dokumentTittel": "v1",
-    "hovedinnhold": {
-      "NB": [
-        {
-          "children": [
-            {
-              "marks": [],
-              "text": "Her kan du melde fra om forventet inntekt til neste år",
-              "_key": "4be8cc49f01d",
-              "_type": "span"
-            }
-          ],
-          "_type": "block",
-          "style": "h3",
-          "_key": "8b125d5e2036",
-          "markDefs": []
+    {
+        "_updatedAt": "2024-10-21T10:57:52Z",
+        "startUtfyllingKnapp": {
+            "NN": "Start utfyllinga",
+            "NB": "Start utfyllingen",
+            "EN": "Start the filling"
         },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "132b3d5281eb",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "I dette skjemaet kan du melde fra om hva du forventer å tjene ved siden av omstillingsstønaden. Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt.",
-              "_key": "43377508ca79"
-            }
-          ]
+        "_createdAt": "2024-09-16T09:35:03Z",
+        "_type": "inntektsjusteringInnledning",
+        "dokumentTittel": "v1",
+        "hovedinnhold": {
+            "NB": [
+                {
+                    "children": [
+                        {
+                            "marks": [],
+                            "text": "Her kan du melde fra om forventet inntekt til neste år",
+                            "_key": "4be8cc49f01d",
+                            "_type": "span"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "h3",
+                    "_key": "8b125d5e2036",
+                    "markDefs": []
+                },
+                {
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "132b3d5281eb",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "I dette skjemaet kan du melde fra om hva du forventer å tjene ved siden av omstillingsstønaden. Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt.",
+                            "_key": "43377508ca79"
+                        }
+                    ]
+                },
+                {
+                    "markDefs": [
+                        {
+                            "_type": "link",
+                            "href": "https://www.nav.no/kontaktoss",
+                            "_key": "b2f6ad9af09d"
+                        }
+                    ],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Ønsker du å opplyse om endringer i innværende år, som inntekten din, privatlivet ditt eller situasjonen din, gir du oss beskjed ved å ",
+                            "_key": "9c7fd63487d7"
+                        },
+                        {
+                            "_type": "span",
+                            "marks": ["b2f6ad9af09d"],
+                            "text": "sende oss en melding.",
+                            "_key": "755bffe2d812"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "edbb02ac737e"
+                }
+            ],
+            "EN": [
+                {
+                    "_type": "block",
+                    "style": "h3",
+                    "_key": "d5f053b05cb8",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Here you can report your expected income for the next year.",
+                            "_key": "3f05ba551b20"
+                        }
+                    ]
+                },
+                {
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "b4f3f551a17a",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "In this form, you can report what you expect to earn in addition to the adjustment allowance. The income you state must be gross income, i.e. income before tax.",
+                            "_key": "0d7964ce51d6"
+                        }
+                    ]
+                },
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_key": "0e600da473a1",
+                            "_type": "span",
+                            "marks": [],
+                            "text": ""
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "decf42512222"
+                }
+            ],
+            "NN": [
+                {
+                    "children": [
+                        {
+                            "text": "Her kan du melda frå om forventa inntekt til neste år.",
+                            "_key": "55ec55251f41",
+                            "_type": "span",
+                            "marks": []
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "h3",
+                    "_key": "ebb6a056b1e0",
+                    "markDefs": []
+                },
+                {
+                    "style": "normal",
+                    "_key": "e9280df8ef4e",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "I dette skjemaet kan du melda frå om kva du forventar å tena ved sida av omstillingsstønaden. Inntekta du oppgir, skal vera brutto inntekt, altså inntekt før skatt.",
+                            "_key": "59ac359a9195"
+                        }
+                    ],
+                    "_type": "block"
+                }
+            ]
         },
-        {
-          "markDefs": [
-            {
-              "_type": "link",
-              "href": "https://www.nav.no/kontaktoss",
-              "_key": "b2f6ad9af09d"
-            }
-          ],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Ønsker du å opplyse om endringer i innværende år, som inntekten din, privatlivet ditt eller situasjonen din, gir du oss beskjed ved å ",
-              "_key": "9c7fd63487d7"
+        "veiledning": {
+            "NN": [
+                {
+                    "style": "normal",
+                    "_key": "b00adb48afbd",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Me lagrar eit utkast av skjemaet automatisk kvar gong du går til neste steg. Du finn utkastet på Mi side. NAV kan ikkje sjå informasjonen i utkastet. Du må trykkja på “Send til NAV” for at NAV skal få skjemaet.",
+                            "_key": "6772c23409d6"
+                        }
+                    ],
+                    "_type": "block"
+                }
+            ],
+            "NB": [
+                {
+                    "_key": "c84abf517ad5",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "marks": [],
+                            "text": "Vi lagrer et utkast av skjemaet automatisk hver gang du går til neste steg. Du finner utkastet på Min side. NAV kan ikke se informasjonen i utkastet. Du må trykke på “Send til NAV” for at NAV skal motta skjemaet.",
+                            "_key": "6f6ef1b9fa7c0",
+                            "_type": "span"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal"
+                }
+            ],
+            "EN": [
+                {
+                    "_key": "ff10d3460f23",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "We save a draft of the form automatically each time you go to the next step. You can find the draft on My page. NAV cannot see the information in the draft. You must press \"Send to NAV\" for NAV to receive the form.",
+                            "_key": "6b689099415f"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal"
+                }
+            ]
+        },
+        "oppgittInntektAlert": {
+            "innhold": {
+                "NN": "Dette er det siste du har oppgitt oss om forventet inntekt til neste år.",
+                "NB": "Dette er det siste du har oppgitt oss om forventet inntekt til neste år.",
+                "EN": "Dette er det siste du har oppgitt oss om forventet inntekt til neste år."
             },
-            {
-              "_type": "span",
-              "marks": [
-                "b2f6ad9af09d"
-              ],
-              "text": "sende oss en melding.",
-              "_key": "755bffe2d812"
+            "tittel": {
+                "NN": "Du har allerede meldt inntekt til neste år",
+                "NB": "Du har allerede meldt inntekt til neste år",
+                "EN": "Du har allerede meldt inntekt til neste år"
+            },
+            "inntektIkkeKorrekt": {
+                "NN": "Hvis denne informasjonen ikke stemmer, kan du sende inn på nytt. ",
+                "NB": "Hvis denne informasjonen ikke stemmer, kan du sende inn på nytt. ",
+                "EN": "Hvis denne informasjonen ikke stemmer, kan du sende inn på nytt. "
             }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "edbb02ac737e"
-        }
-      ],
-      "EN": [
-        {
-          "_type": "block",
-          "style": "h3",
-          "_key": "d5f053b05cb8",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Here you can report your expected income for the next year.",
-              "_key": "3f05ba551b20"
-            }
-          ]
         },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "b4f3f551a17a",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "In this form, you can report what you expect to earn in addition to the adjustment allowance. The income you state must be gross income, i.e. income before tax.",
-              "_key": "0d7964ce51d6"
-            }
-          ]
-        },
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_key": "0e600da473a1",
-              "_type": "span",
-              "marks": [],
-              "text": ""
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "decf42512222"
-        }
-      ],
-      "NN": [
-        {
-          "children": [
-            {
-              "text": "Her kan du melda frå om forventa inntekt til neste år.",
-              "_key": "55ec55251f41",
-              "_type": "span",
-              "marks": []
-            }
-          ],
-          "_type": "block",
-          "style": "h3",
-          "_key": "ebb6a056b1e0",
-          "markDefs": []
-        },
-        {
-          "style": "normal",
-          "_key": "e9280df8ef4e",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "I dette skjemaet kan du melda frå om kva du forventar å tena ved sida av omstillingsstønaden. Inntekta du oppgir, skal vera brutto inntekt, altså inntekt før skatt.",
-              "_key": "59ac359a9195"
-            }
-          ],
-          "_type": "block"
-        }
-      ]
-    },
-    "veiledning": {
-      "NN": [
-        {
-          "style": "normal",
-          "_key": "b00adb48afbd",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Me lagrar eit utkast av skjemaet automatisk kvar gong du går til neste steg. Du finn utkastet på Mi side. NAV kan ikkje sjå informasjonen i utkastet. Du må trykkja på “Send til NAV” for at NAV skal få skjemaet.",
-              "_key": "6772c23409d6"
-            }
-          ],
-          "_type": "block"
-        }
-      ],
-      "NB": [
-        {
-          "_key": "c84abf517ad5",
-          "markDefs": [],
-          "children": [
-            {
-              "marks": [],
-              "text": "Vi lagrer et utkast av skjemaet automatisk hver gang du går til neste steg. Du finner utkastet på Min side. NAV kan ikke se informasjonen i utkastet. Du må trykke på “Send til NAV” for at NAV skal motta skjemaet.",
-              "_key": "6f6ef1b9fa7c0",
-              "_type": "span"
-            }
-          ],
-          "_type": "block",
-          "style": "normal"
-        }
-      ],
-      "EN": [
-        {
-          "_key": "ff10d3460f23",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "We save a draft of the form automatically each time you go to the next step. You can find the draft on My page. NAV cannot see the information in the draft. You must press \"Send to NAV\" for NAV to receive the form.",
-              "_key": "6b689099415f"
-            }
-          ],
-          "_type": "block",
-          "style": "normal"
-        }
-      ]
-    },
-    "oppgittInntektAlert": {
-      "innhold": {
-        "NN": "Dette er det siste du har oppgitt oss om forventet inntekt til neste år.",
-        "NB": "Dette er det siste du har oppgitt oss om forventet inntekt til neste år.",
-        "EN": "Dette er det siste du har oppgitt oss om forventet inntekt til neste år."
-      },
-      "tittel": {
-        "NN": "Du har allerede meldt inntekt til neste år",
-        "NB": "Du har allerede meldt inntekt til neste år",
-        "EN": "Du har allerede meldt inntekt til neste år"
-      },
-      "inntektIkkeKorrekt": {
-        "NN": "Hvis denne informasjonen ikke stemmer, kan du sende inn på nytt. ",
-        "NB": "Hvis denne informasjonen ikke stemmer, kan du sende inn på nytt. ",
-        "EN": "Hvis denne informasjonen ikke stemmer, kan du sende inn på nytt. "
-      }
-    },
-    "_rev": "hf9hwMPb7ybAE3bqEkknJH",
-    "_id": "cf34acbb-ed1e-4be0-bac6-c80919e8ba5b"
-  }
+        "_rev": "hf9hwMPb7ybAE3bqEkknJH",
+        "_id": "cf34acbb-ed1e-4be0-bac6-c80919e8ba5b"
+    }
 ]

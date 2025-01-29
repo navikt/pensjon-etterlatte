@@ -1,9 +1,9 @@
 import { Alert, Heading, Loader } from '@navikt/ds-react'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../sanity.types.ts'
 import { Navigate } from 'react-router-dom'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { InntektsjusteringOppsummering as InntektsjusteringOppsummeringInnhold } from '../sanity.types.ts'
 
 export const FeilIAPIKall = () => {
     const spraak = useSpraak()

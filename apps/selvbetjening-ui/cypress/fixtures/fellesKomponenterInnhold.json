@@ -1,177 +1,177 @@
 [
-  {
-    "skjemaProgresjon": {
-      "visAlleSteg": {
-        "NN": "Vis alle steig",
-        "NB": "Vis alle steg",
-        "EN": "Show all steps"
-      },
-      "stegXAvX": {
-        "av": {
-          "NN": "av",
-          "NB": "av",
-          "EN": "of"
+    {
+        "skjemaProgresjon": {
+            "visAlleSteg": {
+                "NN": "Vis alle steig",
+                "NB": "Vis alle steg",
+                "EN": "Show all steps"
+            },
+            "stegXAvX": {
+                "av": {
+                    "NN": "av",
+                    "NB": "av",
+                    "EN": "of"
+                },
+                "steg": {
+                    "NN": "Steg",
+                    "NB": "Steg",
+                    "EN": "Step"
+                }
+            },
+            "skjulAlleSteg": {
+                "NB": "Skjul alle steg",
+                "EN": "Hide all steps",
+                "NN": "Skjul alle steig"
+            },
+            "stegLabels": {
+                "steg1": {
+                    "NB": "Innledning",
+                    "EN": "Introduction",
+                    "NN": "Innleiing"
+                },
+                "steg2": {
+                    "EN": "Income for next year",
+                    "NN": "Inntekt til neste år",
+                    "NB": "Inntekt til neste år"
+                },
+                "steg3": {
+                    "NN": "Oppsummering",
+                    "NB": "Oppsummering",
+                    "EN": "Summary"
+                },
+                "steg4": {
+                    "EN": "Receipt",
+                    "NN": "Kvittering",
+                    "NB": "Kvittering"
+                }
+            }
         },
-        "steg": {
-          "NN": "Steg",
-          "NB": "Steg",
-          "EN": "Step"
-        }
-      },
-      "skjulAlleSteg": {
-        "NB": "Skjul alle steg",
-        "EN": "Hide all steps",
-        "NN": "Skjul alle steig"
-      },
-      "stegLabels": {
-        "steg1": {
-          "NB": "Innledning",
-          "EN": "Introduction",
-          "NN": "Innleiing"
+        "_rev": "mvya9zzDXWakVjnX5GKPrm",
+        "dokumentTittel": "v1",
+        "navigasjonMeny": {
+            "knapper": {
+                "fortsettSenereKnapp": {
+                    "NN": "Hald seinare fram",
+                    "NB": "Fortsett senere",
+                    "EN": "Continue later"
+                },
+                "sendSoeknadKnapp": {
+                    "NN": "Send til NAV",
+                    "NB": "Send til NAV",
+                    "EN": "Send to NAV"
+                },
+                "forrigeStegKnapp": {
+                    "NN": "Førre steig",
+                    "NB": "Forrige steg",
+                    "EN": "Previous step"
+                },
+                "nesteStegKnapp": {
+                    "NB": "Neste steg",
+                    "EN": "Next step",
+                    "NN": "Neste steg"
+                },
+                "slettSoeknadenKnapp": {
+                    "NN": "Slett søknaden",
+                    "NB": "Slett søknaden",
+                    "EN": "Delete the application"
+                }
+            },
+            "sistLagret": {
+                "NB": "Sist lagret",
+                "EN": "Last saved",
+                "NN": "Sist lagra"
+            }
         },
-        "steg2": {
-          "EN": "Income for next year",
-          "NN": "Inntekt til neste år",
-          "NB": "Inntekt til neste år"
+        "skjemaTittel": {
+            "NN": "Meld frå om inntekt til neste år",
+            "NB": "Meld fra om inntekt til neste år",
+            "EN": "Report income for the next year"
         },
-        "steg3": {
-          "NN": "Oppsummering",
-          "NB": "Oppsummering",
-          "EN": "Summary"
+        "spraakVelger": {
+            "label": {
+                "NN": "Vel språk",
+                "NB": "Velg språk",
+                "EN": "Choose language"
+            }
         },
-        "steg4": {
-          "EN": "Receipt",
-          "NN": "Kvittering",
-          "NB": "Kvittering"
-        }
-      }
-    },
-    "_rev": "mvya9zzDXWakVjnX5GKPrm",
-    "dokumentTittel": "v1",
-    "navigasjonMeny": {
-      "knapper": {
-        "fortsettSenereKnapp": {
-          "NN": "Hald seinare fram",
-          "NB": "Fortsett senere",
-          "EN": "Continue later"
+        "sammendragAvInntekt": {
+            "inntektFraUtland": {
+                "label": {
+                    "NN": "Dette har du oppgitt som inntekter fra utland",
+                    "NB": "Dette har du oppgitt som inntekter fra utland",
+                    "EN": "Dette har du oppgitt som inntekter fra utland"
+                }
+            },
+            "skalGaaAvMedAlderspensjon": {
+                "value": {
+                    "nei": {
+                        "NN": "Nei",
+                        "NB": "Nei",
+                        "EN": "Nei"
+                    },
+                    "ja": {
+                        "NN": "Ja",
+                        "NB": "Ja",
+                        "EN": "Ja"
+                    },
+                    "vetIkke": {
+                        "NN": "Vet ikke",
+                        "NB": "Vet ikke",
+                        "EN": "Vet ikke"
+                    }
+                },
+                "label": {
+                    "sekstiSyvAar": {
+                        "EN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
+                        "NN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
+                        "NB": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
+                    },
+                    "femtiSyvTilSekstiSeksAar": {
+                        "NN": "Skal du gå av med alderspensjon til neste år? ",
+                        "NB": "Skal du gå av med alderspensjon til neste år? ",
+                        "EN": "Skal du gå av med alderspensjon til neste år? "
+                    }
+                }
+            },
+            "datoForAaGaaAvMedAlderspensjon": {
+                "label": {
+                    "EN": "Når planlegger du å gå av med alderspensjon? ",
+                    "NN": "Når planlegger du å gå av med alderspensjon? ",
+                    "NB": "Når planlegger du å gå av med alderspensjon? "
+                }
+            },
+            "AFPInntekt": {
+                "label": {
+                    "NN": "Dette har du oppgitt som AFP",
+                    "NB": "Dette har du oppgitt som AFP",
+                    "EN": "Dette har du oppgitt som AFP"
+                }
+            },
+            "AFPTjenesteordning": {
+                "label": {
+                    "NN": "Her får du tjenestepensjonsordning fra",
+                    "NB": "Her får du tjenestepensjonsordning fra",
+                    "EN": "Her får du tjenestepensjonsordning fra"
+                }
+            },
+            "naeringsinntekt": {
+                "label": {
+                    "NB": "Dette har du oppgitt som næringsinntekt",
+                    "EN": "Dette har du oppgitt som næringsinntekt",
+                    "NN": "Dette har du oppgitt som næringsinntekt"
+                }
+            },
+            "arbeidsinntekt": {
+                "label": {
+                    "NN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
+                    "NB": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
+                    "EN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger"
+                }
+            }
         },
-        "sendSoeknadKnapp": {
-          "NN": "Send til NAV",
-          "NB": "Send til NAV",
-          "EN": "Send to NAV"
-        },
-        "forrigeStegKnapp": {
-          "NN": "Førre steig",
-          "NB": "Forrige steg",
-          "EN": "Previous step"
-        },
-        "nesteStegKnapp": {
-          "NB": "Neste steg",
-          "EN": "Next step",
-          "NN": "Neste steg"
-        },
-        "slettSoeknadenKnapp": {
-          "NN": "Slett søknaden",
-          "NB": "Slett søknaden",
-          "EN": "Delete the application"
-        }
-      },
-      "sistLagret": {
-        "NB": "Sist lagret",
-        "EN": "Last saved",
-        "NN": "Sist lagra"
-      }
-    },
-    "skjemaTittel": {
-      "NN": "Meld frå om inntekt til neste år",
-      "NB": "Meld fra om inntekt til neste år",
-      "EN": "Report income for the next year"
-    },
-    "spraakVelger": {
-      "label": {
-        "NN": "Vel språk",
-        "NB": "Velg språk",
-        "EN": "Choose language"
-      }
-    },
-    "sammendragAvInntekt": {
-      "inntektFraUtland": {
-        "label": {
-          "NN": "Dette har du oppgitt som inntekter fra utland",
-          "NB": "Dette har du oppgitt som inntekter fra utland",
-          "EN": "Dette har du oppgitt som inntekter fra utland"
-        }
-      },
-      "skalGaaAvMedAlderspensjon": {
-        "value": {
-          "nei": {
-            "NN": "Nei",
-            "NB": "Nei",
-            "EN": "Nei"
-          },
-          "ja": {
-            "NN": "Ja",
-            "NB": "Ja",
-            "EN": "Ja"
-          },
-          "vetIkke": {
-            "NN": "Vet ikke",
-            "NB": "Vet ikke",
-            "EN": "Vet ikke"
-          }
-        },
-        "label": {
-          "sekstiSyvAar": {
-            "EN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
-            "NN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
-            "NB": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
-          },
-          "femtiSyvTilSekstiSeksAar": {
-            "NN": "Skal du gå av med alderspensjon til neste år? ",
-            "NB": "Skal du gå av med alderspensjon til neste år? ",
-            "EN": "Skal du gå av med alderspensjon til neste år? "
-          }
-        }
-      },
-      "datoForAaGaaAvMedAlderspensjon": {
-        "label": {
-          "EN": "Når planlegger du å gå av med alderspensjon? ",
-          "NN": "Når planlegger du å gå av med alderspensjon? ",
-          "NB": "Når planlegger du å gå av med alderspensjon? "
-        }
-      },
-      "AFPInntekt": {
-        "label": {
-          "NN": "Dette har du oppgitt som AFP",
-          "NB": "Dette har du oppgitt som AFP",
-          "EN": "Dette har du oppgitt som AFP"
-        }
-      },
-      "AFPTjenesteordning": {
-        "label": {
-          "NN": "Her får du tjenestepensjonsordning fra",
-          "NB": "Her får du tjenestepensjonsordning fra",
-          "EN": "Her får du tjenestepensjonsordning fra"
-        }
-      },
-      "naeringsinntekt": {
-        "label": {
-          "NB": "Dette har du oppgitt som næringsinntekt",
-          "EN": "Dette har du oppgitt som næringsinntekt",
-          "NN": "Dette har du oppgitt som næringsinntekt"
-        }
-      },
-      "arbeidsinntekt": {
-        "label": {
-          "NN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
-          "NB": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
-          "EN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger"
-        }
-      }
-    },
-    "_id": "06db7243-1201-45b1-a52d-937bfce5934c",
-    "_updatedAt": "2024-10-21T11:02:49Z",
-    "_createdAt": "2024-09-13T11:57:45Z",
-    "_type": "fellesKomponenter"
-  }
+        "_id": "06db7243-1201-45b1-a52d-937bfce5934c",
+        "_updatedAt": "2024-10-21T11:02:49Z",
+        "_createdAt": "2024-09-13T11:57:45Z",
+        "_type": "fellesKomponenter"
+    }
 ]

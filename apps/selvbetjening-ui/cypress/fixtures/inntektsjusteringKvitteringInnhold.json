@@ -1,266 +1,266 @@
 [
-  {
-    "gaaTilNAVKnapp": {
-      "lenke": {
-        "NN": "https://www.nav.no",
-        "NB": "https://www.nav.no",
-        "EN": "https://www.nav.no/en"
-      },
-      "tekst": {
-        "NN": "Gå til nav.no",
-        "NB": "Gå til nav.no",
-        "EN": "Go to nav.no"
-      }
-    },
-    "suksess": {
-      "EN": [
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "1fbbbb6ad231",
-          "markDefs": [],
-          "children": [
-            {
-              "text": "We have received your new information. Your case is now being processed by NAV. We will contact you if we need more information or documentation from you.",
-              "_key": "a87dd9e8680c0",
-              "_type": "span",
-              "marks": []
+    {
+        "gaaTilNAVKnapp": {
+            "lenke": {
+                "NN": "https://www.nav.no",
+                "NB": "https://www.nav.no",
+                "EN": "https://www.nav.no/en"
+            },
+            "tekst": {
+                "NN": "Gå til nav.no",
+                "NB": "Gå til nav.no",
+                "EN": "Go to nav.no"
             }
-          ]
-        }
-      ],
-      "NN": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_key": "5db52191f30f0",
-              "_type": "span",
-              "marks": [],
-              "text": "Me har fått dei nye opplysningane dine. Saka di er no til behandling hos NAV. Me vil ta kontakt med deg viss me treng meir informasjon eller dokumentasjon frå deg."
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "02cf157ed69b"
-        }
-      ],
-      "NB": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "marks": [],
-              "text": "Vi har mottatt de nye opplysningene dine. Saken din er nå til behandling hos NAV. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.",
-              "_key": "48b4b282004e0",
-              "_type": "span"
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "527f17831423"
-        }
-      ]
-    },
-    "_type": "inntektsjusteringKvittering",
-    "dokumentTittel": "v1",
-    "info": {
-      "tittel": {
-        "NN": "Hugs at du må melda frå om nye endringar",
-        "NB": "Husk at du må melde fra om nye endringer",
-        "EN": " Remember that you must report new changes"
-      },
-      "beskrivelse": {
-        "EN": [
-          {
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "It is important that you report any changes in your life as soon as possible. You can read more about [LENKE_KOMMER_HER]",
-                "_key": "8aab66669f5d0"
-              }
+        },
+        "suksess": {
+            "EN": [
+                {
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "1fbbbb6ad231",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "text": "We have received your new information. Your case is now being processed by NAV. We will contact you if we need more information or documentation from you.",
+                            "_key": "a87dd9e8680c0",
+                            "_type": "span",
+                            "marks": []
+                        }
+                    ]
+                }
             ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "73e0d4687459",
-            "markDefs": []
-          }
-        ],
-        "NN": [
-          {
-            "children": [
-              {
-                "text": "Det er viktig at du melder frå med ein gong det skjer endringar i livet ditt. Du kan lesa meir om å [LENKE_KOMMER_HER]",
-                "_key": "2be586e5b6200",
-                "_type": "span",
-                "marks": []
-              }
+            "NN": [
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_key": "5db52191f30f0",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Me har fått dei nye opplysningane dine. Saka di er no til behandling hos NAV. Me vil ta kontakt med deg viss me treng meir informasjon eller dokumentasjon frå deg."
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "02cf157ed69b"
+                }
             ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "2b3253dec9b5",
-            "markDefs": []
-          }
-        ],
-        "NB": [
-          {
-            "_type": "block",
-            "style": "normal",
-            "_key": "6f9d73416ccf",
-            "markDefs": [],
-            "children": [
-              {
-                "marks": [],
-                "text": "Det er viktig at du melder fra med en gang det skjer endringer i livet ditt. Du kan lese mer om å [LENKE_KOMMER_HER]",
-                "_key": "f4346961458e0",
-                "_type": "span"
-              }
+            "NB": [
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "marks": [],
+                            "text": "Vi har mottatt de nye opplysningene dine. Saken din er nå til behandling hos NAV. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.",
+                            "_key": "48b4b282004e0",
+                            "_type": "span"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "527f17831423"
+                }
             ]
-          }
-        ]
-      }
-    },
-    "_createdAt": "2024-09-17T10:32:13Z",
-    "_rev": "R89gqDHbX3B1tMlvtqV9EB",
-    "_id": "aba76f90-44f8-4fa8-ae28-d42ebf3bf619",
-    "tittel": {
-      "NN": "Takk! Du har fullført innmeldinga.",
-      "NB": "Takk! Du har fullført innmeldingen.",
-      "EN": "Thanks! You have completed your registration."
-    },
-    "_updatedAt": "2024-09-17T11:27:07Z"
-  },
-  {
-    "_createdAt": "2024-09-17T10:32:13Z",
-    "_rev": "93a4420a-966c-4b5c-b2a5-55e3188f7aa2",
-    "dokumentTittel": "v1",
-    "_id": "drafts.aba76f90-44f8-4fa8-ae28-d42ebf3bf619",
-    "_updatedAt": "2024-09-17T11:34:34Z",
-    "gaaTilNAVKnapp": {
-      "tekst": {
-        "NB": "Gå til nav.no",
-        "EN": "Go to nav.no",
-        "NN": "Gå til nav.no"
-      },
-      "lenke": {
-        "NB": "https://www.nav.no",
-        "EN": "https://www.nav.no/en",
-        "NN": "https://www.nav.no"
-      }
-    },
-    "suksess": {
-      "NN": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Me har fått dei nye opplysningane dine. Saka di er no til behandling hos NAV. Me vil ta kontakt med deg viss me treng meir informasjon eller dokumentasjon frå deg.",
-              "_key": "5db52191f30f0"
+        },
+        "_type": "inntektsjusteringKvittering",
+        "dokumentTittel": "v1",
+        "info": {
+            "tittel": {
+                "NN": "Hugs at du må melda frå om nye endringar",
+                "NB": "Husk at du må melde fra om nye endringer",
+                "EN": " Remember that you must report new changes"
+            },
+            "beskrivelse": {
+                "EN": [
+                    {
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "It is important that you report any changes in your life as soon as possible. You can read more about [LENKE_KOMMER_HER]",
+                                "_key": "8aab66669f5d0"
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "73e0d4687459",
+                        "markDefs": []
+                    }
+                ],
+                "NN": [
+                    {
+                        "children": [
+                            {
+                                "text": "Det er viktig at du melder frå med ein gong det skjer endringar i livet ditt. Du kan lesa meir om å [LENKE_KOMMER_HER]",
+                                "_key": "2be586e5b6200",
+                                "_type": "span",
+                                "marks": []
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "2b3253dec9b5",
+                        "markDefs": []
+                    }
+                ],
+                "NB": [
+                    {
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "6f9d73416ccf",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "marks": [],
+                                "text": "Det er viktig at du melder fra med en gang det skjer endringer i livet ditt. Du kan lese mer om å [LENKE_KOMMER_HER]",
+                                "_key": "f4346961458e0",
+                                "_type": "span"
+                            }
+                        ]
+                    }
+                ]
             }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "02cf157ed69b"
-        }
-      ],
-      "NB": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Vi har mottatt de nye opplysningene dine. Saken din er nå til behandling hos NAV. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.",
-              "_key": "48b4b282004e0"
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "527f17831423"
-        }
-      ],
-      "EN": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "We have received your new information. Your case is now being processed by NAV. We will contact you if we need more information or documentation from you.",
-              "_key": "a87dd9e8680c0"
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "1fbbbb6ad231"
-        }
-      ]
+        },
+        "_createdAt": "2024-09-17T10:32:13Z",
+        "_rev": "R89gqDHbX3B1tMlvtqV9EB",
+        "_id": "aba76f90-44f8-4fa8-ae28-d42ebf3bf619",
+        "tittel": {
+            "NN": "Takk! Du har fullført innmeldinga.",
+            "NB": "Takk! Du har fullført innmeldingen.",
+            "EN": "Thanks! You have completed your registration."
+        },
+        "_updatedAt": "2024-09-17T11:27:07Z"
     },
-    "_type": "inntektsjusteringKvittering",
-    "tittel": {
-      "NN": "Takk! Du har fullført innmeldinga.",
-      "NB": "Takk! Du har fullført innmeldingen.",
-      "EN": "Thanks! You have completed your registration."
-    },
-    "info": {
-      "tittel": {
-        "NN": "Hugs at du må melda frå om nye endringar",
-        "NB": "Husk at du må melde fra om nye endringer",
-        "EN": " Remember that you must report new changes"
-      },
-      "beskrivelse": {
-        "NN": [
-          {
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "Det er viktig at du melder frå med ein gong det skjer endringar i livet ditt. Du kan lesa meir om å [LENKE_KOMMER_HER]",
-                "_key": "2be586e5b6200"
-              }
+    {
+        "_createdAt": "2024-09-17T10:32:13Z",
+        "_rev": "93a4420a-966c-4b5c-b2a5-55e3188f7aa2",
+        "dokumentTittel": "v1",
+        "_id": "drafts.aba76f90-44f8-4fa8-ae28-d42ebf3bf619",
+        "_updatedAt": "2024-09-17T11:34:34Z",
+        "gaaTilNAVKnapp": {
+            "tekst": {
+                "NB": "Gå til nav.no",
+                "EN": "Go to nav.no",
+                "NN": "Gå til nav.no"
+            },
+            "lenke": {
+                "NB": "https://www.nav.no",
+                "EN": "https://www.nav.no/en",
+                "NN": "https://www.nav.no"
+            }
+        },
+        "suksess": {
+            "NN": [
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Me har fått dei nye opplysningane dine. Saka di er no til behandling hos NAV. Me vil ta kontakt med deg viss me treng meir informasjon eller dokumentasjon frå deg.",
+                            "_key": "5db52191f30f0"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "02cf157ed69b"
+                }
             ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "2b3253dec9b5"
-          }
-        ],
-        "NB": [
-          {
-            "style": "normal",
-            "_key": "6f9d73416ccf",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "Det er viktig at du melder fra med en gang det skjer endringer i livet ditt. Du kan lese mer om å ",
-                "_key": "f4346961458e0"
-              }
+            "NB": [
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Vi har mottatt de nye opplysningene dine. Saken din er nå til behandling hos NAV. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon fra deg.",
+                            "_key": "48b4b282004e0"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "527f17831423"
+                }
             ],
-            "_type": "block"
-          }
-        ],
-        "EN": [
-          {
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "It is important that you report any changes in your life as soon as possible. You can read more about [LENKE_KOMMER_HER]",
-                "_key": "8aab66669f5d0"
-              }
-            ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "73e0d4687459"
-          }
-        ]
-      }
+            "EN": [
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "We have received your new information. Your case is now being processed by NAV. We will contact you if we need more information or documentation from you.",
+                            "_key": "a87dd9e8680c0"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "1fbbbb6ad231"
+                }
+            ]
+        },
+        "_type": "inntektsjusteringKvittering",
+        "tittel": {
+            "NN": "Takk! Du har fullført innmeldinga.",
+            "NB": "Takk! Du har fullført innmeldingen.",
+            "EN": "Thanks! You have completed your registration."
+        },
+        "info": {
+            "tittel": {
+                "NN": "Hugs at du må melda frå om nye endringar",
+                "NB": "Husk at du må melde fra om nye endringer",
+                "EN": " Remember that you must report new changes"
+            },
+            "beskrivelse": {
+                "NN": [
+                    {
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Det er viktig at du melder frå med ein gong det skjer endringar i livet ditt. Du kan lesa meir om å [LENKE_KOMMER_HER]",
+                                "_key": "2be586e5b6200"
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "2b3253dec9b5"
+                    }
+                ],
+                "NB": [
+                    {
+                        "style": "normal",
+                        "_key": "6f9d73416ccf",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Det er viktig at du melder fra med en gang det skjer endringer i livet ditt. Du kan lese mer om å ",
+                                "_key": "f4346961458e0"
+                            }
+                        ],
+                        "_type": "block"
+                    }
+                ],
+                "EN": [
+                    {
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "It is important that you report any changes in your life as soon as possible. You can read more about [LENKE_KOMMER_HER]",
+                                "_key": "8aab66669f5d0"
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "73e0d4687459"
+                    }
+                ]
+            }
+        }
     }
-  }
 ]

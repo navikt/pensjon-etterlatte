@@ -1,12 +1,12 @@
-import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
-import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
-import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
-import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
-import { useSpraak } from '../spraak/SpraakContext.tsx'
+import { BodyShort, HStack, Heading, Hide, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../SideLaster.tsx'
+import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
+import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
+import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
 import { FyllUtSkjemaIcon } from './icons/FyllUtSkjemaIcon.tsx'
+import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 
 interface Props {
     aktivtSteg: number

@@ -1,4 +1,4 @@
-import { Heading, HStack, Skeleton, VStack } from '@navikt/ds-react'
+import { HStack, Heading, Skeleton, VStack } from '@navikt/ds-react'
 
 export const SideLaster = () => {
     return (

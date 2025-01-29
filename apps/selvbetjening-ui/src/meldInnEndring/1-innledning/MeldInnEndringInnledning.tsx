@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { MeldInnEndringInnledning as MeldFraOmEndringInnledningInnhold } from '../sanity.types.ts'
-import { SideLaster } from '../../common/SideLaster.tsx'
-import { Bleed, Button, GuidePanel, Heading, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
-import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { Bleed, Button, GuidePanel, HStack, Heading, VStack } from '@navikt/ds-react'
+import { useNavigate } from 'react-router-dom'
+import { SideLaster } from '../../common/SideLaster.tsx'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { MeldInnEndringInnledning as MeldFraOmEndringInnledningInnhold } from '../sanity.types.ts'
 
 export const MeldInnEndringInnledning = () => {
     const navigate = useNavigate()

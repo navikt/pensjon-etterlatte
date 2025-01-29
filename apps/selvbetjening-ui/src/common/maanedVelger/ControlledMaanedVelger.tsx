@@ -1,9 +1,9 @@
-import { Control, FieldValues, Path, useController } from 'react-hook-form'
 import { MonthPicker, MonthValidationT, useMonthpicker } from '@navikt/ds-react'
 import { format } from 'date-fns'
+import { ReactNode, useState } from 'react'
+import { Control, FieldValues, Path, useController } from 'react-hook-form'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { Spraak } from '../spraak/spraak.ts'
-import { ReactNode, useState } from 'react'
 
 const formatDateToLocaleDateOrEmptyString = (date: Date | undefined) =>
     date === undefined ? '' : format(date, 'yyyy-MM-dd')

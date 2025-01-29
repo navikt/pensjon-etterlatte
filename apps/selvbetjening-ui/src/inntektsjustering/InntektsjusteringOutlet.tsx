@@ -1,12 +1,12 @@
-import { ProvideInntektContext } from './components/inntektContext/InntektContext.tsx'
+import { useEffect } from 'react'
+import { Outlet } from 'react-router-dom'
 import {
     FeatureToggleNavn,
     FeatureToggleStatus,
     useFeatureToggle,
 } from '../common/featureToggles/FeatureTogglesContext.tsx'
+import { ProvideInntektContext } from './components/inntektContext/InntektContext.tsx'
 import { InntektSkjemaLukket } from './components/inntektSkjemaLukket/InntektSkjemaLukket.tsx'
-import { Outlet } from 'react-router-dom'
-import { useEffect } from 'react'
 
 export const InntektsjusteringOutlet = () => {
     const omsInntetksjusteringSkjemaFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_INNTEKTSJUSTERING_SKJEMA)

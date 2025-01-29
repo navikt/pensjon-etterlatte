@@ -1,13 +1,13 @@
 import { Alert, BodyShort, Detail, HStack, Link, VStack } from '@navikt/ds-react'
-import { useSpraak } from './spraak/SpraakContext.tsx'
-import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
-import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from './sanity.types.ts'
-import { SpraakVelger } from './spraakVelger/SpraakVelger.tsx'
-import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
-import { useRouteError } from 'react-router-dom'
-import { useEffect } from 'react'
 import ErrorStackParser from 'error-stack-parser'
+import { useEffect } from 'react'
+import { useRouteError } from 'react-router-dom'
 import { logger } from './logger/logger.ts'
+import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from './sanity.types.ts'
+import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { useSpraak } from './spraak/SpraakContext.tsx'
+import { SpraakVelger } from './spraakVelger/SpraakVelger.tsx'
 
 const fallbackTekster = {
     NB: 'Skjemaet er utilgjengelig',

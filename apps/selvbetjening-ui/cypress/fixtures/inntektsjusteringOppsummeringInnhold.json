@@ -1,412 +1,412 @@
 [
-  {
-    "_updatedAt": "2024-10-18T07:31:34Z",
-    "feilIOpprettelseAvInntekt": {
-      "innhold": {
-        "NN": [
-          {
-            "markDefs": [],
-            "children": [
-              {
-                "_key": "15f4a0eb4a0b0",
-                "_type": "span",
-                "marks": [],
-                "text": "En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe du gjorde."
-              }
+    {
+        "_updatedAt": "2024-10-18T07:31:34Z",
+        "feilIOpprettelseAvInntekt": {
+            "innhold": {
+                "NN": [
+                    {
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_key": "15f4a0eb4a0b0",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe du gjorde."
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "f8554c5147d6"
+                    },
+                    {
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Du kan prøve å",
+                                "_key": "12b35f6db0f20"
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "ded83ad56064"
+                    },
+                    {
+                        "style": "normal",
+                        "_key": "5222e92e107f",
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "vente noen minutter og laste siden på nytt",
+                                "_key": "a9cd9d548fde0"
+                            }
+                        ],
+                        "level": 1,
+                        "_type": "block"
+                    },
+                    {
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "ee7dd9c4564b",
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "gå tilbake til forrige side",
+                                "_key": "523475bc17a70"
+                            }
+                        ],
+                        "level": 1
+                    }
+                ],
+                "NB": [
+                    {
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "4d5321b6e274",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe du gjorde.",
+                                "_key": "0dfef101bc190"
+                            }
+                        ]
+                    },
+                    {
+                        "_key": "de649e614f41",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "text": "Du kan prøve å",
+                                "_key": "178429207e800",
+                                "_type": "span",
+                                "marks": []
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal"
+                    },
+                    {
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "9165cfaa413e",
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "vente noen minutter og laste siden på nytt",
+                                "_key": "c7b1f698c9500"
+                            }
+                        ],
+                        "level": 1
+                    },
+                    {
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "marks": [],
+                                "text": "gå tilbake til forrige side",
+                                "_key": "fa2f2db721bf0",
+                                "_type": "span"
+                            }
+                        ],
+                        "level": 1,
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "47ff128a68ae"
+                    }
+                ],
+                "EN": [
+                    {
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe du gjorde.",
+                                "_key": "535ea9d11a6a0"
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "c72cd24b0dc7",
+                        "markDefs": []
+                    },
+                    {
+                        "_key": "abd8bdadde7e",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Du kan prøve å",
+                                "_key": "b8edae0c72320"
+                            }
+                        ],
+                        "_type": "block",
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "06cfd9f61d6a",
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "vente noen minutter og laste siden på nytt",
+                                "_key": "696244cc6b870"
+                            }
+                        ],
+                        "level": 1,
+                        "_type": "block",
+                        "style": "normal"
+                    },
+                    {
+                        "_type": "block",
+                        "style": "normal",
+                        "_key": "d6db55387b33",
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "children": [
+                            {
+                                "_type": "span",
+                                "marks": [],
+                                "text": "gå tilbake til forrige side",
+                                "_key": "96c64c9aed650"
+                            }
+                        ],
+                        "level": 1
+                    }
+                ]
+            },
+            "tittel": {
+                "NN": "Beklager, noe gikk galt.",
+                "NB": "Beklager, noe gikk galt.",
+                "EN": "Beklager, noe gikk galt."
+            }
+        },
+        "_rev": "hf9hwMPb7ybAE3bqEYuJOr",
+        "_type": "inntektsjusteringOppsummering",
+        "dokumentTittel": "v1",
+        "_id": "d1043190-702c-4483-be90-05ef334cb0ef",
+        "veiledning": {
+            "NN": [
+                {
+                    "_key": "af014c22d7a2",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "No kan du sjå over at alt er rett før du sender inn søknaden. Ved behov kan du endra opplysningane.",
+                            "_key": "a6e7ee66119e0"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal"
+                },
+                {
+                    "_key": "441304a76592",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "text": "",
+                            "_key": "de5eb203fe8a",
+                            "_type": "span",
+                            "marks": []
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal"
+                },
+                {
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "52737c6c4282",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Når du har sendt inn søknaden kjem du til ei kvitteringsside med informasjon om vegen vidare.",
+                            "_key": "41aa97ff9aa8"
+                        }
+                    ]
+                }
             ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "f8554c5147d6"
-          },
-          {
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "Du kan prøve å",
-                "_key": "12b35f6db0f20"
-              }
+            "NB": [
+                {
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "6211ad5445a2",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Nå kan du se over at alt er riktig før du sender inn søknaden. Ved behov kan du endre opplysningene.",
+                            "_key": "83c8fb889d660"
+                        }
+                    ]
+                },
+                {
+                    "style": "normal",
+                    "_key": "c68e1319b0b3",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "\nNår du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien videre.",
+                            "_key": "7001f736f139"
+                        }
+                    ],
+                    "_type": "block"
+                }
             ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "ded83ad56064"
-          },
-          {
-            "style": "normal",
-            "_key": "5222e92e107f",
-            "listItem": "bullet",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "vente noen minutter og laste siden på nytt",
-                "_key": "a9cd9d548fde0"
-              }
-            ],
-            "level": 1,
-            "_type": "block"
-          },
-          {
-            "_type": "block",
-            "style": "normal",
-            "_key": "ee7dd9c4564b",
-            "listItem": "bullet",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "gå tilbake til forrige side",
-                "_key": "523475bc17a70"
-              }
-            ],
-            "level": 1
-          }
-        ],
-        "NB": [
-          {
-            "_type": "block",
-            "style": "normal",
-            "_key": "4d5321b6e274",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe du gjorde.",
-                "_key": "0dfef101bc190"
-              }
+            "EN": [
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Now you can check that everything is correct before you submit the application. If necessary, you can change the information.",
+                            "_key": "12ad9670e41f0"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "1129fa4f6553"
+                },
+                {
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "_type": "span",
+                            "marks": [],
+                            "text": "",
+                            "_key": "0749ffbca033"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal",
+                    "_key": "9d71f81a5a71"
+                },
+                {
+                    "_key": "370639c587ca",
+                    "markDefs": [],
+                    "children": [
+                        {
+                            "marks": [],
+                            "text": "When you have submitted the application, you will be taken to a receipt page with information on how to proceed.",
+                            "_key": "ded048381fa6",
+                            "_type": "span"
+                        }
+                    ],
+                    "_type": "block",
+                    "style": "normal"
+                }
             ]
-          },
-          {
-            "_key": "de649e614f41",
-            "markDefs": [],
-            "children": [
-              {
-                "text": "Du kan prøve å",
-                "_key": "178429207e800",
-                "_type": "span",
-                "marks": []
-              }
-            ],
-            "_type": "block",
-            "style": "normal"
-          },
-          {
-            "_type": "block",
-            "style": "normal",
-            "_key": "9165cfaa413e",
-            "listItem": "bullet",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "vente noen minutter og laste siden på nytt",
-                "_key": "c7b1f698c9500"
-              }
-            ],
-            "level": 1
-          },
-          {
-            "listItem": "bullet",
-            "markDefs": [],
-            "children": [
-              {
-                "marks": [],
-                "text": "gå tilbake til forrige side",
-                "_key": "fa2f2db721bf0",
-                "_type": "span"
-              }
-            ],
-            "level": 1,
-            "_type": "block",
-            "style": "normal",
-            "_key": "47ff128a68ae"
-          }
-        ],
-        "EN": [
-          {
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "En teknisk feil på våre servere gjør at siden er utilgjengelig. Dette skyldes ikke noe du gjorde.",
-                "_key": "535ea9d11a6a0"
-              }
-            ],
-            "_type": "block",
-            "style": "normal",
-            "_key": "c72cd24b0dc7",
-            "markDefs": []
-          },
-          {
-            "_key": "abd8bdadde7e",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "Du kan prøve å",
-                "_key": "b8edae0c72320"
-              }
-            ],
-            "_type": "block",
-            "style": "normal"
-          },
-          {
-            "_key": "06cfd9f61d6a",
-            "listItem": "bullet",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "vente noen minutter og laste siden på nytt",
-                "_key": "696244cc6b870"
-              }
-            ],
-            "level": 1,
-            "_type": "block",
-            "style": "normal"
-          },
-          {
-            "_type": "block",
-            "style": "normal",
-            "_key": "d6db55387b33",
-            "listItem": "bullet",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "gå tilbake til forrige side",
-                "_key": "96c64c9aed650"
-              }
-            ],
-            "level": 1
-          }
-        ]
-      },
-      "tittel": {
-        "NN": "Beklager, noe gikk galt.",
-        "NB": "Beklager, noe gikk galt.",
-        "EN": "Beklager, noe gikk galt."
-      }
-    },
-    "_rev": "hf9hwMPb7ybAE3bqEYuJOr",
-    "_type": "inntektsjusteringOppsummering",
-    "dokumentTittel": "v1",
-    "_id": "d1043190-702c-4483-be90-05ef334cb0ef",
-    "veiledning": {
-      "NN": [
-        {
-          "_key": "af014c22d7a2",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "No kan du sjå over at alt er rett før du sender inn søknaden. Ved behov kan du endra opplysningane.",
-              "_key": "a6e7ee66119e0"
-            }
-          ],
-          "_type": "block",
-          "style": "normal"
         },
-        {
-          "_key": "441304a76592",
-          "markDefs": [],
-          "children": [
-            {
-              "text": "",
-              "_key": "de5eb203fe8a",
-              "_type": "span",
-              "marks": []
+        "_createdAt": "2024-09-16T10:06:26Z",
+        "skjemaSammendrag": {
+            "AFPInntekt": {
+                "label": {
+                    "NN": "Dette har du oppgitt som AFP",
+                    "NB": "Dette har du oppgitt som AFP",
+                    "EN": "Dette har du oppgitt som AFP"
+                }
+            },
+            "skalGaaAvMedAlderspensjon": {
+                "label": {
+                    "sekstiSyvAar": {
+                        "NN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
+                        "NB": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
+                        "EN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
+                    },
+                    "femtiSyvTilSekstiSeksAar": {
+                        "NN": "Skal du gå av med alderspensjon til neste år? ",
+                        "NB": "Skal du gå av med alderspensjon til neste år? ",
+                        "EN": "Skal du gå av med alderspensjon til neste år? "
+                    }
+                },
+                "value": {
+                    "nei": {
+                        "NN": "Nei",
+                        "NB": "Nei",
+                        "EN": "Nei"
+                    },
+                    "ja": {
+                        "NN": "Ja",
+                        "NB": "Ja",
+                        "EN": "Ja"
+                    },
+                    "vetIkke": {
+                        "NN": "Vet ikke",
+                        "NB": "Vet ikke",
+                        "EN": "Vet ikke"
+                    }
+                }
+            },
+            "endreSvarLenke": {
+                "tekst": {
+                    "NN": "Endre svar",
+                    "NB": "Endre svar",
+                    "EN": " Change answer"
+                }
+            },
+            "datoForAaGaaAvMedAlderspensjon": {
+                "label": {
+                    "NN": "Når planlegger du å gå av med alderspensjon? ",
+                    "NB": "Når planlegger du å gå av med alderspensjon? ",
+                    "EN": "Når planlegger du å gå av med alderspensjon? "
+                }
+            },
+            "arbeidsinntekt": {
+                "label": {
+                    "NN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
+                    "NB": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
+                    "EN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger"
+                }
+            },
+            "tittel": {
+                "NN": "Inntekt til neste år",
+                "NB": "Inntekt til neste år",
+                "EN": " Income for next year"
+            },
+            "AFPTjenesteordning": {
+                "label": {
+                    "NN": "Her får du tjenestepensjonsordning fra",
+                    "NB": "Her får du tjenestepensjonsordning fra",
+                    "EN": "Her får du tjenestepensjonsordning fra"
+                }
+            },
+            "inntektFraUtland": {
+                "label": {
+                    "NN": "Dette har du oppgitt som inntekter fra utland",
+                    "NB": "Dette har du oppgitt som inntekter fra utland",
+                    "EN": "Dette har du oppgitt som inntekter fra utland"
+                }
+            },
+            "naeringsinntekt": {
+                "label": {
+                    "NN": "Dette har du oppgitt som næringsinntekt",
+                    "NB": "Dette har du oppgitt som næringsinntekt",
+                    "EN": "Dette har du oppgitt som næringsinntekt"
+                }
             }
-          ],
-          "_type": "block",
-          "style": "normal"
-        },
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "52737c6c4282",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Når du har sendt inn søknaden kjem du til ei kvitteringsside med informasjon om vegen vidare.",
-              "_key": "41aa97ff9aa8"
-            }
-          ]
         }
-      ],
-      "NB": [
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "6211ad5445a2",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Nå kan du se over at alt er riktig før du sender inn søknaden. Ved behov kan du endre opplysningene.",
-              "_key": "83c8fb889d660"
-            }
-          ]
-        },
-        {
-          "style": "normal",
-          "_key": "c68e1319b0b3",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "\nNår du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien videre.",
-              "_key": "7001f736f139"
-            }
-          ],
-          "_type": "block"
-        }
-      ],
-      "EN": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Now you can check that everything is correct before you submit the application. If necessary, you can change the information.",
-              "_key": "12ad9670e41f0"
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "1129fa4f6553"
-        },
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "",
-              "_key": "0749ffbca033"
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "9d71f81a5a71"
-        },
-        {
-          "_key": "370639c587ca",
-          "markDefs": [],
-          "children": [
-            {
-              "marks": [],
-              "text": "When you have submitted the application, you will be taken to a receipt page with information on how to proceed.",
-              "_key": "ded048381fa6",
-              "_type": "span"
-            }
-          ],
-          "_type": "block",
-          "style": "normal"
-        }
-      ]
-    },
-    "_createdAt": "2024-09-16T10:06:26Z",
-    "skjemaSammendrag": {
-      "AFPInntekt": {
-        "label": {
-          "NN": "Dette har du oppgitt som AFP",
-          "NB": "Dette har du oppgitt som AFP",
-          "EN": "Dette har du oppgitt som AFP"
-        }
-      },
-      "skalGaaAvMedAlderspensjon": {
-        "label": {
-          "sekstiSyvAar": {
-            "NN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
-            "NB": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?",
-            "EN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
-          },
-          "femtiSyvTilSekstiSeksAar": {
-            "NN": "Skal du gå av med alderspensjon til neste år? ",
-            "NB": "Skal du gå av med alderspensjon til neste år? ",
-            "EN": "Skal du gå av med alderspensjon til neste år? "
-          }
-        },
-        "value": {
-          "nei": {
-            "NN": "Nei",
-            "NB": "Nei",
-            "EN": "Nei"
-          },
-          "ja": {
-            "NN": "Ja",
-            "NB": "Ja",
-            "EN": "Ja"
-          },
-          "vetIkke": {
-            "NN": "Vet ikke",
-            "NB": "Vet ikke",
-            "EN": "Vet ikke"
-          }
-        }
-      },
-      "endreSvarLenke": {
-        "tekst": {
-          "NN": "Endre svar",
-          "NB": "Endre svar",
-          "EN": " Change answer"
-        }
-      },
-      "datoForAaGaaAvMedAlderspensjon": {
-        "label": {
-          "NN": "Når planlegger du å gå av med alderspensjon? ",
-          "NB": "Når planlegger du å gå av med alderspensjon? ",
-          "EN": "Når planlegger du å gå av med alderspensjon? "
-        }
-      },
-      "arbeidsinntekt": {
-        "label": {
-          "NN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
-          "NB": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger",
-          "EN": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger"
-        }
-      },
-      "tittel": {
-        "NN": "Inntekt til neste år",
-        "NB": "Inntekt til neste år",
-        "EN": " Income for next year"
-      },
-      "AFPTjenesteordning": {
-        "label": {
-          "NN": "Her får du tjenestepensjonsordning fra",
-          "NB": "Her får du tjenestepensjonsordning fra",
-          "EN": "Her får du tjenestepensjonsordning fra"
-        }
-      },
-      "inntektFraUtland": {
-        "label": {
-          "NN": "Dette har du oppgitt som inntekter fra utland",
-          "NB": "Dette har du oppgitt som inntekter fra utland",
-          "EN": "Dette har du oppgitt som inntekter fra utland"
-        }
-      },
-      "naeringsinntekt": {
-        "label": {
-          "NN": "Dette har du oppgitt som næringsinntekt",
-          "NB": "Dette har du oppgitt som næringsinntekt",
-          "EN": "Dette har du oppgitt som næringsinntekt"
-        }
-      }
     }
-  }
 ]

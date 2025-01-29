@@ -1,16 +1,16 @@
+import { Alert, BodyShort, Heading, Label, VStack } from '@navikt/ds-react'
+import { format } from 'date-fns'
+import { Navigate } from 'react-router-dom'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { spraakTilDateFnsLocale } from '../../common/spraak/spraak.ts'
 import { Inntekt, SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { Alder, IInnloggetBruker } from '../../types/person.ts'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
 import {
     FellesKomponenter,
     InntektsjusteringInnledning as InntektsjusteringInnledningInnhold,
 } from '../sanity.types.ts'
-import { Navigate } from 'react-router-dom'
-import { Alert, BodyShort, Heading, Label, VStack } from '@navikt/ds-react'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { finnAlder } from '../2-inntekt-til-neste-aar/finnAlder.ts'
-import { format } from 'date-fns'
-import { spraakTilDateFnsLocale } from '../../common/spraak/spraak.ts'
 import { velgTekstForSkalGaaAvMedAlderspensjon } from '../utils/velgTekst.ts'
 
 export const OppgittInntektAlert = ({

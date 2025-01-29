@@ -1,22 +1,22 @@
-import { useForm } from 'react-hook-form'
-import { Endring, MeldtInnEndring } from '../../types/meldInnEndring.ts'
 import { HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
-import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
-import { SideLaster } from '../../common/SideLaster.tsx'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
-import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
-import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
-import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { SideLaster } from '../../common/SideLaster.tsx'
+import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
+import { SammendragAvSkjemaFeil } from '../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { Endring, MeldtInnEndring } from '../../types/meldInnEndring.ts'
 import {
     useMeldInnEndring,
     useMeldInnEndringDispatch,
 } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
-import { SammendragAvSkjemaFeil } from '../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
+import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
+import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
+import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
+import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
