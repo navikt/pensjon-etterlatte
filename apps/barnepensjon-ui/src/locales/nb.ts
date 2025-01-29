@@ -107,7 +107,7 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Lurer du på hvor mye man kan få, skatt eller annet om pensjonen, kan du <a href="https://www.nav.no/barnepensjon">lese mer om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Behandling av personopplysninger i søknaden',
-    howWeProcessDataTitle: 'Slik behandler Nav personopplysningene dine',
+    howWeProcessDataTitle: 'Hvordan vi behandler personopplysninger',
     howWeProcessDataContentParent:
         'Når du sender inn en søknad om ytelse, innhenter og behandler Nav personopplysninger om den som søker ytelsen. Når du sender inn en søknad om ytelse på vegne av ditt barn, innhenter og behandler vi opplysninger om barnet. Dette er nødvendig for at den du søker for skal få gode tjenester og riktige ytelser og for å oppfylle Navs plikt til å bidra til økonomisk trygghet ved dødsfall etter Folketrygdloven kapittel 18.',
     howWeProcessDataContentGuardian:
