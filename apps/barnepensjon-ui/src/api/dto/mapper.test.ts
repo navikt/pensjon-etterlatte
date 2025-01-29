@@ -34,6 +34,7 @@ const user: User = {
     sivilstatus: "GIFT",
 };
 
+// biome-ignore lint/suspicious/noExplicitAny
 const t = (key: string, _: any) => key;
 const isChild = false;
 
@@ -45,6 +46,7 @@ describe("Generelle tester", () => {
 
         try {
             mapTilBarnepensjonSoeknadListe(t, application, user, isChild);
+            // biome-ignore lint/suspicious/noExplicitAny
         } catch (e: any) {
             expect(e.message).toEqual("Kan ikke sende inn søknad med tom liste over barn!");
         }
@@ -54,8 +56,9 @@ describe("Generelle tester", () => {
         try {
             const application: IApplication = { aboutChildren: { children: [{}] }, aboutYou: {} };
             mapTilBarnepensjonSoeknadListe(t, application, user, isChild);
+            // biome-ignore lint/suspicious/noExplicitAny
         } catch (e: any) {
-            expect(e.message).toEqual("Kan ikke sende inn søknad uten å ha samtykket!");
+            expect(e).toEqual("Kan ikke sende inn søknad uten å ha samtykket!");
         }
     });
 });
