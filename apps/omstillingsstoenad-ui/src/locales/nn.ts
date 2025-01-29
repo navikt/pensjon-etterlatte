@@ -64,7 +64,7 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         'For at vi skal kunne rekne ut rett omstillingsstønad, treng vi informasjon om arbeidsinntekta di. Viss du er fødd før 1964, treng vi informasjon om inntekta du hadde året før den avdøde gjekk bort. Oppgi brutto inntekt, det vil seie inntekt før skatt. Du finn brutto inntekt på lønsslippen din.\n',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
-    'forside.slikBehandlerVi.tittel': 'Slik behandlar Nav personopplysningane dine',
+    'forside.slikBehandlerVi.tittel': 'Korleis vi behandlar personopplysningar',
     'forside.slikBehandlerVi.innhold':
         'Når du sender inn ein søknad om yting, vil Nav hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at Nav skal kunne innfri plikta etter folketrygdlova kapittel 17 til å bidra til økonomisk tryggleik ved dødsfall.',
     'forside.innsamlingAvInfo.tittel': 'Vi samlar inn og behandlar personopplysningar for å',

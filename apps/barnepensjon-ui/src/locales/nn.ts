@@ -107,7 +107,7 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Dersom du har spørsmål om pensjonen, til dømes kor mykje du kan få, eller kva reglar som gjeld for skatt, kan du du <a href="https://www.nav.no/barnepensjon">lese meir om barnepensjon</a>.',
     weWillRetrieveInfoTitle: 'Behandling av personopplysningar i søknaden',
-    howWeProcessDataTitle: 'Slik behandlar Nav personopplysningane dine',
+    howWeProcessDataTitle: 'Korleis vi behandlar personopplysningar',
     howWeProcessDataContentParent:
         'Når du sender inn ein søknad om yting, vil Nav hente inn og behandle personopplysningar om den som søkjer om ytinga. Når du sender inn ein søknad om yting på vegner av barnet ditt, vil vi hente inn og behandle opplysningar om barnet. Dette er nødvendig for at den du søkjer på vegner av, skal få gode tenester og ytingane som vedkomande har rett på, og for at Nav skal kunne innfri plikta etter folketrygdlova kapittel 18 til å bidra til økonomisk tryggleik ved dødsfall.',
     howWeProcessDataContentGuardian:

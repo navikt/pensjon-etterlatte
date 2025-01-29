@@ -109,7 +109,7 @@ const frontPage = {
     readMoreAboutChildrensPension:
         'Any questions you may have about how much you can receive, taxes or other information about pensions, can you <a href="https://www.nav.no/barnepensjon/en">read more about children’s pension here</a>.',
     weWillRetrieveInfoTitle: 'Processing of personal data in the application',
-    howWeProcessDataTitle: 'How Nav processes your personal data',
+    howWeProcessDataTitle: 'How we process personal data',
     howWeProcessDataContentParent:
         'When you submit an application for a benefit, Nav will collect and process personal data about the applicant. When you submit an application for a benefit on behalf of your child, we will collect and process information about the child. This is necessary to ensure that the applicant has access to good services and the right benefits, and to comply with Nav’s duty to contribute to financial security in connection with death, as required by Chapter 18 of the National Insurance Act.',
     howWeProcessDataContentGuardian:

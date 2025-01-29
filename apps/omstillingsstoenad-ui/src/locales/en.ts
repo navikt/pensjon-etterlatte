@@ -64,7 +64,7 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
-    'forside.slikBehandlerVi.tittel': 'How Nav processes your personal data',
+    'forside.slikBehandlerVi.tittel': 'How we process personal data',
     'forside.slikBehandlerVi.innhold':
         'Nav needs some personal information about you in order to process your benefits application. We cannot offer the correct services or benefits without this information. Nav is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian – pursuant to Chapter 17 of the National Insurance Act.',
     'forside.innsamlingAvInfo.tittel': 'We collect and process personal data to:',
