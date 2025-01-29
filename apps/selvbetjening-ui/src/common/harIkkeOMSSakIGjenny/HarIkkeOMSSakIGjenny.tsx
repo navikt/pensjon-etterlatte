@@ -1,10 +1,10 @@
-import { Button, VStack } from '@navikt/ds-react'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
-import { SideLaster } from '../SideLaster.tsx'
-import { SanityRikTekst } from '../sanity/SanityRikTekst.tsx'
-import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { Button, VStack } from '@navikt/ds-react'
+import { SideLaster } from '../SideLaster.tsx'
 import { HarIkkeOMSSakIGjenny as HarIkkeOMSSakIGjennyInnhold } from '../sanity.types.ts'
+import { SanityRikTekst } from '../sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 export const HarIkkeOMSSakIGjenny = ({ skjemaNavn }: { skjemaNavn: 'inntektsjustering' | 'meld-inn-endring' }) => {
     const spraak = useSpraak()

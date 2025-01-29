@@ -1,15 +1,15 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
 import { HStack, VStack } from '@navikt/ds-react'
+import { ReactNode, createContext, useContext, useState } from 'react'
 import useSWR, { SWRResponse } from 'swr'
+import { SideLaster } from '../../../common/SideLaster.tsx'
+import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
+import { ApiError, apiURL } from '../../../common/api/api.ts'
+import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
+import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
 import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.ts'
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
-import { ApiError, apiURL } from '../../../common/api/api.ts'
-import { SideLaster } from '../../../common/SideLaster.tsx'
-import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
-import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
 import { finnAlder } from '../../2-inntekt-til-neste-aar/finnAlder.ts'
 import { IkkeGyldigAlder } from '../ikkeGyldigAlder/IkkeGyldigAlder.tsx'
-import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
 
 interface InntektDispatcher {
     setInntekt: (inntekt: Inntekt) => void

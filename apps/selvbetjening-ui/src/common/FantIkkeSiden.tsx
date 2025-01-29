@@ -1,10 +1,10 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from './spraakVelger/SpraakVelger.tsx'
-import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
-import { FantIkkeSiden as FantIkkeSidenInnhold } from './sanity.types.ts'
-import { useSpraak } from './spraak/SpraakContext.tsx'
-import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { SideLaster } from './SideLaster.tsx'
+import { FantIkkeSiden as FantIkkeSidenInnhold } from './sanity.types.ts'
+import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { useSpraak } from './spraak/SpraakContext.tsx'
+import { SpraakVelger } from './spraakVelger/SpraakVelger.tsx'
 
 export const FantIkkeSiden = () => {
     const spraak = useSpraak()

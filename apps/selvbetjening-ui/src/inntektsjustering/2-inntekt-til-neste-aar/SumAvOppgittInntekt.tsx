@@ -1,8 +1,8 @@
-import { Box, Heading, VStack } from '@navikt/ds-react'
 import { EqualsIcon } from '@navikt/aksel-icons'
+import { Box, Heading, VStack } from '@navikt/ds-react'
+import { ReactNode } from 'react'
 import { Inntekt } from '../../types/inntektsjustering.ts'
 import { Alder } from '../../types/person.ts'
-import { ReactNode } from 'react'
 
 export const SumAvOppgittInntekt = ({
     inntektTilNesteAar,

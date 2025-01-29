@@ -1,9 +1,9 @@
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
-import { KomponentLaster } from '../../common/KomponentLaster.tsx'
 import { Alert, Heading, VStack } from '@navikt/ds-react'
+import { KomponentLaster } from '../../common/KomponentLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
 
 export const InformasjonOmAnnet = () => {
     const spraak = useSpraak()

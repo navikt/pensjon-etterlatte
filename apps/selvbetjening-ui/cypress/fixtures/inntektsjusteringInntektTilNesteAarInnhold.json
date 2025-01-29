@@ -33,9 +33,7 @@
                     {
                       "_key": "5285aab775ec",
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt frem til omstillingsstønaden tar slutt:"
                     }
                   ],
@@ -95,9 +93,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt frem til omstillingsstønaden tar slutt:",
                       "_key": "9ddda9fcfcdc"
                     }
@@ -130,9 +126,7 @@
                     {
                       "_key": "f766f4c719af",
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt til neste år"
                     }
                   ],
@@ -189,9 +183,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt til neste år",
                       "_key": "46c90f086ca8"
                     }
@@ -484,9 +476,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Næringsinntekt",
                       "_key": "5157e38bb26b"
                     }
@@ -1748,9 +1738,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Næringsinntekt",
                       "_key": "e41f6e5db74f"
                     }
@@ -1950,9 +1938,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt frem til omstillingsstønaden tar slutt:",
                       "_key": "f3fe52aabc24"
                     }
@@ -1979,9 +1965,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt frem til omstillingsstønaden tar slutt:",
                       "_key": "ea33802fb5ba"
                     }
@@ -2015,9 +1999,7 @@
                       "text": "Din inntekt frem til omstillingsstønaden tar slutt:",
                       "_key": "deae07947161",
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ]
+                      "marks": ["strong"]
                     }
                   ],
                   "_type": "block",
@@ -2045,9 +2027,7 @@
                   "markDefs": [],
                   "children": [
                     {
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt til neste år",
                       "_key": "f1f7800e6364",
                       "_type": "span"
@@ -2079,9 +2059,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt til neste år",
                       "_key": "ec10d1f90999"
                     }
@@ -2111,9 +2089,7 @@
                   "markDefs": [],
                   "children": [
                     {
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Din inntekt frem til omstillingsstønaden tar slutt:",
                       "_key": "c2a6d4868988",
                       "_type": "span"
@@ -3366,9 +3342,7 @@
                 {
                   "_key": "5e9c663daad2",
                   "_type": "span",
-                  "marks": [
-                    "strong"
-                  ],
+                  "marks": ["strong"],
                   "text": "Din inntekt til neste år\n"
                 },
                 {
@@ -3961,9 +3935,7 @@
                   "children": [
                     {
                       "_type": "span",
-                      "marks": [
-                        "strong"
-                      ],
+                      "marks": ["strong"],
                       "text": "Næringsinntekt",
                       "_key": "a6accb8d6ceb"
                     }

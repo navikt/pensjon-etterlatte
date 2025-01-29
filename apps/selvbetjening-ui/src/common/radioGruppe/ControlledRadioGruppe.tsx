@@ -1,6 +1,6 @@
-import { Control, Controller, FieldValues, Path } from 'react-hook-form'
-import { ReactNode } from 'react'
 import { RadioGroup } from '@navikt/ds-react'
+import { ReactNode } from 'react'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 
 interface Props<T extends FieldValues> {
     name: Path<T>

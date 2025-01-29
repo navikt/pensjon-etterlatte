@@ -1,8 +1,8 @@
-import { FieldErrors, FieldValues } from 'react-hook-form'
-import { useSpraak } from '../spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
-import { SammendragAvSkjemaFeil as SammendragAvSkjemaFeilInnhold } from '../sanity.types.ts'
 import { ErrorSummary } from '@navikt/ds-react'
+import { FieldErrors, FieldValues } from 'react-hook-form'
+import { SammendragAvSkjemaFeil as SammendragAvSkjemaFeilInnhold } from '../sanity.types.ts'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { formaterFieldErrors } from './skjemaError.ts'
 
 interface Props<T extends FieldValues> {

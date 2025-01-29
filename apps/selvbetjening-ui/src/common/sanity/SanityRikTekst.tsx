@@ -1,5 +1,5 @@
-import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { Heading, Link, List } from '@navikt/ds-react'
+import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 interface PortableTextBlock {
     children?: Array<{

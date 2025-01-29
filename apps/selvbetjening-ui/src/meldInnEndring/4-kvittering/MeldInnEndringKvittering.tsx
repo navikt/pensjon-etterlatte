@@ -1,11 +1,11 @@
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { MeldInnEndringKvittering as MeldInnEndringKvitteringInnhold } from '../sanity.types.ts'
-import { SideLaster } from '../../common/SideLaster.tsx'
-import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
-import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { Alert, Button, HStack, Heading, VStack } from '@navikt/ds-react'
+import { SideLaster } from '../../common/SideLaster.tsx'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { MeldInnEndringKvittering as MeldInnEndringKvitteringInnhold } from '../sanity.types.ts'
 
 export const MeldInnEndringKvittering = () => {
     const spraak = useSpraak()

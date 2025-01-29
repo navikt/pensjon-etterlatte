@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { hentSpraakFraLocalStorage, lagreSpraakILocalStorage } from './localStorage.ts'
 import { Spraak } from './spraak.ts'
 

@@ -1,5 +1,5 @@
-import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { Spraak } from '../../common/spraak/spraak.ts'
+import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
 import { InntektsjusteringOppsummering } from '../sanity.types.ts'
 
 export const velgTekstForSkalGaaAvMedAlderspensjon = (

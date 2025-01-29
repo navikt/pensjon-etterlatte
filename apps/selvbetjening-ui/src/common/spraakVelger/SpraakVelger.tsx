@@ -1,8 +1,8 @@
-import { Spraak } from '../spraak/spraak.ts'
 import { Select } from '@navikt/ds-react'
-import { useSpraak, useSpraakDispatch } from '../spraak/SpraakContext.tsx'
-import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { SpraakVelger as SpraakVelgerInnhold } from '../sanity.types.ts'
+import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { useSpraak, useSpraakDispatch } from '../spraak/SpraakContext.tsx'
+import { Spraak } from '../spraak/spraak.ts'
 
 export const SpraakVelger = () => {
     const spraak = useSpraak()

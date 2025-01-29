@@ -1,11 +1,11 @@
-import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
-import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
-import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
-import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../sanity.types.ts'
-import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
-import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { Alert, Button, HStack, Heading, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../../common/SideLaster.tsx'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
+import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
+import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
+import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { InntektsjusteringKvittering as InntektsjusteringKvitteringInnhold } from '../sanity.types.ts'
 import './index.css'
 
 export const InntektsjusteringKvittering = () => {

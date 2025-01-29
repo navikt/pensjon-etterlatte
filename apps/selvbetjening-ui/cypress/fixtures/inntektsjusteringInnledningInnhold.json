@@ -56,9 +56,7 @@
             },
             {
               "_type": "span",
-              "marks": [
-                "b2f6ad9af09d"
-              ],
+              "marks": ["b2f6ad9af09d"],
               "text": "sende oss en melding.",
               "_key": "755bffe2d812"
             }

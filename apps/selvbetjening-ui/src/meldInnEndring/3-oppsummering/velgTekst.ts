@@ -1,6 +1,6 @@
+import { Spraak } from '../../common/spraak/spraak.ts'
 import { Endring } from '../../types/meldInnEndring.ts'
 import { MeldInnEndringOppsummering } from '../sanity.types.ts'
-import { Spraak } from '../../common/spraak/spraak.ts'
 
 export const velgTekstForEndring = (
     endring: Endring | undefined,

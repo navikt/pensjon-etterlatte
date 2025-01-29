@@ -1,10 +1,10 @@
+import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { Button, VStack } from '@navikt/ds-react'
-import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
-import { IkkeGyldigForAaMeldeInnInntekt } from '../../sanity.types.ts'
-import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
-import { ArrowRightIcon } from '@navikt/aksel-icons'
+import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
+import { useSpraak } from '../../../common/spraak/SpraakContext.tsx'
+import { IkkeGyldigForAaMeldeInnInntekt } from '../../sanity.types.ts'
 
 export const IkkeGyldigAlder = () => {
     const spraak = useSpraak()

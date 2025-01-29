@@ -1,13 +1,13 @@
-import { meldInnEndringDefaultValues, MeldtInnEndring } from '../../../types/meldInnEndring.ts'
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { logEvent } from '@amplitude/analytics-browser'
+import { HStack, VStack } from '@navikt/ds-react'
+import { ReactNode, createContext, useContext, useState } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { SideLaster } from '../../../common/SideLaster.tsx'
 import { LogEvents } from '../../../common/amplitude/useAmplitude.ts'
-import { HStack, VStack } from '@navikt/ds-react'
-import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
+import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
-import { logEvent } from '@amplitude/analytics-browser'
+import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
+import { MeldtInnEndring, meldInnEndringDefaultValues } from '../../../types/meldInnEndring.ts'
 
 interface MeldInnEndringDispatcher {
     setMeldInnEndring: (meldInnEndring: MeldtInnEndring) => void
