@@ -1,5 +1,5 @@
 cd ./apps/etterlatte-node-server && npx lint-staged
-cd ../barnepensjon-ui && yarn biome format --write && yarn biome lint --write
+cd ../barnepensjon-ui && yarn biome lint --write
 cd ../omstillingsstoenad-ui && npx lint-staged
 cd ../selvbetjening-ui && yarn biome format --write && yarn biome lint --write
 changedKotlinFiles=$(git diff --name-only --cached | grep '\.kt[s"]\?$' || true)
