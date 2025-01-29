@@ -24,7 +24,6 @@
 				"noUselessTypeConstraint": "error"
 			},
 			"correctness": {
-				"noChildrenProp": "error",
 				"noConstAssign": "off",
 				"noGlobalObjectCalls": "off",
 				"noInvalidBuiltinInstantiation": "off",
