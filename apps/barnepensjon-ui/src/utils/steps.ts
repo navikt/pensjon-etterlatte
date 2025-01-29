@@ -1,38 +1,40 @@
-import AboutYou from '../components/application/about-you/AboutYou'
-import AboutChildren from '../components/application/about-children/AboutChildren'
-import Summary from '../components/application/summary/Summary'
-import AboutParents from '../components/application/about-parents/AboutParents'
-import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
+import AboutYou from "../components/application/about-you/AboutYou";
+import AboutChildren from "../components/application/about-children/AboutChildren";
+import Summary from "../components/application/summary/Summary";
+import AboutParents from "../components/application/about-parents/AboutParents";
+import AboutTheDeceasedParentStep from "../components/application/the-deceased/AboutTheDeceasedParentStep";
+import { StepProps } from "~components/application/Dialogue";
+import { ReactNode } from "react";
 
 export enum StepLabelKey {
-    AboutYou = 'AboutYou',
-    AboutYouGuardian = 'AboutYouGuardian',
-    AboutTheParents = 'AboutTheParents',
-    AboutTheDeceased = 'AboutTheDeceased',
-    YourSituation = 'YourSituation',
-    AboutChildren = 'AboutChildren',
-    Summary = 'Summary',
+    AboutYou = "AboutYou",
+    AboutYouGuardian = "AboutYouGuardian",
+    AboutTheParents = "AboutTheParents",
+    AboutTheDeceased = "AboutTheDeceased",
+    YourSituation = "YourSituation",
+    AboutChildren = "AboutChildren",
+    Summary = "Summary",
 }
 
 export enum StepPath {
-    AboutYou = 'steg/om-deg',
-    AboutTheParents = 'steg/om-foreldrene',
-    AboutTheDeceased = 'steg/om-avdoede',
-    YourSituation = 'steg/din-situasjon',
-    AboutChildren = 'steg/om-barn',
-    Summary = 'steg/oppsummering',
+    AboutYou = "steg/om-deg",
+    AboutTheParents = "steg/om-foreldrene",
+    AboutTheDeceased = "steg/om-avdoede",
+    YourSituation = "steg/din-situasjon",
+    AboutChildren = "steg/om-barn",
+    Summary = "steg/oppsummering",
 }
 
 export enum StepPrefix {
-    GUARDIAN = 'verge',
-    Parent = 'forelder',
-    Child = 'barn',
+    GUARDIAN = "verge",
+    Parent = "forelder",
+    Child = "barn",
 }
 
 export interface StepType {
-    label: StepLabelKey
-    path: StepPath
-    element: any
+    label: StepLabelKey;
+    path: StepPath;
+    element: ({ next }: StepProps) => ReactNode;
 }
 
 /**
@@ -61,7 +63,7 @@ export const ParentApplicantSteps: StepType[] = [
         path: StepPath.Summary,
         element: Summary,
     },
-]
+];
 
 /**
  * Verge som søker på vegne av et eller flere barn under 18 år.
@@ -89,7 +91,7 @@ export const GuardianApplicantSteps: StepType[] = [
         path: StepPath.Summary,
         element: Summary,
     },
-]
+];
 
 /**
  * Barnet er 18-20 år og søker selv.
@@ -112,4 +114,4 @@ export const ChildApplicantSteps: StepType[] = [
         path: StepPath.Summary,
         element: Summary,
     },
-]
+];
