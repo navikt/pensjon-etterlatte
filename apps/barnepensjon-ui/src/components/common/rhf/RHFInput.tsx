@@ -4,25 +4,13 @@ import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
 import { get } from 'lodash'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { fnr } from '@navikt/fnrvalidator'
-import {
-    kontonrMatcher,
-    partialKontonrMatcher,
-    partialProsentMatcher,
-    prosentMatcher,
-    telefonnrMatcher,
-} from '../../../utils/matchers'
+import { kontonrMatcher, partialKontonrMatcher, telefonnrMatcher } from '../../../utils/matchers'
 import useTranslation from '../../../hooks/useTranslation'
 import { getErrorKey } from '../../../utils/errors'
 import { isValidBIC, isValidIBAN } from 'ibantools'
-import { Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
+import { TextField, TextFieldProps } from '@navikt/ds-react'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
-    name: FieldPath<FieldValues>
-    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
-    valgfri?: boolean
-}
-
-interface RHFInputAreaProps extends Omit<TextareaProps, 'name'> {
     name: FieldPath<FieldValues>
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
     valgfri?: boolean
@@ -50,48 +38,7 @@ export const RHFInput = ({ name, rules, valgfri, ...rest }: RHFProps) => {
     )
 }
 
-export const RHFInputArea = ({ name, rules, className, valgfri, description, ...rest }: RHFInputAreaProps) => {
-    const { t } = useTranslation()
-    const {
-        control,
-        formState: { errors },
-    } = useFormContext()
-
-    const error: FieldError = get(errors, name) as FieldError
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
-
-    const i18nLocale = {
-        counterLeft: t('counterLeft', { ns: 'common' }),
-        counterTooMuch: t('counterTooMuch', { ns: 'common' }),
-    }
-
-    return (
-        <Controller
-            name={name}
-            control={control}
-            rules={{ required: !valgfri, ...rules }}
-            render={({ field: { value, onChange } }) => (
-                <div className={className}>
-                    <Textarea
-                        id={name}
-                        value={value || ''}
-                        onChange={onChange}
-                        error={feilmelding}
-                        {...rest}
-                        i18n={i18nLocale}
-                        description={
-                            description
-                                ? `${description}\n\n${t('noSensitiveData', { ns: 'common' })}`
-                                : t('noSensitiveData', { ns: 'common' })
-                        }
-                    />
-                </div>
-            )}
-        />
-    )
-}
-
-const match = (value: any, matcher: RegExp, separator: string) => {
+const match = (value: string, matcher: RegExp, separator: string) => {
     const match = value.match(matcher)
 
     if (!!match) {
@@ -133,67 +80,6 @@ export const RHFKontonummerInput = ({ name, rules, ...rest }: RHFProps) => {
                     id={name}
                     value={value || ''}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(format(e, partialKontonrMatcher, '.'))}
-                    error={feilmelding}
-                    {...rest}
-                    inputMode="numeric"
-                />
-            )}
-        />
-    )
-}
-
-export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
-    const { t } = useTranslation('error')
-    const {
-        control,
-        formState: { errors },
-    } = useFormContext()
-
-    const error: FieldError = get(errors, name) as FieldError
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
-
-    return (
-        <Controller
-            name={name}
-            control={control}
-            rules={{ required: !valgfri, pattern: /^\d[0-9\s]*$/ }}
-            render={({ field: { value, onChange } }) => (
-                <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
-            )}
-        />
-    )
-}
-
-export const RHFProsentInput = ({ name, rules, ...rest }: RHFProps) => {
-    const { t } = useTranslation('error')
-    const {
-        control,
-        formState: { errors },
-    } = useFormContext()
-
-    const error: FieldError = get(errors, name) as FieldError
-    const feilmelding = !!error ? t(getErrorKey(error)) : undefined
-    const maxLength = 4
-
-    const isValid = (e: ChangeEvent<HTMLInputElement>): boolean => {
-        return (
-            e.target.value === '' ||
-            (partialProsentMatcher.test(e.target.value) && (!maxLength || e.target.value.length <= maxLength))
-        )
-    }
-
-    return (
-        <Controller
-            name={name}
-            control={control}
-            rules={{ required: true, pattern: prosentMatcher, ...rules }}
-            render={({ field: { value, onChange } }) => (
-                <TextField
-                    id={name}
-                    value={value || ''}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                        if (isValid(e)) onChange(e)
-                    }}
                     error={feilmelding}
                     {...rest}
                     inputMode="numeric"

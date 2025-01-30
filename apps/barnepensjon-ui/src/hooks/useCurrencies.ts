@@ -6,8 +6,8 @@ interface useCurrencies {
     currencies: options[]
 }
 
-interface options {
-    label?: string | undefined
+export interface options {
+    label: string
     value: string
 }
 

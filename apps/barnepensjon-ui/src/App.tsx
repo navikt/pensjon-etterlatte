@@ -16,8 +16,8 @@ import useScrollToTop from './hooks/useScrollToTop'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import useTranslation from './hooks/useTranslation'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
-import { Page } from "@navikt/ds-react";
-import ErrorBoundary from "~ErrorBoundary";
+import { Page } from '@navikt/ds-react'
+import ErrorBoundary from '~ErrorBoundary'
 
 const SoeknadWrapper = styled(Page.Block)`
     @media screen and (max-width: 650px) {
@@ -45,41 +45,41 @@ export default function App() {
     return (
         <ErrorBoundary>
             <>
-            <Banner tekst={t('applicationTitle')} />
-            <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
-            <ContinueApplicationModal />
-            <Page>
-                <SoeknadWrapper>
-                    <Routes>
-                        <Route index element={<FrontPage />} />
+                <Banner tekst={t('applicationTitle')} />
+                <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
+                <ContinueApplicationModal />
+                <Page>
+                    <SoeknadWrapper>
+                        <Routes>
+                            <Route index element={<FrontPage />} />
 
-                        <Route path="/skjema" element={<Outlet />}>
-                            <Route
-                                path={`${StepPrefix.GUARDIAN}/*`}
-                                element={<Dialogue steps={GuardianApplicantSteps} pathPrefix={'/skjema/verge/'} />}
-                            />
-                            <Route
-                                path={`${StepPrefix.Child}/*`}
-                                element={<Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />}
-                            />
-                            <Route
-                                path={`${StepPrefix.Parent}/*`}
-                                element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
-                            />
+                            <Route path="/skjema" element={<Outlet />}>
+                                <Route
+                                    path={`${StepPrefix.GUARDIAN}/*`}
+                                    element={<Dialogue steps={GuardianApplicantSteps} pathPrefix={'/skjema/verge/'} />}
+                                />
+                                <Route
+                                    path={`${StepPrefix.Child}/*`}
+                                    element={<Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />}
+                                />
+                                <Route
+                                    path={`${StepPrefix.Parent}/*`}
+                                    element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
+                                />
 
-                            <Route path="admin" element={<Admin />} />
+                                <Route path="admin" element={<Admin />} />
 
-                            <Route path="kvittering" element={<ReceiptPage />} />
-                        </Route>
+                                <Route path="kvittering" element={<ReceiptPage />} />
+                            </Route>
 
-                        <Route path={'/ugyldig-soeker'} element={<InvalidApplicant />} />
+                            <Route path={'/ugyldig-soeker'} element={<InvalidApplicant />} />
 
-                        <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
+                            <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 
-                        <Route path="*" element={<PageNotFound />} />
-                    </Routes>
-                </SoeknadWrapper>
-            </Page>
+                            <Route path="*" element={<PageNotFound />} />
+                        </Routes>
+                    </SoeknadWrapper>
+                </Page>
             </>
         </ErrorBoundary>
     )

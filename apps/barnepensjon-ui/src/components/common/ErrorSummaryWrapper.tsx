@@ -10,10 +10,13 @@ interface Error {
     message: string
 }
 
-const getFieldErrors = (obj: FieldErrors): FieldError[] => {
-    return Object.values(obj).flatMap((value?: any) => {
-        if (!value) return undefined
-        if ((value as FieldError)?.type && typeof value.type !== 'object') return value
+const getFieldErrors = (obj: FieldErrors): Array<FieldError> => {
+    return Object.values(obj).flatMap((value?: unknown) => {
+        if (!value) return []
+
+        const mabyFieldError = value as FieldError
+
+        if (mabyFieldError.type && typeof mabyFieldError.type !== 'object') return mabyFieldError
         else return getFieldErrors(value)
     })
 }

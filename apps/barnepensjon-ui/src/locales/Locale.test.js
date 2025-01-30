@@ -40,19 +40,18 @@ describe('Validering av språkfiler', () => {
         Object.keys(nbLocale).forEach((nokkel) => {
             expect(finnesTommeVerdier(nbLocale[nokkel])).toBeFalsy()
         })
-
     })
 
     it('Nynorsk har ingen tomme verdier', () => {
-      Object.keys(nnLocale).forEach((nokkel) => {
-        expect(finnesTommeVerdier(nnLocale[nokkel])).toBeFalsy()
-      })
+        Object.keys(nnLocale).forEach((nokkel) => {
+            expect(finnesTommeVerdier(nnLocale[nokkel])).toBeFalsy()
+        })
     })
 
     it('Engelsk har ingen tomme verdier', () => {
-      Object.keys(enLocale).forEach((nokkel) => {
-        expect(finnesTommeVerdier(enLocale[nokkel])).toBeFalsy()
-      })
+        Object.keys(enLocale).forEach((nokkel) => {
+            expect(finnesTommeVerdier(enLocale[nokkel])).toBeFalsy()
+        })
     })
 
     function finnesTommeVerdier(locale) {

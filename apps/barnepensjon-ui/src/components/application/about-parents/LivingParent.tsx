@@ -1,5 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { ILivingParent } from '~context/application/application'
+import { IDeceasedParent, ILivingParent, IParent } from '~context/application/application'
 import { useApplicationContext } from '~context/application/ApplicationContext'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
@@ -33,7 +33,7 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
         )
     }
 
-    const methods = useForm<any>({
+    const methods = useForm<IParent | IDeceasedParent>({
         defaultValues: { ...state.firstParent },
         shouldUnregister: true,
     })

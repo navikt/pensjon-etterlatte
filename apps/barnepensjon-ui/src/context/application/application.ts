@@ -40,6 +40,7 @@ export enum ActionTypes {
 
 export interface IApplicationAction {
     type: ActionTypes
+    // biome-ignore lint/suspicious/noExplicitAny: disabler nå for å få det til å funke
     payload?: any
 }
 

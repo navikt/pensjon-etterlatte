@@ -3,6 +3,8 @@ import AboutChildren from '../components/application/about-children/AboutChildre
 import Summary from '../components/application/summary/Summary'
 import AboutParents from '../components/application/about-parents/AboutParents'
 import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
+import { StepProps } from '~components/application/Dialogue'
+import { ReactNode } from 'react'
 
 export enum StepLabelKey {
     AboutYou = 'AboutYou',
@@ -32,7 +34,7 @@ export enum StepPrefix {
 export interface StepType {
     label: StepLabelKey
     path: StepPath
-    element: any
+    element: ({ next }: StepProps) => ReactNode
 }
 
 /**

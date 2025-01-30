@@ -32,7 +32,7 @@ const parseDateMaxMin = (dato: Date | string) => {
     else return parseISO(dato.toISOString())
 }
 
-const isValid = (date: any): boolean => !!formatDate(date)
+const isValid = (date: Date | string): boolean => !!formatDate(date)
 
 const Datepicker = ({
     name,
@@ -67,7 +67,7 @@ const Datepicker = ({
                 defaultValue={undefined}
                 rules={{
                     required: !valgfri,
-                    validate: (date: any) => !date || isValid(date),
+                    validate: (date: Date | string) => !date || isValid(date),
                 }}
                 render={({ field: { onChange, value } }) => {
                     const { datepickerProps, inputProps } = useDatepicker({

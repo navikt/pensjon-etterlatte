@@ -12,9 +12,8 @@ const TextGroupDiv = styled.div`
     }
 `
 
-const stringify = (content?: any) => {
+const stringify = (content?: string | undefined) => {
     if (!content) return ''
-    else if (typeof content !== 'string') return content.toString()
     else {
         const textWithDate = content.match(/\d{4}-\d{2}-\d{2}/)
         if (!!textWithDate?.length) {
@@ -28,7 +27,7 @@ const stringify = (content?: any) => {
 interface TextGroupProps {
     id?: string
     title: string
-    content?: any
+    content?: string | undefined
 }
 
 export const TextGroup = ({ id, title, content }: TextGroupProps) => {

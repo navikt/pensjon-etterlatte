@@ -13,12 +13,13 @@ import { DeleteFilled } from '@navikt/ds-icons'
 import FormElement from '../../common/FormElement'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 import { Options } from '~hooks/useCountries'
+import { options } from '~hooks/useCurrencies'
 
-export default function StaysAbroad({ countries, currencies }: { countries: Options[]; currencies: any }) {
+export default function StaysAbroad({ countries, currencies }: { countries: Options[]; currencies: options[] }) {
     const { t } = useTranslation('aboutTheDeceased')
     const { control, watch } = useFormContext<IDeceasedParent>()
 
-    const { fields, append, remove } = useFieldArray<any>({
+    const { fields, append, remove } = useFieldArray({
         control,
         name: 'staysAbroad.abroadStays',
         shouldUnregister: true,
@@ -26,7 +27,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
 
     useEffect(() => {
         if (fields.length === 0) {
-            append({})
+            append(Object.create({}))
         }
     })
 
@@ -137,7 +138,11 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                     </Box>
                 </FormElement>
             ))}
-            <Button variant={'secondary'} type={'button'} onClick={() => append({}, { shouldFocus: true })}>
+            <Button
+                variant={'secondary'}
+                type={'button'}
+                onClick={() => append(Object.create({}), { shouldFocus: true })}
+            >
                 {t('addCountryButton')}
             </Button>
         </>

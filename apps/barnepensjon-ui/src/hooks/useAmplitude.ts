@@ -31,7 +31,7 @@ const getAmplitudeKey = () => {
 
 export const useAmplitude = () => {
     const location = useLocation()
-    const [prevLocation, setPrevLocation] = useState<any>(location)
+    const [prevLocation, setPrevLocation] = useState(location)
 
     useEffect(() => {
         amplitude.init(getAmplitudeKey(), '', {
@@ -59,7 +59,7 @@ export const useAmplitude = () => {
         setPrevLocation(location)
     }, [location])
 
-    const logEvent = (eventName: LogEvents, eventData: any): void => {
+    const logEvent = (eventName: LogEvents, eventData: Record<string, unknown> | undefined): void => {
         setTimeout(() => {
             try {
                 if (amplitude) {

@@ -23,7 +23,7 @@ interface Props {
 export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { t } = useTranslation('aboutTheDeceased')
     const { countries }: { countries: Options[] } = useCountries()
-    const { currencies }: { currencies: any } = useCurrencies()
+    const { currencies } = useCurrencies()
     const { state } = useApplicationContext()
     const { logEvent } = useAmplitude()
 

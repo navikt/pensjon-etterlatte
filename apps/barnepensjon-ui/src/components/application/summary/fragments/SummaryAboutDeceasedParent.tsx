@@ -36,7 +36,7 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                     dateOfBirth={aboutTheParent.dateOfBirth}
                     citizenship={aboutTheParent.citizenship}
                 />
-                <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath} />
+                <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath.toString()} />
                 <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
                 <TextGroupJaNeiVetIkke
                     title={t('didTheDeceasedLiveAbroad')}
@@ -46,9 +46,14 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                     <Panel key={uuid()}>
                         <Tag variant={'neutral-moderate'}>{`Opphold i ${stay.country}`}</Tag>
                         <TextGroup title={t('abroadInWhichCountry')} content={stay.country} />
-                        <TextGroup title={t('livedOrWorkedAbroad')} content={stay.type?.map((item) => ` ${t(item)}`)} />
-                        {stay.toDate && <TextGroup title={t('stayedAbroadToDate')} content={stay.toDate} />}
-                        {stay.fromDate && <TextGroup title={t('stayedAbroadFromDate')} content={stay.fromDate} />}
+                        <TextGroup
+                            title={t('livedOrWorkedAbroad')}
+                            content={stay.type?.map((item) => ` ${t(item)}`).toString()}
+                        />
+                        {stay.toDate && <TextGroup title={t('stayedAbroadToDate')} content={stay.toDate.toString()} />}
+                        {stay.fromDate && (
+                            <TextGroup title={t('stayedAbroadFromDate')} content={stay.fromDate.toString()} />
+                        )}
                         <TextGroupJaNeiVetIkke
                             title={t('deceasedWasMemberOfFolketrygdenAbroad')}
                             content={stay.medlemFolketrygd}

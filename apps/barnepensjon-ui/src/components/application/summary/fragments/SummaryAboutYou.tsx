@@ -57,10 +57,16 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
                         <>
                             <TextGroup title={t('stayedAbroadCountry')} content={aboutYou.stayedAbroadCountry} />
                             {aboutYou.stayedAbroadFromDate && (
-                                <TextGroup title={t('stayedAbroadFromDate')} content={aboutYou.stayedAbroadFromDate} />
+                                <TextGroup
+                                    title={t('stayedAbroadFromDate')}
+                                    content={aboutYou.stayedAbroadFromDate.toString()}
+                                />
                             )}
                             {aboutYou.stayedAbroadToDate && (
-                                <TextGroup title={t('stayedAbroadToDate')} content={aboutYou.stayedAbroadToDate} />
+                                <TextGroup
+                                    title={t('stayedAbroadToDate')}
+                                    content={aboutYou.stayedAbroadToDate.toString()}
+                                />
                             )}
                         </>
                     )}

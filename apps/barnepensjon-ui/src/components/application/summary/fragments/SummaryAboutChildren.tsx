@@ -12,6 +12,7 @@ import PaymentDetailsSummary from './PaymentDetailsSummary'
 import PersonInfoSummary from './PersonInfoSummary'
 import { nameAndFnr } from '../../../../utils/personalia'
 import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
+import { IDeceasedParent, IParent } from '~context/application/application'
 
 interface Props {
     aboutChildren?: IAboutChildren
@@ -19,8 +20,8 @@ interface Props {
     applicationRole?: ApplicantRole
     applicantSituation?: ApplicantSituation
     parents: {
-        firstParent: any
-        secondParent: any
+        firstParent: IParent | IDeceasedParent | undefined
+        secondParent: IParent | IDeceasedParent | undefined
     }
     unknownParent: boolean
 }
@@ -54,7 +55,7 @@ export const SummaryAboutChildren = memo(
                     return t('remainingParent')
                 case ParentRelationType.SECOND_PARENT:
                     if (unknownParent) return t('unknownParent', { ns: 'aboutParents' })
-                    return nameAndFnr(parents.secondParent)
+                    return nameAndFnr(parents.secondParent!)
                 case ParentRelationType.BOTH:
                     if (unknownParent)
                         return t('bothOfTheAbove', {
@@ -62,8 +63,8 @@ export const SummaryAboutChildren = memo(
                             person2: nameAndFnr(parents.firstParent!),
                         })
                     return t('bothOfTheAbove', {
-                        person1: oneParentDeceased ? t('remainingParent') : nameAndFnr(parents.firstParent),
-                        person2: nameAndFnr(parents.secondParent),
+                        person1: oneParentDeceased ? t('remainingParent') : nameAndFnr(parents.firstParent!),
+                        person2: nameAndFnr(parents.secondParent!),
                     })
                 default:
                     throw Error(`Unexpected parent relation: ${child.parents}`)

@@ -3,7 +3,7 @@ import { BankkontoType, BetingetOpplysning, EnumSvar, Opplysning, UtbetalingsInf
 import { Language } from '../../context/language/language'
 
 export enum SoeknadType {
-    BARNEPENSJON = 'BARNEPENSJON'
+    BARNEPENSJON = 'BARNEPENSJON',
 }
 
 export interface SoeknadRequest {

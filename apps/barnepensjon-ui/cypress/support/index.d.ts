@@ -1,4 +1,5 @@
 declare namespace Cypress {
+    // biome-ignore lint/suspicious/noExplicitAny: gamle tester, gidder ikke fikse
     interface Chainable<Subject = any> {
         startApplication(userFixture: string): Chainable<null>
         agreeToTerms(gotoNext?: boolean): Chainable<null>

@@ -1,9 +1,17 @@
 import { EditFilled } from '@navikt/ds-icons'
 import { Accordion } from '@navikt/ds-react'
-import { useState } from 'react'
+import { JSX, ReactElement, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export const AccordionItem = ({ title, children, defaultOpen = false, path, pathText }: any) => {
+interface Props {
+    title: string
+    path: string
+    children: JSX.Element | JSX.Element[] | undefined
+    pathText: string
+    defaultOpen?: boolean
+}
+
+export const AccordionItem = ({ title, children, defaultOpen = false, path, pathText }: Props) => {
     const [open, setOpen] = useState(defaultOpen)
 
     return (

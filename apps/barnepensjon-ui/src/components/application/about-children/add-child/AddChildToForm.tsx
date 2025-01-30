@@ -127,8 +127,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     }
 
     const parents = watch('parents')
-    const fnr: any = watch('fnrDnr')
-    const dateOfBirth: any = watch('dateOfBirth')
+    const fnr = watch('fnrDnr')
+    const dateOfBirth: string | undefined = watch('dateOfBirth')
     const appliesForChildrensPension: boolean | undefined = watch('appliesForChildrensPension')
     const childHasGuardianship = watch('childHasGuardianship.answer')
     const loggedInUserIsGuardian = watch('loggedInUserIsGuardian')
@@ -145,7 +145,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
 
     const childOver18 = () => {
         return (
-            (checkFnr(fnr) && isLegalAge(getAgeFromFoedselsnummer(fnr))) ||
+            (checkFnr(fnr) && isLegalAge(getAgeFromFoedselsnummer(fnr!))) ||
             (dateOfBirth && isLegalAge(getAgeFromDate(dateOfBirth)))
         )
     }

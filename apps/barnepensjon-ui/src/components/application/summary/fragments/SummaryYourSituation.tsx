@@ -25,7 +25,7 @@ export const SummaryYourSituation = memo(({ yourSituation, pathPrefix }: Props) 
             <>
                 <TextGroup
                     title={t('whyDoYouApply')}
-                    content={yourSituation.whyDoYouApply?.map((item) => ` ${t(item)}`)}
+                    content={yourSituation.whyDoYouApply?.map((item) => ` ${t(item)}`).toString()}
                 />
                 <TextGroup
                     title={t('timeUsedForEducation')}

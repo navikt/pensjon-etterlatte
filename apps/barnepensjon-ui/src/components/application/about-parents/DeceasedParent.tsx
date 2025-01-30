@@ -55,7 +55,7 @@ export default function DeceasedParent({ next, prev, type, fnrRegisteredParent }
         )
     }
 
-    const methods = useForm<any>({
+    const methods = useForm<IDeceasedParent>({
         defaultValues: type === ActionTypes.UPDATE_FIRST_PARENT ? { ...state.firstParent } : { ...state.secondParent },
         shouldUnregister: true,
     })

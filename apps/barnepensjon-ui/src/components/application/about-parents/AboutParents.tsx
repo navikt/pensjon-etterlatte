@@ -80,7 +80,7 @@ export default function AboutParents({ next, prev }: StepProps) {
 
     const childAndBothParentsDeceased = isChild && bothParentsDeceased
 
-    const methods = useForm<any>({
+    const methods = useForm({
         defaultValues: { unknownParent: !!state.unknownParent },
         shouldUnregister: true,
     })
