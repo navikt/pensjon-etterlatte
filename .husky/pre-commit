@@ -1,7 +1,7 @@
 cd ./apps/etterlatte-node-server && npx lint-staged
-cd ../barnepensjon-ui && yarn biome lint --write
-cd ../omstillingsstoenad-ui && yarn biome lint --write
-cd ../selvbetjening-ui && yarn biome lint --write
+cd ../barnepensjon-ui && npx biome check --staged --write --no-errors-on-unmatched
+cd ../omstillingsstoenad-ui && npx biome check --staged --write --no-errors-on-unmatched
+cd ../selvbetjening-ui && npx biome check --staged --write --no-errors-on-unmatched
 changedKotlinFiles=$(git diff --name-only --cached | grep '\.kt[s"]\?$' || true)
 
 if [ -n "${changedKotlinFiles-unset}" ]; then

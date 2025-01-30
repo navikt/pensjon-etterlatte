@@ -66,7 +66,6 @@
         "start:node": "cd ../etterlatte-node-server && yarn start:bp",
         "build": "tsc && yarn biome lint && vite build --outDir build --base /barnepensjon/soknad && yarn lisenssjekk",
         "preview": "vite preview --port 5173",
-        "lint": "eslint src --ext .ts,.tsx",
         "test": "vitest",
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
