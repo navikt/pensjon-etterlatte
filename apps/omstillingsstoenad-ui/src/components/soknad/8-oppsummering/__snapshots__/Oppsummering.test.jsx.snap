@@ -971,6 +971,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         <button
           class="navds-button navds-button--tertiary navds-button--medium"
           id="slett-soeknad"
+          style="color: var(--a-surface-danger);"
           type="button"
         >
           <span
