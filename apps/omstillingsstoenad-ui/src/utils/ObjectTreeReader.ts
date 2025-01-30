@@ -79,17 +79,17 @@ export default class ObjectTreeReader {
 
         return newKey.replace(/(.\d+)/g, '')
     }
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     private isDateString = (value: any): boolean => {
         if (typeof value === 'string') return !!value.match(/\d{4}-\d{2}-\d{2}.*/)?.length
         else return false
     }
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     private isTranslationKey = (value: any): boolean => {
         if (typeof value === 'string') return !value.includes('@') && !!value.match(/[a-z]+\.[a-z]+(\.[a-z]+)?/)?.length
         else return false
     }
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     private stringify = (val: any): string => {
         if (this.isDateString(val) || val instanceof Date) return this.dtf.format(new Date(val))
         else if (this.isTranslationKey(val)) return this.t(val)

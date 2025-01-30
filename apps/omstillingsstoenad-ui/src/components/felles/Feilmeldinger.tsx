@@ -12,6 +12,7 @@ interface Feil {
 }
 
 const getFieldErrors = (obj: FieldErrors): FieldError[] => {
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     return Object.values(obj).flatMap((value?: any) => {
         if (!value) return undefined
         if ((value as FieldError)?.type && typeof value.type !== 'object') return value

@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { ActionTypes } from '../context/soknad/soknad'
 import { useSoknadContext } from '../context/soknad/SoknadContext'
 
-let timer: any = null
+let timer: NodeJS.Timeout
+
 export const useError = () => {
     const [message, setMessage] = useState<null | string>(null)
     const { dispatch } = useSoknadContext()

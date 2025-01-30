@@ -21,6 +21,7 @@ const getAmplitudeKey = () => {
 
 export const useAmplitude = () => {
     const location = useLocation()
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const [prevLocation, setPrevLocation] = useState<any>(location)
 
     useEffect(() => {
@@ -48,7 +49,7 @@ export const useAmplitude = () => {
         }
         setPrevLocation(location)
     }, [location])
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const logEvent = (eventName: LogEvents, eventData: any): void => {
         setTimeout(() => {
             try {

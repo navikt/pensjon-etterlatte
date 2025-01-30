@@ -10,6 +10,7 @@ const Selvstendig = () => {
     const { t } = useTranslation()
     const { control, getValues, setValue } = useFormContext()
 
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { fields, append } = useFieldArray<any>({
         control,
         name: 'selvstendig',
@@ -23,6 +24,7 @@ const Selvstendig = () => {
     })
 
     const fjern = (index: number) => {
+        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
         const fjernFraListeBasertPaaIndex = getValues('selvstendig').filter((_: any, i: number) => i !== index)
         setValue('selvstendig', fjernFraListeBasertPaaIndex)
     }

@@ -9,14 +9,7 @@ const dtf = Intl.DateTimeFormat('no-NO', {
     year: 'numeric',
 })
 
-/*
-* const stringify = (innhold?: any) => {
-    if (!innhold) return ''
-    else if (typeof innhold !== 'string') return innhold.toString()
-    else return innhold
-}
-* */
-
+// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 const stringify = (content?: any) => {
     if (!content) return ''
     else if (typeof content !== 'string') return content.toString()
@@ -31,6 +24,7 @@ const stringify = (content?: any) => {
 
 interface TekstGruppeProps {
     tittel: string
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     innhold?: any
     id?: string
 }

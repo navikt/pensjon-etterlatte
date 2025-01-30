@@ -10,7 +10,7 @@ const Arbeidstaker = () => {
     const { t } = useTranslation()
 
     const { control, setValue, getValues } = useFormContext()
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { fields, append } = useFieldArray<any>({
         control,
         name: 'arbeidsforhold',
@@ -30,6 +30,7 @@ const Arbeidstaker = () => {
     }
 
     const fjernArbeidsforhold = (index: number) => {
+        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
         const fjernFraListeBasertPaaIndex = getValues('arbeidsforhold').filter((_: any, i: number) => i !== index)
         setValue('arbeidsforhold', fjernFraListeBasertPaaIndex)
     }

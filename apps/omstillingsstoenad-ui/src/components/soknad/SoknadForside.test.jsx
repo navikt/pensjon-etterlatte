@@ -2,15 +2,15 @@ import { act, fireEvent, render, screen } from '@testing-library/react'
 import SoknadForside from './SoknadForside'
 import { SoknadProvider } from '../../context/soknad/SoknadContext'
 import { describe, it, vi } from 'vitest'
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom'
 
-import * as chai from "chai";
+import * as chai from 'chai'
 
-chai.use(require("chai-dom"));
-var expect = chai.expect;
+chai.use(require('chai-dom'))
+const expect = chai.expect
 
 vi.mock('react-i18next', async () => ({
-    ...await vi.importActual('react-i18next'),
+    ...(await vi.importActual('react-i18next')),
     useTranslation: () => ({ t: vi.fn((key) => key) }),
 }))
 
@@ -26,7 +26,7 @@ vi.mock('../../context/bruker/BrukerContext', () => ({
 }))
 
 vi.mock('react-router', async () => ({
-    ...await vi.importActual('react-router'),
+    ...(await vi.importActual('react-router')),
     useLocation: vi.fn().mockImplementation(() => {
         return {
             pathname: '/testroute',
@@ -39,7 +39,7 @@ vi.mock('react-router', async () => ({
 
 const mockedUsedNavigate = vi.fn()
 vi.mock('react-router-dom', async () => ({
-    ...await vi.importActual('react-router-dom'),
+    ...(await vi.importActual('react-router-dom')),
     useNavigate: () => mockedUsedNavigate,
 }))
 
@@ -76,7 +76,7 @@ afterEach(() => {
 describe('Samtykke', () => {
     it('Knapp vises ikke hvis samtykke mangler', async () => {
         const bekreftSjekkboks = await screen.findByText('forside.samtykke.bekreftelse')
-        expect(bekreftSjekkboks).to.be.visible;
+        expect(bekreftSjekkboks).to.be.visible
 
         const startKnapp = screen.queryByText('forside.startSoeknad')
         expect(startKnapp).toBeNull()
@@ -84,14 +84,14 @@ describe('Samtykke', () => {
 
     it('Knapp vises hvis samtykke er huket av', async () => {
         const bekreftSjekkboks = await screen.findByLabelText('forside.samtykke.bekreftelse')
-        expect(bekreftSjekkboks).to.be.visible;
+        expect(bekreftSjekkboks).to.be.visible
 
         await act(async () => {
             fireEvent.click(bekreftSjekkboks)
         })
-        expect(bekreftSjekkboks).to.be.checked;
+        expect(bekreftSjekkboks).to.be.checked
 
         const startKnapp = await screen.findByText('forside.startSoeknad')
-        expect(startKnapp).to.be.visible;
+        expect(startKnapp).to.be.visible
     })
 })

@@ -94,7 +94,7 @@ export const RHFInputArea = ({ name, rules, className, valgfri, description, ...
     )
 }
 
-const match = (value: any, matcher: RegExp, separator: string) => {
+const match = (value: string, matcher: RegExp, separator: string) => {
     const match = value.match(matcher)
 
     if (!!match) {

@@ -15,8 +15,9 @@ import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { allCountries }: { allCountries: any } = useCountries()
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { valutaer }: { valutaer: any } = useValutaer()
 
     const { watch } = useFormContext<IInntekt>()
