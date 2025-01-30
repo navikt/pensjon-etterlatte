@@ -1,15 +1,13 @@
-import React, { ErrorInfo, ReactNode } from 'react'
-import { logger } from '~utils/logger'
-import ErrorStackParser from 'error-stack-parser'
-import styled from 'styled-components'
 import { Alert } from '@navikt/ds-react'
+import ErrorStackParser from 'error-stack-parser'
+import React, { ErrorInfo, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { logger } from '~utils/logger'
 
 type Props = {
     children: React.JSX.Element
 }
-
-var lol: any = 'noe'
 
 class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
     constructor(props: Props) {
