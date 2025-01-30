@@ -9,12 +9,13 @@ type Props = {
     children: React.JSX.Element
 }
 
+var lol: any = 'noe'
+
 class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
     constructor(props: Props) {
         super(props)
         this.state = { hasError: false }
     }
-
     static getDerivedStateFromError() {
         return { hasError: true }
     }
