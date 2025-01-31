@@ -1,5 +1,5 @@
-import { FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
-import { useState } from 'react'
+import { BodyLong, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { apiURL, poster } from '../../common/api/api.ts'
@@ -18,7 +18,7 @@ export const MeldInnEndringOppsummering = () => {
     const navigate = useNavigate()
 
     const spraak = useSpraak()
-    const meldInnInntext = useMeldInnEndring()
+    const meldInnEndring = useMeldInnEndring()
 
     const [laster, setLaster] = useState<boolean>(false)
     const [apiFeil, setApiFeil] = useState<boolean>(false)
@@ -36,11 +36,15 @@ export const MeldInnEndringOppsummering = () => {
         throw innholdError
     }
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    }, [])
+
     const sendInnEndring = async () => {
         setLaster(true)
         setApiFeil(false)
         try {
-            const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body: meldInnInntext })
+            const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body: meldInnEndring })
             if ([200, 304].includes(res.status)) {
                 navigate('/meld-inn-endring/kvittering')
             }
@@ -80,14 +84,16 @@ export const MeldInnEndringOppsummering = () => {
                                         {innhold.skjemaSammendrag?.endring?.label?.[spraak]}
                                     </FormSummary.Label>
                                     <FormSummary.Value>
-                                        {velgTekstForEndring(meldInnInntext.endring, innhold, spraak)}
+                                        {velgTekstForEndring(meldInnEndring.endring, innhold, spraak)}
                                     </FormSummary.Value>
                                 </FormSummary.Answer>
                                 <FormSummary.Answer>
                                     <FormSummary.Label>
                                         {innhold.skjemaSammendrag?.beskrivelseAvEndring?.label?.[spraak]}
                                     </FormSummary.Label>
-                                    <FormSummary.Value>{meldInnInntext.beskrivelse}</FormSummary.Value>
+                                    <FormSummary.Value>
+                                        <BodyLong style={{ whiteSpace: 'pre' }}>{meldInnEndring.beskrivelse}</BodyLong>
+                                    </FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
                         </FormSummary>

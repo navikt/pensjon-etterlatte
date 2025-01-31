@@ -47,7 +47,6 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) =>
                     </VStack>
                 </HStack>
 
-                {/* TODO: dette er litt hacky, må finne bedre måte å løse det på */}
                 <Heading size="large" level="2">
                     {innhold.skjemaProgresjon?.stegLabels?.[stegLabelKey]?.[spraak]}
                 </Heading>
