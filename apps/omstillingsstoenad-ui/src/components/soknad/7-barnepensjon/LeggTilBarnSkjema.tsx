@@ -132,8 +132,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     const bosattUtlandSvar = watch('bosattUtland.svar')
     const harBarnetVerge = watch('harBarnetVerge.svar')
     const relasjon = watch('relasjon')
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const foedselsnummer: any = watch('foedselsnummer')
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const foedselsdato: any = watch('foedselsdato')
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const ukjentFoedselsnummer: any = watch('ukjentFoedselsnummer')
     const annetKontonummerBarnepensjon = watch('barnepensjon.kontonummer.svar')
     const bankkontoType = watch('barnepensjon.utbetalingsInformasjon.bankkontoType')

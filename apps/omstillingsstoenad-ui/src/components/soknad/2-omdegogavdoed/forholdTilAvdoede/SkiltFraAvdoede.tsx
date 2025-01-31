@@ -26,8 +26,9 @@ const SkiltFraAvdoede = () => {
     const { watch } = useFormContext<ISoekerOgAvdoed>()
     const { state: brukerState } = useBrukerContext()
     const { state: soknadState } = useSoknadContext()
-
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const datoForInngaattPartnerskap: any = watch('forholdTilAvdoede.datoForInngaattPartnerskap')
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const datoForSkilsmisse: any = watch('forholdTilAvdoede.datoForSkilsmisse')
 
     const fellesBarn = watch('forholdTilAvdoede.fellesBarn')

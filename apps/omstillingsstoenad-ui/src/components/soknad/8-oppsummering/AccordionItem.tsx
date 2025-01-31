@@ -4,6 +4,7 @@ import { EditFilled } from '@navikt/ds-icons'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
+// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pathText, senderSoeknad }: any) => {
     const { t } = useTranslation()
     const [open, setOpen] = useState(defaultOpen)

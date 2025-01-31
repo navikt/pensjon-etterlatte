@@ -24,6 +24,7 @@ import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { countries }: { countries: any } = useCountries()
     const { logEvent } = useAmplitude()
 

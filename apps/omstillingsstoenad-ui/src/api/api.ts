@@ -31,10 +31,12 @@ export const hentHarSoektOms = async () => {
  */
 export const hentSoeknad = async () => {
     try {
+        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
         const response: any = await api.get('/api/api/kladd')
         const soeknad = response.data?.payload
         if (soeknad) return JSON.parse(soeknad)
         else return undefined
+        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     } catch (e: any) {
         if (e.response.status === 404) {
             return undefined
@@ -107,7 +109,7 @@ export const hentValutaer = async () => {
         throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
     }
 }
-
+// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 export const loggFunc = async (data: any) => {
     if (isDev) {
         console.log(

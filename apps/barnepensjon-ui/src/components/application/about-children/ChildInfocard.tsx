@@ -1,13 +1,13 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
 import { BodyShort, Box, Button, Heading, Tag, VStack } from '@navikt/ds-react'
+import { format } from 'date-fns'
 import { memo } from 'react'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import ikon from '../../../assets/barn1.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InformationBox, InformationBoxContent } from '../../common/card/InfoCard'
 import { IChild } from '../../../types/person'
 import FormElement from '../../common/FormElement'
-import { format } from 'date-fns'
+import { Infocard, InfocardHeader, InformationBox, InformationBoxContent } from '../../common/card/InfoCard'
 
 interface Props {
     child: IChild
@@ -20,7 +20,6 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
     const { t } = useTranslation('aboutChildren')
 
     const foedselsnummer = child.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
-
     return (
         <Infocard>
             <InfocardHeader>

@@ -39,8 +39,7 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-        "@eslint/eslintrc": "^3.1.0",
-        "@eslint/js": "^9.17.0",
+        "@biomejs/biome": "1.9.4",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "16.1.0",
@@ -52,23 +51,15 @@
         "@types/react-router-dom": "5.3.3",
         "@types/styled-components": "^5.1.29",
         "@types/uuid": "10.0.0",
-        "@typescript-eslint/eslint-plugin": "^8.19.0",
-        "@typescript-eslint/parser": "^8.19.0",
         "axe-core": "^4.10.2",
         "chai-dom": "^1.12.0",
         "concurrently": "^9.1.2",
         "cypress": "^13.17.0",
         "cypress-axe": "^1.5.0",
-        "eslint": "^9.17.0",
-        "eslint-plugin-jest": "^28.10.0",
-        "eslint-plugin-jsx-a11y": "^6.10.2",
-        "eslint-plugin-react": "^7.37.3",
         "globals": "^15.14.0",
         "husky": "~9.1.7",
         "jsdom": "^26.0.0",
         "license-checker-rseidelsohn": "^4.4.2",
-        "lint-staged": "~15.3.0",
-        "prettier": "3.4.2",
         "pretty-quick": "4.0.0",
         "typescript-eslint": "^8.19.0"
     },
@@ -76,14 +67,13 @@
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /omstillingsstonad/soknad",
         "start:node": "cd ../etterlatte-node-server && yarn start:oms",
-        "build": "tsc && eslint src && vite build --outDir build --base /omstillingsstonad/soknad && yarn lisenssjekk",
+        "build": "tsc && yarn biome lint --no-errors-on-unmatched && vite build --outDir build --base /omstillingsstonad/soknad && yarn lisenssjekk",
         "test": "vitest",
         "test:coverage": "vitest run --coverage",
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
         "eject": "react-scripts eject",
-        "lint": "yarn lint:jsts && yarn pretty-quick",
-        "lint:jsts": "npx eslint .",
+        "lint": "yarn biome check --no-errors-on-unmatched",
         "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages cra@0.1.0 --summary"
     },
     "prettier": {
@@ -95,25 +85,17 @@
         "bracketSpacing": true
     },
     "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
+        "extends": ["react-app", "react-app/jest"]
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     },
     "resolutions": {
         "**/braces": "3.0.3",
         "**/ws": "7.5.10"
+    },
+    "lint-staged": {
+        "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": ["biome check --write --no-errors-on-unmatched"]
     }
 }

@@ -7,8 +7,9 @@
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /omstillingsstonad/skjema",
         "start:node": "cd ../etterlatte-node-server && yarn start:selvbetjening",
-        "build": "tsc && yarn biome lint && vite build --outDir build --base /omstillingsstonad/skjema && yarn lisenssjekk",
+        "build": "tsc && yarn biome lint --no-errors-on-unmatched && vite build --outDir build --base /omstillingsstonad/skjema && yarn lisenssjekk",
         "test": "vitest",
+        "lint": "yarn biome check --no-errors-on-unmatched",
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
         "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages selvbetjening-ui@0.1.0 --summary"
@@ -50,5 +51,8 @@
         "typescript-eslint": "^8.19.0",
         "vite": "^6.0.11"
     },
-    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+    "lint-staged": {
+        "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": ["biome check --write --no-errors-on-unmatched"]
+    }
 }

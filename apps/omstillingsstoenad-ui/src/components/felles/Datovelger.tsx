@@ -19,6 +19,7 @@ const DatovelgerSection = styled.section<StyledProps>`
 `
 
 interface DatovelgerProps {
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     name: FieldPath<any>
     label: ReactNode
     description?: ReactNode
@@ -44,7 +45,7 @@ const parseDateMaxMin = (dato: Date | string) => {
     else return parseISO(dato.toISOString())
 }
 
-const isValid = (date: any): boolean => !!formatDate(date)
+const isValid = (date: Date | string): boolean => !!formatDate(date)
 
 const Datovelger = ({
     name,

@@ -55,6 +55,7 @@ export enum ActionTypes {
 
 export interface ISoeknadAction {
     type: ActionTypes
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     payload?: any
 }
 

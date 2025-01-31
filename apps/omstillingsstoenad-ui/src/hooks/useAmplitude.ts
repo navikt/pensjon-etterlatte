@@ -15,6 +15,7 @@ export enum LogEvents {
 
 export const useAmplitude = () => {
     const location = useLocation()
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const [prevLocation, setPrevLocation] = useState<any>(location)
 
     const track = getAmplitudeInstance('dekoratoren')
@@ -28,13 +29,11 @@ export const useAmplitude = () => {
         }
         setPrevLocation(location)
     }, [location])
-
     const logEvent = useCallback(
         <T extends object>(eventName: string, eventData: T = {} as T) => {
             track(eventName, eventData).catch((error) => console.error(error))
         },
         [track]
     )
-
     return { logEvent }
 }

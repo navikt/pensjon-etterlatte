@@ -183,6 +183,7 @@ export interface PensjonEllerUfoere {
 }
 
 export interface InntektViaYtelserFraNAV {
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     ytelser: Opplysning<any>
     aktivitetsplan?: Opplysning<EnumSvar<JaNeiVetIkke>>
 }

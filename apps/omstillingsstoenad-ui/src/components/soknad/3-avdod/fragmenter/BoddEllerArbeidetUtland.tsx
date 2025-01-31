@@ -22,13 +22,16 @@ interface Props {
 
 const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation()
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { allCountries }: { allCountries: any } = useCountries()
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { valutaer }: { valutaer: any } = useValutaer()
 
     const { control, getValues, setValue, watch } = useFormContext<IAvdoed>()
 
     const boddEllerArbeidetUtland = watch('boddEllerJobbetUtland.svar')
 
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { fields, append } = useFieldArray<any>({
         control,
         name: 'boddEllerJobbetUtland.oppholdUtland',
@@ -43,6 +46,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
 
     const fjernOppholdUtland = (index: number) => {
         const fjernFraListeBasertPaaIndex = (getValues('boddEllerJobbetUtland.oppholdUtland') || []).filter(
+            // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
             (_: any, i: number) => i !== index
         )
         setValue('boddEllerJobbetUtland.oppholdUtland', fjernFraListeBasertPaaIndex)

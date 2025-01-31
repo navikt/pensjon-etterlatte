@@ -17,7 +17,7 @@ const CheckboxGroupWrapper = styled.div<{ $inline?: boolean }>`
         ${(props) => (props.$inline ? 'display: flex; gap: 1rem;' : '')}
     }
 `
-
+// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 const handleSelect = (array: any[], addOrRemove: any) => {
     return array?.includes(addOrRemove)
         ? array?.filter((value) => value !== addOrRemove)
@@ -86,9 +86,7 @@ export const RHFCheckboksGruppe = ({
                             <Checkbox
                                 key={checkbox.value as string}
                                 value={checkbox.value || ''}
-                                onChange={(e) =>
-                                    onChange(handleSelect(value, (e.target as HTMLInputElement).value as any))
-                                }
+                                onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
                             >
                                 {checkbox.children}
                             </Checkbox>
