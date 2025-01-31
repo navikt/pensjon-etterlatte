@@ -766,6 +766,13 @@
   resolved "https://registry.yarnpkg.com/@navikt/ds-tokens/-/ds-tokens-7.9.0.tgz#561412e689e6cb10c12fde8de5d4dfe34e212670"
   integrity sha512-YLkMtzTJo0cqEuEsPAGEZ/5JmOMcQr6hgBya3VvM46CU7yi7/sqZTcb3h0q3tBRCf5a3KvtXGfcqcvDChtcHAQ==
 
+"@navikt/nav-dekoratoren-moduler@^3.1.3":
+  version "3.2.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.2.0/888682b989fc62c274916e2470d86c12b1558957#888682b989fc62c274916e2470d86c12b1558957"
+  integrity sha512-xhtvO74omt2cHw7ojvWAvQSQAizbDFRdfpsHCXs2Y5GXb/5ayLMVhSmZEYqE4bYql2OvMEMm6PEfyZj73os9VQ==
+  dependencies:
+    js-cookie "^3.0.5"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -2281,6 +2288,11 @@ js-base64@^3.7.5:
   version "3.7.7"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.7.7.tgz#e51b84bf78fbf5702b9541e2cb7bfcb893b43e79"
   integrity sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==
+
+js-cookie@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
+  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 js-tokens@^4.0.0:
   version "4.0.0"
