@@ -1,5 +1,5 @@
 import { BodyLong, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { apiURL, poster } from '../../common/api/api.ts'
@@ -35,6 +35,10 @@ export const MeldInnEndringOppsummering = () => {
     if (innholdError) {
         throw innholdError
     }
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    }, [])
 
     const sendInnEndring = async () => {
         setLaster(true)
