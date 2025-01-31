@@ -29,9 +29,10 @@ export const useAmplitude = () => {
         }
         setPrevLocation(location)
     }, [location])
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const logEvent = useCallback(
+        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
         (eventName: LogEvents, eventData: any) => {
+            // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
             track(eventName, eventData).catch((error: any) => console.error(error))
         },
         [track]
