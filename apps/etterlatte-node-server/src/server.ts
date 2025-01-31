@@ -36,7 +36,6 @@ app.get(`${basePath}/isAlive|${basePath}/isReady`, (req: Request, res: Response)
     res.send('OK')
 })
 
-// Endepunkt for metrics
 app.get(`${basePath}/metrics`, async (req: Request, res: Response) => {
     res.set('Content-Type', prometheus.register.contentType)
     res.end(await prometheus.register.metrics())
