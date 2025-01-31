@@ -7,7 +7,7 @@
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /omstillingsstonad/skjema",
         "start:node": "cd ../etterlatte-node-server && yarn start:selvbetjening",
-        "build": "tsc && yarn biome check --no-errors-on-unmatched && vite build --outDir build --base /omstillingsstonad/skjema && yarn lisenssjekk",
+        "build": "tsc && yarn biome lint --no-errors-on-unmatched && vite build --outDir build --base /omstillingsstonad/skjema && yarn lisenssjekk",
         "test": "vitest",
         "lint": "yarn biome check --no-errors-on-unmatched",
         "cy:test": "TZ=Europe/Oslo cypress run",
