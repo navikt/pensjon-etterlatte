@@ -64,7 +64,7 @@
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /barnepensjon/soknad",
         "start:node": "cd ../etterlatte-node-server && yarn start:bp",
-        "build": "tsc && yarn biome lint && vite build --outDir build --base /barnepensjon/soknad && yarn lisenssjekk",
+        "build": "tsc && yarn biome check && vite build --outDir build --base /barnepensjon/soknad && yarn lisenssjekk",
         "preview": "vite preview --port 5173",
         "test": "vitest",
         "cy:test": "TZ=Europe/Oslo cypress run",
