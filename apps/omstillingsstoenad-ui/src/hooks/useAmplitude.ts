@@ -30,8 +30,8 @@ export const useAmplitude = () => {
     }, [location])
 
     const logEvent = useCallback(
-        (eventName: LogEvents, eventData: any) => {
-            track(eventName, eventData).catch((error: any) => console.error(error))
+        <T extends object>(eventName: string, eventData: T = {} as T) => {
+            track(eventName, eventData).catch((error) => console.error(error))
         },
         [track]
     )
