@@ -14,6 +14,19 @@ Deretter sjekk at det ble installert riktig:\
 Du er også nødt til å installere `naisdevice` og sette opp `kubectl` for at koblinger mot GCP skal fungere.\
 Les mer her: https://doc.nais.io
 
+### Legg til PAT
+
+1. Gå til [New personal access token](https://github.com/settings/tokens/new) på GitHub
+2. Skriv noe som `NAV IT` under `Note`
+3. Velg hvor lenge du vil at det skal vare under `Expiration`
+4. Under `Select scope` velg `repo` og `read:packages`
+5. Trykk `Generate token`
+6. Kopier `ghp_x...` tokenet og putt det i `.npmrc` filen på maskinen din.\
+   Eks: `//npm.pkg.github.com/:_authToken=ghp_x...`
+7. Trykk `Configure SSO`
+8. Trykk `Authorize` på `navikt`
+9. Ferdig!
+
 ## Kjøre lokalt
 
 Installere prosjektet:\

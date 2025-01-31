@@ -1,5 +1,5 @@
-import * as amplitude from '@amplitude/analytics-browser'
-import { useEffect, useState } from 'react'
+import { getAmplitudeInstance } from '@navikt/nav-dekoratoren-moduler'
+import { useCallback, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 export enum EventType {
@@ -23,31 +23,11 @@ export enum LogEvents {
     VALIDATION_ERROR = 'skjema validering feilet',
 }
 
-const getAmplitudeKey = () => {
-    if (window.location.href.includes('dev.nav.no')) return 'b0ea5ed50acc6bdf505e3f6cdf76b99d' // dev
-    if (window.location.href.includes('nav.no')) return '10798841ebeba333b8ece6c046322d76' // prod
-    return '119ddb1e1aa52564d90038ac65926a7d' // other e.g. localhost
-}
-
 export const useAmplitude = () => {
     const location = useLocation()
     const [prevLocation, setPrevLocation] = useState(location)
 
-    useEffect(() => {
-        amplitude.init(getAmplitudeKey(), '', {
-            serverUrl: 'https://amplitude.nav.no/collect-auto',
-            ingestionMetadata: {
-                sourceName: window.location.toString(),
-            },
-            autocapture: {
-                attribution: false,
-                pageViews: true,
-                sessions: true,
-                formInteractions: false,
-                fileDownloads: false,
-            },
-        })
-    }, [])
+    const track = getAmplitudeInstance('dekoratoren')
 
     useEffect(() => {
         if (prevLocation?.pathname !== location?.pathname) {
@@ -59,16 +39,12 @@ export const useAmplitude = () => {
         setPrevLocation(location)
     }, [location])
 
-    const logEvent = (eventName: LogEvents, eventData: Record<string, unknown> | undefined): void => {
-        setTimeout(() => {
-            try {
-                if (amplitude) {
-                    amplitude.logEvent(eventName, eventData)
-                }
-            } catch (error) {
-                console.error(error)
-            }
-        }, 0)
-    }
+    const logEvent = useCallback(
+        <T extends object>(eventName: string, eventData: T = {} as T) => {
+            track(eventName, eventData).catch((error) => console.error(error))
+        },
+        [track]
+    )
+
     return { logEvent }
 }
