@@ -27,7 +27,7 @@ const router = createBrowserRouter(
             errorElement: <SystemUtilgjengelig />,
             children: [
                 {
-                    path: '/inntekt-lalalalala',
+                    path: '/inntekt',
                     element: <InntektsjusteringOutlet />,
                     children: [
                         {
