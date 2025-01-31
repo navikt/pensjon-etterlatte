@@ -19,7 +19,7 @@ import { MeldInnEndringMeldFra } from './meldInnEndring/2-meld-fra-om-endring/Me
 import { MeldInnEndringOppsummering } from './meldInnEndring/3-oppsummering/MeldInnEndringOppsummering.tsx'
 import { MeldInnEndringKvittering } from './meldInnEndring/4-kvittering/MeldInnEndringKvittering.tsx'
 import { MeldInnEndringOutlet } from './meldInnEndring/MeldInnEndringOutlet.tsx'
-// Hei på dei main.tsx
+
 const router = createBrowserRouter(
     [
         {
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
             errorElement: <SystemUtilgjengelig />,
             children: [
                 {
-                    path: '/inntekt',
+                    path: '/inntekt-lalalalala',
                     element: <InntektsjusteringOutlet />,
                     children: [
                         {
