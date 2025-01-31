@@ -67,6 +67,7 @@
         "build": "tsc && yarn biome check && vite build --outDir build --base /barnepensjon/soknad && yarn lisenssjekk",
         "preview": "vite preview --port 5173",
         "test": "vitest",
+        "lint": "yarn biome check",
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
         "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages barnepensjon-ui-client@0.1.0 --summary"
