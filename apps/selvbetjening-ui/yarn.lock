@@ -806,18 +806,18 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@portabletext/react@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@portabletext/react/-/react-3.1.0.tgz#95d08b67e74d380705726db6762321bf926796a6"
-  integrity sha512-ZGHlvS+NvId9RSqnflN8xF2KVZgAgD399dK1GaycurnGNZGZYTd5nZmc8by1yL76Ar8n/dbVtouUDJIkO4Tupw==
+"@portabletext/react@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@portabletext/react/-/react-3.2.0.tgz#676ce1c7fc89ad574f6c1827eb02ec953ec5d630"
+  integrity sha512-BA216Z8yhb/eP24bfb09uiT0SVnQHTVZMPXf4MRBEZ+G8cMzZM/ab3tcp8owyp91+3kTKR0qSIpzYSKdm1Pakw==
   dependencies:
-    "@portabletext/toolkit" "^2.0.15"
+    "@portabletext/toolkit" "^2.0.16"
     "@portabletext/types" "^2.0.13"
 
-"@portabletext/toolkit@^2.0.15":
-  version "2.0.15"
-  resolved "https://registry.yarnpkg.com/@portabletext/toolkit/-/toolkit-2.0.15.tgz#f13764efeebfcc92bcb792b1c3724fa0456703fe"
-  integrity sha512-KRNEUAd6eOxE9y591qC0sE24ZG2q27OHXe0dsPclj4IoEzf8aEuDcHR64wfFtB0aHq9Wdx3pIinmhZZcl35/vg==
+"@portabletext/toolkit@^2.0.16":
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@portabletext/toolkit/-/toolkit-2.0.16.tgz#dbeff7ae2d86b3b6bb0e4ea586f5f65b91e51451"
+  integrity sha512-aBvnD8MscoAlEIuZBn0Aksd+oCuoMGFOT3CtHIgRBaac0Vu4YnnMUF45xo/B/T5vmwWcnDXoJEJdn+SKDg1m+A==
   dependencies:
     "@portabletext/types" "^2.0.13"
 
