@@ -6,7 +6,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
     autocomplete="on"
   >
     <div
-      class="sc-cHqXqK jvHoMc"
+      class="sc-cMHOsR bkniwv"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -15,7 +15,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-cHqXqK jvHoMc"
+      class="sc-cMHOsR bkniwv"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -115,16 +115,16 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </div>
     </div>
     <fieldset
-      class="sc-blHHSb hqrzOP"
+      class="sc-KXCwU lkcKeJ"
     >
       <div
-        class="sc-eUlrpB dTUXyh"
+        class="sc-fkSzgi gkITJA"
       >
         <div
-          class="sc-ghWlax dAzZkB"
+          class="sc-gTrWKq jgxiED"
         >
           <div
-            class="sc-dntaoT bLzGvL"
+            class="sc-dDvxFM eQjitZ"
           >
             <img
               alt="barn"
@@ -132,10 +132,10 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
             />
           </div>
           <div
-            class="sc-ivxoEo jSWAwx"
+            class="sc-jqVXSH SfPHa"
           >
             <div
-              class="sc-geXuza bbMiMQ"
+              class="sc-gFcPut iNSBmI"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
@@ -159,10 +159,10 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-blHHSb hqrzOP"
+      class="sc-KXCwU lkcKeJ"
     >
       <div
-        class="sc-gtLWhw bxiLjI undefined"
+        class="sc-gyycJP cJeXcW undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -187,7 +187,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gtLWhw sc-egkSDF bxiLjI jLlWyu"
+      class="sc-gyycJP sc-eaUbBy cJeXcW ZRQnF"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -257,7 +257,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dstKZu bDvNoD"
+          class="sc-cGXZpB bwKRMP"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -285,7 +285,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dstKZu bDvNoD"
+          class="sc-cGXZpB bwKRMP"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

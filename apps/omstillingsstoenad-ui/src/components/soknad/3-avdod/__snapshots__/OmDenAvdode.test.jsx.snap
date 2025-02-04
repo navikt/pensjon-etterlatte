@@ -3,7 +3,7 @@
 exports[`Om den avdøde > Snapshot 1`] = `
 <div>
   <div
-    class="sc-ovuCP iUitbz"
+    class="sc-ldgYGE udZIz"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -15,7 +15,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
     autocomplete="on"
   >
     <fieldset
-      class="sc-blHHSb hqrzOP"
+      class="sc-KXCwU lkcKeJ"
     >
       <div
         class="navds-hgrid navds-hgrid-gap navds-hgrid-align"
@@ -71,7 +71,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-ovuCP iUitbz"
+        class="sc-ldgYGE udZIz"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -172,7 +172,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         style="--__ac-r-maxw-xs: 14rem;"
       >
         <div
-          class="sc-ovuCP iUitbz"
+          class="sc-ldgYGE udZIz"
         >
           <div
             id="statsborgerskap"
@@ -267,10 +267,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-ovuCP iUitbz"
+        class="sc-ldgYGE udZIz"
       >
         <section
-          class="sc-cHqXqK RJENY"
+          class="sc-cMHOsR jrCMgX"
         >
           <div
             class="navds-date__wrapper"
@@ -1312,7 +1312,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-blHHSb hqrzOP"
+      class="sc-KXCwU lkcKeJ"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1325,7 +1325,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.doedsfallAarsakHvorfor
       </p>
       <div
-        class="sc-ovuCP iUitbz"
+        class="sc-ldgYGE udZIz"
       >
         <div
           id="doedsfallAarsak"
@@ -1437,7 +1437,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-blHHSb hqrzOP"
+      class="sc-KXCwU lkcKeJ"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1450,7 +1450,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.boddEllerJobbetUtland.ingress
       </p>
       <div
-        class="sc-ovuCP iUitbz"
+        class="sc-ldgYGE udZIz"
       >
         <div
           id="boddEllerJobbetUtland.svar"
@@ -1562,10 +1562,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-blHHSb hqrzOP"
+      class="sc-KXCwU lkcKeJ"
     >
       <div
-        class="sc-gtLWhw bxiLjI undefined"
+        class="sc-gyycJP cJeXcW undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1590,7 +1590,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gtLWhw sc-egkSDF bxiLjI jLlWyu"
+      class="sc-gyycJP sc-eaUbBy cJeXcW ZRQnF"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1660,7 +1660,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dstKZu bDvNoD"
+          class="sc-cGXZpB bwKRMP"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1688,7 +1688,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dstKZu bDvNoD"
+          class="sc-cGXZpB bwKRMP"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
