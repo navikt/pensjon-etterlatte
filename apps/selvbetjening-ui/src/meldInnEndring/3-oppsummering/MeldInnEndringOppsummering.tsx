@@ -51,6 +51,8 @@ export const MeldInnEndringOppsummering = () => {
         setLaster(false)
     }
 
+    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' })
+
     return (
         !!innhold && (
             <main>
