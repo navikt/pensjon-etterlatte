@@ -41,7 +41,7 @@ internal class OmsMeldtInnEndringMottakFullfoert(
     }
 
     companion object {
-        const val MOTTAK_FULLFOERT_EVENT = "OMS_MELDT_INN_ENDRING:MOTTAK_FULLFOERT"
-        const val OMS_MELDT_INN_ENDRING_ID = "inntektsjustering_id"
+        const val MOTTAK_FULLFOERT_EVENT = "oms_meldt_inn_endring_mottak_fullført"
+        const val OMS_MELDT_INN_ENDRING_ID = "meldt_inn_endring_id"
     }
 }
