@@ -91,7 +91,7 @@ const PensjonEllerUfoere = () => {
                                 <SkjemaElement>
                                     <Datovelger
                                         name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
-                                        label="Når fikk du innvilget AFP?"
+                                        label={'Når fikk du innvilget AFP?'}
                                         minDate={bruker.state.foedselsdato}
                                         maxDate={new Date()}
                                     />
@@ -99,10 +99,14 @@ const PensjonEllerUfoere = () => {
                                 <SkjemaElement>
                                     <RHFNumberInput
                                         name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
-                                        label="Hva er din forventet AFP-utbetaling i år, før skatt?"
+                                        label={'Hva er din forventet AFP-utbetaling i år, før skatt?'}
                                         description={'Fra januar til og med december'}
+                                        htmlSize={Bredde.M}
                                     />
                                 </SkjemaElement>
+                                <ReadMore header={'Fikk du innvilget AFP i år?'}>
+                                    skriv forventet beløp fra måneden du fikk AFP til og med desember.
+                                </ReadMore>
                             </>
                         )}
                     </SkjemaGruppe>
