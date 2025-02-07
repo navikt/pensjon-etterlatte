@@ -3,6 +3,7 @@ import { differenceInYears } from 'date-fns'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import Datovelger from '~components/felles/Datovelger'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import useCountries from '../../../../hooks/useCountries'
@@ -87,8 +88,21 @@ const PensjonEllerUfoere = () => {
 
                         {skalViseAFPOffentligFelter(watch('pensjonEllerUfoere.tjenestepensjonsordning.type')) && (
                             <>
-                                <SkjemaElement>Heihie</SkjemaElement>
-                                <SkjemaElement>Heihie</SkjemaElement>
+                                <SkjemaElement>
+                                    <Datovelger
+                                        name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
+                                        label="Når fikk du innvilget AFP?"
+                                        minDate={bruker.state.foedselsdato}
+                                        maxDate={new Date()}
+                                    />
+                                </SkjemaElement>
+                                <SkjemaElement>
+                                    <RHFNumberInput
+                                        name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
+                                        label="Hva er din forventet AFP-utbetaling i år, før skatt?"
+                                        description={'Fra januar til og med december'}
+                                    />
+                                </SkjemaElement>
                             </>
                         )}
                     </SkjemaGruppe>
