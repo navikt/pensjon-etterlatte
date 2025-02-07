@@ -91,7 +91,9 @@ const PensjonEllerUfoere = () => {
                                 <SkjemaElement>
                                     <Datovelger
                                         name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
-                                        label={'Når fikk du innvilget AFP?'}
+                                        label={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
+                                        )}
                                         minDate={bruker.state.foedselsdato}
                                         maxDate={new Date()}
                                     />
@@ -99,13 +101,23 @@ const PensjonEllerUfoere = () => {
                                 <SkjemaElement>
                                     <RHFNumberInput
                                         name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
-                                        label={'Hva er din forventet AFP-utbetaling i år, før skatt?'}
-                                        description={'Fra januar til og med december'}
+                                        label={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
+                                        )}
+                                        description={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse'
+                                        )}
                                         htmlSize={Bredde.M}
                                     />
                                 </SkjemaElement>
-                                <ReadMore header={'Fikk du innvilget AFP i år?'}>
-                                    skriv forventet beløp fra måneden du fikk AFP til og med desember.
+                                <ReadMore
+                                    header={t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel'
+                                    )}
+                                >
+                                    {t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold'
+                                    )}
                                 </ReadMore>
                             </>
                         )}
