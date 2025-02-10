@@ -28,7 +28,7 @@ const PensjonEllerUfoere = () => {
 
     const pensjonstype = watch('pensjonEllerUfoere.pensjonstype')
 
-    const skalViseAFPOffentligFelter = (tjenestepensjonsOrdningValgt?: PensjonsYtelse) => {
+    const skalViseAFPOffentligFelter = (tjenestepensjonsOrdningValgt?: PensjonsYtelse[]) => {
         const harValgtAFPOffentligTjenestepensjon =
             !!tjenestepensjonsOrdningValgt &&
             tjenestepensjonsOrdningValgt.includes(PensjonsYtelse.avtalefestetPensjonOffentlig)
