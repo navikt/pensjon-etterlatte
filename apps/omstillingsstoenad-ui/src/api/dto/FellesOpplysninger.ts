@@ -172,7 +172,7 @@ interface InntektsType {
 export interface PensjonEllerUfoere {
     pensjonstype: Opplysning<EnumSvar<PensjonEllerTrygdType>[]>
     tjenestepensjonsordning?: {
-        type: Opplysning<EnumSvar<PensjonsYtelseType>>
+        type: Opplysning<EnumSvar<PensjonsYtelseType>[]>
         afpOffentlig?: {
             innvilget: Opplysning<DatoSvar>
             beloep: Opplysning<FritekstSvar>

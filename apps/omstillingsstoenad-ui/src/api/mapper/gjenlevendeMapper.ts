@@ -1061,12 +1061,10 @@ const hentInntektOgPensjon = (
                 ? {
                       type: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type'),
-                          svar: {
-                              verdi: konverterPensjonsYtelse(
-                                  inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type
-                              ),
-                              innhold: t(inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type),
-                          },
+                          svar: inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type.map((ytelse) => ({
+                              verdi: konverterPensjonsYtelse(ytelse),
+                              innhold: t(ytelse),
+                          })),
                       },
                       afpOffentlig: inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type.includes(
                           PensjonsYtelse.avtalefestetPensjonOffentlig
