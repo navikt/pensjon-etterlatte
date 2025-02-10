@@ -1,6 +1,23 @@
 import { TFunction } from 'i18next'
-import { ISoeknad } from '../../context/soknad/soknad'
 import { IBruker } from '../../context/bruker/bruker'
+import { ISoeknad } from '../../context/soknad/soknad'
+import { IValg } from '../../typer/Spoersmaal'
+import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
+import {
+    EndringAvInntektGrunn,
+    IForventerEndringAvInntekt,
+    IInntekt,
+    InntektEllerUtbetaling,
+    InntektsTyper,
+    NorgeOgUtland,
+    PensjonEllerTrygd,
+    PensjonsYtelse,
+} from '../../typer/inntekt'
+import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
+import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
+import { Studieform } from '../../typer/utdanning'
+import { fullAdresse } from '../../utils/adresse'
+import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../utils/dato'
 import {
     AnnenSituasjon,
     ArbeidOgUtdanning,
@@ -34,9 +51,6 @@ import {
 } from '../dto/FellesOpplysninger'
 import { Gjenlevende, PersonType, Samboer } from '../dto/Person'
 import { valgTilSvar } from './fellesMapper'
-import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
-import { IValg } from '../../typer/Spoersmaal'
-import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
 import {
     konverterEndringAvInntektGrunn,
     konverterIngenJobb,
@@ -53,19 +67,6 @@ import {
     konverterStudieform,
     konverterTilHoyesteUtdanning,
 } from './typeMapper'
-import { fullAdresse } from '../../utils/adresse'
-import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
-import {
-    EndringAvInntektGrunn,
-    IForventerEndringAvInntekt,
-    IInntekt,
-    InntektEllerUtbetaling,
-    InntektsTyper,
-    NorgeOgUtland,
-    PensjonEllerTrygd,
-} from '../../typer/inntekt'
-import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../utils/dato'
-import { Studieform } from '../../typer/utdanning'
 
 export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
     const kontaktinfo: Kontaktinfo = {
@@ -1067,6 +1068,32 @@ const hentInntektOgPensjon = (
                               innhold: t(inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type),
                           },
                       },
+                      afpOffentlig: inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type.includes(
+                          PensjonsYtelse.avtalefestetPensjonOffentlig
+                      )
+                          ? {
+                                innvilget: {
+                                    spoersmaal: t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
+                                    ),
+                                    svar: {
+                                        innhold:
+                                            inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.afpOffentlig!
+                                                .innvilget,
+                                    },
+                                },
+                                beloep: {
+                                    spoersmaal: t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
+                                    ),
+                                    svar: {
+                                        innhold:
+                                            inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.afpOffentlig!
+                                                .beloep,
+                                    },
+                                },
+                            }
+                          : undefined,
                       utbetaler: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'),
                           svar: {

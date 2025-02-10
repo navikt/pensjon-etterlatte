@@ -173,6 +173,10 @@ export interface PensjonEllerUfoere {
     pensjonstype: Opplysning<EnumSvar<PensjonEllerTrygdType>[]>
     tjenestepensjonsordning?: {
         type: Opplysning<EnumSvar<PensjonsYtelseType>>
+        afpOffentlig?: {
+            innvilget: Opplysning<DatoSvar>
+            beloep: Opplysning<FritekstSvar>
+        }
         utbetaler: Opplysning<FritekstSvar>
     }
     utland?: {
