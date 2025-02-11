@@ -112,6 +112,10 @@ export const MeldInnEndringMeldFra = () => {
                                             label={innhold.beskrivelseAvEndring?.label?.[spraak]}
                                             description={innhold.beskrivelseAvEndring?.description?.[spraak]}
                                             maxLength={2000}
+                                            i18n={{
+                                                counterLeft: innhold.beskrivelseAvEndring?.tegnIgjen?.[spraak],
+                                                counterTooMuch: innhold.beskrivelseAvEndring?.forMangeTegn?.[spraak],
+                                            }}
                                             error={errors?.beskrivelse?.message}
                                         />
                                     </>
