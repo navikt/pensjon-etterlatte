@@ -1120,6 +1120,9 @@ export default {
     'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected gross annual income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Choose which pension you receive',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget.required':
+        'Choose when your AFP was granted',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.required': 'State the amount',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
         'State which occupational pension scheme pays your pension',
     'feil.pensjonEllerUfoere.utland.svar.required': 'State whether you receive or do not receive a pension from abroad',

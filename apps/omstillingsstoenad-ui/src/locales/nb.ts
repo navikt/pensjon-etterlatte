@@ -1073,6 +1073,8 @@ export default {
     'feil.naeringsinntekt.utland.inntektAaretFoerDoedsfall.required': 'Oppgi brutto årsinntekt i året før dødsfallet',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi hvilken pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Velg hvilken pensjon du mottar',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget.required': 'Velg når du fikk innvilget AFP',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.required': 'Oppgi beløp',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
         'Oppgi hvilken tjenestepensjonsordning som utbetaler pensjonen din',
     'feil.pensjonEllerUfoere.utland.svar.required': 'Oppgi om du mottar eller ikke mottar pensjon fra utlandet',
