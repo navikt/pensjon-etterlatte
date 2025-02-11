@@ -455,6 +455,15 @@ export default {
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pensjon eller uføretrygd',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Kva pensjon eller trygd har du?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Kva slags pensjon får du?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget': 'Når fekk du innvilga AFP?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep':
+        'Kva er di forventa AFP-utbetaling i år, før skatt?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse':
+        'Frå januar til og med desember',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel':
+        'Fekk du innvilga AFP i år?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold':
+        'Skriv forventa beløp frå månaden du fekk AFP til og med desember',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler':
         'Får kva tenestepensjonsordning får du utbetalt pensjon?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse':
@@ -1066,6 +1075,8 @@ export default {
         'Oppgi kva du hadde i brutto årsinntekt året før dødsfallet',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi kva pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Vel kva pensjon du får',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget.required': 'Vel når du fikk innvilga AFP',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.required': 'Oppgi beløp',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
         'Oppgi kva tenestepensjonsordning du får utbetalt pensjon frå',
     'feil.pensjonEllerUfoere.utland.svar.required': 'Oppgi om du får pensjon frå utlandet eller ikkje',

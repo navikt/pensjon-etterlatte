@@ -458,6 +458,15 @@ export default {
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pensjon eller uføretrygd',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Hvilken pensjon eller trygd har du?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Hva slags pensjon mottar du?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget': 'Når fikk du innvilget AFP?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep':
+        'Hva er din forventede AFP-utbetaling i år, før skatt?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse':
+        'Fra januar til og med desember',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel':
+        'Fikk du innvilget AFP i år?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold':
+        'Skriv forventet beløp fra måneden du fikk AFP til og med desember',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler':
         'Hvilken tjenestepensjonsordning utbetaler pensjonen din?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse':
@@ -1064,6 +1073,8 @@ export default {
     'feil.naeringsinntekt.utland.inntektAaretFoerDoedsfall.required': 'Oppgi brutto årsinntekt i året før dødsfallet',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'Oppgi hvilken pensjon eller trygd du har',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Velg hvilken pensjon du mottar',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget.required': 'Velg når du fikk innvilget AFP',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.required': 'Oppgi beløp',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
         'Oppgi hvilken tjenestepensjonsordning som utbetaler pensjonen din',
     'feil.pensjonEllerUfoere.utland.svar.required': 'Oppgi om du mottar eller ikke mottar pensjon fra utlandet',

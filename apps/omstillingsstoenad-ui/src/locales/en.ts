@@ -476,6 +476,15 @@ export default {
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pension or disability pension',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Which type of pension or benefits are you receiving?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Which type of pension are you receiving?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget': 'When was your AFP granted?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep':
+        'What is your expected AFP payment this year, before tax?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse':
+        'From January to December',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel':
+        'Did you get AFP granted this year?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold':
+        'Write the expected amount from the month you received AFP until December.',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler':
         'Which occupational pension scheme pays your pensions?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse':
@@ -1111,6 +1120,9 @@ export default {
     'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected gross annual income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Choose which pension you receive',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget.required':
+        'Choose when your AFP was granted',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.required': 'State the amount',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
         'State which occupational pension scheme pays your pension',
     'feil.pensjonEllerUfoere.utland.svar.required': 'State whether you receive or do not receive a pension from abroad',

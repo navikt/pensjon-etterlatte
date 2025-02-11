@@ -1,17 +1,20 @@
+import { Box, HGrid, Heading, ReadMore } from '@navikt/ds-react'
+import { differenceInYears } from 'date-fns'
 import React from 'react'
-import { Heading, ReadMore, HGrid, Box } from '@navikt/ds-react'
+import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import Datovelger from '~components/felles/Datovelger'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
+import { useBrukerContext } from '~context/bruker/BrukerContext'
+import useCountries from '../../../../hooks/useCountries'
+import { useValutaer } from '../../../../hooks/useValutaer'
+import Bredde from '../../../../typer/bredde'
+import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/inntekt'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/inntekt'
-import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import useCountries from '../../../../hooks/useCountries'
-import Bredde from '../../../../typer/bredde'
-import { useValutaer } from '../../../../hooks/useValutaer'
-import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
@@ -21,12 +24,23 @@ const PensjonEllerUfoere = () => {
     const { valutaer }: { valutaer: any } = useValutaer()
 
     const { watch } = useFormContext<IInntekt>()
+    const bruker = useBrukerContext()
 
     const pensjonstype = watch('pensjonEllerUfoere.pensjonstype')
 
-    const pensjonsytelseValg = Object.values(PensjonsYtelse).map((value) => {
-        return { label: t(value), value }
-    })
+    const skalViseAFPOffentligFelter = (tjenestepensjonsOrdningValgt?: PensjonsYtelse[]) => {
+        const harValgtAFPOffentligTjenestepensjon =
+            !!tjenestepensjonsOrdningValgt &&
+            tjenestepensjonsOrdningValgt.includes(PensjonsYtelse.avtalefestetPensjonOffentlig)
+        // AFP for 2025 sier at bruker må være eldre enn 61 og være født i 1963 eller senere
+        const brukersAlderErRiktig =
+            !!bruker.state.foedselsdato &&
+            differenceInYears(new Date(), bruker.state.foedselsdato) >= 62 &&
+            !!bruker.state.foedselsaar &&
+            bruker.state.foedselsaar <= 1963
+
+        return harValgtAFPOffentligTjenestepensjon && brukersAlderErRiktig
+    }
 
     return (
         <SkjemaGruppe>
@@ -50,15 +64,12 @@ const PensjonEllerUfoere = () => {
                         <Heading size={'small'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
 
                         <SkjemaElement>
-                            <RHFSelect
+                            <RHFCheckboksGruppe
                                 name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
-                                label={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
-                                selectOptions={[
-                                    {
-                                        label: t('felles.velg'),
-                                        value: '',
-                                    },
-                                ].concat(pensjonsytelseValg)}
+                                legend={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
+                                checkboxes={Object.values(PensjonsYtelse).map((value) => {
+                                    return { children: t(value), value, required: true }
+                                })}
                             />
                         </SkjemaElement>
                         <SkjemaElement>
@@ -74,6 +85,42 @@ const PensjonEllerUfoere = () => {
                         <ReadMore header={t('hvorforSpoerVi')}>
                             {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
                         </ReadMore>
+
+                        {skalViseAFPOffentligFelter(watch('pensjonEllerUfoere.tjenestepensjonsordning.type')) && (
+                            <>
+                                <SkjemaElement>
+                                    <Datovelger
+                                        name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
+                                        label={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
+                                        )}
+                                        minDate={bruker.state.foedselsdato}
+                                        maxDate={new Date()}
+                                    />
+                                </SkjemaElement>
+                                <SkjemaElement>
+                                    <RHFNumberInput
+                                        name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
+                                        label={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
+                                        )}
+                                        description={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse'
+                                        )}
+                                        htmlSize={Bredde.M}
+                                    />
+                                </SkjemaElement>
+                                <ReadMore
+                                    header={t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel'
+                                    )}
+                                >
+                                    {t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold'
+                                    )}
+                                </ReadMore>
+                            </>
+                        )}
                     </SkjemaGruppe>
                 )}
             </>
