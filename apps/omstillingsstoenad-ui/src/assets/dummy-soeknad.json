@@ -1,249 +1,227 @@
 {
-  "harSamtykket": true,
-  "spraak": "nb",
-  "sistLagretDato": "2021-08-10T08:55:28.330Z",
-  "klarForLagring": true,
-  "omDeg": {
-    "kontaktinfo": {
-      "telefonnummer": "999 88 777"
-    },
-    "oppholderSegINorge": "radiobuttons.ja",
-    "alternativAdresse": "Testveien 123, 0594 Oslo",
-    "utbetalingsInformasjon": {
-      "bankkontoType": "bankkontoType.norsk",
-      "kontonummer": "1351.35.13513"
-    }
-  },
-  "omDegOgAvdoed": {
-    "forholdTilAvdoede": {
-      "relasjon": "avdoede.relasjon.separert",
-      "datoForInngaattPartnerskap": "2001-07-26",
-      "fellesBarn": "radiobuttons.ja"
-    }
-  },
-  "omDenAvdoede": {
-    "fornavn": "Død",
-    "etternavn": "Testperson",
-    "datoForDoedsfallet": "2021-07-26",
-    "foedselsnummer": "24014021406",
-    "statsborgerskap": "Danmark",
-    "boddEllerJobbetUtland": {
-      "svar": "radiobuttons.ja",
-      "oppholdUtland": [
-        {
-          "land": "Irak",
-          "beskrivelse": [
-            "oppholdUtlandType.bodd",
-            "oppholdUtlandType.arbeidet"
-          ],
-          "fraDato": "2002-10-08",
-          "tilDato": "2003-10-08",
-          "medlemFolketrygd": "radiobuttons.ja",
-          "mottokPensjon": {
-            "beloep": "150000",
-            "valuta": "Islandske kroner (ISK)"
-          }
+    "harSamtykket": true,
+    "spraak": "nb",
+    "sistLagretDato": "2021-08-10T08:55:28.330Z",
+    "klarForLagring": true,
+    "omDeg": {
+        "kontaktinfo": {
+            "telefonnummer": "999 88 777"
+        },
+        "oppholderSegINorge": "radiobuttons.ja",
+        "alternativAdresse": "Testveien 123, 0594 Oslo",
+        "utbetalingsInformasjon": {
+            "bankkontoType": "bankkontoType.norsk",
+            "kontonummer": "1351.35.13513"
         }
-      ]
     },
-    "doedsfallAarsak": "radiobuttons.ja"
-  },
-  "situasjonenDin": {
-    "omsorgMinstFemti": "radiobuttons.ja",
-    "bosattINorge": "radiobuttons.ja",
-    "nySivilstatus": {
-      "sivilstatus": "nySivilstatus.enslig"
-    },
-    "oppholderSegIUtlandet": {
-      "svar": "radiobuttons.nei"
-    },
-    "gravidEllerNyligFoedt": "radiobuttons.ja"
-  },
-  "merOmSituasjonenDin": {
-    "jobbStatus": [
-      "jobbStatus.arbeidstaker"
-    ],
-    "utdanning": {
-      "hoyesteFullfoerteUtdanning": [
-        "utdanning.mastergrad"
-      ]
-    },
-    "andreYtelser": {
-      "kravOmAnnenStonad": {
-        "svar": "radiobuttons.ja",
-        "ytelser": "ytelser.dagpenger"
-      },
-      "annenPensjon": {
-        "svar": "radiobuttons.ja",
-        "beskrivelse": "Skandia"
-      },
-      "mottarPensjonUtland": {
-        "svar": "radiobuttons.ja",
-        "hvaSlagsPensjon": "Polsk Uførepensjon",
-        "fraHvilketLand": "Polen",
-        "bruttobeloepPrAar": "4000 PLN"
-      }
-    },
-    "arbeidsforhold": [
-      {
-        "arbeidsgiver": "Potetskreller AS",
-        "ansettelsesforhold": "stillingType.midlertidig",
-        "arbeidsmengde" : {
-          "svar": "50%",
-          "type": "arbeidsmengde.prosent"
-        },
-        "midlertidig": {
-          "svar": "radiobuttons.ja",
-          "sluttdatoVelger": "2030-01-01"
-        },
-        "forventerEndretArbeidssituasjon": {
-          "svar": "radiobuttons.ja",
-          "beskrivelse": "Øker mye i lønn"
-        },
-        "sagtOppEllerRedusert": {
-          "svar": "sagtOppEllerRedusert.oppsagt"
+    "omDegOgAvdoed": {
+        "forholdTilAvdoede": {
+            "relasjon": "avdoede.relasjon.separert",
+            "datoForInngaattPartnerskap": "2001-07-26",
+            "fellesBarn": "radiobuttons.ja"
         }
-      },
-      {
-        "arbeidsgiver": "Bananskreller AS",
-        "ansettelsesforhold": "stillingType.fast",
-        "arbeidsmengde" : {
-          "svar": "50"
-        },
-        "forventerEndretArbeidssituasjon": {
-          "svar": "radiobuttons.nei"
-        }
-      }
-    ]
-  },
-  "inntektenDin": {
-    "inntektstyper": [
-      "inntekt.loenn",
-      "inntekt.naering",
-      "inntekt.pensjonEllerUfoere",
-      "inntekt.ytelser",
-      "inntekt.annen"
-    ],
-    "loennsinntekt": {
-      "norgeEllerUtland": [
-        "inntekt.norge"
-      ],
-      "norge": {
-        "inntektNesteAar": {
-          "aarsinntekt": "10000"
-        },
-        "inntektIFjor": {
-          "tilDoedsfall": "20000",
-          "aarsinntekt": "10000"
-        },
-        "inntektIAar": {
-          "tilDoedsfall": "20000",
-          "aarsinntekt": "10000"
-        }
-      },
-      "forventerEndringAvInntekt": {
-        "svar": "radiobuttons.nei"
-      }
     },
-    "naeringsinntekt": {
-      "norgeEllerUtland": [
-        "inntekt.norge"
-      ],
-      "norge": {
-        "inntektIFjor": {
-          "tilDoedsfall": "20000",
-          "aarsinntekt": "10000"
-        },
-        "inntektIAar": {
-          "aarsinntekt": "20000",
-          "tilDoedsfall": "30000"
-        },
-        "inntektNesteAar": {
-          "aarsinntekt": "10000"
-        },
-        "jevntOpptjentNaeringsinntekt": {
-          "svar": "radiobuttons.nei",
-          "beskrivelse": "Selger julelys i desember"
-        }
-      },
-      "forventerEndringAvInntekt": {
-        "svar": "radiobuttons.nei"
-      }
-    },
-    "pensjonEllerUfoere": {
-      "pensjonstype": [
-        "soekbarYtelse.tjenestepensjonsordning",
-        "soekbarYtelse.pensjonFraUtlandet"
-      ],
-      "tjenestepensjonsordning": {
-        "type": "soekbarYtelse.alderspensjon",
-        "utbetaler": "Staten"
-      },
-      "utland": {
-        "type": "Alderspensjon",
-        "land": "Island",
-        "beloep": "30 000",
-        "valuta": "Islandske kroner (ISK)"
-      }
-    },
-    "inntektViaYtelserFraNAV": {
-      "ytelser": [
-        "soekbarYtelse.omsorgspenger"
-      ]
-    },
-    "ingenInntekt": {
-      "svar": "radiobuttons.ja",
-      "beloep": "320 000",
-      "beskrivelse": "Får inn litt inntekt fra siden"
-    },
-    "ytelserNAV": {
-      "svar": "radiobuttons.ja",
-      "soekteYtelser": [
-        "soekbarYtelse.dagspenger",
-        "soekbarYtelse.ufoeretrygd"
-      ]
-    },
-    "ytelserAndre": {
-      "svar": "radiobuttons.ja",
-      "soekteYtelser": [
-        "soekbarYtelse.ufoerepensjon",
-        "soekbarYtelse.saeralderpensjon"
-      ],
-      "pensjonsordning": "tester"
-    }
-  },
-  "opplysningerOmBarn": {
-    "barn": [
-      {
-        "fornavn": "Treg",
-        "etternavn": "Snøfreser",
+    "omDenAvdoede": {
+        "fornavn": "Død",
+        "etternavn": "Testperson",
+        "datoForDoedsfallet": "2021-07-26",
         "foedselsnummer": "24014021406",
-        "statsborgerskap": "Sverige",
-        "bosattUtland": {
-          "svar": "radiobuttons.nei"
+        "statsborgerskap": "Danmark",
+        "boddEllerJobbetUtland": {
+            "svar": "radiobuttons.ja",
+            "oppholdUtland": [
+                {
+                    "land": "Irak",
+                    "beskrivelse": ["oppholdUtlandType.bodd", "oppholdUtlandType.arbeidet"],
+                    "fraDato": "2002-10-08",
+                    "tilDato": "2003-10-08",
+                    "medlemFolketrygd": "radiobuttons.ja",
+                    "mottokPensjon": {
+                        "beloep": "150000",
+                        "valuta": "Islandske kroner (ISK)"
+                    }
+                }
+            ]
         },
-        "harBarnetVerge": {
-          "svar": "radiobuttons.nei"
+        "doedsfallAarsak": "radiobuttons.ja"
+    },
+    "situasjonenDin": {
+        "omsorgMinstFemti": "radiobuttons.ja",
+        "bosattINorge": "radiobuttons.ja",
+        "nySivilstatus": {
+            "sivilstatus": "nySivilstatus.enslig"
+        },
+        "oppholderSegIUtlandet": {
+            "svar": "radiobuttons.nei"
+        },
+        "gravidEllerNyligFoedt": "radiobuttons.ja"
+    },
+    "merOmSituasjonenDin": {
+        "jobbStatus": ["jobbStatus.arbeidstaker"],
+        "utdanning": {
+            "hoyesteFullfoerteUtdanning": ["utdanning.mastergrad"]
+        },
+        "andreYtelser": {
+            "kravOmAnnenStonad": {
+                "svar": "radiobuttons.ja",
+                "ytelser": "ytelser.dagpenger"
+            },
+            "annenPensjon": {
+                "svar": "radiobuttons.ja",
+                "beskrivelse": "Skandia"
+            },
+            "mottarPensjonUtland": {
+                "svar": "radiobuttons.ja",
+                "hvaSlagsPensjon": "Polsk Uførepensjon",
+                "fraHvilketLand": "Polen",
+                "bruttobeloepPrAar": "4000 PLN"
+            }
+        },
+        "arbeidsforhold": [
+            {
+                "arbeidsgiver": "Potetskreller AS",
+                "ansettelsesforhold": "stillingType.midlertidig",
+                "arbeidsmengde": {
+                    "svar": "50%",
+                    "type": "arbeidsmengde.prosent"
+                },
+                "midlertidig": {
+                    "svar": "radiobuttons.ja",
+                    "sluttdatoVelger": "2030-01-01"
+                },
+                "forventerEndretArbeidssituasjon": {
+                    "svar": "radiobuttons.ja",
+                    "beskrivelse": "Øker mye i lønn"
+                },
+                "sagtOppEllerRedusert": {
+                    "svar": "sagtOppEllerRedusert.oppsagt"
+                }
+            },
+            {
+                "arbeidsgiver": "Bananskreller AS",
+                "ansettelsesforhold": "stillingType.fast",
+                "arbeidsmengde": {
+                    "svar": "50"
+                },
+                "forventerEndretArbeidssituasjon": {
+                    "svar": "radiobuttons.nei"
+                }
+            }
+        ]
+    },
+    "inntektenDin": {
+        "inntektstyper": [
+            "inntekt.loenn",
+            "inntekt.naering",
+            "inntekt.pensjonEllerUfoere",
+            "inntekt.ytelser",
+            "inntekt.annen"
+        ],
+        "loennsinntekt": {
+            "norgeEllerUtland": ["inntekt.norge"],
+            "norge": {
+                "inntektNesteAar": {
+                    "aarsinntekt": "10000"
+                },
+                "inntektIFjor": {
+                    "tilDoedsfall": "20000",
+                    "aarsinntekt": "10000"
+                },
+                "inntektIAar": {
+                    "tilDoedsfall": "20000",
+                    "aarsinntekt": "10000"
+                }
+            },
+            "forventerEndringAvInntekt": {
+                "svar": "radiobuttons.nei"
+            }
+        },
+        "naeringsinntekt": {
+            "norgeEllerUtland": ["inntekt.norge"],
+            "norge": {
+                "inntektIFjor": {
+                    "tilDoedsfall": "20000",
+                    "aarsinntekt": "10000"
+                },
+                "inntektIAar": {
+                    "aarsinntekt": "20000",
+                    "tilDoedsfall": "30000"
+                },
+                "inntektNesteAar": {
+                    "aarsinntekt": "10000"
+                },
+                "jevntOpptjentNaeringsinntekt": {
+                    "svar": "radiobuttons.nei",
+                    "beskrivelse": "Selger julelys i desember"
+                }
+            },
+            "forventerEndringAvInntekt": {
+                "svar": "radiobuttons.nei"
+            }
+        },
+        "pensjonEllerUfoere": {
+            "pensjonstype": ["soekbarYtelse.tjenestepensjonsordning", "soekbarYtelse.pensjonFraUtlandet"],
+            "tjenestepensjonsordning": {
+                "type": ["soekbarYtelse.alderspensjon"],
+                "utbetaler": "Staten"
+            },
+            "utland": {
+                "type": "Alderspensjon",
+                "land": "Island",
+                "beloep": "30 000",
+                "valuta": "Islandske kroner (ISK)"
+            }
+        },
+        "inntektViaYtelserFraNAV": {
+            "ytelser": ["soekbarYtelse.omsorgspenger"]
+        },
+        "ingenInntekt": {
+            "svar": "radiobuttons.ja",
+            "beloep": "320 000",
+            "beskrivelse": "Får inn litt inntekt fra siden"
+        },
+        "ytelserNAV": {
+            "svar": "radiobuttons.ja",
+            "soekteYtelser": ["soekbarYtelse.dagspenger", "soekbarYtelse.ufoeretrygd"]
+        },
+        "ytelserAndre": {
+            "svar": "radiobuttons.ja",
+            "soekteYtelser": ["soekbarYtelse.ufoerepensjon", "soekbarYtelse.saeralderpensjon"],
+            "pensjonsordning": "tester"
         }
-      },
-      {
-        "fornavn": "Lunken",
-        "etternavn": "Floskel",
-        "foedselsnummer": "14812290208",
-        "statsborgerskap": "Finland",
-        "bosattUtland": {
-          "svar": "radiobuttons.nei"
-        },
-        "harBarnetVerge": {
-          "svar": "radiobuttons.nei"
-        },
-        "barnepensjon": {
-          "soeker": true,
-          "kontonummer": {
-            "svar": "radiobuttons.ja"
-          }
-        }
-      }
-    ]
-  }
+    },
+    "opplysningerOmBarn": {
+        "barn": [
+            {
+                "fornavn": "Treg",
+                "etternavn": "Snøfreser",
+                "foedselsnummer": "24014021406",
+                "statsborgerskap": "Sverige",
+                "bosattUtland": {
+                    "svar": "radiobuttons.nei"
+                },
+                "harBarnetVerge": {
+                    "svar": "radiobuttons.nei"
+                }
+            },
+            {
+                "fornavn": "Lunken",
+                "etternavn": "Floskel",
+                "foedselsnummer": "14812290208",
+                "statsborgerskap": "Finland",
+                "bosattUtland": {
+                    "svar": "radiobuttons.nei"
+                },
+                "harBarnetVerge": {
+                    "svar": "radiobuttons.nei"
+                },
+                "barnepensjon": {
+                    "soeker": true,
+                    "kontonummer": {
+                        "svar": "radiobuttons.ja"
+                    }
+                }
+            }
+        ]
+    }
 }

@@ -1,6 +1,6 @@
+import { format } from 'date-fns'
 import mockSoeknad from '../../src/assets/dummy-soeknad.json'
 import { a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValueForId } from '../util/cy-functions'
-import { format } from 'date-fns'
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal åpne startsiden og starte en søknad', () => {
@@ -267,9 +267,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         inntektenDin.pensjonEllerUfoere.pensjonstype.forEach((pensjon) => selectValue(pensjon))
 
         // Tjenestepensjonsordning
-        getById('pensjonEllerUfoere.tjenestepensjonsordning.type')
-            .find('select')
-            .select(inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type)
+        inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type.forEach((type) => selectValue(type))
         getById('pensjonEllerUfoere.tjenestepensjonsordning.utbetaler').type(
             inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler
         )
