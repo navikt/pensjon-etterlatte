@@ -18,6 +18,8 @@ import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInnte
 import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
 import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
 
+const MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING: number = 2000
+
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
 
@@ -108,9 +110,20 @@ export const MeldInnEndringMeldFra = () => {
                                                     message:
                                                         innhold.beskrivelseAvEndring?.errorVedTomInput?.[spraak] ?? '',
                                                 },
+                                                maxLength: {
+                                                    value: MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING,
+                                                    message:
+                                                        innhold.beskrivelseAvEndring?.errorVedForMangeTegn?.[spraak] ??
+                                                        '',
+                                                },
                                             })}
                                             label={innhold.beskrivelseAvEndring?.label?.[spraak]}
                                             description={innhold.beskrivelseAvEndring?.description?.[spraak]}
+                                            maxLength={MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING}
+                                            i18n={{
+                                                counterLeft: innhold.beskrivelseAvEndring?.tegnIgjen?.[spraak],
+                                                counterTooMuch: innhold.beskrivelseAvEndring?.forMangeTegn?.[spraak],
+                                            }}
                                             error={errors?.beskrivelse?.message}
                                         />
                                     </>

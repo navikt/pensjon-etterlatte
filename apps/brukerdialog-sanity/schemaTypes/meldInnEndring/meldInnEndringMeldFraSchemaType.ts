@@ -272,7 +272,28 @@ export const meldInnEndringMeldFraSchemaType = defineType({
             name: 'beskrivelseAvEndring',
             title: 'Beskrivelse av endring',
             type: 'object',
-            fields: [...textFieldSchemaFields, errorVedTomInputSchemaField],
+            fields: [
+                ...textFieldSchemaFields,
+                errorVedTomInputSchemaField,
+                defineField({
+                    name: 'errorVedForMangeTegn',
+                    title: 'Error ved for mange tegn',
+                    type: 'object',
+                    fields: spraakStringFields
+                }),
+                defineField({
+                    name: 'tegnIgjen',
+                    title: 'Tegn igjen',
+                    type: 'object',
+                    fields: spraakStringFields
+                }),
+                defineField({
+                    name: 'forMangeTegn',
+                    title: 'For mange tegn',
+                    type: 'object',
+                    fields: spraakStringFields
+                })
+            ],
         }),
     ],
 })
