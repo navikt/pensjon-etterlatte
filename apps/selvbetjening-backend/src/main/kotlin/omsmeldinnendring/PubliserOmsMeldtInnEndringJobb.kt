@@ -5,6 +5,8 @@ import no.nav.etterlatte.funksjonsbrytere.FeatureToggle
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.jobs.LeaderElection
 import no.nav.etterlatte.kafka.KafkaProdusent
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
 import no.nav.etterlatte.shuttingDown
 import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.LoggerFactory

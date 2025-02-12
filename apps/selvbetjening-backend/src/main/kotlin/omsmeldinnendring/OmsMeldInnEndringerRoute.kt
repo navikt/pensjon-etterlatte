@@ -8,10 +8,7 @@ import io.ktor.server.routing.Route
 import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
-import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import java.time.Instant
-import java.time.temporal.ChronoUnit
-import java.util.UUID
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 
 fun Route.omsMeldInnEndring(service: OmsMeldInnEndringService) {
     route("/api/oms/meld_inn_endringer") {
@@ -28,23 +25,3 @@ data class OmsMeldtInnEndringRequest(
     val endring: OmsEndring,
     val beskrivelse: String,
 )
-
-data class OmsMeldtInnEndring(
-    val id: UUID = UUID.randomUUID(),
-    val fnr: Foedselsnummer,
-    val endring: OmsEndring,
-    val beskrivelse: String,
-    val tidspunkt: Instant = Instant.now().truncatedTo(ChronoUnit.SECONDS),
-)
-
-enum class OmsEndring {
-    INNTEKT,
-    AKTIVITET_OG_INNTEKT,
-    ANNET,
-}
-
-enum class OmsMeldtInnEndringStatus {
-    LAGRET,
-    SENDT,
-    FERDIGSTILT,
-}
