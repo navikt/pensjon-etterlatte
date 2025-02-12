@@ -40,7 +40,7 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) =>
                         {skjemaNavn === 'meld-inn-endring' && <FyllUtSkjemaIcon aria-hidden />}
                     </Hide>
                     <VStack>
-                        <BodyShort size="small">Nav 17-09.02</BodyShort>
+                        {skjemaNavn === 'inntektsjustering' && <BodyShort size="small">Nav 17-09.02</BodyShort>}
                         <Heading size="xlarge" level="1">
                             {innhold.skjemaTittel?.[spraak]}
                         </Heading>
