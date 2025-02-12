@@ -1,5 +1,8 @@
 package no.nav.etterlatte.omsendringer
 
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.database.firstOrNull
 import no.nav.etterlatte.libs.utils.database.toList

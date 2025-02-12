@@ -1,5 +1,7 @@
 package no.nav.etterlatte.omsendringer
 
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import java.util.UUID
 
