@@ -276,6 +276,12 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                 ...textFieldSchemaFields,
                 errorVedTomInputSchemaField,
                 defineField({
+                    name: 'errorVedForMangeTegn',
+                    title: 'Error ved for mange tegn',
+                    type: 'object',
+                    fields: spraakStringFields
+                }),
+                defineField({
                     name: 'tegnIgjen',
                     title: 'Tegn igjen',
                     type: 'object',
