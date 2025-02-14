@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.github.benmanes.caffeine.cache.AsyncLoadingCache
 import com.nimbusds.oauth2.sdk.GrantType
 import com.nimbusds.oauth2.sdk.auth.ClientAuthenticationMethod
+import com.nimbusds.oauth2.sdk.auth.JWTAuthentication
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.forms.submitForm
@@ -131,7 +132,7 @@ private fun ParametersBuilder.appendClientAuthParams(
         ClientAuthenticationMethod.PRIVATE_KEY_JWT -> {
             val clientAssertion = ClientAssertion(URI.create(tokenEndpointUrl), clientAuthProperties)
             append(OAuth2ParameterNames.CLIENT_ID, clientAuthProperties.clientId)
-            append(OAuth2ParameterNames.CLIENT_ASSERTION_TYPE, clientAssertion.assertionType())
+            append(OAuth2ParameterNames.CLIENT_ASSERTION_TYPE, JWTAuthentication.CLIENT_ASSERTION_TYPE)
             append(OAuth2ParameterNames.CLIENT_ASSERTION, clientAssertion.assertion())
         }
     }
