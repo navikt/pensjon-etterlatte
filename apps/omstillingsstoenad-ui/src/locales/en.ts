@@ -150,7 +150,7 @@ export default {
     'forside.harSoektOms.innhold.li1.lenke.tekst': 'change your bank account number',
     'forside.harSoektOms.innhold.li2.lenke.href': 'https://www.nav.no/start/ettersend-soknad-omstillingstonad/en',
     'forside.harSoektOms.innhold.li2.lenke.tekst': 'forward documentation',
-    'forside.harSoektOms.innhold.li3.lenke.href': 'https://www.nav.no/kontaktoss/en',
+    'forside.harSoektOms.innhold.li3.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'forside.harSoektOms.innhold.li3.lenke.tekst': 'notify us of changes',
     'situasjonenDin.tittel': 'Your situation',
     'situasjonenDin.ingress': 'Your right to transitional benefits may be influenced by',
@@ -700,7 +700,7 @@ export default {
     'soeknadKvittering.endring.endringsListe.bosted':
         'If you are going to move to or spend a prolonged period of time in another country',
     'soeknadKvittering.endring.rettigheter.informasjon': 'You can read more about ',
-    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/endringer/en',
+    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'notifying us of any changes.',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
