@@ -144,7 +144,7 @@ export default {
     'forside.harSoektOms.innhold.li1.lenke.tekst': 'endre kontonummeret',
     'forside.harSoektOms.innhold.li2.lenke.href': 'https://www.nav.no/start/ettersend-soknad-omstillingstonad',
     'forside.harSoektOms.innhold.li2.lenke.tekst': 'ettersende dokumentasjon',
-    'forside.harSoektOms.innhold.li3.lenke.href': 'https://www.nav.no/kontaktoss',
+    'forside.harSoektOms.innhold.li3.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'forside.harSoektOms.innhold.li3.lenke.tekst': 'melde fra om endringer',
     'forside.samtykke.bekreftelse': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'situasjonenDin.tittel': 'Situasjonen din',
@@ -672,8 +672,7 @@ export default {
     'soeknadKvittering.endring.endringsListe.bosted':
         'Du skal flytte eller oppholde deg i et annet land over lengre tid',
     'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese mer om å',
-    'soeknadKvittering.endring.rettigheter.lenke.href':
-        'https://www.nav.no/no/nav-og-samfunn/om-nav/relatert-informasjon/du-har-plikt-til-a-gi-nav-riktige-opplysninger',
+    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde fra om endringer.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saken din',
     'soeknadKvittering.seSaken.informasjon.innhold1':
