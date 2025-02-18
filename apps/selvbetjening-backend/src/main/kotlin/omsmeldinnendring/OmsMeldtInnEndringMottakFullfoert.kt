@@ -1,5 +1,6 @@
 package no.nav.etterlatte.omsendringer
 
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
 import no.nav.helse.rapids_rivers.JsonMessage
 import no.nav.helse.rapids_rivers.MessageContext
 import no.nav.helse.rapids_rivers.RapidsConnection

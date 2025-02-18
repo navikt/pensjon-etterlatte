@@ -2,11 +2,11 @@ package omsmeldinnendring
 
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.omsendringer.OmsEndring
 import no.nav.etterlatte.omsendringer.OmsMeldInnEndringRepository
-import no.nav.etterlatte.omsendringer.OmsMeldtInnEndring
-import no.nav.etterlatte.omsendringer.OmsMeldtInnEndringStatus
 import opprettInMemoryDatabase
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach

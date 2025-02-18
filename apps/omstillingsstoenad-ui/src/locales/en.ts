@@ -150,7 +150,7 @@ export default {
     'forside.harSoektOms.innhold.li1.lenke.tekst': 'change your bank account number',
     'forside.harSoektOms.innhold.li2.lenke.href': 'https://www.nav.no/start/ettersend-soknad-omstillingstonad/en',
     'forside.harSoektOms.innhold.li2.lenke.tekst': 'forward documentation',
-    'forside.harSoektOms.innhold.li3.lenke.href': 'https://www.nav.no/kontaktoss/en',
+    'forside.harSoektOms.innhold.li3.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'forside.harSoektOms.innhold.li3.lenke.tekst': 'notify us of changes',
     'situasjonenDin.tittel': 'Your situation',
     'situasjonenDin.ingress': 'Your right to transitional benefits may be influenced by',
@@ -476,6 +476,15 @@ export default {
     'inntektenDin.pensjonEllerUfoere.tittel': 'Pension or disability pension',
     'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Which type of pension or benefits are you receiving?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Which type of pension are you receiving?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget': 'When was your AFP granted?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep':
+        'What is your expected AFP payment this year, before tax?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse':
+        'From January to December',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel':
+        'Did you get AFP granted this year?',
+    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold':
+        'Write the expected amount from the month you received AFP until December.',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler':
         'Which occupational pension scheme pays your pensions?',
     'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse':
@@ -691,7 +700,7 @@ export default {
     'soeknadKvittering.endring.endringsListe.bosted':
         'If you are going to move to or spend a prolonged period of time in another country',
     'soeknadKvittering.endring.rettigheter.informasjon': 'You can read more about ',
-    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/endringer/en',
+    'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'notifying us of any changes.',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
@@ -1111,6 +1120,9 @@ export default {
     'feil.naeringsinntekt.utland.inntektIAar.aarsinntekt.required': 'State expected gross annual income this year',
     'feil.pensjonEllerUfoere.pensjonstype.required': 'State which type of pension or benefits you receive',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.type.required': 'Choose which pension you receive',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget.required':
+        'Choose when your AFP was granted',
+    'feil.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.required': 'State the amount',
     'feil.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.required':
         'State which occupational pension scheme pays your pension',
     'feil.pensjonEllerUfoere.utland.svar.required': 'State whether you receive or do not receive a pension from abroad',

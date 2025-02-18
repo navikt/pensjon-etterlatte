@@ -1142,6 +1142,21 @@ export type MeldInnEndringMeldFra = {
             NN?: string
             EN?: string
         }
+        errorVedForMangeTegn?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        tegnIgjen?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        forMangeTegn?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
     }
 }
 

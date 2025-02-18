@@ -1,4 +1,4 @@
-import { BodyLong, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
+import { FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SideLaster } from '../../common/SideLaster.tsx'
@@ -89,8 +89,8 @@ export const MeldInnEndringOppsummering = () => {
                                     <FormSummary.Label>
                                         {innhold.skjemaSammendrag?.beskrivelseAvEndring?.label?.[spraak]}
                                     </FormSummary.Label>
-                                    <FormSummary.Value>
-                                        <BodyLong style={{ whiteSpace: 'pre' }}>{meldInnEndring.beskrivelse}</BodyLong>
+                                    <FormSummary.Value style={{ whiteSpace: 'pre-line' }}>
+                                        {meldInnEndring.beskrivelse}
                                     </FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>

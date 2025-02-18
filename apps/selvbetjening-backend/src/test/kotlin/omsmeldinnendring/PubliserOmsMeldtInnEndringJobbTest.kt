@@ -7,11 +7,11 @@ import io.mockk.mockk
 import io.mockk.verify
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.kafka.KafkaProdusent
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
+import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
-import no.nav.etterlatte.omsendringer.OmsEndring
 import no.nav.etterlatte.omsendringer.OmsMeldInnEndringService
-import no.nav.etterlatte.omsendringer.OmsMeldtInnEndring
-import no.nav.etterlatte.omsendringer.OmsMeldtInnEndringStatus
 import no.nav.etterlatte.omsendringer.PubliserOmsMeldtInnEndringJobb
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
