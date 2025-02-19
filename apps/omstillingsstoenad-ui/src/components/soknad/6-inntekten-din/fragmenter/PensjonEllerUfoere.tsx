@@ -85,6 +85,8 @@ const PensjonEllerUfoere = () => {
                                     description={t(
                                         'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse'
                                     )}
+                                    visPersonopplysningerVarsel={false}
+                                    maxLength={200}
                                 />
                             </SkjemaElement>
                             <ReadMore header={t('hvorforSpoerVi')}>
