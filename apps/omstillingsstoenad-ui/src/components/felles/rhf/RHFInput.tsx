@@ -1,12 +1,12 @@
+import { BodyShort, TextField, TextFieldProps, Textarea, TextareaProps } from '@navikt/ds-react'
+import { fnr } from '@navikt/fnrvalidator'
+import { isValidBIC, isValidIBAN } from 'ibantools'
+import { get } from 'lodash'
 import React, { ChangeEvent } from 'react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { BodyShort, Textarea, TextField, TextFieldProps, TextareaProps } from '@navikt/ds-react'
-import { get } from 'lodash'
-import { useTranslation } from 'react-i18next'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
-import { getTransKey } from '../../../utils/translation'
-import { fnr } from '@navikt/fnrvalidator'
+import { useTranslation } from 'react-i18next'
 import {
     kontonrMatcher,
     partialKontonrMatcher,
@@ -14,7 +14,7 @@ import {
     prosentMatcher,
     telefonnrMatcher,
 } from '../../../utils/matchers'
-import { isValidBIC, isValidIBAN } from 'ibantools'
+import { getTransKey } from '../../../utils/translation'
 import { InputWithCurrency } from '../StyledComponents'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
@@ -27,6 +27,7 @@ interface RHFInputAreaProps extends Omit<TextareaProps, 'name'> {
     name: FieldPath<FieldValues>
     rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
     valgfri?: boolean
+    visPersonopplysningerVarsel?: boolean
 }
 
 export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps) => {
@@ -52,7 +53,15 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
     )
 }
 
-export const RHFInputArea = ({ name, rules, className, valgfri, description, ...rest }: RHFInputAreaProps) => {
+export const RHFInputArea = ({
+    name,
+    rules,
+    className,
+    valgfri,
+    description,
+    visPersonopplysningerVarsel = true,
+    ...rest
+}: RHFInputAreaProps) => {
     const { t } = useTranslation()
     const {
         control,
@@ -83,8 +92,12 @@ export const RHFInputArea = ({ name, rules, className, valgfri, description, ...
                         i18n={i18nLocale}
                         description={
                             description
-                                ? `${description}\n\n${t('felles.ikkeSensitiveOpplysninger')}`
-                                : t('felles.ikkeSensitiveOpplysninger')
+                                ? visPersonopplysningerVarsel
+                                    ? `${description}\n\n${t('felles.ikkeSensitiveOpplysninger')}`
+                                    : `${description}`
+                                : visPersonopplysningerVarsel
+                                  ? t('felles.ikkeSensitiveOpplysninger')
+                                  : ''
                         }
                         autoComplete="off"
                     />
