@@ -5,6 +5,11 @@ import { useCallback } from 'react'
 export enum LogEvents {
     ALDER = 'alder',
     INGEN_OMS_SAK = 'ingen oms sak',
+    KLIKK = 'klikk',
+}
+
+export enum EventType {
+    LENKE_KLIKK = 'lenke klikk',
 }
 
 export const useAmplitude = () => {
