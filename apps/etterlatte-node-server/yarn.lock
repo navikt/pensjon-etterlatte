@@ -2671,10 +2671,10 @@ unique-slug@^4.0.0:
   dependencies:
     imurmurhash "^0.1.4"
 
-unleash-client@^6.4.3:
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.4.3.tgz#f353a48b4f4c26654ac20237a8083abfd912355b"
-  integrity sha512-nmbd/gTo/w4xJvjF3mhMMaUN2ij8MOi9vwLJSgvNMew2yGVIKHjQMcU3g4C3+Gp6zz6bIesxbuabpZgeyCLMCg==
+unleash-client@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.6.0.tgz#2fbe6a19e4f74383436b86ae62269682a4010ba0"
+  integrity sha512-xsxWobHY83d5n80aGVQVTXOVdxRw9vZxsXUeys5oucYRMzW3ymiy+QY0QBEWDORq0AffsP2suF5uj2M6On2qGw==
   dependencies:
     http-proxy-agent "^7.0.2"
     https-proxy-agent "^7.0.5"
