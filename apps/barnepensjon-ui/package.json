@@ -5,7 +5,6 @@
     "homepage": "/barnepensjon/soknad",
     "type": "module",
     "dependencies": {
-        "@amplitude/analytics-browser": "^2.11.11",
         "@navikt/ds-css": "^7.9.0",
         "@navikt/ds-icons": "^3.4.3",
         "@navikt/ds-react": "^7.9.0",
