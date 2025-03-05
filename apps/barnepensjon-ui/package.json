@@ -50,16 +50,12 @@
         "@types/react-dom": "^19.0.3",
         "@types/react-router-dom": "^5.3.3",
         "@types/uuid": "^10.0.0",
-        "@typescript-eslint/eslint-plugin": "^8.23.0",
-        "@typescript-eslint/parser": "^8.23.0",
         "concurrently": "^9.1.2",
         "cypress": "^14.1.0",
-        "eslint": "^9.19.0",
         "globals": "^16.0.0",
         "husky": "~9.1.7",
         "jsdom": "^26.0.0",
-        "license-checker-rseidelsohn": "^4.4.2",
-        "prettier": "^3.5.3"
+        "license-checker-rseidelsohn": "^4.4.2"
     },
     "scripts": {
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
@@ -72,9 +68,6 @@
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
         "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages barnepensjon-ui-client@0.1.0 --summary"
-    },
-    "eslintConfig": {
-        "extends": ["react-app", "react-app/jest"]
     },
     "browserslist": {
         "production": [">0.2%", "not dead", "not op_mini all"],
