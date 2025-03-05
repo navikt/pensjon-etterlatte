@@ -3,7 +3,7 @@
 exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-gyycJP fQJhzx"
+    class="sc-gjcoXW fooBGA"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -15,7 +15,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
     autocomplete="on"
   >
     <fieldset
-      class="sc-eaUbBy gdndvv"
+      class="sc-dVBluf kbmOdt"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -153,10 +153,10 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         </fieldset>
       </div>
       <div
-        class="sc-gyycJP fQJhzx"
+        class="sc-gjcoXW fooBGA"
       >
         <section
-          class="sc-KXCwU bVPwyZ"
+          class="sc-FEMpB epHbha"
         >
           <div
             class="navds-date__wrapper"
@@ -1672,7 +1672,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         </section>
       </div>
       <div
-        class="sc-gyycJP fQJhzx"
+        class="sc-gjcoXW fooBGA"
       >
         <div
           id="forholdTilAvdoede.fellesBarn"
@@ -1762,10 +1762,10 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-eaUbBy gdndvv"
+      class="sc-dVBluf kbmOdt"
     >
       <div
-        class="sc-gaZyOd eEWhgq undefined"
+        class="sc-fLDLck kXfaJH undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1790,7 +1790,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gaZyOd sc-dDvxFM eEWhgq kKJBXk"
+      class="sc-fLDLck sc-dycHyt kXfaJH gWMTwj"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1860,7 +1860,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-cZztgT bbQuoj"
+          class="sc-deSjom jDmyxY"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1888,7 +1888,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
           </button>
         </div>
         <div
-          class="sc-cZztgT bbQuoj"
+          class="sc-deSjom jDmyxY"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -1912,7 +1912,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-gyycJP fQJhzx"
+    class="sc-gjcoXW fooBGA"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -1924,7 +1924,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
     autocomplete="on"
   >
     <fieldset
-      class="sc-eaUbBy gdndvv"
+      class="sc-dVBluf kbmOdt"
     >
       <div
         id="forholdTilAvdoede.relasjon"
@@ -2063,10 +2063,10 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-eaUbBy gdndvv"
+      class="sc-dVBluf kbmOdt"
     >
       <div
-        class="sc-gaZyOd eEWhgq undefined"
+        class="sc-fLDLck kXfaJH undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -2091,7 +2091,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-gaZyOd sc-dDvxFM eEWhgq kKJBXk"
+      class="sc-fLDLck sc-dycHyt kXfaJH gWMTwj"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -2161,7 +2161,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-cZztgT bbQuoj"
+          class="sc-deSjom jDmyxY"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -2189,7 +2189,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
           </button>
         </div>
         <div
-          class="sc-cZztgT bbQuoj"
+          class="sc-deSjom jDmyxY"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
