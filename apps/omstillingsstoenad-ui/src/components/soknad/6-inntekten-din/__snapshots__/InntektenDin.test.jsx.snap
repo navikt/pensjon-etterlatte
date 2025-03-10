@@ -164,6 +164,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   </svg>
                 </span>
                 <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
                   class="navds-checkbox__content"
                 >
                   <span
@@ -209,6 +212,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
                 <span
                   class="navds-checkbox__content"
                 >
@@ -256,6 +262,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   </svg>
                 </span>
                 <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
                   class="navds-checkbox__content"
                 >
                   <span
@@ -302,6 +311,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   </svg>
                 </span>
                 <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
                   class="navds-checkbox__content"
                 >
                   <span
@@ -347,6 +359,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
                 <span
                   class="navds-checkbox__content"
                 >
@@ -878,6 +893,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                   </svg>
                 </span>
                 <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
                   class="navds-checkbox__content"
                 >
                   <span
@@ -923,6 +941,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
                 <span
                   class="navds-checkbox__content"
                 >
@@ -970,6 +991,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                   </svg>
                 </span>
                 <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
                   class="navds-checkbox__content"
                 >
                   <span
@@ -1016,6 +1040,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                   </svg>
                 </span>
                 <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
                   class="navds-checkbox__content"
                 >
                   <span
@@ -1061,6 +1088,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                     />
                   </svg>
                 </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
                 <span
                   class="navds-checkbox__content"
                 >
