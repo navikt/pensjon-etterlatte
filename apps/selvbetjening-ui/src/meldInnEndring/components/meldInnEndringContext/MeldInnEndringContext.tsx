@@ -1,9 +1,8 @@
-import { logEvent } from '@amplitude/analytics-browser'
 import { HStack, VStack } from '@navikt/ds-react'
 import { ReactNode, createContext, useContext, useState } from 'react'
 import useSWR, { SWRResponse } from 'swr'
 import { SideLaster } from '../../../common/SideLaster.tsx'
-import { LogEvents } from '../../../common/amplitude/useAmplitude.ts'
+import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
 import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
@@ -17,6 +16,8 @@ const meldInnEndringContext = createContext(meldInnEndringDefaultValues)
 const meldInnEndringDispatch = createContext({} as MeldInnEndringDispatcher)
 
 const ProvideMeldInnEndringContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
+    const { logEvent } = useAmplitude()
+
     const [meldInnEndring, setMeldInnEndring] = useState<MeldtInnEndring>(meldInnEndringDefaultValues)
 
     const {
