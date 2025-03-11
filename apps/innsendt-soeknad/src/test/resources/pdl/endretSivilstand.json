@@ -74,11 +74,9 @@
           }
         }
       ],
-      "foedsel": [
+      "foedselsdato": [
         {
           "foedselsdato": "1963-10-20",
-          "foedeland": "NOR",
-          "foedested": "Fødested i/på Oslo",
           "foedselsaar": 1963,
           "metadata": {
             "endringer": [
