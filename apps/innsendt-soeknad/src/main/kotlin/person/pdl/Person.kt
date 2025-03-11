@@ -42,6 +42,7 @@ data class Statsborgerskap(
     val metadata: Metadata,
 )
 
+// TODO: Slette
 data class Foedsel(
     val foedselsdato: LocalDate? = null,
     val foedeland: String? = null,
