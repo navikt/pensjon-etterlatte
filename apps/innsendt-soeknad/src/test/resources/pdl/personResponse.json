@@ -74,11 +74,9 @@
           }
         }
       ],
-      "foedsel": [
+      "foedselsdato": [
         {
           "foedselsdato": "2005-04-19",
-          "foedeland": "LTU",
-          "foedested": "Fødested i/på LITAUEN",
           "foedselsaar": 2005,
           "metadata": {
             "endringer": [
