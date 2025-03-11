@@ -60,9 +60,7 @@ class PersonService(
             hentPerson.sivilstand
                 .maxByOrNull { it.metadata.sisteRegistrertDato() }
 
-        val foedsel =
-            hentPerson.foedsel
-                .maxByOrNull { it.metadata.sisteRegistrertDato() }
+        val foedselsdato = hentPerson.foedselsdato.maxByOrNull { it.metadata.sisteRegistrertDato() }
 
         val poststed = kodeverkService.hentPoststed(bostedsadresse?.vegadresse?.postnummer)
 
@@ -74,8 +72,8 @@ class PersonService(
             fornavn = navn.fornavn,
             etternavn = navn.etternavn,
             foedselsnummer = fnr,
-            foedselsdato = foedsel?.foedselsdato?.toString(),
-            foedselsaar = foedsel?.foedselsaar,
+            foedselsdato = foedselsdato?.foedselsdato?.toString(),
+            foedselsaar = foedselsdato?.foedselsaar,
             adressebeskyttelse = adressebeskyttelse,
             adresse = bostedsadresse?.vegadresse?.adressenavn,
             husnummer = bostedsadresse?.vegadresse?.husnummer,
