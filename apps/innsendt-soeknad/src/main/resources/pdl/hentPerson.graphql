@@ -33,13 +33,6 @@ query($ident: ID!) {
                 ...metadataDetails
             }
         }
-        foedested {
-            foedeland
-            foedested
-            metadata {
-                ...metadataDetails
-            }
-        }
         foedselsdato {
             foedselsdato
             foedselsaar

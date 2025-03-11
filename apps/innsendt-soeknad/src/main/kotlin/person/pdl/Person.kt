@@ -21,7 +21,7 @@ data class HentPerson(
     val bostedsadresse: List<Bostedsadresse>,
     val navn: List<Navn>,
     val statsborgerskap: List<Statsborgerskap>,
-    val foedsel: List<Foedsel>,
+    val foedselsdato: List<Foedselsdato>,
     val sivilstand: List<Sivilstand>,
 )
 
@@ -42,11 +42,8 @@ data class Statsborgerskap(
     val metadata: Metadata,
 )
 
-// TODO: Slette
-data class Foedsel(
+data class Foedselsdato(
     val foedselsdato: LocalDate? = null,
-    val foedeland: String? = null,
-    val foedested: String? = null,
     val foedselsaar: Int? = null,
     val folkeregistermetadata: Folkeregistermetadata? = null,
     val metadata: Metadata,
