@@ -51,7 +51,7 @@ const ProvideInntektContext = ({ children }: { children: ReactNode | Array<React
         setInntekt,
     }
 
-    if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {
+    if (!harOMSSakIGjenny?.harOMSSak) {
         logEvent(LogEvents.INGEN_OMS_SAK, { data: {} })
 
         return (
