@@ -1,12 +1,12 @@
+import { setParams } from '@navikt/nav-dekoratoren-moduler'
 import React, { createContext, FC, useContext, useState } from 'react'
-import { Language } from './language'
-import { Namespace, TKey } from './translations'
+import { useCookies } from 'react-cookie'
+import en from '../../locales/en'
 import nb from '../../locales/nb'
 import nn from '../../locales/nn'
-import en from '../../locales/en'
 import { FCProps } from '../../types/FCProps'
-import { useCookies } from 'react-cookie'
-import { setParams } from '@navikt/nav-dekoratoren-moduler'
+import { Language } from './language'
+import { Namespace } from './translations'
 
 const initialLanguage = (localStorage.getItem('language') as Language) || Language.BOKMAAL
 const initialTranslations = nb as Record<Namespace, Record<string, string>>
