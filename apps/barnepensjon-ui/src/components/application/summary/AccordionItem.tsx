@@ -1,6 +1,6 @@
 import { EditFilled } from '@navikt/ds-icons'
 import { Accordion } from '@navikt/ds-react'
-import { JSX, ReactElement, useState } from 'react'
+import { JSX, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 interface Props {
