@@ -6,6 +6,9 @@ import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.request.accept
 import io.ktor.client.request.get
 import io.ktor.client.request.header
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.client.utils.EmptyContent.contentType
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
@@ -31,16 +34,16 @@ class KrrKlient(
 
         return try {
             val response =
-                client.get("person") {
-                    header(HttpHeaders.NavPersonIdent, fnr.value)
+                client.post("personer") {
                     header(HttpHeaders.NavCallId, UUID.randomUUID().toString())
                     header(X_CORRELATION_ID, getCorrelationId())
                     accept(ContentType.Application.Json)
                     contentType(ContentType.Application.Json)
+                    setBody(DigitalKontaktinformasjonRequestBody(listOf(fnr.value)))
                 }
 
             if (response.status.isSuccess()) {
-                response.body()
+                response.body<DigitalKontaktinformasjonResponseBody>().personer[fnr.value]
             } else {
                 throw ClientRequestException(response, response.toString())
             }
@@ -50,6 +53,14 @@ class KrrKlient(
         }
     }
 }
+
+data class DigitalKontaktinformasjonRequestBody(
+    val personidenter: List<String>,
+)
+
+data class DigitalKontaktinformasjonResponseBody(
+    val personer: Map<String, DigitalKontaktinformasjon>,
+)
 
 class KrrException(
     cause: Throwable,
