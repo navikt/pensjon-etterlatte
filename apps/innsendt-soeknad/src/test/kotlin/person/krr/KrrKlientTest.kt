@@ -5,6 +5,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.utils.EmptyContent.status
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.fullPath
@@ -14,12 +15,13 @@ import kotlinx.coroutines.runBlocking
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.person.krr.DigitalKontaktinformasjon
+import no.nav.etterlatte.person.krr.DigitalKontaktinformasjonResponseBody
 import no.nav.etterlatte.person.krr.KrrKlient
 import org.junit.jupiter.api.Test
 
 internal class KrrKlientTest {
     private fun opprettKlient(
-        responseContent: DigitalKontaktinformasjon,
+        responseContent: DigitalKontaktinformasjonResponseBody,
         status: HttpStatusCode,
     ): KrrKlient {
         val httpClient =
@@ -27,7 +29,7 @@ internal class KrrKlientTest {
                 engine {
                     addHandler { request ->
                         when (request.url.fullPath) {
-                            "/person" -> {
+                            "/personer" -> {
                                 respond(
                                     responseContent.toJson(),
                                     status,
@@ -57,9 +59,9 @@ internal class KrrKlientTest {
                 klient.hentDigitalKontaktinformasjon(Foedselsnummer.of("11057523044"))
             }
 
-        response?.epostadresse shouldBe expectedResponse.epostadresse
-        response?.mobiltelefonnummer shouldBe expectedResponse.mobiltelefonnummer
-        response?.spraak shouldBe expectedResponse.spraak
+        response?.epostadresse shouldBe expectedResponse.personer["11057523044"]?.epostadresse
+        response?.mobiltelefonnummer shouldBe expectedResponse.personer["11057523044"]?.mobiltelefonnummer
+        response?.spraak shouldBe expectedResponse.personer["11057523044"]?.spraak
     }
 
     @Test
@@ -75,15 +77,20 @@ internal class KrrKlientTest {
         response shouldBe null
     }
 
-    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjon =
-        DigitalKontaktinformasjon(
-            personident = "11057523044",
-            aktiv = true,
-            kanVarsles = true,
-            reservert = false,
-            spraak = "nb",
-            epostadresse = "noreply@nav.no",
-            mobiltelefonnummer = "11111111",
-            sikkerDigitalPostkasse = null,
+    private fun opprettDigitalKontaktInfo(): DigitalKontaktinformasjonResponseBody =
+        DigitalKontaktinformasjonResponseBody(
+            mapOf(
+                "11057523044" to
+                    DigitalKontaktinformasjon(
+                        personident = "11057523044",
+                        aktiv = true,
+                        kanVarsles = true,
+                        reservert = false,
+                        spraak = "nb",
+                        epostadresse = "noreply@nav.no",
+                        mobiltelefonnummer = "11111111",
+                        sikkerDigitalPostkasse = null,
+                    ),
+            ),
         )
 }
