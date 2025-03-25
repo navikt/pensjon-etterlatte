@@ -37,7 +37,7 @@ const ProvideMeldInnEndringContext = ({ children }: { children: ReactNode | Arra
         setMeldInnEndring,
     }
 
-    if (!harOMSSakIGjenny?.harOMSSak && !harOMSSakIGjennyError) {
+    if (!harOMSSakIGjenny?.harOMSSak) {
         logEvent(LogEvents.INGEN_OMS_SAK, { data: {} })
 
         return (
