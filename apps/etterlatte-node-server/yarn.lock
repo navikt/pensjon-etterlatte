@@ -192,10 +192,10 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@sanity/client@^6.28.3":
-  version "6.28.3"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-6.28.3.tgz#d9e0533ef0a6fafff14b989b740800b0abf06282"
-  integrity sha512-/W/w0pl0wx1vn6RKUaOTNHVcBDvBcjZk6agpl4vwTCxvNQhh74nY9xk+/heap3KriSHp95ilChv/qVYMz2/l3w==
+"@sanity/client@^6.28.4":
+  version "6.28.4"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-6.28.4.tgz#6167721cc1434f68a29debd330aa3c52f50cb2c4"
+  integrity sha512-xUv+Mzqv1JvzWgpNE+DDUPjsvImOEuwxHwOQZijX3+eqOBuRnqmlk7XtYIIw5NsDg6lE0b+uQ0wE5in9/JhYjw==
   dependencies:
     "@sanity/eventsource" "^5.0.2"
     get-it "^8.6.7"
@@ -349,9 +349,9 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "22.13.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.10.tgz#df9ea358c5ed991266becc3109dc2dc9125d77e4"
-  integrity sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==
+  version "22.13.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.15.tgz#c5cf5865b09739f1333af65545765f61476eaf76"
+  integrity sha512-imAbQEEbVni6i6h6Bd5xkCRwLqFc8hihCsi2GbtDoAtUcAFQ6Zs4pFXTZUUbroTkXdImczWM9AI8eZUuybXE3w==
   dependencies:
     undici-types "~6.20.0"
 
