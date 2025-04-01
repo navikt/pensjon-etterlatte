@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import sourceMap, { NullableMappedPosition } from 'source-map'
 import * as fs from 'fs'
 import { sanitize, sanitizeUrl } from '../utils/sanitize'
@@ -27,7 +27,7 @@ async function sourceMapMapper(numbers: IStackLineNoColumnNo): Promise<NullableM
     return Promise.resolve(smc.originalPositionFor({ line: numbers.lineno, column: numbers.columnno }))
 }
 
-loggerRouter.post('/', express.json(), (req, res) => {
+loggerRouter.post('/', express.json(), (req: Request, res: Response): Response => {
     const logEvent = req.body as LogEvent
     const errorData = logEvent.data
 

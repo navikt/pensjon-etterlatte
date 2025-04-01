@@ -11,7 +11,7 @@ export const sanityClient = createClient({
     apiVersion: '2024-06-27',
 })
 
-export default function sanityProxy(): RequestHandler {
+export default function sanityProxy(): (req: Request, res: Response) => Promise<Response> {
     return async (req: Request, res: Response) => {
         try {
             const sanityQuery = req.query.sanityQuery

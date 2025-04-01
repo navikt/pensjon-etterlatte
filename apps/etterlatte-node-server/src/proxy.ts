@@ -1,4 +1,4 @@
-import { Request, RequestHandler, Response } from 'express'
+import { Request, Response } from 'express'
 import { requestTokenxOboToken, validateIdportenToken } from '@navikt/oasis'
 import config from './config'
 import { logger } from './monitoring/logger'
@@ -48,7 +48,7 @@ const prepareSecuredRequest = async (req: Request, token: any) => {
     }
 }
 
-export default function proxy(host: string): RequestHandler {
+export default function proxy(host: string): (req: Request, res: Response) => Promise<Response> {
     return async (req: Request, res: Response) => {
         try {
             const token = getHeaderTokenReq(req)
