@@ -2,11 +2,11 @@
 license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 
 [versions]
-token-version = "5.0.16"
+token-version = "5.0.24"
 ktor-version = "2.3.13"
-jupiter-version = "5.11.4"
-testcontainers-version = "1.20.4"
-flyway-version = "11.3.1"
+jupiter-version = "5.12.1"
+testcontainers-version = "1.20.6"
+flyway-version = "11.5.0"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -27,7 +27,7 @@ ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-vers
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version" }
 
-database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.2.1" }
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.3.0" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
 database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.5" }
@@ -36,17 +36,17 @@ jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "j
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version" }
 jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jupiter-version" }
 
-logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.16" }
-logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.16" }
+logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
+logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.18" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.4" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.5" }
 
-mockk = { module = "io.mockk:mockk", version = "1.13.16" }
+mockk = { module = "io.mockk:mockk", version = "1.13.17" }
 
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.9.1" }
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
 
-unleash-client = { module = "io.getunleash:unleash-client-java", version = "10.0.1" }
+unleash-client = { module = "io.getunleash:unleash-client-java", version = "10.2.2" }
