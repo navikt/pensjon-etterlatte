@@ -55,6 +55,15 @@ spec:
       autoLogin: true
       autoLoginIgnorePaths:
         - /omstillingsstonad/skjema/internal/**
+  gcp:
+    buckets:
+      - name: selvbetjening-ui-sanity-backup
+        retentionPeriodDays: 30
+        lifecycleCondition:
+          age: 7
+          createdBefore: 2020-01-01
+          numNewerVersions: 2
+          withState: ANY
   envFrom:
     - secret: selvbetjening-ui-sanity
     - secret: my-application-unleash-api-token
