@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - EY-5139-automatiser-sanity-backups
   schedule:
     # Kjøres kl. 14:00 hver dag
     - cron: "0 14 * * *"
