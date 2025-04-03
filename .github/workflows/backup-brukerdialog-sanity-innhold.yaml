@@ -10,6 +10,8 @@ on:
 jobs:
   execute:
     runs-on: ubuntu-latest
+    env:
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,10 +22,8 @@ jobs:
       - name: Installer pakker
         working-directory: apps/brukerdialog-sanity
         run: yarn
-      - name: Last ned siste backup av Sanity innhold for selvbetjening-ui
+      - name: Export sanity dataset
         working-directory: apps/brukerdialog-sanity
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
         # Denne er her for å laste ned siste backup som er gjort
         # Har lagt inn feature request om at Sanity skal tilby et --latest flag
-        run: yarn sanity backup download selvbetjening-ui --backup-id=$(yarn sanity backup list selvbetjening-ui --after $(date +'%Y-%m-%d') | grep '│' | awk -F'│' 'NF>1 {print $4}' | xargs | awk '{print $6}' | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g") --out /
+        run: yarn export-sanity-innhold
