@@ -32,5 +32,5 @@ jobs:
       - uses: "google-github-actions/upload-cloud-storage@v2"
         with:
           path: ./apps/brukerdialog-sanity
-          destination: "etterlatte-prod-207c/brukerdialog-sanity-dataset-backup"
+          destination: "brukerdialog-sanity-dataset-backup"
           glob: "backup-*.tar.gz"
