@@ -1,0 +1,33 @@
+name: Backup brukerdialog sanity innhold til GCP bucket
+on:
+  workflow_dispatch:
+  schedule:
+    # Kjøres kl. 14:00 hver dag
+    - cron: "0 14 * * *"
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    env:
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: yarn
+          cache-dependency-path: "apps/brukerdialog-sanity/yarn.lock"
+      - name: Installer pakker
+        working-directory: apps/brukerdialog-sanity
+        run: yarn
+      - name: Export sanity dataset
+        working-directory: apps/brukerdialog-sanity
+        run: yarn export-sanity-innhold
+      - name: Login to GCP bucket
+        uses: "google-github-actions/auth@v2"
+        with:
+          credentials_json: "${{ secrets.GCP_SANITY_BACKUP_SERVICE_ACCOUNT_KEY }}"
+      - uses: "google-github-actions/upload-cloud-storage@v2"
+        with:
+          path: ./apps/brukerdialog-sanity
+          destination: "brukerdialog-sanity-dataset-backup"
+          glob: "backup-*.tar.gz"

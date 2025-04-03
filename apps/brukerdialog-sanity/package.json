@@ -12,17 +12,20 @@
     "generer-typer:meld-inn-endring": "sanity schema extract --workspace meld-inn-endring && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/meldInnEndring && rm -rf schema.json",
     "generer-typer:felleskomponenter": "sanity schema extract --workspace felleskomponenter && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/common && rm -rf schema.json",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "export-sanity-innhold": "yarn tsx exportSanityInnhold.ts"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/export": "^3.42.2",
     "@sanity/vision": "^3.81.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.81.0",
-    "styled-components": "^6.1"
+    "styled-components": "^6.1",
+    "tsx": "^4.19.3"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
