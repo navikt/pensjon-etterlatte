@@ -1,6 +1,9 @@
 name: Backup brukerdialog sanity innhold til GCP bucket
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
   schedule:
     # Kjøres kl. 14:00 hver dag
     - cron: "0 14 * * *"
@@ -21,5 +24,6 @@ jobs:
         run: yarn
       - name: Last ned siste backup av Sanity innhold for selvbetjening-ui
         working-directory: apps/brukerdialog-sanity
+        # Denne er her for å laste ned siste backup som er gjort
         # Har lagt inn feature request om at Sanity skal tilby et --latest flag
         run: yarn sanity backup download selvbetjening-ui --backup-id=$(yarn sanity backup list selvbetjening-ui --after $(date +'%Y-%m-%d') | grep '│' | awk -F'│' 'NF>1 {print $4}' | xargs | awk '{print $6}' | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g") --out /
