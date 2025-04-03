@@ -11,7 +11,7 @@ const exportSelvbetjeningUISanityDataset = async () => {
     await exportDataset({
         client,
         dataset: 'selvbetjening-ui',
-        outputPath: `backup-selvbetjening-ui-${Date.now()}.tar.gz`,
+        outputPath: `backup-selvbetjening-ui-${new Date().toISOString()}.tar.gz`,
         assets: true,
         raw: false,
         assetConcurrency: 12,
