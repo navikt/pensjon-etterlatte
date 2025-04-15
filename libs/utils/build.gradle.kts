@@ -11,6 +11,7 @@ dependencies {
 
     testImplementation(libs.jupiter.api)
     testRuntimeOnly(libs.jupiter.engine)
+    testFixturesRuntimeOnly(libs.junit.platform.launcher)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
     testFixturesImplementation(libs.etterlatte.common)
