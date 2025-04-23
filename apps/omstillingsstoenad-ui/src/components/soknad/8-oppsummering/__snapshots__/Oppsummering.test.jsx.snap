@@ -898,7 +898,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           class="navds-button__icon"
         >
           <svg
-            aria-labelledby="title-rg"
+            aria-labelledby="title-«rg»"
             fill="none"
             focusable="false"
             height="1em"
@@ -908,7 +908,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <title
-              id="title-rg"
+              id="title-«rg»"
             >
               Lukk
             </title>
@@ -1000,7 +1000,7 @@ exports[`Oppsummering > Snapshot 1`] = `
           class="navds-button__icon"
         >
           <svg
-            aria-labelledby="title-rj"
+            aria-labelledby="title-«rj»"
             fill="none"
             focusable="false"
             height="1em"
@@ -1010,7 +1010,7 @@ exports[`Oppsummering > Snapshot 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <title
-              id="title-rj"
+              id="title-«rj»"
             >
               Lukk
             </title>
