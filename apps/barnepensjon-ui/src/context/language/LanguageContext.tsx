@@ -1,6 +1,5 @@
 import { setParams } from '@navikt/nav-dekoratoren-moduler'
 import React, { createContext, FC, useContext, useState } from 'react'
-import { useCookies } from 'react-cookie'
 import en from '../../locales/en'
 import nb from '../../locales/nb'
 import nn from '../../locales/nn'
@@ -27,17 +26,9 @@ const languages = {
     en,
 }
 
-const dekoratorLanguageCookieName = 'decorator-language'
-
 const LanguageProvider: FC<FCProps> = ({ children }) => {
     const [language, setLanguage] = useState<Language>(initialLanguage)
     const [translations, setTranslations] = useState<Record<Namespace, Record<string, string>>>(languages[language])
-    const [cookies, setCookie] = useCookies([dekoratorLanguageCookieName])
-    const { [dekoratorLanguageCookieName]: dekoratørSpraak } = cookies
-
-    if (!dekoratørSpraak) {
-        setCookie(dekoratorLanguageCookieName, language)
-    }
 
     const updateLanguage = (lang: Language) => {
         console.log('setting language and translations')
@@ -51,7 +42,6 @@ const LanguageProvider: FC<FCProps> = ({ children }) => {
         else setTranslations(nb)
 
         setParams({ language: lang }).then()
-        setCookie(dekoratorLanguageCookieName, lang)
     }
 
     return (
