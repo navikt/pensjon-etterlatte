@@ -3213,10 +3213,10 @@ react-error-boundary@^3.1.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-hook-form@7.53.2:
-  version "7.53.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.53.2.tgz#6fa37ae27330af81089baadd7f322cc987b8e2ac"
-  integrity sha512-YVel6fW5sOeedd1524pltpHX+jgU2u3DSDtXEaBORNdqiNrsX/nUI/iGXONegttg0mJVnfrIkiV0cmTU6Oo2xw==
+react-hook-form@7.6.1:
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.6.1.tgz#e351ec43972a09dc74f969a9b248fe3281b08afe"
+  integrity sha512-wwLBe9NKtXYdCErx/+0UTG05toNYKi6/HnoLa8/W0EjqyDXnCByheNpszyFhUmljNdxrr0nBcSyf2K/Fdx1LDQ==
 
 react-i18next@15.4.1:
   version "15.4.1"
