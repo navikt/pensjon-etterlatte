@@ -59,7 +59,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
     return (
         <FormProvider {...methods}>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <SkjemaElement>
                     <Heading size={'medium'} className={'center'}>
                         {t('inntektenDin.tittel')}
