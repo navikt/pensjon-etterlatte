@@ -20,10 +20,10 @@
   ],
   "dependencies": {
     "@sanity/export": "^3.42.2",
-    "@sanity/vision": "^3.81.0",
+    "@sanity/vision": "^3.87.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "sanity": "^3.81.0",
+    "sanity": "^3.87.0",
     "styled-components": "^6.1",
     "tsx": "^4.19.3"
   },
@@ -32,7 +32,7 @@
     "@types/react": "^19.1.0",
     "eslint": "^9.21.0",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "prettier": {
     "trailingComma": "es5",
