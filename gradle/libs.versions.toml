@@ -2,11 +2,11 @@
 license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 
 [versions]
-token-version = "5.0.24"
+token-version = "5.0.25"
 ktor-version = "2.3.13"
-jupiter-version = "5.12.1"
-testcontainers-version = "1.20.6"
-flyway-version = "11.5.0"
+jupiter-version = "5.12.2"
+testcontainers-version = "1.21.0"
+flyway-version = "11.8.0"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -40,11 +40,11 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 
 logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.18" }
-logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.0" }
+logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.1" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.5" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.6" }
 
-mockk = { module = "io.mockk:mockk", version = "1.13.17" }
+mockk = { module = "io.mockk:mockk", version = "1.14.2" }
 
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.9.1" }
 
