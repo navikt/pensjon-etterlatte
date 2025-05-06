@@ -85,5 +85,5 @@ export const getHeaderTokenReq = (req: Request) => {
 }
 
 function sanitize(value: String) {
-    return value.replace(/[\n\r]/g, '')
+    return value.replace(/[\n\r]/g, '');
 }
