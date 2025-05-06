@@ -48,7 +48,7 @@ const prepareSecuredRequest = async (req: Request, token: any) => {
     }
 }
 
-export default function proxy(host: string): RequestHandler {
+export default function proxy(host: string): (req: Request, res: Response) => Promise<Response<any, Record<string, any>>> {
     return async (req: Request, res: Response) => {
         try {
             const token = getHeaderTokenReq(req)
