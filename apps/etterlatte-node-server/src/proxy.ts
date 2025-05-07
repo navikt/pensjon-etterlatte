@@ -48,12 +48,13 @@ const prepareSecuredRequest = async (req: Request, token: any) => {
     }
 }
 
-export default function proxy(host: string): RequestHandler {
+export default function proxy(host: string): (req: Request, res: Response) => Promise<void> {
     return async (req: Request, res: Response) => {
         try {
             const token = getHeaderTokenReq(req)
             if (!token) {
-                return res.sendStatus(401)
+                res.sendStatus(401)
+                return
             }
             const request = await prepareSecuredRequest(req, token)
 
@@ -70,11 +71,11 @@ export default function proxy(host: string): RequestHandler {
                 logger.error(sanitize(`${response.status} ${response.statusText}: ${req.method} ${req.path}`))
             }
 
-            return res.status(response.status).send(await response.text())
+            res.status(response.status).send(await response.text())
         } catch (error) {
             logger.error(sanitize(`Feilet kall (${req.method} - ${req.path}): `), error)
 
-            return res.status(500).send('Error')
+            res.status(500).send('Error')
         }
     }
 }
@@ -85,5 +86,5 @@ export const getHeaderTokenReq = (req: Request) => {
 }
 
 function sanitize(value: String) {
-    return value.replace(/[\n\r]/g, '')
+    return value.replace(/[\n\r]/g, '');
 }

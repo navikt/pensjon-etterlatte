@@ -5,7 +5,7 @@ export function sanitize(value?: string) {
     if (value === null) {
         return null
     }
-    return value.replace(/\n|\r/g, '')
+    return value.replace(/\n|\r/g, '');
 }
 
 /**

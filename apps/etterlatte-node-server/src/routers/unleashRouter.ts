@@ -41,7 +41,7 @@ if (config.env.isSelvbetjeningUIApp) {
             }
         }
 
-        return res.json(
+        res.json(
             featureTogglesNavn.map((toggle) => {
                 const status = statusPaaFeatureToggle(toggle)
 
