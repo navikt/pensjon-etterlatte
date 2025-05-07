@@ -67,7 +67,7 @@ loggerRouter.post('/', express.json(), (req, res) => {
             })
         }
     }
-    return res.sendStatus(200)
+    res.sendStatus(200)
 })
 
 const mapCommonFields = (jsonContent?: JsonContent, errorData?: ErrorData) => {

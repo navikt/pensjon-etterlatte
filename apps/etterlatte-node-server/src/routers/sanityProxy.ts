@@ -17,11 +17,11 @@ export default function sanityProxy(): RequestHandler {
             const sanityQuery = req.query.sanityQuery
             const response = await sanityClient.fetch(sanityQuery?.toString() || '')
             // TODO se på om vi kan få mer fine grained response fra sanity API'et
-            return res.status(200).send(JSON.stringify(response))
+            res.status(200).send(JSON.stringify(response))
         } catch (error) {
             logger.error('Feilet i kall mot sanity', error)
 
-            return res.status(500).send('Error')
+            res.status(500).send('Error')
         }
     }
 }
