@@ -11,6 +11,7 @@ export enum FeatureToggleStatus {
 export enum FeatureToggleNavn {
     OMS_INNTEKTSJUSTERING_SKJEMA = 'oms-inntektsjustering-skjema',
     OMS_MELD_INN_ENDRING_SKJEMA = 'oms-meld-inn-endring-skjema',
+    ETTEROPPGJOER = 'etteroppgjoer',
 }
 
 export interface FeatureToggle {

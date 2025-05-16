@@ -1,14 +1,21 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { Alert, Button, HStack, Heading, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../../common/SideLaster.tsx'
+import { LogEvents, useAmplitude } from '../../common/amplitude/useAmplitude.ts'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { Endring } from '../../types/meldInnEndring.ts'
+import { useMeldInnEndring } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
 import { MeldInnEndringKvittering as MeldInnEndringKvitteringInnhold } from '../sanity.types.ts'
 
 export const MeldInnEndringKvittering = () => {
     const spraak = useSpraak()
+
+    const meldInnEndring = useMeldInnEndring()
+
+    const { logEvent } = useAmplitude()
 
     const {
         innhold,
@@ -34,21 +41,39 @@ export const MeldInnEndringKvittering = () => {
                             {innhold.tittel?.[spraak]}
                         </Heading>
 
-                        <Alert variant="success" className="success-alert">
-                            <SanityRikTekst text={innhold.suksess?.[spraak]} />
-                        </Alert>
-                        <div>
-                            <Button
-                                as="a"
-                                variant="tertiary"
-                                icon={<ArrowRightIcon aria-hidden />}
-                                iconPosition="right"
-                                rel="noopener noreferrer"
-                                href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
-                            >
-                                {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
-                            </Button>
-                        </div>
+                        {meldInnEndring.endring === Endring.SVAR_PAA_ETTEROPPGJOER ? (
+                            <>
+                                <Alert variant="success">{innhold.svarPaEtteroppgjoerSuksess?.[spraak]}</Alert>
+                                <div>
+                                    <Button
+                                        as="a"
+                                        rel="noopener noreferrer"
+                                        onClick={() => logEvent(LogEvents.ETTERSEND_DOKUMENTASJON_KLIKK)}
+                                        href={innhold.ettersendDokumentasjonKnapp?.lenke?.[spraak]}
+                                    >
+                                        {innhold.ettersendDokumentasjonKnapp?.tekst?.[spraak]}
+                                    </Button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <Alert variant="success" className="success-alert">
+                                    <SanityRikTekst text={innhold.suksess?.[spraak]} />
+                                </Alert>
+                                <div>
+                                    <Button
+                                        as="a"
+                                        variant="tertiary"
+                                        icon={<ArrowRightIcon aria-hidden />}
+                                        iconPosition="right"
+                                        rel="noopener noreferrer"
+                                        href={innhold.gaaTilNAVKnapp?.lenke?.[spraak]}
+                                    >
+                                        {innhold.gaaTilNAVKnapp?.tekst?.[spraak]}
+                                    </Button>
+                                </div>
+                            </>
+                        )}
                     </VStack>
                 </HStack>
             </main>

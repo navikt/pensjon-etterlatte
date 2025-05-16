@@ -91,6 +91,10 @@ export const mockSelvbetjeningApi = (app: any) => {
                 name: 'oms-inntektsjustering-skjema',
                 status: FeatureToggleStatus.PAA,
             },
+            {
+                name: "etteroppgjoer",
+                status: FeatureToggleStatus.PAA,
+            },
         ])
     })
 

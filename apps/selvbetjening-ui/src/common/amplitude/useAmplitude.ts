@@ -6,6 +6,7 @@ export enum LogEvents {
     ALDER = 'alder',
     INGEN_OMS_SAK = 'ingen oms sak',
     KLIKK = 'klikk',
+    ETTERSEND_DOKUMENTASJON_KLIKK = 'ettersend dokumentasjon klikk',
 }
 
 export enum EventType {
