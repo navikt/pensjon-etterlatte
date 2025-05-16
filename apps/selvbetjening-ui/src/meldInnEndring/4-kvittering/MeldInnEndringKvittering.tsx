@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { Alert, Button, HStack, Heading, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../../common/SideLaster.tsx'
+import { LogEvents, useAmplitude } from '../../common/amplitude/useAmplitude.ts'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
@@ -13,6 +14,8 @@ export const MeldInnEndringKvittering = () => {
     const spraak = useSpraak()
 
     const meldInnEndring = useMeldInnEndring()
+
+    const { logEvent } = useAmplitude()
 
     const {
         innhold,
@@ -45,6 +48,7 @@ export const MeldInnEndringKvittering = () => {
                                     <Button
                                         as="a"
                                         rel="noopener noreferrer"
+                                        onClick={() => logEvent(LogEvents.ETTERSEND_DOKUMENTASJON_KLIKK)}
                                         href={innhold.ettersendDokumentasjonKnapp?.lenke?.[spraak]}
                                     >
                                         {innhold.ettersendDokumentasjonKnapp?.tekst?.[spraak]}
