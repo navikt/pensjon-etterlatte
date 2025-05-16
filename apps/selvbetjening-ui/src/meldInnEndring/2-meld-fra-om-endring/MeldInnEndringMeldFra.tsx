@@ -59,6 +59,8 @@ export const MeldInnEndringMeldFra = () => {
                 return <InformasjonOmAktivitetOgInntekt />
             case Endring.INNTEKT:
                 return <InformasjonOmInntekt />
+            case Endring.SVAR_PAA_ETTEROPPGJOER:
+                return <div>masse info om etteroppgjør</div>
             case Endring.ANNET:
                 return <InformasjonOmAnnet />
             default:
@@ -93,6 +95,7 @@ export const MeldInnEndringMeldFra = () => {
                                             <Radio value={Endring.INNTEKT}>
                                                 {innhold.endring?.radios?.inntekt?.label?.[spraak]}
                                             </Radio>
+                                            <Radio value={Endring.SVAR_PAA_ETTEROPPGJOER}>Svar på etteroppgjør</Radio>
                                             <Radio value={Endring.ANNET}>
                                                 {innhold.endring?.radios?.annet?.label?.[spraak]}
                                             </Radio>
