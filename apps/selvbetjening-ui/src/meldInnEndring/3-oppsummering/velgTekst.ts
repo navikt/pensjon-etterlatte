@@ -13,7 +13,7 @@ export const velgTekstForEndring = (
         case Endring.INNTEKT:
             return meldInnEndringOppsummeringInnhold.skjemaSammendrag?.endring?.value?.inntekt?.[spraak]
         case Endring.SVAR_PAA_ETTEROPPGJOER:
-            return 'oasihgoish'
+            return meldInnEndringOppsummeringInnhold.skjemaSammendrag?.endring?.value?.svarPaaEtteroppgjoer?.[spraak]
         case Endring.ANNET:
             return meldInnEndringOppsummeringInnhold.skjemaSammendrag?.endring?.value?.annet?.[spraak]
     }

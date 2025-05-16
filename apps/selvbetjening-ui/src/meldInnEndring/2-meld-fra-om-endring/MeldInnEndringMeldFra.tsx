@@ -1,10 +1,16 @@
-import { HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
+import { Alert, HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { SideLaster } from '../../common/SideLaster.tsx'
+import {
+    FeatureToggleNavn,
+    FeatureToggleStatus,
+    useFeatureToggle,
+} from '../../common/featureToggles/FeatureTogglesContext.tsx'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { SammendragAvSkjemaFeil } from '../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
+import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
@@ -22,6 +28,8 @@ const MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING: number = 2000
 
 export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
+
+    const etteroppgjoerFeatureToggle = useFeatureToggle(FeatureToggleNavn.ETTEROPPGJOER)
 
     const meldInnEndring = useMeldInnEndring()
     const meldInnEndringDispatch = useMeldInnEndringDispatch()
@@ -60,7 +68,11 @@ export const MeldInnEndringMeldFra = () => {
             case Endring.INNTEKT:
                 return <InformasjonOmInntekt />
             case Endring.SVAR_PAA_ETTEROPPGJOER:
-                return <div>masse info om etteroppgjør</div>
+                return (
+                    <SanityRikTekst
+                        text={innhold?.informasjonOmEndring?.svarPaaEtteroppgjoer?.hovedinnhold?.[spraak]}
+                    />
+                )
             case Endring.ANNET:
                 return <InformasjonOmAnnet />
             default:
@@ -95,7 +107,11 @@ export const MeldInnEndringMeldFra = () => {
                                             <Radio value={Endring.INNTEKT}>
                                                 {innhold.endring?.radios?.inntekt?.label?.[spraak]}
                                             </Radio>
-                                            <Radio value={Endring.SVAR_PAA_ETTEROPPGJOER}>Svar på etteroppgjør</Radio>
+                                            {etteroppgjoerFeatureToggle.status === FeatureToggleStatus.PAA && (
+                                                <Radio value={Endring.SVAR_PAA_ETTEROPPGJOER}>
+                                                    {innhold.endring?.radios?.svarPaaEtteroppgjoer?.label?.[spraak]}
+                                                </Radio>
+                                            )}
                                             <Radio value={Endring.ANNET}>
                                                 {innhold.endring?.radios?.annet?.label?.[spraak]}
                                             </Radio>
@@ -106,6 +122,7 @@ export const MeldInnEndringMeldFra = () => {
                                 {!!watch('endring') && (
                                     <>
                                         {velgVisningAvInformasjonForEndring(watch('endring'))}
+
                                         <Textarea
                                             {...register('beskrivelse', {
                                                 required: {
@@ -120,8 +137,18 @@ export const MeldInnEndringMeldFra = () => {
                                                         '',
                                                 },
                                             })}
-                                            label={innhold.beskrivelseAvEndring?.label?.[spraak]}
-                                            description={innhold.beskrivelseAvEndring?.description?.[spraak]}
+                                            label={
+                                                watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER
+                                                    ? innhold.beskrivelseAvEndring?.svarPaaEtteroppgjoerLabel?.[spraak]
+                                                    : innhold.beskrivelseAvEndring?.label?.[spraak]
+                                            }
+                                            description={
+                                                watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER
+                                                    ? innhold.beskrivelseAvEndring?.svarPaaEtteroppgjoerDescription?.[
+                                                          spraak
+                                                      ]
+                                                    : innhold.beskrivelseAvEndring?.description?.[spraak]
+                                            }
                                             maxLength={MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING}
                                             i18n={{
                                                 counterLeft: innhold.beskrivelseAvEndring?.tegnIgjen?.[spraak],
@@ -129,6 +156,12 @@ export const MeldInnEndringMeldFra = () => {
                                             }}
                                             error={errors?.beskrivelse?.message}
                                         />
+
+                                        {watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER && (
+                                            <Alert variant="info">
+                                                {innhold.svarPaaEtteroppgjoerDokumentasjonInfoAlert?.[spraak]}
+                                            </Alert>
+                                        )}
                                     </>
                                 )}
 

@@ -199,7 +199,24 @@ export type MeldInnEndringKvittering = {
             _key: string
         }>
     }
+    svarPaEtteroppgjoerSuksess?: {
+        NB?: string
+        NN?: string
+        EN?: string
+    }
     gaaTilNAVKnapp?: {
+        tekst?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        lenke?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+    }
+    ettersendDokumentasjonKnapp?: {
         tekst?: {
             NB?: string
             NN?: string
@@ -302,6 +319,11 @@ export type MeldInnEndringOppsummering = {
                     EN?: string
                 }
                 inntekt?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+                svarPaaEtteroppgjoer?: {
                     NB?: string
                     NN?: string
                     EN?: string
@@ -423,6 +445,13 @@ export type MeldInnEndringMeldFra = {
                 }
             }
             inntekt?: {
+                label?: {
+                    NB?: string
+                    NN?: string
+                    EN?: string
+                }
+            }
+            svarPaaEtteroppgjoer?: {
                 label?: {
                     NB?: string
                     NN?: string
@@ -880,6 +909,64 @@ export type MeldInnEndringMeldFra = {
                 }>
             }
         }
+        svarPaaEtteroppgjoer?: {
+            hovedinnhold?: {
+                NB?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                NN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+                EN?: Array<{
+                    children?: Array<{
+                        marks?: Array<string>
+                        text?: string
+                        _type: 'span'
+                        _key: string
+                    }>
+                    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+                    listItem?: 'bullet' | 'number'
+                    markDefs?: Array<{
+                        href?: string
+                        _type: 'link'
+                        _key: string
+                    }>
+                    level?: number
+                    _type: 'block'
+                    _key: string
+                }>
+            }
+        }
         annet?: {
             tittel?: {
                 NB?: string
@@ -1137,6 +1224,16 @@ export type MeldInnEndringMeldFra = {
                 }>
             }
         }
+        svarPaaEtteroppgjoerLabel?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
+        svarPaaEtteroppgjoerDescription?: {
+            NB?: string
+            NN?: string
+            EN?: string
+        }
         errorVedTomInput?: {
             NB?: string
             NN?: string
@@ -1157,6 +1254,11 @@ export type MeldInnEndringMeldFra = {
             NN?: string
             EN?: string
         }
+    }
+    svarPaaEtteroppgjoerDokumentasjonInfoAlert?: {
+        NB?: string
+        NN?: string
+        EN?: string
     }
 }
 
