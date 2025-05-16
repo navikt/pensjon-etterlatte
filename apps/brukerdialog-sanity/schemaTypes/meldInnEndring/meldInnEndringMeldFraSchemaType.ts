@@ -72,6 +72,19 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                                 }),
                             ],
                         }),
+                            defineField({
+                                name: 'svarPaaEtteroppgjoer',
+                                title: 'Svar på etteroppgjør',
+                                type: 'object',
+                                fields: [
+                                    defineField({
+                                        name: 'label',
+                                        title: 'Label',
+                                        type: 'object',
+                                        fields: spraakStringFields,
+                                    }),
+                                ]
+                            }),
                         defineField({
                             name: 'annet',
                             title: 'Annet',
@@ -223,6 +236,19 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     ],
                 }),
                 defineField({
+                    name: 'svarPaaEtteroppgjoer',
+                    title: 'Svar på etteroppgjør',
+                    type: 'object',
+                    fields: [
+                        defineField({
+                            name: 'hovedinnhold',
+                            title: 'Hovedinnhold',
+                            type: 'object',
+                            fields: spraakBlockFields,
+                        })
+                    ]
+                }),
+                defineField({
                     name: 'annet',
                     title: 'Annet',
                     type: 'object',
@@ -274,6 +300,18 @@ export const meldInnEndringMeldFraSchemaType = defineType({
             type: 'object',
             fields: [
                 ...textFieldSchemaFields,
+                defineField({
+                    name: 'svarPaaEtteroppgjoerLabel',
+                    title: 'Svar på etteroppgjør label',
+                    type: 'object',
+                    fields: spraakStringFields
+                }),
+                defineField({
+                    name: 'svarPaaEtteroppgjoerDescription',
+                    title: 'Svar på etteroppgjør description',
+                    type: 'object',
+                    fields: spraakStringFields
+                }),
                 errorVedTomInputSchemaField,
                 defineField({
                     name: 'errorVedForMangeTegn',
@@ -294,6 +332,12 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     fields: spraakStringFields
                 })
             ],
+        }),
+        defineField({
+            name: 'svarPaaEtteroppgjoerDokumentasjonInfoAlert',
+            title: 'Svar på etteroppgjør dokumentasjon info alert',
+            type: 'object',
+            fields: spraakStringFields
         }),
     ],
 })

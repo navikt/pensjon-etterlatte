@@ -24,6 +24,12 @@ export const meldInnEndringKvitteringSchemaType = defineType({
             fields: spraakBlockFields,
         }),
         defineField({
+           name: 'svarPaEtteroppgjoerSuksess',
+           title: 'Svar på etteroppgjør suksess',
+           type: 'object',
+           fields: spraakBlockFields
+        }),
+        defineField({
             name: 'gaaTilNAVKnapp',
             title: 'Gå til nav knapp',
             type: 'object',
@@ -42,5 +48,24 @@ export const meldInnEndringKvitteringSchemaType = defineType({
                 }),
             ],
         }),
+        defineField({
+            name: 'ettersendDokumentasjonKnapp',
+            title: 'Ettersend dokumentasjon knapp',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'tekst',
+                    title: 'Tekst',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+                defineField({
+                    name: 'lenke',
+                    title: 'Lenke',
+                    type: 'object',
+                    fields: spraakStringFields,
+                }),
+            ],
+        })
     ],
 })
