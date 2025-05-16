@@ -70,6 +70,12 @@ export const meldInnEndringOppsummeringSchemaType = defineType({
                                     fields: spraakStringFields,
                                 }),
                                 defineField({
+                                    name: 'svarPaaEtteroppgjoer',
+                                    title: 'Svar på etteroppgjør',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                                defineField({
                                     name: 'annet',
                                     title: 'Annet',
                                     type: 'object',
