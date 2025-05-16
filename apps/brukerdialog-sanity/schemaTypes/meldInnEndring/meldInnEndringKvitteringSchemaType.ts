@@ -27,7 +27,7 @@ export const meldInnEndringKvitteringSchemaType = defineType({
            name: 'svarPaEtteroppgjoerSuksess',
            title: 'Svar på etteroppgjør suksess',
            type: 'object',
-           fields: spraakBlockFields
+           fields: spraakStringFields
         }),
         defineField({
             name: 'gaaTilNAVKnapp',
