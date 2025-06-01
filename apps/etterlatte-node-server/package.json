@@ -10,7 +10,7 @@
     "@navikt/oasis": "^3.2.2",
     "@sanity/client": "^7.0.0",
     "cls-rtracer": "^2.6.0",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsdom": ">=26.x",
     "jsonwebtoken": "9.0.2",
