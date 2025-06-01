@@ -2,11 +2,11 @@
 license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 
 [versions]
-token-version = "5.0.25"
+token-version = "5.0.29"
 ktor-version = "2.3.13"
-jupiter-version = "5.12.2"
-testcontainers-version = "1.21.0"
-flyway-version = "11.8.0"
+jupiter-version = "5.13.0"
+testcontainers-version = "1.21.1"
+flyway-version = "11.8.2"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -30,7 +30,7 @@ ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "6.3.0" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
-database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.5" }
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.6" }
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version" }
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version" }
@@ -42,7 +42,7 @@ logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.18" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "8.1" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.14.6" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.15.0" }
 
 mockk = { module = "io.mockk:mockk", version = "1.14.2" }
 
