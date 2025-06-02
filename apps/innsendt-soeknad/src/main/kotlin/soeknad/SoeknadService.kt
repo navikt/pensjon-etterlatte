@@ -65,7 +65,6 @@ class SoeknadService(
             true
         } else {
             logger.error("Kun ${ider.size} av ${sikretRequest.soeknader.size} ble lagret.")
-            sikkerLogg.error("Feil ved lagring av søknad: \n${sikretRequest.toJson()}")
             false
         }
     }
@@ -103,8 +102,7 @@ class SoeknadService(
             logger.error("Søknad innsender er ikke samme som innlogget bruker!")
             sikkerLogg.error(
                 "Innsender er ikke samme som innlogget bruker ($innloggetBrukerFnr): \n" +
-                    "${request.soeknader.size} søknad(er) med innsendere: $innsenderListe \n" +
-                    request.toJson(),
+                    "${request.soeknader.size} søknad(er) med innsendere: $innsenderListe \n",
             )
             throw RuntimeException("Ugyldig innsender")
         }
