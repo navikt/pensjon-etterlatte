@@ -1,10 +1,11 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { Accordion, BodyShort, Button, HStack, Link, VStack } from '@navikt/ds-react'
+import { Button, HStack, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useSWR, { SWRResponse } from 'swr'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { ApiError, apiURL } from '../../common/api/api.ts'
+import { BehandlingAvInformasjonAccordion } from '../../common/behandlingAvInformasjonAccordion/BehandlingAvInformasjonAccordion.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -67,67 +68,7 @@ export const InntektsjusteringInnledning = () => {
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />
                         </div>
 
-                        <Accordion>
-                            <Accordion.Item>
-                                <Accordion.Header>
-                                    {
-                                        innhold.behandlingAvInformasjonAccordion?.informasjonViHenterItem?.tittel?.[
-                                            spraak
-                                        ]
-                                    }
-                                </Accordion.Header>
-                                <Accordion.Content>
-                                    <SanityRikTekst
-                                        text={
-                                            innhold.behandlingAvInformasjonAccordion?.informasjonViHenterItem
-                                                ?.innhold?.[spraak]
-                                        }
-                                    />
-                                </Accordion.Content>
-                            </Accordion.Item>
-                            <Accordion.Item>
-                                <Accordion.Header>
-                                    {
-                                        innhold.behandlingAvInformasjonAccordion
-                                            ?.hvordanViBehandlerPersonopplysningerItem?.tittel?.[spraak]
-                                    }
-                                </Accordion.Header>
-                                <Accordion.Content>
-                                    <SanityRikTekst
-                                        text={
-                                            innhold.behandlingAvInformasjonAccordion
-                                                ?.hvordanViBehandlerPersonopplysningerItem?.innhold?.[spraak]
-                                        }
-                                    />
-
-                                    <BodyShort>
-                                        {
-                                            innhold.behandlingAvInformasjonAccordion
-                                                ?.hvordanViBehandlerPersonopplysningerItem
-                                                ?.hvordanNavBehandlerPersonopplysningerSetning?.setningStart?.[spraak]
-                                        }{' '}
-                                        <Link
-                                            href={
-                                                innhold.behandlingAvInformasjonAccordion
-                                                    ?.hvordanViBehandlerPersonopplysningerItem
-                                                    ?.hvordanNavBehandlerPersonopplysningerSetning?.lenkeTilNav
-                                                    ?.lenke?.[spraak]
-                                            }
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            inlineText
-                                        >
-                                            {
-                                                innhold.behandlingAvInformasjonAccordion
-                                                    ?.hvordanViBehandlerPersonopplysningerItem
-                                                    ?.hvordanNavBehandlerPersonopplysningerSetning?.lenkeTilNav
-                                                    ?.tekst?.[spraak]
-                                            }
-                                        </Link>
-                                    </BodyShort>
-                                </Accordion.Content>
-                            </Accordion.Item>
-                        </Accordion>
+                        <BehandlingAvInformasjonAccordion />
 
                         {!!eksisterendeInntekt && (
                             <OppgittInntektAlert inntekt={eksisterendeInntekt} innloggetBruker={innloggetBruker} />
