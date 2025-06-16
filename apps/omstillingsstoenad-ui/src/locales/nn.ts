@@ -121,9 +121,10 @@ export default {
     'forside.automatiskbehandling.innhold5':
         'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
     'forside.personvern.tittel': 'Personvernerklæringa i Nav',
-    'forside.personvern.innhold': 'Her kan du lese meir om ',
-    'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
-    'forside.personvern.tekst': 'korleis Nav behandlar personopplysningane dine.',
+    'forside.personvern.innhold1': 'Du kan lese meir om korleis Nav behandlar personopplysningar i',
+    'forside.personvern.lenke.href': 'https://www.nav.no/personvern',
+    'forside.personvern.lenke.tekst': 'Arbeids- og velferdsetatens personvernerklæring',
+    'forside.personvern.innhold2': '(blir opna i ny fane).',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
     'forside.samtykke.lenke.tekst': 'mine plikter på nav.no',

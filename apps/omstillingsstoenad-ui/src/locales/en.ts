@@ -123,9 +123,10 @@ export default {
     'forside.automatiskbehandling.innhold5':
         'The changes are made in the case processing system itself, and do not involve the transfer of information.',
     'forside.personvern.tittel': "Nav's Privacy Policy",
-    'forside.personvern.innhold': 'Read more about ',
-    'forside.personvern.href': 'https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten',
-    'forside.personvern.tekst': 'how Nav processes personal data here.',
+    'forside.personvern.innhold1': 'You can read more about how Nav processes personal data in',
+    'forside.personvern.lenke.href': 'https://www.nav.no/personvern/en',
+    'forside.personvern.lenke.tekst': "Nav's privacy statement",
+    'forside.personvern.innhold2': '(will open in a new tab).',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
         'You must provide us with the correct information so that we can process your application.',
