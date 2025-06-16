@@ -172,8 +172,6 @@ const frontPage = {
     aboutPrivacyTitle: 'Personvernerklæringa i Nav',
     aboutPrivacy:
         'Her kan du lese meir om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">korleis Nav behandlar personopplysningar.</a>',
-    aboutPrivacy_child:
-        'Her kan du lese meir om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">korleis Nav behandlar personopplysningar.</a>',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
