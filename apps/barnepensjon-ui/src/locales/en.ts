@@ -175,7 +175,7 @@ const frontPage = {
     automaticProcessingContent5: 'The changes are made in the case processing system itself.',
     aboutPrivacyTitle: "Nav's Privacy Policy",
     aboutPrivacy:
-        'Read more about <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">how Nav processes personal data.</a>',
+        'You can read more about how Nav processes personal data in <a target="_blank" href="https://www.nav.no/personvern/en">Nav\'s privacy statement</a> (will open in a new tab).',
     consentTitle: 'We trust you',
     consentDescription: 'You must provide us with the correct information so that we can process your application.\n\n',
     consentToNav: 'I hereby confirm that the information I provide is correct and complete.',
