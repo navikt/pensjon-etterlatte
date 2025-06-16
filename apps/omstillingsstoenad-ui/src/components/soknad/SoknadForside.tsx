@@ -1,7 +1,3 @@
-import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { ActionTypes } from '../../context/soknad/soknad'
 import {
     Alert,
     BodyLong,
@@ -14,17 +10,21 @@ import {
     Link,
     List,
 } from '@navikt/ds-react'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { hentHarSoektOms } from '~api/api'
+import { useBrukerContext } from '../../context/bruker/BrukerContext'
+import { useSoknadContext } from '../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../context/soknad/soknad'
 import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
 import { useLanguage } from '../../hooks/useLanguage'
-import { Spraakvalg } from '../felles/Spraakvalg'
 import { MuligeSteg } from '../../typer/steg'
-import { SkjemaGruppe } from '../felles/SkjemaGruppe'
-import { SkjemaElement } from '../felles/SkjemaElement'
 import { erForGammel } from '../../utils/alder'
-import { useBrukerContext } from '../../context/bruker/BrukerContext'
+import { SkjemaElement } from '../felles/SkjemaElement'
+import { SkjemaGruppe } from '../felles/SkjemaGruppe'
+import { Spraakvalg } from '../felles/Spraakvalg'
 import { ListItemWithIndent } from '../felles/StyledComponents'
-import { useEffect, useState } from 'react'
-import { hentHarSoektOms } from '~api/api'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -276,8 +276,11 @@ const SoknadForside = () => {
                                 <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
 
                                 <BodyLong>
-                                    {t('forside.personvern.innhold')}
-                                    <Link href={t('forside.personvern.href')}>{t('forside.personvern.tekst')}</Link>
+                                    {`${t('forside.personvern.innhold1')} `}
+                                    <Link href={t('forside.personvern.lenke.href')} target="_blank">
+                                        {t('forside.personvern.lenke.tekst')}
+                                    </Link>
+                                    {` ${t('forside.personvern.innhold2')}`}
                                 </BodyLong>
                             </SkjemaElement>
                         </ExpansionCard.Content>

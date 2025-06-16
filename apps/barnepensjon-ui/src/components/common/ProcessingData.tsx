@@ -1,10 +1,10 @@
+import { BodyLong, ExpansionCard, Heading, List } from '@navikt/ds-react'
 import React from 'react'
 import { TFunction } from '../../hooks/useTranslation'
-import FormGroup from './FormGroup'
-import { BodyLong, ExpansionCard, Heading, List } from '@navikt/ds-react'
-import FormElement from './FormElement'
-import Trans from './Trans'
 import { ListItemWithIndent } from '../FrontPage'
+import FormElement from './FormElement'
+import FormGroup from './FormGroup'
+import Trans from './Trans'
 
 export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction; isParent: boolean }) {
     return (
@@ -180,7 +180,7 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
 
                     <Heading size={'small'}>{t('aboutPrivacyTitle')}</Heading>
                     <BodyLong>
-                        <Trans value={t('aboutPrivacy_child')} />
+                        <Trans value={t('aboutPrivacy')} />
                     </BodyLong>
                 </ExpansionCard.Content>
             </ExpansionCard>

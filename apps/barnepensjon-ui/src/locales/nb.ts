@@ -171,9 +171,7 @@ const frontPage = {
     automaticProcessingContent5: 'Endringene gjøres i saksbehandlingssystemet.',
     aboutPrivacyTitle: 'Personvernerklæringen i Nav',
     aboutPrivacy:
-        'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan Nav behandler personopplysninger.</a>',
-    aboutPrivacy_child:
-        'Her kan du lese mer om <a href="https://www.nav.no/no/nav-og-samfunn/om-nav/personvern-i-arbeids-og-velferdsetaten">hvordan Nav behandler personopplysningene dine.</a>',
+        'Du kan lese mer om hvordan Nav behandler personopplysninger i <a target="_blank" href="https://www.nav.no/personvern">Arbeids- og velferdsetatens personvernerklæring</a> (åpnes i ny fane).',
     consentTitle: 'Vi stoler på deg',
     consentDescription: 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden.\n\n',
     consentToNav: 'Jeg bekrefter at jeg vil gi riktige og fullstendige opplysninger.',
