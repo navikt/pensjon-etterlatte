@@ -78,9 +78,9 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li1':
         'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        'inntektsinformasjon frå Skatteetaten (informasjon om skattepliktig inntekt inneverande år)',
-    'forside.uthentingAvInfo.innholdListe.li3':
         'opplysningar frå Arbeidsgivar- og arbeidstakarregisteret om arbeidsforhold',
+    'forside.uthentingAvInfo.innholdListe.li3':
+        'inntektsinformasjon frå Skatteetaten (informasjon om skattepliktig inntekt inneverande år)',
     'forside.uthentingAvInfo.innholdListe.li4':
         'opplysningar om anna fortløpande støtte frå Nav (t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5': 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',

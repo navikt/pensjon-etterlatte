@@ -78,9 +78,9 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li1':
         'personal data from the National Population Register (national identification number, address, nationality, marital status)',
     'forside.uthentingAvInfo.innholdListe.li2':
-        'income information from the Norwegian Tax Administration (information on taxable income for the current year)',
-    'forside.uthentingAvInfo.innholdListe.li3':
         'information about employment from employers and the National Register of Employees',
+    'forside.uthentingAvInfo.innholdListe.li3':
+        'income information from the Norwegian Tax Administration (information on taxable income for the current year)',
     'forside.uthentingAvInfo.innholdListe.li4':
         'information about other benefits you may be receiving from Nav (such as retirement pension or disability pension)',
     'forside.uthentingAvInfo.innholdListe.li5':
