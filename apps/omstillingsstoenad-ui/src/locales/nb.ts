@@ -80,13 +80,13 @@ export default {
     'forside.uthentingAvInfo.innholdListe.li2':
         'opplysninger om arbeidsforhold fra Arbeidsgiver- og arbeidstakerregisteret',
     'forside.uthentingAvInfo.innholdListe.li3':
+        'inntektsinformasjon fra Skatteetaten (informasjon om skattepliktig inntekt inneverende år)',
+    'forside.uthentingAvInfo.innholdListe.li4':
         'opplysninger om annen løpende støtte fra Nav, for eksempel alderspensjon eller uføretrygd',
-    'forside.uthentingAvInfo.innholdListe.li4': 'informasjon fra utenlandske trygdemyndigheter der dette er aktuelt',
     'forside.uthentingAvInfo.innholdListe.li5':
-        'informasjon fra Lånekassen for å verifisere utdanning der dette er aktuelt',
-    'forside.uthentingAvInfo.innholdListe.li6': 'opplysninger om straffegjennomføring og opphold på institusjon',
-    'forside.uthentingAvInfo.innholdListe.li7':
         'Informasjon fra Lånekassen for å verifisere utdanning (der dette er aktuelt)',
+    'forside.uthentingAvInfo.innholdListe.li6': 'informasjon fra utenlandske trygdemyndigheter der dette er aktuelt',
+    'forside.uthentingAvInfo.innholdListe.li7': 'opplysninger om straffegjennomføring og opphold på institusjon',
     'forside.personvern.aktivitetsplikt':
         'Dersom det er relevant i forbindelse med aktivitetsplikten, kan vi også samle inn opplysninger fra interne systemer som Arbeidssøkerregisteret.',
     'forside.personvern.tredjeperson': 'Om tredjepersoner tilknyttet søker kan vi ha behov for å hente inn:',
