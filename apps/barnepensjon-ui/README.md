@@ -21,10 +21,12 @@ Les mer her: https://doc.nais.io
 3. Velg hvor lenge du vil at det skal vare under `Expiration`
 4. Under `Select scope` velg `repo` og `read:packages`
 5. Trykk `Generate token`
-6. Kopier `ghp_x...` tokenet og putt det i `.npmrc` filen på maskinen din.\
-   Eks: `//npm.pkg.github.com/:_authToken=ghp_x...`
-7. Trykk `Configure SSO`
-8. Trykk `Authorize` på `navikt`
+6. Kopier `ghp_x...` og legg det til npm config på din maskin\
+```
+npm config set //npm.pkg.github.com/:_authToken=ghp_x.....
+```
+Alternativt lim det inn selv i `~/.npmrc` filen
+7. I nettleseren, ved siden av tokenet du opprettet. Trykk `Configure SSO` og velg `Authorize` på `navikt`
 9. Ferdig!
 
 ## Kjøre lokalt
