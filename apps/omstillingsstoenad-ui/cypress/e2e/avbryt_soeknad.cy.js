@@ -3,6 +3,7 @@ import { basePath, getById } from '../util/cy-functions'
 describe('Skal avbryte en soeknad', () => {
     const startSoeknad = () => {
         // Gå til søknad med eksisterende kladd
+        cy.intercept('POST', `${basePath}/api/feature`, { fixture: 'featureToggles' }).as('hentFeatureToggles')
         cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {
             fixture: 'testbruker',
         }).as('hentInnloggetPerson')
@@ -15,6 +16,7 @@ describe('Skal avbryte en soeknad', () => {
             },
         })
         cy.injectAxe()
+        cy.wait(['@hentFeatureToggles'])
         cy.wait(['@hentInnloggetPerson'])
         cy.wait(['@hentSoeknad'])
 

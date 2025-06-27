@@ -1,24 +1,27 @@
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import { BodyShort, GuidePanel, Heading } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { ActionTypes } from '../../../context/soknad/soknad'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
+import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
+import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { IInntekt } from '~typer/inntekt'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../../context/soknad/soknad'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { deepCopy } from '../../../utils/deepCopy'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
-import { useTranslation } from 'react-i18next'
-import { GuidePanel, Heading } from '@navikt/ds-react'
-import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import { IInntekt } from '~typer/inntekt'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import Inntekt from './fragmenter/Inntekt'
-import YtelserNAV from './fragmenter/YtelserNAV'
 import YtelserAndre from './fragmenter/YtelserAndre'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import YtelserNAV from './fragmenter/YtelserNAV'
 
 const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { logEvent } = useAmplitude()
+
+    const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
 
     const { state, dispatch } = useSoknadContext()
 
@@ -69,6 +72,10 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 <SkjemaGruppe>
                     <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
                 </SkjemaGruppe>
+
+                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA && (
+                    <BodyShort>Jeg er en feature toggle, og jeg er på kun i dev</BodyShort>
+                )}
 
                 <Inntekt />
 

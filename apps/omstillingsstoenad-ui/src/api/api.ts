@@ -1,6 +1,7 @@
 import { axiosInstance as api, isDev } from './axios'
 import { ISoeknad } from '../context/soknad/soknad'
 import { SoeknadRequest, SoeknadType } from './dto/InnsendtSoeknad'
+import { FeatureToggleNavn } from '~context/featureToggle/FeatureToggleContext'
 
 /**
  * Henter personalia for innlogget person
@@ -84,6 +85,15 @@ export const sendSoeknad = async (request: SoeknadRequest) => {
     try {
         const response = await api.post('/api/api/soeknad', body)
         return response.status
+    } catch (e) {
+        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
+    }
+}
+
+export const hentFeatureToggles = async () => {
+    try {
+        const response = await api.post('/api/feature', Object.values(FeatureToggleNavn))
+        return response.data
     } catch (e) {
         throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
     }
