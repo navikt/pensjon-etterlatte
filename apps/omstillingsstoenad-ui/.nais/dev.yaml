@@ -55,6 +55,8 @@ spec:
       autoLogin: true
       autoLoginIgnorePaths:
         - /omstillingsstonad/soknad/internal/**
+  envFrom:
+    - secret: my-application-unleash-api-token
   env:
     - name: BASE_PATH
       value: /omstillingsstonad/soknad
@@ -67,6 +69,7 @@ spec:
       external:
         - host: dekoratoren.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
+        - host: etterlatte-unleash-api.nav.cloud.nais.io
       rules:
         - application: etterlatte-api
         - application: innsendt-soeknad
