@@ -4,6 +4,7 @@ import { a11yCheck, basePath, gaaTilNesteSide, getById, selectValue, selectValue
 
 describe('Skal gå igjennom hele søknaden uten feil', () => {
     it('Skal åpne startsiden og starte en søknad', () => {
+        cy.intercept('POST', `${basePath}/api/feature`, { fixture: 'featureToggles' }).as('hentFeatureToggles')
         cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {
             fixture: 'testbruker',
         }).as('hentInnloggetPerson')
@@ -17,6 +18,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             },
         })
         cy.injectAxe()
+        cy.wait(['@hentFeatureToggles'])
         cy.wait(['@hentInnloggetPerson'])
         cy.wait(['@hentSoeknad'])
 
