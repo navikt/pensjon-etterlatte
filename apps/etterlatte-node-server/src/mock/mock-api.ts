@@ -1,10 +1,11 @@
 import parser from 'body-parser'
-import { NextFunction, Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import NodeCache from 'node-cache'
 import config from '../config'
 import mockLand from './landMock'
 import mockValutaer from './valutaMock'
 import { STOR_SNERK } from './mock-user'
+import { FeatureToggleStatus } from '../routers/unleashRouter'
 
 const cache = new NodeCache()
 
@@ -66,6 +67,15 @@ export const mockApi = (app: any) => {
         cache.del(innloggetBruker.foedselsnummer)
 
         res.sendStatus(200)
+    })
+
+    app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {
+        res.send([
+            {
+                name: 'oms-soeknad-nytt-inntekt-steg',
+                status: FeatureToggleStatus.PAA,
+            },
+        ])
     })
 
     app.get(`${config.app.basePath}/api/kodeverk/alleland`, (req: Request, res: Response) => {
