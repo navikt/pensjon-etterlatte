@@ -2,6 +2,7 @@ import { IValg } from './Spoersmaal'
 import { IValgfrittSvar } from './arbeidsforhold'
 
 export interface IInntekt {
+    inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
     naeringsinntekt?: ILoennsinntekt
@@ -11,6 +12,25 @@ export interface IInntekt {
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     erValidert?: boolean
+}
+
+export interface IInntektFremTilDoedsfallet {
+    arbeidsinntekt?: string
+    naeringsinntekt?: {
+        inntekt?: string
+        erNaeringsinntektOpptjentJevnt?: IValg
+        beskrivelse?: string
+    }
+    afpInntekt?: {
+        inntekt?: string
+        tjenesteordning?: string
+    }
+    inntektFraUtland?: string
+    andreInntekter?: {
+        harAndreInntekter?: IValg
+        inntekt?: string
+        beskrivelse?: string
+    }
 }
 
 interface IYtelserNAV {
