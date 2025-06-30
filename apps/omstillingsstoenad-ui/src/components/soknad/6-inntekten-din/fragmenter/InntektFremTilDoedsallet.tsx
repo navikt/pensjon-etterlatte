@@ -11,13 +11,7 @@ export const InntektFremTilDoedsallet = () => {
     const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
 
     return (
-        <Box
-            paddingInline="6"
-            paddingBlock="4"
-            background="surface-action-subtle"
-            borderColor="border-action"
-            borderWidth="0 0 0 4"
-        >
+        <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
             <VStack gap="4">
                 <Heading size="small">Inntekt frem til dødsfallet</Heading>
 
@@ -60,6 +54,31 @@ export const InntektFremTilDoedsallet = () => {
                                 description={'For eksempel når på året det er lav og høy inntekt'}
                             />
                         )}
+                    </>
+                )}
+
+                <VStack gap="2">
+                    <RHFNumberInput
+                        name={'inntektFremTilDoedsfallet.inntektFraUtland'}
+                        label={'Alle inntekter fra utland'}
+                    />
+                    <ReadMore header={'Alle inntekter fra utland'}>adsasd</ReadMore>
+                </VStack>
+
+                <RHFSpoersmaalRadio
+                    name={'inntektFremTilDoedsfallet.andreInntekter.harAndreInntekter'}
+                    legend={'Hadde du andre inntekter?'}
+                />
+                {inntektFremTilDoedsfallet?.andreInntekter?.harAndreInntekter === IValg.JA && (
+                    <>
+                        <RHFNumberInput
+                            name={'inntektFremTilDoedsfallet.andreInntekter.inntekt'}
+                            label={'Andre inntekter'}
+                        />
+                        <RHFInputArea
+                            name={'inntektFremTilDoedsfallet.andreInntekter.beskrivelse'}
+                            label={'Hva slags inntekt var det?'}
+                        />
                     </>
                 )}
             </VStack>
