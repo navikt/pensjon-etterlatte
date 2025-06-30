@@ -74,14 +74,14 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                     <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
                 </SkjemaGruppe>
 
-                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA && (
-                    <VStack gap="4">
+                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
+                    <VStack gap="4" paddingBlock="4">
                         <Heading size="medium">Fyll inn inntektene dine</Heading>
                         <InntektFremTilDoedsallet />
                     </VStack>
+                ) : (
+                    <Inntekt />
                 )}
-
-                <Inntekt />
 
                 <YtelserNAV />
 

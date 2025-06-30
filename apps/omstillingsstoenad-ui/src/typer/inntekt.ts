@@ -2,7 +2,9 @@ import { IValg } from './Spoersmaal'
 import { IValgfrittSvar } from './arbeidsforhold'
 
 export interface IInntekt {
+    // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
+    // TODO: FELTER FOR DEN GAMMLE DATASTRUKTUREN
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
     naeringsinntekt?: ILoennsinntekt
