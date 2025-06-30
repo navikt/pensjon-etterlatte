@@ -3,6 +3,7 @@ import { useFormContext } from 'react-hook-form'
 import { RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { IValg } from '~typer/Spoersmaal'
+import Bredde from '~typer/bredde'
 import { IInntekt } from '~typer/inntekt'
 
 export const InntektFremTilDoedsallet = () => {
@@ -30,6 +31,7 @@ export const InntektFremTilDoedsallet = () => {
                     <RHFNumberInput
                         name={'inntektFremTilDoedsfallet.arbeidsinntekt'}
                         label={'Arbeidsinntekt og andre utbetalinger'}
+                        htmlSize={Bredde.M}
                     />
                     <ReadMore header={'Arbeidsinntekt og andre utbetalinger du skal melde inn'}>sdg</ReadMore>
                 </VStack>
@@ -38,6 +40,7 @@ export const InntektFremTilDoedsallet = () => {
                     <RHFNumberInput
                         name={'inntektFremTilDoedsfallet.naeringsinntekt.inntekt'}
                         label={'Næringsinntekt'}
+                        htmlSize={Bredde.M}
                     />
                     <ReadMore header={'Næringsinntekter du skal fylle inn'}>sg</ReadMore>
                 </VStack>
@@ -61,6 +64,8 @@ export const InntektFremTilDoedsallet = () => {
                     <RHFNumberInput
                         name={'inntektFremTilDoedsfallet.inntektFraUtland'}
                         label={'Alle inntekter fra utland'}
+                        description={'Inntektene skal oppgis i norske kroner'}
+                        htmlSize={Bredde.M}
                     />
                     <ReadMore header={'Alle inntekter fra utland'}>adsasd</ReadMore>
                 </VStack>
@@ -74,6 +79,7 @@ export const InntektFremTilDoedsallet = () => {
                         <RHFNumberInput
                             name={'inntektFremTilDoedsfallet.andreInntekter.inntekt'}
                             label={'Andre inntekter'}
+                            htmlSize={Bredde.M}
                         />
                         <RHFInputArea
                             name={'inntektFremTilDoedsfallet.andreInntekter.beskrivelse'}

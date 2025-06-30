@@ -75,7 +75,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 </SkjemaGruppe>
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
-                    <VStack gap="4" paddingBlock="4">
+                    <VStack gap="4" paddingBlock="0 12">
                         <Heading size="medium">Fyll inn inntektene dine</Heading>
                         <InntektFremTilDoedsallet />
                     </VStack>
