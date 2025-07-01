@@ -3,24 +3,25 @@ import { differenceInYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { RHFSelect } from '~components/felles/rhf/RHFSelect'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import { IValg } from '~typer/Spoersmaal'
 import Bredde from '~typer/bredde'
-import { IInntekt } from '~typer/inntekt'
+import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
 
-export const InntektFremTilDoedsallet = () => {
+export const ForventetInntektIAar = () => {
     const { state: bruker } = useBrukerContext()
 
     const { watch } = useFormContext<IInntekt>()
 
-    const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
+    const forventetInntektIAar = watch('forventetInntektIAar')
 
-    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker er eldre enn 62 år
+    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 i år eller er eldre enn 62 år
     const skalViseAfpFelter = (bruker: IBruker): Boolean => {
         if (!!bruker.foedselsdato) {
             const alder = differenceInYears(new Date(), bruker.foedselsdato)
-            return alder > 62
+            return alder >= 62
         } else {
             return false
         }
@@ -29,22 +30,17 @@ export const InntektFremTilDoedsallet = () => {
     return (
         <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
             <VStack gap="4">
-                <Heading size="small">Inntekt frem til dødsfallet</Heading>
+                <Heading size="small">Forventet årsinntekt i år</Heading>
 
                 <List>
-                    <List.Item>
-                        Du skal fylle inn det du tjente fra januar og til og med måneden da dødsfallet skjedde.
-                    </List.Item>
-                    <List.Item>
-                        Hvis dødsfallet skjedde i januar, oppgir du inntekten for januar. Hvis dødsfallet skjedde i
-                        desember, oppgir du hele årsinntekten.
-                    </List.Item>
+                    <List.Item>Du skal fylle inn det du forventer å tjene i år.</List.Item>
+                    <List.Item>Fra januar til og med desember.</List.Item>
                     <List.Item>Inntekten skal være brutto inntekt, altså inntekt før skatt.</List.Item>
                 </List>
 
                 <VStack gap="2">
                     <RHFNumberInput
-                        name={'inntektFremTilDoedsfallet.arbeidsinntekt'}
+                        name={'forventetInntektIAar.arbeidsinntekt'}
                         label={'Arbeidsinntekt og andre utbetalinger'}
                         htmlSize={Bredde.M}
                     />
@@ -53,23 +49,22 @@ export const InntektFremTilDoedsallet = () => {
 
                 <VStack gap="2">
                     <RHFNumberInput
-                        name={'inntektFremTilDoedsfallet.naeringsinntekt.inntekt'}
+                        name={'forventetInntektIAar.naeringsinntekt.inntekt'}
                         label={'Næringsinntekt'}
                         htmlSize={Bredde.M}
                     />
                     <ReadMore header={'Næringsinntekter du skal fylle inn'}>sg</ReadMore>
                 </VStack>
-                {!!inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
-                    inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0' && (
+                {!!forventetInntektIAar?.naeringsinntekt?.inntekt &&
+                    forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (
                         <>
                             <RHFSpoersmaalRadio
-                                name={'inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt'}
+                                name={'forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt'}
                                 legend={'Er næringsinntekten opptjent jevnt i løpet av året? '}
                             />
-                            {inntektFremTilDoedsfallet?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt ===
-                                IValg.NEI && (
+                            {forventetInntektIAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt === IValg.NEI && (
                                 <RHFInputArea
-                                    name={'inntektFremTilDoedsfallet.naeringsinntekt.beskrivelse'}
+                                    name={'forventetInntektIAar.naeringsinntekt.beskrivelse'}
                                     label={'Skriv kort om hvordan inntekten varierer gjennom året'}
                                     description={'For eksempel når på året det er lav og høy inntekt'}
                                 />
@@ -80,14 +75,14 @@ export const InntektFremTilDoedsallet = () => {
                 {skalViseAfpFelter(bruker) && (
                     <VStack gap="2">
                         <RHFNumberInput
-                            name={'inntektFremTilDoedsfallet.afpInntekt.inntekt'}
+                            name={'forventetInntektIAar.afpInntekt.inntekt'}
                             label={'AFP offentlig eller privat'}
                             htmlSize={Bredde.M}
                         />
-                        {!!inntektFremTilDoedsfallet?.afpInntekt?.inntekt &&
-                            inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0' && (
+                        {!!forventetInntektIAar?.afpInntekt?.inntekt &&
+                            forventetInntektIAar?.afpInntekt?.inntekt !== '0' && (
                                 <RHFInput
-                                    name={'inntektFremTilDoedsfallet.afpInntekt.tjenesteordning'}
+                                    name={'forventetInntektIAar.afpInntekt.tjenesteordning'}
                                     label={'Hvilken tjenesteordning får du AFP fra?'}
                                     description={'For eksempel KLP, SPK'}
                                     htmlSize={Bredde.M}
@@ -98,7 +93,7 @@ export const InntektFremTilDoedsallet = () => {
 
                 <VStack gap="2">
                     <RHFNumberInput
-                        name={'inntektFremTilDoedsfallet.inntektFraUtland'}
+                        name={'forventetInntektIAar.inntektFraUtland'}
                         label={'Alle inntekter fra utland'}
                         description={'Inntektene skal oppgis i norske kroner'}
                         htmlSize={Bredde.M}
@@ -107,21 +102,45 @@ export const InntektFremTilDoedsallet = () => {
                 </VStack>
 
                 <RHFSpoersmaalRadio
-                    name={'inntektFremTilDoedsfallet.andreInntekter.harAndreInntekter'}
+                    name={'forventetInntektIAar.andreInntekter.harAndreInntekter'}
                     legend={'Hadde du andre inntekter?'}
                 />
-                {inntektFremTilDoedsfallet?.andreInntekter?.harAndreInntekter === IValg.JA && (
+                {forventetInntektIAar?.andreInntekter?.harAndreInntekter === IValg.JA && (
                     <>
                         <RHFNumberInput
-                            name={'inntektFremTilDoedsfallet.andreInntekter.inntekt'}
+                            name={'forventetInntektIAar.andreInntekter.inntekt'}
                             label={'Andre inntekter'}
                             htmlSize={Bredde.M}
                         />
                         <RHFInputArea
-                            name={'inntektFremTilDoedsfallet.andreInntekter.beskrivelse'}
+                            name={'forventetInntektIAar.andreInntekter.beskrivelse'}
                             label={'Hva slags inntekt var det?'}
                         />
                     </>
+                )}
+
+                <RHFSpoersmaalRadio
+                    name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.erNoeSomKanPaavirkeInntekten'}
+                    legend={'Er det noe du vet om i dag som kan påvirke inntekten din fremover?'}
+                />
+                {forventetInntektIAar?.noeSomKanPaavirkeInntekten?.erNoeSomKanPaavirkeInntekten === IValg.JA && (
+                    <VStack gap="2">
+                        <RHFSelect
+                            name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
+                            label={'Hva er grunnen til at inntekten endrer seg?'}
+                            selectOptions={Object.values(GrunnTilPaavirkelseAvInntekt).map((value) => {
+                                return { label: value, value: value }
+                            })}
+                        />
+                        {forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt ===
+                            GrunnTilPaavirkelseAvInntekt.annenGrunn && (
+                            <RHFInput
+                                name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse'}
+                                label={'Beskriv endringen'}
+                                htmlSize={Bredde.M}
+                            />
+                        )}
+                    </VStack>
                 )}
             </VStack>
         </Box>
