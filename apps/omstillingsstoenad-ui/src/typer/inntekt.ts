@@ -57,6 +57,7 @@ export interface IForventetInntektIAar {
     noeSomKanPaavirkeInntekten?: {
         erNoeSomKanPaavirkeInntekten?: IValg
         grunnTilPaavirkelseAvInntekt: GrunnTilPaavirkelseAvInntekt
+        beskrivelse?: string
     }
 }
 

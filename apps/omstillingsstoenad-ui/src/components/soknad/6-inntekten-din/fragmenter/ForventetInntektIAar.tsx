@@ -3,11 +3,12 @@ import { differenceInYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { RHFSelect } from '~components/felles/rhf/RHFSelect'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import { IValg } from '~typer/Spoersmaal'
 import Bredde from '~typer/bredde'
-import { IInntekt } from '~typer/inntekt'
+import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
 
 export const ForventetInntektIAar = () => {
     const { state: bruker } = useBrukerContext()
@@ -116,6 +117,30 @@ export const ForventetInntektIAar = () => {
                             label={'Hva slags inntekt var det?'}
                         />
                     </>
+                )}
+
+                <RHFSpoersmaalRadio
+                    name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.erNoeSomKanPaavirkeInntekten'}
+                    legend={'Er det noe du vet om i dag som kan påvirke inntekten din fremover?'}
+                />
+                {forventetInntektIAar?.noeSomKanPaavirkeInntekten?.erNoeSomKanPaavirkeInntekten === IValg.JA && (
+                    <VStack gap="2">
+                        <RHFSelect
+                            name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
+                            label={'Hva er grunnen til at inntekten endrer seg?'}
+                            selectOptions={Object.values(GrunnTilPaavirkelseAvInntekt).map((value) => {
+                                return { label: value, value: value }
+                            })}
+                        />
+                        {forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt ===
+                            GrunnTilPaavirkelseAvInntekt.annenGrunn && (
+                            <RHFInput
+                                name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse'}
+                                label={'Beskriv endringen'}
+                                htmlSize={Bredde.M}
+                            />
+                        )}
+                    </VStack>
                 )}
             </VStack>
         </Box>
