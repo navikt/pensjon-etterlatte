@@ -1,15 +1,30 @@
 import { Box, Heading, List, ReadMore, VStack } from '@navikt/ds-react'
+import { differenceInYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
-import { RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
+import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { useBrukerContext } from '~context/bruker/BrukerContext'
+import { IBruker } from '~context/bruker/bruker'
 import { IValg } from '~typer/Spoersmaal'
 import Bredde from '~typer/bredde'
 import { IInntekt } from '~typer/inntekt'
 
 export const InntektFremTilDoedsallet = () => {
+    const { state: bruker } = useBrukerContext()
+
     const { watch } = useFormContext<IInntekt>()
 
     const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
+
+    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker er eldre enn 62 år
+    const skalViseAfpFelter = (bruker: IBruker): Boolean => {
+        if (!!bruker.foedselsdato) {
+            const alder = differenceInYears(new Date(), bruker.foedselsdato)
+            return alder > 62
+        } else {
+            return false
+        }
+    }
 
     return (
         <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
@@ -58,6 +73,25 @@ export const InntektFremTilDoedsallet = () => {
                             />
                         )}
                     </>
+                )}
+
+                {skalViseAfpFelter(bruker) && (
+                    <VStack gap="2">
+                        <RHFNumberInput
+                            name={'inntektFremTilDoedsfallet.afpInntekt.inntekt'}
+                            label={'AFP offentlig eller privat'}
+                            htmlSize={Bredde.M}
+                        />
+                        {!!inntektFremTilDoedsfallet?.afpInntekt?.inntekt &&
+                            inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0' && (
+                                <RHFInput
+                                    name={'inntektFremTilDoedsfallet.afpInntekt.tjenesteordning'}
+                                    label={'Hvilken tjenesteordning får du AFP fra?'}
+                                    description={'For eksempel KLP, SPK'}
+                                    htmlSize={Bredde.M}
+                                />
+                            )}
+                    </VStack>
                 )}
 
                 <VStack gap="2">
