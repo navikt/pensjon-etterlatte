@@ -1,7 +1,8 @@
-import { BodyShort, GuidePanel, Heading } from '@navikt/ds-react'
+import { BodyShort, Box, GuidePanel, Heading, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
+import { InntektFremTilDoedsallet } from '~components/soknad/6-inntekten-din/fragmenter/InntektFremTilDoedsallet'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { IInntekt } from '~typer/inntekt'
@@ -73,11 +74,14 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                     <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
                 </SkjemaGruppe>
 
-                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA && (
-                    <BodyShort>Jeg er en feature toggle, og jeg er på kun i dev</BodyShort>
+                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
+                    <VStack gap="4" paddingBlock="0 12">
+                        <Heading size="medium">Fyll inn inntektene dine</Heading>
+                        <InntektFremTilDoedsallet />
+                    </VStack>
+                ) : (
+                    <Inntekt />
                 )}
-
-                <Inntekt />
 
                 <YtelserNAV />
 
