@@ -4,6 +4,7 @@ import { IValgfrittSvar } from './arbeidsforhold'
 export interface IInntekt {
     // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
+    forventetInntektIAar?: IForventetInntektIAar
     // TODO: FELTER FOR DEN GAMMLE DATASTRUKTUREN
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
@@ -16,6 +17,7 @@ export interface IInntekt {
     erValidert?: boolean
 }
 
+// TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
 export interface IInntektFremTilDoedsfallet {
     arbeidsinntekt?: string
     naeringsinntekt?: {
@@ -35,6 +37,41 @@ export interface IInntektFremTilDoedsfallet {
     }
 }
 
+export interface IForventetInntektIAar {
+    arbeidsinntekt?: string
+    naeringsinntekt?: {
+        inntekt?: string
+        erNaeringsinntektOpptjentJevnt?: IValg
+        beskrivelse?: string
+    }
+    afpInntekt?: {
+        inntekt?: string
+        tjenesteordning?: string
+    }
+    inntektFraUtland?: string
+    andreInntekter?: {
+        harAndreInntekter?: IValg
+        inntekt?: string
+        beskrivelse?: string
+    }
+    noeSomKanPaavirkeInntekten?: {
+        erNoeSomKanPaavirkeInntekten?: IValg
+        grunnTilPaavirkelseAvInntekt: GrunnTilPaavirkelseAvInntekt
+    }
+}
+
+export enum GrunnTilPaavirkelseAvInntekt {
+    oektStillingsprosent = 'grunnTilPaavirkelseAvInntekt.oektStillingsprosent',
+    redusertStillingsprosent = 'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent',
+    permisjonUtenLoenn = 'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn',
+    loennsoekning = 'grunnTilPaavirkelseAvInntekt.loennsoekning',
+    arbeidsledig = 'grunnTilPaavirkelseAvInntekt.arbeidsledig',
+    sesongarbeid = 'grunnTilPaavirkelseAvInntekt.sesongarbeid',
+    bytteAvJobb = 'grunnTilPaavirkelseAvInntekt.bytteAvJobb',
+    annenGrunn = 'grunnTilPaavirkelseAvInntekt.annenGrunn',
+}
+
+// TODO: FELTER FOR DEN GAMMLE DATASTRUKTUREN
 interface IYtelserNAV {
     svar?: IValg
     soekteYtelser?: SoekbareYtelserNAV[]
