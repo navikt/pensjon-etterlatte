@@ -13,6 +13,7 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import { ForventetInntektIAar } from './fragmenter/ForventetInntektIAar'
 import Inntekt from './fragmenter/Inntekt'
 import { InntektFremTilDoedsallet } from './fragmenter/InntektFremTilDoedsallet'
 import YtelserAndre from './fragmenter/YtelserAndre'
@@ -77,7 +78,10 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="4" paddingBlock="0 12">
                         <Heading size="medium">Fyll inn inntektene dine</Heading>
+
                         <InntektFremTilDoedsallet />
+
+                        <ForventetInntektIAar />
                     </VStack>
                 ) : (
                     <Inntekt />
