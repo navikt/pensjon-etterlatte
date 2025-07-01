@@ -19,7 +19,7 @@ export const InntektFremTilDoedsallet = () => {
     // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker er eldre enn 62 år
     const skalViseAfpFelter = (bruker: IBruker): Boolean => {
         if (!!bruker.foedselsdato) {
-            const alder = differenceInYears(new Date().getFullYear(), bruker.foedselsdato)
+            const alder = differenceInYears(new Date(), bruker.foedselsdato)
             return alder > 62
         } else {
             return false
@@ -80,14 +80,17 @@ export const InntektFremTilDoedsallet = () => {
                         <RHFNumberInput
                             name={'inntektFremTilDoedsfallet.afpInntekt.inntekt'}
                             label={'AFP offentlig eller privat'}
+                            htmlSize={Bredde.M}
                         />
-                        {inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0' && (
-                            <RHFInput
-                                name={'inntektFremTilDoedsfallet.afpInntekt.tjenesteordning'}
-                                label={'Hvilken tjenesteordning får du AFP fra?'}
-                                description={'For eksempel KLP, SPK'}
-                            />
-                        )}
+                        {!!inntektFremTilDoedsfallet?.afpInntekt?.inntekt &&
+                            inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0' && (
+                                <RHFInput
+                                    name={'inntektFremTilDoedsfallet.afpInntekt.tjenesteordning'}
+                                    label={'Hvilken tjenesteordning får du AFP fra?'}
+                                    description={'For eksempel KLP, SPK'}
+                                    htmlSize={Bredde.M}
+                                />
+                            )}
                     </VStack>
                 )}
 
