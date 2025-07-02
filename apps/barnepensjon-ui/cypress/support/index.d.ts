@@ -1,6 +1,6 @@
 declare namespace Cypress {
     // biome-ignore lint/suspicious/noExplicitAny: gamle tester, gidder ikke fikse
-    interface Chainable<Subject = any> {
+    interface Chainable<_Subject = any> {
         startApplication(userFixture: string): Chainable<null>
         agreeToTerms(gotoNext?: boolean): Chainable<null>
         useScenario(role: string, situation?: string, gotoNext?: boolean): Chainable<null>
