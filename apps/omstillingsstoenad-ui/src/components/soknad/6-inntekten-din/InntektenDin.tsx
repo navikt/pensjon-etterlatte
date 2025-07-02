@@ -1,7 +1,9 @@
-import { BodyShort, Box, GuidePanel, Heading, VStack } from '@navikt/ds-react'
+import { GuidePanel, Heading, VStack } from '@navikt/ds-react'
+import { isAfter, isBefore } from 'date-fns'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
+import { ForventetInntektTilNesteAar } from '~components/soknad/6-inntekten-din/fragmenter/ForventetInntektTilNesteAar'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { IInntekt } from '~typer/inntekt'
@@ -18,7 +20,6 @@ import Inntekt from './fragmenter/Inntekt'
 import { InntektFremTilDoedsallet } from './fragmenter/InntektFremTilDoedsallet'
 import YtelserAndre from './fragmenter/YtelserAndre'
 import YtelserNAV from './fragmenter/YtelserNAV'
-import { ForventetInntektTilNesteAar } from '~components/soknad/6-inntekten-din/fragmenter/ForventetInntektTilNesteAar'
 
 const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
@@ -63,8 +64,17 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
     const erValidert = state.inntektenDin.erValidert
 
-    // TODO: fylle denne med riktig sjekk
-    const skalViseSkjemaForInntektNesteAar = () => true
+    const skalViseSkjemaForInntektNesteAar = (): boolean => {
+        if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
+            return true
+        } else {
+            // Dato er mellom 1. oktober og 31. desember (etter 30.10 samme år og før 01.01 året etter)
+            return (
+                isAfter(new Date(), new Date().setFullYear(new Date().getFullYear(), 9, 30)) &&
+                isBefore(new Date(), new Date().setFullYear(new Date().getFullYear() + 1, 1, 1))
+            )
+        }
+    }
 
     return (
         <FormProvider {...methods}>
@@ -87,9 +97,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                         <ForventetInntektIAar />
 
-                        {skalViseSkjemaForInntektNesteAar() && (
-                            <ForventetInntektTilNesteAar />
-                        )}
+                        {skalViseSkjemaForInntektNesteAar() && <ForventetInntektTilNesteAar />}
                     </VStack>
                 ) : (
                     <Inntekt />
