@@ -6,7 +6,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
     autocomplete="on"
   >
     <div
-      class="sc-kAFUCS jnAJSa"
+      class="sc-kvnevz eywiWY"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -15,7 +15,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       </h1>
     </div>
     <fieldset
-      class="sc-bXdtCk fbFEN"
+      class="sc-bRKDuR jGtGcS"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -202,7 +202,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bXdtCk fbFEN"
+      class="sc-bRKDuR jGtGcS"
     >
       <div
         id="nySivilstatus.sivilstatus"
@@ -347,10 +347,10 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bXdtCk fbFEN"
+      class="sc-bRKDuR jGtGcS"
     >
       <div
-        class="sc-kAFUCS jnAJSa"
+        class="sc-kvnevz eywiWY"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -359,7 +359,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-kAFUCS jnAJSa"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="omsorgMinstFemti"
@@ -442,7 +442,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-kAFUCS jnAJSa"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="gravidEllerNyligFoedt"
@@ -526,10 +526,10 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bXdtCk fbFEN"
+      class="sc-bRKDuR jGtGcS"
     >
       <div
-        class="sc-kAFUCS jnAJSa"
+        class="sc-kvnevz eywiWY"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -538,7 +538,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-kAFUCS jnAJSa"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="bosattINorge"
@@ -622,10 +622,10 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bXdtCk fbFEN"
+      class="sc-bRKDuR jGtGcS"
     >
       <div
-        class="sc-hKDTPf stJBt undefined"
+        class="sc-hvigdm csWfYk undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -650,7 +650,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hKDTPf sc-fmZSGO stJBt dCVVun"
+      class="sc-hvigdm sc-fhHczv csWfYk dfOPHl"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -720,7 +720,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dTdQuR dddafN"
+          class="sc-dYwGCk bsHyJX"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -748,7 +748,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dTdQuR dddafN"
+          class="sc-dYwGCk bsHyJX"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
