@@ -18,14 +18,22 @@ export const ForventetInntektTilNesteAar = () => {
     const forventetInntektTilNesteAar = watch('forventetInntektTilNesteAar')
 
     // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 neste år eller er eldre enn 62
-    const skalViseAfpFelter = (_bruker: IBruker): Boolean => {
-        return false
-        // if (!!bruker.foedselsdato) {
-        //     const alder = differenceInYears(new Date(), bruker.foedselsdato)
-        //     return alder >= 62
-        // } else {
-        //     return false
-        // }
+    const skalViseAfpFelter = (bruker: IBruker): boolean => {
+        if (!!bruker.foedselsdato) {
+            const nesteAar = new Date().setFullYear(new Date().getFullYear() + 1)
+            const alderNesteAar = differenceInYears(nesteAar, bruker.foedselsdato)
+
+            const alder = differenceInYears(new Date(), bruker.foedselsdato)
+            if (alder > 62) {
+                return true
+            } else if (alderNesteAar === 62) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }
 
     return (

@@ -6,9 +6,9 @@ import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
-import { IValg } from '~typer/Spoersmaal'
 import Bredde from '~typer/bredde'
 import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
+import { IValg } from '~typer/Spoersmaal'
 
 export const ForventetInntektIAar = () => {
     const { state: bruker } = useBrukerContext()
@@ -18,7 +18,7 @@ export const ForventetInntektIAar = () => {
     const forventetInntektIAar = watch('forventetInntektIAar')
 
     // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 i år eller er eldre enn 62 år
-    const skalViseAfpFelter = (bruker: IBruker): Boolean => {
+    const skalViseAfpFelter = (bruker: IBruker): boolean => {
         if (!!bruker.foedselsdato) {
             const alder = differenceInYears(new Date(), bruker.foedselsdato)
             return alder >= 62
