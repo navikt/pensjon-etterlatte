@@ -18,6 +18,7 @@ import Inntekt from './fragmenter/Inntekt'
 import { InntektFremTilDoedsallet } from './fragmenter/InntektFremTilDoedsallet'
 import YtelserAndre from './fragmenter/YtelserAndre'
 import YtelserNAV from './fragmenter/YtelserNAV'
+import { ForventetInntektTilNesteAar } from '~components/soknad/6-inntekten-din/fragmenter/ForventetInntektTilNesteAar'
 
 const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
@@ -62,6 +63,9 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
     const erValidert = state.inntektenDin.erValidert
 
+    // TODO: fylle denne med riktig sjekk
+    const skalViseSkjemaForInntektNesteAar = () => true
+
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -82,6 +86,10 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                         <InntektFremTilDoedsallet />
 
                         <ForventetInntektIAar />
+
+                        {skalViseSkjemaForInntektNesteAar() && (
+                            <ForventetInntektTilNesteAar />
+                        )}
                     </VStack>
                 ) : (
                     <Inntekt />
