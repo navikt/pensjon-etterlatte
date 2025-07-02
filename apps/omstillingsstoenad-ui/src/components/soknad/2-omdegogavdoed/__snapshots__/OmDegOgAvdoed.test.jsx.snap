@@ -254,6 +254,8 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                       </span>
                       <button
                         class="navds-date__caption-button navds-button navds-button--tertiary-neutral navds-button--medium navds-button--icon-only"
+                        data-color="neutral"
+                        data-variant="tertiary"
                         type="button"
                       >
                         <span
@@ -969,6 +971,8 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                       </div>
                       <button
                         class="navds-date__caption-button navds-button navds-button--tertiary-neutral navds-button--medium navds-button--icon-only navds-button--disabled"
+                        data-color="neutral"
+                        data-variant="tertiary"
                         disabled=""
                         type="button"
                       >
@@ -1095,7 +1099,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="tirsdag 2"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1113,7 +1116,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="onsdag 3"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1131,7 +1133,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="torsdag 4"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1149,7 +1150,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="fredag 5"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1167,7 +1167,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="lørdag 6"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1185,7 +1184,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="søndag 7"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1207,7 +1205,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="mandag 8"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1225,7 +1222,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="tirsdag 9"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1243,7 +1239,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="onsdag 10"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1261,7 +1256,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="torsdag 11"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1279,7 +1273,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="fredag 12"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1297,7 +1290,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="lørdag 13"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1315,7 +1307,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="søndag 14"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1337,7 +1328,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="mandag 15"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1355,7 +1345,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="tirsdag 16"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1373,7 +1362,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="onsdag 17"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1391,7 +1379,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="torsdag 18"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1409,7 +1396,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="fredag 19"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1427,7 +1413,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="lørdag 20"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1445,7 +1430,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="søndag 21"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1467,7 +1451,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="mandag 22"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1485,7 +1468,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="tirsdag 23"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1503,7 +1485,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="onsdag 24"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1521,7 +1502,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="torsdag 25"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1539,7 +1519,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="fredag 26"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1557,7 +1536,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="lørdag 27"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1575,7 +1553,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="søndag 28"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1597,7 +1574,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="mandag 29"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1615,7 +1591,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="tirsdag 30"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1633,7 +1608,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
                               aria-label="onsdag 31"
                               aria-pressed="false"
                               class="rdp-day rdp-button rdp-day_disabled"
-                              data-pressed="false"
                               disabled=""
                               tabindex="-1"
                               type="button"
@@ -1749,6 +1723,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-variant="secondary"
           type="button"
         >
           <span
@@ -1759,6 +1734,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         </button>
         <button
           class="navds-button navds-button--primary navds-button--medium"
+          data-variant="primary"
           type="button"
         >
           <span
@@ -1774,6 +1750,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
+        data-variant="tertiary"
         id="avbryt-btn"
         type="button"
       >
@@ -1794,6 +1771,8 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
       >
         <button
           class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          data-color="neutral"
+          data-variant="tertiary"
           type="button"
         >
           <span
@@ -1844,6 +1823,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
+            data-variant="secondary"
             id="avbryt-nei-btn"
             style="margin: 10px;"
             type="button"
@@ -1856,6 +1836,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
           </button>
           <button
             class="navds-button navds-button--primary navds-button--medium"
+            data-variant="primary"
             id="avbryt-ja-btn"
             style="margin: 10px;"
             type="button"
@@ -1872,6 +1853,7 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
+            data-variant="tertiary"
             id="slett-soeknad"
             style="color: var(--a-surface-danger);"
             type="button"
@@ -2050,6 +2032,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-variant="secondary"
           type="button"
         >
           <span
@@ -2060,6 +2043,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
         </button>
         <button
           class="navds-button navds-button--primary navds-button--medium"
+          data-variant="primary"
           type="button"
         >
           <span
@@ -2075,6 +2059,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
+        data-variant="tertiary"
         id="avbryt-btn"
         type="button"
       >
@@ -2095,6 +2080,8 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
       >
         <button
           class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          data-color="neutral"
+          data-variant="tertiary"
           type="button"
         >
           <span
@@ -2145,6 +2132,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
+            data-variant="secondary"
             id="avbryt-nei-btn"
             style="margin: 10px;"
             type="button"
@@ -2157,6 +2145,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
           </button>
           <button
             class="navds-button navds-button--primary navds-button--medium"
+            data-variant="primary"
             id="avbryt-ja-btn"
             style="margin: 10px;"
             type="button"
@@ -2173,6 +2162,7 @@ exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
+            data-variant="tertiary"
             id="slett-soeknad"
             style="color: var(--a-surface-danger);"
             type="button"

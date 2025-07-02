@@ -17,6 +17,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
+        data-color="info"
         data-responsive="true"
       >
         <div
@@ -995,6 +996,8 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   </span>
                                   <button
                                     class="navds-date__caption-button navds-button navds-button--tertiary-neutral navds-button--medium navds-button--icon-only navds-button--disabled"
+                                    data-color="neutral"
+                                    data-variant="tertiary"
                                     disabled=""
                                     type="button"
                                   >
@@ -1280,6 +1283,8 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                   </div>
                                   <button
                                     class="navds-date__caption-button navds-button navds-button--tertiary-neutral navds-button--medium navds-button--icon-only"
+                                    data-color="neutral"
+                                    data-variant="tertiary"
                                     type="button"
                                   >
                                     <span
@@ -2130,6 +2135,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
             <button
               class="navds-button navds-button--secondary navds-button--medium"
               data-testid="legg-til-arbeidsforhold-knapp"
+              data-variant="secondary"
               type="button"
             >
               <span
@@ -2533,6 +2539,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           <div>
             <button
               class="navds-button navds-button--secondary navds-button--medium"
+              data-variant="secondary"
               type="button"
             >
               <span
@@ -2981,6 +2988,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-variant="secondary"
           type="button"
         >
           <span
@@ -2991,6 +2999,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         </button>
         <button
           class="navds-button navds-button--primary navds-button--medium"
+          data-variant="primary"
           type="button"
         >
           <span
@@ -3006,6 +3015,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
+        data-variant="tertiary"
         id="avbryt-btn"
         type="button"
       >
@@ -3026,6 +3036,8 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       >
         <button
           class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          data-color="neutral"
+          data-variant="tertiary"
           type="button"
         >
           <span
@@ -3076,6 +3088,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
+            data-variant="secondary"
             id="avbryt-nei-btn"
             style="margin: 10px;"
             type="button"
@@ -3088,6 +3101,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           </button>
           <button
             class="navds-button navds-button--primary navds-button--medium"
+            data-variant="primary"
             id="avbryt-ja-btn"
             style="margin: 10px;"
             type="button"
@@ -3104,6 +3118,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
+            data-variant="tertiary"
             id="slett-soeknad"
             style="color: var(--a-surface-danger);"
             type="button"
@@ -3138,6 +3153,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
+        data-color="info"
         data-responsive="true"
       >
         <div
@@ -4115,6 +4131,8 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                   </span>
                                   <button
                                     class="navds-date__caption-button navds-button navds-button--tertiary-neutral navds-button--medium navds-button--icon-only navds-button--disabled"
+                                    data-color="neutral"
+                                    data-variant="tertiary"
                                     disabled=""
                                     type="button"
                                   >
@@ -4400,6 +4418,8 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                   </div>
                                   <button
                                     class="navds-date__caption-button navds-button navds-button--tertiary-neutral navds-button--medium navds-button--icon-only"
+                                    data-color="neutral"
+                                    data-variant="tertiary"
                                     type="button"
                                   >
                                     <span
@@ -5250,6 +5270,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
             <button
               class="navds-button navds-button--secondary navds-button--medium"
               data-testid="legg-til-arbeidsforhold-knapp"
+              data-variant="secondary"
               type="button"
             >
               <span
@@ -5698,6 +5719,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-variant="secondary"
           type="button"
         >
           <span
@@ -5708,6 +5730,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         </button>
         <button
           class="navds-button navds-button--primary navds-button--medium"
+          data-variant="primary"
           type="button"
         >
           <span
@@ -5723,6 +5746,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
+        data-variant="tertiary"
         id="avbryt-btn"
         type="button"
       >
@@ -5743,6 +5767,8 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       >
         <button
           class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+          data-color="neutral"
+          data-variant="tertiary"
           type="button"
         >
           <span
@@ -5793,6 +5819,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
+            data-variant="secondary"
             id="avbryt-nei-btn"
             style="margin: 10px;"
             type="button"
@@ -5805,6 +5832,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           </button>
           <button
             class="navds-button navds-button--primary navds-button--medium"
+            data-variant="primary"
             id="avbryt-ja-btn"
             style="margin: 10px;"
             type="button"
@@ -5821,6 +5849,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
+            data-variant="tertiary"
             id="slett-soeknad"
             style="color: var(--a-surface-danger);"
             type="button"

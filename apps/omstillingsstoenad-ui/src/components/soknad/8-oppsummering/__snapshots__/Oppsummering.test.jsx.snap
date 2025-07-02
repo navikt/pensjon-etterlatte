@@ -846,6 +846,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        data-variant="secondary"
         type="button"
       >
         <span
@@ -856,6 +857,7 @@ exports[`Oppsummering > Snapshot 1`] = `
       </button>
       <button
         class="navds-button navds-button--primary navds-button--medium"
+        data-variant="primary"
         type="button"
       >
         <span
@@ -872,6 +874,7 @@ exports[`Oppsummering > Snapshot 1`] = `
   >
     <button
       class="navds-button navds-button--tertiary navds-button--medium"
+      data-variant="tertiary"
       id="avbryt-btn"
       type="button"
     >
@@ -892,6 +895,8 @@ exports[`Oppsummering > Snapshot 1`] = `
     >
       <button
         class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+        data-color="neutral"
+        data-variant="tertiary"
         type="button"
       >
         <span
@@ -942,6 +947,7 @@ exports[`Oppsummering > Snapshot 1`] = `
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
+          data-variant="secondary"
           id="avbryt-nei-btn"
           style="margin: 10px;"
           type="button"
@@ -954,6 +960,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </button>
         <button
           class="navds-button navds-button--primary navds-button--medium"
+          data-variant="primary"
           id="avbryt-ja-btn"
           style="margin: 10px;"
           type="button"
@@ -970,6 +977,7 @@ exports[`Oppsummering > Snapshot 1`] = `
       >
         <button
           class="navds-button navds-button--tertiary navds-button--medium"
+          data-variant="tertiary"
           id="slett-soeknad"
           style="color: var(--a-surface-danger);"
           type="button"
@@ -994,6 +1002,8 @@ exports[`Oppsummering > Snapshot 1`] = `
     >
       <button
         class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+        data-color="neutral"
+        data-variant="tertiary"
         type="button"
       >
         <span
@@ -1041,6 +1051,7 @@ exports[`Oppsummering > Snapshot 1`] = `
     >
       <button
         class="navds-button navds-button--primary navds-button--medium"
+        data-variant="primary"
         id="avbryt-nei-btn"
         style="margin: 10px;"
         type="button"
@@ -1053,6 +1064,7 @@ exports[`Oppsummering > Snapshot 1`] = `
       </button>
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        data-variant="secondary"
         id="avbryt-ja-btn"
         style="margin: 10px;"
         type="button"
