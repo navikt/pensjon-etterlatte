@@ -12,6 +12,8 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
   >
     <div
       class="navds-alert navds-alert--success navds-alert--medium"
+      data-color="success"
+      data-variant="success"
     >
       <svg
         aria-labelledby="title-«r0»"
@@ -58,6 +60,8 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
        
       <a
         class="navds-link navds-link--action"
+        data-color="accent"
+        data-variant="action"
         href="soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href"
       >
         soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst
@@ -67,6 +71,8 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
        
       <a
         class="navds-link navds-link--action"
+        data-color="accent"
+        data-variant="action"
         href="soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href"
       >
         soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst
@@ -78,6 +84,8 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
   >
     <div
       class="navds-alert navds-alert--info navds-alert--medium"
+      data-color="info"
+      data-variant="info"
     >
       <svg
         aria-labelledby="title-«r1»"
@@ -145,6 +153,8 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
            
           <a
             class="navds-link navds-link--action"
+            data-color="accent"
+            data-variant="action"
             href="soeknadKvittering.endring.rettigheter.lenke.href"
           >
             soeknadKvittering.endring.rettigheter.lenke.tekst
@@ -195,6 +205,8 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
       soeknadKvittering.andreStoenader.andreInformasjon
       <a
         class="navds-link navds-link--action"
+        data-color="accent"
+        data-variant="action"
         href="soeknadKvittering.andreStoenader.stoenadListe.tillegg.href"
       >
         soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst
@@ -210,6 +222,7 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
     >
       <button
         class="navds-button navds-button--secondary navds-button--medium"
+        data-variant="secondary"
         type="button"
       >
         <span
