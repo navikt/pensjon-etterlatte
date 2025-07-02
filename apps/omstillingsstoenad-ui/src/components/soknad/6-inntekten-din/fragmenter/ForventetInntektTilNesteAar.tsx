@@ -10,18 +10,27 @@ import Bredde from '~typer/bredde'
 import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
 
-export const ForventetInntektIAar = () => {
+export const ForventetInntektTilNesteAar = () => {
     const { state: bruker } = useBrukerContext()
 
     const { watch } = useFormContext<IInntekt>()
 
-    const forventetInntektIAar = watch('forventetInntektIAar')
+    const forventetInntektTilNesteAar = watch('forventetInntektTilNesteAar')
 
-    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 i år eller er eldre enn 62 år
+    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 neste år eller er eldre enn 62
     const skalViseAfpFelter = (bruker: IBruker): boolean => {
         if (!!bruker.foedselsdato) {
+            const nesteAar = new Date().setFullYear(new Date().getFullYear() + 1)
+            const alderNesteAar = differenceInYears(nesteAar, bruker.foedselsdato)
+
             const alder = differenceInYears(new Date(), bruker.foedselsdato)
-            return alder >= 62
+            if (alder > 62) {
+                return true
+            } else if (alderNesteAar === 62) {
+                return true
+            } else {
+                return false
+            }
         } else {
             return false
         }
@@ -30,17 +39,17 @@ export const ForventetInntektIAar = () => {
     return (
         <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
             <VStack gap="4">
-                <Heading size="small">Forventet årsinntekt i år</Heading>
+                <Heading size="small">Forventet inntekt til neste år</Heading>
 
                 <List>
-                    <List.Item>Du skal fylle inn det du forventer å tjene i år.</List.Item>
-                    <List.Item>Fra januar til og med desember.</List.Item>
+                    <List.Item>Du skal fylle inn det du forventer å tjene til neste år.</List.Item>
+                    <List.Item>Fra januar til og med desember</List.Item>
                     <List.Item>Inntekten skal være brutto inntekt, altså inntekt før skatt.</List.Item>
                 </List>
 
                 <VStack gap="2">
                     <RHFNumberInput
-                        name={'forventetInntektIAar.arbeidsinntekt'}
+                        name={'forventetInntektTilNesteAar.arbeidsinntekt'}
                         label={'Arbeidsinntekt og andre utbetalinger'}
                         htmlSize={Bredde.M}
                     />
@@ -49,22 +58,23 @@ export const ForventetInntektIAar = () => {
 
                 <VStack gap="2">
                     <RHFNumberInput
-                        name={'forventetInntektIAar.naeringsinntekt.inntekt'}
+                        name={'forventetInntektTilNesteAar.naeringsinntekt.inntekt'}
                         label={'Næringsinntekt'}
                         htmlSize={Bredde.M}
                     />
                     <ReadMore header={'Næringsinntekter du skal fylle inn'}>sg</ReadMore>
                 </VStack>
-                {!!forventetInntektIAar?.naeringsinntekt?.inntekt &&
-                    forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (
+                {!!forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
+                    forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0' && (
                         <>
                             <RHFSpoersmaalRadio
-                                name={'forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt'}
+                                name={'forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt'}
                                 legend={'Er næringsinntekten opptjent jevnt i løpet av året? '}
                             />
-                            {forventetInntektIAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt === IValg.NEI && (
+                            {forventetInntektTilNesteAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt ===
+                                IValg.NEI && (
                                 <RHFInputArea
-                                    name={'forventetInntektIAar.naeringsinntekt.beskrivelse'}
+                                    name={'forventetInntektTilNesteAar.naeringsinntekt.beskrivelse'}
                                     label={'Skriv kort om hvordan inntekten varierer gjennom året'}
                                     description={'For eksempel når på året det er lav og høy inntekt'}
                                 />
@@ -75,14 +85,14 @@ export const ForventetInntektIAar = () => {
                 {skalViseAfpFelter(bruker) && (
                     <VStack gap="2">
                         <RHFNumberInput
-                            name={'forventetInntektIAar.afpInntekt.inntekt'}
+                            name={'forventetInntektTilNesteAar.afpInntekt.inntekt'}
                             label={'AFP offentlig eller privat'}
                             htmlSize={Bredde.M}
                         />
-                        {!!forventetInntektIAar?.afpInntekt?.inntekt &&
-                            forventetInntektIAar?.afpInntekt?.inntekt !== '0' && (
+                        {!!forventetInntektTilNesteAar?.afpInntekt?.inntekt &&
+                            forventetInntektTilNesteAar?.afpInntekt?.inntekt !== '0' && (
                                 <RHFInput
-                                    name={'forventetInntektIAar.afpInntekt.tjenesteordning'}
+                                    name={'forventetInntektTilNesteAar.afpInntekt.tjenesteordning'}
                                     label={'Hvilken tjenesteordning får du AFP fra?'}
                                     description={'For eksempel KLP, SPK'}
                                     htmlSize={Bredde.M}
@@ -93,7 +103,7 @@ export const ForventetInntektIAar = () => {
 
                 <VStack gap="2">
                     <RHFNumberInput
-                        name={'forventetInntektIAar.inntektFraUtland'}
+                        name={'forventetInntektTilNesteAar.inntektFraUtland'}
                         label={'Alle inntekter fra utland'}
                         description={'Inntektene skal oppgis i norske kroner'}
                         htmlSize={Bredde.M}
@@ -102,40 +112,40 @@ export const ForventetInntektIAar = () => {
                 </VStack>
 
                 <RHFSpoersmaalRadio
-                    name={'forventetInntektIAar.andreInntekter.harAndreInntekter'}
-                    legend={'Hadde du andre inntekter?'}
+                    name={'forventetInntektTilNesteAar.andreInntekter.harAndreInntekter'}
+                    legend={'Kommer du til å ha andre inntekter?'}
                 />
-                {forventetInntektIAar?.andreInntekter?.harAndreInntekter === IValg.JA && (
+                {forventetInntektTilNesteAar?.andreInntekter?.harAndreInntekter === IValg.JA && (
                     <>
                         <RHFNumberInput
-                            name={'forventetInntektIAar.andreInntekter.inntekt'}
+                            name={'forventetInntektTilNesteAar.andreInntekter.inntekt'}
                             label={'Andre inntekter'}
                             htmlSize={Bredde.M}
                         />
                         <RHFInputArea
-                            name={'forventetInntektIAar.andreInntekter.beskrivelse'}
-                            label={'Hva slags inntekt var det?'}
+                            name={'forventetInntektTilNesteAar.andreInntekter.beskrivelse'}
+                            label={'Hva slags inntekt er det?'}
                         />
                     </>
                 )}
 
                 <RHFSpoersmaalRadio
-                    name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.erNoeSomKanPaavirkeInntekten'}
+                    name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.erNoeSomKanPaavirkeInntekten'}
                     legend={'Er det noe du vet om i dag som kan påvirke inntekten din fremover?'}
                 />
-                {forventetInntektIAar?.noeSomKanPaavirkeInntekten?.erNoeSomKanPaavirkeInntekten === IValg.JA && (
+                {forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.erNoeSomKanPaavirkeInntekten === IValg.JA && (
                     <VStack gap="2">
                         <RHFSelect
-                            name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
+                            name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
                             label={'Hva er grunnen til at inntekten endrer seg?'}
                             selectOptions={Object.values(GrunnTilPaavirkelseAvInntekt).map((value) => {
                                 return { label: value, value: value }
                             })}
                         />
-                        {forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt ===
+                        {forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt ===
                             GrunnTilPaavirkelseAvInntekt.annenGrunn && (
                             <RHFInput
-                                name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse'}
+                                name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'}
                                 label={'Beskriv endringen'}
                                 htmlSize={Bredde.M}
                             />

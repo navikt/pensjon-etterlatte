@@ -5,9 +5,9 @@ import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/R
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
-import { IValg } from '~typer/Spoersmaal'
 import Bredde from '~typer/bredde'
 import { IInntekt } from '~typer/inntekt'
+import { IValg } from '~typer/Spoersmaal'
 
 export const InntektFremTilDoedsallet = () => {
     const { state: bruker } = useBrukerContext()
@@ -17,7 +17,7 @@ export const InntektFremTilDoedsallet = () => {
     const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
 
     // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker er eldre enn 62 år
-    const skalViseAfpFelter = (bruker: IBruker): Boolean => {
+    const skalViseAfpFelter = (bruker: IBruker): boolean => {
         if (!!bruker.foedselsdato) {
             const alder = differenceInYears(new Date(), bruker.foedselsdato)
             return alder > 62

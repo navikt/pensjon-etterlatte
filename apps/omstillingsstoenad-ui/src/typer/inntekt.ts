@@ -5,6 +5,7 @@ export interface IInntekt {
     // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
     forventetInntektIAar?: IForventetInntektIAar
+    forventetInntektTilNesteAar?: IForventetInntektTilNesteAar
     // TODO: FELTER FOR DEN GAMMLE DATASTRUKTUREN
     inntektstyper?: InntektsTyper[]
     loennsinntekt?: ILoennsinntekt
@@ -38,6 +39,30 @@ export interface IInntektFremTilDoedsfallet {
 }
 
 export interface IForventetInntektIAar {
+    arbeidsinntekt?: string
+    naeringsinntekt?: {
+        inntekt?: string
+        erNaeringsinntektOpptjentJevnt?: IValg
+        beskrivelse?: string
+    }
+    afpInntekt?: {
+        inntekt?: string
+        tjenesteordning?: string
+    }
+    inntektFraUtland?: string
+    andreInntekter?: {
+        harAndreInntekter?: IValg
+        inntekt?: string
+        beskrivelse?: string
+    }
+    noeSomKanPaavirkeInntekten?: {
+        erNoeSomKanPaavirkeInntekten?: IValg
+        grunnTilPaavirkelseAvInntekt: GrunnTilPaavirkelseAvInntekt
+        beskrivelse?: string
+    }
+}
+
+export interface IForventetInntektTilNesteAar {
     arbeidsinntekt?: string
     naeringsinntekt?: {
         inntekt?: string
