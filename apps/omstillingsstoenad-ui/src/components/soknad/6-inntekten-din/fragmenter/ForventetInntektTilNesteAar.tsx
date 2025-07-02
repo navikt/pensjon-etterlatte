@@ -105,7 +105,7 @@ export const ForventetInntektTilNesteAar = () => {
 
                 <RHFSpoersmaalRadio
                     name={'forventetInntektTilNesteAar.andreInntekter.harAndreInntekter'}
-                    legend={'Hadde du andre inntekter?'}
+                    legend={'Kommer du til å ha andre inntekter?'}
                 />
                 {forventetInntektTilNesteAar?.andreInntekter?.harAndreInntekter === IValg.JA && (
                     <>
@@ -116,7 +116,7 @@ export const ForventetInntektTilNesteAar = () => {
                         />
                         <RHFInputArea
                             name={'forventetInntektTilNesteAar.andreInntekter.beskrivelse'}
-                            label={'Hva slags inntekt var det?'}
+                            label={'Hva slags inntekt er det?'}
                         />
                     </>
                 )}
