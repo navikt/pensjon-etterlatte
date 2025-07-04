@@ -1,8 +1,9 @@
-import { IValg } from './Spoersmaal'
 import { IValgfrittSvar } from './arbeidsforhold'
+import { IValg } from './Spoersmaal'
 
 export interface IInntekt {
     // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
+    skalGaaAvMedAlderspensjon?: ISkalGaaAvMedAlderspensjon
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
     forventetInntektIAar?: IForventetInntektIAar
     forventetInntektTilNesteAar?: IForventetInntektTilNesteAar
@@ -19,6 +20,12 @@ export interface IInntekt {
 }
 
 // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
+
+export interface ISkalGaaAvMedAlderspensjon {
+    valg?: IValg
+    datoForAaGaaAvMedAlderspensjon?: string
+}
+
 export interface IInntektFremTilDoedsfallet {
     arbeidsinntekt?: string
     naeringsinntekt?: {

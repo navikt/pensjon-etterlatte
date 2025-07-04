@@ -4,6 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
 import { ForventetInntektTilNesteAar } from '~components/soknad/6-inntekten-din/fragmenter/ForventetInntektTilNesteAar'
+import { SkalGaaAvMedAlderspensjon } from '~components/soknad/6-inntekten-din/fragmenter/SkalGaaAvMedAlderspensjon'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { IInntekt } from '~typer/inntekt'
@@ -91,6 +92,8 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
+                        <SkalGaaAvMedAlderspensjon />
+
                         <Heading size="medium">Fyll inn inntektene dine</Heading>
 
                         <InntektFremTilDoedsallet />
