@@ -3,11 +3,12 @@ import { useFormContext } from 'react-hook-form'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { IInntekt } from '~typer/inntekt'
+import { IValg } from '~typer/Spoersmaal'
 
 export const SkalGaaAvMedAlderspensjon = () => {
     const { watch } = useFormContext<IInntekt>()
 
-    const _skalGaAavMedAlderspensjon = watch('skalGaaAvMedAlderspensjon')
+    const skalGaAavMedAlderspensjon = watch('skalGaaAvMedAlderspensjon')
 
     return (
         <VStack gap="4">
@@ -20,10 +21,12 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 <ReadMore header={'Når kan jeg ta ut alderspensjon?'}>asdasd</ReadMore>
             </VStack>
 
-            <Maanedvelger
-                name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
-                label={'Når planlegger du å gå av med alderspensjon'}
-            />
+            {skalGaAavMedAlderspensjon?.valg === IValg.JA && (
+                <Maanedvelger
+                    name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
+                    label={'Når planlegger du å gå av med alderspensjon'}
+                />
+            )}
         </VStack>
     )
 }
