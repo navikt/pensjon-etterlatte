@@ -4,9 +4,11 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
 import { ForventetInntektTilNesteAar } from '~components/soknad/6-inntekten-din/fragmenter/ForventetInntektTilNesteAar'
+import { SkalGaaAvMedAlderspensjon } from '~components/soknad/6-inntekten-din/fragmenter/SkalGaaAvMedAlderspensjon'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { IInntekt } from '~typer/inntekt'
+import { erMellomOktoberogDesember } from '~utils/dato'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import SoknadSteg from '../../../typer/SoknadSteg'
@@ -67,13 +69,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const skalViseSkjemaForInntektNesteAar = (): boolean => {
         if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
             return true
-        } else {
-            // Dato er mellom 1. oktober og 31. desember (etter 30.10 samme år og før 01.01 året etter)
-            return (
-                isAfter(new Date(), new Date().setFullYear(new Date().getFullYear(), 9, 30)) &&
-                isBefore(new Date(), new Date().setFullYear(new Date().getFullYear() + 1, 1, 1))
-            )
-        }
+        } else return erMellomOktoberogDesember()
     }
 
     return (
@@ -91,9 +87,12 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
-                        <Heading size="medium">Fyll inn inntektene dine</Heading>
+                        <SkalGaaAvMedAlderspensjon />
+                        <VStack gap="6">
+                            <Heading size="medium">Fyll inn inntektene dine</Heading>
 
-                        <InntektFremTilDoedsallet />
+                            <InntektFremTilDoedsallet />
+                        </VStack>
 
                         <ForventetInntektIAar />
 
