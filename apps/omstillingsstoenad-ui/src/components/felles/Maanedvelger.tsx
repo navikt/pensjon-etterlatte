@@ -41,7 +41,7 @@ export const Maanedvelger = <T extends FieldValues>({
             rules={{
                 required: !valgfri,
                 // TODO: se på den stygge her
-                validate: (date) => (!date || false ? '' : format(date, 'yyyy-MM-dd')),
+                validate: (date) => !!date,
             }}
             render={({ field: { onChange, value } }) => {
                 const { monthpickerProps, inputProps } = useMonthpicker({
