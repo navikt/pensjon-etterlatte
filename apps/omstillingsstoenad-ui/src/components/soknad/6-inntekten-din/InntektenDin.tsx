@@ -8,6 +8,7 @@ import { SkalGaaAvMedAlderspensjon } from '~components/soknad/6-inntekten-din/fr
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { IInntekt } from '~typer/inntekt'
+import { erMellomOktoberogDesember } from '~utils/dato'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../../context/soknad/soknad'
 import SoknadSteg from '../../../typer/SoknadSteg'
@@ -68,13 +69,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const skalViseSkjemaForInntektNesteAar = (): boolean => {
         if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
             return true
-        } else {
-            // Dato er mellom 1. oktober og 31. desember (etter 30.10 samme år og før 01.01 året etter)
-            return (
-                isAfter(new Date(), new Date().setFullYear(new Date().getFullYear(), 9, 30)) &&
-                isBefore(new Date(), new Date().setFullYear(new Date().getFullYear() + 1, 1, 1))
-            )
-        }
+        } else return erMellomOktoberogDesember()
     }
 
     return (
