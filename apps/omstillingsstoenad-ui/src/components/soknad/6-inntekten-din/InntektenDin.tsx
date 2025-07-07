@@ -17,7 +17,7 @@ import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { ForventetInntektIAar } from './fragmenter/ForventetInntektIAar'
 import { ForventetInntektTilNesteAar } from './fragmenter/ForventetInntektTilNesteAar'
 import Inntekt from './fragmenter/Inntekt'
-import { InntektFremTilDoedsallet } from './fragmenter/InntektFremTilDoedsallet'
+import { InntektFremTilDoedsfallet } from './fragmenter/InntektFremTilDoedsfallet'
 import { SkalGaaAvMedAlderspensjon } from './fragmenter/SkalGaaAvMedAlderspensjon'
 import YtelserAndre from './fragmenter/YtelserAndre'
 import YtelserNAV from './fragmenter/YtelserNAV'
@@ -91,7 +91,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                         <VStack gap="6">
                             <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                            <InntektFremTilDoedsallet />
+                            <InntektFremTilDoedsfallet />
                         </VStack>
 
                         <ForventetInntektIAar />

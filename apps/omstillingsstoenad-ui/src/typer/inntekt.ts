@@ -4,6 +4,7 @@ import { IValg } from './Spoersmaal'
 export interface IInntekt {
     // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
     skalGaaAvMedAlderspensjon?: ISkalGaaAvMedAlderspensjon
+    // TODO: disse er veldig like, må se på noen felles interfacer for de
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
     forventetInntektIAar?: IForventetInntektIAar
     forventetInntektTilNesteAar?: IForventetInntektTilNesteAar
@@ -30,8 +31,10 @@ export interface IInntektFremTilDoedsfallet {
     arbeidsinntekt?: string
     naeringsinntekt?: {
         inntekt?: string
-        erNaeringsinntektOpptjentJevnt?: IValg
-        beskrivelse?: string
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: IValg
+            beskrivelse?: string
+        }
     }
     afpInntekt?: {
         inntekt?: string
@@ -39,7 +42,7 @@ export interface IInntektFremTilDoedsfallet {
     }
     inntektFraUtland?: string
     andreInntekter?: {
-        harAndreInntekter?: IValg
+        valg?: IValg
         inntekt?: string
         beskrivelse?: string
     }
@@ -49,8 +52,10 @@ export interface IForventetInntektIAar {
     arbeidsinntekt?: string
     naeringsinntekt?: {
         inntekt?: string
-        erNaeringsinntektOpptjentJevnt?: IValg
-        beskrivelse?: string
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: IValg
+            beskrivelse?: string
+        }
     }
     afpInntekt?: {
         inntekt?: string
@@ -58,7 +63,7 @@ export interface IForventetInntektIAar {
     }
     inntektFraUtland?: string
     andreInntekter?: {
-        harAndreInntekter?: IValg
+        valg?: IValg
         inntekt?: string
         beskrivelse?: string
     }
@@ -73,8 +78,10 @@ export interface IForventetInntektTilNesteAar {
     arbeidsinntekt?: string
     naeringsinntekt?: {
         inntekt?: string
-        erNaeringsinntektOpptjentJevnt?: IValg
-        beskrivelse?: string
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: IValg
+            beskrivelse?: string
+        }
     }
     afpInntekt?: {
         inntekt?: string
@@ -82,7 +89,7 @@ export interface IForventetInntektTilNesteAar {
     }
     inntektFraUtland?: string
     andreInntekter?: {
-        harAndreInntekter?: IValg
+        valg?: IValg
         inntekt?: string
         beskrivelse?: string
     }

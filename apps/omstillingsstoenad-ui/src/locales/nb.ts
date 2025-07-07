@@ -335,6 +335,40 @@ export default {
     'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
         'Når planlegger du å gå av med alderspensjon?',
     'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
+    'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Inntekt frem til dødsfallet',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
+        'Du skal fylle inn det du tjente fra januar og til og med måneden da dødsfallet skjedde.',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li2':
+        'Hvis dødsfallet skjedde i januar, oppgir du inntekten for januar. Hvis dødsfallet skjedde i desember, oppgir du hele årsinntekten.',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li3':
+        'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse arbeidsinntekter...',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Næringsinntekt',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.tittel':
+        'Næringsinntekter du skal melde inn',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse næringsinntekter...',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Er næringsinntekten opptjent jevnt i løpet av året?',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse':
+        'Skriv kort om hvordan inntekten varierer gjennom året',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse':
+        'For eksempel når på året det er lav og høy inntekt',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
+    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': 'Alle inntekter fra utland',
+    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
+    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
+    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.innhold':
+        'Her kommer det masse innteker fra utland...',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Andre inntekter',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
     // Språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
