@@ -325,6 +325,17 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.bytteAvJobb': 'Bytte av jobb',
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre grunner',
     'inntektenDin.tittel': 'Inntekten din',
+    // Språk keys for den nye datastrukturen
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon å år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
+        'Planlegger du å gå av med alderspensjon neste år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan jeg ta ut alderspensjon?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
+        'Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.\n\n Har du høy nok opptjening, kan du starte uttak allerede fra du er 62 år. I noen unntakstilfeller kan du starte enda tidligere.\n\n Det er viktig for oss å vite om du planlegger å gå av med alderspensjon, slik at vi kan sikre riktig utbetaling. Hvis du ikke har bestemt deg ennå, må du huske å melde fra til oss hvis du ønsker å gå av med alderspensjon.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
+        'Når planlegger du å gå av med alderspensjon?',
+    'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
+    // Språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
         'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Alle pengene du tjener skal tas med når den forventede inntekten beregnes.\n\n Det er viktig at du opplyser oss om brutto inntekt. Det vil si inntekten din før skattetrekk.',

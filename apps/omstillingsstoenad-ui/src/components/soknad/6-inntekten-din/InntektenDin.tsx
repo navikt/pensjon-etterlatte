@@ -87,8 +87,9 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
                         <SkalGaaAvMedAlderspensjon />
+
                         <VStack gap="6">
-                            <Heading size="medium">Fyll inn inntektene dine</Heading>
+                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
                             <InntektFremTilDoedsallet />
                         </VStack>
