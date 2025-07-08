@@ -68,7 +68,7 @@ export interface IForventetInntektIAar {
         beskrivelse?: string
     }
     noeSomKanPaavirkeInntekten?: {
-        erNoeSomKanPaavirkeInntekten?: IValg
+        valg?: IValg
         grunnTilPaavirkelseAvInntekt: GrunnTilPaavirkelseAvInntekt
         beskrivelse?: string
     }

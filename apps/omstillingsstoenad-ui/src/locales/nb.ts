@@ -369,6 +369,49 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektIAar.tittel': 'Forventet årsinntekt i år',
+    'inntektenDin.forventetInntektIAar.innhold.li1': 'Du skal fylle inn det du forventer å tjene i år.',
+    'inntektenDin.forventetInntektIAar.innhold.li2': 'Fra januar til og med desember.',
+    'inntektenDin.forventetInntektIAar.innhold.li3': 'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse arbeidsinntekter...',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Næringsinntekt',
+    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel': 'Næringsinntekter du skal melde inn',
+    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse næringsinntekter...',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Er næringsinntekten opptjent jevnt i løpet av året?',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse':
+        'Skriv kort om hvordan inntekten varierer gjennom året',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse':
+        'For eksempel når på året det er lav og høy inntekt',
+    'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
+    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
+    'inntektenDin.forventetInntektIAar.inntektFraUtland': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
+    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.innhold':
+        'Her kommer det masse innteker fra utland...',
+    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Andre inntekter',
+    'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg':
+        'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
+        'Hva er grunnen til at inntekten endrer seg?',
+    'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
+    'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
+    'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
+    'grunnTilPaavirkelseAvInntekt.loennsoekning': 'Lønnsøkning',
+    'grunnTilPaavirkelseAvInntekt.arbeidsledig': 'Arbeidsledig',
+    'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Sesongarbeid',
+    'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Bytte av jobb',
+    'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Annen grunn',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
     // Språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
@@ -838,6 +881,7 @@ export default {
     'soekbarYtelse.tjenestepensjonsordning': 'Pensjon fra tjenestepensjonsordning',
     'soekbarYtelse.pensjonFraUtlandet': 'Pensjon fra utlandet',
     'soekbarYtelse.annen': 'Andre inntekter eller ytelser',
+    // TODO: Enum verdier fra den gamle datastrukturen
     'endringAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'endringAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'endringAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
