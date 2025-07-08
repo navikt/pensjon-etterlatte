@@ -403,6 +403,44 @@ export default {
         'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'Hva er grunnen til at inntekten endrer seg?',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
+    'inntektenDin.forventetInntektTilNesteAar.tittel': 'Forventet inntekt til neste år',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li1': 'Du skal fylle inn det du forventer å tjene til neste år.',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li2': 'Fra januar til og med desember.',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li3':
+        'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse arbeidsinntekter...',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Næringsinntekt',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.tittel':
+        'Næringsinntekter du skal melde inn',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse næringsinntekter...',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Er næringsinntekten opptjent jevnt i løpet av året?',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse':
+        'Skriv kort om hvordan inntekten varierer gjennom året',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse':
+        'For eksempel når på året det er lav og høy inntekt',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
+    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
+    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.innhold':
+        'Her kommer det masse innteker fra utland...',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Andre inntekter',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg':
+        'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
+        'Hva er grunnen til at inntekten endrer seg?',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
@@ -411,7 +449,6 @@ export default {
     'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Sesongarbeid',
     'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Bytte av jobb',
     'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Annen grunn',
-    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
     // Språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
