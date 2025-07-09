@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
+import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/inntektReadMore/ArbeidsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
@@ -51,9 +52,7 @@ export const ForventetInntektIAar = () => {
                         label={t('inntektenDin.forventetInntektIAar.arbeidsinntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={t('inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel')}>
-                        {t('inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel')}
-                    </ReadMore>
+                    <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
                 <VStack gap="2">

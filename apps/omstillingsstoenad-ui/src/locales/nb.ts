@@ -343,10 +343,6 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li3':
         'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
-    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.tittel':
-        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
-    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse arbeidsinntekter...',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Næringsinntekt',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.tittel':
         'Næringsinntekter du skal melde inn',
@@ -374,10 +370,6 @@ export default {
     'inntektenDin.forventetInntektIAar.innhold.li2': 'Fra januar til og med desember.',
     'inntektenDin.forventetInntektIAar.innhold.li3': 'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
-    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel':
-        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
-    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse arbeidsinntekter...',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Næringsinntekt',
     'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel': 'Næringsinntekter du skal melde inn',
     'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold':
@@ -410,10 +402,6 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.innhold.li3':
         'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
-    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.tittel':
-        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
-    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse arbeidsinntekter...',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Næringsinntekt',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.tittel':
         'Næringsinntekter du skal melde inn',
