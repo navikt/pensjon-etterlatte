@@ -326,7 +326,7 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre grunner',
     'inntektenDin.tittel': 'Inntekten din',
     // Språk keys for den nye datastrukturen
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon å år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon i år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
         'Planlegger du å gå av med alderspensjon neste år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan jeg ta ut alderspensjon?',
@@ -354,9 +354,9 @@ export default {
         'Her kommer det masse næringsinntekter...',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse':
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
         'Skriv kort om hvordan inntekten varierer gjennom året',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse':
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
         'For eksempel når på året det er lav og høy inntekt',
     'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt': 'AFP offentlig eller privat',
     'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
@@ -365,7 +365,7 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
     'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
     'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse innteker fra utland...',
+        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -395,7 +395,7 @@ export default {
     'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
     'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse innteker fra utland...',
+        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -432,7 +432,7 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
     'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse innteker fra utland...',
+        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
