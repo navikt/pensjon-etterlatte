@@ -384,9 +384,9 @@ export default {
         'Her kommer det masse næringsinntekter...',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
-    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse':
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
         'Skriv kort om hvordan inntekten varierer gjennom året',
-    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse':
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
         'For eksempel når på året det er lav og høy inntekt',
     'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
     'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
@@ -421,9 +421,9 @@ export default {
         'Her kommer det masse næringsinntekter...',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse':
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
         'Skriv kort om hvordan inntekten varierer gjennom året',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse':
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
         'For eksempel når på året det er lav og høy inntekt',
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
