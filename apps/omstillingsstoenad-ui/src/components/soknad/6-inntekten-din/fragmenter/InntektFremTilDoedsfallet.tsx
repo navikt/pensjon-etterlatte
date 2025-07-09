@@ -4,6 +4,7 @@ import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/inntektReadMore/ArbeidsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
@@ -46,9 +47,7 @@ export const InntektFremTilDoedsfallet = () => {
                         label={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.tittel')}>
-                        {t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.innhold')}
-                    </ReadMore>
+                    <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
                 <VStack gap="2">

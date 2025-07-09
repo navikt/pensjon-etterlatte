@@ -441,6 +441,34 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'Hva er grunnen til at inntekten endrer seg?',
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekter og andre utbetalinger du skal melde inn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekter',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og ovetid',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
+        'Pengestøtter fra Nav og andre pensjonsleverandører',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': 'Kan for eksempel være:',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': 'arbeidsavklaringspenger (AAP)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': 'dagpenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': 'foreldrepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': 'fosterhjemsgodtgjørelse',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': 'kvalifiseringsstønad',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6':
+        'omsorgslønn/omsorgsstønad (kommunal støtte)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': 'omsorgspenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': 'opplæringspenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': 'pleiepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': 'sykepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2':
+        'Har du uføretrygd, skal du ikke oppgi den som inntekt her.',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalinger som regnes som inntekt',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringer',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
