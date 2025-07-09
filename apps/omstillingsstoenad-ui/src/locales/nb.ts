@@ -422,7 +422,7 @@ export default {
         'Arbeidsinntekter og andre utbetalinger du skal melde inn',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekter',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og ovetid',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og overtid',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
         'Pengestøtter fra Nav og andre pensjonsleverandører',
