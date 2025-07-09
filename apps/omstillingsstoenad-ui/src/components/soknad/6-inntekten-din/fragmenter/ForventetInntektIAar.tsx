@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
+import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
+import { InntekterFraUtlandDuSkalFylleUt } from '~components/soknad/6-inntekten-din/fragmenter/felles/InntekterFraUtlandDuSkalFylleUt'
+import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
@@ -51,9 +54,7 @@ export const ForventetInntektIAar = () => {
                         label={t('inntektenDin.forventetInntektIAar.arbeidsinntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={t('inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel')}>
-                        {t('inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel')}
-                    </ReadMore>
+                    <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
                 <VStack gap="2">
@@ -62,9 +63,7 @@ export const ForventetInntektIAar = () => {
                         label={t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={t('inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel')}>
-                        {t('inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold')}
-                    </ReadMore>
+                    <NaeringsinntekterDuSkalFylleUtReadMore />
                 </VStack>
                 {!!forventetInntektIAar?.naeringsinntekt?.inntekt &&
                     forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (
@@ -118,9 +117,7 @@ export const ForventetInntektIAar = () => {
                         description={t('inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={t('inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel')}>
-                        {t('inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel')}
-                    </ReadMore>
+                    <InntekterFraUtlandDuSkalFylleUt />
                 </VStack>
 
                 <RHFSpoersmaalRadio

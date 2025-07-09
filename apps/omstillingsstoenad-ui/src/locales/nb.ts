@@ -343,15 +343,7 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li3':
         'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
-    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.tittel':
-        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
-    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse arbeidsinntekter...',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Næringsinntekt',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.tittel':
-        'Næringsinntekter du skal melde inn',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse næringsinntekter...',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -363,9 +355,6 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
-    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -374,14 +363,7 @@ export default {
     'inntektenDin.forventetInntektIAar.innhold.li2': 'Fra januar til og med desember.',
     'inntektenDin.forventetInntektIAar.innhold.li3': 'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
-    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel':
-        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
-    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse arbeidsinntekter...',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Næringsinntekt',
-    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel': 'Næringsinntekter du skal melde inn',
-    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse næringsinntekter...',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -393,9 +375,6 @@ export default {
     'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektIAar.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
-    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -410,15 +389,7 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.innhold.li3':
         'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
-    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.tittel':
-        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
-    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse arbeidsinntekter...',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Næringsinntekt',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.tittel':
-        'Næringsinntekter du skal melde inn',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse næringsinntekter...',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -430,9 +401,6 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
-    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -441,6 +409,58 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'Hva er grunnen til at inntekten endrer seg?',
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekter og andre utbetalinger du skal melde inn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekter',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og overtid',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
+        'Pengestøtter fra Nav og andre pensjonsleverandører',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': 'Kan for eksempel være:',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': 'arbeidsavklaringspenger (AAP)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': 'dagpenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': 'foreldrepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': 'fosterhjemsgodtgjørelse',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': 'kvalifiseringsstønad',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6':
+        'omsorgslønn/omsorgsstønad (kommunal støtte)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': 'omsorgspenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': 'opplæringspenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': 'pleiepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': 'sykepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2':
+        'Har du uføretrygd, skal du ikke oppgi den som inntekt her.',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalinger som regnes som inntekt',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringer',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Næringsinntekter du skal melde inn',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'næringsinntekt',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'salg av næringsvirksomhet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': 'Inntekter fra utland du skal melde inn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og overtid',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': 'Næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': 'næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': 'salg av næringsvirksomhet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalinger som regnes som inntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringer',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label':
+        'Ytelser og pengestøtter fra landet du bor i',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p':
+        'For eksempel pengestøtte i forbindelse med',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsledighet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sykdom og uførhet',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
