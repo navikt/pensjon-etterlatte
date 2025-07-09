@@ -333,6 +333,7 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Other reasons',
     'inntektenDin.tittel': 'Your income',
     // TODO nye keys for datastruktur
+    'inntektenDin.ingress.ny': '',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': '',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar': '',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': '',
