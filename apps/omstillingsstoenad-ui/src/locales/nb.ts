@@ -325,6 +325,131 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.bytteAvJobb': 'Bytte av jobb',
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre grunner',
     'inntektenDin.tittel': 'Inntekten din',
+    // Språk keys for den nye datastrukturen
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon i år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
+        'Planlegger du å gå av med alderspensjon neste år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan jeg ta ut alderspensjon?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
+        'Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.\n\n Har du høy nok opptjening, kan du starte uttak allerede fra du er 62 år. I noen unntakstilfeller kan du starte enda tidligere.\n\n Det er viktig for oss å vite om du planlegger å gå av med alderspensjon, slik at vi kan sikre riktig utbetaling. Hvis du ikke har bestemt deg ennå, må du huske å melde fra til oss hvis du ønsker å gå av med alderspensjon.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
+        'Når planlegger du å gå av med alderspensjon?',
+    'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
+    'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Inntekt frem til dødsfallet',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
+        'Du skal fylle inn det du tjente fra januar og til og med måneden da dødsfallet skjedde.',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li2':
+        'Hvis dødsfallet skjedde i januar, oppgir du inntekten for januar. Hvis dødsfallet skjedde i desember, oppgir du hele årsinntekten.',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li3':
+        'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse arbeidsinntekter...',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Næringsinntekt',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.tittel':
+        'Næringsinntekter du skal melde inn',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse næringsinntekter...',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Er næringsinntekten opptjent jevnt i løpet av året?',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
+        'Skriv kort om hvordan inntekten varierer gjennom året',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
+        'For eksempel når på året det er lav og høy inntekt',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
+    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': 'Alle inntekter fra utland',
+    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
+    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
+    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.innhold':
+        'Her kommer det masse inntekter fra utland...',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Andre inntekter',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektIAar.tittel': 'Forventet årsinntekt i år',
+    'inntektenDin.forventetInntektIAar.innhold.li1': 'Du skal fylle inn det du forventer å tjene i år.',
+    'inntektenDin.forventetInntektIAar.innhold.li2': 'Fra januar til og med desember.',
+    'inntektenDin.forventetInntektIAar.innhold.li3': 'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse arbeidsinntekter...',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Næringsinntekt',
+    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel': 'Næringsinntekter du skal melde inn',
+    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse næringsinntekter...',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Er næringsinntekten opptjent jevnt i løpet av året?',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
+        'Skriv kort om hvordan inntekten varierer gjennom året',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
+        'For eksempel når på året det er lav og høy inntekt',
+    'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
+    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
+    'inntektenDin.forventetInntektIAar.inntektFraUtland': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
+    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.innhold':
+        'Her kommer det masse inntekter fra utland...',
+    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Andre inntekter',
+    'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg':
+        'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
+        'Hva er grunnen til at inntekten endrer seg?',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
+    'inntektenDin.forventetInntektTilNesteAar.tittel': 'Forventet inntekt til neste år',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li1': 'Du skal fylle inn det du forventer å tjene til neste år.',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li2': 'Fra januar til og med desember.',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li3':
+        'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekt og andre utbetalinger du skal melde inn',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse arbeidsinntekter...',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Næringsinntekt',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.tittel':
+        'Næringsinntekter du skal melde inn',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.innhold':
+        'Her kommer det masse næringsinntekter...',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Er næringsinntekten opptjent jevnt i løpet av året?',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
+        'Skriv kort om hvordan inntekten varierer gjennom året',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
+        'For eksempel når på året det er lav og høy inntekt',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
+    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
+    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
+    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.innhold':
+        'Her kommer det masse inntekter fra utland...',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Andre inntekter',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg':
+        'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
+        'Hva er grunnen til at inntekten endrer seg?',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Beskriv endringen',
+    'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
+    'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
+    'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
+    'grunnTilPaavirkelseAvInntekt.loennsoekning': 'Lønnsøkning',
+    'grunnTilPaavirkelseAvInntekt.arbeidsledig': 'Arbeidsledig',
+    'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Sesongarbeid',
+    'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Bytte av jobb',
+    'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Annen grunn',
+    // Språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':
         'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Alle pengene du tjener skal tas med når den forventede inntekten beregnes.\n\n Det er viktig at du opplyser oss om brutto inntekt. Det vil si inntekten din før skattetrekk.',
@@ -793,6 +918,7 @@ export default {
     'soekbarYtelse.tjenestepensjonsordning': 'Pensjon fra tjenestepensjonsordning',
     'soekbarYtelse.pensjonFraUtlandet': 'Pensjon fra utlandet',
     'soekbarYtelse.annen': 'Andre inntekter eller ytelser',
+    // TODO: Enum verdier fra den gamle datastrukturen
     'endringAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'endringAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'endringAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',

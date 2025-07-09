@@ -1,10 +1,7 @@
 import { GuidePanel, Heading, VStack } from '@navikt/ds-react'
-import { isAfter, isBefore } from 'date-fns'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
-import { ForventetInntektTilNesteAar } from '~components/soknad/6-inntekten-din/fragmenter/ForventetInntektTilNesteAar'
-import { SkalGaaAvMedAlderspensjon } from '~components/soknad/6-inntekten-din/fragmenter/SkalGaaAvMedAlderspensjon'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 import { IInntekt } from '~typer/inntekt'
@@ -18,8 +15,10 @@ import Navigasjon from '../../felles/Navigasjon'
 import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { ForventetInntektIAar } from './fragmenter/ForventetInntektIAar'
+import { ForventetInntektTilNesteAar } from './fragmenter/ForventetInntektTilNesteAar'
 import Inntekt from './fragmenter/Inntekt'
-import { InntektFremTilDoedsallet } from './fragmenter/InntektFremTilDoedsallet'
+import { InntektFremTilDoedsfallet } from './fragmenter/InntektFremTilDoedsfallet'
+import { SkalGaaAvMedAlderspensjon } from './fragmenter/SkalGaaAvMedAlderspensjon'
 import YtelserAndre from './fragmenter/YtelserAndre'
 import YtelserNAV from './fragmenter/YtelserNAV'
 
@@ -88,10 +87,11 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
                         <SkalGaaAvMedAlderspensjon />
-                        <VStack gap="6">
-                            <Heading size="medium">Fyll inn inntektene dine</Heading>
 
-                            <InntektFremTilDoedsallet />
+                        <VStack gap="6">
+                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
+
+                            <InntektFremTilDoedsfallet />
                         </VStack>
 
                         <ForventetInntektIAar />

@@ -1,6 +1,7 @@
 import { ReadMore, VStack } from '@navikt/ds-react'
 import { addYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
@@ -10,6 +11,8 @@ import { erMellomOktoberogDesember } from '~utils/dato'
 
 export const SkalGaaAvMedAlderspensjon = () => {
     const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
+
+    const { t } = useTranslation()
 
     const { watch } = useFormContext<IInntekt>()
 
@@ -28,18 +31,20 @@ export const SkalGaaAvMedAlderspensjon = () => {
                     name={'skalGaaAvMedAlderspensjon.valg'}
                     legend={
                         visTekstForAlderspensjonNesteAar()
-                            ? 'Planlegger du å gå av med alderspensjon neste år?'
-                            : 'Skal du gå av med alderspensjon å år?'
+                            ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
+                            : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
                     }
                     vetIkke
                 />
-                <ReadMore header={'Når kan jeg ta ut alderspensjon?'}>asdasd</ReadMore>
+                <ReadMore header={t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel')}>
+                    {t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold')}
+                </ReadMore>
             </VStack>
 
             {skalGaAavMedAlderspensjon?.valg === IValg.JA && (
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
-                    label={'Når planlegger du å gå av med alderspensjon?'}
+                    label={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
                     fromDate={visTekstForAlderspensjonNesteAar() ? new Date(addYears(new Date(), 1)) : new Date()}
                 />
             )}

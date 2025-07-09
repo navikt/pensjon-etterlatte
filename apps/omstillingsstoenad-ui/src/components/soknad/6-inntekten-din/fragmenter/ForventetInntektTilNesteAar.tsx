@@ -1,6 +1,7 @@
 import { Box, Heading, List, ReadMore, VStack } from '@navikt/ds-react'
 import { differenceInYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
@@ -11,11 +12,17 @@ import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
 
 export const ForventetInntektTilNesteAar = () => {
+    const { t } = useTranslation()
+
     const { state: bruker } = useBrukerContext()
 
     const { watch } = useFormContext<IInntekt>()
 
     const forventetInntektTilNesteAar = watch('forventetInntektTilNesteAar')
+
+    const grunnTilPaaVirkelseAvInntektOptions = Object.values(GrunnTilPaavirkelseAvInntekt).map((value) => {
+        return { label: t(value), value }
+    })
 
     // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 neste år eller er eldre enn 62
     const skalViseAfpFelter = (bruker: IBruker): boolean => {
@@ -39,44 +46,60 @@ export const ForventetInntektTilNesteAar = () => {
     return (
         <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
             <VStack gap="4">
-                <Heading size="small">Forventet inntekt til neste år</Heading>
+                <Heading size="small">{t('inntektenDin.forventetInntektTilNesteAar.tittel')}</Heading>
 
                 <List>
-                    <List.Item>Du skal fylle inn det du forventer å tjene til neste år.</List.Item>
-                    <List.Item>Fra januar til og med desember</List.Item>
-                    <List.Item>Inntekten skal være brutto inntekt, altså inntekt før skatt.</List.Item>
+                    <List.Item>{t('inntektenDin.forventetInntektTilNesteAar.innhold.li1')}</List.Item>
+                    <List.Item>{t('inntektenDin.forventetInntektTilNesteAar.innhold.li2')}</List.Item>
+                    <List.Item>{t('inntektenDin.forventetInntektTilNesteAar.innhold.li3')}</List.Item>
                 </List>
 
                 <VStack gap="2">
                     <RHFNumberInput
                         name={'forventetInntektTilNesteAar.arbeidsinntekt'}
-                        label={'Arbeidsinntekt og andre utbetalinger'}
+                        label={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={'Arbeidsinntekt og andre utbetalinger du skal melde inn'}>sdg</ReadMore>
+                    <ReadMore
+                        header={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.tittel')}
+                    >
+                        {t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekterDuSkalFylleUt.innhold')}
+                    </ReadMore>
                 </VStack>
 
                 <VStack gap="2">
                     <RHFNumberInput
                         name={'forventetInntektTilNesteAar.naeringsinntekt.inntekt'}
-                        label={'Næringsinntekt'}
+                        label={t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={'Næringsinntekter du skal fylle inn'}>sg</ReadMore>
+                    <ReadMore
+                        header={t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.tittel')}
+                    >
+                        {t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.innhold')}
+                    </ReadMore>
                 </VStack>
                 {!!forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
                     forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0' && (
                         <>
                             <RHFSpoersmaalRadio
-                                name={'forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt'}
-                                legend={'Er næringsinntekten opptjent jevnt i løpet av året? '}
+                                name={'forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'}
+                                legend={t(
+                                    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                )}
                             />
-                            {forventetInntektTilNesteAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt ===
+                            {forventetInntektTilNesteAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt?.valg ===
                                 IValg.NEI && (
                                 <RHFInputArea
-                                    name={'forventetInntektTilNesteAar.naeringsinntekt.beskrivelse'}
-                                    label={'Skriv kort om hvordan inntekten varierer gjennom året'}
-                                    description={'For eksempel når på året det er lav og høy inntekt'}
+                                    name={
+                                        'forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                    }
+                                    label={t(
+                                        'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse'
+                                    )}
+                                    description={
+                                        'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse.beskrivelse'
+                                    }
                                 />
                             )}
                         </>
@@ -86,15 +109,17 @@ export const ForventetInntektTilNesteAar = () => {
                     <VStack gap="2">
                         <RHFNumberInput
                             name={'forventetInntektTilNesteAar.afpInntekt.inntekt'}
-                            label={'AFP offentlig eller privat'}
+                            label={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt')}
                             htmlSize={Bredde.M}
                         />
                         {!!forventetInntektTilNesteAar?.afpInntekt?.inntekt &&
                             forventetInntektTilNesteAar?.afpInntekt?.inntekt !== '0' && (
                                 <RHFInput
                                     name={'forventetInntektTilNesteAar.afpInntekt.tjenesteordning'}
-                                    label={'Hvilken tjenesteordning får du AFP fra?'}
-                                    description={'For eksempel KLP, SPK'}
+                                    label={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning')}
+                                    description={t(
+                                        'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse'
+                                    )}
                                     htmlSize={Bredde.M}
                                 />
                             )}
@@ -104,49 +129,57 @@ export const ForventetInntektTilNesteAar = () => {
                 <VStack gap="2">
                     <RHFNumberInput
                         name={'forventetInntektTilNesteAar.inntektFraUtland'}
-                        label={'Alle inntekter fra utland'}
-                        description={'Inntektene skal oppgis i norske kroner'}
+                        label={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland')}
+                        description={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={'Alle inntekter fra utland'}>adsasd</ReadMore>
+                    <ReadMore
+                        header={t('inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.tittel')}
+                    >
+                        {t('inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.innhold')}
+                    </ReadMore>
                 </VStack>
 
                 <RHFSpoersmaalRadio
-                    name={'forventetInntektTilNesteAar.andreInntekter.harAndreInntekter'}
-                    legend={'Kommer du til å ha andre inntekter?'}
+                    name={'forventetInntektTilNesteAar.andreInntekter.valg'}
+                    legend={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg')}
                 />
-                {forventetInntektTilNesteAar?.andreInntekter?.harAndreInntekter === IValg.JA && (
+                {forventetInntektTilNesteAar?.andreInntekter?.valg === IValg.JA && (
                     <>
                         <RHFNumberInput
                             name={'forventetInntektTilNesteAar.andreInntekter.inntekt'}
-                            label={'Andre inntekter'}
+                            label={'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt'}
                             htmlSize={Bredde.M}
                         />
                         <RHFInputArea
                             name={'forventetInntektTilNesteAar.andreInntekter.beskrivelse'}
-                            label={'Hva slags inntekt er det?'}
+                            label={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse')}
                         />
                     </>
                 )}
 
                 <RHFSpoersmaalRadio
-                    name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.erNoeSomKanPaavirkeInntekten'}
-                    legend={'Er det noe du vet om i dag som kan påvirke inntekten din fremover?'}
+                    name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg'}
+                    legend={t('inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg')}
                 />
-                {forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.erNoeSomKanPaavirkeInntekten === IValg.JA && (
+                {forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
                     <VStack gap="2">
                         <RHFSelect
                             name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
-                            label={'Hva er grunnen til at inntekten endrer seg?'}
-                            selectOptions={Object.values(GrunnTilPaavirkelseAvInntekt).map((value) => {
-                                return { label: value, value: value }
-                            })}
+                            label={
+                                'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
+                            }
+                            selectOptions={[{ label: t('felles.velg'), value: '' }].concat(
+                                grunnTilPaaVirkelseAvInntektOptions
+                            )}
                         />
                         {forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt ===
                             GrunnTilPaavirkelseAvInntekt.annenGrunn && (
                             <RHFInput
                                 name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'}
-                                label={'Beskriv endringen'}
+                                label={t(
+                                    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'
+                                )}
                                 htmlSize={Bredde.M}
                             />
                         )}

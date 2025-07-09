@@ -40,7 +40,6 @@ export const Maanedvelger = <T extends FieldValues>({
             defaultValue={undefined}
             rules={{
                 required: !valgfri,
-                // TODO: se på den stygge her
                 validate: (date) => !!date,
             }}
             render={({ field: { onChange, value } }) => {
