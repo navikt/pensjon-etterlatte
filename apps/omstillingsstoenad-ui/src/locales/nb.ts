@@ -355,9 +355,6 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
-    'inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -378,9 +375,6 @@ export default {
     'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektIAar.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
-    'inntektenDin.forventetInntektIAar.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
@@ -407,9 +401,6 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.tittel': 'Alle inntekter fra utland',
-    'inntektenDin.forventetInntektTilNesteAar.inntekterFraUtlandDuSkalFylleUt.innhold':
-        'Her kommer det masse inntekter fra utland...',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Hadde du andre inntekter?',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Andre inntekter',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
