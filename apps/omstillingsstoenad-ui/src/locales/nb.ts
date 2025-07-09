@@ -344,10 +344,6 @@ export default {
         'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Næringsinntekt',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.tittel':
-        'Næringsinntekter du skal melde inn',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse næringsinntekter...',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -371,9 +367,6 @@ export default {
     'inntektenDin.forventetInntektIAar.innhold.li3': 'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Næringsinntekt',
-    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel': 'Næringsinntekter du skal melde inn',
-    'inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse næringsinntekter...',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -403,10 +396,6 @@ export default {
         'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Næringsinntekt',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.tittel':
-        'Næringsinntekter du skal melde inn',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekterDuSkalFylleUt.innhold':
-        'Her kommer det masse næringsinntekter...',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
         'Er næringsinntekten opptjent jevnt i løpet av året?',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -457,6 +446,9 @@ export default {
         'skattepliktig del av forsikringer',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
         'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Næringsinntekter du skal melde inn',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'næringsinntekt',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'salg av næringsvirksomhet',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',

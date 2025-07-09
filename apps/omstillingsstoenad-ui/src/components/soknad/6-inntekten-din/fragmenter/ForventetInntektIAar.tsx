@@ -6,6 +6,7 @@ import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/R
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
+import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
@@ -61,9 +62,7 @@ export const ForventetInntektIAar = () => {
                         label={t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore header={t('inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.tittel')}>
-                        {t('inntektenDin.forventetInntektIAar.naeringsinntekterDuSkalFylleUt.innhold')}
-                    </ReadMore>
+                    <NaeringsinntekterDuSkalFylleUtReadMore />
                 </VStack>
                 {!!forventetInntektIAar?.naeringsinntekt?.inntekt &&
                     forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (

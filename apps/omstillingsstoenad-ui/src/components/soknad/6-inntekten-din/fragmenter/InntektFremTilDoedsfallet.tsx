@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
+import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
@@ -56,11 +57,7 @@ export const InntektFremTilDoedsfallet = () => {
                         label={t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore
-                        header={t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.tittel')}
-                    >
-                        {t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekterDuSkalFylleUt.innhold')}
-                    </ReadMore>
+                    <NaeringsinntekterDuSkalFylleUtReadMore />
                 </VStack>
                 {!!inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
                     inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0' && (
