@@ -4,7 +4,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
 <div>
   <form>
     <div
-      class="sc-dFVmKS cNTkGj"
+      class="sc-kvnevz eywiWY"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -108,7 +108,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       class="sc-fbQrwq hsdhMl"
     >
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="sc-kvnevz eywiWY"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -395,7 +395,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="ytelserNAV.svar"
@@ -493,7 +493,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="ytelserAndre.svar"
@@ -742,7 +742,7 @@ exports[`Inntekten din > Snapshot 1`] = `
 <div>
   <form>
     <div
-      class="sc-dFVmKS cNTkGj"
+      class="sc-kvnevz eywiWY"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -846,7 +846,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       class="sc-fbQrwq hsdhMl"
     >
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="sc-kvnevz eywiWY"
       >
         <h1
           class="navds-heading navds-heading--medium"
@@ -1133,7 +1133,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="ytelserNAV.svar"
@@ -1231,7 +1231,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="sc-kvnevz eywiWY"
       >
         <div
           id="ytelserAndre.svar"
