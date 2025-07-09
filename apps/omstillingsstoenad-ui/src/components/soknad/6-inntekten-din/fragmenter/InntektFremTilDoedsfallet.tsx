@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
+import { InntekterFraUtlandDuSkalFylleUt } from '~components/soknad/6-inntekten-din/fragmenter/felles/InntekterFraUtlandDuSkalFylleUt'
 import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IBruker } from '~context/bruker/bruker'
@@ -113,11 +114,7 @@ export const InntektFremTilDoedsfallet = () => {
                         description={t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse')}
                         htmlSize={Bredde.M}
                     />
-                    <ReadMore
-                        header={t('inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.tittel')}
-                    >
-                        {t('inntektenDin.inntektFremTilDoedsfallet.inntekterFraUtlandDuSkalFylleUt.innhold')}
-                    </ReadMore>
+                    <InntekterFraUtlandDuSkalFylleUt />
                 </VStack>
 
                 <RHFSpoersmaalRadio

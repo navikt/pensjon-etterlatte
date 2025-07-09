@@ -449,6 +449,27 @@ export default {
     'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Næringsinntekter du skal melde inn',
     'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'næringsinntekt',
     'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'salg av næringsvirksomhet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': 'Inntekter fra utland du skal melde inn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og overtid',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': 'Næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': 'næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': 'salg av næringsvirksomhet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalinger som regnes som inntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringer',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label':
+        'Ytelser og pengestøtter fra landet du bor i',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p':
+        'For eksempel pengestøtte i forbindelse med',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsledighet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sykdom og uførhet',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
