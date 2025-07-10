@@ -471,6 +471,12 @@ export default {
     'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Sesongarbeid',
     'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Bytte av jobb',
     'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Annen grunn',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.tittel': 'Grunnen til at vi spør om dette',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.innhold':
+        'Vi trenger å vite dette fordi noen ytelser fra Nav regnes som inntekt.',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.tittel': 'Grunnen til at vi spør om dette',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.innhold':
+        'Noen ytelser regnes som inntekt, mens andre ytelser ikke kan kombineres med omstillingsstønad.',
     // Språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
     'inntektenDin.ingress':

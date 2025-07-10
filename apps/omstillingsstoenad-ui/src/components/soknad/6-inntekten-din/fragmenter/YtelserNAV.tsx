@@ -1,16 +1,19 @@
-import { useTranslation } from 'react-i18next'
+import { Heading, ReadMore, VStack } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
+import { IInntekt, SoekbareYtelserNAV } from '../../../../typer/inntekt'
+import { IValg } from '../../../../typer/Spoersmaal'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { IInntekt, SoekbareYtelserNAV } from '../../../../typer/inntekt'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { IValg } from '../../../../typer/Spoersmaal'
-import { Heading } from '@navikt/ds-react'
 
 const YtelserNAV = () => {
     const { t } = useTranslation()
+
+    const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
 
     const { watch } = useFormContext<IInntekt>()
 
@@ -19,13 +22,18 @@ const YtelserNAV = () => {
     return (
         <SkjemaGruppe>
             <Heading size={'small'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
-            <SkjemaElement>
+            <VStack marginBlock="4 0">
                 <RHFSpoersmaalRadio
                     name={'ytelserNAV.svar'}
                     legend={t('inntektenDin.ytelserNAV.svar')}
                     description={t('inntektenDin.ytelserNAV.hvorfor')}
                 />
-            </SkjemaElement>
+                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA && (
+                    <ReadMore header={t('inntektenDin.ytelserNAV.hvorforViSpoer.tittel')}>
+                        {t('inntektenDin.ytelserNAV.hvorforViSpoer.innhold')}
+                    </ReadMore>
+                )}
+            </VStack>
             {harSoektYtelse === IValg.JA && (
                 <SkjemaElement>
                     <RHFCheckboksGruppe
