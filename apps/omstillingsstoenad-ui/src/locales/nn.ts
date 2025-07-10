@@ -436,6 +436,10 @@ export default {
     'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Sesongarbeid',
     'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Byte av jobb',
     'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Annan grunn',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.tittel': '',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.innhold': '',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.tittel': '',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.innhold': '',
     // TODO: språk keys for den gamle datastrukturen
     'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalingar i Noreg og i utlandet',
     'inntektenDin.ingress':
