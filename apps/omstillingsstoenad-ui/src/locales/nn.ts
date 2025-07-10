@@ -323,6 +323,7 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre årsakar',
     'inntektenDin.tittel': 'Inntekten din',
     // TODO: språk keys for den nye datastrukturen
+    'inntektenDin.ingress.ny': '',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': '',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar': '',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': '',

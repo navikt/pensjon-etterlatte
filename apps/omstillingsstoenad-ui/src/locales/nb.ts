@@ -326,6 +326,8 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre grunner',
     'inntektenDin.tittel': 'Inntekten din',
     // Språk keys for den nye datastrukturen
+    'inntektenDin.ingress.ny':
+        'Hvor mye omstillingsstønad du kan få, avhenger av hva du tjener. For at vi skal kunne regne ut riktig beløp, trenger vi informasjon om alle inntektene dine.\n\n Du må oppgi inntekten din før skatt, altså bruttoinntekten.\n\n I noen tilfeller kan du bli bedt om å dokumentere hva du tjener etter søknaden er sendt inn.',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon i år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
         'Planlegger du å gå av med alderspensjon neste år?',

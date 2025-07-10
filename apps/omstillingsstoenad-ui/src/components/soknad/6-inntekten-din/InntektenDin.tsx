@@ -81,7 +81,13 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 </SkjemaElement>
 
                 <SkjemaGruppe>
-                    <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
+                    <GuidePanel>
+                        {t(
+                            omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA
+                                ? 'inntektenDin.ingress.ny'
+                                : 'inntektenDin.ingress'
+                        )}
+                    </GuidePanel>
                 </SkjemaGruppe>
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
