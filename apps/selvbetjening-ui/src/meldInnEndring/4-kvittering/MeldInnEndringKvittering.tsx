@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { Alert, Button, HStack, Heading, VStack } from '@navikt/ds-react'
+import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
+import { LogEvents, useAnalytics } from '../../common/analytics/useAnalytics.ts'
 import { SideLaster } from '../../common/SideLaster.tsx'
-import { LogEvents, useAmplitude } from '../../common/amplitude/useAmplitude.ts'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
@@ -15,7 +15,7 @@ export const MeldInnEndringKvittering = () => {
 
     const meldInnEndring = useMeldInnEndring()
 
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const {
         innhold,

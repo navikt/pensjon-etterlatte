@@ -1,6 +1,6 @@
 import { Heading, Link, List } from '@navikt/ds-react'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import { EventType, LogEvents, useAmplitude } from '../amplitude/useAmplitude.ts'
+import { EventType, LogEvents, useAnalytics } from '../analytics/useAnalytics.ts'
 
 interface PortableTextBlock {
     children?: Array<{
@@ -22,7 +22,7 @@ interface PortableTextBlock {
 }
 
 export const SanityRikTekst = ({ text }: { text: Array<PortableTextBlock> | undefined }) => {
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const portableTextTilAkselKomponenter: PortableTextComponents = {
         marks: {

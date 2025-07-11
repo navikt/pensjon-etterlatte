@@ -1,10 +1,10 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { ReactNode, createContext, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { SideLaster } from '../../../common/SideLaster.tsx'
-import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
+import { LogEvents, useAnalytics } from '../../../common/analytics/useAnalytics.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
 import { Inntekt, inntektDefaultValues } from '../../../types/inntektsjustering.ts'
 import { Alder, IInnloggetBruker } from '../../../types/person.ts'
@@ -19,7 +19,7 @@ const inntektContext = createContext(inntektDefaultValues)
 const inntektDispatch = createContext({} as InntektDispatcher)
 
 const ProvideInntektContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const [inntekt, setInntekt] = useState<Inntekt>(inntektDefaultValues)
 
