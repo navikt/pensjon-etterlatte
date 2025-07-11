@@ -15,7 +15,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
     autocomplete="on"
   >
     <fieldset
-      class="sc-bRKDuR jGtGcS"
+      class="sc-fhHczv ejfENz"
     >
       <div
         class="navds-hgrid navds-hgrid-gap navds-hgrid-align"
@@ -273,7 +273,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         class="sc-kCuUfV ezWZwi"
       >
         <section
-          class="sc-dntSTA fyMsxi"
+          class="sc-hvigdm hNvzVz"
         >
           <div
             class="navds-date__wrapper"
@@ -1269,7 +1269,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bRKDuR jGtGcS"
+      class="sc-fhHczv ejfENz"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1394,7 +1394,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bRKDuR jGtGcS"
+      class="sc-fhHczv ejfENz"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1519,10 +1519,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <fieldset
-      class="sc-bRKDuR jGtGcS"
+      class="sc-fhHczv ejfENz"
     >
       <div
-        class="sc-hvigdm csWfYk undefined"
+        class="sc-ggWZvA czhlWr undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1549,7 +1549,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-hvigdm sc-fhHczv csWfYk dfOPHl"
+      class="sc-ggWZvA sc-dTvVRJ czhlWr hUBlXQ"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1622,7 +1622,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-eqYatC dPeWcl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1652,7 +1652,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-eqYatC dPeWcl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
