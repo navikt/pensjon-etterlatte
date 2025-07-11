@@ -1,28 +1,27 @@
 import { Accordion, Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { StegPath } from '~typer/steg'
+import { erMellomOktoberogDesember } from '~utils/dato'
 import { sendSoeknad } from '../../../api/api'
 import { SoeknadRequest, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { mapTilBarnepensjonSoeknadListe, mapTilOmstillingsstoenadSoeknad } from '../../../api/mapper/soeknadMapper'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
-import Navigasjon from '../../felles/Navigasjon'
 import { ActionTypes } from '../../../context/soknad/soknad'
+import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import Navigasjon from '../../felles/Navigasjon'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
-import { OppsummeringOmDenAvdoede } from './fragmenter/OppsummeringOmDenAvdoede'
-import { OppsummeringOmDegOgAvdoed } from './fragmenter/OppsummeringOmDegOgAvdoed'
-import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonenDin'
-import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
-import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
-import { erMellomOktoberogDesember } from '~utils/dato'
-import { StegPath } from '~typer/steg'
-import { Link as RouterLink } from 'react-router-dom'
+import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
+import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
+import { OppsummeringOmDeg } from './fragmenter/OppsummeringOmDeg'
+import { OppsummeringOmDegOgAvdoed } from './fragmenter/OppsummeringOmDegOgAvdoed'
+import { OppsummeringOmDenAvdoede } from './fragmenter/OppsummeringOmDenAvdoede'
+import { OppsummeringSituasjonenDin } from './fragmenter/OppsummeringSituasjonenDin'
 
 const Oppsummering = ({ forrige }: SoknadSteg) => {
     const navigate = useNavigate()
@@ -30,7 +29,7 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
 
     const { state: soeknad, dispatch } = useSoknadContext()
     const { state: bruker } = useBrukerContext()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const [senderSoeknad, setSenderSoeknad] = useState(false)
     const [error, setError] = useState(false)

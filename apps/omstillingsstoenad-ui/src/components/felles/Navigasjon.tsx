@@ -1,16 +1,16 @@
-import { SkjemaGruppe } from './SkjemaGruppe'
+import { BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSoknadContext } from '../../context/soknad/SoknadContext'
+import styled from 'styled-components'
+import { slettSoeknad } from '../../api/api'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { ActionTypes as BrukerAction } from '../../context/bruker/bruker'
+import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes as SoknadAction } from '../../context/soknad/soknad'
+import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { erDato } from '../../utils/dato'
-import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
-import { slettSoeknad } from '../../api/api'
-import styled from 'styled-components'
+import { SkjemaGruppe } from './SkjemaGruppe'
 import { FlexCenter, NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from './StyledComponents'
-import { BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 
 const NavigasjonWrapper = styled(SkjemaGruppe)`
     @media screen and (max-width: 650px) {
@@ -39,7 +39,7 @@ const Navigasjon = ({
     disabled?: boolean
 }) => {
     const { t, i18n } = useTranslation()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
     const {
         state: { sistLagretDato },
         dispatch: soknadDispatch,

@@ -1,4 +1,4 @@
-import { getAmplitudeInstance } from '@navikt/nav-dekoratoren-moduler'
+import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler'
 import { useCallback } from 'react'
 
 // Felles taksonomi for analytics https://github.com/navikt/analytics-taxonomy
@@ -13,8 +13,8 @@ export enum EventType {
     LENKE_KLIKK = 'lenke klikk',
 }
 
-export const useAmplitude = () => {
-    const track = getAmplitudeInstance('dekoratoren')
+export const useAnalytics = () => {
+    const track = getAnalyticsInstance('dekoratoren')
 
     const logEvent = useCallback(
         <T extends object>(eventName: string, eventData: T = {} as T) => {

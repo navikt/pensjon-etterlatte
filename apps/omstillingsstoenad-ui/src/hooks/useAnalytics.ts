@@ -1,4 +1,4 @@
-import { getAmplitudeInstance } from '@navikt/nav-dekoratoren-moduler'
+import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler'
 import { useCallback, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -13,12 +13,12 @@ export enum LogEvents {
     ALERT_VIST = 'alert vist',
 }
 
-export const useAmplitude = () => {
+export const useAnalytics = () => {
     const location = useLocation()
     // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const [prevLocation, setPrevLocation] = useState<any>(location)
 
-    const track = getAmplitudeInstance('dekoratoren')
+    const track = getAnalyticsInstance('dekoratoren')
 
     useEffect(() => {
         if (prevLocation?.pathname !== location?.pathname) {

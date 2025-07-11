@@ -1,21 +1,21 @@
 import { BodyLong, Button, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
-import { useNavigate } from 'react-router-dom'
-import { ActionTypes, IApplicant } from '~context/application/application'
-import { useApplicationContext } from '~context/application/ApplicationContext'
-import useTranslation from '../hooks/useTranslation'
-import FormGroup from './common/FormGroup'
-import Trans from './common/Trans'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
-import LanguageSelect from './common/LanguageSelect'
-import FormElement from './common/FormElement'
-import styled from 'styled-components'
-import ErrorSummaryWrapper from './common/ErrorSummaryWrapper'
 import { FormProvider, useForm } from 'react-hook-form'
-import { RHFRadio } from './common/rhf/RHFRadio'
-import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
-import { ApplicantRole, ApplicantSituation } from '~types/applicant'
-import { ProcessingDataChild, ProcessingDataParentAndGuardian } from './common/ProcessingData'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+import { useApplicationContext } from '~context/application/ApplicationContext'
+import { ActionTypes, IApplicant } from '~context/application/application'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { ApplicantRole, ApplicantSituation } from '~types/applicant'
+import useTranslation from '../hooks/useTranslation'
+import ErrorSummaryWrapper from './common/ErrorSummaryWrapper'
+import FormElement from './common/FormElement'
+import FormGroup from './common/FormGroup'
+import LanguageSelect from './common/LanguageSelect'
+import { ProcessingDataChild, ProcessingDataParentAndGuardian } from './common/ProcessingData'
+import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
+import { RHFRadio } from './common/rhf/RHFRadio'
+import Trans from './common/Trans'
 
 export const ListItemWithIndent = styled(List.Item)`
     margin-left: 1rem;
@@ -27,7 +27,7 @@ export default function FrontPage() {
     const { dispatch } = useApplicationContext()
 
     const { t } = useTranslation('frontPage')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const methods = useForm<IApplicant>({
         defaultValues: {},

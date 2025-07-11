@@ -1,27 +1,27 @@
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import { IMerOmSituasjonenDin, JobbStatus } from '../../../typer/situasjon'
-import { FormProvider, useForm } from 'react-hook-form'
-import { ActionTypes } from '../../../context/soknad/soknad'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import NavaerendeArbeidsforhold from './fragmenter/NavaerendeArbeidsforhold'
-import Feilmeldinger from '../../felles/Feilmeldinger'
-import HoeyesteUtdanning from './fragmenter/HoeyesteUtdanning'
-import Navigasjon from '../../felles/Navigasjon'
-import { useTranslation } from 'react-i18next'
-import UnderUtdanning from './fragmenter/UnderUtdanning'
 import { GuidePanel, Heading } from '@navikt/ds-react'
-import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
-import { deepCopy } from '../../../utils/deepCopy'
-import { useBrukerContext } from '../../../context/bruker/BrukerContext'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
-import TilbudOmJobb from './fragmenter/TilbudOmJobb'
-import Arbeidssoeker from './fragmenter/Arbeidssoeker'
-import AnnenSituasjon from './fragmenter/AnnenSituasjon'
-import styled from 'styled-components'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { useBrukerContext } from '../../../context/bruker/BrukerContext'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../../context/soknad/soknad'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { IMerOmSituasjonenDin, JobbStatus } from '../../../typer/situasjon'
+import { deepCopy } from '../../../utils/deepCopy'
+import Feilmeldinger from '../../felles/Feilmeldinger'
+import Navigasjon from '../../felles/Navigasjon'
+import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
+import { SkjemaElement } from '../../felles/SkjemaElement'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import AnnenSituasjon from './fragmenter/AnnenSituasjon'
+import Arbeidssoeker from './fragmenter/Arbeidssoeker'
+import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
+import HoeyesteUtdanning from './fragmenter/HoeyesteUtdanning'
+import NavaerendeArbeidsforhold from './fragmenter/NavaerendeArbeidsforhold'
+import TilbudOmJobb from './fragmenter/TilbudOmJobb'
+import UnderUtdanning from './fragmenter/UnderUtdanning'
 
 const DynamicSpacing = styled.div<{ $margin: boolean }>`
     margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
@@ -29,7 +29,7 @@ const DynamicSpacing = styled.div<{ $margin: boolean }>`
 
 const MerOmSituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const { state, dispatch } = useSoknadContext()
     const brukerState = useBrukerContext().state

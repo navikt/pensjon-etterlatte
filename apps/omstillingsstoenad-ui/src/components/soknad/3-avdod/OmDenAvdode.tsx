@@ -1,26 +1,26 @@
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { IAvdoed } from '~typer/person'
-import { ActionTypes } from '../../../context/soknad/soknad'
-import { useTranslation } from 'react-i18next'
-import { FormProvider, useForm } from 'react-hook-form'
-import { RHFFoedselsnummerInput, RHFInput } from '../../felles/rhf/RHFInput'
-import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import Feilmeldinger from '../../felles/Feilmeldinger'
-import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
-import Navigasjon from '../../felles/Navigasjon'
 import { Alert, BodyLong, Box, Heading, HGrid, VStack } from '@navikt/ds-react'
-import { deepCopy } from '../../../utils/deepCopy'
-import useCountries, { Options } from '../../../hooks/useCountries'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import Bredde from '../../../typer/bredde'
-import Datovelger from '../../felles/Datovelger'
-import { isDev } from '../../../api/axios'
+import { FormProvider, useForm } from 'react-hook-form'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
 import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { IAvdoed } from '~typer/person'
+import { isDev } from '../../../api/axios'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../../context/soknad/soknad'
+import useCountries, { Options } from '../../../hooks/useCountries'
+import Bredde from '../../../typer/bredde'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { deepCopy } from '../../../utils/deepCopy'
+import Datovelger from '../../felles/Datovelger'
+import Feilmeldinger from '../../felles/Feilmeldinger'
+import Navigasjon from '../../felles/Navigasjon'
+import { RHFFoedselsnummerInput, RHFInput } from '../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { SkjemaElement } from '../../felles/SkjemaElement'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 
 const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
@@ -30,7 +30,7 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
         defaultValues: { ...state.omDenAvdoede, statsborgerskap: state.omDenAvdoede.statsborgerskap },
         shouldUnregister: true,
     })
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const {
         handleSubmit,

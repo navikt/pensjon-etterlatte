@@ -1,32 +1,32 @@
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import { FormProvider, useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
-import { BarnRelasjon, IBarn } from '../../../typer/person'
-import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from '../../felles/rhf/RHFInput'
-import { IValg } from '../../../typer/Spoersmaal'
-import Feilmeldinger from '../../felles/Feilmeldinger'
-import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
-import { erMyndig } from '../../../utils/alder'
-import { fnr } from '@navikt/fnrvalidator'
 import { Alert, BodyShort, Box, Button, GuidePanel, Heading, HGrid, Label, RadioProps, VStack } from '@navikt/ds-react'
-import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
-import useCountries, { Options } from '../../../hooks/useCountries'
-import ikon from '../../../assets/ikoner/barn1.svg'
+import { fnr } from '@navikt/fnrvalidator'
 import React, { useEffect } from 'react'
-import { useBrukerContext } from '../../../context/bruker/BrukerContext'
+import { FormProvider, useForm } from 'react-hook-form'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
-import { NavigasjonsRad } from '../../felles/StyledComponents'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import Bredde from '../../../typer/bredde'
-import { isDev } from '../../../api/axios'
-import { Panel } from '../../felles/Panel'
-import { BankkontoType } from '~typer/utbetaling'
-import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 import Datovelger from '~components/felles/Datovelger'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { BankkontoType } from '~typer/utbetaling'
+import { isDev } from '../../../api/axios'
+import ikon from '../../../assets/ikoner/barn1.svg'
+import { useBrukerContext } from '../../../context/bruker/BrukerContext'
+import useCountries, { Options } from '../../../hooks/useCountries'
+import Bredde from '../../../typer/bredde'
+import { BarnRelasjon, IBarn } from '../../../typer/person'
+import { IValg } from '../../../typer/Spoersmaal'
+import { erMyndig } from '../../../utils/alder'
+import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
+import Feilmeldinger from '../../felles/Feilmeldinger'
+import { Panel } from '../../felles/Panel'
+import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from '../../felles/rhf/RHFInput'
+import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { SkjemaElement } from '../../felles/SkjemaElement'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import { NavigasjonsRad } from '../../felles/StyledComponents'
+import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 
 const EndreBarnKort = styled(Panel)`
     padding: 0;
@@ -89,7 +89,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
     const { t } = useTranslation()
     const { countries }: { countries: Options[] } = useCountries()
     const { state: bruker } = useBrukerContext()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const endrerBarn = !!barn?.fornavn?.length
 

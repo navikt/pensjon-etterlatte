@@ -1,11 +1,11 @@
 import { Select } from '@navikt/ds-react'
 import styled from 'styled-components'
-import { Language } from '../../context/language/language'
-import { useLanguageContext } from '../../context/language/LanguageContext'
-import useTranslation from '../../hooks/useTranslation'
-import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
-import { ActionTypes } from '../../context/application/application'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
+import { ActionTypes } from '../../context/application/application'
+import { useLanguageContext } from '../../context/language/LanguageContext'
+import { Language } from '../../context/language/language'
+import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
+import useTranslation from '../../hooks/useTranslation'
 
 const SelectWrapper = styled.div`
     max-width: 200px;
@@ -18,7 +18,7 @@ export default function LanguageSelect() {
     const { dispatch } = useApplicationContext()
 
     const { t } = useTranslation('common')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const update = (lang: Language) => {
         updateLanguage(lang)

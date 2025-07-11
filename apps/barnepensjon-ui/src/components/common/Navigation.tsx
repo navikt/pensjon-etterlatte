@@ -1,14 +1,14 @@
-import { useUserContext } from '../../context/user/UserContext'
-import { useState } from 'react'
-import { useApplicationContext } from '../../context/application/ApplicationContext'
-import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
-import { ActionTypes as UserActionTypes } from '../../context/user/user'
 import { BodyShort, Button, ButtonProps, Heading, Loader, Modal } from '@navikt/ds-react'
-import FormGroup from './FormGroup'
+import { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { deleteDraft } from '../../api/api'
+import { useApplicationContext } from '../../context/application/ApplicationContext'
+import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
+import { useUserContext } from '../../context/user/UserContext'
+import { ActionTypes as UserActionTypes } from '../../context/user/user'
+import { EventType, LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import useTranslation from '../../hooks/useTranslation'
-import { EventType, LogEvents, useAmplitude } from '../../hooks/useAmplitude'
+import FormGroup from './FormGroup'
 
 export const NavRow = styled.div<{ disabled?: boolean }>`
     width: 100%;
@@ -69,7 +69,7 @@ interface NavigationProps {
 
 export default function Navigation({ right, left, hideCancel, loading }: NavigationProps) {
     const { t } = useTranslation('navigation')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const { dispatch: applicationDispatch } = useApplicationContext()
     const { dispatch: userDispatch } = useUserContext()

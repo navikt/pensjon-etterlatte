@@ -3,7 +3,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { IInntekt } from '~typer/inntekt'
 import { erMellomOktoberogDesember } from '~utils/dato'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
@@ -24,7 +24,7 @@ import YtelserNAV from './fragmenter/YtelserNAV'
 
 const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
 

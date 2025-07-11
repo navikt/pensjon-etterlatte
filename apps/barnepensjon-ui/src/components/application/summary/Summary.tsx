@@ -1,29 +1,29 @@
 import { Accordion, Alert, BodyLong, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
-import { ActionTypes, IDeceasedParent, ILivingParent } from '../../../context/application/application'
+import { useNavigate } from 'react-router-dom'
+import { sendApplication } from '../../../api/api'
+import { Barnepensjon, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
+import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
 import { useApplicationContext } from '../../../context/application/ApplicationContext'
+import { ActionTypes, IDeceasedParent, ILivingParent } from '../../../context/application/application'
+import { Translation } from '../../../context/language/translations'
 import { useUserContext } from '../../../context/user/UserContext'
+import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
+import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 import FormGroup from '../../common/FormGroup'
 import Navigation, { NavRow } from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
+import { BodyShortMuted } from '../../common/StyledTypography'
+import Trans from '../../common/Trans'
 import { StepProps } from '../Dialogue'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
 import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedParent'
 import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
+import { SummaryAboutUnknownParent } from './fragments/SummaryAboutUknownParent'
 import { SummaryAboutYou } from './fragments/SummaryAboutYou'
 import { SummaryYourSituation } from './fragments/SummaryYourSituation'
-import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'
-import { sendApplication } from '../../../api/api'
-import { useNavigate } from 'react-router-dom'
-import { Barnepensjon, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
-import { LogEvents, useAmplitude } from '../../../hooks/useAmplitude'
-import Trans from '../../common/Trans'
-import { Translation } from '../../../context/language/translations'
-import { BodyShortMuted } from '../../common/StyledTypography'
-import { SummaryAboutUnknownParent } from './fragments/SummaryAboutUknownParent'
-import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -36,7 +36,7 @@ const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
 
 export default function Summary({ prev }: StepProps) {
     const { t } = useTranslation('summary')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const { state: application, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()

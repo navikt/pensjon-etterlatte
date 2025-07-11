@@ -1,10 +1,10 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { ReactNode, createContext, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 import useSWR, { SWRResponse } from 'swr'
-import { SideLaster } from '../../../common/SideLaster.tsx'
-import { LogEvents, useAmplitude } from '../../../common/amplitude/useAmplitude.ts'
+import { LogEvents, useAnalytics } from '../../../common/analytics/useAnalytics.ts'
 import { ApiError, apiURL } from '../../../common/api/api.ts'
 import { HarIkkeOMSSakIGjenny } from '../../../common/harIkkeOMSSakIGjenny/HarIkkeOMSSakIGjenny.tsx'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 import { SpraakVelger } from '../../../common/spraakVelger/SpraakVelger.tsx'
 import { MeldtInnEndring, meldInnEndringDefaultValues } from '../../../types/meldInnEndring.ts'
 
@@ -16,7 +16,7 @@ const meldInnEndringContext = createContext(meldInnEndringDefaultValues)
 const meldInnEndringDispatch = createContext({} as MeldInnEndringDispatcher)
 
 const ProvideMeldInnEndringContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const [meldInnEndring, setMeldInnEndring] = useState<MeldtInnEndring>(meldInnEndringDefaultValues)
 
