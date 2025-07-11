@@ -1,6 +1,8 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { IDeceasedParent, ILivingParent, IParent } from '~context/application/application'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useApplicationContext } from '~context/application/ApplicationContext'
+import { IDeceasedParent, ILivingParent, IParent } from '~context/application/application'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
@@ -10,8 +12,6 @@ import PersonInfo from '../../common/PersonInfo'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 interface Props extends StepProps {
     fnrRegisteredParent?: string[]
@@ -20,7 +20,7 @@ interface Props extends StepProps {
 export default function LivingParent({ next, prev, type, fnrRegisteredParent }: Props) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation('livingParent')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const save = (data: ILivingParent) => {
         dispatch({ type: type!, payload: { ...data } })

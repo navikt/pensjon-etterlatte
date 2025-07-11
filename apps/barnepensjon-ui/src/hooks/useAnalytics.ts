@@ -1,4 +1,4 @@
-import { getAmplitudeInstance } from '@navikt/nav-dekoratoren-moduler'
+import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler'
 import { useCallback, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -23,11 +23,11 @@ export enum LogEvents {
     VALIDATION_ERROR = 'skjema validering feilet',
 }
 
-export const useAmplitude = () => {
+export const useAnalytics = () => {
     const location = useLocation()
     const [prevLocation, setPrevLocation] = useState(location)
 
-    const track = getAmplitudeInstance('dekoratoren')
+    const track = getAnalyticsInstance('dekoratoren')
 
     useEffect(() => {
         if (prevLocation?.pathname !== location?.pathname) {

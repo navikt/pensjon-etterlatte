@@ -1,8 +1,11 @@
+import { RadioProps } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { ActionTypes } from '~context/application/application'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useApplicationContext } from '~context/application/ApplicationContext'
-import useTranslation from '../../../hooks/useTranslation'
+import { ActionTypes } from '~context/application/application'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { ApplicationReasonType, EducationType, ISituationChild } from '~types/situation'
+import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
@@ -11,14 +14,11 @@ import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { RHFGeneralQuestionRadio, RHFInlineRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { RadioProps } from '@navikt/ds-react'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 export default function YourSituation({ next, prev }: StepProps) {
     const { state, dispatch } = useApplicationContext()
     const { t } = useTranslation('yourSituation')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const save = (data: ISituationChild) => {
         dispatch({ type: ActionTypes.UPDATE_YOUR_SITUATION, payload: { ...data } })

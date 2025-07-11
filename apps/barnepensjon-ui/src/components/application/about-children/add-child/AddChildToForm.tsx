@@ -2,28 +2,28 @@ import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore } from '@navik
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import styled from 'styled-components'
+import { isDev } from '~api/axios'
+import { RHFGeneralQuestionRadio } from '~components/common/rhf/RHFRadio'
+import { useUserContext } from '~context/user/UserContext'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { IChild, ParentRelationType } from '~types/person'
+import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
 import ikon from '../../../../assets/barn1.svg'
 import useCountries, { Options } from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
-import { IChild, ParentRelationType } from '~types/person'
-import { getAgeFromDate, getAgeFromFoedselsnummer, isLegalAge } from '~utils/age'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
+import FormElement from '../../../common/FormElement'
 import FormGroup from '../../../common/FormGroup'
 import { NavRow } from '../../../common/Navigation'
-import { RHFConfirmationPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
 import PaymentDetails from '../../../common/PaymentDetails'
-import { GuardianDetails } from './GuardianDetails'
-import { LivesAbroadQuestion } from './LivesAbroadQuestion'
 import PersonInfo from '../../../common/PersonInfo'
-import ParentQuestion from './ParentQuestion'
+import { RHFConfirmationPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
+import { GuardianDetails } from './GuardianDetails'
 import { IsGuardianQuestion } from './IsGuardianQuestion'
-import { useUserContext } from '~context/user/UserContext'
-import FormElement from '../../../common/FormElement'
-import { isDev } from '~api/axios'
-import { RHFGeneralQuestionRadio } from '~components/common/rhf/RHFRadio'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { LivesAbroadQuestion } from './LivesAbroadQuestion'
+import ParentQuestion from './ParentQuestion'
 
 const ChangeChildPanel = styled(Panel)`
     padding: 0;
@@ -90,7 +90,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     const { t } = useTranslation('aboutChildren')
     const { countries }: { countries: Options[] } = useCountries()
     const { state: user } = useUserContext()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const methods = useForm<IChild>({
         defaultValues: {

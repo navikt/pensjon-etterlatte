@@ -1,13 +1,13 @@
+import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
+import { useEffect } from 'react'
+import styled from 'styled-components'
+import { SoeknadType } from '~api/dto/InnsendtSoeknad'
+import blomstHjerteHus from '../../assets/blomstHjerteHus.svg'
+import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
+import useTranslation from '../../hooks/useTranslation'
+import FormElement from '../common/FormElement'
 import FormGroup from '../common/FormGroup'
 import NavGuide from '../common/NavGuide'
-import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
-import useTranslation from '../../hooks/useTranslation'
-import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
-import { useEffect } from 'react'
-import FormElement from '../common/FormElement'
-import styled from 'styled-components'
-import blomstHjerteHus from '../../assets/blomstHjerteHus.svg'
-import { SoeknadType } from '~api/dto/InnsendtSoeknad'
 
 const Icon = styled.img`
     height: 4rem;
@@ -19,7 +19,7 @@ const Icon = styled.img`
 
 export default function SystemUnavailable() {
     const { t } = useTranslation('systemUnavailable')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     useEffect(() => {
         logEvent(LogEvents.SYSTEM_UNAVAILABLE, { type: SoeknadType.BARNEPENSJON })

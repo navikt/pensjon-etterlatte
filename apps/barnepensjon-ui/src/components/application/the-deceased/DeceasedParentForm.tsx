@@ -1,20 +1,20 @@
 import { ReadMore } from '@navikt/ds-react'
+import { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import { useApplicationContext } from '../../../context/application/ApplicationContext'
 import { IDeceasedParent } from '../../../context/application/application'
 import useCountries, { Options } from '../../../hooks/useCountries'
+import { useCurrencies } from '../../../hooks/useCurrencies'
 import useTranslation from '../../../hooks/useTranslation'
+import { ApplicantRole } from '../../../types/applicant'
 import Datepicker from '../../common/Datepicker'
 import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StaysAbroad from './StaysAbroad'
-import { useApplicationContext } from '../../../context/application/ApplicationContext'
-import { useCurrencies } from '../../../hooks/useCurrencies'
-import { ApplicantRole } from '../../../types/applicant'
-import { useEffect } from 'react'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
 
 interface Props {
     fnrRegisteredParent: string[]
@@ -25,7 +25,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     const { countries }: { countries: Options[] } = useCountries()
     const { currencies } = useCurrencies()
     const { state } = useApplicationContext()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const { watch } = useFormContext<IDeceasedParent>()
     const isChild = state.applicant?.applicantRole === ApplicantRole.CHILD

@@ -1,17 +1,17 @@
-import FormGroup from '../common/FormGroup'
-import { BodyShort, Button, Heading, Link } from '@navikt/ds-react'
-import useTranslation from '../../hooks/useTranslation'
-import { useLocation } from 'react-router-dom'
-import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
-import { useEffect } from 'react'
-import FormElement from '../common/FormElement'
 import { BugIcon } from '@navikt/aksel-icons'
+import { BodyShort, Button, Heading, Link } from '@navikt/ds-react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
+import useTranslation from '../../hooks/useTranslation'
+import FormElement from '../common/FormElement'
+import FormGroup from '../common/FormGroup'
 
 export default function PageNotFound() {
     const location = useLocation()
 
     const { t } = useTranslation('pageNotFound')
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     useEffect(() => {
         logEvent(LogEvents.PAGE_NOT_FOUND, { side: location.pathname })

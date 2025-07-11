@@ -1,36 +1,36 @@
+import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { JaNeiVetIkke } from '~api/dto/FellesOpplysninger'
-import { ActionTypes } from '~context/application/application'
+import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 import { useApplicationContext } from '~context/application/ApplicationContext'
+import { ActionTypes } from '~context/application/application'
 import { useUserContext } from '~context/user/UserContext'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { ApplicantRole } from '~types/applicant'
+import { IAboutYou } from '~types/person'
+import { Bredde } from '~utils/bredde'
+import { GridColumns, GridGap } from '~utils/grid'
+import useCountries, { Options } from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
+import Datepicker from '../../common/Datepicker'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
+import FormElement from '../../common/FormElement'
+import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
+import PaymentDetails from '../../common/PaymentDetails'
 import { RHFTelefonInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
-import FormElement from '../../common/FormElement'
-import { IAboutYou } from '~types/person'
-import PaymentDetails from '../../common/PaymentDetails'
-import useCountries, { Options } from '../../../hooks/useCountries'
-import { Bredde } from '~utils/bredde'
-import Datepicker from '../../common/Datepicker'
-import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
-import { GridColumns, GridGap } from '~utils/grid'
-import FormGroup from '../../common/FormGroup'
-import { ApplicantRole } from '~types/applicant'
-import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
 
 export default function AboutYou({ next }: StepProps) {
     const { t } = useTranslation('aboutYou')
     const { state, dispatch } = useApplicationContext()
     const { state: user } = useUserContext()
     const { countries }: { countries: Options[] } = useCountries()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const save = (data: IAboutYou) => {
         dispatch({ type: ActionTypes.UPDATE_ABOUT_YOU, payload: { ...data } })
