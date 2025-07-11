@@ -1,23 +1,23 @@
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { useTranslation } from 'react-i18next'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { ISoekerOgAvdoed } from '~typer/person'
-import { ActionTypes } from '../../../context/soknad/soknad'
-import { FormProvider, useForm } from 'react-hook-form'
-import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema'
-import Feilmeldinger from '../../felles/Feilmeldinger'
 import { Heading } from '@navikt/ds-react'
-import Navigasjon from '../../felles/Navigasjon'
-import { deepCopy } from '../../../utils/deepCopy'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import { isDev } from '../../../api/axios'
+import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { useTranslation } from 'react-i18next'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { ISoekerOgAvdoed } from '~typer/person'
+import { isDev } from '../../../api/axios'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../../context/soknad/soknad'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { deepCopy } from '../../../utils/deepCopy'
+import Feilmeldinger from '../../felles/Feilmeldinger'
+import Navigasjon from '../../felles/Navigasjon'
+import { SkjemaElement } from '../../felles/SkjemaElement'
+import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema'
 
 const OmDegOgAvdoed = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const methods = useForm<ISoekerOgAvdoed>({
         defaultValues: state.omDegOgAvdoed || {},

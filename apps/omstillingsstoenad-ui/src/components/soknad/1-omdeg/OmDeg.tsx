@@ -1,30 +1,30 @@
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { useTranslation } from 'react-i18next'
-import InnloggetBruker from './InnloggetBruker'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import { Heading, RadioProps } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { ISoeker } from '~typer/person'
+import { useBrukerContext } from '../../../context/bruker/BrukerContext'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../../context/soknad/soknad'
+import Bredde from '../../../typer/bredde'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { BankkontoType } from '../../../typer/utbetaling'
+import { deepCopy } from '../../../utils/deepCopy'
+import Feilmeldinger from '../../felles/Feilmeldinger'
+import Navigasjon from '../../felles/Navigasjon'
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio } from '../../felles/rhf/RHFRadio'
-import Feilmeldinger from '../../felles/Feilmeldinger'
-import { useBrukerContext } from '../../../context/bruker/BrukerContext'
-import Navigasjon from '../../felles/Navigasjon'
-import { Heading, RadioProps } from '@navikt/ds-react'
-import { BankkontoType } from '../../../typer/utbetaling'
-import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
-import { deepCopy } from '../../../utils/deepCopy'
 import { SkjemaElement } from '../../felles/SkjemaElement'
-import Bredde from '../../../typer/bredde'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import InnloggetBruker from './InnloggetBruker'
+import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
 
 const OmDeg = ({ neste }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const brukerState = useBrukerContext().state
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const lagre = (data: ISoeker) => {
         dispatch({ type: ActionTypes.OPPDATER_OM_DEG, payload: { ...deepCopy(data), erValidert: true } })

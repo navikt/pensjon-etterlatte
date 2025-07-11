@@ -17,7 +17,7 @@ import { hentHarSoektOms } from '~api/api'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
-import { LogEvents, useAmplitude } from '../../hooks/useAmplitude'
+import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MuligeSteg } from '../../typer/steg'
 import { erForGammel } from '../../utils/alder'
@@ -28,7 +28,7 @@ import { ListItemWithIndent } from '../felles/StyledComponents'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
     const { t } = useTranslation()
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext()
     const { state: brukerState } = useBrukerContext()

@@ -1,21 +1,21 @@
-import { Navigate, Outlet, Route, Routes } from 'react-router'
-import SideIkkeFunnet from './components/SideIkkeFunnet'
-import Banner from './components/felles/Banner'
-import UgyldigSoeker from './components/UgyldigSoeker'
-import {Alert, Page} from '@navikt/ds-react'
-import useInnloggetBruker from './hooks/useInnloggetBruker'
-import { useAmplitude } from './hooks/useAmplitude'
-import { useSoknadContext } from './context/soknad/SoknadContext'
+import { Alert, Page } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
-import SystemUtilgjengelig from './components/SystemUtilgjengelig'
+import { Navigate, Outlet, Route, Routes } from 'react-router'
 import styled from 'styled-components'
-import useSoeknad from './hooks/useSoeknad'
-import LoaderOverlay from './components/felles/LoaderOverlay'
-import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
 import Admin from './components/dev/Admin'
+import Banner from './components/felles/Banner'
+import LoaderOverlay from './components/felles/LoaderOverlay'
+import SideIkkeFunnet from './components/SideIkkeFunnet'
+import SystemUtilgjengelig from './components/SystemUtilgjengelig'
+import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
 import SoknadDialog from './components/soknad/SoknadDialog'
-import SoknadKvittering from './components/soknad/SoknadKvittering'
 import SoknadForside from './components/soknad/SoknadForside'
+import SoknadKvittering from './components/soknad/SoknadKvittering'
+import UgyldigSoeker from './components/UgyldigSoeker'
+import { useSoknadContext } from './context/soknad/SoknadContext'
+import { useAnalytics } from './hooks/useAnalytics'
+import useInnloggetBruker from './hooks/useInnloggetBruker'
+import useSoeknad from './hooks/useSoeknad'
 
 const SoeknadWrapper = styled(Page.Block)`
     .navds-step-indicator {
@@ -50,7 +50,7 @@ const GlobalAlertWrap = styled.div`
 const App = () => {
     useInnloggetBruker()
     const soknadContext = useSoknadContext()
-    useAmplitude()
+    useAnalytics()
     const { t } = useTranslation()
 
     const lasterSoeknad = useSoeknad()

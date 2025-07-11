@@ -1,32 +1,32 @@
-import React from 'react'
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { ISituasjonenDin } from '~typer/person'
-import { ActionTypes } from '../../../context/soknad/soknad'
-import { useTranslation } from 'react-i18next'
-import Navigasjon from '../../felles/Navigasjon'
 import { Alert, BodyShort, Box, GuidePanel, Heading, HGrid, List } from '@navikt/ds-react'
+import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { deepCopy } from '../../../utils/deepCopy'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { IValg } from '../../../typer/Spoersmaal'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
+import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
+import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { ISituasjonenDin } from '~typer/person'
+import { isDev } from '../../../api/axios'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../../context/soknad/soknad'
 import useCountries from '../../../hooks/useCountries'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { IValg } from '../../../typer/Spoersmaal'
+import { deepCopy } from '../../../utils/deepCopy'
 import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
-import { isDev } from '../../../api/axios'
-import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
-import { LogEvents, useAmplitude } from '~hooks/useAmplitude'
+import Navigasjon from '../../felles/Navigasjon'
+import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
+import { SkjemaElement } from '../../felles/SkjemaElement'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 
 const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { countries }: { countries: any } = useCountries()
-    const { logEvent } = useAmplitude()
+    const { logEvent } = useAnalytics()
 
     const methods = useForm<ISituasjonenDin>({
         defaultValues: state.situasjonenDin || {},
