@@ -446,6 +446,10 @@ export default {
     'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Seasonal work',
     'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Job change',
     'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Other reason',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.tittel': '',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.innhold': '',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.tittel': '',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.innhold': '',
     // TODO gamle keys for datastruktur
     'inntektenDin.undertittel': 'Income, pension and other disbursements in Norway and abroad',
     'inntektenDin.ingress':

@@ -1,17 +1,20 @@
-import { useTranslation } from 'react-i18next'
+import { Heading, ReadMore, VStack } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
+import { IInntekt, SoekbareYtelserAndre } from '../../../../typer/inntekt'
+import { IValg } from '../../../../typer/Spoersmaal'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFInputArea } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { IInntekt, SoekbareYtelserAndre } from '../../../../typer/inntekt'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { IValg } from '../../../../typer/Spoersmaal'
-import { RHFInputArea } from '../../../felles/rhf/RHFInput'
-import { Heading } from '@navikt/ds-react'
 
 const YtelserAndre = () => {
     const { t } = useTranslation()
+
+    const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
 
     const { watch } = useFormContext<IInntekt>()
 
@@ -21,13 +24,18 @@ const YtelserAndre = () => {
     return (
         <SkjemaGruppe>
             <Heading size={'small'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
-            <SkjemaElement>
+            <VStack marginBlock="4 0">
                 <RHFSpoersmaalRadio
                     name={'ytelserAndre.svar'}
                     legend={t('inntektenDin.ytelserAndre.svar')}
                     description={t('inntektenDin.ytelserAndre.hvorfor')}
                 />
-            </SkjemaElement>
+                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA && (
+                    <ReadMore header={t('inntektenDin.ytelserAndre.hvorforViSpoer.tittel')}>
+                        {t('inntektenDin.ytelserAndre.hvorforViSpoer.innhold')}
+                    </ReadMore>
+                )}
+            </VStack>
             {harSoektYtelse === IValg.JA && (
                 <SkjemaElement>
                     <RHFCheckboksGruppe

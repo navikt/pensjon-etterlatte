@@ -395,7 +395,8 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-kvnevz eywiWY"
+        class="navds-r-mb navds-stack navds-vstack navds-stack-direction"
+        style="--__ac-r-mb-xs: var(--a-spacing-4) var(--a-spacing-0); --__ac-stack-direction-xs: column;"
       >
         <div
           id="ytelserNAV.svar"
@@ -493,7 +494,8 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-kvnevz eywiWY"
+        class="navds-r-mb navds-stack navds-vstack navds-stack-direction"
+        style="--__ac-r-mb-xs: var(--a-spacing-4) var(--a-spacing-0); --__ac-stack-direction-xs: column;"
       >
         <div
           id="ytelserAndre.svar"
@@ -1133,7 +1135,8 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.ytelserNAV.tittel
       </h1>
       <div
-        class="sc-kvnevz eywiWY"
+        class="navds-r-mb navds-stack navds-vstack navds-stack-direction"
+        style="--__ac-r-mb-xs: var(--a-spacing-4) var(--a-spacing-0); --__ac-stack-direction-xs: column;"
       >
         <div
           id="ytelserNAV.svar"
@@ -1231,7 +1234,8 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.ytelserAndre.tittel
       </h1>
       <div
-        class="sc-kvnevz eywiWY"
+        class="navds-r-mb navds-stack navds-vstack navds-stack-direction"
+        style="--__ac-r-mb-xs: var(--a-spacing-4) var(--a-spacing-0); --__ac-stack-direction-xs: column;"
       >
         <div
           id="ytelserAndre.svar"
