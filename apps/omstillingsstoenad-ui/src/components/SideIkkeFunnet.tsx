@@ -1,21 +1,20 @@
-import { BodyShort, Button, Heading, Link } from '@navikt/ds-react'
+import { BugIcon } from '@navikt/aksel-icons'
+import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { Panel } from './felles/Panel'
-import { SkjemaElement } from './felles/SkjemaElement'
 import { SkjemaGruppe } from './felles/SkjemaGruppe'
-import { BugIcon } from '@navikt/aksel-icons'
 
 const SideIkkeFunnet = () => {
     const { t } = useTranslation()
     return (
         <Panel>
             <SkjemaGruppe>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Heading size={'medium'}>{t('sideIkkeFunnet.tittel')}</Heading>
-                </SkjemaElement>
-                <SkjemaElement>
+                </Box>
+                <Box marginBlock="4">
                     <BodyShort>{t('sideIkkeFunnet.beskrivelse')}</BodyShort>
-                </SkjemaElement>
+                </Box>
                 <SkjemaGruppe>
                     <Button as={'a'} href={t('sideIkkeFunnet.gaaTilForsiden.href')}>
                         {t('sideIkkeFunnet.gaaTilForsiden')}
@@ -26,10 +25,10 @@ const SideIkkeFunnet = () => {
                     {t('sideIkkeFunnet.feilILenke')}
                 </Link>
             </SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'}>{t('sideIkkeFunnet.tittel.engelsk')}</Heading>
-            </SkjemaElement>
-            <SkjemaElement>
+            </Box>
+            <Box marginBlock="4">
                 <BodyShort>
                     {t('sideIkkeFunnet.beskrivelse.engelsk.del1')}
                     <Link href={t('sideIkkeFunnet.gaaTilForsiden.href')} inlineText>
@@ -37,7 +36,7 @@ const SideIkkeFunnet = () => {
                     </Link>
                     {t('sideIkkeFunnet.beskrivelse.engelsk.del2')}
                 </BodyShort>
-            </SkjemaElement>
+            </Box>
         </Panel>
     )
 }

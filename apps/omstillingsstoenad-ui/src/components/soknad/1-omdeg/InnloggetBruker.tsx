@@ -1,12 +1,11 @@
-import { Alert, BodyShort, Label, HGrid, Link } from '@navikt/ds-react'
-import { useTranslation } from 'react-i18next'
-import { useBrukerContext } from '../../../context/bruker/BrukerContext'
+import { ExternalLink } from '@navikt/ds-icons'
+import { Alert, BodyShort, Box, HGrid, Label, Link } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { memo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { fullAdresse } from '../../../utils/adresse'
-import { ExternalLink } from '@navikt/ds-icons'
 import { erForGammel } from '../../../utils/alder'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 
 const InnloggetBruker = memo(() => {
     const { t } = useTranslation()
@@ -66,11 +65,11 @@ const InnloggetBruker = memo(() => {
             )}
 
             {erForGammel(state.alder!) && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Alert variant={'warning'}>
                         <BodyShort>{t('omDeg.over67')}</BodyShort>
                     </Alert>
-                </SkjemaElement>
+                </Box>
             )}
         </>
     )

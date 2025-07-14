@@ -1,10 +1,9 @@
-import { SkjemaGruppe } from './felles/SkjemaGruppe'
 import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
-import { Veileder } from './felles/Veileder'
-import { SkjemaElement } from './felles/SkjemaElement'
-import blomstHjerteHus from '../assets/ikoner/blomstHjerteHus.svg'
 import styled from 'styled-components'
+import blomstHjerteHus from '../assets/ikoner/blomstHjerteHus.svg'
+import { SkjemaGruppe } from './felles/SkjemaGruppe'
+import { Veileder } from './felles/Veileder'
 
 const Icon = styled.img`
     height: 4rem;
@@ -35,22 +34,22 @@ export default function SystemUtilgjengelig() {
                 </Veileder>
             </SkjemaGruppe>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'} spacing>
                     {t('systemUtilgjengelig.tilbakemelding.tittel')}
                 </Heading>
                 <Button as={'a'} variant={'secondary'} href={t('systemUtilgjengelig.tilbakemelding.href')}>
                     {t('systemUtilgjengelig.tilbakemelding.meldFra')}
                 </Button>
-            </SkjemaElement>
+            </Box>
 
             <SkjemaGruppe>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.merOmYtelsene')}
                     </Heading>
-                </SkjemaElement>
-                <SkjemaElement>
+                </Box>
+                <Box>
                     <Box
                         as={'a'}
                         href={t('systemUtilgjengelig.merOmYtelseneHref')}
@@ -63,10 +62,10 @@ export default function SystemUtilgjengelig() {
                         <Icon alt="blomstHjerteHus" src={blomstHjerteHus} />
                         {t('systemUtilgjengelig.merOmYtelseneLenke')}
                     </Box>
-                </SkjemaElement>
+                </Box>
             </SkjemaGruppe>
 
-            <SkjemaElement>
+            <Box>
                 <Heading size={'small'} spacing>
                     {t('systemUtilgjengelig.tittel.engelsk')}
                 </Heading>
@@ -77,7 +76,7 @@ export default function SystemUtilgjengelig() {
                     </Link>
                     {t('systemUtilgjengelig.beskrivelse.engelsk.del2')}
                 </BodyShort>
-            </SkjemaElement>
+            </Box>
         </div>
     )
 }

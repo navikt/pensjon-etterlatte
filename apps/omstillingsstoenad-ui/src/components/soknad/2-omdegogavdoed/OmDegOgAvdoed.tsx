@@ -1,4 +1,4 @@
-import { Heading } from '@navikt/ds-react'
+import { Box, Heading } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +11,6 @@ import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 import ForholdTilAvdoedeSkjema from './forholdTilAvdoede/ForholdTilAvdoedeSkjema'
 
 const OmDegOgAvdoed = ({ neste, forrige }: SoknadSteg) => {
@@ -56,11 +55,11 @@ const OmDegOgAvdoed = ({ neste, forrige }: SoknadSteg) => {
 
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'} className={'center'}>
                     {t('omDegOgAvdoed.tittel')}
                 </Heading>
-            </SkjemaElement>
+            </Box>
 
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>

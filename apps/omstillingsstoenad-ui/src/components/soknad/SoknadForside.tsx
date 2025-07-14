@@ -2,6 +2,7 @@ import {
     Alert,
     BodyLong,
     BodyShort,
+    Box,
     Button,
     ConfirmationPanel,
     ExpansionCard,
@@ -21,7 +22,6 @@ import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MuligeSteg } from '../../typer/steg'
 import { erForGammel } from '../../utils/alder'
-import { SkjemaElement } from '../felles/SkjemaElement'
 import { SkjemaGruppe } from '../felles/SkjemaGruppe'
 import { Spraakvalg } from '../felles/Spraakvalg'
 import { ListItemWithIndent } from '../felles/StyledComponents'
@@ -64,7 +64,7 @@ const SoknadForside = () => {
     return (
         <>
             {erForGammel(brukerState.alder!) && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Alert variant={'info'}>
                         <Heading size={'small'} spacing>
                             {t('forside.over67.tittel')}
@@ -84,7 +84,7 @@ const SoknadForside = () => {
                             {t('forside.over67.avsnitt3.del2')}
                         </BodyShort>
                     </Alert>
-                </SkjemaElement>
+                </Box>
             )}
 
             <SkjemaGruppe>
@@ -94,7 +94,7 @@ const SoknadForside = () => {
             <Spraakvalg />
 
             {harSoektOms && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Alert variant={'info'}>
                         <Heading size={'small'} spacing>
                             {t('forside.harSoektOms.tittel')}
@@ -118,7 +118,7 @@ const SoknadForside = () => {
                             </ListItemWithIndent>
                         </List>
                     </Alert>
-                </SkjemaElement>
+                </Box>
             )}
 
             <SkjemaGruppe>
@@ -148,7 +148,7 @@ const SoknadForside = () => {
                 <Heading size={'small'}>{t('forside.utfyllingAvSoeknad.tittel')}</Heading>
                 <BodyLong spacing>{t('forside.utfyllingAvSoeknad.innhold')}</BodyLong>
 
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <ExpansionCard aria-label={t('forside.klartFoerSoeknad.tittel')} size="small">
                         <ExpansionCard.Header>
                             <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -167,9 +167,9 @@ const SoknadForside = () => {
                             <BodyLong>{t('forside.klartFoerSoeknad.arbeidsinntekt.innhold')}</BodyLong>
                         </ExpansionCard.Content>
                     </ExpansionCard>
-                </SkjemaElement>
+                </Box>
 
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')} size="small">
                         <ExpansionCard.Header>
                             <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -180,7 +180,7 @@ const SoknadForside = () => {
                             <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
                             <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
                                 <List as={'ul'}>
                                     <ListItemWithIndent>
@@ -193,7 +193,7 @@ const SoknadForside = () => {
                                         {t('forside.innsamlingAvInfo.innholdListe.li3')}
                                     </ListItemWithIndent>
                                 </List>
-                            </SkjemaElement>
+                            </Box>
 
                             <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                             <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
@@ -210,11 +210,11 @@ const SoknadForside = () => {
                                 </ListItemWithIndent>
                             </List>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
 
                                 <List as={'ul'}>
@@ -223,22 +223,22 @@ const SoknadForside = () => {
                                     <ListItemWithIndent>{t('forside.personvern.tredjeperson.li3')}</ListItemWithIndent>
                                     <ListItemWithIndent>{t('forside.personvern.tredjeperson.li4')}</ListItemWithIndent>
                                 </List>
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
                                 <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
                                 <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
                                 <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
-                                <SkjemaElement>
+                                <Box marginBlock="4">
                                     <BodyLong>
                                         {t('forside.automatiskbehandling.innhold2.del1')}
                                         <Link href={t('forside.automatiskbehandling.innhold2.lenke.href')} inlineText>
@@ -246,13 +246,13 @@ const SoknadForside = () => {
                                         </Link>
                                         {t('forside.automatiskbehandling.innhold2.del2')}
                                     </BodyLong>
-                                </SkjemaElement>
-                                <SkjemaElement>
+                                </Box>
+                                <Box marginBlock="4">
                                     <BodyLong>{t('forside.automatiskbehandling.innhold3')}</BodyLong>
-                                </SkjemaElement>
-                                <SkjemaElement>
+                                </Box>
+                                <Box marginBlock="4">
                                     <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
-                                </SkjemaElement>
+                                </Box>
 
                                 <List as={'ul'}>
                                     <ListItemWithIndent>
@@ -270,9 +270,9 @@ const SoknadForside = () => {
                                 </List>
 
                                 <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
 
                                 <BodyLong>
@@ -282,10 +282,10 @@ const SoknadForside = () => {
                                     </Link>
                                     {` ${t('forside.personvern.innhold2')}`}
                                 </BodyLong>
-                            </SkjemaElement>
+                            </Box>
                         </ExpansionCard.Content>
                     </ExpansionCard>
-                </SkjemaElement>
+                </Box>
             </SkjemaGruppe>
 
             <SkjemaGruppe>

@@ -1,4 +1,4 @@
-import { Heading, RadioProps } from '@navikt/ds-react'
+import { Box, Heading, RadioProps } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
@@ -15,7 +15,6 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import InnloggetBruker from './InnloggetBruker'
 import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
@@ -50,16 +49,16 @@ const OmDeg = ({ neste }: SoknadSteg) => {
 
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'} className={'center'}>
                     {t('omDeg.tittel')}
                 </Heading>
-            </SkjemaElement>
+            </Box>
             <InnloggetBruker />
 
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
                             <SkjemaGruppe>
                                 <RHFInput name={'alternativAdresse'} label={t('omDeg.alternativAdresse')} />
@@ -67,7 +66,7 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                         )}
 
                         {!brukerState.telefonnummer && (
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <RHFTelefonInput
                                     htmlSize={Bredde.S}
                                     name={'kontaktinfo.telefonnummer'}
@@ -75,14 +74,14 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                                     valgfri={true}
                                     autoComplete="tel"
                                 />
-                            </SkjemaElement>
+                            </Box>
                         )}
-                    </SkjemaElement>
+                    </Box>
 
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (
                         <SkjemaGruppe>
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <RHFRadio
                                     name={'utbetalingsInformasjon.bankkontoType'}
                                     legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}
@@ -91,7 +90,7 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                                         return { children: t(value), value } as RadioProps
                                     })}
                                 </RHFRadio>
-                            </SkjemaElement>
+                            </Box>
 
                             {bankkontoType === BankkontoType.norsk && (
                                 <RHFKontonummerInput
