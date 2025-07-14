@@ -1,13 +1,12 @@
-import { useTranslation } from 'react-i18next'
+import { Box, Heading } from '@navikt/ds-react'
 import React from 'react'
-import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { useFormContext } from 'react-hook-form'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { Heading } from '@navikt/ds-react'
+import { useTranslation } from 'react-i18next'
 import { IngenJobb } from '../../../../typer/arbeidsforhold'
-import { RHFInputArea } from '../../../felles/rhf/RHFInput'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFInputArea } from '../../../felles/rhf/RHFInput'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const AnnenSituasjon = () => {
     const { t } = useTranslation()
@@ -22,25 +21,25 @@ const AnnenSituasjon = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('jobbStatus.ingen')}</Heading>
-            </SkjemaElement>
-            <SkjemaElement>
+            </Box>
+            <Box marginBlock="4">
                 <RHFCheckboksGruppe
                     name={'annenSituasjon.beskrivelse'}
                     legend={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
                     checkboxes={annenSituasjonAlternativer}
                 />
-            </SkjemaElement>
+            </Box>
             {!!annetArbeid?.length && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFInputArea
                         name={`annenSituasjon.annet.beskrivelse`}
                         label={t('merOmSituasjonenDin.annenSituasjon.annet.beskrivelse')}
                         maxLength={200}
                         className={'width-50'}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </SkjemaGruppe>
     )

@@ -1,14 +1,13 @@
-import { BodyShort, Heading, Tag } from '@navikt/ds-react'
+import { BodyShort, Box, Heading, Tag } from '@navikt/ds-react'
 import React, { memo } from 'react'
-import { AccordionItem } from '../AccordionItem'
-import { IOmBarn } from '../../../../typer/person'
 import { useTranslation } from 'react-i18next'
+import { IOmBarn } from '../../../../typer/person'
+import { IValg } from '../../../../typer/Spoersmaal'
 import { StegPath } from '../../../../typer/steg'
+import { Panel } from '../../../felles/Panel'
+import { AccordionItem } from '../AccordionItem'
 import PersonInfoOppsummering from './PersonInfoOppsummering'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
-import { IValg } from '../../../../typer/Spoersmaal'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { Panel } from '../../../felles/Panel'
 import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
 
 interface Props {
@@ -29,12 +28,12 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
             <Panel>
                 {opplysningerOmBarn.barn?.map((barnet, index) => (
                     <Panel key={index}>
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <Heading size={'small'} spacing>{`${barnet.fornavn} ${barnet.etternavn}`}</Heading>
                             {barnet.barnepensjon?.soeker && (
                                 <Tag variant={'success'}>{t('omBarn.barnepensjon.soekt')}</Tag>
                             )}
-                        </SkjemaElement>
+                        </Box>
 
                         <PersonInfoOppsummering
                             fornavn={barnet.fornavn}

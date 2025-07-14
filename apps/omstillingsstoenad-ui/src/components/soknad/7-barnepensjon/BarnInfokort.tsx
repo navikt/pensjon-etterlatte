@@ -1,14 +1,13 @@
-import { IBarn } from '../../../typer/person'
-import ikon from '../../../assets/ikoner/barn1.svg'
+import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { BodyShort, Box, Button, Heading, Tag, VStack } from '@navikt/ds-react'
+import { format } from 'date-fns'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { IValg } from '../../../typer/Spoersmaal'
-import { BodyShort, Heading, Tag, Button, VStack } from '@navikt/ds-react'
-import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import styled from 'styled-components'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import { format } from 'date-fns'
+import ikon from '../../../assets/ikoner/barn1.svg'
+import { IBarn } from '../../../typer/person'
+import { IValg } from '../../../typer/Spoersmaal'
+import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 
 const InfokortInformasjonsElement = styled.div`
     margin: 10px 0 10px 0;
@@ -65,13 +64,13 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     </BodyShort>
 
                     {barn.barnepensjon?.soeker ? (
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <Tag variant={'success'}>{t('omBarn.barnepensjon.soekt')}</Tag>
-                        </SkjemaElement>
+                        </Box>
                     ) : (
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <Tag variant={'warning'}>{t('omBarn.barnepensjon.ikkeSoekt')}</Tag>
-                        </SkjemaElement>
+                        </Box>
                     )}
                 </InfokortInformasjonsElement>
 

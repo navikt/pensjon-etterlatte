@@ -1,10 +1,9 @@
+import { Box, Button, Heading, VStack } from '@navikt/ds-react'
+import { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Button, Heading, VStack } from '@navikt/ds-react'
-import ArbeidstakerInfokort from './ArbeidstakerInfokort'
-import { useEffect } from 'react'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import ArbeidstakerInfokort from './ArbeidstakerInfokort'
 
 const Arbeidstaker = () => {
     const { t } = useTranslation()
@@ -37,9 +36,9 @@ const Arbeidstaker = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidsforhold.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
             <VStack gap="4">
                 {fields.map((field: FieldArrayWithId, index: number) => (

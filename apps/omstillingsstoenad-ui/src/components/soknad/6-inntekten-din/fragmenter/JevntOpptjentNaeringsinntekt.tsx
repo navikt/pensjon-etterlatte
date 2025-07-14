@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next'
+import { Box } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { useTranslation } from 'react-i18next'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 
 interface Props {
     type: 'norge' | 'utland'
@@ -21,14 +21,14 @@ const JevntOpptjentNaeringsinntekt = ({ type }: Props) => {
 
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={`${baseUrl}.svar`}
                     legend={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar')}
                 />
-            </SkjemaElement>
+            </Box>
             {endrerInntekt === IValg.NEI && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFInputArea
                         name={`${baseUrl}.beskrivelse`}
                         label={t('inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse')}
@@ -39,7 +39,7 @@ const JevntOpptjentNaeringsinntekt = ({ type }: Props) => {
                         className={'width-50'}
                         resize={'vertical'}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </>
     )

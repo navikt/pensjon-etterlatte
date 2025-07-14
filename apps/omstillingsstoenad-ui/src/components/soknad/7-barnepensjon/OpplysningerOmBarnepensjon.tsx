@@ -1,22 +1,21 @@
+import { BodyShort, Box, Button, GuidePanel, Heading } from '@navikt/ds-react'
 import React, { useState } from 'react'
-import ikon from '../../../assets/ikoner/barn1.svg'
-import SoknadSteg from '../../../typer/SoknadSteg'
-import { useSoknadContext } from '../../../context/soknad/SoknadContext'
-import { IBarn, IOmBarn } from '../../../typer/person'
-import { ActionTypes } from '../../../context/soknad/soknad'
+import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
+import { v4 as uuid } from 'uuid'
+import { isDev } from '../../../api/axios'
+import ikon from '../../../assets/ikoner/barn1.svg'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../../context/soknad/soknad'
+import { IBarn, IOmBarn } from '../../../typer/person'
+import SoknadSteg from '../../../typer/SoknadSteg'
+import { deepCopy } from '../../../utils/deepCopy'
+import Navigasjon from '../../felles/Navigasjon'
+import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
+import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import BarnInfokort from './BarnInfokort'
 import LeggTilBarnSkjema from './LeggTilBarnSkjema'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
-import { v4 as uuid } from 'uuid'
-import Navigasjon from '../../felles/Navigasjon'
-import { BodyShort, Button, Heading, GuidePanel } from '@navikt/ds-react'
-import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
-import { deepCopy } from '../../../utils/deepCopy'
-import styled from 'styled-components'
-import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
-import { SkjemaElement } from '../../felles/SkjemaElement'
-import { isDev } from '../../../api/axios'
 
 const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
@@ -100,18 +99,18 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
             <form autoComplete={isDev ? 'on' : 'off'}>
                 {aktivBarnIndex === undefined && (
                     <>
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <Heading size={'medium'} className={'center'}>
                                 {t('omBarn.tittel')}
                             </Heading>
-                        </SkjemaElement>
+                        </Box>
 
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <GuidePanel>
                                 <Heading size={'small'}>{t('omBarn.informasjon.tittel')}</Heading>
                                 <BodyShort>{t('omBarn.informasjon')}</BodyShort>
                             </GuidePanel>
-                        </SkjemaElement>
+                        </Box>
 
                         <SkjemaGruppe>
                             <InfokortWrapper>

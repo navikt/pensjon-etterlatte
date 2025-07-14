@@ -1,15 +1,14 @@
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { useTranslation } from 'react-i18next'
+import { Box, Heading } from '@navikt/ds-react'
 import React from 'react'
-import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
-import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
-import { Heading } from '@navikt/ds-react'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import { useTranslation } from 'react-i18next'
 import Bredde from '../../../../typer/bredde'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const EtablererVirksomhet = () => {
     const { t } = useTranslation()
@@ -21,9 +20,9 @@ const EtablererVirksomhet = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.etablererVirksomhet.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
             <RHFInput
                 name={'etablererVirksomhet.hvaHeterVirksomheten'}
@@ -31,7 +30,7 @@ const EtablererVirksomhet = () => {
                 htmlSize={Bredde.M}
             />
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFNumberInput
                     name={`etablererVirksomhet.orgnr` as const}
                     label={t('merOmSituasjonenDin.etablererVirksomhet.orgnr')}
@@ -41,9 +40,9 @@ const EtablererVirksomhet = () => {
                     htmlSize={Bredde.S}
                     valgfri={!!manglerOrgnr?.length}
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFCheckboksGruppe
                     name={'etablererVirksomhet.manglerOrgnr'}
                     checkboxes={[
@@ -56,22 +55,22 @@ const EtablererVirksomhet = () => {
                     hideLegend
                     required={false}
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={`etablererVirksomhet.forretningsplan.svar` as const}
                     legend={t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar')}
                 />
-            </SkjemaElement>
+            </Box>
 
             {harForretningsplan === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFSpoersmaalRadio
                         name={`etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar` as const}
                         legend={t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar')}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </SkjemaGruppe>
     )

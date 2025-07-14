@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next'
+import { Box } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { useTranslation } from 'react-i18next'
 import { EndringAvInntektGrunn } from '../../../../typer/inntekt'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
 
 interface Props {
@@ -28,15 +28,15 @@ const EndringInntekt = ({ type }: Props) => {
 
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={`${baseUrl}.svar`}
                     legend={t('inntektenDin.forventerEndringAvInntekt.svar')}
                     vetIkke
                 />
-            </SkjemaElement>
+            </Box>
             {endrerInntekt === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFSelect
                         name={`${baseUrl}.grunn`}
                         label={t('inntektenDin.forventerEndringAvInntekt.grunn')}
@@ -47,17 +47,17 @@ const EndringInntekt = ({ type }: Props) => {
                             },
                         ].concat(endringAvInntektGrunner)}
                     />
-                </SkjemaElement>
+                </Box>
             )}
             {endringAvInntektGrunn === EndringAvInntektGrunn.annenGrunn && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFInputArea
                         name={`${baseUrl}.annenGrunn`}
                         label={t('inntektenDin.forventerEndringAvInntekt.annenGrunn')}
                         maxLength={200}
                         className={'width-50'}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </>
     )

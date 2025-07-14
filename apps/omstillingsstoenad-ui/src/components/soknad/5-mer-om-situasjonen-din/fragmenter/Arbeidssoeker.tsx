@@ -1,12 +1,11 @@
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { useTranslation } from 'react-i18next'
+import { Box, Heading } from '@navikt/ds-react'
 import React from 'react'
-import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { useFormContext } from 'react-hook-form'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import { useTranslation } from 'react-i18next'
 import { IValg } from '../../../../typer/Spoersmaal'
-import { Heading } from '@navikt/ds-react'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const Arbeidssoeker = () => {
     const { t } = useTranslation()
@@ -17,18 +16,18 @@ const Arbeidssoeker = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidssoeker.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
             <RHFSpoersmaalRadio name={'arbeidssoeker.svar'} legend={t('merOmSituasjonenDin.arbeidssoeker.svar')} />
             {registrertArbeidssoeker === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFSpoersmaalRadio
                         name={'arbeidssoeker.aktivitetsplan.svar'}
                         legend={t('merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar')}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </SkjemaGruppe>
     )

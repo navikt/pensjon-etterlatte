@@ -18,7 +18,6 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFFoedselsnummerInput, RHFInput } from '../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 
@@ -75,11 +74,11 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
 
     return (
         <FormProvider {...methods}>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading className={'center'} size={'medium'}>
                     {t('omDenAvdoede.tittel')}
                 </Heading>
-            </SkjemaElement>
+            </Box>
 
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                 <SkjemaGruppe>
@@ -87,7 +86,7 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                         <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
                         <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
                     </HGrid>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         {!ukjentFoedselsnummer && (
                             <RHFFoedselsnummerInput
                                 name={'foedselsnummer'}
@@ -112,38 +111,36 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                                 />
                             </VStack>
                         )}
-                    </SkjemaElement>
-
-                    <Box maxWidth="14rem">
-                        <SkjemaElement>
-                            <RHFCombobox
-                                name={`statsborgerskap`}
-                                label={t('omDenAvdoede.statsborgerskap')}
-                                options={countries}
-                            />
-                        </SkjemaElement>
                     </Box>
 
-                    <SkjemaElement>
+                    <Box maxWidth="14rem" marginBlock="4">
+                        <RHFCombobox
+                            name={`statsborgerskap`}
+                            label={t('omDenAvdoede.statsborgerskap')}
+                            options={countries}
+                        />
+                    </Box>
+
+                    <Box marginBlock="4">
                         <Datovelger
                             name={'datoForDoedsfallet'}
                             label={t('omDenAvdoede.datoForDoedsfallet')}
                             minDate={minsteDatoForDoedsfall}
                             maxDate={new Date()}
                         />
-                    </SkjemaElement>
+                    </Box>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
                     <Heading size="small">{t('omDenAvdoede.doedsfallAarsak.tittel')}</Heading>
                     <BodyLong>{t('omDenAvdoede.doedsfallAarsakHvorfor')}</BodyLong>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio
                             name={'doedsfallAarsak'}
                             legend={t('omDenAvdoede.doedsfallAarsak')}
                             vetIkke
                         />
-                    </SkjemaElement>
+                    </Box>
                 </SkjemaGruppe>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={datoForDoedsfallet} />

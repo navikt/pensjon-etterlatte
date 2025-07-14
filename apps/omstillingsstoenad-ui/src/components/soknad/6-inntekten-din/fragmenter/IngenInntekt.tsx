@@ -1,14 +1,13 @@
-import { useTranslation } from 'react-i18next'
-import { useFormContext } from 'react-hook-form'
-import { IInntekt } from '../../../../typer/inntekt'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { Heading, List, ReadMore } from '@navikt/ds-react'
-import { RHFInputArea, RHFValutaInput } from '../../../felles/rhf/RHFInput'
-import Bredde from '../../../../typer/bredde'
+import { Box, Heading, List, ReadMore } from '@navikt/ds-react'
 import React from 'react'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import Bredde from '../../../../typer/bredde'
+import { IInntekt } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
+import { RHFInputArea, RHFValutaInput } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { ListItemWithIndent } from '../../../felles/StyledComponents'
 
 const IngenInntekt = () => {
@@ -21,17 +20,17 @@ const IngenInntekt = () => {
     return (
         <>
             <SkjemaGruppe>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Heading size={'medium'}>{t('inntektenDin.ingenInntekt.tittel')}</Heading>
-                </SkjemaElement>
+                </Box>
 
                 <>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio name={`ingenInntekt.svar`} legend={t('inntektenDin.ingenInntekt.svar')} />
-                    </SkjemaElement>
+                    </Box>
                     {harInntekt === IValg.JA && (
                         <>
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <ReadMore header={t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.tittel')}>
                                     {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold')}
                                     <List size={'small'}>
@@ -61,23 +60,23 @@ const IngenInntekt = () => {
                                         </ListItemWithIndent>
                                     </List>
                                 </ReadMore>
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <RHFInputArea
                                     name={`ingenInntekt.beskrivelse`}
                                     label={t('inntektenDin.ingenInntekt.beskrivelse')}
                                     maxLength={100}
                                     className={'width-50'}
                                 />
-                            </SkjemaElement>
-                            <SkjemaElement>
+                            </Box>
+                            <Box marginBlock="4">
                                 <RHFValutaInput
                                     name={'ingenInntekt.beloep'}
                                     label={t('inntektenDin.ingenInntekt.beloep')}
                                     htmlSize={Bredde.S}
                                 />
-                            </SkjemaElement>
+                            </Box>
                         </>
                     )}
                 </>

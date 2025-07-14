@@ -1,19 +1,18 @@
-import { useTranslation } from 'react-i18next'
+import { Alert, BodyShort, Box, Heading, List, ReadMore } from '@navikt/ds-react'
 import React from 'react'
-import { Alert, BodyShort, Heading, List, ReadMore } from '@navikt/ds-react'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
-import Bredde from '../../../../typer/bredde'
-import EndringInntekt from './EndringInntekt'
 import { useFormContext } from 'react-hook-form'
-import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
-import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
-import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
-import JevntOpptjentNaeringsinntekt from './JevntOpptjentNaeringsinntekt'
+import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
+import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
+import Bredde from '../../../../typer/bredde'
+import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
+import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { ListItemWithIndent } from '../../../felles/StyledComponents'
+import EndringInntekt from './EndringInntekt'
+import JevntOpptjentNaeringsinntekt from './JevntOpptjentNaeringsinntekt'
 
 const Naeringsinntekt = () => {
     const { t } = useTranslation()
@@ -32,12 +31,12 @@ const Naeringsinntekt = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'}>{t('inntektenDin.naeringsinntekt.tittel')}</Heading>
                 <BodyShort>{t('inntektenDin.naeringsinntekt.ingress')}</BodyShort>
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <ReadMore header={t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel')}>
                     {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold')}
                     <List size={'small'}>
@@ -55,9 +54,9 @@ const Naeringsinntekt = () => {
                         </ListItemWithIndent>
                     </List>
                 </ReadMore>
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFCheckboksGruppe
                     name={'naeringsinntekt.norgeEllerUtland'}
                     checkboxes={Object.values(NorgeOgUtland).map((value) => {
@@ -65,20 +64,20 @@ const Naeringsinntekt = () => {
                     })}
                     legend={t('inntektenDin.naeringsinntekt.norgeEllerUtland')}
                 />
-            </SkjemaElement>
+            </Box>
 
             {norgeEllerUtland?.includes(NorgeOgUtland.norge) && (
                 <>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <Heading size={'small'}>{t('inntektenDin.naeringsinntekt.norgeEllerUtland.norge')}</Heading>
-                    </SkjemaElement>
-                    <SkjemaElement>
+                    </Box>
+                    <Box marginBlock="4">
                         <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.bruttoinntekt')}</Alert>
-                    </SkjemaElement>
+                    </Box>
                     <SkjemaGruppe>
                         <JevntOpptjentNaeringsinntekt type={'norge'} />
                     </SkjemaGruppe>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         {doedsdatoErIAar(datoforDoedsfallet!) ? (
                             <>
                                 {foedt1963EllerTidligere && (
@@ -102,7 +101,7 @@ const Naeringsinntekt = () => {
                                         )}
                                         htmlSize={Bredde.S}
                                     />
-                                    <SkjemaElement>
+                                    <Box marginBlock="4">
                                         <ReadMore
                                             header={t(
                                                 'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel'
@@ -112,7 +111,7 @@ const Naeringsinntekt = () => {
                                                 'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold'
                                             )}
                                         </ReadMore>
-                                    </SkjemaElement>
+                                    </Box>
                                 </SkjemaGruppe>
                                 {erIkkeDesember && (
                                     <SkjemaGruppe>
@@ -175,7 +174,7 @@ const Naeringsinntekt = () => {
                                 </SkjemaGruppe>
                             </>
                         )}
-                    </SkjemaElement>
+                    </Box>
                 </>
             )}
 
@@ -183,16 +182,16 @@ const Naeringsinntekt = () => {
 
             {norgeEllerUtland?.includes(NorgeOgUtland.utland) && (
                 <>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <Heading size={'small'}>{t('inntektenDin.naeringsinntekt.norgeEllerUtland.utland')}</Heading>
-                    </SkjemaElement>
-                    <SkjemaElement>
+                    </Box>
+                    <Box marginBlock="4">
                         <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.bruttoinntekt.utland')}</Alert>
-                    </SkjemaElement>
+                    </Box>
                     <SkjemaGruppe>
                         <JevntOpptjentNaeringsinntekt type={'utland'} />
                     </SkjemaGruppe>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         {doedsdatoErIAar(datoforDoedsfallet!) ? (
                             <>
                                 {foedt1963EllerTidligere && (
@@ -216,7 +215,7 @@ const Naeringsinntekt = () => {
                                         )}
                                         htmlSize={Bredde.S}
                                     />
-                                    <SkjemaElement>
+                                    <Box marginBlock="4">
                                         <ReadMore
                                             header={t(
                                                 'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel'
@@ -226,11 +225,11 @@ const Naeringsinntekt = () => {
                                                 'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold'
                                             )}
                                         </ReadMore>
-                                    </SkjemaElement>
+                                    </Box>
                                 </>
                                 {erIkkeDesember && (
                                     <SkjemaGruppe>
-                                        <SkjemaElement>
+                                        <Box marginBlock="4">
                                             <RHFValutaInput
                                                 name={'naeringsinntekt.utland.inntektIAar.aarsinntekt'}
                                                 label={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
@@ -239,7 +238,7 @@ const Naeringsinntekt = () => {
                                                 )}
                                                 htmlSize={Bredde.S}
                                             />
-                                        </SkjemaElement>
+                                        </Box>
                                     </SkjemaGruppe>
                                 )}
                                 {erMellomOktoberogDesember() && (
@@ -292,7 +291,7 @@ const Naeringsinntekt = () => {
                                     />
                                 </SkjemaGruppe>
                                 <SkjemaGruppe>
-                                    <SkjemaElement>
+                                    <Box marginBlock="4">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektIAar.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
@@ -301,11 +300,11 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaElement>
+                                    </Box>
                                 </SkjemaGruppe>
                             </>
                         )}
-                    </SkjemaElement>
+                    </Box>
                 </>
             )}
 

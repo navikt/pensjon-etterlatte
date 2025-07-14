@@ -1,12 +1,11 @@
+import { Box, Heading } from '@navikt/ds-react'
 import React from 'react'
+import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { Heading } from '@navikt/ds-react'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { IInntekt, InntektEllerUtbetaling } from '../../../../typer/inntekt'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { useFormContext } from 'react-hook-form'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const InntektViaYtelserFraNAV = () => {
     const { t } = useTranslation()
@@ -17,11 +16,11 @@ const InntektViaYtelserFraNAV = () => {
     return (
         <>
             <SkjemaGruppe>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Heading size={'medium'}>{t('inntektenDin.inntektViaYtelserFraNAV.tittel')}</Heading>
-                </SkjemaElement>
+                </Box>
 
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFCheckboksGruppe
                         name={'inntektViaYtelserFraNAV.ytelser'}
                         legend={t('inntektenDin.inntektViaYtelserFraNAV.ytelser')}
@@ -29,15 +28,15 @@ const InntektViaYtelserFraNAV = () => {
                             return { children: t(value), value, required: true }
                         })}
                     />
-                </SkjemaElement>
+                </Box>
 
                 {ytelser?.includes(InntektEllerUtbetaling.arbeidsavklaringspenger) && (
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio
                             name={`inntektViaYtelserFraNAV.aktivitetsplan.svar`}
                             legend={t('inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar')}
                         />
-                    </SkjemaElement>
+                    </Box>
                 )}
             </SkjemaGruppe>
         </>

@@ -1,4 +1,4 @@
-import { Box, HGrid, Heading, ReadMore } from '@navikt/ds-react'
+import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
 import { differenceInYears } from 'date-fns'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -10,11 +10,10 @@ import useCountries from '../../../../hooks/useCountries'
 import { useValutaer } from '../../../../hooks/useValutaer'
 import Bredde from '../../../../typer/bredde'
 import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/inntekt'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
@@ -44,12 +43,12 @@ const PensjonEllerUfoere = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'}>{t('inntektenDin.pensjonEllerUfoere.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
             <>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFCheckboksGruppe
                         name={'pensjonEllerUfoere.pensjonstype'}
                         legend={t('inntektenDin.pensjonEllerUfoere.pensjonstype')}
@@ -57,7 +56,7 @@ const PensjonEllerUfoere = () => {
                             return { children: t(value), value, required: true }
                         })}
                     />
-                </SkjemaElement>
+                </Box>
 
                 {pensjonstype?.includes(PensjonEllerTrygd.tjenestepensjonsordning) && (
                     <Box
@@ -69,7 +68,7 @@ const PensjonEllerUfoere = () => {
                         <SkjemaGruppe>
                             <Heading size={'small'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <RHFCheckboksGruppe
                                     name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
                                     legend={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
@@ -77,8 +76,8 @@ const PensjonEllerUfoere = () => {
                                         return { children: t(value), value, required: true }
                                     })}
                                 />
-                            </SkjemaElement>
-                            <SkjemaElement>
+                            </Box>
+                            <Box marginBlock="4">
                                 <RHFInputArea
                                     name={'pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'}
                                     label={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
@@ -88,14 +87,14 @@ const PensjonEllerUfoere = () => {
                                     visPersonopplysningerVarsel={false}
                                     maxLength={200}
                                 />
-                            </SkjemaElement>
+                            </Box>
                             <ReadMore header={t('hvorforSpoerVi')}>
                                 {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
                             </ReadMore>
 
                             {skalViseAFPOffentligFelter(watch('pensjonEllerUfoere.tjenestepensjonsordning.type')) && (
                                 <>
-                                    <SkjemaElement>
+                                    <Box marginBlock="4">
                                         <Datovelger
                                             name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
                                             label={t(
@@ -104,8 +103,8 @@ const PensjonEllerUfoere = () => {
                                             minDate={bruker.state.foedselsdato}
                                             maxDate={new Date()}
                                         />
-                                    </SkjemaElement>
-                                    <SkjemaElement>
+                                    </Box>
+                                    <Box marginBlock="4">
                                         <RHFNumberInput
                                             name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
                                             label={t(
@@ -116,7 +115,7 @@ const PensjonEllerUfoere = () => {
                                             )}
                                             htmlSize={Bredde.M}
                                         />
-                                    </SkjemaElement>
+                                    </Box>
                                     <ReadMore
                                         header={t(
                                             'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel'
@@ -137,39 +136,37 @@ const PensjonEllerUfoere = () => {
                 <>
                     <Heading size={'small'}>{t('soekbarYtelse.pensjonFraUtlandet')}</Heading>
 
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFInput
                             name={'pensjonEllerUfoere.utland.type'}
                             label={t('inntektenDin.pensjonEllerUfoere.utland.type')}
                             description={t('inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse')}
                             htmlSize={Bredde.S}
                         />
-                    </SkjemaElement>
-                    <Box maxWidth="14rem">
-                        <SkjemaElement>
-                            <RHFCombobox
-                                name={'pensjonEllerUfoere.utland.land'}
-                                label={t('inntektenDin.pensjonEllerUfoere.utland.land')}
-                                options={allCountries}
-                            />
-                        </SkjemaElement>
+                    </Box>
+                    <Box maxWidth="14rem" marginBlock="4">
+                        <RHFCombobox
+                            name={'pensjonEllerUfoere.utland.land'}
+                            label={t('inntektenDin.pensjonEllerUfoere.utland.land')}
+                            options={allCountries}
+                        />
                     </Box>
 
                     <HGrid gap={'2'} columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }} align={'start'}>
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <RHFNumberInput
                                 name={'pensjonEllerUfoere.utland.beloep'}
                                 label={t('felles.aarligBeloep')}
                             />
-                        </SkjemaElement>
+                        </Box>
 
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <RHFSelect
                                 name={'pensjonEllerUfoere.utland.valuta'}
                                 label={t('felles.velgValuta')}
                                 selectOptions={valutaer}
                             />
-                        </SkjemaElement>
+                        </Box>
                     </HGrid>
                 </>
             )}
