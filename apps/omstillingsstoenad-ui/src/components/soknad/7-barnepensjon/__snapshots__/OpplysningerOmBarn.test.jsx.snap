@@ -6,7 +6,8 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
     autocomplete="on"
   >
     <div
-      class="sc-dntSTA eZqNDC"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-4);"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -15,7 +16,8 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </h1>
     </div>
     <div
-      class="sc-dntSTA eZqNDC"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-4);"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -119,7 +121,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       class="sc-bRKDuR jGtGcS"
     >
       <div
-        class="sc-fVHBlr jcTodP"
+        class="sc-eqNDNG cGHmhQ"
       >
         <div
           class="sc-hjsuWn dOkKRT"
@@ -136,7 +138,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
             class="sc-jwTyAe bzWSKJ"
           >
             <div
-              class="sc-gLaqbQ kXCBsC"
+              class="sc-fVHBlr dHFwnu"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"

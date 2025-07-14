@@ -3,7 +3,8 @@
 exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
 <div>
   <div
-    class="sc-kvnevz eywiWY"
+    class="navds-r-mb navds-box"
+    style="--__ac-r-mb-xs: var(--a-spacing-4);"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -153,10 +154,11 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         </fieldset>
       </div>
       <div
-        class="sc-kvnevz eywiWY"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <section
-          class="sc-dFVmKS jojXZb"
+          class="sc-kvnevz jOfThA"
         >
           <div
             class="navds-date__wrapper"
@@ -1626,7 +1628,8 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
         </section>
       </div>
       <div
-        class="sc-kvnevz eywiWY"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           id="forholdTilAvdoede.fellesBarn"
@@ -1874,7 +1877,8 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
 exports[`Om deg og avdød > Snapshot uten samboerskjema 1`] = `
 <div>
   <div
-    class="sc-kvnevz eywiWY"
+    class="navds-r-mb navds-box"
+    style="--__ac-r-mb-xs: var(--a-spacing-4);"
   >
     <h1
       class="center navds-heading navds-heading--medium"
