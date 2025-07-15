@@ -36,9 +36,3 @@ export const Infokort = styled.div`
         max-width: 49%;
     }
 `
-
-export const FlexCenter = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-`

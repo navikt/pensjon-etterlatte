@@ -1,4 +1,4 @@
-import { BodyShort, Box, Button, Heading, HStack, Modal } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { slettSoeknad } from '../../api/api'
@@ -8,7 +8,6 @@ import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes as SoknadAction } from '../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { erDato } from '../../utils/dato'
-import { FlexCenter } from './StyledComponents'
 
 interface KnappProps {
     label?: string
@@ -115,43 +114,35 @@ const Navigasjon = ({
                 </Modal.Header>
 
                 <Modal.Body>
-                    <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                    <VStack gap="12" marginInline="8">
+                        <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                        <HStack gap="4" justify="center">
+                            <Button
+                                id={'avbryt-nei-btn'}
+                                variant={'secondary'}
+                                onClick={fortsettSoknad}
+                                type={'button'}
+                            >
+                                {t('avbrytModal.svarNei')}
+                            </Button>
+
+                            <Button id={'avbryt-ja-btn'} variant={'primary'} onClick={avbrytSoeknad} type={'button'}>
+                                {t('avbrytModal.svarJa')}
+                            </Button>
+                        </HStack>
+                        <HStack justify="center">
+                            <Button
+                                id={'slett-soeknad'}
+                                variant={'tertiary'}
+                                style={{ color: 'var(--a-surface-danger)' }}
+                                type={'button'}
+                                onClick={avbrytOgslettSoeknad}
+                            >
+                                {t('avbrytModal.svarSlett')}
+                            </Button>
+                        </HStack>
+                    </VStack>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    <FlexCenter>
-                        <Button
-                            id={'avbryt-nei-btn'}
-                            variant={'secondary'}
-                            onClick={fortsettSoknad}
-                            type={'button'}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('avbrytModal.svarNei')}
-                        </Button>
-
-                        <Button
-                            id={'avbryt-ja-btn'}
-                            variant={'primary'}
-                            onClick={avbrytSoeknad}
-                            type={'button'}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('avbrytModal.svarJa')}
-                        </Button>
-                    </FlexCenter>
-                    <FlexCenter>
-                        <Button
-                            id={'slett-soeknad'}
-                            variant={'tertiary'}
-                            style={{ color: 'var(--a-surface-danger)' }}
-                            type={'button'}
-                            onClick={avbrytOgslettSoeknad}
-                        >
-                            {t('avbrytModal.svarSlett')}
-                        </Button>
-                    </FlexCenter>
-                </Modal.Footer>
             </Modal>
         </>
     )
