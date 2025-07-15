@@ -1,4 +1,4 @@
-import { BodyShort, Box, Heading, RadioProps } from '@navikt/ds-react'
+import { BodyShort, Box, Heading, HGrid, RadioProps } from '@navikt/ds-react'
 import { addYears, isBefore } from 'date-fns'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -12,7 +12,6 @@ import Datovelger from '../../../felles/Datovelger'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 
 const UnderUtdanning = () => {
     const { t } = useTranslation()
@@ -75,7 +74,7 @@ const UnderUtdanning = () => {
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
                     </BodyShort>
                 </Box>
-                <SkjemaGruppeRad>
+                <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.startDato'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato')}
@@ -89,7 +88,7 @@ const UnderUtdanning = () => {
                         minDate={minSluttDato(startDatoUtdanning)}
                         maxDate={addYears(new Date(), 10)}
                     />
-                </SkjemaGruppeRad>
+                </HGrid>
             </Box>
             <Box marginBlock="4">
                 <RHFSpoersmaalRadio

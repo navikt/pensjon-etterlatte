@@ -62,18 +62,6 @@ export const Infokort = styled.div`
     }
 `
 
-export const SkjemaGruppeRad = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    column-gap: 1rem;
-    column-gap: 1rem;
-
-    @media screen and (max-width: 650px) {
-        flex-direction: column;
-    }
-`
-
 export const FlexCenter = styled.div`
     display: flex;
     justify-content: center;
