@@ -9,7 +9,6 @@ import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
-import { ListItemWithIndent } from '../../../felles/StyledComponents'
 import EndringInntekt from './EndringInntekt'
 import JevntOpptjentNaeringsinntekt from './JevntOpptjentNaeringsinntekt'
 
@@ -38,20 +37,14 @@ const Naeringsinntekt = () => {
             <Box marginBlock="4">
                 <ReadMore header={t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel')}>
                     {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold')}
-                    <List size={'small'}>
-                        <ListItemWithIndent>
-                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1')}
-                        </ListItemWithIndent>
-                        <ListItemWithIndent>
-                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2')}
-                        </ListItemWithIndent>
-                        <ListItemWithIndent>
-                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3')}
-                        </ListItemWithIndent>
-                        <ListItemWithIndent>
-                            {t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4')}
-                        </ListItemWithIndent>
-                    </List>
+                    <Box marginInline="4 0">
+                        <List size={'small'}>
+                            <List.Item>{t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1')}</List.Item>
+                            <List.Item>{t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2')}</List.Item>
+                            <List.Item>{t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3')}</List.Item>
+                            <List.Item>{t('inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4')}</List.Item>
+                        </List>
+                    </Box>
                 </ReadMore>
             </Box>
 

@@ -106,7 +106,3 @@ export const NumberSelectRad = styled.div`
         flex-direction: column;
     }
 `
-
-export const ListItemWithIndent = styled(List.Item)`
-    margin-left: 1rem;
-`
