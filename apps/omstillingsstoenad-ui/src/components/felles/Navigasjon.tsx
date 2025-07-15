@@ -1,4 +1,4 @@
-import { BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
@@ -9,10 +9,10 @@ import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes as SoknadAction } from '../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { erDato } from '../../utils/dato'
-import { SkjemaGruppe } from './SkjemaGruppe'
 import { FlexCenter, NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from './StyledComponents'
 
-const NavigasjonWrapper = styled(SkjemaGruppe)`
+const NavigasjonWrapper = styled(Box)`
+    margin-block: 0 var(--a-spacing-12);
     @media screen and (max-width: 650px) {
         .knapp {
             font-size: 1rem;

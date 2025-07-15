@@ -7,7 +7,6 @@ import { IInntekt } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInputArea, RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { ListItemWithIndent } from '../../../felles/StyledComponents'
 
 const IngenInntekt = () => {
@@ -19,7 +18,7 @@ const IngenInntekt = () => {
 
     return (
         <>
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Box marginBlock="4">
                     <Heading size={'medium'}>{t('inntektenDin.ingenInntekt.tittel')}</Heading>
                 </Box>
@@ -80,7 +79,7 @@ const IngenInntekt = () => {
                         </>
                     )}
                 </>
-            </SkjemaGruppe>
+            </Box>
         </>
     )
 }

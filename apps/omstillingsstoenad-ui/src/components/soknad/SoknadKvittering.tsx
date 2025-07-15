@@ -1,6 +1,5 @@
+import { Alert, BodyLong, BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
 import React, { useEffect } from 'react'
-import { SkjemaGruppe } from '../felles/SkjemaGruppe'
-import { Alert, BodyLong, BodyShort, Button, Link, Heading } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../hooks/useLanguage'
 import { NavigasjonsRadSection } from '../felles/StyledComponents'
@@ -22,11 +21,11 @@ const SoknadKvittering = () => {
                 {t('soeknadKvittering.tittel')}
             </Heading>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Alert variant={'success'}>{t('soeknadKvittering.mottatt')}</Alert>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Heading size={'small'}>{t('soeknadKvittering.seSaken.tittel')}</Heading>
 
                 <BodyLong>
@@ -39,9 +38,9 @@ const SoknadKvittering = () => {
                         {t('soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst')}
                     </Link>
                 </BodyLong>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Alert variant={'info'}>
                     <Heading size={'small'}>{t('soeknadKvittering.endring.tittel')}</Heading>
 
@@ -65,9 +64,9 @@ const SoknadKvittering = () => {
                         </Link>
                     </BodyLong>
                 </Alert>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Heading size={'small'}>{t('soeknadKvittering.andreStoenader.tittel')}</Heading>
 
                 <BodyLong>{t('soeknadKvittering.andreStoenader.informasjon')}</BodyLong>
@@ -90,11 +89,9 @@ const SoknadKvittering = () => {
                         {t('soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst')}
                     </Link>
                 </BodyShort>
+            </Box>
 
-                <br />
-            </SkjemaGruppe>
-
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <NavigasjonsRadSection>
                     <Button
                         variant={'secondary'}
@@ -104,7 +101,7 @@ const SoknadKvittering = () => {
                         {t('soeknadKvittering.spoersmaal.knapp')}
                     </Button>
                 </NavigasjonsRadSection>
-            </SkjemaGruppe>
+            </Box>
         </>
     )
 }

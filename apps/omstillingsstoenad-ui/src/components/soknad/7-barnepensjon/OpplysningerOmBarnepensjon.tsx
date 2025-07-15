@@ -12,7 +12,6 @@ import { IBarn, IOmBarn } from '../../../typer/person'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Navigasjon from '../../felles/Navigasjon'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
 import BarnInfokort from './BarnInfokort'
 import LeggTilBarnSkjema from './LeggTilBarnSkjema'
@@ -112,7 +111,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                             </GuidePanel>
                         </Box>
 
-                        <SkjemaGruppe>
+                        <Box marginBlock="0 12">
                             <InfokortWrapper>
                                 {fields?.map((field: FieldArrayWithId, index: number) => (
                                     <BarnInfokort
@@ -146,7 +145,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                     </InfokortInformasjonsboks>
                                 </Infokort>
                             </InfokortWrapper>
-                        </SkjemaGruppe>
+                        </Box>
 
                         <Navigasjon
                             forrige={{

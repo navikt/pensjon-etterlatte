@@ -3,13 +3,12 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Utdanning } from '../../../../typer/situasjon'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const HoeyesteUtdanning = () => {
     const { t } = useTranslation()
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittelFullfoert')}</Heading>
             </Box>
@@ -24,7 +23,7 @@ const HoeyesteUtdanning = () => {
             />
 
             <ReadMore header={t('hvorforSpoerVi')}>{t('merOmSituasjonenDin.utdanning.hvorfor')}</ReadMore>
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

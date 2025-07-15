@@ -6,7 +6,6 @@ import { IngenJobb } from '../../../../typer/arbeidsforhold'
 import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const AnnenSituasjon = () => {
     const { t } = useTranslation()
@@ -20,7 +19,7 @@ const AnnenSituasjon = () => {
     })
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('jobbStatus.ingen')}</Heading>
             </Box>
@@ -41,7 +40,7 @@ const AnnenSituasjon = () => {
                     />
                 </Box>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

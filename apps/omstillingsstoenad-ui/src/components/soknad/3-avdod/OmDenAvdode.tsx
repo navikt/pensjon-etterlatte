@@ -18,7 +18,6 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFFoedselsnummerInput, RHFInput } from '../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
 
 const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
@@ -81,7 +80,7 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
             </Box>
 
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                         <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
                         <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
@@ -129,9 +128,9 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                             maxDate={new Date()}
                         />
                     </Box>
-                </SkjemaGruppe>
+                </Box>
 
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <Heading size="small">{t('omDenAvdoede.doedsfallAarsak.tittel')}</Heading>
                     <BodyLong>{t('omDenAvdoede.doedsfallAarsakHvorfor')}</BodyLong>
                     <Box marginBlock="4">
@@ -141,7 +140,7 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                             vetIkke
                         />
                     </Box>
-                </SkjemaGruppe>
+                </Box>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={datoForDoedsfallet} />
 

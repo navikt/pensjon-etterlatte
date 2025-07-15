@@ -9,7 +9,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 interface Props {
@@ -41,7 +40,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
 
     return (
         <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <RHFInput
                     name={`${selvstendigName}.beskrivelse` as const}
                     label={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen')}
@@ -59,9 +58,9 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                         htmlSize={Bredde.S}
                     />
                 </Box>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Label>{t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}</Label>
                 <BodyShort textColor="subtle">
                     {t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}
@@ -86,7 +85,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                         />
                     </NumberSelectRad>
                 </Box>
-            </SkjemaGruppe>
+            </Box>
 
             <Box marginBlock="4">
                 <RHFSpoersmaalRadio

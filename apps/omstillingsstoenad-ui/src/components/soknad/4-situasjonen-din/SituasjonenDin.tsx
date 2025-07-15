@@ -17,7 +17,6 @@ import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 
 const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
@@ -76,7 +75,7 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                     </Heading>
                 </Box>
 
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <GuidePanel>
                         <BodyShort>{t('situasjonenDin.ingress')}</BodyShort>
                         <List as={'ul'}>
@@ -85,11 +84,11 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                             <List.Item>{t('situasjonenDin.ingress.li3')}</List.Item>
                         </List>
                     </GuidePanel>
-                </SkjemaGruppe>
+                </Box>
 
                 <NySivilstatus />
 
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <Box marginBlock="4">
                         <Heading size={'small'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
                     </Box>
@@ -110,9 +109,9 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                             legend={t('situasjonenDin.gravidEllerNyligFoedt')}
                         />
                     </Box>
-                </SkjemaGruppe>
+                </Box>
 
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <Box marginBlock="4">
                         <Heading size={'small'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
                     </Box>
@@ -121,7 +120,7 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                     </Box>
 
                     {bosattINorge === IValg.JA && (
-                        <SkjemaGruppe>
+                        <Box marginBlock="0 12">
                             <Box marginBlock="4">
                                 <RHFSpoersmaalRadio
                                     name={'oppholderSegIUtlandet.svar'}
@@ -157,21 +156,19 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                                     </HGrid>
                                 </>
                             )}
-                        </SkjemaGruppe>
+                        </Box>
                     )}
 
                     {bosattINorge === IValg.NEI && (
-                        <Box maxWidth="14rem">
-                            <SkjemaGruppe>
-                                <RHFCombobox
-                                    name={`bosattLand`}
-                                    label={t('situasjonenDin.bosattLand')}
-                                    options={countries}
-                                />
-                            </SkjemaGruppe>
+                        <Box maxWidth="14rem" marginBlock="0 12">
+                            <RHFCombobox
+                                name={`bosattLand`}
+                                label={t('situasjonenDin.bosattLand')}
+                                options={countries}
+                            />
                         </Box>
                     )}
-                </SkjemaGruppe>
+                </Box>
 
                 <Feilmeldinger errors={errors} />
 

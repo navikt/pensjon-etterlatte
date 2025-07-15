@@ -13,7 +13,6 @@ import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 interface Props {
     datoForDoedsfallet?: Date
@@ -52,7 +51,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     }
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
             <BodyLong>{t('omDenAvdoede.boddEllerJobbetUtland.ingress')}</BodyLong>
 
@@ -179,7 +178,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     </div>
                 </VStack>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

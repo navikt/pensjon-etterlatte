@@ -12,7 +12,6 @@ import Datovelger from '../../../felles/Datovelger'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 
 const UnderUtdanning = () => {
@@ -29,7 +28,7 @@ const UnderUtdanning = () => {
     }
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittel')}</Heading>
             </Box>
@@ -137,7 +136,7 @@ const UnderUtdanning = () => {
                     ]}
                 />
             </Box>
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

@@ -1,12 +1,11 @@
-import { Language } from '../../i18n'
-import { Select } from '@navikt/ds-react'
-import { SkjemaGruppe } from '../felles/SkjemaGruppe'
-import { useTranslation } from 'react-i18next'
-import { ActionTypes } from '../../context/soknad/soknad'
+import { Box, Select } from '@navikt/ds-react'
 import { useEffect } from 'react'
-import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { useBrukerContext } from '../../context/bruker/BrukerContext'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
+import { useBrukerContext } from '../../context/bruker/BrukerContext'
+import { useSoknadContext } from '../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../context/soknad/soknad'
+import { Language } from '../../i18n'
 
 const SpraakvalgWrapper = styled.div`
     max-width: 200px;
@@ -40,7 +39,7 @@ export const Spraakvalg = () => {
     }, [soknadState.spraak, brukerState.spraak])
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <SpraakvalgWrapper>
                 <Select
                     onChange={(e) => oppdaterSpraak(e.target.value)}
@@ -52,6 +51,6 @@ export const Spraakvalg = () => {
                     <option value={Language.ENGELSK}>English</option>
                 </Select>
             </SpraakvalgWrapper>
-        </SkjemaGruppe>
+        </Box>
     )
 }

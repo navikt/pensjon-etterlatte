@@ -13,7 +13,6 @@ import { deepCopy } from '../../../utils/deepCopy'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFCheckboksGruppe } from '../../felles/rhf/RHFCheckboksPanelGruppe'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import AnnenSituasjon from './fragmenter/AnnenSituasjon'
 import Arbeidssoeker from './fragmenter/Arbeidssoeker'
 import EtablererVirksomhet from './fragmenter/EtablererVirksomhet'
@@ -91,9 +90,9 @@ const MerOmSituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                     </Heading>
                 </Box>
 
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <GuidePanel>{t('merOmSituasjonenDin.ingress')}</GuidePanel>
-                </SkjemaGruppe>
+                </Box>
 
                 {!brukerState.adressebeskyttelse && (
                     <>

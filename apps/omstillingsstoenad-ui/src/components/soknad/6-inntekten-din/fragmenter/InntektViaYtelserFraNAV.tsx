@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { IInntekt, InntektEllerUtbetaling } from '../../../../typer/inntekt'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const InntektViaYtelserFraNAV = () => {
     const { t } = useTranslation()
@@ -15,7 +14,7 @@ const InntektViaYtelserFraNAV = () => {
 
     return (
         <>
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Box marginBlock="4">
                     <Heading size={'medium'}>{t('inntektenDin.inntektViaYtelserFraNAV.tittel')}</Heading>
                 </Box>
@@ -38,7 +37,7 @@ const InntektViaYtelserFraNAV = () => {
                         />
                     </Box>
                 )}
-            </SkjemaGruppe>
+            </Box>
         </>
     )
 }

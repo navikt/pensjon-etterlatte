@@ -15,7 +15,6 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFInput, RHFKontonummerInput, RHFTelefonInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import InnloggetBruker from './InnloggetBruker'
 import UtenlandskBankInfo from './utenlandskBankInfo/UtenlandskBankInfo'
 
@@ -60,9 +59,9 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                 <form onSubmit={(e) => e.preventDefault()}>
                     <Box marginBlock="4">
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
-                            <SkjemaGruppe>
+                            <Box marginBlock="0 12">
                                 <RHFInput name={'alternativAdresse'} label={t('omDeg.alternativAdresse')} />
-                            </SkjemaGruppe>
+                            </Box>
                         )}
 
                         {!brukerState.telefonnummer && (
@@ -80,7 +79,7 @@ const OmDeg = ({ neste }: SoknadSteg) => {
 
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (
-                        <SkjemaGruppe>
+                        <Box marginBlock="0 12">
                             <Box marginBlock="4">
                                 <RHFRadio
                                     name={'utbetalingsInformasjon.bankkontoType'}
@@ -103,7 +102,7 @@ const OmDeg = ({ neste }: SoknadSteg) => {
                             )}
 
                             {bankkontoType === BankkontoType.utenlandsk && <UtenlandskBankInfo />}
-                        </SkjemaGruppe>
+                        </Box>
                     )}
 
                     <br />

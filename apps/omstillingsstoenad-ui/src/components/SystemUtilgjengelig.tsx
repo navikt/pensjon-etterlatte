@@ -2,7 +2,6 @@ import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import blomstHjerteHus from '../assets/ikoner/blomstHjerteHus.svg'
-import { SkjemaGruppe } from './felles/SkjemaGruppe'
 import { Veileder } from './felles/Veileder'
 
 const Icon = styled.img`
@@ -22,7 +21,7 @@ export default function SystemUtilgjengelig() {
 
     return (
         <div style={{ maxWidth: '500px', margin: 'auto' }}>
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Veileder>
                     <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.veileder.tittel')}
@@ -32,7 +31,7 @@ export default function SystemUtilgjengelig() {
                         {t('systemUtilgjengelig.knappProevIgjen')}
                     </Button>
                 </Veileder>
-            </SkjemaGruppe>
+            </Box>
 
             <Box marginBlock="4">
                 <Heading size={'small'} spacing>
@@ -43,7 +42,7 @@ export default function SystemUtilgjengelig() {
                 </Button>
             </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Box marginBlock="4">
                     <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.merOmYtelsene')}
@@ -63,7 +62,7 @@ export default function SystemUtilgjengelig() {
                         {t('systemUtilgjengelig.merOmYtelseneLenke')}
                     </Box>
                 </Box>
-            </SkjemaGruppe>
+            </Box>
 
             <Box>
                 <Heading size={'small'} spacing>
