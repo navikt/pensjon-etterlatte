@@ -2,7 +2,6 @@ import { Alert, Page } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, Route, Routes } from 'react-router'
 import styled from 'styled-components'
-import Admin from './components/dev/Admin'
 import Banner from './components/felles/Banner'
 import LoaderOverlay from './components/felles/LoaderOverlay'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
@@ -70,8 +69,6 @@ const App = () => {
                         <Route path={'skjema'} element={<Outlet />}>
                             <Route path={'steg/*'} element={<SoknadDialog />} />
                         </Route>
-
-                        <Route path={'/skjema/admin'} element={<Admin />} />
 
                         <Route path={'/skjema/sendt'} element={<SoknadKvittering />} />
 

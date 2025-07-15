@@ -1,4 +1,3 @@
-import { List, Modal } from '@navikt/ds-react'
 import styled from 'styled-components'
 
 const navigasjonsRad = `
