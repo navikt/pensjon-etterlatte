@@ -97,12 +97,3 @@ export const InputWithCurrency = styled.div<{ $hasError?: boolean }>`
         max-width: 9rem;
     }
 `
-
-export const NumberSelectRad = styled.div`
-    display: flex;
-    gap: 1rem;
-
-    @media screen and (max-width: 650px) {
-        flex-direction: column;
-    }
-`

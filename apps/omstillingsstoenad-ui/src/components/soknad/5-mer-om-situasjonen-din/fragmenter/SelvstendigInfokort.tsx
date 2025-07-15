@@ -1,5 +1,5 @@
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyShort, Box, Button, Label, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Box, Button, HGrid, Label, ReadMore } from '@navikt/ds-react'
 import { memo, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -9,7 +9,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 interface Props {
     lengde: number
@@ -65,26 +64,24 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 <BodyShort textColor="subtle">
                     {t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}
                 </BodyShort>
-                <Box marginBlock="4">
-                    <NumberSelectRad>
-                        <RHFNumberInput
-                            name={`${selvstendigName}.arbeidsmengde.svar` as const}
-                            label={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
-                            htmlSize={Bredde.S}
-                            maxLength={3}
-                        />
-                        <RHFSelect
-                            name={`${selvstendigName}.arbeidsmengde.type` as const}
-                            selectOptions={[
-                                {
-                                    label: t('felles.velg'),
-                                    value: '',
-                                },
-                            ].concat(arbeidsmengdeValg)}
-                            label={t('felles.velg.tittel')}
-                        />
-                    </NumberSelectRad>
-                </Box>
+                <HGrid marginBlock="4" gap="4" columns={{ sm: 1, md: 2 }}>
+                    <RHFNumberInput
+                        name={`${selvstendigName}.arbeidsmengde.svar` as const}
+                        label={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
+                        htmlSize={Bredde.S}
+                        maxLength={3}
+                    />
+                    <RHFSelect
+                        name={`${selvstendigName}.arbeidsmengde.type` as const}
+                        selectOptions={[
+                            {
+                                label: t('felles.velg'),
+                                value: '',
+                            },
+                        ].concat(arbeidsmengdeValg)}
+                        label={t('felles.velg.tittel')}
+                    />
+                </HGrid>
             </Box>
 
             <Box marginBlock="4">

@@ -1,5 +1,5 @@
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyShort, Box, Button, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HGrid, RadioProps, ReadMore } from '@navikt/ds-react'
 import { memo, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -10,7 +10,6 @@ import Datovelger from '../../../felles/Datovelger'
 import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 interface Props {
     lengde: number
@@ -126,7 +125,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse')}
                             </BodyShort>
                         </Box>
-                        <NumberSelectRad>
+                        <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
                             <RHFNumberInput
                                 name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
                                 label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
@@ -146,7 +145,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 valgfri={!visMidlertidigArbeidsmengde}
                                 aria-hidden={!visMidlertidigArbeidsmengde}
                             />
-                        </NumberSelectRad>
+                        </HGrid>
                         <Box marginBlock="4">
                             <RHFSpoersmaalRadio
                                 name={`arbeidsforhold[${index}].midlertidig.svar` as const}
