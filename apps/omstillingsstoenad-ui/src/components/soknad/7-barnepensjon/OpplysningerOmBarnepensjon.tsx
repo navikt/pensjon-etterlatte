@@ -11,7 +11,6 @@ import { IBarn, IOmBarn } from '../../../typer/person'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Navigasjon from '../../felles/Navigasjon'
-import { InfokortHeader } from '../../felles/StyledComponents'
 import BarnInfokort from './BarnInfokort'
 import LeggTilBarnSkjema from './LeggTilBarnSkjema'
 
@@ -122,9 +121,20 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                     />
                                 ))}
                                 <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
-                                    <InfokortHeader $gjennomsiktig>
-                                        <img alt="barn" src={ikon} />
-                                    </InfokortHeader>
+                                    <Box
+                                        borderRadius="4 4 0 0"
+                                        height="128px"
+                                        borderWidth="0 0 4 0"
+                                        style={{
+                                            backgroundColor: '#4d3e55',
+                                            borderBottomColor: '#826ba1',
+                                            opacity: 0.4,
+                                        }}
+                                    >
+                                        <HStack justify="center" align="end" height="100%">
+                                            <img alt="barn" src={ikon} />
+                                        </HStack>
+                                    </Box>
                                     <Box padding="8">
                                         <HStack marginBlock="0 4" justify="center">
                                             <Button

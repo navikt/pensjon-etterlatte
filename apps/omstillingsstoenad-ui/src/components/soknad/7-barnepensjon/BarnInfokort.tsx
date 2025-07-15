@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next'
 import ikon from '../../../assets/ikoner/barn1.svg'
 import { IBarn } from '../../../typer/person'
 import { IValg } from '../../../typer/Spoersmaal'
-import { InfokortHeader } from '../../felles/StyledComponents'
 
 interface Props {
     barn: IBarn
@@ -22,11 +21,21 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
 
     return (
         <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
-            <InfokortHeader>
-                <img alt="barn" src={ikon} />
-            </InfokortHeader>
+            <Box
+                borderRadius="4 4 0 0"
+                height="128px"
+                borderWidth="0 0 4 0"
+                style={{
+                    backgroundColor: '#4d3e55',
+                    borderBottomColor: '#826ba1',
+                }}
+            >
+                <HStack justify="center" align="end" height="100%">
+                    <img alt="barn" src={ikon} />
+                </HStack>
+            </Box>
 
-            <HStack padding="8" justify="center">
+            <VStack padding="8" align="center">
                 <Heading size={'small'}>
                     {barn.fornavn} {barn.etternavn}
                 </Heading>
@@ -83,7 +92,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         {t('knapp.fjernFraSoeknad')}
                     </Button>
                 </VStack>
-            </HStack>
+            </VStack>
         </Box>
     )
 })
