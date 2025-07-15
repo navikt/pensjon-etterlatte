@@ -79,21 +79,3 @@ export const FlexCenter = styled.div`
     justify-content: center;
     width: 100%;
 `
-
-export const InputWithCurrency = styled.div<{ $hasError?: boolean }>`
-    display: flex;
-    position: relative;
-    .currency {
-        align-self: end;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        position: absolute;
-        left: 10rem;
-        bottom: ${(props) => (props.$hasError ? '2rem' : 0)};
-    }
-
-    input {
-        max-width: 9rem;
-    }
-`

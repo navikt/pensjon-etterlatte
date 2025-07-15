@@ -1,4 +1,4 @@
-import { BodyShort, TextField, TextFieldProps, Textarea, TextareaProps } from '@navikt/ds-react'
+import { BodyShort, Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import { isValidBIC, isValidIBAN } from 'ibantools'
 import { get } from 'lodash'
@@ -15,7 +15,7 @@ import {
     telefonnrMatcher,
 } from '../../../utils/matchers'
 import { getTransKey } from '../../../utils/translation'
-import { InputWithCurrency } from '../StyledComponents'
+import './rhfInput.css'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
     name: FieldPath<FieldValues>
@@ -175,27 +175,25 @@ export const RHFValutaInput = ({ name, valgfri, ...rest }: RHFProps) => {
     const re = /^[0-9\s]+$/
 
     return (
-        <InputWithCurrency $hasError={!!error}>
-            <Controller
-                name={name}
-                control={control}
-                rules={{ required: !valgfri, pattern: re }}
-                render={({ field: { value, onChange } }) => (
-                    <TextField
-                        id={name}
-                        value={value || ''}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                            if (isValid(e, re)) onChange(e)
-                        }}
-                        error={feilmelding}
-                        {...rest}
-                        inputMode="numeric"
-                        autoComplete="off"
-                    />
-                )}
-            />
-            <BodyShort className="currency">{t('felles.kroner')}</BodyShort>
-        </InputWithCurrency>
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required: !valgfri, pattern: re }}
+            render={({ field: { value, onChange } }) => (
+                <TextField
+                    id={name}
+                    className="rhf-valuta-input"
+                    value={value || ''}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        if (isValid(e, re)) onChange(e)
+                    }}
+                    error={feilmelding}
+                    {...rest}
+                    inputMode="numeric"
+                    autoComplete="off"
+                />
+            )}
+        />
     )
 }
 
