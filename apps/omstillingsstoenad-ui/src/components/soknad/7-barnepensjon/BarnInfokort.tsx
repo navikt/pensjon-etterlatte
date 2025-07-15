@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import ikon from '../../../assets/ikoner/barn1.svg'
 import { IBarn } from '../../../typer/person'
 import { IValg } from '../../../typer/Spoersmaal'
-import { Infokort, InfokortHeader } from '../../felles/StyledComponents'
+import { InfokortHeader } from '../../felles/StyledComponents'
 
 interface Props {
     barn: IBarn
@@ -21,7 +21,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
     const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Infokort>
+        <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
             <InfokortHeader>
                 <img alt="barn" src={ikon} />
             </InfokortHeader>
@@ -84,7 +84,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     </Button>
                 </VStack>
             </HStack>
-        </Infokort>
+        </Box>
     )
 })
 

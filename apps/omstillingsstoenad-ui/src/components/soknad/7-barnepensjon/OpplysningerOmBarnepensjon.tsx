@@ -1,8 +1,7 @@
-import { BodyShort, Box, Button, GuidePanel, Heading } from '@navikt/ds-react'
+import { BodyShort, Box, Button, GuidePanel, Heading, HGrid, HStack, VStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import { v4 as uuid } from 'uuid'
 import { isDev } from '../../../api/axios'
 import ikon from '../../../assets/ikoner/barn1.svg'
@@ -12,7 +11,7 @@ import { IBarn, IOmBarn } from '../../../typer/person'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Navigasjon from '../../felles/Navigasjon'
-import { Infokort, InfokortHeader } from '../../felles/StyledComponents'
+import { InfokortHeader } from '../../felles/StyledComponents'
 import BarnInfokort from './BarnInfokort'
 import LeggTilBarnSkjema from './LeggTilBarnSkjema'
 
@@ -112,7 +111,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                         </Box>
 
                         <Box marginBlock="0 12">
-                            <InfokortWrapper>
+                            <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
                                 {fields?.map((field: FieldArrayWithId, index: number) => (
                                     <BarnInfokort
                                         key={uuid()}
@@ -122,13 +121,12 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                         setAktivBarnIndex={() => setAktivBarnIndex(index)}
                                     />
                                 ))}
-
-                                <Infokort>
+                                <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
                                     <InfokortHeader $gjennomsiktig>
                                         <img alt="barn" src={ikon} />
                                     </InfokortHeader>
                                     <Box padding="8">
-                                        <LeggTilBarnKnappWrapper>
+                                        <HStack marginBlock="0 4" justify="center">
                                             <Button
                                                 data-testid={'legg-til-barn-knapp'}
                                                 variant={'primary'}
@@ -137,14 +135,14 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                             >
                                                 {t('knapp.leggTilBarn')}
                                             </Button>
-                                        </LeggTilBarnKnappWrapper>
+                                        </HStack>
 
                                         <BodyShort size={'small'} className={'center mute'}>
                                             {t('omBarn.valgfritt')}
                                         </BodyShort>
                                     </Box>
-                                </Infokort>
-                            </InfokortWrapper>
+                                </Box>
+                            </HGrid>
                         </Box>
 
                         <Navigasjon
@@ -170,15 +168,3 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
 }
 
 export default OpplysningerOmBarnepensjon
-
-const InfokortWrapper = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    margin: 0 auto;
-    column-gap: 1rem;
-`
-
-const LeggTilBarnKnappWrapper = styled.div`
-    text-align: center;
-    margin-bottom: 1rem;
-`

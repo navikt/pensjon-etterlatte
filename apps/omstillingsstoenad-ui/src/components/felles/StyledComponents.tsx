@@ -14,21 +14,3 @@ export const InfokortHeader = styled.div<{ $gjennomsiktig?: boolean }>`
         margin: 0 auto;
     }
 `
-
-export const Infokort = styled.div`
-    .typo-element {
-        margin: 0.3rem 0;
-    }
-
-    background-color: #e7e9e9;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-
-    @media screen and (min-width: 650px) {
-        max-width: 49%;
-    }
-`
