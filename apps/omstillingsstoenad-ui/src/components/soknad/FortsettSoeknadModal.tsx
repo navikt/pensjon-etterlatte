@@ -52,8 +52,8 @@ export const FortsettSoeknadModal = () => {
                 <Heading size={'medium'}>{t('fortsettSoeknad.beskrivelse')}</Heading>
             </Modal.Header>
 
-            <Modal.Footer>
-                <HStack width="100%">
+            <Modal.Body>
+                <HStack width="100%" justify="space-between" gap="4">
                     <Button variant={'secondary'} type={'button'} onClick={startPaaNytt} id={'start_paa_nytt'}>
                         {t('fortsettSoeknad.startPaaNytt')}
                     </Button>
@@ -61,7 +61,7 @@ export const FortsettSoeknadModal = () => {
                         {t('fortsettSoeknad.fortsettSoeknad')}
                     </Button>
                 </HStack>
-            </Modal.Footer>
+            </Modal.Body>
         </Modal>
     )
 }
