@@ -1,29 +1,5 @@
 import styled from 'styled-components'
 
-const navigasjonsRad = `
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  column-gap: 1rem;
-  margin-bottom: 2rem;
-
-  .knapp {
-    margin-bottom: 0;
- }
-`
-
-export const NavigasjonsRad = styled.div`
-    ${navigasjonsRad}
-`
-
-export const NavigasjonsRadSkjemaGruppe = styled(NavigasjonsRad)<{ $disabled?: boolean }>`
-    ${(props) => (props.$disabled ? 'opacity: 0.6; pointer-events: none;' : '')}
-`
-
-export const NavigasjonsRadSection = styled.section`
-    ${navigasjonsRad}
-`
-
 export const InfokortHeader = styled.div<{ $gjennomsiktig?: boolean }>`
     box-sizing: border-box;
     height: 128px;
