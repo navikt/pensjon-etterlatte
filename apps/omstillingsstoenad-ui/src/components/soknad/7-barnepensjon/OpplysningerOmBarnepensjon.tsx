@@ -12,7 +12,7 @@ import { IBarn, IOmBarn } from '../../../typer/person'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Navigasjon from '../../felles/Navigasjon'
-import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
+import { Infokort, InfokortHeader } from '../../felles/StyledComponents'
 import BarnInfokort from './BarnInfokort'
 import LeggTilBarnSkjema from './LeggTilBarnSkjema'
 
@@ -127,7 +127,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                     <InfokortHeader $gjennomsiktig>
                                         <img alt="barn" src={ikon} />
                                     </InfokortHeader>
-                                    <InfokortInformasjonsboks>
+                                    <Box padding="8">
                                         <LeggTilBarnKnappWrapper>
                                             <Button
                                                 data-testid={'legg-til-barn-knapp'}
@@ -142,7 +142,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                         <BodyShort size={'small'} className={'center mute'}>
                                             {t('omBarn.valgfritt')}
                                         </BodyShort>
-                                    </InfokortInformasjonsboks>
+                                    </Box>
                                 </Infokort>
                             </InfokortWrapper>
                         </Box>

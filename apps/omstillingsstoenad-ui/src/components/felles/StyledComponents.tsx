@@ -15,10 +15,6 @@ export const InfokortHeader = styled.div<{ $gjennomsiktig?: boolean }>`
     }
 `
 
-export const InfokortInformasjonsboks = styled.div`
-    padding: 2rem 2rem;
-`
-
 export const Infokort = styled.div`
     .typo-element {
         margin: 0.3rem 0;
