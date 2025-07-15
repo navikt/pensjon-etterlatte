@@ -1,10 +1,9 @@
-import { RHFBicInput, RHFIbanInput, RHFInput } from '../../../felles/rhf/RHFInput'
+import { Box, Heading, HelpText } from '@navikt/ds-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Heading, HelpText } from '@navikt/ds-react'
 import styled from 'styled-components'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import Bredde from '../../../../typer/bredde'
+import { RHFBicInput, RHFIbanInput, RHFInput } from '../../../felles/rhf/RHFInput'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -16,26 +15,26 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
     const prefix = kontonummerTilhoererBarn ? 'barnepensjon.' : ''
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('omDeg.utbetalingsInformasjon.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFInput
                     name={`${prefix}utbetalingsInformasjon.utenlandskBankNavn`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankNavn')}
                     autoComplete="off"
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFInput
                     name={`${prefix}utbetalingsInformasjon.utenlandskBankAdresse`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankAdresse')}
                     autoComplete="off"
                 />
-            </SkjemaElement>
-            <SkjemaElement>
+            </Box>
+            <Box marginBlock="4">
                 <RHFIbanInput
                     name={`${prefix}utbetalingsInformasjon.iban`}
                     htmlSize={Bredde.M}
@@ -47,8 +46,8 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                     }
                     autoComplete="off"
                 />
-            </SkjemaElement>
-            <SkjemaElement>
+            </Box>
+            <Box marginBlock="4">
                 <RHFBicInput
                     name={`${prefix}utbetalingsInformasjon.swift`}
                     htmlSize={Bredde.S}
@@ -60,7 +59,7 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                     }
                     autoComplete="off"
                 />
-            </SkjemaElement>
+            </Box>
         </>
     )
 }

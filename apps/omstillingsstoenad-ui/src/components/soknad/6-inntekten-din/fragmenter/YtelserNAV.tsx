@@ -1,4 +1,4 @@
-import { Heading, ReadMore, VStack } from '@navikt/ds-react'
+import { Box, Heading, ReadMore, VStack } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -7,7 +7,6 @@ import { IInntekt, SoekbareYtelserNAV } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const YtelserNAV = () => {
@@ -35,7 +34,7 @@ const YtelserNAV = () => {
                 )}
             </VStack>
             {harSoektYtelse === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFCheckboksGruppe
                         name={'ytelserNAV.soekteYtelser'}
                         legend={t('inntektenDin.ytelserNAV.soekteYtelser')}
@@ -43,7 +42,7 @@ const YtelserNAV = () => {
                             return { children: t(value), value, required: true }
                         })}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </SkjemaGruppe>
     )

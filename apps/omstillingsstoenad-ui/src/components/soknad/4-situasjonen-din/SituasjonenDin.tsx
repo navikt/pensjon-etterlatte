@@ -17,7 +17,6 @@ import Datovelger from '../../felles/Datovelger'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 
@@ -71,11 +70,11 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Heading size={'medium'} className={'center'}>
                         {t('situasjonenDin.tittel')}
                     </Heading>
-                </SkjemaElement>
+                </Box>
 
                 <SkjemaGruppe>
                     <GuidePanel>
@@ -91,55 +90,53 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                 <NySivilstatus />
 
                 <SkjemaGruppe>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <Heading size={'small'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
-                    </SkjemaElement>
-                    <SkjemaElement>
+                    </Box>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio name={'omsorgMinstFemti'} legend={t('situasjonenDin.omsorgMinstFemti')} />
-                    </SkjemaElement>
+                    </Box>
                     {harOmsorg === IValg.JA && (
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <Alert variant={'info'}>
                                 <BodyShort>{t('situasjonenDin.omsorgMinstFemti.dokumentasjon')}</BodyShort>
                             </Alert>
-                        </SkjemaElement>
+                        </Box>
                     )}
 
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio
                             name={'gravidEllerNyligFoedt'}
                             legend={t('situasjonenDin.gravidEllerNyligFoedt')}
                         />
-                    </SkjemaElement>
+                    </Box>
                 </SkjemaGruppe>
 
                 <SkjemaGruppe>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <Heading size={'small'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
-                    </SkjemaElement>
-                    <SkjemaElement>
+                    </Box>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />
-                    </SkjemaElement>
+                    </Box>
 
                     {bosattINorge === IValg.JA && (
                         <SkjemaGruppe>
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <RHFSpoersmaalRadio
                                     name={'oppholderSegIUtlandet.svar'}
                                     legend={t('situasjonenDin.oppholderSegIUtlandet.svar')}
                                     description={t('situasjonenDin.oppholdHvorfor')}
                                 />
-                            </SkjemaElement>
+                            </Box>
                             {oppholderSegIUtlandet === IValg.JA && (
                                 <>
-                                    <Box maxWidth="14rem">
-                                        <SkjemaGruppe>
-                                            <RHFCombobox
-                                                name={`oppholderSegIUtlandet.oppholdsland`}
-                                                label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
-                                                options={countries}
-                                            />
-                                        </SkjemaGruppe>
+                                    <Box maxWidth="14rem" marginBlock="4">
+                                        <RHFCombobox
+                                            name={`oppholderSegIUtlandet.oppholdsland`}
+                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
+                                            options={countries}
+                                        />
                                     </Box>
 
                                     <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>

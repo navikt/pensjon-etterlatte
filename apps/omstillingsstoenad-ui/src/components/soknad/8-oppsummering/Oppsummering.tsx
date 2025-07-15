@@ -1,4 +1,4 @@
-import { Accordion, Alert, BodyLong, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, Box, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
@@ -13,7 +13,6 @@ import { ActionTypes } from '../../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import Navigasjon from '../../felles/Navigasjon'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
@@ -92,15 +91,15 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
 
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'} className={'center'}>
                     {t('oppsummering.tittel')}
                 </Heading>
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <BodyLong>{t('oppsummering.beskrivelse')}</BodyLong>
-            </SkjemaElement>
+            </Box>
 
             <Accordion>
                 <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad} />

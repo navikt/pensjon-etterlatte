@@ -1,10 +1,9 @@
-import { useTranslation } from 'react-i18next'
-import { Button, Heading, VStack } from '@navikt/ds-react'
-import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
+import { Box, Button, Heading, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
-import SelvstendigInfokort from './SelvstendigInfokort'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import SelvstendigInfokort from './SelvstendigInfokort'
 
 const Selvstendig = () => {
     const { t } = useTranslation()
@@ -31,9 +30,9 @@ const Selvstendig = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.selvstendig.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
             <VStack gap="4">
                 {fields.map((field: FieldArrayWithId, index: number) => (

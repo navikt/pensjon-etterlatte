@@ -1,17 +1,16 @@
-import { memo, useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { DeleteFilled } from '@navikt/ds-icons'
 import { BodyShort, Box, Button, Label, ReadMore } from '@navikt/ds-react'
+import { memo, useEffect, useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { Arbeidsmengde } from '../../../../typer/arbeidsforhold'
+import Bredde from '../../../../typer/bredde'
+import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { DeleteFilled } from '@navikt/ds-icons'
-import { useFormContext } from 'react-hook-form'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import Bredde from '../../../../typer/bredde'
-import { Arbeidsmengde } from '../../../../typer/arbeidsforhold'
-import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { NumberSelectRad } from '../../../felles/StyledComponents'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 interface Props {
     lengde: number
@@ -50,7 +49,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     htmlSize={Bredde.M}
                 />
 
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFNumberInput
                         name={`${selvstendigName}.orgnr` as const}
                         description={t('merOmSituasjonenDin.selvstendig.orgnrplaceholder')}
@@ -59,7 +58,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                         minLength={9}
                         htmlSize={Bredde.S}
                     />
-                </SkjemaElement>
+                </Box>
             </SkjemaGruppe>
 
             <SkjemaGruppe>
@@ -67,7 +66,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                 <BodyShort textColor="subtle">
                     {t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}
                 </BodyShort>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <NumberSelectRad>
                         <RHFNumberInput
                             name={`${selvstendigName}.arbeidsmengde.svar` as const}
@@ -86,18 +85,18 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                             label={t('felles.velg.tittel')}
                         />
                     </NumberSelectRad>
-                </SkjemaElement>
+                </Box>
             </SkjemaGruppe>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar')}
                 />
-            </SkjemaElement>
+            </Box>
 
             <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFInputArea
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
@@ -105,13 +104,13 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                         className={'width-50'}
                         valgfri={!visEndretArbeidssituasjon}
                     />
-                </SkjemaElement>
+                </Box>
             </div>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor')}
                 </ReadMore>
-            </SkjemaElement>
+            </Box>
 
             {lengde > 1 && (
                 <div>

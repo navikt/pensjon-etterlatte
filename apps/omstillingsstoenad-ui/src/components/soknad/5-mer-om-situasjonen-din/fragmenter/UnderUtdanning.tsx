@@ -1,20 +1,19 @@
-import React from 'react'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { RHFInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
-import Datovelger from '../../../felles/Datovelger'
-import { useTranslation } from 'react-i18next'
-import { BodyShort, Heading, RadioProps } from '@navikt/ds-react'
-import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
-import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { IValg } from '../../../../typer/Spoersmaal'
-import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
+import { BodyShort, Box, Heading, RadioProps } from '@navikt/ds-react'
 import { addYears, isBefore } from 'date-fns'
-import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { Studieform } from '../../../../typer/utdanning'
+import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
+import { useTranslation } from 'react-i18next'
+import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
 import Bredde from '../../../../typer/bredde'
+import { IValg } from '../../../../typer/Spoersmaal'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
+import { Studieform } from '../../../../typer/utdanning'
+import Datovelger from '../../../felles/Datovelger'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
+import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import { SkjemaGruppeRad } from '../../../felles/StyledComponents'
 
 const UnderUtdanning = () => {
     const { t } = useTranslation()
@@ -31,24 +30,24 @@ const UnderUtdanning = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studiested'}
                     label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested')}
                     htmlSize={Bredde.M}
                 />
-            </SkjemaElement>
-            <SkjemaElement>
+            </Box>
+            <Box marginBlock="4">
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studie'}
                     label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie')}
                     htmlSize={Bredde.M}
                 />
-            </SkjemaElement>
+            </Box>
 
             <RHFRadio
                 name={`utdanning.naavaerendeUtdanning.studieform` as const}
@@ -59,24 +58,24 @@ const UnderUtdanning = () => {
                 })}
             </RHFRadio>
             {studieform === Studieform.deltid && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFProsentInput
                         name={'utdanning.naavaerendeUtdanning.studieprosent'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent')}
                         description={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent.beskrivelse')}
                         htmlSize={Bredde.S}
                     />
-                </SkjemaElement>
+                </Box>
             )}
-            <SkjemaElement>
-                <SkjemaElement>
+            <Box marginBlock="4">
+                <Box marginBlock="4">
                     <Heading size={'small'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}
                     </Heading>
                     <BodyShort textColor={'subtle'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
                     </BodyShort>
-                </SkjemaElement>
+                </Box>
                 <SkjemaGruppeRad>
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.startDato'}
@@ -92,23 +91,23 @@ const UnderUtdanning = () => {
                         maxDate={addYears(new Date(), 10)}
                     />
                 </SkjemaGruppeRad>
-            </SkjemaElement>
-            <SkjemaElement>
+            </Box>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={`utdanning.naavaerendeUtdanning.godkjentUtdanning` as const}
                     legend={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning')}
                     vetIkke
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'utdanning.aktivitetsplan.svar'}
                     legend={t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar')}
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <br />
                 <RHFCheckboksGruppe
                     name={'utdanning.soeknadOmSkolepenger'}
@@ -122,9 +121,9 @@ const UnderUtdanning = () => {
                         },
                     ]}
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFCheckboksGruppe
                     name={'utdanning.soeknadOmTilleggsstoenadUtdanning'}
                     legend={t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning')}
@@ -137,7 +136,7 @@ const UnderUtdanning = () => {
                         },
                     ]}
                 />
-            </SkjemaElement>
+            </Box>
         </SkjemaGruppe>
     )
 }

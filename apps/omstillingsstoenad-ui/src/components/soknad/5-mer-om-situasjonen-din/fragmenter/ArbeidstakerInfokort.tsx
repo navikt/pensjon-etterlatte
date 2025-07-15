@@ -1,17 +1,16 @@
-import { memo, useEffect, useState } from 'react'
-import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
-import { useTranslation } from 'react-i18next'
+import { DeleteFilled } from '@navikt/ds-icons'
 import { BodyShort, Box, Button, Heading, RadioProps, ReadMore } from '@navikt/ds-react'
+import { memo, useEffect, useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
+import Bredde from '../../../../typer/bredde'
+import { IValg } from '../../../../typer/Spoersmaal'
+import Datovelger from '../../../felles/Datovelger'
 import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { IValg } from '../../../../typer/Spoersmaal'
-import { DeleteFilled } from '@navikt/ds-icons'
-import { useFormContext } from 'react-hook-form'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import Datovelger from '../../../felles/Datovelger'
-import Bredde from '../../../../typer/bredde'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 interface Props {
@@ -78,15 +77,15 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     index + 1
                 }`}</Heading>
             )}
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFInput
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
                     label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver')}
                     htmlSize={Bredde.M}
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFRadio
                     name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
                     legend={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
@@ -95,19 +94,19 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         return { children: t(value), value } as RadioProps
                     })}
                 </RHFRadio>
-            </SkjemaElement>
+            </Box>
 
             <SkjemaGruppe>
                 <div style={{ display: visFastArbeidsmengde ? 'block' : 'none' }}>
-                    <SkjemaElement>
-                        <SkjemaElement>
+                    <Box marginBlock="4">
+                        <Box marginBlock="4">
                             <Heading size={'small'}>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
                             <BodyShort>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.beskrivelse')}
                             </BodyShort>
-                        </SkjemaElement>
+                        </Box>
                         <RHFProsentInput
                             name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
                             label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
@@ -115,19 +114,19 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                             valgfri={!visFastArbeidsmengde}
                             aria-hidden={!visFastArbeidsmengde}
                         />
-                    </SkjemaElement>
+                    </Box>
                 </div>
 
                 <div style={{ display: visMidlertidigArbeidsmengde ? 'block' : 'none' }}>
-                    <SkjemaElement>
-                        <SkjemaElement>
+                    <Box marginBlock="4">
+                        <Box marginBlock="4">
                             <Heading size={'small'}>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
                             <BodyShort>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse')}
                             </BodyShort>
-                        </SkjemaElement>
+                        </Box>
                         <NumberSelectRad>
                             <RHFNumberInput
                                 name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
@@ -149,14 +148,14 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                         </NumberSelectRad>
-                        <SkjemaElement>
+                        <Box marginBlock="4">
                             <RHFSpoersmaalRadio
                                 name={`arbeidsforhold[${index}].midlertidig.svar` as const}
                                 legend={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
                                 valgfri={!visMidlertidigArbeidsmengde}
                                 aria-hidden={!visMidlertidigArbeidsmengde}
                             />
-                        </SkjemaElement>
+                        </Box>
                         <div style={{ display: visSluttdato ? 'block' : 'none' }}>
                             <Datovelger
                                 name={`arbeidsforhold[${index}].midlertidig.sluttdatoVelger`}
@@ -166,7 +165,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 aria-hidden={!visSluttdato}
                             />
                         </div>
-                    </SkjemaElement>
+                    </Box>
                 </div>
             </SkjemaGruppe>
 
@@ -176,7 +175,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     legend={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                 />
                 <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFInputArea
                             name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
                             label={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}
@@ -184,25 +183,12 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                             className={'width-50'}
                             valgfri={!visEndretArbeidssituasjon}
                         />
-                    </SkjemaElement>
+                    </Box>
                 </div>
                 <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 </ReadMore>
             </SkjemaGruppe>
-
-            {/* VENTER PÅ AVKLARING OM DEN KAN BRUKES
-            * <SkjemaElement>
-                <RHFRadio
-                    name={`arbeidsforhold[${index}].sagtOppEllerRedusert.svar` as const}
-                    legend={t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar')}
-                >
-                    {Object.values(SagtOppEllerRedusert).map((value) => {
-                        return { children: t(value), value } as RadioProps
-                    })}
-                </RHFRadio>
-            </SkjemaElement>
-            * */}
 
             {lengde > 1 && (
                 <div>

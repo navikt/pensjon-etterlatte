@@ -1,4 +1,4 @@
-import { Heading, ReadMore, VStack } from '@navikt/ds-react'
+import { Box, Heading, ReadMore, VStack } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -8,7 +8,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const YtelserAndre = () => {
@@ -37,7 +36,7 @@ const YtelserAndre = () => {
                 )}
             </VStack>
             {harSoektYtelse === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFCheckboksGruppe
                         name={'ytelserAndre.soekteYtelser'}
                         legend={t('inntektenDin.ytelserAndre.soekteYtelser')}
@@ -45,11 +44,11 @@ const YtelserAndre = () => {
                             return { children: t(value), value, required: true }
                         })}
                     />
-                </SkjemaElement>
+                </Box>
             )}
             {soekteYtelser && !!soekteYtelser.length && (
                 <>
-                    <SkjemaElement>
+                    <Box marginBlock="4">
                         <RHFInputArea
                             name={'ytelserAndre.pensjonsordning'}
                             label={t('inntektenDin.ytelserAndre.pensjonsordning')}
@@ -58,7 +57,7 @@ const YtelserAndre = () => {
                             className={'width-50'}
                             resize={'vertical'}
                         />
-                    </SkjemaElement>
+                    </Box>
                 </>
             )}
         </SkjemaGruppe>

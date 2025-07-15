@@ -1,16 +1,15 @@
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import Datovelger from '../../../felles/Datovelger'
-import { ISoekerOgAvdoed } from '../../../../typer/person'
+import { Box, HGrid } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
-import { antallAarMellom } from '../../../../utils/dato'
-import { IValg } from '../../../../typer/Spoersmaal'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
-import { HGrid } from '@navikt/ds-react'
+import { ISoekerOgAvdoed } from '../../../../typer/person'
+import { IValg } from '../../../../typer/Spoersmaal'
+import { antallAarMellom } from '../../../../utils/dato'
+import Datovelger from '../../../felles/Datovelger'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const giftMindreEnn15aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string) => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0
@@ -38,7 +37,7 @@ const SkiltFraAvdoede = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                     <Datovelger
                         name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
@@ -54,7 +53,7 @@ const SkiltFraAvdoede = () => {
                         maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
                     />
                 </HGrid>
-            </SkjemaElement>
+            </Box>
 
             <RHFSpoersmaalRadio
                 name={'forholdTilAvdoede.fellesBarn'}
@@ -63,30 +62,30 @@ const SkiltFraAvdoede = () => {
             />
 
             {fellesBarn === IValg.JA && mindreEnn15aar === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFSpoersmaalRadio
                         name={'forholdTilAvdoede.samboereMedFellesBarn'}
                         legend={t('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')}
                     />
-                </SkjemaElement>
+                </Box>
             )}
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.mottokBidrag.svar'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
                     description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
                 />
-            </SkjemaElement>
+            </Box>
 
             {mottokBidrag === IValg.JA && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFValutaInput
                         name={'forholdTilAvdoede.mottokBidrag.sum'}
                         label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
                         description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </SkjemaGruppe>
     )

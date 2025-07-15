@@ -1,4 +1,4 @@
-import { GuidePanel, Heading, VStack } from '@navikt/ds-react'
+import { Box, GuidePanel, Heading, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +12,6 @@ import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
-import { SkjemaElement } from '../../felles/SkjemaElement'
 import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { ForventetInntektIAar } from './fragmenter/ForventetInntektIAar'
 import { ForventetInntektTilNesteAar } from './fragmenter/ForventetInntektTilNesteAar'
@@ -74,11 +73,11 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()}>
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <Heading size={'medium'} className={'center'}>
                         {t('inntektenDin.tittel')}
                     </Heading>
-                </SkjemaElement>
+                </Box>
 
                 <SkjemaGruppe>
                     <GuidePanel>

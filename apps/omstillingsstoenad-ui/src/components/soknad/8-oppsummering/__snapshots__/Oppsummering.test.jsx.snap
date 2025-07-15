@@ -3,7 +3,8 @@
 exports[`Oppsummering > Snapshot 1`] = `
 <div>
   <div
-    class="sc-kvnevz eywiWY"
+    class="navds-r-mb navds-box"
+    style="--__ac-r-mb-xs: var(--a-spacing-4);"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -12,7 +13,8 @@ exports[`Oppsummering > Snapshot 1`] = `
     </h1>
   </div>
   <div
-    class="sc-kvnevz eywiWY"
+    class="navds-r-mb navds-box"
+    style="--__ac-r-mb-xs: var(--a-spacing-4);"
   >
     <p
       class="navds-body-long navds-body-long--medium"
@@ -943,7 +945,7 @@ exports[`Oppsummering > Snapshot 1`] = `
       class="navds-modal__footer"
     >
       <div
-        class="sc-dYwGCk bsHyJX"
+        class="sc-hwkwBN jZGKBl"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -973,7 +975,7 @@ exports[`Oppsummering > Snapshot 1`] = `
         </button>
       </div>
       <div
-        class="sc-dYwGCk bsHyJX"
+        class="sc-hwkwBN jZGKBl"
       >
         <button
           class="navds-button navds-button--tertiary navds-button--medium"

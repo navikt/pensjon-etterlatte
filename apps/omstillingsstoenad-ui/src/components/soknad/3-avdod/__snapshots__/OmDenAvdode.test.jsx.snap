@@ -3,7 +3,8 @@
 exports[`Om den avdøde > Snapshot 1`] = `
 <div>
   <div
-    class="sc-kCuUfV ezWZwi"
+    class="navds-r-mb navds-box"
+    style="--__ac-r-mb-xs: var(--a-spacing-4);"
   >
     <h1
       class="center navds-heading navds-heading--medium"
@@ -71,7 +72,8 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-kCuUfV ezWZwi"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           class="navds-form-field navds-form-field--medium"
@@ -171,106 +173,103 @@ exports[`Om den avdøde > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="navds-r-maxw navds-box"
-        style="--__ac-r-maxw-xs: 14rem;"
+        class="navds-r-mb navds-r-maxw navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4); --__ac-r-maxw-xs: 14rem;"
       >
         <div
-          class="sc-kCuUfV ezWZwi"
+          id="statsborgerskap"
         >
           <div
-            id="statsborgerskap"
+            class="navds-form-field navds-form-field--medium"
           >
-            <div
-              class="navds-form-field navds-form-field--medium"
+            <label
+              class="navds-form-field__label navds-label"
+              for="comboboxfield-«r7»"
             >
-              <label
-                class="navds-form-field__label navds-label"
-                for="comboboxfield-«r7»"
-              >
-                omDenAvdoede.statsborgerskap
-              </label>
+              omDenAvdoede.statsborgerskap
+            </label>
+            <div
+              class="navds-combobox__wrapper"
+            >
               <div
-                class="navds-combobox__wrapper"
+                class="navds-combobox__wrapper-inner navds-text-field__input"
               >
-                <div
-                  class="navds-combobox__wrapper-inner navds-text-field__input"
+                <ul
+                  class="navds-chips navds-combobox__selected-options navds-chips--medium navds-body-short navds-body-short--small"
+                  data-type="single"
                 >
-                  <ul
-                    class="navds-chips navds-combobox__selected-options navds-chips--medium navds-body-short navds-body-short--small"
-                    data-type="single"
-                  >
-                    <li>
-                      <div
-                        class="navds-combobox__selected-options--no-bg"
-                      />
-                    </li>
-                    <li>
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="comboboxfield-«r7»-filtered-options"
-                        aria-describedby="comboboxfield-«r7»-no-hits"
-                        aria-expanded="false"
-                        autocomplete="off"
-                        class="navds-combobox__input navds-body-short navds-body-short--medium navds-combobox__input--hide-caret"
-                        id="comboboxfield-«r7»"
-                        role="combobox"
-                        type="text"
-                        value=""
-                      />
-                    </li>
-                  </ul>
-                  <div
-                    aria-hidden="true"
-                    class="navds-combobox__button-toggle-list"
-                  >
-                    <svg
-                      fill="none"
-                      focusable="false"
-                      height="1em"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        clip-rule="evenodd"
-                        d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div
-                  class="navds-combobox__list navds-combobox__list--closed"
-                  id="comboboxfield-«r7»-filtered-options"
-                  tabindex="-1"
-                >
-                  <div
-                    class="navds-combobox__list_non-selectables"
-                    role="status"
-                  >
+                  <li>
                     <div
-                      class="navds-combobox__list-item--no-options"
-                      id="comboboxfield-«r7»-no-hits"
-                    >
-                      Ingen søketreff
-                    </div>
-                  </div>
+                      class="navds-combobox__selected-options--no-bg"
+                    />
+                  </li>
+                  <li>
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="comboboxfield-«r7»-filtered-options"
+                      aria-describedby="comboboxfield-«r7»-no-hits"
+                      aria-expanded="false"
+                      autocomplete="off"
+                      class="navds-combobox__input navds-body-short navds-body-short--medium navds-combobox__input--hide-caret"
+                      id="comboboxfield-«r7»"
+                      role="combobox"
+                      type="text"
+                      value=""
+                    />
+                  </li>
+                </ul>
+                <div
+                  aria-hidden="true"
+                  class="navds-combobox__button-toggle-list"
+                >
+                  <svg
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="comboboxfield-error-«r7»"
-              />
+                class="navds-combobox__list navds-combobox__list--closed"
+                id="comboboxfield-«r7»-filtered-options"
+                tabindex="-1"
+              >
+                <div
+                  class="navds-combobox__list_non-selectables"
+                  role="status"
+                >
+                  <div
+                    class="navds-combobox__list-item--no-options"
+                    id="comboboxfield-«r7»-no-hits"
+                  >
+                    Ingen søketreff
+                  </div>
+                </div>
+              </div>
             </div>
+            <div
+              aria-live="polite"
+              aria-relevant="additions removals"
+              class="navds-form-field__error"
+              id="comboboxfield-error-«r7»"
+            />
           </div>
         </div>
       </div>
       <div
-        class="sc-kCuUfV ezWZwi"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <section
           class="sc-hvigdm hNvzVz"
@@ -1282,7 +1281,8 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.doedsfallAarsakHvorfor
       </p>
       <div
-        class="sc-kCuUfV ezWZwi"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           id="doedsfallAarsak"
@@ -1407,7 +1407,8 @@ exports[`Om den avdøde > Snapshot 1`] = `
         omDenAvdoede.boddEllerJobbetUtland.ingress
       </p>
       <div
-        class="sc-kCuUfV ezWZwi"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           id="boddEllerJobbetUtland.svar"
@@ -1622,7 +1623,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-eqYatC dPeWcl"
+          class="sc-dYwGCk bsHyJX"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1652,7 +1653,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-eqYatC dPeWcl"
+          class="sc-dYwGCk bsHyJX"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

@@ -1,16 +1,15 @@
-import { useTranslation } from 'react-i18next'
+import { Box, Heading } from '@navikt/ds-react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Heading } from '@navikt/ds-react'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
 import { IInntekt, InntektsTyper } from '../../../../typer/inntekt'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import IngenInntekt from './IngenInntekt'
+import InntektViaYtelserFraNAV from './InntektViaYtelserFraNAV'
 import Loennsinntekt from './Loennsinntekt'
 import Naeringsinntekt from './Naeringsinntekt'
 import PensjonEllerUfoere from './PensjonEllerUfoere'
-import InntektViaYtelserFraNAV from './InntektViaYtelserFraNAV'
-import IngenInntekt from './IngenInntekt'
-import styled from 'styled-components'
 
 const MarginBottom = styled.div<{ $margin: boolean }>`
     margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
@@ -25,9 +24,9 @@ const Inntekt = () => {
 
     return (
         <MarginBottom $margin={!!inntektstype?.length}>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'medium'}>{t('inntektenDin.undertittel')}</Heading>
-            </SkjemaElement>
+            </Box>
             <RHFCheckboksGruppe
                 name={'inntektstyper'}
                 legend={t('inntektenDin.inntektstyper')}

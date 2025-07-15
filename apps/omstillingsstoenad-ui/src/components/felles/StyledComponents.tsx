@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { List, Modal } from '@navikt/ds-react'
+import styled from 'styled-components'
 import { SkjemaGruppe } from './SkjemaGruppe'
 
 const navigasjonsRad = `
@@ -72,33 +72,6 @@ export const SkjemaGruppeRad = styled.div`
 
     @media screen and (max-width: 650px) {
         flex-direction: column;
-    }
-`
-
-export const SkjemaGruppeIngress = styled(SkjemaGruppe)`
-    margin-bottom: 1em !important;
-`
-
-export const SpoersmaalModal = styled(Modal)`
-    max-width: 650px;
-    width: 100%;
-    position: fixed !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    text-align: center;
-    padding: 3rem;
-
-    @media screen and (max-width: 650px) {
-        .knapp {
-            font-size: 0.8em;
-            padding: 0 1em;
-        }
-    }
-
-    .navds-modal__button {
-        visibility: hidden;
     }
 `
 

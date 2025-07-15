@@ -1,17 +1,16 @@
+import { BodyShort, Box, Heading, HGrid, RadioProps } from '@navikt/ds-react'
 import React from 'react'
-import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { useTranslation } from 'react-i18next'
-import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
-import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { useFormContext } from 'react-hook-form'
-import { BodyShort, Heading, HGrid, RadioProps } from '@navikt/ds-react'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
+import { useTranslation } from 'react-i18next'
 import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
-import { IValg } from '../../../../typer/Spoersmaal'
-import Datovelger from '../../../felles/Datovelger'
 import Bredde from '../../../../typer/bredde'
+import { IValg } from '../../../../typer/Spoersmaal'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
+import Datovelger from '../../../felles/Datovelger'
+import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
+import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const TilbudOmJobb = () => {
     const { t } = useTranslation()
@@ -27,17 +26,17 @@ const TilbudOmJobb = () => {
 
     return (
         <SkjemaGruppe>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.tilbudOmJobb.tittel')}</Heading>
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFInput
                     name={'tilbudOmJobb.arbeidssted'}
                     label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted')}
                     htmlSize={Bredde.M}
                 />
-            </SkjemaElement>
+            </Box>
 
             <SkjemaGruppe>
                 <Datovelger
@@ -47,7 +46,7 @@ const TilbudOmJobb = () => {
                 />
             </SkjemaGruppe>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFRadio
                     name={`tilbudOmJobb.ansettelsesforhold` as const}
                     legend={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold')}
@@ -56,36 +55,38 @@ const TilbudOmJobb = () => {
                         return { children: t(value), value } as RadioProps
                     })}
                 </RHFRadio>
-            </SkjemaElement>
+            </Box>
 
             {ansettelsesforhold === StillingType.fast && (
-                <SkjemaElement>
-                    <SkjemaElement>
+                <Box marginBlock="4">
+                    <Box marginBlock="4">
                         <Heading size={'small'}>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
                         </Heading>
-                        <BodyShort>{t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}</BodyShort>
-                    </SkjemaElement>
+                        <BodyShort>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}
+                        </BodyShort>
+                    </Box>
                     <RHFProsentInput
                         name={`tilbudOmJobb.arbeidsmengde.svar` as const}
                         label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast')}
                         htmlSize={Bredde.XS}
                     />
-                </SkjemaElement>
+                </Box>
             )}
 
             {(ansettelsesforhold === StillingType.midlertidig ||
                 ansettelsesforhold === StillingType.tilkallingsvikar) && (
-                <SkjemaElement>
-                    <SkjemaElement>
+                <Box marginBlock="4">
+                    <Box marginBlock="4">
                         <Heading size={'small'}>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
                         </Heading>
                         <BodyShort>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}
                         </BodyShort>
-                    </SkjemaElement>
-                    <SkjemaElement>
+                    </Box>
+                    <Box marginBlock="4">
                         <HGrid
                             columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(8rem, 10rem))' }}
                             gap={'4'}
@@ -106,13 +107,13 @@ const TilbudOmJobb = () => {
                                 label={t('felles.velg.tittel')}
                             />
                         </HGrid>
-                    </SkjemaElement>
-                    <SkjemaElement>
+                    </Box>
+                    <Box marginBlock="4">
                         <RHFSpoersmaalRadio
                             name={`tilbudOmJobb.midlertidig.svar` as const}
                             legend={t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar')}
                         />
-                    </SkjemaElement>
+                    </Box>
                     {sluttdato === IValg.JA && (
                         <Datovelger
                             name={`tilbudOmJobb.midlertidig.sluttdatoVelger`}
@@ -120,15 +121,15 @@ const TilbudOmJobb = () => {
                             minDate={new Date()}
                         />
                     )}
-                </SkjemaElement>
+                </Box>
             )}
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'tilbudOmJobb.aktivitetsplan.svar'}
                     legend={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
                 />
-            </SkjemaElement>
+            </Box>
         </SkjemaGruppe>
     )
 }

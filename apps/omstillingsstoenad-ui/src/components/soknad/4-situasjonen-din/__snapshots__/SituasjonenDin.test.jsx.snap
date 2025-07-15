@@ -6,7 +6,8 @@ exports[`Omsorg for barn > Snapshot 1`] = `
     autocomplete="on"
   >
     <div
-      class="sc-dFVmKS cNTkGj"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-4);"
     >
       <h1
         class="center navds-heading navds-heading--medium"
@@ -351,7 +352,8 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       class="sc-hvigdm lfnmVP"
     >
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -360,7 +362,8 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           id="omsorgMinstFemti"
@@ -443,7 +446,8 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         </div>
       </div>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           id="gravidEllerNyligFoedt"
@@ -530,7 +534,8 @@ exports[`Omsorg for barn > Snapshot 1`] = `
       class="sc-hvigdm lfnmVP"
     >
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <h1
           class="navds-heading navds-heading--small"
@@ -539,7 +544,8 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dFVmKS cNTkGj"
+        class="navds-r-mb navds-box"
+        style="--__ac-r-mb-xs: var(--a-spacing-4);"
       >
         <div
           id="bosattINorge"
@@ -726,7 +732,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-lgpSej eHgUfl"
+          class="sc-kNOymR jYfqUm"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -756,7 +762,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-lgpSej eHgUfl"
+          class="sc-kNOymR jYfqUm"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

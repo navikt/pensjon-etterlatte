@@ -1,12 +1,12 @@
-import { IValg } from '../../../../typer/Spoersmaal'
+import { Box } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
-import { ISoekerOgAvdoed } from '../../../../typer/person'
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import Datovelger from '../../../felles/Datovelger'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
 import { useSoknadContext } from '../../../../context/soknad/SoknadContext'
+import { ISoekerOgAvdoed } from '../../../../typer/person'
+import { IValg } from '../../../../typer/Spoersmaal'
+import Datovelger from '../../../felles/Datovelger'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 
 const SamboerMedAvdoede = () => {
     const { t } = useTranslation()
@@ -20,30 +20,30 @@ const SamboerMedAvdoede = () => {
 
     return (
         <>
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <Datovelger
                     name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
                     label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
                     minDate={state.foedselsdato}
                     maxDate={datoforDoedsfallet || new Date()}
                 />
-            </SkjemaElement>
+            </Box>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.fellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
                     description={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse')}
                 />
-            </SkjemaElement>
+            </Box>
 
             {ingenFellesBarn && (
-                <SkjemaElement>
+                <Box marginBlock="4">
                     <RHFSpoersmaalRadio
                         name={'forholdTilAvdoede.tidligereGift'}
                         legend={t('omDegOgAvdoed.forholdTilAvdoede.tidligereGift')}
                     />
-                </SkjemaElement>
+                </Box>
             )}
         </>
     )

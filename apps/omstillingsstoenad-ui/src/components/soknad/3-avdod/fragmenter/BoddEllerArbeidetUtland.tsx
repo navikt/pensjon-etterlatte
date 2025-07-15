@@ -1,20 +1,19 @@
-import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { IValg } from '../../../../typer/Spoersmaal'
-import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
-import { IAvdoed, OppholdUtlandType } from '../../../../typer/person'
-import { RHFNumberInput } from '../../../felles/rhf/RHFInput'
-import Datovelger from '../../../felles/Datovelger'
-import React, { useEffect } from 'react'
-import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
-import { useTranslation } from 'react-i18next'
 import { DeleteFilled } from '@navikt/ds-icons'
 import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label, VStack } from '@navikt/ds-react'
-import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import useCountries from '../../../../hooks/useCountries'
-import { SkjemaElement } from '../../../felles/SkjemaElement'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
-import { useValutaer } from '../../../../hooks/useValutaer'
+import React, { useEffect } from 'react'
+import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
+import useCountries from '../../../../hooks/useCountries'
+import { useValutaer } from '../../../../hooks/useValutaer'
+import { IAvdoed, OppholdUtlandType } from '../../../../typer/person'
+import { IValg } from '../../../../typer/Spoersmaal'
+import Datovelger from '../../../felles/Datovelger'
+import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
+import { RHFNumberInput } from '../../../felles/rhf/RHFInput'
+import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 interface Props {
     datoForDoedsfallet?: Date
@@ -57,13 +56,13 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
             <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
             <BodyLong>{t('omDenAvdoede.boddEllerJobbetUtland.ingress')}</BodyLong>
 
-            <SkjemaElement>
+            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'boddEllerJobbetUtland.svar'}
                     legend={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
                     vetIkke
                 />
-            </SkjemaElement>
+            </Box>
 
             {boddEllerArbeidetUtland === IValg.JA && (
                 <VStack gap="4">
@@ -75,17 +74,15 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                             background={'surface-selected'}
                             padding="4"
                         >
-                            <Box maxWidth="14rem">
-                                <SkjemaElement>
-                                    <RHFCombobox
-                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].land`}
-                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
-                                        options={allCountries}
-                                    />
-                                </SkjemaElement>
+                            <Box maxWidth="14rem" marginBlock="4">
+                                <RHFCombobox
+                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].land`}
+                                    label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
+                                    options={allCountries}
+                                />
                             </Box>
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
                                     legend={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse')}
@@ -102,24 +99,22 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         },
                                     ]}
                                 />
-                            </SkjemaElement>
+                            </Box>
 
-                            <SkjemaElement>
-                                <VStack gap="4">
-                                    <Datovelger
-                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
-                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
-                                        maxDate={datoForDoedsfallet || new Date()}
-                                        valgfri
-                                    />
-                                    <Datovelger
-                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
-                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
-                                        maxDate={datoForDoedsfallet || new Date()}
-                                        valgfri
-                                    />
-                                </VStack>
-                            </SkjemaElement>
+                            <VStack gap="4" marginBlock="4">
+                                <Datovelger
+                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
+                                    label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
+                                    maxDate={datoForDoedsfallet || new Date()}
+                                    valgfri
+                                />
+                                <Datovelger
+                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].tilDato` as const}
+                                    label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
+                                    maxDate={datoForDoedsfallet || new Date()}
+                                    valgfri
+                                />
+                            </VStack>
 
                             <RHFSpoersmaalRadio
                                 name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
@@ -130,7 +125,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                 vetIkke
                             />
 
-                            <SkjemaElement>
+                            <Box marginBlock="4">
                                 <Label>
                                     {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label')}
                                 </Label>
@@ -143,24 +138,24 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}
                                     align={'start'}
                                 >
-                                    <SkjemaElement>
+                                    <Box marginBlock="4">
                                         <RHFNumberInput
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beloep`}
                                             label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
                                             valgfri
                                         />
-                                    </SkjemaElement>
+                                    </Box>
 
-                                    <SkjemaElement>
+                                    <Box marginBlock="4">
                                         <RHFSelect
                                             name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.valuta`}
                                             label={t('felles.velgValuta')}
                                             selectOptions={valutaer}
                                             valgfri
                                         />
-                                    </SkjemaElement>
+                                    </Box>
                                 </HGrid>
-                            </SkjemaElement>
+                            </Box>
 
                             {fields.length > 1 && (
                                 <div>
