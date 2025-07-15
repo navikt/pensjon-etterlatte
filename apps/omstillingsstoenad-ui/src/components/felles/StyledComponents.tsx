@@ -1,6 +1,5 @@
 import { List, Modal } from '@navikt/ds-react'
 import styled from 'styled-components'
-import { SkjemaGruppe } from './SkjemaGruppe'
 
 const navigasjonsRad = `
   width: 100%;

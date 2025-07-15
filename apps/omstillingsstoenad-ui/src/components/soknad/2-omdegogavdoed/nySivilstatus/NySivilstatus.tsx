@@ -1,10 +1,9 @@
-import { RHFRadio } from '../../../felles/rhf/RHFRadio'
-import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
+import { Box, RadioProps } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { RadioProps } from '@navikt/ds-react'
+import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
+import { RHFRadio } from '../../../felles/rhf/RHFRadio'
 import SamboerSkjema from './SamboerSkjema'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const NySivilstatus = () => {
     const { t } = useTranslation()
@@ -13,7 +12,7 @@ const NySivilstatus = () => {
 
     const sivilstatus = watch('nySivilstatus.sivilstatus')
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <RHFRadio
                 legend={t('situasjonenDin.nySivilstatus.sivilstatus')}
                 description={t('situasjonenDin.nySivilstatus.beskrivelse')}
@@ -25,7 +24,7 @@ const NySivilstatus = () => {
             </RHFRadio>
 
             {sivilstatus === Sivilstatus.samboerskap && <SamboerSkjema />}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

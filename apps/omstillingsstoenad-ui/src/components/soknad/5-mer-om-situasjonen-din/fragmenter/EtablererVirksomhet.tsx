@@ -8,7 +8,6 @@ import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInput, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const EtablererVirksomhet = () => {
     const { t } = useTranslation()
@@ -19,7 +18,7 @@ const EtablererVirksomhet = () => {
     const manglerOrgnr = watch('etablererVirksomhet.manglerOrgnr')
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.etablererVirksomhet.tittel')}</Heading>
             </Box>
@@ -72,7 +71,7 @@ const EtablererVirksomhet = () => {
                     />
                 </Box>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

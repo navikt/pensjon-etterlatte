@@ -2,7 +2,6 @@ import { Box, Button, Heading, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import ArbeidstakerInfokort from './ArbeidstakerInfokort'
 
 const Arbeidstaker = () => {
@@ -35,7 +34,7 @@ const Arbeidstaker = () => {
     }
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidsforhold.tittel')}</Heading>
             </Box>
@@ -62,7 +61,7 @@ const Arbeidstaker = () => {
                     </Button>
                 </div>
             </VStack>
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

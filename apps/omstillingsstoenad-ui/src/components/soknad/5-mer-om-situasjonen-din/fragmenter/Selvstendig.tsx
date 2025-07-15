@@ -29,7 +29,7 @@ const Selvstendig = () => {
     }
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.selvstendig.tittel')}</Heading>
             </Box>
@@ -44,7 +44,7 @@ const Selvstendig = () => {
                     </Button>
                 </div>
             </VStack>
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

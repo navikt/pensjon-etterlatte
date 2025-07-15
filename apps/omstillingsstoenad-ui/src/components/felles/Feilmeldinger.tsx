@@ -1,10 +1,9 @@
-import { SkjemaGruppe } from './SkjemaGruppe'
-import { useTranslation } from 'react-i18next'
+import { Box, ErrorSummary } from '@navikt/ds-react'
 import { TFunction } from 'i18next'
 import { FieldError, FieldErrors } from 'react-hook-form/dist/types/errors'
+import { useTranslation } from 'react-i18next'
 import { v4 as uuid } from 'uuid'
 import { getTransKey } from '../../utils/translation'
-import { ErrorSummary } from '@navikt/ds-react'
 
 interface Feil {
     skjemaelementId: string
@@ -37,7 +36,7 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
     return (
         <>
             {!!Object.keys(errors).length && (
-                <SkjemaGruppe key={uuid()}>
+                <Box marginBlock="0 12" key={uuid()}>
                     <ErrorSummary heading={t('feil.tittel')}>
                         {konverterFeilmeldinger(errors, t).map((feil) => (
                             <ErrorSummary.Item key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>
@@ -45,7 +44,7 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
                             </ErrorSummary.Item>
                         ))}
                     </ErrorSummary>
-                </SkjemaGruppe>
+                </Box>
             )}
         </>
     )

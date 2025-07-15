@@ -10,7 +10,6 @@ import Datovelger from '../../../felles/Datovelger'
 import { RHFInput, RHFInputArea, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { NumberSelectRad } from '../../../felles/StyledComponents'
 
 interface Props {
@@ -96,7 +95,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 </RHFRadio>
             </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <div style={{ display: visFastArbeidsmengde ? 'block' : 'none' }}>
                     <Box marginBlock="4">
                         <Box marginBlock="4">
@@ -167,9 +166,9 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         </div>
                     </Box>
                 </div>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <RHFSpoersmaalRadio
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
@@ -188,7 +187,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 </ReadMore>
-            </SkjemaGruppe>
+            </Box>
 
             {lengde > 1 && (
                 <div>

@@ -9,7 +9,6 @@ import { antallAarMellom } from '../../../../utils/dato'
 import Datovelger from '../../../felles/Datovelger'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const giftMindreEnn15aar = (datoForInngaattPartnerskap: string, datoForSkilsmisse: string) => {
     const antallAarPartnerskap = antallAarMellom(datoForInngaattPartnerskap, datoForSkilsmisse) || 0
@@ -36,7 +35,7 @@ const SkiltFraAvdoede = () => {
     const mindreEnn15aar = giftMindreEnn15aar(datoForInngaattPartnerskap, datoForSkilsmisse)
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                     <Datovelger
@@ -87,7 +86,7 @@ const SkiltFraAvdoede = () => {
                     />
                 </Box>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 
