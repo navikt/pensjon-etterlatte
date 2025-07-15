@@ -13,8 +13,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         inntektenDin.tittel
       </h1>
     </div>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -104,9 +105,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           inntektenDin.ingress
         </div>
       </div>
-    </fieldset>
+    </div>
     <div
-      class="sc-dFVmKS eqsIGt"
+      class="sc-kvnevz cjZlei"
     >
       <div
         class="navds-r-mb navds-box"
@@ -119,7 +120,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dntSTA hwCYnS"
+        class="sc-kcLKEh cHKcNE"
         id="inntektstyper"
       >
         <fieldset
@@ -388,8 +389,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         </fieldset>
       </div>
     </div>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -486,9 +488,10 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           </fieldset>
         </div>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    </div>
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -585,12 +588,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           </fieldset>
         </div>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    </div>
+    <div
+      class="navds-box sc-lgpSej fnUjj"
     >
       <div
-        class="sc-hvigdm csWfYk undefined"
+        class="sc-bRKDuR cHhdsl undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -615,9 +618,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           </span>
         </button>
       </div>
-    </fieldset>
+    </div>
     <div
-      class="sc-hvigdm sc-fhHczv csWfYk dfOPHl"
+      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -690,7 +693,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-hwkwBN jZGKBl"
+          class="sc-jJLAfE jdrBoE"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -720,7 +723,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-hwkwBN jZGKBl"
+          class="sc-jJLAfE jdrBoE"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -755,8 +758,9 @@ exports[`Inntekten din > Snapshot 1`] = `
         inntektenDin.tittel
       </h1>
     </div>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
         class="navds-guide-panel navds-guide-panel--responsive-poster"
@@ -846,9 +850,9 @@ exports[`Inntekten din > Snapshot 1`] = `
           inntektenDin.ingress
         </div>
       </div>
-    </fieldset>
+    </div>
     <div
-      class="sc-dFVmKS eqsIGt"
+      class="sc-kvnevz cjZlei"
     >
       <div
         class="navds-r-mb navds-box"
@@ -861,7 +865,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dntSTA hwCYnS"
+        class="sc-kcLKEh cHKcNE"
         id="inntektstyper"
       >
         <fieldset
@@ -1130,8 +1134,9 @@ exports[`Inntekten din > Snapshot 1`] = `
         </fieldset>
       </div>
     </div>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1228,9 +1233,10 @@ exports[`Inntekten din > Snapshot 1`] = `
           </fieldset>
         </div>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    </div>
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1327,12 +1333,12 @@ exports[`Inntekten din > Snapshot 1`] = `
           </fieldset>
         </div>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-bRKDuR jGtGcS"
+    </div>
+    <div
+      class="navds-box sc-lgpSej fnUjj"
     >
       <div
-        class="sc-hvigdm csWfYk undefined"
+        class="sc-bRKDuR cHhdsl undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1357,9 +1363,9 @@ exports[`Inntekten din > Snapshot 1`] = `
           </span>
         </button>
       </div>
-    </fieldset>
+    </div>
     <div
-      class="sc-hvigdm sc-fhHczv csWfYk dfOPHl"
+      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1432,7 +1438,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-hwkwBN jZGKBl"
+          class="sc-jJLAfE jdrBoE"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1462,7 +1468,7 @@ exports[`Inntekten din > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-hwkwBN jZGKBl"
+          class="sc-jJLAfE jdrBoE"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

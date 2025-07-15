@@ -15,8 +15,9 @@ exports[`Om den avdøde > Snapshot 1`] = `
   <form
     autocomplete="on"
   >
-    <fieldset
-      class="sc-fhHczv ejfENz"
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
         class="navds-hgrid navds-hgrid-gap navds-hgrid-align"
@@ -1266,9 +1267,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </div>
         </section>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-fhHczv ejfENz"
+    </div>
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1392,9 +1394,10 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </fieldset>
         </div>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-fhHczv ejfENz"
+    </div>
+    <div
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <h1
         class="navds-heading navds-heading--small"
@@ -1518,12 +1521,12 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </fieldset>
         </div>
       </div>
-    </fieldset>
-    <fieldset
-      class="sc-fhHczv ejfENz"
+    </div>
+    <div
+      class="navds-box sc-kcLKEh cARNBS"
     >
       <div
-        class="sc-ggWZvA czhlWr undefined"
+        class="sc-fhHczv RtHuY undefined"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1548,9 +1551,9 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </span>
         </button>
       </div>
-    </fieldset>
+    </div>
     <div
-      class="sc-ggWZvA sc-dTvVRJ czhlWr hUBlXQ"
+      class="sc-fhHczv sc-ggWZvA RtHuY ovVRq"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1623,7 +1626,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-kNOymR jYfqUm"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1653,7 +1656,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-kNOymR jYfqUm"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

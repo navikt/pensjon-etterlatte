@@ -7,7 +7,6 @@ import { IInntekt, SoekbareYtelserNAV } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const YtelserNAV = () => {
     const { t } = useTranslation()
@@ -19,7 +18,7 @@ const YtelserNAV = () => {
     const harSoektYtelse = watch('ytelserNAV.svar')
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Heading size={'small'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
             <VStack marginBlock="4 0">
                 <RHFSpoersmaalRadio
@@ -44,7 +43,7 @@ const YtelserNAV = () => {
                     />
                 </Box>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

@@ -2,7 +2,6 @@ import { Box, Button, Heading, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import SelvstendigInfokort from './SelvstendigInfokort'
 
 const Selvstendig = () => {

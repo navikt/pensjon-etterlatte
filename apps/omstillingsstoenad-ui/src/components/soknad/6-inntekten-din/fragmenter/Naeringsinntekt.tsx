@@ -9,7 +9,6 @@ import { IInntekt, NorgeOgUtland } from '../../../../typer/inntekt'
 import { doedsdatoErIAar, erMellomOktoberogDesember } from '../../../../utils/dato'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFValutaInput } from '../../../felles/rhf/RHFInput'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 import { ListItemWithIndent } from '../../../felles/StyledComponents'
 import EndringInntekt from './EndringInntekt'
 import JevntOpptjentNaeringsinntekt from './JevntOpptjentNaeringsinntekt'
@@ -30,7 +29,7 @@ const Naeringsinntekt = () => {
     const erIkkeDesember = new Date(datoforDoedsfallet!).getMonth() !== 11
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'medium'}>{t('inntektenDin.naeringsinntekt.tittel')}</Heading>
                 <BodyShort>{t('inntektenDin.naeringsinntekt.ingress')}</BodyShort>
@@ -74,14 +73,14 @@ const Naeringsinntekt = () => {
                     <Box marginBlock="4">
                         <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.bruttoinntekt')}</Alert>
                     </Box>
-                    <SkjemaGruppe>
+                    <Box marginBlock="0 12">
                         <JevntOpptjentNaeringsinntekt type={'norge'} />
-                    </SkjemaGruppe>
+                    </Box>
                     <Box marginBlock="4">
                         {doedsdatoErIAar(datoforDoedsfallet!) ? (
                             <>
                                 {foedt1963EllerTidligere && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.norge.inntektIFjor.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt')}
@@ -90,9 +89,9 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
-                                <SkjemaGruppe>
+                                <Box marginBlock="0 12">
                                     <RHFValutaInput
                                         name={'naeringsinntekt.norge.inntektIAar.tilDoedsfall'}
                                         label={t('inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall')}
@@ -112,9 +111,9 @@ const Naeringsinntekt = () => {
                                             )}
                                         </ReadMore>
                                     </Box>
-                                </SkjemaGruppe>
+                                </Box>
                                 {erIkkeDesember && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.norge.inntektIAar.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
@@ -123,10 +122,10 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
                                 {erMellomOktoberogDesember() && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.norge.inntektNesteAar.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt')}
@@ -135,13 +134,13 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
                             </>
                         ) : (
                             <>
                                 {erIkkeDesember && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.norge.inntektIFjor.tilDoedsfall'}
                                             label={t('inntektenDin.naeringsinntekt.norge.inntektIFjor.tilDoedsfall')}
@@ -150,9 +149,9 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
-                                <SkjemaGruppe>
+                                <Box marginBlock="0 12">
                                     <RHFValutaInput
                                         name={'naeringsinntekt.norge.inntektIFjor.aarsinntekt'}
                                         label={t('inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt')}
@@ -161,8 +160,8 @@ const Naeringsinntekt = () => {
                                         )}
                                         htmlSize={Bredde.S}
                                     />
-                                </SkjemaGruppe>
-                                <SkjemaGruppe>
+                                </Box>
+                                <Box marginBlock="0 12">
                                     <RHFValutaInput
                                         name={'naeringsinntekt.norge.inntektIAar.aarsinntekt'}
                                         label={t('inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt')}
@@ -171,7 +170,7 @@ const Naeringsinntekt = () => {
                                         )}
                                         htmlSize={Bredde.S}
                                     />
-                                </SkjemaGruppe>
+                                </Box>
                             </>
                         )}
                     </Box>
@@ -188,14 +187,14 @@ const Naeringsinntekt = () => {
                     <Box marginBlock="4">
                         <Alert variant={'info'}>{t('inntektenDin.naeringsinntekt.bruttoinntekt.utland')}</Alert>
                     </Box>
-                    <SkjemaGruppe>
+                    <Box marginBlock="0 12">
                         <JevntOpptjentNaeringsinntekt type={'utland'} />
-                    </SkjemaGruppe>
+                    </Box>
                     <Box marginBlock="4">
                         {doedsdatoErIAar(datoforDoedsfallet!) ? (
                             <>
                                 {foedt1963EllerTidligere && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektIFjor.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt')}
@@ -204,7 +203,7 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
                                 <>
                                     <RHFValutaInput
@@ -228,7 +227,7 @@ const Naeringsinntekt = () => {
                                     </Box>
                                 </>
                                 {erIkkeDesember && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <Box marginBlock="4">
                                             <RHFValutaInput
                                                 name={'naeringsinntekt.utland.inntektIAar.aarsinntekt'}
@@ -239,10 +238,10 @@ const Naeringsinntekt = () => {
                                                 htmlSize={Bredde.S}
                                             />
                                         </Box>
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
                                 {erMellomOktoberogDesember() && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektNesteAar.aarsinntekt'}
                                             label={t('inntektenDin.naeringsinntekt.utland.inntektNesteAar.aarsinntekt')}
@@ -251,13 +250,13 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
                             </>
                         ) : (
                             <>
                                 {foedt1963EllerTidligere && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektAaretFoerDoedsfall'}
                                             label={t('inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall')}
@@ -266,10 +265,10 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
                                 {erIkkeDesember && (
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektIFjor.tilDoedsfall'}
                                             label={t('inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall')}
@@ -278,9 +277,9 @@ const Naeringsinntekt = () => {
                                             )}
                                             htmlSize={Bredde.S}
                                         />
-                                    </SkjemaGruppe>
+                                    </Box>
                                 )}
-                                <SkjemaGruppe>
+                                <Box marginBlock="0 12">
                                     <RHFValutaInput
                                         name={'naeringsinntekt.utland.inntektIFjor.aarsinntekt'}
                                         label={t('inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt')}
@@ -289,8 +288,8 @@ const Naeringsinntekt = () => {
                                         )}
                                         htmlSize={Bredde.S}
                                     />
-                                </SkjemaGruppe>
-                                <SkjemaGruppe>
+                                </Box>
+                                <Box marginBlock="0 12">
                                     <Box marginBlock="4">
                                         <RHFValutaInput
                                             name={'naeringsinntekt.utland.inntektIAar.aarsinntekt'}
@@ -301,7 +300,7 @@ const Naeringsinntekt = () => {
                                             htmlSize={Bredde.S}
                                         />
                                     </Box>
-                                </SkjemaGruppe>
+                                </Box>
                             </>
                         )}
                     </Box>
@@ -314,7 +313,7 @@ const Naeringsinntekt = () => {
                     <EndringInntekt type={'naeringsinntekt'} />
                 </>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

@@ -12,7 +12,6 @@ import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { ForventetInntektIAar } from './fragmenter/ForventetInntektIAar'
 import { ForventetInntektTilNesteAar } from './fragmenter/ForventetInntektTilNesteAar'
 import Inntekt from './fragmenter/Inntekt'
@@ -79,7 +78,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                     </Heading>
                 </Box>
 
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <GuidePanel>
                         {t(
                             omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA
@@ -87,7 +86,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                                 : 'inntektenDin.ingress'
                         )}
                     </GuidePanel>
-                </SkjemaGruppe>
+                </Box>
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">

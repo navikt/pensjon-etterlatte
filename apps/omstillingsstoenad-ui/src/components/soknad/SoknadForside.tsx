@@ -22,7 +22,6 @@ import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MuligeSteg } from '../../typer/steg'
 import { erForGammel } from '../../utils/alder'
-import { SkjemaGruppe } from '../felles/SkjemaGruppe'
 import { Spraakvalg } from '../felles/Spraakvalg'
 import { ListItemWithIndent } from '../felles/StyledComponents'
 
@@ -87,9 +86,9 @@ const SoknadForside = () => {
                 </Box>
             )}
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <GuidePanel poster>{t('forside.ingress')}</GuidePanel>
-            </SkjemaGruppe>
+            </Box>
 
             <Spraakvalg />
 
@@ -121,7 +120,7 @@ const SoknadForside = () => {
                 </Box>
             )}
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Heading spacing size={'large'}>
                     {t('forside.tittel')}
                 </Heading>
@@ -140,9 +139,9 @@ const SoknadForside = () => {
                         {t('forside.omYtelsene.lenkeGjenlevende.tekst')}
                     </Link>
                 </BodyLong>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Heading size={'small'}>{t('forside.barnepensjon.tittel')}</Heading>
                 <BodyLong spacing>{t('forside.barnepensjon.innhold')}</BodyLong>
                 <Heading size={'small'}>{t('forside.utfyllingAvSoeknad.tittel')}</Heading>
@@ -286,9 +285,9 @@ const SoknadForside = () => {
                         </ExpansionCard.Content>
                     </ExpansionCard>
                 </Box>
-            </SkjemaGruppe>
+            </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Heading size={'small'} spacing>
                     {t('forside.samtykke.tittel')}
                 </Heading>
@@ -305,7 +304,7 @@ const SoknadForside = () => {
                         })
                     }
                 />
-            </SkjemaGruppe>
+            </Box>
             {soknadState.harSamtykket && !soknadState?.error && (
                 <Button variant={'primary'} type={'button'} id={'start-soeknad'} onClick={startSoeknad}>
                     {t('forside.startSoeknad')}

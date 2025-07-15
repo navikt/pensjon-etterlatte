@@ -23,7 +23,6 @@ import { Panel } from '../../felles/Panel'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { NavigasjonsRad } from '../../felles/StyledComponents'
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 
@@ -182,7 +181,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                         <br />
 
                         <EndreBarnKortInnhold>
-                            <SkjemaGruppe>
+                            <Box marginBlock="0 12">
                                 <Box marginBlock="4">
                                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
                                         <RHFInput
@@ -246,9 +245,9 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                         <TypoFeilmelding>{t('feil.foedselsnummer.duplicate')}</TypoFeilmelding>
                                     </Box>
                                 )}
-                            </SkjemaGruppe>
+                            </Box>
 
-                            <SkjemaGruppe>
+                            <Box marginBlock="0 12">
                                 <RHFSpoersmaalRadio name={'bosattUtland.svar'} legend={t('omBarn.bosattUtland.svar')} />
 
                                 {bosattUtlandSvar === IValg.JA && (
@@ -266,11 +265,11 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                         />
                                     </>
                                 )}
-                            </SkjemaGruppe>
+                            </Box>
 
                             {kanSoekeOmBarnepensjon() && (
                                 <>
-                                    <SkjemaGruppe>
+                                    <Box marginBlock="0 12">
                                         <Box marginBlock="4">
                                             <RHFSpoersmaalRadio
                                                 name={'harBarnetVerge.svar'}
@@ -307,7 +306,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                                 </Box>
                                             </>
                                         )}
-                                    </SkjemaGruppe>
+                                    </Box>
                                     {!bruker.adressebeskyttelse && (
                                         <>
                                             <Box marginBlock="4">
@@ -319,62 +318,54 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                             </Box>
 
                                             {annetKontonummerBarnepensjon === IValg.NEI && (
-                                                <Box marginBlock="4">
-                                                    <SkjemaGruppe>
-                                                        <Box marginBlock="4">
-                                                            <RHFRadio
-                                                                name={
-                                                                    'barnepensjon.utbetalingsInformasjon.bankkontoType'
-                                                                }
-                                                                legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}
-                                                            >
-                                                                {Object.values(BankkontoType).map((value) => {
-                                                                    return {
-                                                                        children: t(value),
-                                                                        value,
-                                                                    } as RadioProps
-                                                                })}
-                                                            </RHFRadio>
-                                                        </Box>
+                                                <Box marginBlock="4 16">
+                                                    <Box marginBlock="4">
+                                                        <RHFRadio
+                                                            name={'barnepensjon.utbetalingsInformasjon.bankkontoType'}
+                                                            legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}
+                                                        >
+                                                            {Object.values(BankkontoType).map((value) => {
+                                                                return {
+                                                                    children: t(value),
+                                                                    value,
+                                                                } as RadioProps
+                                                            })}
+                                                        </RHFRadio>
+                                                    </Box>
 
-                                                        {bankkontoType === BankkontoType.norsk && (
-                                                            <RHFKontonummerInput
-                                                                htmlSize={Bredde.S}
-                                                                name={'barnepensjon.utbetalingsInformasjon.kontonummer'}
-                                                                label={t('omDeg.utbetalingsInformasjon.kontonummer')}
-                                                                description={t(
-                                                                    'omDeg.utbetalingsInformasjon.informasjon'
-                                                                )}
-                                                            />
-                                                        )}
+                                                    {bankkontoType === BankkontoType.norsk && (
+                                                        <RHFKontonummerInput
+                                                            htmlSize={Bredde.S}
+                                                            name={'barnepensjon.utbetalingsInformasjon.kontonummer'}
+                                                            label={t('omDeg.utbetalingsInformasjon.kontonummer')}
+                                                            description={t('omDeg.utbetalingsInformasjon.informasjon')}
+                                                        />
+                                                    )}
 
-                                                        {bankkontoType === BankkontoType.utenlandsk && (
-                                                            <UtenlandskBankInfo kontonummerTilhoererBarn />
-                                                        )}
-                                                    </SkjemaGruppe>
+                                                    {bankkontoType === BankkontoType.utenlandsk && (
+                                                        <UtenlandskBankInfo kontonummerTilhoererBarn />
+                                                    )}
                                                 </Box>
                                             )}
                                         </>
                                     )}
 
-                                    <SkjemaGruppe>
-                                        <Box marginBlock="4">
-                                            <RHFConfirmationPanel
-                                                name={'barnepensjon.soeker'}
-                                                label={t('omBarn.barnepensjon.soeker')}
-                                                valgfri={true}
-                                                size={'medium'}
-                                            />
-                                        </Box>
-                                    </SkjemaGruppe>
+                                    <Box marginBlock="4 16">
+                                        <RHFConfirmationPanel
+                                            name={'barnepensjon.soeker'}
+                                            label={t('omBarn.barnepensjon.soeker')}
+                                            valgfri={true}
+                                            size={'medium'}
+                                        />
+                                    </Box>
                                 </>
                             )}
 
                             {(relasjon === BarnRelasjon.egneSaerkullsbarn ||
                                 relasjon == BarnRelasjon.avdoedesSaerkullsbarn) && (
-                                <SkjemaGruppe>
+                                <Box marginBlock="0 12">
                                     <RHFSpoersmaalRadio name={'dagligOmsorg'} legend={t('omBarn.dagligOmsorg')} />
-                                </SkjemaGruppe>
+                                </Box>
                             )}
 
                             <Feilmeldinger errors={errors} />

@@ -13,7 +13,6 @@ import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/i
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
@@ -42,7 +41,7 @@ const PensjonEllerUfoere = () => {
     }
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'medium'}>{t('inntektenDin.pensjonEllerUfoere.tittel')}</Heading>
             </Box>
@@ -64,70 +63,69 @@ const PensjonEllerUfoere = () => {
                         borderWidth={'0 0 0 4'}
                         background={'surface-selected'}
                         padding="4"
+                        marginBlock="0 12"
                     >
-                        <SkjemaGruppe>
-                            <Heading size={'small'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
+                        <Heading size={'small'}>{t('soekbarYtelse.tjenestepensjonsordning')}</Heading>
 
-                            <Box marginBlock="4">
-                                <RHFCheckboksGruppe
-                                    name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
-                                    legend={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
-                                    checkboxes={Object.values(PensjonsYtelse).map((value) => {
-                                        return { children: t(value), value, required: true }
-                                    })}
-                                />
-                            </Box>
-                            <Box marginBlock="4">
-                                <RHFInputArea
-                                    name={'pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'}
-                                    label={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
-                                    description={t(
-                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse'
+                        <Box marginBlock="4">
+                            <RHFCheckboksGruppe
+                                name={'pensjonEllerUfoere.tjenestepensjonsordning.type'}
+                                legend={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type')}
+                                checkboxes={Object.values(PensjonsYtelse).map((value) => {
+                                    return { children: t(value), value, required: true }
+                                })}
+                            />
+                        </Box>
+                        <Box marginBlock="4">
+                            <RHFInputArea
+                                name={'pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'}
+                                label={t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler')}
+                                description={t(
+                                    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse'
+                                )}
+                                visPersonopplysningerVarsel={false}
+                                maxLength={200}
+                            />
+                        </Box>
+                        <ReadMore header={t('hvorforSpoerVi')}>
+                            {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
+                        </ReadMore>
+
+                        {skalViseAFPOffentligFelter(watch('pensjonEllerUfoere.tjenestepensjonsordning.type')) && (
+                            <>
+                                <Box marginBlock="4">
+                                    <Datovelger
+                                        name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
+                                        label={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
+                                        )}
+                                        minDate={bruker.state.foedselsdato}
+                                        maxDate={new Date()}
+                                    />
+                                </Box>
+                                <Box marginBlock="4">
+                                    <RHFNumberInput
+                                        name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
+                                        label={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
+                                        )}
+                                        description={t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse'
+                                        )}
+                                        htmlSize={Bredde.M}
+                                    />
+                                </Box>
+                                <ReadMore
+                                    header={t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel'
                                     )}
-                                    visPersonopplysningerVarsel={false}
-                                    maxLength={200}
-                                />
-                            </Box>
-                            <ReadMore header={t('hvorforSpoerVi')}>
-                                {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
-                            </ReadMore>
-
-                            {skalViseAFPOffentligFelter(watch('pensjonEllerUfoere.tjenestepensjonsordning.type')) && (
-                                <>
-                                    <Box marginBlock="4">
-                                        <Datovelger
-                                            name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'}
-                                            label={t(
-                                                'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
-                                            )}
-                                            minDate={bruker.state.foedselsdato}
-                                            maxDate={new Date()}
-                                        />
-                                    </Box>
-                                    <Box marginBlock="4">
-                                        <RHFNumberInput
-                                            name={'pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'}
-                                            label={t(
-                                                'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
-                                            )}
-                                            description={t(
-                                                'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse'
-                                            )}
-                                            htmlSize={Bredde.M}
-                                        />
-                                    </Box>
-                                    <ReadMore
-                                        header={t(
-                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel'
-                                        )}
-                                    >
-                                        {t(
-                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold'
-                                        )}
-                                    </ReadMore>
-                                </>
-                            )}
-                        </SkjemaGruppe>
+                                >
+                                    {t(
+                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold'
+                                    )}
+                                </ReadMore>
+                            </>
+                        )}
                     </Box>
                 )}
             </>
@@ -170,7 +168,7 @@ const PensjonEllerUfoere = () => {
                     </HGrid>
                 </>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

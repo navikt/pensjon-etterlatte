@@ -8,7 +8,6 @@ import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInputArea } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const YtelserAndre = () => {
     const { t } = useTranslation()
@@ -21,7 +20,7 @@ const YtelserAndre = () => {
     const soekteYtelser = watch('ytelserAndre.soekteYtelser')
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Heading size={'small'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
             <VStack marginBlock="4 0">
                 <RHFSpoersmaalRadio
@@ -60,7 +59,7 @@ const YtelserAndre = () => {
                     </Box>
                 </>
             )}
-        </SkjemaGruppe>
+        </Box>
     )
 }
 

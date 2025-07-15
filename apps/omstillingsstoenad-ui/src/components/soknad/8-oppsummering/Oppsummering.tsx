@@ -13,7 +13,6 @@ import { ActionTypes } from '../../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
 import SoknadSteg from '../../../typer/SoknadSteg'
 import Navigasjon from '../../felles/Navigasjon'
-import { SkjemaGruppe } from '../../felles/SkjemaGruppe'
 import { OppsummeringBarnepensjon } from './fragmenter/OppsummeringBarnepensjon'
 import { OppsummeringInntektenDin } from './fragmenter/OppsummeringInntektenDin'
 import { OppsummeringMerSituasjonenDin } from './fragmenter/OppsummeringMerSituasjonenDin'
@@ -120,25 +119,25 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
             <br />
 
             {!fylltUtAarsinntektForNesteAar() && (
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <Alert variant={'error'}>
                         {t('oppsummering.ikkeFylltUtAarsinntekt')}
                         <RouterLink to={`/skjema/steg/${StegPath.InntektenDin}`}>
                             {t('oppsummering.ikkeFylltUtAarsinntekt.tittel')}
                         </RouterLink>
                     </Alert>
-                </SkjemaGruppe>
+                </Box>
             )}
 
             {error && (
-                <SkjemaGruppe>
+                <Box marginBlock="0 12">
                     <Alert variant={'error'}>
                         {t('oppsummering.feilVedSending')}
                         <Link href={t('oppsummering.feilVedSending.href')}>
                             {t('oppsummering.feilVedSending.tittel')}
                         </Link>
                     </Alert>
-                </SkjemaGruppe>
+                </Box>
             )}
 
             <Navigasjon

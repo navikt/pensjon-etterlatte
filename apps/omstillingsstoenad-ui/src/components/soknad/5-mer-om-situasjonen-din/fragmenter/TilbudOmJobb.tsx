@@ -10,7 +10,6 @@ import Datovelger from '../../../felles/Datovelger'
 import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
-import { SkjemaGruppe } from '../../../felles/SkjemaGruppe'
 
 const TilbudOmJobb = () => {
     const { t } = useTranslation()
@@ -25,7 +24,7 @@ const TilbudOmJobb = () => {
     })
 
     return (
-        <SkjemaGruppe>
+        <Box marginBlock="0 12">
             <Box marginBlock="4">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.tilbudOmJobb.tittel')}</Heading>
             </Box>
@@ -38,13 +37,13 @@ const TilbudOmJobb = () => {
                 />
             </Box>
 
-            <SkjemaGruppe>
+            <Box marginBlock="0 12">
                 <Datovelger
                     name={`tilbudOmJobb.ansettelsesdato`}
                     label={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato')}
                     minDate={new Date()}
                 />
-            </SkjemaGruppe>
+            </Box>
 
             <Box marginBlock="4">
                 <RHFRadio
@@ -130,7 +129,7 @@ const TilbudOmJobb = () => {
                     legend={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
                 />
             </Box>
-        </SkjemaGruppe>
+        </Box>
     )
 }
 
