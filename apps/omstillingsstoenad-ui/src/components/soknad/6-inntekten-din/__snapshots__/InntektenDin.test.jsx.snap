@@ -106,7 +106,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-dNdcvo bNxkwU"
+      class="sc-dFVmKS eqsIGt"
     >
       <div
         class="navds-r-mb navds-box"
@@ -119,7 +119,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dFVmKS iMdlvv"
+        class="sc-dntSTA hwCYnS"
         id="inntektstyper"
       >
         <fieldset
@@ -690,7 +690,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -720,7 +720,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -848,7 +848,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-dNdcvo bNxkwU"
+      class="sc-dFVmKS eqsIGt"
     >
       <div
         class="navds-r-mb navds-box"
@@ -861,7 +861,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-dFVmKS iMdlvv"
+        class="sc-dntSTA hwCYnS"
         id="inntektstyper"
       >
         <fieldset
@@ -1432,7 +1432,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -1462,7 +1462,7 @@ exports[`Inntekten din > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

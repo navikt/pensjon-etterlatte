@@ -245,7 +245,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-kvnevz gupgfD"
+              class="sc-kcLKEh bWwBsb"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -369,7 +369,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-kvnevz gupgfD"
+              class="sc-kcLKEh bWwBsb"
             >
               omDeg.utbetalingsInformasjon.swift
                
@@ -576,7 +576,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -606,7 +606,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"

@@ -106,7 +106,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-dNdcvo kkHVt"
+      class="sc-dFVmKS ZwwuQ"
     >
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
@@ -114,7 +114,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
-        class="sc-kvnevz hJZGZw"
+        class="sc-kcLKEh cHKcNE"
         id="jobbStatus"
       >
         <fieldset
@@ -727,7 +727,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     </p>
                   </div>
                   <div
-                    class="sc-eqYatC jVSCCu"
+                    class="sc-dYwGCk dEZuCk"
                   >
                     <div
                       class="navds-form-field navds-form-field--medium"
@@ -755,7 +755,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       />
                     </div>
                     <div
-                      class="sc-kCuUfV bQERuA"
+                      class="sc-kvnevz fCYNne"
                       id="arbeidsforhold[0].arbeidsmengde.type"
                     >
                       <div
@@ -907,7 +907,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     style="display: none;"
                   >
                     <section
-                      class="sc-dFVmKS jojXZb"
+                      class="sc-dntSTA fyMsxi"
                     >
                       <div
                         class="navds-date__wrapper"
@@ -2269,7 +2269,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 style="--__ac-r-mb-xs: var(--a-spacing-4);"
               >
                 <div
-                  class="sc-eqYatC jVSCCu"
+                  class="sc-dYwGCk dEZuCk"
                 >
                   <div
                     class="navds-form-field navds-form-field--medium"
@@ -2296,7 +2296,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     />
                   </div>
                   <div
-                    class="sc-kCuUfV bQERuA"
+                    class="sc-kvnevz fCYNne"
                     id="selvstendig.[0].arbeidsmengde.type"
                   >
                     <div
@@ -2583,7 +2583,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-kvnevz hJZGZw"
+        class="sc-kcLKEh cHKcNE"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -3101,7 +3101,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -3131,7 +3131,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
@@ -3259,7 +3259,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       </div>
     </fieldset>
     <div
-      class="sc-dNdcvo kkHVt"
+      class="sc-dFVmKS ZwwuQ"
     >
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
@@ -3267,7 +3267,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
-        class="sc-kvnevz hJZGZw"
+        class="sc-kcLKEh cHKcNE"
         id="jobbStatus"
       >
         <fieldset
@@ -3879,7 +3879,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                     </p>
                   </div>
                   <div
-                    class="sc-eqYatC jVSCCu"
+                    class="sc-dYwGCk dEZuCk"
                   >
                     <div
                       class="navds-form-field navds-form-field--medium"
@@ -3907,7 +3907,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       />
                     </div>
                     <div
-                      class="sc-kCuUfV bQERuA"
+                      class="sc-kvnevz fCYNne"
                       id="arbeidsforhold[0].arbeidsmengde.type"
                     >
                       <div
@@ -4059,7 +4059,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                     style="display: none;"
                   >
                     <section
-                      class="sc-dFVmKS jojXZb"
+                      class="sc-dntSTA fyMsxi"
                     >
                       <div
                         class="navds-date__wrapper"
@@ -5325,7 +5325,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-kvnevz hJZGZw"
+        class="sc-kcLKEh cHKcNE"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -5843,7 +5843,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         class="navds-modal__footer"
       >
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--secondary navds-button--medium"
@@ -5873,7 +5873,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           </button>
         </div>
         <div
-          class="sc-dYwGCk bsHyJX"
+          class="sc-hwkwBN jZGKBl"
         >
           <button
             class="navds-button navds-button--tertiary navds-button--medium"
