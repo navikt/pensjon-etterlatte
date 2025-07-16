@@ -1,8 +1,7 @@
-import { BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
+import { BodyShort, Box, Button, GuidePanel, Heading, Link } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import blomstHjerteHus from '../assets/ikoner/blomstHjerteHus.svg'
-import { Veileder } from './felles/Veileder'
 
 const Icon = styled.img`
     height: 4rem;
@@ -22,7 +21,7 @@ export default function SystemUtilgjengelig() {
     return (
         <div style={{ maxWidth: '500px', margin: 'auto' }}>
             <Box marginBlock="0 12">
-                <Veileder>
+                <GuidePanel poster>
                     <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.veileder.tittel')}
                     </Heading>
@@ -30,7 +29,7 @@ export default function SystemUtilgjengelig() {
                     <Button variant={'primary'} onClick={omstart}>
                         {t('systemUtilgjengelig.knappProevIgjen')}
                     </Button>
-                </Veileder>
+                </GuidePanel>
             </Box>
 
             <Box marginBlock="4">

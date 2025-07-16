@@ -1,10 +1,9 @@
-import { BodyLong, Box, Button, HStack, Link } from '@navikt/ds-react'
+import { BodyLong, Box, Button, GuidePanel, HStack, Link } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { ActionTypes } from '../context/bruker/bruker'
-import { Veileder } from './felles/Veileder'
 
 const UgyldigSoeker = () => {
     const navigate = useNavigate()
@@ -28,7 +27,7 @@ const UgyldigSoeker = () => {
     return (
         <>
             <Box marginBlock="0 12">
-                <Veileder>{t('ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon')}</Veileder>
+                <GuidePanel poster>{t('ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon')}</GuidePanel>
             </Box>
 
             <Box marginBlock="0 12">
