@@ -1,5 +1,7 @@
 export default {
     steg: 'Steg {{aktivSide}} av {{muligeSteg}}',
+    visAlleSteg: 'Vis alle steig',
+    skjulAlleSteg: 'Skjul alle steig',
     'steg.OmDeg': 'Personopplysningar',
     'steg.OmDegOgAvdoed': 'Om deg og avdøde',
     'steg.OmAvdoed': 'Opplysingar om den avdøde',
