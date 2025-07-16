@@ -2,6 +2,7 @@ import { Alert, Page } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, Route, Routes } from 'react-router'
 import styled from 'styled-components'
+import { GlobalErrorAlert } from '~components/felles/globalErrorAlert/GlobalErrorAlert'
 import Banner from './components/felles/Banner'
 import LoaderOverlay from './components/felles/LoaderOverlay'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
@@ -34,16 +35,6 @@ const SoeknadWrapper = styled(Page.Block)`
         max-width: 650px !important;
         white-space: pre-line;
     }
-`
-
-const GlobalAlertWrap = styled.div`
-    position: fixed;
-    bottom: 2em;
-    left: 1em;
-    right: 1em;
-    margin: 0 auto;
-    max-width: 600px;
-    width: 100%;
 `
 
 const App = () => {
@@ -80,11 +71,7 @@ const App = () => {
 
                         <Route path={'*'} element={<SideIkkeFunnet />} />
                     </Routes>
-                    {soknadContext?.state?.error && (
-                        <GlobalAlertWrap>
-                            <Alert variant="error">{soknadContext?.state?.error}</Alert>
-                        </GlobalAlertWrap>
-                    )}
+                    {soknadContext?.state?.error && <GlobalErrorAlert message={soknadContext.state.error} />}
                 </SoeknadWrapper>
             </Page>
         </>
