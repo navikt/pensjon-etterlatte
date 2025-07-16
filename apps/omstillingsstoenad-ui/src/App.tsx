@@ -1,7 +1,6 @@
-import { Alert, Page } from '@navikt/ds-react'
+import { Page } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, Route, Routes } from 'react-router'
-import styled from 'styled-components'
 import { GlobalErrorAlert } from '~components/felles/globalErrorAlert/GlobalErrorAlert'
 import Banner from './components/felles/Banner'
 import LoaderOverlay from './components/felles/LoaderOverlay'
@@ -16,26 +15,6 @@ import { useSoknadContext } from './context/soknad/SoknadContext'
 import { useAnalytics } from './hooks/useAnalytics'
 import useInnloggetBruker from './hooks/useInnloggetBruker'
 import useSoeknad from './hooks/useSoeknad'
-
-const SoeknadWrapper = styled(Page.Block)`
-    .navds-step-indicator {
-        justify-content: center;
-    }
-
-    @media screen and (max-width: 650px) {
-        padding: 1rem;
-        margin: 0 auto;
-        max-width: 100%;
-        white-space: pre-line;
-    }
-
-    @media screen and (min-width: 650px) {
-        padding: 2rem;
-        margin: 0 auto;
-        max-width: 650px !important;
-        white-space: pre-line;
-    }
-`
 
 const App = () => {
     useInnloggetBruker()
@@ -53,7 +32,7 @@ const App = () => {
             {!lasterSoeknad && <FortsettSoeknadModal />}
 
             <Page>
-                <SoeknadWrapper role="main" width="xl">
+                <Page.Block className="soeknad-page-block" role="main" width="xl">
                     <Routes>
                         <Route index path={'/'} element={<SoknadForside />} />
 
@@ -72,7 +51,7 @@ const App = () => {
                         <Route path={'*'} element={<SideIkkeFunnet />} />
                     </Routes>
                     {soknadContext?.state?.error && <GlobalErrorAlert message={soknadContext.state.error} />}
-                </SoeknadWrapper>
+                </Page.Block>
             </Page>
         </>
     )
