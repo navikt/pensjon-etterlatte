@@ -218,24 +218,20 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
     </p>
   </div>
   <div
-    class="navds-r-mb navds-box"
-    style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
+    class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+    style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-18); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
   >
-    <section
-      class="sc-fhHczv RtHuY"
+    <button
+      class="navds-button navds-button--secondary navds-button--medium"
+      data-variant="secondary"
+      type="button"
     >
-      <button
-        class="navds-button navds-button--secondary navds-button--medium"
-        data-variant="secondary"
-        type="button"
+      <span
+        class="navds-label"
       >
-        <span
-          class="navds-label"
-        >
-          soeknadKvittering.spoersmaal.knapp
-        </span>
-      </button>
-    </section>
+        soeknadKvittering.spoersmaal.knapp
+      </span>
+    </button>
   </div>
 </div>
 `;

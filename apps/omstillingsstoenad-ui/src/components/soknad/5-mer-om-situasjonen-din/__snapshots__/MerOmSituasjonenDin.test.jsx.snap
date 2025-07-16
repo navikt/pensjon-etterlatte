@@ -107,7 +107,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="sc-kvnevz beghjD"
+      class="sc-ggWZvA hoeLQj"
     >
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
@@ -115,7 +115,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
-        class="sc-eqYatC iniQxN"
+        class="sc-bRKDuR dDaSFe"
         id="jobbStatus"
       >
         <fieldset
@@ -730,7 +730,8 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     </p>
                   </div>
                   <div
-                    class="sc-kNOymR goEFcB"
+                    class="navds-hgrid navds-hgrid-gap"
+                    style="--__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-sm: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-md: repeat(2, minmax(0, 1fr));"
                   >
                     <div
                       class="navds-form-field navds-form-field--medium"
@@ -758,7 +759,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       />
                     </div>
                     <div
-                      class="sc-dntSTA cDuhzw"
+                      class="sc-fhHczv hGRFWB"
                       id="arbeidsforhold[0].arbeidsmengde.type"
                     >
                       <div
@@ -910,7 +911,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     style="display: none;"
                   >
                     <section
-                      class="sc-kcLKEh gufAOo"
+                      class="sc-hvigdm hNvzVz"
                     >
                       <div
                         class="navds-date__wrapper"
@@ -2272,98 +2273,94 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse
               </p>
               <div
-                class="navds-r-mb navds-box"
-                style="--__ac-r-mb-xs: var(--a-spacing-4);"
+                class="navds-r-mb navds-hgrid navds-hgrid-gap"
+                style="--__ac-r-mb-xs: var(--a-spacing-4); --__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-sm: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-md: repeat(2, minmax(0, 1fr));"
               >
                 <div
-                  class="sc-kNOymR goEFcB"
+                  class="navds-form-field navds-form-field--medium"
+                >
+                  <label
+                    class="navds-form-field__label navds-label"
+                    for="selvstendig.[0].arbeidsmengde.svar"
+                  >
+                    merOmSituasjonenDin.selvstendig.arbeidsmengde.svar
+                  </label>
+                  <input
+                    class="navds-text-field__input navds-body-short navds-body-short--medium"
+                    id="selvstendig.[0].arbeidsmengde.svar"
+                    inputmode="numeric"
+                    size="25"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    aria-live="polite"
+                    aria-relevant="additions removals"
+                    class="navds-form-field__error"
+                    id="textField-error-«r5u»"
+                  />
+                </div>
+                <div
+                  class="sc-fhHczv hGRFWB"
+                  id="selvstendig.[0].arbeidsmengde.type"
                 >
                   <div
                     class="navds-form-field navds-form-field--medium"
                   >
                     <label
                       class="navds-form-field__label navds-label"
-                      for="selvstendig.[0].arbeidsmengde.svar"
+                      for="select-«r5v»"
                     >
-                      merOmSituasjonenDin.selvstendig.arbeidsmengde.svar
+                      felles.velg.tittel
                     </label>
-                    <input
-                      class="navds-text-field__input navds-body-short navds-body-short--medium"
-                      id="selvstendig.[0].arbeidsmengde.svar"
-                      inputmode="numeric"
-                      size="25"
-                      type="text"
-                      value=""
-                    />
+                    <div
+                      class="navds-select__container"
+                    >
+                      <select
+                        class="navds-select__input navds-body-short navds-body-short--medium"
+                        id="select-«r5v»"
+                      >
+                        <option
+                          value=""
+                        >
+                          felles.velg
+                        </option>
+                        <option
+                          value="arbeidsmengde.prosent"
+                        >
+                          arbeidsmengde.prosent
+                        </option>
+                        <option
+                          value="arbeidsmengde.timer"
+                        >
+                          arbeidsmengde.timer
+                        </option>
+                      </select>
+                      <svg
+                        aria-hidden="true"
+                        class="navds-select__chevron"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
                     <div
                       aria-live="polite"
                       aria-relevant="additions removals"
                       class="navds-form-field__error"
-                      id="textField-error-«r5u»"
+                      id="select-error-«r5v»"
                     />
-                  </div>
-                  <div
-                    class="sc-dntSTA cDuhzw"
-                    id="selvstendig.[0].arbeidsmengde.type"
-                  >
-                    <div
-                      class="navds-form-field navds-form-field--medium"
-                    >
-                      <label
-                        class="navds-form-field__label navds-label"
-                        for="select-«r5v»"
-                      >
-                        felles.velg.tittel
-                      </label>
-                      <div
-                        class="navds-select__container"
-                      >
-                        <select
-                          class="navds-select__input navds-body-short navds-body-short--medium"
-                          id="select-«r5v»"
-                        >
-                          <option
-                            value=""
-                          >
-                            felles.velg
-                          </option>
-                          <option
-                            value="arbeidsmengde.prosent"
-                          >
-                            arbeidsmengde.prosent
-                          </option>
-                          <option
-                            value="arbeidsmengde.timer"
-                          >
-                            arbeidsmengde.timer
-                          </option>
-                        </select>
-                        <svg
-                          aria-hidden="true"
-                          class="navds-select__chevron"
-                          fill="none"
-                          focusable="false"
-                          height="1em"
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            clip-rule="evenodd"
-                            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
-                            fill="currentColor"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        aria-live="polite"
-                        aria-relevant="additions removals"
-                        class="navds-form-field__error"
-                        id="select-error-«r5v»"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -2591,7 +2588,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-eqYatC iniQxN"
+        class="sc-bRKDuR dDaSFe"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -3006,10 +3003,12 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="navds-box sc-lgpSej fnUjj"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
-        class="sc-bRKDuR cHhdsl undefined"
+        class="navds-r-mb navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+        style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -3036,7 +3035,8 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
+      class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -3099,61 +3099,62 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       <div
         class="navds-modal__body"
       >
-        <p
-          class="mute avbryt-text navds-body-short navds-body-short--medium"
-        >
-          avbrytModal.informasjon
-        </p>
-      </div>
-      <div
-        class="navds-modal__footer"
-      >
         <div
-          class="sc-jJLAfE jdrBoE"
+          class="navds-r-mi navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-r-mi-xs: var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-12); --__ac-stack-direction-xs: column;"
         >
-          <button
-            class="navds-button navds-button--secondary navds-button--medium"
-            data-variant="secondary"
-            id="avbryt-nei-btn"
-            style="margin: 10px;"
-            type="button"
+          <p
+            class="mute avbryt-text navds-body-short navds-body-short--medium"
           >
-            <span
-              class="navds-label"
-            >
-              avbrytModal.svarNei
-            </span>
-          </button>
-          <button
-            class="navds-button navds-button--primary navds-button--medium"
-            data-variant="primary"
-            id="avbryt-ja-btn"
-            style="margin: 10px;"
-            type="button"
+            avbrytModal.informasjon
+          </p>
+          <div
+            class="navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--secondary navds-button--medium"
+              data-variant="secondary"
+              id="avbryt-nei-btn"
+              type="button"
             >
-              avbrytModal.svarJa
-            </span>
-          </button>
-        </div>
-        <div
-          class="sc-jJLAfE jdrBoE"
-        >
-          <button
-            class="navds-button navds-button--tertiary navds-button--medium"
-            data-variant="tertiary"
-            id="slett-soeknad"
-            style="color: var(--a-surface-danger);"
-            type="button"
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarNei
+              </span>
+            </button>
+            <button
+              class="navds-button navds-button--primary navds-button--medium"
+              data-variant="primary"
+              id="avbryt-ja-btn"
+              type="button"
+            >
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarJa
+              </span>
+            </button>
+          </div>
+          <div
+            class="navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--tertiary navds-button--medium"
+              data-variant="tertiary"
+              id="slett-soeknad"
+              style="color: var(--a-surface-danger);"
+              type="button"
             >
-              avbrytModal.svarSlett
-            </span>
-          </button>
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarSlett
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </dialog>
@@ -3268,7 +3269,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-kvnevz beghjD"
+      class="sc-ggWZvA hoeLQj"
     >
       <h1
         class="navds-heading navds-heading--small navds-typo--spacing"
@@ -3276,7 +3277,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
       <div
-        class="sc-eqYatC iniQxN"
+        class="sc-bRKDuR dDaSFe"
         id="jobbStatus"
       >
         <fieldset
@@ -3890,7 +3891,8 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                     </p>
                   </div>
                   <div
-                    class="sc-kNOymR goEFcB"
+                    class="navds-hgrid navds-hgrid-gap"
+                    style="--__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-sm: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-md: repeat(2, minmax(0, 1fr));"
                   >
                     <div
                       class="navds-form-field navds-form-field--medium"
@@ -3918,7 +3920,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       />
                     </div>
                     <div
-                      class="sc-dntSTA cDuhzw"
+                      class="sc-fhHczv hGRFWB"
                       id="arbeidsforhold[0].arbeidsmengde.type"
                     >
                       <div
@@ -4070,7 +4072,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                     style="display: none;"
                   >
                     <section
-                      class="sc-kcLKEh gufAOo"
+                      class="sc-hvigdm hNvzVz"
                     >
                       <div
                         class="navds-date__wrapper"
@@ -5338,7 +5340,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-eqYatC iniQxN"
+        class="sc-bRKDuR dDaSFe"
         id="utdanning.hoyesteFullfoerteUtdanning"
       >
         <fieldset
@@ -5753,10 +5755,12 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="navds-box sc-lgpSej fnUjj"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
-        class="sc-bRKDuR cHhdsl undefined"
+        class="navds-r-mb navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+        style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -5783,7 +5787,8 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
+      class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -5846,61 +5851,62 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       <div
         class="navds-modal__body"
       >
-        <p
-          class="mute avbryt-text navds-body-short navds-body-short--medium"
-        >
-          avbrytModal.informasjon
-        </p>
-      </div>
-      <div
-        class="navds-modal__footer"
-      >
         <div
-          class="sc-jJLAfE jdrBoE"
+          class="navds-r-mi navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-r-mi-xs: var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-12); --__ac-stack-direction-xs: column;"
         >
-          <button
-            class="navds-button navds-button--secondary navds-button--medium"
-            data-variant="secondary"
-            id="avbryt-nei-btn"
-            style="margin: 10px;"
-            type="button"
+          <p
+            class="mute avbryt-text navds-body-short navds-body-short--medium"
           >
-            <span
-              class="navds-label"
-            >
-              avbrytModal.svarNei
-            </span>
-          </button>
-          <button
-            class="navds-button navds-button--primary navds-button--medium"
-            data-variant="primary"
-            id="avbryt-ja-btn"
-            style="margin: 10px;"
-            type="button"
+            avbrytModal.informasjon
+          </p>
+          <div
+            class="navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--secondary navds-button--medium"
+              data-variant="secondary"
+              id="avbryt-nei-btn"
+              type="button"
             >
-              avbrytModal.svarJa
-            </span>
-          </button>
-        </div>
-        <div
-          class="sc-jJLAfE jdrBoE"
-        >
-          <button
-            class="navds-button navds-button--tertiary navds-button--medium"
-            data-variant="tertiary"
-            id="slett-soeknad"
-            style="color: var(--a-surface-danger);"
-            type="button"
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarNei
+              </span>
+            </button>
+            <button
+              class="navds-button navds-button--primary navds-button--medium"
+              data-variant="primary"
+              id="avbryt-ja-btn"
+              type="button"
+            >
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarJa
+              </span>
+            </button>
+          </div>
+          <div
+            class="navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--tertiary navds-button--medium"
+              data-variant="tertiary"
+              id="slett-soeknad"
+              style="color: var(--a-surface-danger);"
+              type="button"
             >
-              avbrytModal.svarSlett
-            </span>
-          </button>
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarSlett
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </dialog>

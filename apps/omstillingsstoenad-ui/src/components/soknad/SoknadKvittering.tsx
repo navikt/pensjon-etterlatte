@@ -1,8 +1,7 @@
-import { Alert, BodyLong, BodyShort, Box, Button, Heading, Link } from '@navikt/ds-react'
+import { Alert, BodyLong, BodyShort, Box, Button, Heading, HStack, Link } from '@navikt/ds-react'
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../hooks/useLanguage'
-import { NavigasjonsRadSection } from '../felles/StyledComponents'
 
 const SoknadKvittering = () => {
     const { t } = useTranslation()
@@ -91,17 +90,15 @@ const SoknadKvittering = () => {
                 </BodyShort>
             </Box>
 
-            <Box marginBlock="0 12">
-                <NavigasjonsRadSection>
-                    <Button
-                        variant={'secondary'}
-                        type={'button'}
-                        onClick={() => (window.location.href = 'https://www.nav.no/omstillingsstonad')}
-                    >
-                        {t('soeknadKvittering.spoersmaal.knapp')}
-                    </Button>
-                </NavigasjonsRadSection>
-            </Box>
+            <HStack marginBlock="0 18" justify="center">
+                <Button
+                    variant={'secondary'}
+                    type={'button'}
+                    onClick={() => (window.location.href = 'https://www.nav.no/omstillingsstonad')}
+                >
+                    {t('soeknadKvittering.spoersmaal.knapp')}
+                </Button>
+            </HStack>
         </>
     )
 }

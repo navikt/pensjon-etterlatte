@@ -1,10 +1,9 @@
-import { BodyLong, Box, Button, Link } from '@navikt/ds-react'
+import { BodyLong, Box, Button, HStack, Link } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { ActionTypes } from '../context/bruker/bruker'
-import { NavigasjonsRadSection } from './felles/StyledComponents'
 import { Veileder } from './felles/Veileder'
 
 const UgyldigSoeker = () => {
@@ -44,13 +43,11 @@ const UgyldigSoeker = () => {
                 </BodyLong>
             </Box>
 
-            <Box marginBlock="0 12">
-                <NavigasjonsRadSection>
-                    <Button variant={'primary'} onClick={tilbake}>
-                        {t('knapp.tilbake')}
-                    </Button>
-                </NavigasjonsRadSection>
-            </Box>
+            <HStack marginBlock="0 18" justify="center">
+                <Button variant={'primary'} onClick={tilbake}>
+                    {t('knapp.tilbake')}
+                </Button>
+            </HStack>
         </>
     )
 }

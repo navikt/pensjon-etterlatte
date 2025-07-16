@@ -1,4 +1,16 @@
-import { Alert, BodyShort, Box, Button, GuidePanel, Heading, HGrid, Label, RadioProps, VStack } from '@navikt/ds-react'
+import {
+    Alert,
+    BodyShort,
+    Box,
+    Button,
+    GuidePanel,
+    Heading,
+    HGrid,
+    HStack,
+    Label,
+    RadioProps,
+    VStack,
+} from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import React, { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -23,7 +35,6 @@ import { Panel } from '../../felles/Panel'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import { NavigasjonsRad } from '../../felles/StyledComponents'
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
 
 const EndreBarnKort = styled(Panel)`
@@ -370,7 +381,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
 
                             <Feilmeldinger errors={errors} />
 
-                            <NavigasjonsRad className={'bottom-spacing-none'}>
+                            <HStack gap="4" justify="center">
                                 <Button
                                     id={'avbrytLeggTilBarn'}
                                     variant={'secondary'}
@@ -390,7 +401,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                 >
                                     {endrerBarn ? t('knapp.lagreEndring') : t('knapp.leggTil')}
                                 </Button>
-                            </NavigasjonsRad>
+                            </HStack>
                         </EndreBarnKortInnhold>
                     </EndreBarnKort>
                 </form>

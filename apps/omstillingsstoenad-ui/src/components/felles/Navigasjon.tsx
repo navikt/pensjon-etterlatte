@@ -1,7 +1,6 @@
-import { BodyShort, Box, Button, Heading, Loader, Modal } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import { slettSoeknad } from '../../api/api'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { ActionTypes as BrukerAction } from '../../context/bruker/bruker'
@@ -9,18 +8,6 @@ import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes as SoknadAction } from '../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { erDato } from '../../utils/dato'
-import { FlexCenter, NavigasjonsRad, NavigasjonsRadSkjemaGruppe } from './StyledComponents'
-
-const NavigasjonWrapper = styled(Box)`
-    margin-block: 0 var(--a-spacing-12);
-    @media screen and (max-width: 650px) {
-        .knapp {
-            font-size: 1rem;
-            padding: 0 1rem;
-            width: 50%;
-        }
-    }
-`
 
 interface KnappProps {
     label?: string
@@ -79,8 +66,8 @@ const Navigasjon = ({
 
     return (
         <>
-            <NavigasjonWrapper>
-                <NavigasjonsRad className={`${disabled && 'disabled'}`}>
+            <Box marginBlock="0 12">
+                <HStack gap="4" marginBlock="0 8" justify="center">
                     {!!forrige && (
                         <Button variant={'secondary'} type={'button'} onClick={forrige.onClick}>
                             {forrige.label || t('knapp.tilbake')}
@@ -94,24 +81,32 @@ const Navigasjon = ({
                     )}
 
                     {!!send && (
-                        <Button variant={'primary'} type={'button'} onClick={send.onClick}>
-                            {send.label || t('knapp.sendSoeknad')} {disabled && <Loader />}
+                        <Button variant={'primary'} type={'button'} onClick={send.onClick} loading={disabled}>
+                            {send.label || t('knapp.sendSoeknad')}
                         </Button>
                     )}
-                </NavigasjonsRad>
+                </HStack>
 
                 {!!sistLagret && (
-                    <BodyShort size={'small'} spacing className={'center mute'}>
-                        {t('felles.sistLagret')}: {sistLagret}
-                    </BodyShort>
+                    <HStack justify="center">
+                        <BodyShort size={'small'} spacing>
+                            {t('felles.sistLagret')}: {sistLagret}
+                        </BodyShort>
+                    </HStack>
                 )}
-            </NavigasjonWrapper>
+            </Box>
 
-            <NavigasjonsRadSkjemaGruppe $disabled={disabled}>
-                <Button id={'avbryt-btn'} variant={'tertiary'} type={'button'} onClick={() => setIsOpen(true)}>
+            <HStack marginBlock="0 8" justify="center">
+                <Button
+                    id={'avbryt-btn'}
+                    variant={'tertiary'}
+                    type={'button'}
+                    onClick={() => setIsOpen(true)}
+                    disabled={disabled}
+                >
                     {t('knapp.avbryt')}
                 </Button>
-            </NavigasjonsRadSkjemaGruppe>
+            </HStack>
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('avbrytModal.spoersmaal')}>
                 <Modal.Header>
@@ -119,43 +114,35 @@ const Navigasjon = ({
                 </Modal.Header>
 
                 <Modal.Body>
-                    <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                    <VStack gap="12" marginInline="8">
+                        <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                        <HStack gap="4" justify="center">
+                            <Button
+                                id={'avbryt-nei-btn'}
+                                variant={'secondary'}
+                                onClick={fortsettSoknad}
+                                type={'button'}
+                            >
+                                {t('avbrytModal.svarNei')}
+                            </Button>
+
+                            <Button id={'avbryt-ja-btn'} variant={'primary'} onClick={avbrytSoeknad} type={'button'}>
+                                {t('avbrytModal.svarJa')}
+                            </Button>
+                        </HStack>
+                        <HStack justify="center">
+                            <Button
+                                id={'slett-soeknad'}
+                                variant={'tertiary'}
+                                style={{ color: 'var(--a-surface-danger)' }}
+                                type={'button'}
+                                onClick={avbrytOgslettSoeknad}
+                            >
+                                {t('avbrytModal.svarSlett')}
+                            </Button>
+                        </HStack>
+                    </VStack>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    <FlexCenter>
-                        <Button
-                            id={'avbryt-nei-btn'}
-                            variant={'secondary'}
-                            onClick={fortsettSoknad}
-                            type={'button'}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('avbrytModal.svarNei')}
-                        </Button>
-
-                        <Button
-                            id={'avbryt-ja-btn'}
-                            variant={'primary'}
-                            onClick={avbrytSoeknad}
-                            type={'button'}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('avbrytModal.svarJa')}
-                        </Button>
-                    </FlexCenter>
-                    <FlexCenter>
-                        <Button
-                            id={'slett-soeknad'}
-                            variant={'tertiary'}
-                            style={{ color: 'var(--a-surface-danger)' }}
-                            type={'button'}
-                            onClick={avbrytOgslettSoeknad}
-                        >
-                            {t('avbrytModal.svarSlett')}
-                        </Button>
-                    </FlexCenter>
-                </Modal.Footer>
             </Modal>
         </>
     )

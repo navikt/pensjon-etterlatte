@@ -1,17 +1,11 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyShort, Box, Button, Heading, Tag, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HStack, Tag, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import ikon from '../../../assets/ikoner/barn1.svg'
 import { IBarn } from '../../../typer/person'
 import { IValg } from '../../../typer/Spoersmaal'
-import { Infokort, InfokortHeader, InfokortInformasjonsboks } from '../../felles/StyledComponents'
-
-const InfokortInformasjonsElement = styled.div`
-    margin: 10px 0 10px 0;
-`
 
 interface Props {
     barn: IBarn
@@ -26,18 +20,26 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
     const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Infokort>
-            <InfokortHeader>
-                <img alt="barn" src={ikon} />
-            </InfokortHeader>
+        <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+            <Box
+                borderRadius="4 4 0 0"
+                height="128px"
+                borderWidth="0 0 4 0"
+                style={{
+                    backgroundColor: '#4d3e55',
+                    borderBottomColor: '#826ba1',
+                }}
+            >
+                <HStack justify="center" align="end" height="100%">
+                    <img alt="barn" src={ikon} />
+                </HStack>
+            </Box>
 
-            <InfokortInformasjonsboks className={'center'}>
-                <div className={'center'}>
-                    <Heading size={'small'}>
-                        {barn.fornavn} {barn.etternavn}
-                    </Heading>
-                </div>
-                <InfokortInformasjonsElement>
+            <VStack padding="8" align="center">
+                <Heading size={'small'}>
+                    {barn.fornavn} {barn.etternavn}
+                </Heading>
+                <Box marginBlock="2">
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
@@ -72,7 +74,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                             <Tag variant={'warning'}>{t('omBarn.barnepensjon.ikkeSoekt')}</Tag>
                         </Box>
                     )}
-                </InfokortInformasjonsElement>
+                </Box>
 
                 <VStack gap="2" align="center">
                     <Button
@@ -90,8 +92,8 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                         {t('knapp.fjernFraSoeknad')}
                     </Button>
                 </VStack>
-            </InfokortInformasjonsboks>
-        </Infokort>
+            </VStack>
+        </Box>
     )
 })
 

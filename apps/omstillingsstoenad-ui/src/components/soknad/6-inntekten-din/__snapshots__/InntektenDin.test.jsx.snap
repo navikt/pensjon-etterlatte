@@ -107,7 +107,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="sc-kvnevz cjZlei"
+      class="sc-ggWZvA kyoMju"
     >
       <div
         class="navds-r-mb navds-box"
@@ -120,7 +120,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-kcLKEh cHKcNE"
+        class="sc-hvigdm jhooGX"
         id="inntektstyper"
       >
         <fieldset
@@ -590,10 +590,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="navds-box sc-lgpSej fnUjj"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
-        class="sc-bRKDuR cHhdsl undefined"
+        class="navds-r-mb navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+        style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -620,7 +622,8 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
+      class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -683,61 +686,62 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       <div
         class="navds-modal__body"
       >
-        <p
-          class="mute avbryt-text navds-body-short navds-body-short--medium"
-        >
-          avbrytModal.informasjon
-        </p>
-      </div>
-      <div
-        class="navds-modal__footer"
-      >
         <div
-          class="sc-jJLAfE jdrBoE"
+          class="navds-r-mi navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-r-mi-xs: var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-12); --__ac-stack-direction-xs: column;"
         >
-          <button
-            class="navds-button navds-button--secondary navds-button--medium"
-            data-variant="secondary"
-            id="avbryt-nei-btn"
-            style="margin: 10px;"
-            type="button"
+          <p
+            class="mute avbryt-text navds-body-short navds-body-short--medium"
           >
-            <span
-              class="navds-label"
-            >
-              avbrytModal.svarNei
-            </span>
-          </button>
-          <button
-            class="navds-button navds-button--primary navds-button--medium"
-            data-variant="primary"
-            id="avbryt-ja-btn"
-            style="margin: 10px;"
-            type="button"
+            avbrytModal.informasjon
+          </p>
+          <div
+            class="navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--secondary navds-button--medium"
+              data-variant="secondary"
+              id="avbryt-nei-btn"
+              type="button"
             >
-              avbrytModal.svarJa
-            </span>
-          </button>
-        </div>
-        <div
-          class="sc-jJLAfE jdrBoE"
-        >
-          <button
-            class="navds-button navds-button--tertiary navds-button--medium"
-            data-variant="tertiary"
-            id="slett-soeknad"
-            style="color: var(--a-surface-danger);"
-            type="button"
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarNei
+              </span>
+            </button>
+            <button
+              class="navds-button navds-button--primary navds-button--medium"
+              data-variant="primary"
+              id="avbryt-ja-btn"
+              type="button"
+            >
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarJa
+              </span>
+            </button>
+          </div>
+          <div
+            class="navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--tertiary navds-button--medium"
+              data-variant="tertiary"
+              id="slett-soeknad"
+              style="color: var(--a-surface-danger);"
+              type="button"
             >
-              avbrytModal.svarSlett
-            </span>
-          </button>
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarSlett
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </dialog>
@@ -852,7 +856,7 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-kvnevz cjZlei"
+      class="sc-ggWZvA kyoMju"
     >
       <div
         class="navds-r-mb navds-box"
@@ -865,7 +869,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-kcLKEh cHKcNE"
+        class="sc-hvigdm jhooGX"
         id="inntektstyper"
       >
         <fieldset
@@ -1335,10 +1339,12 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="navds-box sc-lgpSej fnUjj"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
-        class="sc-bRKDuR cHhdsl undefined"
+        class="navds-r-mb navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+        style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -1365,7 +1371,8 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
+      class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -1428,61 +1435,62 @@ exports[`Inntekten din > Snapshot 1`] = `
       <div
         class="navds-modal__body"
       >
-        <p
-          class="mute avbryt-text navds-body-short navds-body-short--medium"
-        >
-          avbrytModal.informasjon
-        </p>
-      </div>
-      <div
-        class="navds-modal__footer"
-      >
         <div
-          class="sc-jJLAfE jdrBoE"
+          class="navds-r-mi navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-r-mi-xs: var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-12); --__ac-stack-direction-xs: column;"
         >
-          <button
-            class="navds-button navds-button--secondary navds-button--medium"
-            data-variant="secondary"
-            id="avbryt-nei-btn"
-            style="margin: 10px;"
-            type="button"
+          <p
+            class="mute avbryt-text navds-body-short navds-body-short--medium"
           >
-            <span
-              class="navds-label"
-            >
-              avbrytModal.svarNei
-            </span>
-          </button>
-          <button
-            class="navds-button navds-button--primary navds-button--medium"
-            data-variant="primary"
-            id="avbryt-ja-btn"
-            style="margin: 10px;"
-            type="button"
+            avbrytModal.informasjon
+          </p>
+          <div
+            class="navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--secondary navds-button--medium"
+              data-variant="secondary"
+              id="avbryt-nei-btn"
+              type="button"
             >
-              avbrytModal.svarJa
-            </span>
-          </button>
-        </div>
-        <div
-          class="sc-jJLAfE jdrBoE"
-        >
-          <button
-            class="navds-button navds-button--tertiary navds-button--medium"
-            data-variant="tertiary"
-            id="slett-soeknad"
-            style="color: var(--a-surface-danger);"
-            type="button"
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarNei
+              </span>
+            </button>
+            <button
+              class="navds-button navds-button--primary navds-button--medium"
+              data-variant="primary"
+              id="avbryt-ja-btn"
+              type="button"
+            >
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarJa
+              </span>
+            </button>
+          </div>
+          <div
+            class="navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--tertiary navds-button--medium"
+              data-variant="tertiary"
+              id="slett-soeknad"
+              style="color: var(--a-surface-danger);"
+              type="button"
             >
-              avbrytModal.svarSlett
-            </span>
-          </button>
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarSlett
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </dialog>

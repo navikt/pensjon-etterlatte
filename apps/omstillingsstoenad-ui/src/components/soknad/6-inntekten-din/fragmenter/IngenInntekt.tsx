@@ -7,7 +7,6 @@ import { IInntekt } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { RHFInputArea, RHFValutaInput } from '../../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
-import { ListItemWithIndent } from '../../../felles/StyledComponents'
 
 const IngenInntekt = () => {
     const { t } = useTranslation()
@@ -32,32 +31,35 @@ const IngenInntekt = () => {
                             <Box marginBlock="4">
                                 <ReadMore header={t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.tittel')}>
                                     {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold')}
-                                    <List size={'small'}>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li2')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li3')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li4')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li5')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li6')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li7')}
-                                        </ListItemWithIndent>
-                                        <ListItemWithIndent>
-                                            {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li8')}
-                                        </ListItemWithIndent>
-                                    </List>
+
+                                    <Box marginInline="4 0">
+                                        <List size={'small'}>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li2')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li3')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li4')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li5')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li6')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li7')}
+                                            </List.Item>
+                                            <List.Item>
+                                                {t('inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li8')}
+                                            </List.Item>
+                                        </List>
+                                    </Box>
                                 </ReadMore>
                             </Box>
 

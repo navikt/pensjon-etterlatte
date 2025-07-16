@@ -122,24 +122,34 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
-        class="sc-gGKoUb hyaWVM"
+        class="navds-hgrid navds-hgrid-gap"
+        style="--__ac-hgrid-gap-xs: var(--a-spacing-4); --__ac-hgrid-columns-sm: repeat(1, minmax(0, 1fr)); --__ac-hgrid-columns-md: repeat(2, minmax(0, 1fr));"
       >
         <div
-          class="sc-jwTyAe bwOkcy"
+          class="navds-r-mb navds-box navds-box-bg navds-box-border-radius"
+          style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-4); --__ac-box-background: var(--a-bg-subtle); --__ac-box-radius-xs: 0 0 var(--a-radius-4) var(--a-radius-4);"
         >
           <div
-            class="sc-ggWZvA iYbkDz"
-          >
-            <img
-              alt="barn"
-              src="/src/assets/ikoner/barn1.svg"
-            />
-          </div>
-          <div
-            class="sc-dTvVRJ jRQhHR"
+            class="navds-r-h navds-box navds-box-border-width navds-box-border-radius"
+            style="--__ac-r-h-xs: 128px; background-color: rgb(77, 62, 85); border-bottom-color: rgb(130, 107, 161); opacity: 0.4; --__ac-box-border-width: 0px 0px 4px 0px; --__ac-box-radius-xs: var(--a-radius-4) var(--a-radius-4) 0 0;"
           >
             <div
-              class="sc-hwddKA eZCbdD"
+              class="navds-r-h navds-stack navds-hstack navds-stack-align navds-stack-justify navds-stack-direction navds-stack-wrap"
+              style="--__ac-r-h-xs: 100%; --__ac-stack-direction-xs: row; --__ac-stack-align-xs: end; --__ac-stack-justify-xs: center;"
+            >
+              <img
+                alt="barn"
+                src="/src/assets/ikoner/barn1.svg"
+              />
+            </div>
+          </div>
+          <div
+            class="navds-r-p navds-box"
+            style="--__ac-r-p-xs: var(--a-spacing-8);"
+          >
+            <div
+              class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+              style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
             >
               <button
                 class="navds-button navds-button--primary navds-button--medium"
@@ -164,10 +174,12 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="navds-box sc-lgpSej fnUjj"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
-        class="sc-bRKDuR cHhdsl undefined"
+        class="navds-r-mb navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+        style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
       >
         <button
           class="navds-button navds-button--secondary navds-button--medium"
@@ -194,7 +206,8 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-bRKDuR sc-hvigdm cHhdsl RzmAx"
+      class="navds-r-mb navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-8); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
     >
       <button
         class="navds-button navds-button--tertiary navds-button--medium"
@@ -257,61 +270,62 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
       <div
         class="navds-modal__body"
       >
-        <p
-          class="mute avbryt-text navds-body-short navds-body-short--medium"
-        >
-          avbrytModal.informasjon
-        </p>
-      </div>
-      <div
-        class="navds-modal__footer"
-      >
         <div
-          class="sc-jJLAfE jdrBoE"
+          class="navds-r-mi navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-r-mi-xs: var(--a-spacing-8); --__ac-stack-gap-xs: var(--a-spacing-12); --__ac-stack-direction-xs: column;"
         >
-          <button
-            class="navds-button navds-button--secondary navds-button--medium"
-            data-variant="secondary"
-            id="avbryt-nei-btn"
-            style="margin: 10px;"
-            type="button"
+          <p
+            class="mute avbryt-text navds-body-short navds-body-short--medium"
           >
-            <span
-              class="navds-label"
-            >
-              avbrytModal.svarNei
-            </span>
-          </button>
-          <button
-            class="navds-button navds-button--primary navds-button--medium"
-            data-variant="primary"
-            id="avbryt-ja-btn"
-            style="margin: 10px;"
-            type="button"
+            avbrytModal.informasjon
+          </p>
+          <div
+            class="navds-stack navds-hstack navds-stack-gap navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--secondary navds-button--medium"
+              data-variant="secondary"
+              id="avbryt-nei-btn"
+              type="button"
             >
-              avbrytModal.svarJa
-            </span>
-          </button>
-        </div>
-        <div
-          class="sc-jJLAfE jdrBoE"
-        >
-          <button
-            class="navds-button navds-button--tertiary navds-button--medium"
-            data-variant="tertiary"
-            id="slett-soeknad"
-            style="color: var(--a-surface-danger);"
-            type="button"
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarNei
+              </span>
+            </button>
+            <button
+              class="navds-button navds-button--primary navds-button--medium"
+              data-variant="primary"
+              id="avbryt-ja-btn"
+              type="button"
+            >
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarJa
+              </span>
+            </button>
+          </div>
+          <div
+            class="navds-stack navds-hstack navds-stack-justify navds-stack-direction navds-stack-wrap"
+            style="--__ac-stack-direction-xs: row; --__ac-stack-justify-xs: center;"
           >
-            <span
-              class="navds-label"
+            <button
+              class="navds-button navds-button--tertiary navds-button--medium"
+              data-variant="tertiary"
+              id="slett-soeknad"
+              style="color: var(--a-surface-danger);"
+              type="button"
             >
-              avbrytModal.svarSlett
-            </span>
-          </button>
+              <span
+                class="navds-label"
+              >
+                avbrytModal.svarSlett
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </dialog>

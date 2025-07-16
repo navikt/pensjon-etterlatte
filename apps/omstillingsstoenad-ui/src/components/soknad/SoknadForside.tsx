@@ -23,7 +23,6 @@ import { useLanguage } from '../../hooks/useLanguage'
 import { MuligeSteg } from '../../typer/steg'
 import { erForGammel } from '../../utils/alder'
 import { Spraakvalg } from '../felles/Spraakvalg'
-import { ListItemWithIndent } from '../felles/StyledComponents'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -99,23 +98,25 @@ const SoknadForside = () => {
                             {t('forside.harSoektOms.tittel')}
                         </Heading>
                         <BodyLong spacing>{t('forside.harSoektOms.avsnitt')}</BodyLong>
-                        <List>
-                            <ListItemWithIndent>
-                                <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
-                                    {t('forside.harSoektOms.innhold.li1.lenke.tekst')}
-                                </Link>{' '}
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>
-                                    {t('forside.harSoektOms.innhold.li2.lenke.tekst')}
-                                </Link>
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>
-                                <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>
-                                    {t('forside.harSoektOms.innhold.li3.lenke.tekst')}
-                                </Link>
-                            </ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List>
+                                <List.Item>
+                                    <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
+                                        {t('forside.harSoektOms.innhold.li1.lenke.tekst')}
+                                    </Link>{' '}
+                                </List.Item>
+                                <List.Item>
+                                    <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>
+                                        {t('forside.harSoektOms.innhold.li2.lenke.tekst')}
+                                    </Link>
+                                </List.Item>
+                                <List.Item>
+                                    <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>
+                                        {t('forside.harSoektOms.innhold.li3.lenke.tekst')}
+                                    </Link>
+                                </List.Item>
+                            </List>
+                        </Box>
                     </Alert>
                 </Box>
             )}
@@ -126,12 +127,13 @@ const SoknadForside = () => {
                 </Heading>
 
                 <BodyLong>{t('forside.omYtelsene.innhold')}</BodyLong>
-
-                <List>
-                    <ListItemWithIndent>{t('forside.omYtelsene.innhold.li1')}</ListItemWithIndent>
-                    <ListItemWithIndent>{t('forside.omYtelsene.innhold.li2')}</ListItemWithIndent>
-                    <ListItemWithIndent>{t('forside.omYtelsene.innhold.li3')}</ListItemWithIndent>
-                </List>
+                <Box marginInline="4 0">
+                    <List>
+                        <List.Item>{t('forside.omYtelsene.innhold.li1')}</List.Item>
+                        <List.Item>{t('forside.omYtelsene.innhold.li2')}</List.Item>
+                        <List.Item>{t('forside.omYtelsene.innhold.li3')}</List.Item>
+                    </List>
+                </Box>
 
                 <BodyLong>
                     {t('forside.omYtelsene.innhold.merOmOmstillingsstoenad')}
@@ -181,33 +183,31 @@ const SoknadForside = () => {
 
                             <Box marginBlock="4">
                                 <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
-                                <List as={'ul'}>
-                                    <ListItemWithIndent>
-                                        {t('forside.innsamlingAvInfo.innholdListe.li1')}
-                                    </ListItemWithIndent>
-                                    <ListItemWithIndent>
-                                        {t('forside.innsamlingAvInfo.innholdListe.li2')}
-                                    </ListItemWithIndent>
-                                    <ListItemWithIndent>
-                                        {t('forside.innsamlingAvInfo.innholdListe.li3')}
-                                    </ListItemWithIndent>
-                                </List>
+                                <Box marginInline="4 0">
+                                    <List as={'ul'}>
+                                        <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li1')}</List.Item>
+                                        <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li2')}</List.Item>
+                                        <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li3')}</List.Item>
+                                    </List>
+                                </Box>
                             </Box>
 
                             <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                             <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
-                            <List as={'ul'}>
-                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li1')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li2')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li3')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li4')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li5')}</ListItemWithIndent>
-                                <ListItemWithIndent>{t('forside.uthentingAvInfo.innholdListe.li6')}</ListItemWithIndent>
-                                <ListItemWithIndent>
-                                    <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
-                                </ListItemWithIndent>
-                            </List>
+                            <Box marginInline="4 0">
+                                <List as={'ul'}>
+                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li1')}</List.Item>
+                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li2')}</List.Item>
+                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li3')}</List.Item>
+                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li4')}</List.Item>
+                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li5')}</List.Item>
+                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li6')}</List.Item>
+                                    <List.Item>
+                                        <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
+                                    </List.Item>
+                                </List>
+                            </Box>
 
                             <Box marginBlock="4">
                                 <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
@@ -216,12 +216,14 @@ const SoknadForside = () => {
                             <Box marginBlock="4">
                                 <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
 
-                                <List as={'ul'}>
-                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li1')}</ListItemWithIndent>
-                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li2')}</ListItemWithIndent>
-                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li3')}</ListItemWithIndent>
-                                    <ListItemWithIndent>{t('forside.personvern.tredjeperson.li4')}</ListItemWithIndent>
-                                </List>
+                                <Box marginInline="4 0">
+                                    <List as={'ul'}>
+                                        <List.Item>{t('forside.personvern.tredjeperson.li1')}</List.Item>
+                                        <List.Item>{t('forside.personvern.tredjeperson.li2')}</List.Item>
+                                        <List.Item>{t('forside.personvern.tredjeperson.li3')}</List.Item>
+                                        <List.Item>{t('forside.personvern.tredjeperson.li4')}</List.Item>
+                                    </List>
+                                </Box>
                             </Box>
 
                             <Box marginBlock="4">
@@ -253,20 +255,14 @@ const SoknadForside = () => {
                                     <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
                                 </Box>
 
-                                <List as={'ul'}>
-                                    <ListItemWithIndent>
-                                        {t('forside.automatiskbehandling.innholdListe.li1')}
-                                    </ListItemWithIndent>
-                                    <ListItemWithIndent>
-                                        {t('forside.automatiskbehandling.innholdListe.li2')}
-                                    </ListItemWithIndent>
-                                    <ListItemWithIndent>
-                                        {t('forside.automatiskbehandling.innholdListe.li3')}
-                                    </ListItemWithIndent>
-                                    <ListItemWithIndent>
-                                        {t('forside.automatiskbehandling.innholdListe.li4')}
-                                    </ListItemWithIndent>
-                                </List>
+                                <Box marginInline="4 0">
+                                    <List as={'ul'}>
+                                        <List.Item>{t('forside.automatiskbehandling.innholdListe.li1')}</List.Item>
+                                        <List.Item>{t('forside.automatiskbehandling.innholdListe.li2')}</List.Item>
+                                        <List.Item>{t('forside.automatiskbehandling.innholdListe.li3')}</List.Item>
+                                        <List.Item>{t('forside.automatiskbehandling.innholdListe.li4')}</List.Item>
+                                    </List>
+                                </Box>
 
                                 <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
                             </Box>
