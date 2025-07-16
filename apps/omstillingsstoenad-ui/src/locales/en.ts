@@ -1,5 +1,7 @@
 export default {
     steg: 'Step {{aktivSide}} of {{muligeSteg}}',
+    visAlleSteg: 'Show all steps',
+    skjulAlleSteg: 'Hide all steps',
     'steg.OmDeg': 'Personal data',
     'steg.OmDegOgAvdoed': 'About you and the deceased',
     'steg.OmAvdoed': 'The deceased’s personal details',
