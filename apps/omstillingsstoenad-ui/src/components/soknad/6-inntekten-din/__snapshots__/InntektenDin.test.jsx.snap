@@ -107,7 +107,8 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
       </div>
     </div>
     <div
-      class="sc-ggWZvA kyoMju"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
         class="navds-r-mb navds-box"
@@ -120,7 +121,6 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hvigdm jhooGX"
         id="inntektstyper"
       >
         <fieldset
@@ -856,7 +856,8 @@ exports[`Inntekten din > Snapshot 1`] = `
       </div>
     </div>
     <div
-      class="sc-ggWZvA kyoMju"
+      class="navds-r-mb navds-box"
+      style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
     >
       <div
         class="navds-r-mb navds-box"
@@ -869,7 +870,6 @@ exports[`Inntekten din > Snapshot 1`] = `
         </h1>
       </div>
       <div
-        class="sc-hvigdm jhooGX"
         id="inntektstyper"
       >
         <fieldset

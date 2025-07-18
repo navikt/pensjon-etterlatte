@@ -1,8 +1,7 @@
-import { Alert } from '@navikt/ds-react'
+import { Alert, HStack, VStack } from '@navikt/ds-react'
 import ErrorStackParser from 'error-stack-parser'
-import React, { ErrorInfo, ReactNode } from 'react'
+import React, { ErrorInfo } from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import { logger } from '~utils/logger'
 
 type Props = {
@@ -17,7 +16,6 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
     static getDerivedStateFromError() {
         return { hasError: true }
     }
-
     componentDidCatch(error: Error, errorInfo: ErrorInfo) {
         const stackFrames = ErrorStackParser.parse(error)
         if (stackFrames.length > 0) {
@@ -40,12 +38,14 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
     render() {
         if (this.state.hasError) {
             return (
-                <div>
-                    <ApiErrorAlert>En feil har oppstått og blitt logget.</ApiErrorAlert>
-                    <HjemLink to="/" onClick={() => this.setState({ hasError: false })}>
-                        Gå til hovedskjermen
-                    </HjemLink>
-                </div>
+                <HStack justify="center" marginBlock="8">
+                    <VStack gap="4" maxWidth="fit-content">
+                        <Alert variant="error">En feil har oppstått og blitt logget.</Alert>
+                        <Link to="/" onClick={() => this.setState({ hasError: false })}>
+                            Gå til hovedskjermen
+                        </Link>
+                    </VStack>
+                </HStack>
             )
         }
         return this.props.children
@@ -53,18 +53,3 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
 }
 
 export default ErrorBoundary
-
-export const ApiErrorAlert = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
-    return <BredAlert variant="error">{children}</BredAlert>
-}
-
-const BredAlert = styled(Alert)`
-    margin: 2rem auto;
-    max-width: fit-content;
-`
-
-const HjemLink = styled(Link)`
-    margin: 2rem auto;
-    max-width: fit-content;
-    display: block;
-`
