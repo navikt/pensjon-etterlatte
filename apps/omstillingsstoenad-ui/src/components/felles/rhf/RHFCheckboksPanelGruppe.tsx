@@ -62,24 +62,26 @@ export const RHFCheckboksGruppe = ({ name, checkboxes, required = true, ...rest 
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     return (
-        <Controller
-            name={name}
-            control={control}
-            rules={{ required }}
-            render={({ field: { value, onChange } }) => (
-                <CheckboxGroup {...rest} error={feilmelding} defaultValue={value}>
-                    {checkboxes.map((checkbox: CheckboxProps) => (
-                        <Checkbox
-                            key={checkbox.value as string}
-                            value={checkbox.value || ''}
-                            onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
-                        >
-                            {checkbox.children}
-                        </Checkbox>
-                    ))}
-                </CheckboxGroup>
-            )}
-        />
+        <div id={name}>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required }}
+                render={({ field: { value, onChange } }) => (
+                    <CheckboxGroup {...rest} error={feilmelding} defaultValue={value}>
+                        {checkboxes.map((checkbox: CheckboxProps) => (
+                            <Checkbox
+                                key={checkbox.value as string}
+                                value={checkbox.value || ''}
+                                onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
+                            >
+                                {checkbox.children}
+                            </Checkbox>
+                        ))}
+                    </CheckboxGroup>
+                )}
+            />
+        </div>
     )
 }
 

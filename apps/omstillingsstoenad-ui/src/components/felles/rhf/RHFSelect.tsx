@@ -32,7 +32,7 @@ export const RHFSelect = ({ name, label, selectOptions, rules, valgfri = false, 
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     return (
-        <Box maxWidth="22rem">
+        <Box id={name} maxWidth="22rem">
             <Controller
                 name={name}
                 control={control}
