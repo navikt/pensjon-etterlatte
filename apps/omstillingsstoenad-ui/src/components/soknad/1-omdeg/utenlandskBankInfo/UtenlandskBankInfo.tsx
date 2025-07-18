@@ -1,13 +1,8 @@
-import { Box, Heading, HelpText } from '@navikt/ds-react'
+import { Box, Heading, HelpText, HStack } from '@navikt/ds-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import Bredde from '../../../../typer/bredde'
 import { RHFBicInput, RHFIbanInput, RHFInput } from '../../../felles/rhf/RHFInput'
-
-const HelpTextLabel = styled.div`
-    display: flex;
-`
 
 const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerTilhoererBarn?: boolean }) => {
     const { t } = useTranslation()
@@ -39,10 +34,10 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                     name={`${prefix}utbetalingsInformasjon.iban`}
                     htmlSize={Bredde.M}
                     label={
-                        <HelpTextLabel>
+                        <HStack align="center">
                             {t('omDeg.utbetalingsInformasjon.iban')}
                             &nbsp;<HelpText>{t('omDeg.utbetalingsInformasjon.ibanHjelpetekst')}</HelpText>
-                        </HelpTextLabel>
+                        </HStack>
                     }
                     autoComplete="off"
                 />
@@ -52,10 +47,10 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                     name={`${prefix}utbetalingsInformasjon.swift`}
                     htmlSize={Bredde.S}
                     label={
-                        <HelpTextLabel>
+                        <HStack align="center">
                             {t('omDeg.utbetalingsInformasjon.swift')}
                             &nbsp;<HelpText>{t('omDeg.utbetalingsInformasjon.swiftHjelpetekst')}</HelpText>
-                        </HelpTextLabel>
+                        </HStack>
                     }
                     autoComplete="off"
                 />

@@ -2,7 +2,6 @@ import { Box, GuidePanel, Heading } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { useBrukerContext } from '../../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
@@ -20,10 +19,6 @@ import HoeyesteUtdanning from './fragmenter/HoeyesteUtdanning'
 import NavaerendeArbeidsforhold from './fragmenter/NavaerendeArbeidsforhold'
 import TilbudOmJobb from './fragmenter/TilbudOmJobb'
 import UnderUtdanning from './fragmenter/UnderUtdanning'
-
-const DynamicSpacing = styled.div<{ $margin: boolean }>`
-    margin-bottom: ${(props) => (!props.$margin ? '3rem' : '')};
-`
 
 const MerOmSituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
@@ -96,7 +91,7 @@ const MerOmSituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <DynamicSpacing $margin={!!jobbStatus?.length}>
+                        <Box marginBlock="0 12">
                             <Heading size={'small'} spacing>
                                 {t('merOmSituasjonenDin.jobbStatus.tittel')}
                             </Heading>
@@ -120,7 +115,7 @@ const MerOmSituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                             {jobbStatus?.includes(JobbStatus.underUtdanning) && <UnderUtdanning />}
 
                             {jobbStatus?.includes(JobbStatus.ingen) && <AnnenSituasjon />}
-                        </DynamicSpacing>
+                        </Box>
 
                         <HoeyesteUtdanning />
                     </>
