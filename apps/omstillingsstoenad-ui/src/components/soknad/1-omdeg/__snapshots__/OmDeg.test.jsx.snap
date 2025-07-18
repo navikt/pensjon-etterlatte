@@ -247,7 +247,8 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             for="utbetalingsInformasjon.iban"
           >
             <div
-              class="sc-bRKDuR fuBESt"
+              class="navds-stack navds-hstack navds-stack-align navds-stack-direction navds-stack-wrap"
+              style="--__ac-stack-direction-xs: row; --__ac-stack-align-xs: center;"
             >
               omDeg.utbetalingsInformasjon.iban
                
@@ -371,7 +372,8 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             for="utbetalingsInformasjon.swift"
           >
             <div
-              class="sc-bRKDuR fuBESt"
+              class="navds-stack navds-hstack navds-stack-align navds-stack-direction navds-stack-wrap"
+              style="--__ac-stack-direction-xs: row; --__ac-stack-align-xs: center;"
             >
               omDeg.utbetalingsInformasjon.swift
                
