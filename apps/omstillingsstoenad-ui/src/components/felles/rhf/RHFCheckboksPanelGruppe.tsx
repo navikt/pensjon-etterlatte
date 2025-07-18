@@ -1,22 +1,16 @@
-import { Controller, FieldError, FieldPath, FieldValues, useFormContext } from 'react-hook-form'
 import {
-    CheckboxGroup,
     Checkbox,
-    CheckboxProps,
+    CheckboxGroup,
     CheckboxGroupProps,
-    ConfirmationPanelProps,
+    CheckboxProps,
     ConfirmationPanel,
+    ConfirmationPanelProps,
 } from '@navikt/ds-react'
-import styled from 'styled-components'
 import { get } from 'lodash'
+import { Controller, FieldError, FieldPath, FieldValues, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { getTransKey } from '../../../utils/translation'
 
-const CheckboxGroupWrapper = styled.div<{ $inline?: boolean }>`
-    .navds-checkboxes {
-        ${(props) => (props.$inline ? 'display: flex; gap: 1rem;' : '')}
-    }
-`
 // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 const handleSelect = (array: any[], addOrRemove: any) => {
     return array?.includes(addOrRemove)
@@ -54,16 +48,9 @@ interface RHFCheckboksGruppeProps extends Omit<CheckboxGroupProps, 'onChange' | 
     name: FieldPath<FieldValues>
     checkboxes: CheckboxProps[]
     required?: boolean
-    inline?: boolean
 }
 
-export const RHFCheckboksGruppe = ({
-    name,
-    checkboxes,
-    required = true,
-    inline = false,
-    ...rest
-}: RHFCheckboksGruppeProps) => {
+export const RHFCheckboksGruppe = ({ name, checkboxes, required = true, ...rest }: RHFCheckboksGruppeProps) => {
     const { t } = useTranslation()
 
     const {
@@ -75,26 +62,24 @@ export const RHFCheckboksGruppe = ({
     const feilmelding = !!error ? t(getTransKey(error)) : undefined
 
     return (
-        <CheckboxGroupWrapper id={name} $inline={inline}>
-            <Controller
-                name={name}
-                control={control}
-                rules={{ required }}
-                render={({ field: { value, onChange } }) => (
-                    <CheckboxGroup {...rest} error={feilmelding} defaultValue={value}>
-                        {checkboxes.map((checkbox: CheckboxProps) => (
-                            <Checkbox
-                                key={checkbox.value as string}
-                                value={checkbox.value || ''}
-                                onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
-                            >
-                                {checkbox.children}
-                            </Checkbox>
-                        ))}
-                    </CheckboxGroup>
-                )}
-            />
-        </CheckboxGroupWrapper>
+        <Controller
+            name={name}
+            control={control}
+            rules={{ required }}
+            render={({ field: { value, onChange } }) => (
+                <CheckboxGroup {...rest} error={feilmelding} defaultValue={value}>
+                    {checkboxes.map((checkbox: CheckboxProps) => (
+                        <Checkbox
+                            key={checkbox.value as string}
+                            value={checkbox.value || ''}
+                            onChange={(e) => onChange(handleSelect(value, (e.target as HTMLInputElement).value))}
+                        >
+                            {checkbox.children}
+                        </Checkbox>
+                    ))}
+                </CheckboxGroup>
+            )}
+        />
     )
 }
 
