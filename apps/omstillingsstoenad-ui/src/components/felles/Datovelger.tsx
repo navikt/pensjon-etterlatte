@@ -5,7 +5,6 @@ import { ReactNode } from 'react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { FieldPath } from 'react-hook-form/dist/types'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import { getTransKey } from '../../utils/translation'
 
 interface DatovelgerProps {
