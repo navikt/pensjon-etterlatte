@@ -3,6 +3,7 @@ import {
     BodyShort,
     Box,
     Button,
+    ErrorMessage,
     GuidePanel,
     Heading,
     HGrid,
@@ -16,7 +17,6 @@ import React, { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import Datovelger from '~components/felles/Datovelger'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
@@ -31,61 +31,11 @@ import { IValg } from '../../../typer/Spoersmaal'
 import { erMyndig } from '../../../utils/alder'
 import { hentAlder, hentAlderFraFoedselsnummer } from '../../../utils/dato'
 import Feilmeldinger from '../../felles/Feilmeldinger'
-import { Panel } from '../../felles/Panel'
 import { RHFCheckboks, RHFConfirmationPanel } from '../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFFoedselsnummerInput, RHFInput, RHFKontonummerInput } from '../../felles/rhf/RHFInput'
 import { RHFRadio, RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import UtenlandskBankInfo from '../1-omdeg/utenlandskBankInfo/UtenlandskBankInfo'
-
-const EndreBarnKort = styled(Panel)`
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-
-    @media screen and (min-width: 650px) {
-        max-width: 100%;
-    }
-`
-
-const EndreBarnKortHeader = styled.header`
-    box-sizing: border-box;
-    height: 128px;
-    background-color: #4d3e55;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom: 4px solid #826ba1;
-    display: flex;
-    padding: 0;
-    position: relative;
-
-    img {
-        align-self: flex-end;
-        flex: 0 1 auto;
-        padding-left: 3em;
-    }
-
-    .overskrift {
-        flex: 0 1 auto;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        align-self: center;
-        color: white;
-    }
-`
-
-const EndreBarnKortInnhold = styled.div`
-    padding: 2em;
-`
-
-const TypoFeilmelding = styled.p`
-    color: #ba3a26;
-    font-weight: 600;
-`
+import './leggTilBarnSkjema.css'
 
 interface Props {
     avbryt: (fjernAktivtBarn?: boolean) => void
@@ -182,16 +132,25 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
             </Box>
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                    <EndreBarnKort border padding={'0'}>
-                        <EndreBarnKortHeader>
-                            <img alt="barn" src={ikon} />
-                            <Heading size={'small'} className={'overskrift'}>
-                                {t('omBarn.tittelModal')}
-                            </Heading>
-                        </EndreBarnKortHeader>
-                        <br />
+                    <Box borderRadius="4" borderWidth="1">
+                        <Box
+                            borderRadius="4 4 0 0"
+                            height="128px"
+                            borderWidth="0 0 4 0"
+                            style={{
+                                backgroundColor: '#4d3e55',
+                                borderBottomColor: '#826ba1',
+                            }}
+                        >
+                            <HStack className="endre-barn-kort-header-hstack" align="end" height="100%">
+                                <img alt="barn" src={ikon} />
+                                <Heading size={'small'} className={'overskrift'}>
+                                    {t('omBarn.tittelModal')}
+                                </Heading>
+                            </HStack>
+                        </Box>
 
-                        <EndreBarnKortInnhold>
+                        <Box padding="8">
                             <Box marginBlock="0 12">
                                 <Box marginBlock="4">
                                     <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
@@ -253,7 +212,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
 
                                 {visDuplikatFeilmelding() && (
                                     <Box marginBlock="4">
-                                        <TypoFeilmelding>{t('feil.foedselsnummer.duplicate')}</TypoFeilmelding>
+                                        <ErrorMessage>{t('feil.foedselsnummer.duplicate')}</ErrorMessage>
                                     </Box>
                                 )}
                             </Box>
@@ -402,8 +361,8 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                     {endrerBarn ? t('knapp.lagreEndring') : t('knapp.leggTil')}
                                 </Button>
                             </HStack>
-                        </EndreBarnKortInnhold>
-                    </EndreBarnKort>
+                        </Box>
+                    </Box>
                 </form>
             </FormProvider>
         </>
