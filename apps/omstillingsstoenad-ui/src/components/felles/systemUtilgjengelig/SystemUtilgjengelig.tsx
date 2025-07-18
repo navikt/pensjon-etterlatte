@@ -1,15 +1,7 @@
 import { BodyShort, Box, Button, GuidePanel, Heading, Link } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
-import blomstHjerteHus from '../assets/ikoner/blomstHjerteHus.svg'
-
-const Icon = styled.img`
-    height: 4rem;
-    width: 4rem;
-    margin-bottom: -1.5rem;
-    padding-right: 1rem;
-    margin-top: 1rem;
-`
+import blomstHjerteHus from '../../../assets/ikoner/blomstHjerteHus.svg'
+import './systemUtilgjengelig.css'
 
 export default function SystemUtilgjengelig() {
     const { t } = useTranslation()
@@ -57,7 +49,7 @@ export default function SystemUtilgjengelig() {
                         paddingInline={'6 32'}
                         style={{ color: 'var(--a-text-default)', fontSize: '20px' }}
                     >
-                        <Icon alt="blomstHjerteHus" src={blomstHjerteHus} />
+                        <img className="blomster-hus-ikon" alt="blomstHjerteHus" src={blomstHjerteHus} />
                         {t('systemUtilgjengelig.merOmYtelseneLenke')}
                     </Box>
                 </Box>
