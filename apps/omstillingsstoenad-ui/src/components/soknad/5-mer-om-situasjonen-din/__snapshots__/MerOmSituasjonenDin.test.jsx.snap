@@ -115,376 +115,380 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
       >
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+      <div
+        id="jobbStatus"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          merOmSituasjonenDin.jobbStatus
-        </legend>
-        <div
-          class="navds-fieldset__description navds-body-short navds-body-short--medium"
-          id="fieldset-description-«r2u»"
-        >
-          merOmSituasjonenDin.jobbStatus.hvorfor
-        </div>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              aria-labelledby="«r30»"
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-«r2v»"
-              type="checkbox"
-              value="jobbStatus.arbeidstaker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r2v»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r30»"
-                >
-                  jobbStatus.arbeidstaker
-                </span>
-              </span>
-            </label>
+            merOmSituasjonenDin.jobbStatus
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-«r2u»"
+          >
+            merOmSituasjonenDin.jobbStatus.hvorfor
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
+            class="navds-checkboxes"
           >
-            <input
-              aria-labelledby="«r33»"
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-«r32»"
-              type="checkbox"
-              value="jobbStatus.selvstendig"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r32»"
+            <div
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
+              <input
+                aria-labelledby="«r30»"
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-«r2v»"
+                type="checkbox"
+                value="jobbStatus.arbeidstaker"
               />
-              <span
-                class="navds-checkbox__content"
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r2v»"
               >
                 <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r33»"
+                  class="navds-checkbox__icon"
                 >
-                  jobbStatus.selvstendig
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r30»"
+                  >
+                    jobbStatus.arbeidstaker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r33»"
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-«r32»"
+                type="checkbox"
+                value="jobbStatus.selvstendig"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r32»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r33»"
+                  >
+                    jobbStatus.selvstendig
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r36»"
+                class="navds-checkbox__input"
+                id="checkbox-«r35»"
+                type="checkbox"
+                value="jobbStatus.etablerer"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r35»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r36»"
+                  >
+                    jobbStatus.etablerer
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r39»"
+                class="navds-checkbox__input"
+                id="checkbox-«r38»"
+                type="checkbox"
+                value="jobbStatus.tilbud"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r38»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r39»"
+                  >
+                    jobbStatus.tilbud
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r3c»"
+                class="navds-checkbox__input"
+                id="checkbox-«r3b»"
+                type="checkbox"
+                value="jobbStatus.arbeidssoker"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r3b»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r3c»"
+                  >
+                    jobbStatus.arbeidssoker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r3f»"
+                class="navds-checkbox__input"
+                id="checkbox-«r3e»"
+                type="checkbox"
+                value="jobbStatus.underUtdanning"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r3e»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r3f»"
+                  >
+                    jobbStatus.underUtdanning
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r3i»"
+                class="navds-checkbox__input"
+                id="checkbox-«r3h»"
+                type="checkbox"
+                value="jobbStatus.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r3h»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r3i»"
+                  >
+                    jobbStatus.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r36»"
-              class="navds-checkbox__input"
-              id="checkbox-«r35»"
-              type="checkbox"
-              value="jobbStatus.etablerer"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r35»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r36»"
-                >
-                  jobbStatus.etablerer
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r39»"
-              class="navds-checkbox__input"
-              id="checkbox-«r38»"
-              type="checkbox"
-              value="jobbStatus.tilbud"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r38»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r39»"
-                >
-                  jobbStatus.tilbud
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r3c»"
-              class="navds-checkbox__input"
-              id="checkbox-«r3b»"
-              type="checkbox"
-              value="jobbStatus.arbeidssoker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r3b»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r3c»"
-                >
-                  jobbStatus.arbeidssoker
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r3f»"
-              class="navds-checkbox__input"
-              id="checkbox-«r3e»"
-              type="checkbox"
-              value="jobbStatus.underUtdanning"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r3e»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r3f»"
-                >
-                  jobbStatus.underUtdanning
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r3i»"
-              class="navds-checkbox__input"
-              id="checkbox-«r3h»"
-              type="checkbox"
-              value="jobbStatus.ingen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r3h»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r3i»"
-                >
-                  jobbStatus.ingen
-                </span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-«r2u»"
-        />
-      </fieldset>
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-«r2u»"
+          />
+        </fieldset>
+      </div>
       <div
         class="navds-r-mb navds-box"
         style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
@@ -756,6 +760,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                     </div>
                     <div
                       class="navds-r-maxw navds-box"
+                      id="arbeidsforhold[0].arbeidsmengde.type"
                       style="--__ac-r-maxw-xs: 22rem;"
                     >
                       <div
@@ -2294,6 +2299,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                 </div>
                 <div
                   class="navds-r-maxw navds-box"
+                  id="selvstendig.[0].arbeidsmengde.type"
                   style="--__ac-r-maxw-xs: 22rem;"
                 >
                   <div
@@ -2579,375 +2585,379 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           merOmSituasjonenDin.utdanning.tittelFullfoert
         </h1>
       </div>
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+      <div
+        id="utdanning.hoyesteFullfoerteUtdanning"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
-        </legend>
-        <div
-          class="navds-fieldset__description navds-body-short navds-body-short--medium"
-          id="fieldset-description-«r52»"
-        >
-          merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
-        </div>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              aria-labelledby="«r54»"
-              class="navds-checkbox__input"
-              id="checkbox-«r53»"
-              type="checkbox"
-              value="utdanning.grunnskole"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r53»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r54»"
-                >
-                  utdanning.grunnskole
-                </span>
-              </span>
-            </label>
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-«r52»"
+          >
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
+            class="navds-checkboxes"
           >
-            <input
-              aria-labelledby="«r57»"
-              class="navds-checkbox__input"
-              id="checkbox-«r56»"
-              type="checkbox"
-              value="utdanning.videregående"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r56»"
+            <div
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
+              <input
+                aria-labelledby="«r54»"
+                class="navds-checkbox__input"
+                id="checkbox-«r53»"
+                type="checkbox"
+                value="utdanning.grunnskole"
               />
-              <span
-                class="navds-checkbox__content"
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r53»"
               >
                 <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r57»"
+                  class="navds-checkbox__icon"
                 >
-                  utdanning.videregående
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r54»"
+                  >
+                    utdanning.grunnskole
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r57»"
+                class="navds-checkbox__input"
+                id="checkbox-«r56»"
+                type="checkbox"
+                value="utdanning.videregående"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r56»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r57»"
+                  >
+                    utdanning.videregående
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r5a»"
+                class="navds-checkbox__input"
+                id="checkbox-«r59»"
+                type="checkbox"
+                value="utdanning.fagbrev"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r59»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r5a»"
+                  >
+                    utdanning.fagbrev
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r5d»"
+                class="navds-checkbox__input"
+                id="checkbox-«r5c»"
+                type="checkbox"
+                value="utdanning.bachelorgrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r5c»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r5d»"
+                  >
+                    utdanning.bachelorgrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r5g»"
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-«r5f»"
+                type="checkbox"
+                value="utdanning.mastergrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r5f»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r5g»"
+                  >
+                    utdanning.mastergrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r5j»"
+                class="navds-checkbox__input"
+                id="checkbox-«r5i»"
+                type="checkbox"
+                value="utdanning.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r5i»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r5j»"
+                  >
+                    utdanning.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r5m»"
+                class="navds-checkbox__input"
+                id="checkbox-«r5l»"
+                type="checkbox"
+                value="utdanning.annen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r5l»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r5m»"
+                  >
+                    utdanning.annen
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r5a»"
-              class="navds-checkbox__input"
-              id="checkbox-«r59»"
-              type="checkbox"
-              value="utdanning.fagbrev"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r59»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r5a»"
-                >
-                  utdanning.fagbrev
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r5d»"
-              class="navds-checkbox__input"
-              id="checkbox-«r5c»"
-              type="checkbox"
-              value="utdanning.bachelorgrad"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r5c»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r5d»"
-                >
-                  utdanning.bachelorgrad
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r5g»"
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-«r5f»"
-              type="checkbox"
-              value="utdanning.mastergrad"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r5f»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r5g»"
-                >
-                  utdanning.mastergrad
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r5j»"
-              class="navds-checkbox__input"
-              id="checkbox-«r5i»"
-              type="checkbox"
-              value="utdanning.ingen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r5i»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r5j»"
-                >
-                  utdanning.ingen
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r5m»"
-              class="navds-checkbox__input"
-              id="checkbox-«r5l»"
-              type="checkbox"
-              value="utdanning.annen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r5l»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r5m»"
-                >
-                  utdanning.annen
-                </span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-«r52»"
-        />
-      </fieldset>
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-«r52»"
+          />
+        </fieldset>
+      </div>
       <div
         class="navds-read-more navds-read-more--medium"
         data-volume="low"
@@ -3264,375 +3274,379 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
       >
         merOmSituasjonenDin.jobbStatus.tittel
       </h1>
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+      <div
+        id="jobbStatus"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          merOmSituasjonenDin.jobbStatus
-        </legend>
-        <div
-          class="navds-fieldset__description navds-body-short navds-body-short--medium"
-          id="fieldset-description-«r0»"
-        >
-          merOmSituasjonenDin.jobbStatus.hvorfor
-        </div>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              aria-labelledby="«r2»"
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-«r1»"
-              type="checkbox"
-              value="jobbStatus.arbeidstaker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r1»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r2»"
-                >
-                  jobbStatus.arbeidstaker
-                </span>
-              </span>
-            </label>
+            merOmSituasjonenDin.jobbStatus
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-«r0»"
+          >
+            merOmSituasjonenDin.jobbStatus.hvorfor
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
+            class="navds-checkboxes"
           >
-            <input
-              aria-labelledby="«r5»"
-              class="navds-checkbox__input"
-              id="checkbox-«r4»"
-              type="checkbox"
-              value="jobbStatus.selvstendig"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r4»"
+            <div
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
+              <input
+                aria-labelledby="«r2»"
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-«r1»"
+                type="checkbox"
+                value="jobbStatus.arbeidstaker"
               />
-              <span
-                class="navds-checkbox__content"
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r1»"
               >
                 <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r5»"
+                  class="navds-checkbox__icon"
                 >
-                  jobbStatus.selvstendig
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r2»"
+                  >
+                    jobbStatus.arbeidstaker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r5»"
+                class="navds-checkbox__input"
+                id="checkbox-«r4»"
+                type="checkbox"
+                value="jobbStatus.selvstendig"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r4»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r5»"
+                  >
+                    jobbStatus.selvstendig
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r8»"
+                class="navds-checkbox__input"
+                id="checkbox-«r7»"
+                type="checkbox"
+                value="jobbStatus.etablerer"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r7»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r8»"
+                  >
+                    jobbStatus.etablerer
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«rb»"
+                class="navds-checkbox__input"
+                id="checkbox-«ra»"
+                type="checkbox"
+                value="jobbStatus.tilbud"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«ra»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«rb»"
+                  >
+                    jobbStatus.tilbud
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«re»"
+                class="navds-checkbox__input"
+                id="checkbox-«rd»"
+                type="checkbox"
+                value="jobbStatus.arbeidssoker"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«rd»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«re»"
+                  >
+                    jobbStatus.arbeidssoker
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«rh»"
+                class="navds-checkbox__input"
+                id="checkbox-«rg»"
+                type="checkbox"
+                value="jobbStatus.underUtdanning"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«rg»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«rh»"
+                  >
+                    jobbStatus.underUtdanning
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«rk»"
+                class="navds-checkbox__input"
+                id="checkbox-«rj»"
+                type="checkbox"
+                value="jobbStatus.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«rj»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«rk»"
+                  >
+                    jobbStatus.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r8»"
-              class="navds-checkbox__input"
-              id="checkbox-«r7»"
-              type="checkbox"
-              value="jobbStatus.etablerer"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r7»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r8»"
-                >
-                  jobbStatus.etablerer
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«rb»"
-              class="navds-checkbox__input"
-              id="checkbox-«ra»"
-              type="checkbox"
-              value="jobbStatus.tilbud"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«ra»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«rb»"
-                >
-                  jobbStatus.tilbud
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«re»"
-              class="navds-checkbox__input"
-              id="checkbox-«rd»"
-              type="checkbox"
-              value="jobbStatus.arbeidssoker"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«rd»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«re»"
-                >
-                  jobbStatus.arbeidssoker
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«rh»"
-              class="navds-checkbox__input"
-              id="checkbox-«rg»"
-              type="checkbox"
-              value="jobbStatus.underUtdanning"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«rg»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«rh»"
-                >
-                  jobbStatus.underUtdanning
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«rk»"
-              class="navds-checkbox__input"
-              id="checkbox-«rj»"
-              type="checkbox"
-              value="jobbStatus.ingen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«rj»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«rk»"
-                >
-                  jobbStatus.ingen
-                </span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-«r0»"
-        />
-      </fieldset>
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-«r0»"
+          />
+        </fieldset>
+      </div>
       <div
         class="navds-r-mb navds-box"
         style="--__ac-r-mb-xs: var(--a-spacing-0) var(--a-spacing-12);"
@@ -3904,6 +3918,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                     </div>
                     <div
                       class="navds-r-maxw navds-box"
+                      id="arbeidsforhold[0].arbeidsmengde.type"
                       style="--__ac-r-maxw-xs: 22rem;"
                     >
                       <div
@@ -5318,375 +5333,379 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           merOmSituasjonenDin.utdanning.tittelFullfoert
         </h1>
       </div>
-      <fieldset
-        class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
+      <div
+        id="utdanning.hoyesteFullfoerteUtdanning"
       >
-        <legend
-          class="navds-fieldset__legend navds-label"
+        <fieldset
+          class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
         >
-          merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
-        </legend>
-        <div
-          class="navds-fieldset__description navds-body-short navds-body-short--medium"
-          id="fieldset-description-«r24»"
-        >
-          merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
-        </div>
-        <div
-          class="navds-checkboxes"
-        >
-          <div
-            class="navds-checkbox navds-checkbox--medium"
+          <legend
+            class="navds-fieldset__legend navds-label"
           >
-            <input
-              aria-labelledby="«r26»"
-              class="navds-checkbox__input"
-              id="checkbox-«r25»"
-              type="checkbox"
-              value="utdanning.grunnskole"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r25»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r26»"
-                >
-                  utdanning.grunnskole
-                </span>
-              </span>
-            </label>
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning
+          </legend>
+          <div
+            class="navds-fieldset__description navds-body-short navds-body-short--medium"
+            id="fieldset-description-«r24»"
+          >
+            merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning.beskrivelse
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
+            class="navds-checkboxes"
           >
-            <input
-              aria-labelledby="«r29»"
-              class="navds-checkbox__input"
-              id="checkbox-«r28»"
-              type="checkbox"
-              value="utdanning.videregående"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r28»"
+            <div
+              class="navds-checkbox navds-checkbox--medium"
             >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
+              <input
+                aria-labelledby="«r26»"
+                class="navds-checkbox__input"
+                id="checkbox-«r25»"
+                type="checkbox"
+                value="utdanning.grunnskole"
               />
-              <span
-                class="navds-checkbox__content"
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r25»"
               >
                 <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r29»"
+                  class="navds-checkbox__icon"
                 >
-                  utdanning.videregående
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              </span>
-            </label>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r26»"
+                  >
+                    utdanning.grunnskole
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r29»"
+                class="navds-checkbox__input"
+                id="checkbox-«r28»"
+                type="checkbox"
+                value="utdanning.videregående"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r28»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r29»"
+                  >
+                    utdanning.videregående
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r2c»"
+                class="navds-checkbox__input"
+                id="checkbox-«r2b»"
+                type="checkbox"
+                value="utdanning.fagbrev"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r2b»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r2c»"
+                  >
+                    utdanning.fagbrev
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r2f»"
+                class="navds-checkbox__input"
+                id="checkbox-«r2e»"
+                type="checkbox"
+                value="utdanning.bachelorgrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r2e»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r2f»"
+                  >
+                    utdanning.bachelorgrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r2i»"
+                checked=""
+                class="navds-checkbox__input"
+                id="checkbox-«r2h»"
+                type="checkbox"
+                value="utdanning.mastergrad"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r2h»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r2i»"
+                  >
+                    utdanning.mastergrad
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r2l»"
+                class="navds-checkbox__input"
+                id="checkbox-«r2k»"
+                type="checkbox"
+                value="utdanning.ingen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r2k»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r2l»"
+                  >
+                    utdanning.ingen
+                  </span>
+                </span>
+              </label>
+            </div>
+            <div
+              class="navds-checkbox navds-checkbox--medium"
+            >
+              <input
+                aria-labelledby="«r2o»"
+                class="navds-checkbox__input"
+                id="checkbox-«r2n»"
+                type="checkbox"
+                value="utdanning.annen"
+              />
+              <label
+                class="navds-checkbox__label"
+                for="checkbox-«r2n»"
+              >
+                <span
+                  class="navds-checkbox__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.625rem"
+                    role="img"
+                    viewBox="0 0 13 10"
+                    width="0.8125rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="navds-checkbox__icon-indeterminate"
+                />
+                <span
+                  class="navds-checkbox__content"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
+                    id="«r2o»"
+                  >
+                    utdanning.annen
+                  </span>
+                </span>
+              </label>
+            </div>
           </div>
           <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r2c»"
-              class="navds-checkbox__input"
-              id="checkbox-«r2b»"
-              type="checkbox"
-              value="utdanning.fagbrev"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r2b»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r2c»"
-                >
-                  utdanning.fagbrev
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r2f»"
-              class="navds-checkbox__input"
-              id="checkbox-«r2e»"
-              type="checkbox"
-              value="utdanning.bachelorgrad"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r2e»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r2f»"
-                >
-                  utdanning.bachelorgrad
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r2i»"
-              checked=""
-              class="navds-checkbox__input"
-              id="checkbox-«r2h»"
-              type="checkbox"
-              value="utdanning.mastergrad"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r2h»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r2i»"
-                >
-                  utdanning.mastergrad
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r2l»"
-              class="navds-checkbox__input"
-              id="checkbox-«r2k»"
-              type="checkbox"
-              value="utdanning.ingen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r2k»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r2l»"
-                >
-                  utdanning.ingen
-                </span>
-              </span>
-            </label>
-          </div>
-          <div
-            class="navds-checkbox navds-checkbox--medium"
-          >
-            <input
-              aria-labelledby="«r2o»"
-              class="navds-checkbox__input"
-              id="checkbox-«r2n»"
-              type="checkbox"
-              value="utdanning.annen"
-            />
-            <label
-              class="navds-checkbox__label"
-              for="checkbox-«r2n»"
-            >
-              <span
-                class="navds-checkbox__icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  fill="none"
-                  focusable="false"
-                  height="0.625rem"
-                  role="img"
-                  viewBox="0 0 13 10"
-                  width="0.8125rem"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.03524 6.41478L10.4752 0.404669C11.0792 -0.160351 12.029 -0.130672 12.5955 0.47478C13.162 1.08027 13.1296 2.03007 12.5245 2.59621L5.02111 9.59934C4.74099 9.85904 4.37559 10 4.00025 10C3.60651 10 3.22717 9.84621 2.93914 9.56111L0.439143 7.06111C-0.146381 6.47558 -0.146381 5.52542 0.439143 4.93989C1.02467 4.35437 1.97483 4.35437 2.56036 4.93989L4.03524 6.41478Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span
-                class="navds-checkbox__icon-indeterminate"
-              />
-              <span
-                class="navds-checkbox__content"
-              >
-                <span
-                  aria-hidden="true"
-                  class="navds-checkbox__label-text navds-body-short navds-body-short--medium"
-                  id="«r2o»"
-                >
-                  utdanning.annen
-                </span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div
-          aria-live="polite"
-          aria-relevant="additions removals"
-          class="navds-fieldset__error"
-          id="fieldset-error-«r24»"
-        />
-      </fieldset>
+            aria-live="polite"
+            aria-relevant="additions removals"
+            class="navds-fieldset__error"
+            id="fieldset-error-«r24»"
+          />
+        </fieldset>
+      </div>
       <div
         class="navds-read-more navds-read-more--medium"
         data-volume="low"
