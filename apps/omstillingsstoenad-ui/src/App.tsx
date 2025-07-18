@@ -24,8 +24,6 @@ const App = () => {
 
     const lasterSoeknad = useSoeknad()
 
-    throw Error()
-
     return (
         <>
             <Banner tekst={t('banner.tittel')} />
