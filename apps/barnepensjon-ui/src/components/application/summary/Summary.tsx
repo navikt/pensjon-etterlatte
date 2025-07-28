@@ -1,4 +1,4 @@
-import { Accordion, Alert, BodyLong, Button, Heading, Loader, Modal } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +15,6 @@ import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 import FormGroup from '../../common/FormGroup'
 import Navigation, { NavRow } from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
-import { BodyShortMuted } from '../../common/StyledTypography'
 import Trans from '../../common/Trans'
 import { StepProps } from '../Dialogue'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
@@ -154,7 +153,11 @@ export default function Summary({ prev }: StepProps) {
                 </Modal.Header>
 
                 <Modal.Body>
-                    {loading ? <Loader size={'xlarge'} /> : <BodyShortMuted>{t('sendApplicationBody')}</BodyShortMuted>}
+                    {loading ? (
+                        <Loader size={'xlarge'} />
+                    ) : (
+                        <BodyShort textColor="subtle">{t('sendApplicationBody')}</BodyShort>
+                    )}
                 </Modal.Body>
                 {!loading && (
                     <NavRow>
