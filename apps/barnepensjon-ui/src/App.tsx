@@ -1,39 +1,23 @@
+import { Page } from '@navikt/ds-react'
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
-import styled from 'styled-components'
+import ErrorBoundary from '~ErrorBoundary'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
 import Banner from './components/common/Banner'
+import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
 import Admin from './components/dev/Admin'
+import { InvalidApplicant } from './components/error/InvalidApplicant'
 import PageNotFound from './components/error/PageNotFound'
 import SystemUnavailable from './components/error/SystemUnavailable'
 import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
-import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
 import useScrollToTop from './hooks/useScrollToTop'
-import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import useTranslation from './hooks/useTranslation'
-import { InvalidApplicant } from './components/error/InvalidApplicant'
-import { Page } from '@navikt/ds-react'
-import ErrorBoundary from '~ErrorBoundary'
-
-const SoeknadWrapper = styled(Page.Block)`
-    @media screen and (max-width: 650px) {
-        padding: 1rem;
-        margin: 0 auto;
-        max-width: 100%;
-        white-space: pre-line;
-    }
-
-    @media screen and (min-width: 650px) {
-        padding: 2rem;
-        margin: 0 auto;
-        max-width: 650px !important;
-        white-space: pre-line;
-    }
-`
+import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
+import './app.css'
 
 export default function App() {
     const isLoading = useApplication()
@@ -49,7 +33,7 @@ export default function App() {
                 <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
                 <ContinueApplicationModal />
                 <Page>
-                    <SoeknadWrapper>
+                    <Page.Block className="soeknad-page-block">
                         <Routes>
                             <Route index element={<FrontPage />} />
 
@@ -78,7 +62,7 @@ export default function App() {
 
                             <Route path="*" element={<PageNotFound />} />
                         </Routes>
-                    </SoeknadWrapper>
+                    </Page.Block>
                 </Page>
             </>
         </ErrorBoundary>
