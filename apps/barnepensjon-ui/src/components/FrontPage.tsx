@@ -1,8 +1,7 @@
-import { BodyLong, Button, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
+import { BodyLong, Box, Button, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 import { useApplicationContext } from '~context/application/ApplicationContext'
 import { ActionTypes, IApplicant } from '~context/application/application'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
@@ -16,10 +15,6 @@ import { ProcessingDataChild, ProcessingDataParentAndGuardian } from './common/P
 import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
 import { RHFRadio } from './common/rhf/RHFRadio'
 import Trans from './common/Trans'
-
-export const ListItemWithIndent = styled(List.Item)`
-    margin-left: 1rem;
-`
 
 export default function FrontPage() {
     const navigate = useNavigate()
@@ -84,11 +79,13 @@ export default function FrontPage() {
                     <Trans value={t('childMayBeApplicableForPension')} />
                 </BodyLong>
 
-                <List as={'ul'}>
-                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li1')}</ListItemWithIndent>
-                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li2')}</ListItemWithIndent>
-                    <ListItemWithIndent>{t('childMayBeApplicableForPension_li3')}</ListItemWithIndent>
-                </List>
+                <Box marginInline="4 0">
+                    <List as={'ul'}>
+                        <List.Item>{t('childMayBeApplicableForPension_li1')}</List.Item>
+                        <List.Item>{t('childMayBeApplicableForPension_li2')}</List.Item>
+                        <List.Item>{t('childMayBeApplicableForPension_li3')}</List.Item>
+                    </List>
+                </Box>
 
                 <BodyLong>
                     <Trans value={t('readMoreAboutChildrensPension')} />
