@@ -1,4 +1,4 @@
-import { Accordion, Alert, BodyLong, BodyShort, Button, Heading, Loader, Modal } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, BodyShort, Button, Heading, HStack, Loader, Modal, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -13,7 +13,7 @@ import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
 import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 import FormGroup from '../../common/FormGroup'
-import Navigation, { NavRow } from '../../common/Navigation'
+import Navigation from '../../common/Navigation'
 import StepHeading from '../../common/StepHeading'
 import Trans from '../../common/Trans'
 import { StepProps } from '../Dialogue'
@@ -160,26 +160,21 @@ export default function Summary({ prev }: StepProps) {
                     )}
                 </Modal.Body>
                 {!loading && (
-                    <NavRow>
-                        <Button
-                            id={'avbryt-ja-btn'}
-                            variant={'secondary'}
-                            type={'button'}
-                            onClick={() => setIsOpen(false)}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('noButton', { ns: 'btn' })}
-                        </Button>
-                        <Button
-                            id={'avbryt-nei-btn'}
-                            variant={'primary'}
-                            type={'button'}
-                            onClick={send}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('yesButton', { ns: 'btn' })}
-                        </Button>
-                    </NavRow>
+                    <VStack marginBlock="0 4" align="center">
+                        <HStack gap="4">
+                            <Button
+                                id={'avbryt-ja-btn'}
+                                variant={'secondary'}
+                                type={'button'}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {t('noButton', { ns: 'btn' })}
+                            </Button>
+                            <Button id={'avbryt-nei-btn'} variant={'primary'} type={'button'} onClick={send}>
+                                {t('yesButton', { ns: 'btn' })}
+                            </Button>
+                        </HStack>
+                    </VStack>
                 )}
             </Modal>
         </FormGroup>

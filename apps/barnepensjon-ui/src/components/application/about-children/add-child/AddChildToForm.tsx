@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore } from '@navikt/ds-react'
+import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore, VStack } from '@navikt/ds-react'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -16,7 +16,6 @@ import useTranslation from '../../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
 import FormElement from '../../../common/FormElement'
 import FormGroup from '../../../common/FormGroup'
-import { NavRow } from '../../../common/Navigation'
 import PaymentDetails from '../../../common/PaymentDetails'
 import PersonInfo from '../../../common/PersonInfo'
 import { RHFConfirmationPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
@@ -248,27 +247,27 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                             </FormGroup>
                         )}
                         <ErrorSummaryWrapper errors={errors} />
-                        <NavRow>
-                            <Button
-                                id={'cancelAddChildren'}
-                                variant={'secondary'}
-                                type={'button'}
-                                onClick={cancelAndClose}
-                                style={{ minWidth: '80px' }}
-                            >
-                                {t('cancelButton', { ns: 'btn' })}
-                            </Button>
+                        <VStack marginBlock="4 0" align="center">
+                            <VStack gap="4">
+                                <Button
+                                    id={'cancelAddChildren'}
+                                    variant={'secondary'}
+                                    type={'button'}
+                                    onClick={cancelAndClose}
+                                >
+                                    {t('cancelButton', { ns: 'btn' })}
+                                </Button>
 
-                            <Button
-                                id={'addChildren'}
-                                variant={'primary'}
-                                type={'button'}
-                                onClick={handleSubmit(addAndClose, logErrors)}
-                                style={{ minWidth: '80px' }}
-                            >
-                                {editsChild ? t('saveChangesButton', { ns: 'btn' }) : t('addButton', { ns: 'btn' })}
-                            </Button>
-                        </NavRow>
+                                <Button
+                                    id={'addChildren'}
+                                    variant={'primary'}
+                                    type={'button'}
+                                    onClick={handleSubmit(addAndClose, logErrors)}
+                                >
+                                    {editsChild ? t('saveChangesButton', { ns: 'btn' }) : t('addButton', { ns: 'btn' })}
+                                </Button>
+                            </VStack>
+                        </VStack>
                     </ChangeChildPanelContent>
                 </ChangeChildPanel>
             </form>
