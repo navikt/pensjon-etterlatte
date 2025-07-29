@@ -1,4 +1,4 @@
-import { BodyShort, Box, Button, GuidePanel, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, GuidePanel, Heading, VStack } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
@@ -11,7 +11,6 @@ import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import Navigation from '../../common/Navigation'
 import { RHFInput } from '../../common/rhf/RHFInput'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import AddChildToForm from './add-child/AddChildToForm'
 import ChildInfocard from './ChildInfocard'
@@ -100,9 +99,13 @@ export default function AboutChildren({ next, prev }: StepProps) {
             <FormProvider {...methods}>
                 {activeChildIndex === undefined && (
                     <>
-                        <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
+                        <VStack gap="8" marginBlock="12 0">
+                            <VStack align="center">
+                                <Heading size={'medium'}>
+                                    {!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}
+                                </Heading>
+                            </VStack>
 
-                        <VStack gap="8">
                             <GuidePanel>
                                 <BodyShort>{isGuardian ? t('informationGuardian') : t('information')}</BodyShort>
                             </GuidePanel>

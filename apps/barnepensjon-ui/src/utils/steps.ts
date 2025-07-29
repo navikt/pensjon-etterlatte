@@ -1,17 +1,16 @@
-import AboutYou from '../components/application/about-you/AboutYou'
-import AboutChildren from '../components/application/about-children/AboutChildren'
-import Summary from '../components/application/summary/Summary'
-import AboutParents from '../components/application/about-parents/AboutParents'
-import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
-import { StepProps } from '~components/application/Dialogue'
 import { ReactNode } from 'react'
+import { StepProps } from '~components/application/Dialogue'
+import AboutChildren from '../components/application/about-children/AboutChildren'
+import AboutParents from '../components/application/about-parents/AboutParents'
+import AboutYou from '../components/application/about-you/AboutYou'
+import Summary from '../components/application/summary/Summary'
+import AboutTheDeceasedParentStep from '../components/application/the-deceased/AboutTheDeceasedParentStep'
 
 export enum StepLabelKey {
     AboutYou = 'AboutYou',
     AboutYouGuardian = 'AboutYouGuardian',
     AboutTheParents = 'AboutTheParents',
     AboutTheDeceased = 'AboutTheDeceased',
-    YourSituation = 'YourSituation',
     AboutChildren = 'AboutChildren',
     Summary = 'Summary',
 }
@@ -20,7 +19,6 @@ export enum StepPath {
     AboutYou = 'steg/om-deg',
     AboutTheParents = 'steg/om-foreldrene',
     AboutTheDeceased = 'steg/om-avdoede',
-    YourSituation = 'steg/din-situasjon',
     AboutChildren = 'steg/om-barn',
     Summary = 'steg/oppsummering',
 }

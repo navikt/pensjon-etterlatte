@@ -1,22 +1,21 @@
-import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
+import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
-import ikon from '../../../assets/ukjent_person.svg'
-import { ActionTypes, IDeceasedParent, IParent } from '~context/application/application'
+import { FormProvider, useForm } from 'react-hook-form'
+import ErrorSummaryWrapper from '~components/common/ErrorSummaryWrapper'
 import { useApplicationContext } from '~context/application/ApplicationContext'
+import { ActionTypes, IDeceasedParent, IParent } from '~context/application/application'
+import { ApplicantRole, ApplicantSituation } from '~types/applicant'
+import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
+import FormElement from '../../common/FormElement'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
-import { FormProvider, useForm } from 'react-hook-form'
-import FormElement from '../../common/FormElement'
-import { ApplicantRole, ApplicantSituation } from '~types/applicant'
-import ErrorSummaryWrapper from '~components/common/ErrorSummaryWrapper'
 
 enum EditParent {
     NONE,
@@ -131,7 +130,9 @@ export default function AboutParents({ next, prev }: StepProps) {
         <FormProvider {...methods}>
             {editing === EditParent.NONE && (
                 <>
-                    <StepHeading>{t('aboutParentsTitle')}</StepHeading>
+                    <VStack marginBlock="12 8" align="center">
+                        <Heading size={'medium'}>{t('aboutParentsTitle')}</Heading>
+                    </VStack>
                     <FormGroup>
                         <GuidePanel>
                             <BodyShort>{guidePanelText()}</BodyShort>
