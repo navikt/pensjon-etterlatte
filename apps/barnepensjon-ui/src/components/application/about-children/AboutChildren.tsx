@@ -1,22 +1,20 @@
-import { BodyShort, Button, GuidePanel } from '@navikt/ds-react'
+import { BodyShort, Box, Button, GuidePanel, VStack } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
-import ikon from '../../../assets/barn1.svg'
-import { ActionTypes } from '~context/application/application'
 import { useApplicationContext } from '~context/application/ApplicationContext'
-import useTranslation from '../../../hooks/useTranslation'
+import { ActionTypes } from '~context/application/application'
+import { ApplicantRole } from '~types/applicant'
 import { IAboutChildren, IChild } from '~types/person'
-import FormGroup from '../../common/FormGroup'
+import ikon from '../../../assets/barn1.svg'
+import useTranslation from '../../../hooks/useTranslation'
+import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import Navigation from '../../common/Navigation'
+import { RHFInput } from '../../common/rhf/RHFInput'
 import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
-import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
-import ChildInfocard from './ChildInfocard'
-import { RHFInput } from '../../common/rhf/RHFInput'
 import AddChildToForm from './add-child/AddChildToForm'
-import { ApplicantRole } from '~types/applicant'
-import FormElement from '~components/common/FormElement'
+import ChildInfocard from './ChildInfocard'
 
 export default function AboutChildren({ next, prev }: StepProps) {
     const [activeChildIndex, setActiveChildIndex] = useState<number | undefined>(undefined)
@@ -104,39 +102,37 @@ export default function AboutChildren({ next, prev }: StepProps) {
                     <>
                         <StepHeading>{!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}</StepHeading>
 
-                        <FormGroup>
+                        <VStack gap="8">
                             <GuidePanel>
                                 <BodyShort>{isGuardian ? t('informationGuardian') : t('information')}</BodyShort>
                             </GuidePanel>
-                        </FormGroup>
 
-                        <FormGroup>
-                            <InfocardWrapper>
-                                {fields?.map((field: FieldArrayWithId, index: number) => (
-                                    <ChildInfocard
-                                        key={uuid()}
-                                        child={field as IChild}
-                                        index={index}
-                                        remove={removeChild}
-                                        setActiveChildIndex={() => setActiveChildIndex(index)}
-                                    />
-                                ))}
+                            <Box>
+                                <InfocardWrapper>
+                                    {fields?.map((field: FieldArrayWithId, index: number) => (
+                                        <ChildInfocard
+                                            key={uuid()}
+                                            child={field as IChild}
+                                            index={index}
+                                            remove={removeChild}
+                                            setActiveChildIndex={() => setActiveChildIndex(index)}
+                                        />
+                                    ))}
 
-                                <Infocard>
-                                    <InfocardHeader>
-                                        <img alt="barn" src={ikon} />
-                                    </InfocardHeader>
-                                    <InformationBox>
-                                        <Button variant={'primary'} type={'button'} onClick={addNewChild}>
-                                            {!isChild ? t('addChildButton') : t('addSiblingButton')}
-                                        </Button>
-                                    </InformationBox>
-                                </Infocard>
-                            </InfocardWrapper>
-                        </FormGroup>
+                                    <Infocard>
+                                        <InfocardHeader>
+                                            <img alt="barn" src={ikon} />
+                                        </InfocardHeader>
+                                        <InformationBox>
+                                            <Button variant={'primary'} type={'button'} onClick={addNewChild}>
+                                                {!isChild ? t('addChildButton') : t('addSiblingButton')}
+                                            </Button>
+                                        </InformationBox>
+                                    </Infocard>
+                                </InfocardWrapper>
+                            </Box>
 
-                        {/* Ensure at least one child is applying for childrens pension */}
-                        <FormGroup>
+                            {/* Ensure at least one child is applying for childrens pension */}
                             <RHFInput
                                 label={''}
                                 hidden={true}
@@ -148,7 +144,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         !!children.filter((child) => !!child.appliesForChildrensPension).length,
                                 }}
                             />
-                        </FormGroup>
+                        </VStack>
 
                         <Navigation
                             left={{
@@ -161,11 +157,11 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
                 {activeChildIndex !== undefined && (
                     <>
-                        <FormElement>
+                        <Box marginInline="4">
                             <GuidePanel>
                                 <BodyShort>{isGuardian ? t('informationGuardian') : t('information')}</BodyShort>
                             </GuidePanel>
-                        </FormElement>
+                        </Box>
                         <AddChildToForm
                             save={updateChild}
                             cancel={cancel}

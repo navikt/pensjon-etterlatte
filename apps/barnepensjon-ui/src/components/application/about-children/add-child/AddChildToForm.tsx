@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Button, Heading, Label, Panel, ReadMore, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, Button, Heading, Label, Panel, ReadMore, VStack } from '@navikt/ds-react'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -163,19 +163,22 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                     </ChangeChildPanelHeader>
 
                     <ChangeChildPanelContent>
-                        <FormGroup>
-                            <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
-                            {childOver18() && !isGuardian && (
-                                <Panel border>
-                                    <Alert id={'above18Warning'} inline={true} variant={'info'}>
-                                        <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
-                                    </Alert>
-                                </Panel>
-                            )}
-                        </FormGroup>
-                        <FormElement>
+                        <VStack gap="8">
+                            <Box>
+                                <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
+                                {childOver18() && !isGuardian && (
+                                    <Box padding="4" borderWidth="1" borderRadius="small">
+                                        <Alert id={'above18Warning'} inline={true} variant={'info'}>
+                                            <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
+                                        </Alert>
+                                    </Box>
+                                )}
+                            </Box>
+                        </VStack>
+
+                        <Box marginInline="4">
                             <ParentQuestion parents={parents} />
-                        </FormElement>
+                        </Box>
 
                         {canApplyForChildrensPension() && (
                             <FormGroup>
