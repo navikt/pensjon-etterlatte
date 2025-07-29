@@ -1,4 +1,4 @@
-import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
+import { Box, Heading, HGrid, ReadMore, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { JaNeiVetIkke } from '~api/dto/FellesOpplysninger'
@@ -21,7 +21,6 @@ import Navigation from '../../common/Navigation'
 import PaymentDetails from '../../common/PaymentDetails'
 import { RHFTelefonInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 
@@ -59,7 +58,9 @@ export default function AboutYou({ next }: StepProps) {
 
     return (
         <>
-            <StepHeading>{isGuardian ? t('titleGuardian') : t('title')}</StepHeading>
+            <VStack align="center" marginBlock="12 0">
+                <Heading size="medium">{isGuardian ? t('titleGuardian') : t('title')}</Heading>
+            </VStack>
 
             <LoggedInUserInfo user={user} />
 

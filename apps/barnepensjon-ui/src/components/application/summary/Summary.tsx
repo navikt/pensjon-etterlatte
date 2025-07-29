@@ -14,7 +14,6 @@ import useTranslation from '../../../hooks/useTranslation'
 import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
 import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
-import StepHeading from '../../common/StepHeading'
 import Trans from '../../common/Trans'
 import { StepProps } from '../Dialogue'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
@@ -72,7 +71,10 @@ export default function Summary({ prev }: StepProps) {
 
     return (
         <FormGroup>
-            <StepHeading>{t('summaryTitle')}</StepHeading>
+            <VStack marginBlock="12 8" align="center">
+                <Heading size="medium">{t('summaryTitle')}</Heading>
+            </VStack>
+
             <FormGroup>
                 <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
             </FormGroup>
