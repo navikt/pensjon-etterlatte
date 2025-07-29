@@ -1,4 +1,4 @@
-import { BodyLong, Box, Button, GuidePanel, Heading, Label, List, RadioProps } from '@navikt/ds-react'
+import { BodyLong, Box, Button, GuidePanel, Heading, Label, List, RadioProps, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useNavigate } from 'react-router-dom'
@@ -8,8 +8,6 @@ import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { ApplicantRole, ApplicantSituation } from '~types/applicant'
 import useTranslation from '../hooks/useTranslation'
 import ErrorSummaryWrapper from './common/ErrorSummaryWrapper'
-import FormElement from './common/FormElement'
-import FormGroup from './common/FormGroup'
 import LanguageSelect from './common/LanguageSelect'
 import { ProcessingDataChild, ProcessingDataParentAndGuardian } from './common/ProcessingData'
 import { RHFConfirmationPanel } from './common/rhf/RHFCheckboksPanelGruppe'
@@ -62,37 +60,32 @@ export default function FrontPage() {
 
     return (
         <FormProvider {...methods}>
-            <FormGroup>
+            <VStack gap="8">
                 <GuidePanel poster>{t('ingress')}</GuidePanel>
-            </FormGroup>
 
-            <FormGroup>
                 <LanguageSelect />
-            </FormGroup>
 
-            <FormGroup>
-                <Heading spacing size={'medium'}>
-                    {t('frontPageTitle')}
-                </Heading>
+                <Box>
+                    <Heading spacing size={'medium'}>
+                        {t('frontPageTitle')}
+                    </Heading>
 
-                <BodyLong>
-                    <Trans value={t('childMayBeApplicableForPension')} />
-                </BodyLong>
+                    <BodyLong>
+                        <Trans value={t('childMayBeApplicableForPension')} />
+                    </BodyLong>
 
-                <Box marginInline="4 0">
-                    <List as={'ul'}>
-                        <List.Item>{t('childMayBeApplicableForPension_li1')}</List.Item>
-                        <List.Item>{t('childMayBeApplicableForPension_li2')}</List.Item>
-                        <List.Item>{t('childMayBeApplicableForPension_li3')}</List.Item>
-                    </List>
+                    <Box marginInline="4 0">
+                        <List as={'ul'}>
+                            <List.Item>{t('childMayBeApplicableForPension_li1')}</List.Item>
+                            <List.Item>{t('childMayBeApplicableForPension_li2')}</List.Item>
+                            <List.Item>{t('childMayBeApplicableForPension_li3')}</List.Item>
+                        </List>
+                    </Box>
+
+                    <BodyLong>
+                        <Trans value={t('readMoreAboutChildrensPension')} />
+                    </BodyLong>
                 </Box>
-
-                <BodyLong>
-                    <Trans value={t('readMoreAboutChildrensPension')} />
-                </BodyLong>
-            </FormGroup>
-
-            <FormGroup>
                 <RHFRadio
                     legend={t('whoIsApplying')}
                     name={'applicantRole'}
@@ -100,42 +93,39 @@ export default function FrontPage() {
                         return { children: t(value), value, required: true } as RadioProps
                     })}
                 />
-            </FormGroup>
-
-            {ApplicantRole.PARENT === selectedRole && (
-                <>
-                    <FormGroup>
-                        <Label spacing>{t('parentApplicantInformationLabel')}</Label>
-                        <BodyLong>{t('parentApplicantInformation')}</BodyLong>
-                        <FormElement>
+                {ApplicantRole.PARENT === selectedRole && (
+                    <>
+                        <Box>
+                            <Label spacing>{t('parentApplicantInformationLabel')}</Label>
+                            <BodyLong>{t('parentApplicantInformation')}</BodyLong>
+                        </Box>
+                        <Box marginInline="4">
                             <Trans value={t('fnrOrBirthdateRequired')} />
-                        </FormElement>
-                    </FormGroup>
-                    <FormGroup>
-                        <Heading size={'small'} spacing>
-                            {t('aboutSurvivorsPensionTitle')}
-                        </Heading>
-                        <BodyLong>
-                            <Trans value={t('aboutSurvivorsPensionDescription')} />
-                        </BodyLong>
-                    </FormGroup>
-                    <ProcessingDataParentAndGuardian t={t} isParent={true} />
-                </>
-            )}
+                        </Box>
+                        <Box>
+                            <Heading size={'small'} spacing>
+                                {t('aboutSurvivorsPensionTitle')}
+                            </Heading>
+                            <BodyLong>
+                                <Trans value={t('aboutSurvivorsPensionDescription')} />
+                            </BodyLong>
+                        </Box>
+                        <ProcessingDataParentAndGuardian t={t} isParent={true} />
+                    </>
+                )}
 
-            {ApplicantRole.GUARDIAN === selectedRole && (
-                <>
-                    <FormGroup>
-                        <Label spacing>{t('guardianApplicantInformationLabel')}</Label>
-                        <BodyLong spacing>{t('guardianApplicantInformation')}</BodyLong>
-                        <BodyLong spacing>
-                            <Trans value={t('guardiansMustSendDocumentation')} />
-                        </BodyLong>
-                        <BodyLong>
-                            <Trans value={t('fnrOrBirthdateRequired')} />
-                        </BodyLong>
-                    </FormGroup>
-                    <FormGroup>
+                {ApplicantRole.GUARDIAN === selectedRole && (
+                    <>
+                        <Box>
+                            <Label spacing>{t('guardianApplicantInformationLabel')}</Label>
+                            <BodyLong spacing>{t('guardianApplicantInformation')}</BodyLong>
+                            <BodyLong spacing>
+                                <Trans value={t('guardiansMustSendDocumentation')} />
+                            </BodyLong>
+                            <BodyLong>
+                                <Trans value={t('fnrOrBirthdateRequired')} />
+                            </BodyLong>
+                        </Box>
                         <RHFRadio
                             legend={t('additionalSituationDetails')}
                             name={'applicantSituation'}
@@ -153,20 +143,18 @@ export default function FrontPage() {
                                 },
                             ]}
                         />
-                    </FormGroup>
-                    <ProcessingDataParentAndGuardian t={t} isParent={false} />
-                </>
-            )}
+                        <ProcessingDataParentAndGuardian t={t} isParent={false} />
+                    </>
+                )}
 
-            {ApplicantRole.CHILD === selectedRole && (
-                <>
-                    <FormGroup>
-                        <Label spacing>{t('CHILD')}</Label>
-                        <BodyLong>
-                            <Trans value={t('fnrOrBirthdateRequired')} />
-                        </BodyLong>
-                    </FormGroup>
-                    <FormGroup>
+                {ApplicantRole.CHILD === selectedRole && (
+                    <>
+                        <Box>
+                            <Label spacing>{t('CHILD')}</Label>
+                            <BodyLong>
+                                <Trans value={t('fnrOrBirthdateRequired')} />
+                            </BodyLong>
+                        </Box>
                         <RHFRadio
                             legend={t('additionalSituationDetailsOver18')}
                             name={'applicantSituation'}
@@ -184,26 +172,26 @@ export default function FrontPage() {
                                 },
                             ]}
                         />
-                    </FormGroup>
-                    <ProcessingDataChild t={t} />
-                </>
-            )}
+                        <ProcessingDataChild t={t} />
+                    </>
+                )}
 
-            <FormGroup>
-                <Heading size={'small'}>{t('consentTitle')}</Heading>
+                <Box>
+                    <Heading size={'small'}>{t('consentTitle')}</Heading>
 
-                <BodyLong>{t('consentDescription')}</BodyLong>
+                    <BodyLong>{t('consentDescription')}</BodyLong>
 
-                <RHFConfirmationPanel name={'consent'} label={t('consentToNav')} size="medium" />
-            </FormGroup>
+                    <RHFConfirmationPanel name={'consent'} label={t('consentToNav')} size="medium" />
+                </Box>
 
-            <ErrorSummaryWrapper errors={errors} />
+                <ErrorSummaryWrapper errors={errors} />
 
-            <FormGroup>
-                <Button size={'medium'} variant={'primary'} onClick={handleSubmit(next, logErrors)}>
-                    {t('startApplication')}
-                </Button>
-            </FormGroup>
+                <div>
+                    <Button size={'medium'} variant={'primary'} onClick={handleSubmit(next, logErrors)}>
+                        {t('startApplication')}
+                    </Button>
+                </div>
+            </VStack>
         </FormProvider>
     )
 }
