@@ -7,7 +7,6 @@ import ReceiptPage from './components/application/ReceiptPage'
 import Banner from './components/common/Banner'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
-import Admin from './components/dev/Admin'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
 import PageNotFound from './components/error/PageNotFound'
 import SystemUnavailable from './components/error/SystemUnavailable'
@@ -51,8 +50,6 @@ export default function App() {
                                     path={`${StepPrefix.Parent}/*`}
                                     element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
                                 />
-
-                                <Route path="admin" element={<Admin />} />
 
                                 <Route path="kvittering" element={<ReceiptPage />} />
                             </Route>
