@@ -57,7 +57,7 @@ export default function ReceiptPage() {
                 <Heading size={'medium'}>{t('submissionOfGuardianshipInfo')}</Heading>
 
                 <BodyLong>
-                    {t('guardianshipMustBeConfirmed')}&nbsp;
+                    {t('guardianshipMustBeConfirmed')}
                     <Link href={t('guardianshipMustBeConfirmedHref')}>{t('guardianshipMustBeConfirmedLink')}</Link>
                 </BodyLong>
             </Box>
