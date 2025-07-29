@@ -16,7 +16,6 @@ import useTranslation from '../../../hooks/useTranslation'
 import Datepicker from '../../common/Datepicker'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
-import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import PaymentDetails from '../../common/PaymentDetails'
 import { RHFTelefonInput } from '../../common/rhf/RHFInput'
@@ -68,7 +67,7 @@ export default function AboutYou({ next }: StepProps) {
                 <form>
                     <FormElement>
                         {!user.adressebeskyttelse && isChild && (
-                            <FormGroup>
+                            <Box marginBlock="0 8">
                                 <FormElement>
                                     <Heading size={'small'}>{t('staysAbroadTitle')}</Heading>
                                 </FormElement>
@@ -122,7 +121,7 @@ export default function AboutYou({ next }: StepProps) {
                                         </FormElement>
                                     </Box>
                                 )}
-                            </FormGroup>
+                            </Box>
                         )}
 
                         {!!user.foedselsnummer && !user.telefonnummer && !isGuardian && (
@@ -141,7 +140,7 @@ export default function AboutYou({ next }: StepProps) {
                     {!user.adressebeskyttelse && isChild && (
                         <>
                             <Heading size={'small'}>{t('paymentsFromNav')}</Heading>
-                            <FormGroup>
+                            <Box marginBlock="0 8">
                                 <FormElement>
                                     <RHFGeneralQuestionRadio
                                         name={'disabilityBenefits'}
@@ -161,7 +160,7 @@ export default function AboutYou({ next }: StepProps) {
                                         {t('workAssessmentAllowanceInfo')}
                                     </ReadMore>
                                 </FormElement>
-                            </FormGroup>
+                            </Box>
                         </>
                     )}
 

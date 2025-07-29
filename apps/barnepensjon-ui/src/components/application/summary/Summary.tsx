@@ -12,7 +12,6 @@ import { useUserContext } from '../../../context/user/UserContext'
 import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
 import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
-import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import Trans from '../../common/Trans'
 import { StepProps } from '../Dialogue'
@@ -70,65 +69,59 @@ export default function Summary({ prev }: StepProps) {
     const openModal = () => setIsOpen(true)
 
     return (
-        <FormGroup>
-            <VStack marginBlock="12 8" align="center">
+        <VStack gap="8" marginBlock="0 8">
+            <VStack marginBlock="12 0" align="center">
                 <Heading size="medium">{t('summaryTitle')}</Heading>
             </VStack>
 
-            <FormGroup>
-                <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
-            </FormGroup>
+            <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
 
-            <FormGroup>
-                <Accordion>
-                    <SummaryAboutYou
-                        aboutYou={application.aboutYou}
-                        user={user}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
+            <Accordion>
+                <SummaryAboutYou
+                    aboutYou={application.aboutYou}
+                    user={user}
+                    pathPrefix={pathPrefix(application?.applicant)}
+                />
 
-                    {!isEmpty(application.firstParent) &&
-                        (application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED ? (
-                            <SummaryAboutLivingParent
-                                aboutTheParent={application.firstParent as ILivingParent}
-                                pathPrefix={pathPrefix(application?.applicant)}
-                            />
-                        ) : (
-                            <SummaryAboutDeceasedParent
-                                aboutTheParent={application.firstParent as IDeceasedParent}
-                                pathPrefix={pathPrefix(application?.applicant)}
-                            />
-                        ))}
+                {!isEmpty(application.firstParent) &&
+                    (application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED ? (
+                        <SummaryAboutLivingParent
+                            aboutTheParent={application.firstParent as ILivingParent}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                        />
+                    ) : (
+                        <SummaryAboutDeceasedParent
+                            aboutTheParent={application.firstParent as IDeceasedParent}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                        />
+                    ))}
 
-                    <SummaryAboutDeceasedParent
-                        aboutTheParent={application.secondParent as IDeceasedParent}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
+                <SummaryAboutDeceasedParent
+                    aboutTheParent={application.secondParent as IDeceasedParent}
+                    pathPrefix={pathPrefix(application?.applicant)}
+                />
 
-                    {application.unknownParent && (
-                        <SummaryAboutUnknownParent pathPrefix={pathPrefix(application?.applicant)} />
-                    )}
+                {application.unknownParent && (
+                    <SummaryAboutUnknownParent pathPrefix={pathPrefix(application?.applicant)} />
+                )}
 
-                    <SummaryAboutChildren
-                        aboutChildren={application.aboutChildren}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                        applicationRole={application.applicant?.applicantRole}
-                        applicantSituation={application.applicant?.applicantSituation}
-                        parents={{
-                            firstParent: application.firstParent,
-                            secondParent: application.secondParent,
-                        }}
-                        unknownParent={!!application.unknownParent}
-                    />
-                </Accordion>
-            </FormGroup>
+                <SummaryAboutChildren
+                    aboutChildren={application.aboutChildren}
+                    pathPrefix={pathPrefix(application?.applicant)}
+                    applicationRole={application.applicant?.applicantRole}
+                    applicantSituation={application.applicant?.applicantSituation}
+                    parents={{
+                        firstParent: application.firstParent,
+                        secondParent: application.secondParent,
+                    }}
+                    unknownParent={!!application.unknownParent}
+                />
+            </Accordion>
 
             {error && (
-                <FormGroup>
-                    <Alert variant={'error'}>
-                        <Trans value={error} />
-                    </Alert>
-                </FormGroup>
+                <Alert variant={'error'}>
+                    <Trans value={error} />
+                </Alert>
             )}
 
             <Navigation
@@ -173,6 +166,6 @@ export default function Summary({ prev }: StepProps) {
                     </VStack>
                 )}
             </Modal>
-        </FormGroup>
+        </VStack>
     )
 }

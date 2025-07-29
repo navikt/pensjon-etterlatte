@@ -2,12 +2,11 @@ import { BodyLong, Box, ExpansionCard, Heading, List } from '@navikt/ds-react'
 import React from 'react'
 import { TFunction } from '../../hooks/useTranslation'
 import FormElement from './FormElement'
-import FormGroup from './FormGroup'
 import Trans from './Trans'
 
 export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction; isParent: boolean }) {
     return (
-        <FormGroup>
+        <Box marginBlock="0 8">
             <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
                 <ExpansionCard.Header>
                     <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -103,13 +102,13 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                     </BodyLong>
                 </ExpansionCard.Content>
             </ExpansionCard>
-        </FormGroup>
+        </Box>
     )
 }
 
 export function ProcessingDataChild({ t }: { t: TFunction }) {
     return (
-        <FormGroup>
+        <Box marginBlock="0 8">
             <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
                 <ExpansionCard.Header>
                     <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -199,6 +198,6 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                     </BodyLong>
                 </ExpansionCard.Content>
             </ExpansionCard>
-        </FormGroup>
+        </Box>
     )
 }

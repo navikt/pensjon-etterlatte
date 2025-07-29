@@ -1,19 +1,19 @@
-import useTranslation from '../../../hooks/useTranslation'
-import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import { RHFNumberInput } from '../../common/rhf/RHFInput'
-import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
-import { IDeceasedParent, IStaysAbroad } from '~context/application/application'
-import { BodyShort, Box, Button, HGrid, Label, VStack } from '@navikt/ds-react'
-import { RHFSelect } from '../../common/rhf/RHFSelect'
-import { useEffect } from 'react'
-import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
-import { OppholdUtlandType } from '~api/dto/FellesOpplysninger'
-import Datepicker from '../../common/Datepicker'
 import { DeleteFilled } from '@navikt/ds-icons'
-import FormElement from '../../common/FormElement'
+import { BodyShort, Box, Button, HGrid, Label, VStack } from '@navikt/ds-react'
+import { useEffect } from 'react'
+import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
+import { OppholdUtlandType } from '~api/dto/FellesOpplysninger'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
+import { IDeceasedParent, IStaysAbroad } from '~context/application/application'
 import { Options } from '~hooks/useCountries'
 import { options } from '~hooks/useCurrencies'
+import useTranslation from '../../../hooks/useTranslation'
+import Datepicker from '../../common/Datepicker'
+import FormElement from '../../common/FormElement'
+import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
+import { RHFNumberInput } from '../../common/rhf/RHFInput'
+import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
+import { RHFSelect } from '../../common/rhf/RHFSelect'
 
 export default function StaysAbroad({ countries, currencies }: { countries: Options[]; currencies: options[] }) {
     const { t } = useTranslation('aboutTheDeceased')
@@ -138,13 +138,15 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                     </Box>
                 </FormElement>
             ))}
-            <Button
-                variant={'secondary'}
-                type={'button'}
-                onClick={() => append(Object.create({}), { shouldFocus: true })}
-            >
-                {t('addCountryButton')}
-            </Button>
+            <div>
+                <Button
+                    variant={'secondary'}
+                    type={'button'}
+                    onClick={() => append(Object.create({}), { shouldFocus: true })}
+                >
+                    {t('addCountryButton')}
+                </Button>
+            </div>
         </>
     )
 }
