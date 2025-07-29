@@ -22,7 +22,6 @@ import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedPare
 import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
 import { SummaryAboutUnknownParent } from './fragments/SummaryAboutUknownParent'
 import { SummaryAboutYou } from './fragments/SummaryAboutYou'
-import { SummaryYourSituation } from './fragments/SummaryYourSituation'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -83,11 +82,6 @@ export default function Summary({ prev }: StepProps) {
                     <SummaryAboutYou
                         aboutYou={application.aboutYou}
                         user={user}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
-
-                    <SummaryYourSituation
-                        yourSituation={application.yourSituation}
                         pathPrefix={pathPrefix(application?.applicant)}
                     />
 
