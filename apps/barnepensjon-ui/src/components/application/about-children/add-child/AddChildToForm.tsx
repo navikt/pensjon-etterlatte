@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Box, Button, Heading, Label, Panel, ReadMore, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, Button, Heading, HStack, Label, Panel, ReadMore, VStack } from '@navikt/ds-react'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -14,8 +14,6 @@ import ikon from '../../../../assets/barn1.svg'
 import useCountries, { Options } from '../../../../hooks/useCountries'
 import useTranslation from '../../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../../common/ErrorSummaryWrapper'
-import FormElement from '../../../common/FormElement'
-import FormGroup from '../../../common/FormGroup'
 import PaymentDetails from '../../../common/PaymentDetails'
 import PersonInfo from '../../../common/PersonInfo'
 import { RHFConfirmationPanel } from '../../../common/rhf/RHFCheckboksPanelGruppe'
@@ -163,7 +161,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                     </ChangeChildPanelHeader>
 
                     <ChangeChildPanelContent>
-                        <VStack gap="8">
+                        <VStack gap="4">
                             <Box>
                                 <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
                                 {childOver18() && !isGuardian && (
@@ -174,40 +172,36 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                     </Box>
                                 )}
                             </Box>
-                        </VStack>
 
-                        <Box marginInline="4">
                             <ParentQuestion parents={parents} />
-                        </Box>
 
-                        {canApplyForChildrensPension() && (
-                            <FormGroup>
-                                {isChild && !user.adressebeskyttelse && (
-                                    <LivesAbroadQuestion
-                                        isChild={isChild}
-                                        countries={countries}
-                                        livesAbroadAnswer={livesAbroadAnswer}
-                                    />
-                                )}
-                                {!isChild && (
-                                    <>
-                                        <FormGroup>
-                                            {!user.adressebeskyttelse && (
-                                                <LivesAbroadQuestion
-                                                    isChild={isChild}
-                                                    countries={countries}
-                                                    livesAbroadAnswer={livesAbroadAnswer}
+                            {canApplyForChildrensPension() && (
+                                <>
+                                    {isChild && !user.adressebeskyttelse && (
+                                        <LivesAbroadQuestion
+                                            isChild={isChild}
+                                            countries={countries}
+                                            livesAbroadAnswer={livesAbroadAnswer}
+                                        />
+                                    )}
+                                    {!isChild && (
+                                        <>
+                                            <VStack gap="8">
+                                                {!user.adressebeskyttelse && (
+                                                    <LivesAbroadQuestion
+                                                        isChild={isChild}
+                                                        countries={countries}
+                                                        livesAbroadAnswer={livesAbroadAnswer}
+                                                    />
+                                                )}
+
+                                                <IsGuardianQuestion
+                                                    isGuardian={isGuardian}
+                                                    loggedInUserIsGuardian={loggedInUserIsGuardian}
                                                 />
-                                            )}
 
-                                            <IsGuardianQuestion
-                                                isGuardian={isGuardian}
-                                                loggedInUserIsGuardian={loggedInUserIsGuardian}
-                                            />
-
-                                            {isGuardian && childOver18() && (
-                                                <>
-                                                    <FormElement>
+                                                {isGuardian && childOver18() && (
+                                                    <VStack gap="4">
                                                         <RHFGeneralQuestionRadio
                                                             name={'disabilityBenefitsIsGuardian'}
                                                             legend={t('disabilityBenefitsIsGuardian')}
@@ -215,8 +209,6 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                         <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
                                                             {t('disabilityBenefitsInfo')}
                                                         </ReadMore>
-                                                    </FormElement>
-                                                    <FormElement>
                                                         <RHFGeneralQuestionRadio
                                                             name={'workAssessmentAllowanceIsGuardian'}
                                                             legend={t('workAssessmentAllowanceIsGuardian')}
@@ -224,34 +216,37 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                         <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
                                                             {t('workAssessmentAllowanceInfo')}
                                                         </ReadMore>
-                                                    </FormElement>
-                                                </>
-                                            )}
-                                        </FormGroup>
+                                                    </VStack>
+                                                )}
+                                            </VStack>
 
-                                        <GuardianDetails
-                                            isGuardian={isGuardian}
-                                            childHasGuardianship={childHasGuardianship}
-                                        />
-
-                                        <FormGroup>
-                                            <Label>{t('applyForThisChild')}</Label>
-                                            <RHFConfirmationPanel
-                                                name={'appliesForChildrensPension'}
-                                                label={t('userAppliesForChildrensPension')}
-                                                valgfri={true}
-                                                size={'medium'}
+                                            <GuardianDetails
+                                                isGuardian={isGuardian}
+                                                childHasGuardianship={childHasGuardianship}
                                             />
-                                        </FormGroup>
 
-                                        {!user.adressebeskyttelse && appliesForChildrensPension && <PaymentDetails />}
-                                    </>
-                                )}
-                            </FormGroup>
-                        )}
+                                            <VStack>
+                                                <Label>{t('applyForThisChild')}</Label>
+                                                <RHFConfirmationPanel
+                                                    name={'appliesForChildrensPension'}
+                                                    label={t('userAppliesForChildrensPension')}
+                                                    valgfri={true}
+                                                    size={'medium'}
+                                                />
+                                            </VStack>
+
+                                            {!user.adressebeskyttelse && appliesForChildrensPension && (
+                                                <PaymentDetails />
+                                            )}
+                                        </>
+                                    )}
+                                </>
+                            )}
+                        </VStack>
+
                         <ErrorSummaryWrapper errors={errors} />
                         <VStack marginBlock="4 0" align="center">
-                            <VStack gap="4">
+                            <HStack gap="4">
                                 <Button
                                     id={'cancelAddChildren'}
                                     variant={'secondary'}
@@ -269,7 +264,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                 >
                                     {editsChild ? t('saveChangesButton', { ns: 'btn' }) : t('addButton', { ns: 'btn' })}
                                 </Button>
-                            </VStack>
+                            </HStack>
                         </VStack>
                     </ChangeChildPanelContent>
                 </ChangeChildPanel>

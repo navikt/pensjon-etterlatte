@@ -1,12 +1,11 @@
+import { Alert, Box, VStack } from '@navikt/ds-react'
+import { fnr as fnrValidator } from '@navikt/fnrvalidator'
+import Datepicker from '~components/common/Datepicker'
+import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
+import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
+import useCountries, { Options } from '../../hooks/useCountries'
 import useTranslation from '../../hooks/useTranslation'
 import { RHFFoedselsnummerInput, RHFInput } from './rhf/RHFInput'
-import useCountries, { Options } from '../../hooks/useCountries'
-import FormElement from './FormElement'
-import { fnr as fnrValidator } from '@navikt/fnrvalidator'
-import { RHFCheckboks } from '~components/common/rhf/RHFCheckboksPanelGruppe'
-import Datepicker from '~components/common/Datepicker'
-import { Alert, Box, VStack } from '@navikt/ds-react'
-import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 
 interface Props {
     duplicateList?: string[]
@@ -18,18 +17,16 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
     const { countries }: { countries: Options[] } = useCountries()
 
     return (
-        <>
+        <VStack gap="8">
             <Box maxWidth="22rem">
-                <FormElement>
+                <VStack gap="4">
                     <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} />
-                </FormElement>
 
-                <FormElement>
                     <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} />
-                </FormElement>
+                </VStack>
             </Box>
 
-            <FormElement>
+            <Box>
                 {!fnrIsUnknown && (
                     <RHFFoedselsnummerInput
                         name={'fnrDnr'}
@@ -62,17 +59,15 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                         <Datepicker name={'dateOfBirth'} label={t('dateOfBirth')} maxDate={new Date()} />
                     </VStack>
                 )}
-            </FormElement>
+            </Box>
 
             <Box maxWidth="14rem">
-                <FormElement>
-                    <RHFCombobox
-                        name={'citizenship'}
-                        label={t('citizenship')}
-                        options={countries.map((country) => country.label)}
-                    />
-                </FormElement>
+                <RHFCombobox
+                    name={'citizenship'}
+                    label={t('citizenship')}
+                    options={countries.map((country) => country.label)}
+                />
             </Box>
-        </>
+        </VStack>
     )
 }

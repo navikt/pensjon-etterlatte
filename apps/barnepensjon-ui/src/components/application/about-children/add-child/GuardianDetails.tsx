@@ -1,11 +1,9 @@
-import FormElement from '../../../common/FormElement'
-import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
+import { Box, HGrid, Label, VStack } from '@navikt/ds-react'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
-import { HGrid, Label } from '@navikt/ds-react'
-import { RHFFoedselsnummerInput, RHFInput } from '../../../common/rhf/RHFInput'
-import FormGroup from '../../../common/FormGroup'
 import useTranslation from '../../../../hooks/useTranslation'
 import { GridColumns, GridGap } from '../../../../utils/grid'
+import { RHFFoedselsnummerInput, RHFInput } from '../../../common/rhf/RHFInput'
+import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 
 interface Props {
     isGuardian: boolean
@@ -18,14 +16,12 @@ export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => 
     return (
         <>
             {!isGuardian && (
-                <FormGroup>
-                    <FormElement>
-                        <RHFGeneralQuestionRadio
-                            id={'hasGuardianQuestion'}
-                            name={'childHasGuardianship.answer'}
-                            legend={t('childHasGuardian')}
-                        />
-                    </FormElement>
+                <VStack gap="8">
+                    <RHFGeneralQuestionRadio
+                        id={'hasGuardianQuestion'}
+                        name={'childHasGuardianship.answer'}
+                        legend={t('childHasGuardian')}
+                    />
 
                     {childHasGuardianship === JaNeiVetIkke.JA && (
                         <>
@@ -44,17 +40,15 @@ export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => 
                                     valgfri={true}
                                 />
                             </HGrid>
-                            <FormElement>
-                                <RHFFoedselsnummerInput
-                                    name={'childHasGuardianship.fnr'}
-                                    label={t('guardianFnr')}
-                                    description={t('guardianFnrPlaceholder')}
-                                    valgfri={true}
-                                />
-                            </FormElement>
+                            <RHFFoedselsnummerInput
+                                name={'childHasGuardianship.fnr'}
+                                label={t('guardianFnr')}
+                                description={t('guardianFnrPlaceholder')}
+                                valgfri={true}
+                            />
                         </>
                     )}
-                </FormGroup>
+                </VStack>
             )}
         </>
     )
