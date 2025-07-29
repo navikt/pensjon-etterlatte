@@ -30,6 +30,7 @@ export default function App() {
         <ErrorBoundary>
             <>
                 <Banner tekst={t('applicationTitle')} />
+
                 <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
                 <ContinueApplicationModal />
                 <Page>
