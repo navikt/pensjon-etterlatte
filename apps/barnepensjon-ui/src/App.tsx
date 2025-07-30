@@ -6,7 +6,6 @@ import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
 import Banner from './components/common/Banner'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
-import SpinnerOverlay from './components/common/SpinnerOverlay'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
 import PageNotFound from './components/error/PageNotFound'
 import SystemUnavailable from './components/error/SystemUnavailable'
@@ -17,6 +16,7 @@ import useScrollToTop from './hooks/useScrollToTop'
 import useTranslation from './hooks/useTranslation'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
 import './app.css'
+import { PageLoading } from '~components/common/PageLoading'
 
 export default function App() {
     const isLoading = useApplication()
@@ -30,38 +30,55 @@ export default function App() {
             <>
                 <Banner tekst={t('applicationTitle')} />
 
-                <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
-                <ContinueApplicationModal />
-                <Page>
-                    <Page.Block className="soeknad-page-block">
-                        <Routes>
-                            <Route index element={<FrontPage />} />
+                {isLoading ? (
+                    <PageLoading />
+                ) : (
+                    <>
+                        <ContinueApplicationModal />
+                        <Page>
+                            <Page.Block className="soeknad-page-block">
+                                <Routes>
+                                    <Route index element={<FrontPage />} />
 
-                            <Route path="/skjema" element={<Outlet />}>
-                                <Route
-                                    path={`${StepPrefix.GUARDIAN}/*`}
-                                    element={<Dialogue steps={GuardianApplicantSteps} pathPrefix={'/skjema/verge/'} />}
-                                />
-                                <Route
-                                    path={`${StepPrefix.Child}/*`}
-                                    element={<Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />}
-                                />
-                                <Route
-                                    path={`${StepPrefix.Parent}/*`}
-                                    element={<Dialogue steps={ParentApplicantSteps} pathPrefix={'/skjema/forelder/'} />}
-                                />
+                                    <Route path="/skjema" element={<Outlet />}>
+                                        <Route
+                                            path={`${StepPrefix.GUARDIAN}/*`}
+                                            element={
+                                                <Dialogue
+                                                    steps={GuardianApplicantSteps}
+                                                    pathPrefix={'/skjema/verge/'}
+                                                />
+                                            }
+                                        />
+                                        <Route
+                                            path={`${StepPrefix.Child}/*`}
+                                            element={
+                                                <Dialogue steps={ChildApplicantSteps} pathPrefix={'/skjema/barn/'} />
+                                            }
+                                        />
+                                        <Route
+                                            path={`${StepPrefix.Parent}/*`}
+                                            element={
+                                                <Dialogue
+                                                    steps={ParentApplicantSteps}
+                                                    pathPrefix={'/skjema/forelder/'}
+                                                />
+                                            }
+                                        />
 
-                                <Route path="kvittering" element={<ReceiptPage />} />
-                            </Route>
+                                        <Route path="kvittering" element={<ReceiptPage />} />
+                                    </Route>
 
-                            <Route path={'/ugyldig-soeker'} element={<InvalidApplicant />} />
+                                    <Route path={'/ugyldig-soeker'} element={<InvalidApplicant />} />
 
-                            <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
+                                    <Route path={'/system-utilgjengelig'} element={<SystemUnavailable />} />
 
-                            <Route path="*" element={<PageNotFound />} />
-                        </Routes>
-                    </Page.Block>
-                </Page>
+                                    <Route path="*" element={<PageNotFound />} />
+                                </Routes>
+                            </Page.Block>
+                        </Page>
+                    </>
+                )}
             </>
         </ErrorBoundary>
     )
