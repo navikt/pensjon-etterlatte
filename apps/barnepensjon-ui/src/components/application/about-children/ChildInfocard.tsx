@@ -1,12 +1,11 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyShort, Box, Button, Heading, Tag, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HStack, Tag, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import { memo } from 'react'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import ikon from '../../../assets/barn1.svg'
 import useTranslation from '../../../hooks/useTranslation'
 import { IChild } from '../../../types/person'
-import { Infocard, InfocardHeader, InformationBox, InformationBoxContent } from '../../common/card/InfoCard'
 
 interface Props {
     child: IChild
@@ -20,18 +19,26 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
 
     const foedselsnummer = child.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
     return (
-        <Infocard>
-            <InfocardHeader>
-                <img alt="barn" src={ikon} />
-            </InfocardHeader>
+        <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+            <Box
+                borderRadius="4 4 0 0"
+                height="128px"
+                borderWidth="0 0 4 0"
+                style={{
+                    backgroundColor: '#4d3e55',
+                    borderBottomColor: '#826ba1',
+                }}
+            >
+                <HStack justify="center" align="end" height="100%">
+                    <img alt="barn" src={ikon} />
+                </HStack>
+            </Box>
 
-            <InformationBox>
-                <InformationBoxContent>
-                    <Heading size={'small'}>
-                        {child.firstName} {child.lastName}
-                    </Heading>
-                </InformationBoxContent>
-                <Box paddingBlock="2">
+            <VStack padding="8" align="center">
+                <Heading size={'small'}>
+                    {child.firstName} {child.lastName}
+                </Heading>
+                <Box marginBlock="2">
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('infoCard_fnr')}</BodyShort>
@@ -84,8 +91,8 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                         {t('removeChildButton')}
                     </Button>
                 </VStack>
-            </InformationBox>
-        </Infocard>
+            </VStack>
+        </Box>
     )
 })
 
