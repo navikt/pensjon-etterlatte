@@ -1,4 +1,4 @@
-import { BodyShort, Box, Button, Checkbox, GuidePanel, Heading, Modal, Panel, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Checkbox, GuidePanel, Heading, Modal, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -9,7 +9,6 @@ import { ApplicantRole, ApplicantSituation } from '~types/applicant'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
-import FormElement from '../../common/FormElement'
 import Navigation from '../../common/Navigation'
 import { StepProps } from '../Dialogue'
 import DeceasedParent from './DeceasedParent'
@@ -237,8 +236,8 @@ export default function AboutParents({ next, prev }: StepProps) {
             )}
 
             {editing === EditParent.FIRST && (
-                <FormElement>
-                    <Panel border={true}>
+                <Box marginBlock="8">
+                    <Box padding="4" borderWidth="1" borderRadius="small">
                         {bothParentsDeceased ? (
                             <DeceasedParent
                                 type={ActionTypes.UPDATE_FIRST_PARENT}
@@ -254,21 +253,21 @@ export default function AboutParents({ next, prev }: StepProps) {
                                 fnrRegisteredParent={fnrRegisteredParent()}
                             />
                         )}
-                    </Panel>
-                </FormElement>
+                    </Box>
+                </Box>
             )}
 
             {editing === EditParent.SECOND && (
-                <FormElement>
-                    <Panel border={true}>
+                <Box marginBlock="8">
+                    <Box padding="4" borderWidth="1" borderRadius="small">
                         <DeceasedParent
                             type={ActionTypes.UPDATE_SECOND_PARENT}
                             prev={stopEditing}
                             next={stopEditing}
                             fnrRegisteredParent={fnrRegisteredParent()}
                         />
-                    </Panel>
-                </FormElement>
+                    </Box>
+                </Box>
             )}
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('unknownParent')}>

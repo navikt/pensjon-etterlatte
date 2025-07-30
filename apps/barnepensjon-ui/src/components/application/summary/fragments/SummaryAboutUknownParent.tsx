@@ -1,7 +1,7 @@
+import { Box } from '@navikt/ds-react'
 import { memo } from 'react'
 import useTranslation from '../../../../hooks/useTranslation'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import FormElement from '../../../common/FormElement'
 import { AccordionItem } from '../AccordionItem'
 import { TextGroup } from '../TextGroup'
 
@@ -20,9 +20,9 @@ export const SummaryAboutUnknownParent = memo(({ pathPrefix }: Props) => {
                 ns: 'summary',
             })}
         >
-            <FormElement>
+            <Box marginBlock="4">
                 <TextGroup title={t('unknownParentQuestion')} content={t('yesUnknownParent', { ns: 'btn' })} />
-            </FormElement>
+            </Box>
         </AccordionItem>
     )
 })

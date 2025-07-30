@@ -6,7 +6,6 @@ import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import ikon from '../../../assets/barn1.svg'
 import useTranslation from '../../../hooks/useTranslation'
 import { IChild } from '../../../types/person'
-import FormElement from '../../common/FormElement'
 import { Infocard, InfocardHeader, InformationBox, InformationBoxContent } from '../../common/card/InfoCard'
 
 interface Props {
@@ -58,13 +57,13 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </BodyShort>
 
                     {!!child.appliesForChildrensPension ? (
-                        <FormElement>
+                        <Box marginBlock="4">
                             <Tag variant={'success'}>{t('childAppliedForPension')}</Tag>
-                        </FormElement>
+                        </Box>
                     ) : (
-                        <FormElement>
+                        <Box marginBlock="4">
                             <Tag variant={'warning'}>{t('childNotApplyingForPension')}</Tag>
-                        </FormElement>
+                        </Box>
                     )}
                 </Box>
                 <VStack gap="2">

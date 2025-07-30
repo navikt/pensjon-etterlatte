@@ -1,11 +1,10 @@
-import FormElement from '../../../common/FormElement'
-import { RHFRadio } from '../../../common/rhf/RHFRadio'
-import { Alert, BodyLong, Panel } from '@navikt/ds-react'
-import useTranslation from '../../../../hooks/useTranslation'
+import { Alert, BodyLong, Box, Panel, VStack } from '@navikt/ds-react'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
+import useTranslation from '../../../../hooks/useTranslation'
+import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
 import { ParentRelationType } from '../../../../types/person'
 import { nameAndFnr } from '../../../../utils/personalia'
-import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
+import { RHFRadio } from '../../../common/rhf/RHFRadio'
 
 interface Props {
     parents?: ParentRelationType
@@ -47,36 +46,34 @@ export default function ParentQuestion({ parents }: Props) {
     }
 
     return (
-        <FormElement>
-            <FormElement>
-                <RHFRadio
-                    legend={t('whoAreTheParents')}
-                    description={isParent && t('whoAreTheParentsHelpText')}
-                    name={'parents'}
-                    children={[
-                        {
-                            children: bothParents(),
-                            value: ParentRelationType.BOTH,
-                            required: true,
-                        },
-                        {
-                            children: remainingParent(),
-                            value: ParentRelationType.FIRST_PARENT,
-                            required: true,
-                        },
-                        {
-                            children: hasUnknownParent
-                                ? t('unknownParent', { ns: 'aboutParents' })
-                                : nameAndFnr(application.secondParent!),
-                            value: ParentRelationType.SECOND_PARENT,
-                            required: true,
-                        },
-                    ]}
-                />
-            </FormElement>
+        <VStack marginBlock="4" gap="4">
+            <RHFRadio
+                legend={t('whoAreTheParents')}
+                description={isParent && t('whoAreTheParentsHelpText')}
+                name={'parents'}
+                children={[
+                    {
+                        children: bothParents(),
+                        value: ParentRelationType.BOTH,
+                        required: true,
+                    },
+                    {
+                        children: remainingParent(),
+                        value: ParentRelationType.FIRST_PARENT,
+                        required: true,
+                    },
+                    {
+                        children: hasUnknownParent
+                            ? t('unknownParent', { ns: 'aboutParents' })
+                            : nameAndFnr(application.secondParent!),
+                        value: ParentRelationType.SECOND_PARENT,
+                        required: true,
+                    },
+                ]}
+            />
 
             {!!parents && ParentRelationType.FIRST_PARENT === parents && (
-                <Panel border>
+                <Box padding="4" borderWidth="1" borderRadius="small">
                     <Alert inline={true} variant={'info'}>
                         {(isParent ||
                             ApplicantSituation.ONE_PARENT_DECEASED === application.applicant?.applicantSituation) && (
@@ -86,11 +83,11 @@ export default function ParentQuestion({ parents }: Props) {
                             <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
                         )}
                     </Alert>
-                </Panel>
+                </Box>
             )}
 
             {!!parents && ParentRelationType.SECOND_PARENT === parents && (
-                <Panel border>
+                <Box padding="4" borderWidth="1" borderRadius="small">
                     <Alert inline={true} variant={'info'}>
                         {isParent ? (
                             <BodyLong>{t('onlyParentOrGuardianCanApplyOnLivingParent')}</BodyLong>
@@ -98,8 +95,8 @@ export default function ParentQuestion({ parents }: Props) {
                             <BodyLong>{t('onlyParentOrGuardianCanApply')}</BodyLong>
                         )}
                     </Alert>
-                </Panel>
+                </Box>
             )}
-        </FormElement>
+        </VStack>
     )
 }
