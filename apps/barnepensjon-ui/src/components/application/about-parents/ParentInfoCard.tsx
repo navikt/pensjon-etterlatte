@@ -1,10 +1,9 @@
 import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
-import { BodyShort, Box, Button, ErrorMessage, Heading, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, ErrorMessage, Heading, HStack, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
+import { IParent } from '~context/application/application'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InformationBox } from '../../common/card/InfoCard'
-import { IParent } from '~context/application/application'
 
 interface Props {
     parent: IParent
@@ -19,12 +18,35 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
     const foedselsnummer = parent.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Infocard $hasError={!isValidated} id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}>
-            <InfocardHeader>
-                <img alt="forelder" src={ikon} />
-            </InfocardHeader>
+        <Box
+            id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}
+            background="bg-subtle"
+            marginBlock="0 4"
+            borderRadius="0 0 4 4"
+            style={
+                !isValidated
+                    ? {
+                          border: '1px solid var(--a-red-500)',
+                          boxShadow: '0 0 0 1px var(--a-red-500, var(--a-red-500, var(--a-red-500)))',
+                      }
+                    : {}
+            }
+        >
+            <Box
+                borderRadius="4 4 0 0"
+                height="128px"
+                borderWidth="0 0 4 0"
+                style={{
+                    backgroundColor: '#4d3e55',
+                    borderBottomColor: '#826ba1',
+                }}
+            >
+                <HStack justify="center" align="end" height="100%">
+                    <img alt="forelder" src={ikon} />
+                </HStack>
+            </Box>
 
-            <InformationBox>
+            <VStack padding="8" align="center">
                 <BodyShort weight="semibold">{t('deceasedParent', { ns: 'aboutParents' })}</BodyShort>
 
                 <Heading size={'small'} spacing>
@@ -60,8 +82,8 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                         </Button>
                     </VStack>
                 </VStack>
-            </InformationBox>
-        </Infocard>
+            </VStack>
+        </Box>
     )
 })
 

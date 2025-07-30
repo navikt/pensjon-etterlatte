@@ -8,7 +8,6 @@ import { ActionTypes, IDeceasedParent, IParent } from '~context/application/appl
 import { ApplicantRole, ApplicantSituation } from '~types/applicant'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import Navigation from '../../common/Navigation'
 import { StepProps } from '../Dialogue'
 import DeceasedParent from './DeceasedParent'
