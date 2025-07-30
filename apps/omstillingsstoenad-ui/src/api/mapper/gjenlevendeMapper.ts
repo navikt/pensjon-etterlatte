@@ -1,7 +1,7 @@
 import { TFunction } from 'i18next'
+import { skalViseAFPOffentligFelter } from '~components/soknad/6-inntekten-din/fragmenter/PensjonEllerUfoere'
 import { IBruker } from '../../context/bruker/bruker'
 import { ISoeknad } from '../../context/soknad/soknad'
-import { IValg } from '../../typer/Spoersmaal'
 import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
 import {
     EndringAvInntektGrunn,
@@ -14,6 +14,7 @@ import {
     PensjonsYtelse,
 } from '../../typer/inntekt'
 import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
+import { IValg } from '../../typer/Spoersmaal'
 import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
 import { Studieform } from '../../typer/utdanning'
 import { fullAdresse } from '../../utils/adresse'
@@ -1066,32 +1067,33 @@ const hentInntektOgPensjon = (
                               innhold: t(ytelse),
                           })),
                       },
-                      afpOffentlig: inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type.includes(
-                          PensjonsYtelse.avtalefestetPensjonOffentlig
-                      )
-                          ? {
-                                innvilget: {
-                                    spoersmaal: t(
-                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
-                                    ),
-                                    svar: {
-                                        innhold:
-                                            inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.afpOffentlig!
-                                                .innvilget,
+                      afpOffentlig:
+                          inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.type.includes(
+                              PensjonsYtelse.avtalefestetPensjonOffentlig
+                          ) && skalViseAFPOffentligFelter(bruker, [PensjonsYtelse.avtalefestetPensjonOffentlig])
+                              ? {
+                                    innvilget: {
+                                        spoersmaal: t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.afpOffentlig!
+                                                    .innvilget,
+                                        },
                                     },
-                                },
-                                beloep: {
-                                    spoersmaal: t(
-                                        'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
-                                    ),
-                                    svar: {
-                                        innhold:
-                                            inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.afpOffentlig!
-                                                .beloep,
+                                    beloep: {
+                                        spoersmaal: t(
+                                            'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.pensjonEllerUfoere!.tjenestepensjonsordning!.afpOffentlig!
+                                                    .beloep,
+                                        },
                                     },
-                                },
-                            }
-                          : undefined,
+                                }
+                              : undefined,
                       utbetaler: {
                           spoersmaal: t('inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler'),
                           svar: {

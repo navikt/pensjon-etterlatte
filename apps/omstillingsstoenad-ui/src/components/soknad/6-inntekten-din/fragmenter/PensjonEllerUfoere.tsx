@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import Datovelger from '~components/felles/Datovelger'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
+import { IBruker } from '~context/bruker/bruker'
 import useCountries from '../../../../hooks/useCountries'
 import { useValutaer } from '../../../../hooks/useValutaer'
 import Bredde from '../../../../typer/bredde'
@@ -13,6 +14,20 @@ import { IInntekt, PensjonEllerTrygd, PensjonsYtelse } from '../../../../typer/i
 import { RHFCheckboksGruppe } from '../../../felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFInput, RHFInputArea, RHFNumberInput } from '../../../felles/rhf/RHFInput'
 import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+
+export const skalViseAFPOffentligFelter = (bruker: IBruker, tjenestepensjonsOrdningValgt?: PensjonsYtelse[]) => {
+    const harValgtAFPOffentligTjenestepensjon =
+        !!tjenestepensjonsOrdningValgt &&
+        tjenestepensjonsOrdningValgt.includes(PensjonsYtelse.avtalefestetPensjonOffentlig)
+    // AFP for 2025 sier at bruker må være eldre enn 61 og være født i 1963 eller senere
+    const brukersAlderErRiktig =
+        !!bruker.foedselsdato &&
+        differenceInYears(new Date(), bruker.foedselsdato) >= 62 &&
+        !!bruker.foedselsaar &&
+        bruker.foedselsaar <= 1963
+
+    return harValgtAFPOffentligTjenestepensjon && brukersAlderErRiktig
+}
 
 const PensjonEllerUfoere = () => {
     const { t } = useTranslation()
@@ -25,20 +40,6 @@ const PensjonEllerUfoere = () => {
     const bruker = useBrukerContext()
 
     const pensjonstype = watch('pensjonEllerUfoere.pensjonstype')
-
-    const skalViseAFPOffentligFelter = (tjenestepensjonsOrdningValgt?: PensjonsYtelse[]) => {
-        const harValgtAFPOffentligTjenestepensjon =
-            !!tjenestepensjonsOrdningValgt &&
-            tjenestepensjonsOrdningValgt.includes(PensjonsYtelse.avtalefestetPensjonOffentlig)
-        // AFP for 2025 sier at bruker må være eldre enn 61 og være født i 1963 eller senere
-        const brukersAlderErRiktig =
-            !!bruker.state.foedselsdato &&
-            differenceInYears(new Date(), bruker.state.foedselsdato) >= 62 &&
-            !!bruker.state.foedselsaar &&
-            bruker.state.foedselsaar <= 1963
-
-        return harValgtAFPOffentligTjenestepensjon && brukersAlderErRiktig
-    }
 
     return (
         <Box marginBlock="0 12">
@@ -91,7 +92,10 @@ const PensjonEllerUfoere = () => {
                             {t('inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor')}
                         </ReadMore>
 
-                        {skalViseAFPOffentligFelter(watch('pensjonEllerUfoere.tjenestepensjonsordning.type')) && (
+                        {skalViseAFPOffentligFelter(
+                            bruker.state,
+                            watch('pensjonEllerUfoere.tjenestepensjonsordning.type')
+                        ) && (
                             <>
                                 <Box marginBlock="4">
                                     <Datovelger
