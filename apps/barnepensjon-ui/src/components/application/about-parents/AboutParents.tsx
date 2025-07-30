@@ -162,7 +162,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                         </HStack>
                                     </Box>
                                     <Box paddingBlock="8">
-                                        <HStack marginBlock="0 4" justify="center">
+                                        <HStack paddingInline="2" marginBlock="0 4" justify="center">
                                             {childAndOneParentDeceased || guardianAndOneParentDeceased ? (
                                                 <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
                                             ) : (

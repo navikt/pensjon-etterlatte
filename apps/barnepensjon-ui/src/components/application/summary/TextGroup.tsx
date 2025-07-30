@@ -1,16 +1,7 @@
-import { BodyShort, Label } from '@navikt/ds-react'
-import useTranslation from '../../../hooks/useTranslation'
-import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
-import styled from 'styled-components'
+import { BodyShort, Box, Label } from '@navikt/ds-react'
 import { dtf } from '~utils/date'
-
-const TextGroupDiv = styled.div`
-    padding-bottom: 0.5rem;
-
-    .typo-normal {
-        margin: 0.2rem 0;
-    }
-`
+import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
+import useTranslation from '../../../hooks/useTranslation'
 
 const stringify = (content?: string | undefined) => {
     if (!content) return ''
@@ -32,10 +23,10 @@ interface TextGroupProps {
 
 export const TextGroup = ({ id, title, content }: TextGroupProps) => {
     return (
-        <TextGroupDiv>
+        <Box paddingBlock="0 2">
             <Label>{title}</Label>
             <BodyShort id={id}>{stringify(content)}</BodyShort>
-        </TextGroupDiv>
+        </Box>
     )
 }
 
