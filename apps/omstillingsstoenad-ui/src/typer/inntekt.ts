@@ -165,6 +165,10 @@ export interface IPensjonEllerUfoere {
     pensjonstype: PensjonEllerTrygd[]
     tjenestepensjonsordning?: {
         type: PensjonsYtelse[]
+        afpOffentlig?: {
+            innvilget: Date
+            beloep: string
+        }
         utbetaler: string
     }
     utland?: {
