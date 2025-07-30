@@ -9,7 +9,6 @@ import { Options } from '~hooks/useCountries'
 import { options } from '~hooks/useCurrencies'
 import useTranslation from '../../../hooks/useTranslation'
 import Datepicker from '../../common/Datepicker'
-import FormElement from '../../common/FormElement'
 import { RHFCheckboksGruppe } from '../../common/rhf/RHFCheckboksPanelGruppe'
 import { RHFNumberInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
@@ -49,13 +48,15 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
     return (
         <>
             {fields.map((field: FieldArrayWithId, index: number) => (
-                <FormElement key={field.id}>
-                    <Box
-                        borderColor={'border-info'}
-                        borderWidth={'0 0 0 4'}
-                        background={'surface-selected'}
-                        padding="4"
-                    >
+                <Box
+                    key={field.id}
+                    borderColor={'border-info'}
+                    borderWidth={'0 0 0 4'}
+                    background={'surface-selected'}
+                    padding="4"
+                    marginBlock="4"
+                >
+                    <VStack gap="4">
                         <Box maxWidth="14rem">
                             <RHFCombobox
                                 name={`staysAbroad.abroadStays[${index}].country`}
@@ -63,40 +64,33 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                                 options={countries.map((country) => country.label)}
                             />
                         </Box>
-                        <FormElement>
-                            <RHFCheckboksGruppe
-                                name={`staysAbroad.abroadStays[${index}].type`}
-                                legend={t('livedOrWorkedAbroad')}
-                                required={true}
-                                checkboxes={Object.values(OppholdUtlandType).map((value) => {
-                                    return { children: t(value), value }
-                                })}
-                            />
-                        </FormElement>
-                        <VStack gap="4">
-                            <Datepicker
-                                name={`staysAbroad.abroadStays[${index}].fromDate`}
-                                label={t('stayedAbroadFromDate')}
-                                valgfri={true}
-                                maxDate={new Date()}
-                            />
-                            <Datepicker
-                                name={`staysAbroad.abroadStays[${index}].toDate`}
-                                label={t('stayedAbroadToDate')}
-                                valgfri={true}
-                                maxDate={new Date()}
-                            />
-                        </VStack>
-                        <FormElement>
-                            <RHFGeneralQuestionRadio
-                                name={`staysAbroad.abroadStays[${index}].medlemFolketrygd`}
-                                legend={t('deceasedWasMemberOfFolketrygdenAbroad')}
-                                vetIkke={true}
-                                description={t('whyWeAskAboutFolketrygden')}
-                            />
-                        </FormElement>
-
-                        <FormElement>
+                        <RHFCheckboksGruppe
+                            name={`staysAbroad.abroadStays[${index}].type`}
+                            legend={t('livedOrWorkedAbroad')}
+                            required={true}
+                            checkboxes={Object.values(OppholdUtlandType).map((value) => {
+                                return { children: t(value), value }
+                            })}
+                        />
+                        <Datepicker
+                            name={`staysAbroad.abroadStays[${index}].fromDate`}
+                            label={t('stayedAbroadFromDate')}
+                            valgfri={true}
+                            maxDate={new Date()}
+                        />
+                        <Datepicker
+                            name={`staysAbroad.abroadStays[${index}].toDate`}
+                            label={t('stayedAbroadToDate')}
+                            valgfri={true}
+                            maxDate={new Date()}
+                        />
+                        <RHFGeneralQuestionRadio
+                            name={`staysAbroad.abroadStays[${index}].medlemFolketrygd`}
+                            legend={t('deceasedWasMemberOfFolketrygdenAbroad')}
+                            vetIkke={true}
+                            description={t('whyWeAskAboutFolketrygden')}
+                        />
+                        <VStack>
                             <Label>{t('pensionReceivedFromAbroadTitle')}</Label>
                             <BodyShort textColor={'subtle'}>{t('pensionReceivedFromAbroadDescription')}</BodyShort>
                             <HGrid
@@ -104,39 +98,36 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                                 columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}
                                 align={'start'}
                             >
-                                <FormElement>
+                                <VStack gap="4">
                                     <RHFNumberInput
                                         name={`staysAbroad.abroadStays[${index}].pension.amount`}
                                         label={t('amountAbroad')}
                                         required={amountOrCurrencyHasInput(staysAbroad, index)}
                                     />
-                                </FormElement>
-
-                                <FormElement>
                                     <RHFSelect
                                         name={`staysAbroad.abroadStays[${index}].pension.currency`}
                                         label={t('chooseCurrency', { ns: 'common' })}
                                         children={currencies}
                                         required={amountOrCurrencyHasInput(staysAbroad, index)}
                                     />
-                                </FormElement>
+                                </VStack>
                             </HGrid>
-                        </FormElement>
+                        </VStack>
+                    </VStack>
 
-                        {fields.length > 1 && (
-                            <FormElement>
-                                <Button
-                                    variant={'secondary'}
-                                    type={'button'}
-                                    onClick={() => remove(index)}
-                                    icon={<DeleteFilled />}
-                                >
-                                    {t('deleteButton', { ns: 'btn' })}
-                                </Button>
-                            </FormElement>
-                        )}
-                    </Box>
-                </FormElement>
+                    {fields.length > 1 && (
+                        <Box marginBlock="4">
+                            <Button
+                                variant={'secondary'}
+                                type={'button'}
+                                onClick={() => remove(index)}
+                                icon={<DeleteFilled aria-hidden />}
+                            >
+                                {t('deleteButton', { ns: 'btn' })}
+                            </Button>
+                        </Box>
+                    )}
+                </Box>
             ))}
             <div>
                 <Button
