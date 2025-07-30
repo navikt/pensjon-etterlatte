@@ -1,4 +1,4 @@
-import { Box, Heading, HGrid, ReadMore } from '@navikt/ds-react'
+import { Box, Heading, HGrid, ReadMore, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { JaNeiVetIkke } from '~api/dto/FellesOpplysninger'
@@ -16,12 +16,10 @@ import useTranslation from '../../../hooks/useTranslation'
 import Datepicker from '../../common/Datepicker'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
-import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import PaymentDetails from '../../common/PaymentDetails'
 import { RHFTelefonInput } from '../../common/rhf/RHFInput'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import LoggedInUserInfo from './LoggedInUserInfo'
 
@@ -59,7 +57,9 @@ export default function AboutYou({ next }: StepProps) {
 
     return (
         <>
-            <StepHeading>{isGuardian ? t('titleGuardian') : t('title')}</StepHeading>
+            <VStack align="center" marginBlock="12 0">
+                <Heading size="medium">{isGuardian ? t('titleGuardian') : t('title')}</Heading>
+            </VStack>
 
             <LoggedInUserInfo user={user} />
 
@@ -67,7 +67,7 @@ export default function AboutYou({ next }: StepProps) {
                 <form>
                     <FormElement>
                         {!user.adressebeskyttelse && isChild && (
-                            <FormGroup>
+                            <Box marginBlock="0 8">
                                 <FormElement>
                                     <Heading size={'small'}>{t('staysAbroadTitle')}</Heading>
                                 </FormElement>
@@ -121,7 +121,7 @@ export default function AboutYou({ next }: StepProps) {
                                         </FormElement>
                                     </Box>
                                 )}
-                            </FormGroup>
+                            </Box>
                         )}
 
                         {!!user.foedselsnummer && !user.telefonnummer && !isGuardian && (
@@ -140,7 +140,7 @@ export default function AboutYou({ next }: StepProps) {
                     {!user.adressebeskyttelse && isChild && (
                         <>
                             <Heading size={'small'}>{t('paymentsFromNav')}</Heading>
-                            <FormGroup>
+                            <Box marginBlock="0 8">
                                 <FormElement>
                                     <RHFGeneralQuestionRadio
                                         name={'disabilityBenefits'}
@@ -160,7 +160,7 @@ export default function AboutYou({ next }: StepProps) {
                                         {t('workAssessmentAllowanceInfo')}
                                     </ReadMore>
                                 </FormElement>
-                            </FormGroup>
+                            </Box>
                         </>
                     )}
 

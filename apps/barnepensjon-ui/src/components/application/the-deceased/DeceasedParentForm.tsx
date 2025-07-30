@@ -1,4 +1,4 @@
-import { ReadMore } from '@navikt/ds-react'
+import { Box, ReadMore, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
@@ -11,7 +11,6 @@ import useTranslation from '../../../hooks/useTranslation'
 import { ApplicantRole } from '../../../types/applicant'
 import Datepicker from '../../common/Datepicker'
 import FormElement from '../../common/FormElement'
-import FormGroup from '../../common/FormGroup'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFGeneralQuestionRadio } from '../../common/rhf/RHFRadio'
 import StaysAbroad from './StaysAbroad'
@@ -47,38 +46,43 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
             <FormElement>
                 <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
             </FormElement>
-            <FormGroup>
+            <VStack gap="8" marginBlock="0 8">
                 <FormElement>
                     <Datepicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
                 </FormElement>
-            </FormGroup>
 
-            <FormGroup>
-                <FormElement>
-                    <RHFGeneralQuestionRadio
-                        name={'occupationalInjury'}
-                        legend={t('occupationalInjury')}
-                        vetIkke={true}
-                    />
-                </FormElement>
-                <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
-                    {isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')}
-                </ReadMore>
-            </FormGroup>
-
-            <FormGroup>
-                <FormElement>
-                    <RHFGeneralQuestionRadio
-                        name={'staysAbroad.hasStaysAbroad'}
-                        legend={t('didTheDeceasedLiveAbroad')}
-                        vetIkke={true}
-                    />
-                </FormElement>
-                <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
-                    {isChild ? t('workOrLivingAbroadCanAffectPensionOver18') : t('workOrLivingAbroadCanAffectPension')}
-                </ReadMore>
-                {staysAbroad === JaNeiVetIkke.JA && <StaysAbroad countries={countries} currencies={currencies} />}
-            </FormGroup>
+                <VStack>
+                    <FormElement>
+                        <RHFGeneralQuestionRadio
+                            name={'occupationalInjury'}
+                            legend={t('occupationalInjury')}
+                            vetIkke={true}
+                        />
+                    </FormElement>
+                    <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                        {isChild ? t('whyWeAskAboutOccupationalInjuryOver18') : t('whyWeAskAboutOccupationalInjury')}
+                    </ReadMore>
+                </VStack>
+                <VStack>
+                    <FormElement>
+                        <RHFGeneralQuestionRadio
+                            name={'staysAbroad.hasStaysAbroad'}
+                            legend={t('didTheDeceasedLiveAbroad')}
+                            vetIkke={true}
+                        />
+                    </FormElement>
+                    <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
+                        {isChild
+                            ? t('workOrLivingAbroadCanAffectPensionOver18')
+                            : t('workOrLivingAbroadCanAffectPension')}
+                    </ReadMore>
+                    <Box marginBlock="4 0">
+                        {staysAbroad === JaNeiVetIkke.JA && (
+                            <StaysAbroad countries={countries} currencies={currencies} />
+                        )}
+                    </Box>
+                </VStack>
+            </VStack>
         </>
     )
 }

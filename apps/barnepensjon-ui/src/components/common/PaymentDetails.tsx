@@ -1,16 +1,15 @@
-import { Heading, HelpText, RadioProps } from '@navikt/ds-react'
+import { Box, Heading, HelpText, RadioProps } from '@navikt/ds-react'
+import { useFormContext } from 'react-hook-form'
 import styled from 'styled-components'
 import { BankkontoType } from '~api/dto/FellesOpplysninger'
-import useTranslation from '../../hooks/useTranslation'
-import FormElement from './FormElement'
-import { RHFRadio } from './rhf/RHFRadio'
-import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput } from './rhf/RHFInput'
-import FormGroup from './FormGroup'
-import { useFormContext } from 'react-hook-form'
-import { IAboutChildren, IAboutYou } from '~types/person'
-import { Bredde } from '~utils/bredde'
 import { useApplicationContext } from '~context/application/ApplicationContext'
 import { ApplicantRole } from '~types/applicant'
+import { IAboutChildren, IAboutYou } from '~types/person'
+import { Bredde } from '~utils/bredde'
+import useTranslation from '../../hooks/useTranslation'
+import FormElement from './FormElement'
+import { RHFBicInput, RHFIbanInput, RHFInput, RHFKontonummerInput } from './rhf/RHFInput'
+import { RHFRadio } from './rhf/RHFRadio'
 
 const HelpTextLabel = styled.div`
     display: flex;
@@ -26,7 +25,7 @@ export default function PaymentDetails() {
     const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
 
     return (
-        <FormGroup>
+        <Box marginBlock="0 8">
             <FormElement>
                 <RHFRadio
                     id={'accountTypeSelection'}
@@ -91,6 +90,6 @@ export default function PaymentDetails() {
                     </FormElement>
                 </>
             )}
-        </FormGroup>
+        </Box>
     )
 }

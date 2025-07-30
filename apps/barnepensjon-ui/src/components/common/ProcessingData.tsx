@@ -1,14 +1,12 @@
-import { BodyLong, ExpansionCard, Heading, List } from '@navikt/ds-react'
+import { BodyLong, Box, ExpansionCard, Heading, List } from '@navikt/ds-react'
 import React from 'react'
 import { TFunction } from '../../hooks/useTranslation'
-import { ListItemWithIndent } from '../FrontPage'
 import FormElement from './FormElement'
-import FormGroup from './FormGroup'
 import Trans from './Trans'
 
 export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction; isParent: boolean }) {
     return (
-        <FormGroup>
+        <Box marginBlock="0 8">
             <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
                 <ExpansionCard.Header>
                     <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -26,36 +24,42 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                     <FormElement>
                         <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>
-                                {t(isParent ? 'collectAndProcess_li1_parent' : 'collectAndProcess_li1_guardian')}
-                            </ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>
+                                    {t(isParent ? 'collectAndProcess_li1_parent' : 'collectAndProcess_li1_guardian')}
+                                </List.Item>
+                                <List.Item>{t('collectAndProcess_li2')}</List.Item>
+                                <List.Item>{t('collectAndProcess_li3')}</List.Item>
+                            </List>
+                        </Box>
                     </FormElement>
 
                     <FormElement>
                         <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
                         <BodyLong>{t(isParent ? 'infoWeRetrieve_parent' : 'infoWeRetrieve_guardian')}</BodyLong>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('infoWeRetrieve_li1')}</List.Item>
+                                <List.Item>{t('infoWeRetrieve_li2')}</List.Item>
+                                <List.Item>{t('infoWeRetrieve_li3')}</List.Item>
+                                <List.Item>{t('infoWeRetrieve_li4')}</List.Item>
+                            </List>
+                        </Box>
 
                         <BodyLong>
                             {t(isParent ? 'survivingParentInfo_parent' : 'survivingParentInfo_guardian')}
                         </BodyLong>
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('survivingParentInfo_li1')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li2')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li3')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li4')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li5')}</List.Item>
+                            </List>
+                        </Box>
                     </FormElement>
 
                     <FormElement>
@@ -81,12 +85,14 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                         </FormElement>
                         <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li4')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('automaticProcessingContent_li1')}</List.Item>
+                                <List.Item>{t('automaticProcessingContent_li2')}</List.Item>
+                                <List.Item>{t('automaticProcessingContent_li3')}</List.Item>
+                                <List.Item>{t('automaticProcessingContent_li4')}</List.Item>
+                            </List>
+                        </Box>
                         <BodyLong>{t('automaticProcessingContent5')}</BodyLong>
                     </FormElement>
 
@@ -96,13 +102,13 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                     </BodyLong>
                 </ExpansionCard.Content>
             </ExpansionCard>
-        </FormGroup>
+        </Box>
     )
 }
 
 export function ProcessingDataChild({ t }: { t: TFunction }) {
     return (
-        <FormGroup>
+        <Box marginBlock="0 8">
             <ExpansionCard aria-label={t('weWillRetrieveInfoTitle')}>
                 <ExpansionCard.Header>
                     <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -118,32 +124,38 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                     <FormElement>
                         <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('collectAndProcess_li1_child')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li2_child')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('collectAndProcess_li3')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('collectAndProcess_li1_child')}</List.Item>
+                                <List.Item>{t('collectAndProcess_li2_child')}</List.Item>
+                                <List.Item>{t('collectAndProcess_li3')}</List.Item>
+                            </List>
+                        </Box>
                     </FormElement>
 
                     <FormElement>
                         <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
                         <BodyLong>{t('infoWeRetrieve_child')}</BodyLong>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('infoWeRetrieve_li4')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('infoWeRetrieve_li1')}</List.Item>
+                                <List.Item>{t('infoWeRetrieve_li2')}</List.Item>
+                                <List.Item>{t('infoWeRetrieve_li3')}</List.Item>
+                                <List.Item>{t('infoWeRetrieve_li4')}</List.Item>
+                            </List>
+                        </Box>
 
                         <BodyLong>{t('survivingParentInfo_child')}</BodyLong>
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('survivingParentInfo_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li4')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('survivingParentInfo_li5')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('survivingParentInfo_li1')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li2')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li3')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li4')}</List.Item>
+                                <List.Item>{t('survivingParentInfo_li5')}</List.Item>
+                            </List>
+                        </Box>
                     </FormElement>
 
                     <FormElement>
@@ -169,12 +181,14 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                         </FormElement>
                         <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
-                        <List as={'ul'}>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li1')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li2')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li3')}</ListItemWithIndent>
-                            <ListItemWithIndent>{t('automaticProcessingContent_li4')}</ListItemWithIndent>
-                        </List>
+                        <Box marginInline="4 0">
+                            <List as={'ul'}>
+                                <List.Item>{t('automaticProcessingContent_li1')}</List.Item>
+                                <List.Item>{t('automaticProcessingContent_li2')}</List.Item>
+                                <List.Item>{t('automaticProcessingContent_li3')}</List.Item>
+                                <List.Item>{t('automaticProcessingContent_li4')}</List.Item>
+                            </List>
+                        </Box>
                         <BodyLong>{t('automaticProcessingContent5')}</BodyLong>
                     </FormElement>
 
@@ -184,6 +198,6 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                     </BodyLong>
                 </ExpansionCard.Content>
             </ExpansionCard>
-        </FormGroup>
+        </Box>
     )
 }

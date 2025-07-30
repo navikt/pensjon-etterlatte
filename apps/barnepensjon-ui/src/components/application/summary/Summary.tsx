@@ -1,4 +1,4 @@
-import { Accordion, Alert, BodyLong, Button, Heading, Loader, Modal } from '@navikt/ds-react'
+import { Accordion, Alert, BodyLong, BodyShort, Button, Heading, HStack, Loader, Modal, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -12,10 +12,7 @@ import { useUserContext } from '../../../context/user/UserContext'
 import { LogEvents, useAnalytics } from '../../../hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
 import { ApplicantRole, ApplicantSituation } from '../../../types/applicant'
-import FormGroup from '../../common/FormGroup'
-import Navigation, { NavRow } from '../../common/Navigation'
-import StepHeading from '../../common/StepHeading'
-import { BodyShortMuted } from '../../common/StyledTypography'
+import Navigation from '../../common/Navigation'
 import Trans from '../../common/Trans'
 import { StepProps } from '../Dialogue'
 import { SummaryAboutChildren } from './fragments/SummaryAboutChildren'
@@ -23,7 +20,6 @@ import { SummaryAboutDeceasedParent } from './fragments/SummaryAboutDeceasedPare
 import { SummaryAboutLivingParent } from './fragments/SummaryAboutLivingParent'
 import { SummaryAboutUnknownParent } from './fragments/SummaryAboutUknownParent'
 import { SummaryAboutYou } from './fragments/SummaryAboutYou'
-import { SummaryYourSituation } from './fragments/SummaryYourSituation'
 
 const pathPrefix = (applicant?: { applicantRole?: ApplicantRole }): string => {
     const prefix = {
@@ -73,67 +69,59 @@ export default function Summary({ prev }: StepProps) {
     const openModal = () => setIsOpen(true)
 
     return (
-        <FormGroup>
-            <StepHeading>{t('summaryTitle')}</StepHeading>
-            <FormGroup>
-                <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
-            </FormGroup>
+        <VStack gap="8" marginBlock="0 8">
+            <VStack marginBlock="12 0" align="center">
+                <Heading size="medium">{t('summaryTitle')}</Heading>
+            </VStack>
 
-            <FormGroup>
-                <Accordion>
-                    <SummaryAboutYou
-                        aboutYou={application.aboutYou}
-                        user={user}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
+            <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
 
-                    <SummaryYourSituation
-                        yourSituation={application.yourSituation}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
+            <Accordion>
+                <SummaryAboutYou
+                    aboutYou={application.aboutYou}
+                    user={user}
+                    pathPrefix={pathPrefix(application?.applicant)}
+                />
 
-                    {!isEmpty(application.firstParent) &&
-                        (application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED ? (
-                            <SummaryAboutLivingParent
-                                aboutTheParent={application.firstParent as ILivingParent}
-                                pathPrefix={pathPrefix(application?.applicant)}
-                            />
-                        ) : (
-                            <SummaryAboutDeceasedParent
-                                aboutTheParent={application.firstParent as IDeceasedParent}
-                                pathPrefix={pathPrefix(application?.applicant)}
-                            />
-                        ))}
+                {!isEmpty(application.firstParent) &&
+                    (application.applicant?.applicantSituation === ApplicantSituation.ONE_PARENT_DECEASED ? (
+                        <SummaryAboutLivingParent
+                            aboutTheParent={application.firstParent as ILivingParent}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                        />
+                    ) : (
+                        <SummaryAboutDeceasedParent
+                            aboutTheParent={application.firstParent as IDeceasedParent}
+                            pathPrefix={pathPrefix(application?.applicant)}
+                        />
+                    ))}
 
-                    <SummaryAboutDeceasedParent
-                        aboutTheParent={application.secondParent as IDeceasedParent}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                    />
+                <SummaryAboutDeceasedParent
+                    aboutTheParent={application.secondParent as IDeceasedParent}
+                    pathPrefix={pathPrefix(application?.applicant)}
+                />
 
-                    {application.unknownParent && (
-                        <SummaryAboutUnknownParent pathPrefix={pathPrefix(application?.applicant)} />
-                    )}
+                {application.unknownParent && (
+                    <SummaryAboutUnknownParent pathPrefix={pathPrefix(application?.applicant)} />
+                )}
 
-                    <SummaryAboutChildren
-                        aboutChildren={application.aboutChildren}
-                        pathPrefix={pathPrefix(application?.applicant)}
-                        applicationRole={application.applicant?.applicantRole}
-                        applicantSituation={application.applicant?.applicantSituation}
-                        parents={{
-                            firstParent: application.firstParent,
-                            secondParent: application.secondParent,
-                        }}
-                        unknownParent={!!application.unknownParent}
-                    />
-                </Accordion>
-            </FormGroup>
+                <SummaryAboutChildren
+                    aboutChildren={application.aboutChildren}
+                    pathPrefix={pathPrefix(application?.applicant)}
+                    applicationRole={application.applicant?.applicantRole}
+                    applicantSituation={application.applicant?.applicantSituation}
+                    parents={{
+                        firstParent: application.firstParent,
+                        secondParent: application.secondParent,
+                    }}
+                    unknownParent={!!application.unknownParent}
+                />
+            </Accordion>
 
             {error && (
-                <FormGroup>
-                    <Alert variant={'error'}>
-                        <Trans value={error} />
-                    </Alert>
-                </FormGroup>
+                <Alert variant={'error'}>
+                    <Trans value={error} />
+                </Alert>
             )}
 
             <Navigation
@@ -154,31 +142,30 @@ export default function Summary({ prev }: StepProps) {
                 </Modal.Header>
 
                 <Modal.Body>
-                    {loading ? <Loader size={'xlarge'} /> : <BodyShortMuted>{t('sendApplicationBody')}</BodyShortMuted>}
+                    {loading ? (
+                        <Loader size={'xlarge'} />
+                    ) : (
+                        <BodyShort textColor="subtle">{t('sendApplicationBody')}</BodyShort>
+                    )}
                 </Modal.Body>
                 {!loading && (
-                    <NavRow>
-                        <Button
-                            id={'avbryt-ja-btn'}
-                            variant={'secondary'}
-                            type={'button'}
-                            onClick={() => setIsOpen(false)}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('noButton', { ns: 'btn' })}
-                        </Button>
-                        <Button
-                            id={'avbryt-nei-btn'}
-                            variant={'primary'}
-                            type={'button'}
-                            onClick={send}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('yesButton', { ns: 'btn' })}
-                        </Button>
-                    </NavRow>
+                    <VStack marginBlock="0 4" align="center">
+                        <HStack gap="4">
+                            <Button
+                                id={'avbryt-ja-btn'}
+                                variant={'secondary'}
+                                type={'button'}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {t('noButton', { ns: 'btn' })}
+                            </Button>
+                            <Button id={'avbryt-nei-btn'} variant={'primary'} type={'button'} onClick={send}>
+                                {t('yesButton', { ns: 'btn' })}
+                            </Button>
+                        </HStack>
+                    </VStack>
                 )}
             </Modal>
-        </FormGroup>
+        </VStack>
     )
 }

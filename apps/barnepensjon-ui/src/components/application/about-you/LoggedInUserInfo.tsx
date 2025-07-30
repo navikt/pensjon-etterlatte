@@ -1,13 +1,12 @@
-import { Alert, BodyShort, HelpText, HGrid, Label, Link } from '@navikt/ds-react'
+import { ExternalLink } from '@navikt/ds-icons'
+import { Alert, BodyShort, Box, HelpText, HGrid, Label, Link } from '@navikt/ds-react'
 import styled from 'styled-components'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
-import FormGroup from '../../common/FormGroup'
-import FormElement from '../../common/FormElement'
-import { fullAdresse } from '../../../utils/personalia'
 import { GridColumns, GridGap } from '../../../utils/grid'
+import { fullAdresse } from '../../../utils/personalia'
+import FormElement from '../../common/FormElement'
 import Trans from '../../common/Trans'
-import { ExternalLink } from '@navikt/ds-icons'
 
 interface LoggedInUserInfoProps {
     user: User
@@ -33,7 +32,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                     </Link>
                 </Alert>
             </FormElement>
-            <FormGroup>
+            <Box marginBlock="0 8">
                 <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
                     <div>
                         <Label>{t('name')}</Label>
@@ -65,7 +64,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                         )}
                     </>
                 </HGrid>
-            </FormGroup>
+            </Box>
         </>
     )
 }

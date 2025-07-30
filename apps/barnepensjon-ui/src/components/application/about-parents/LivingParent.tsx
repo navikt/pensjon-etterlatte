@@ -1,3 +1,4 @@
+import { Box, Heading, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useApplicationContext } from '~context/application/ApplicationContext'
@@ -6,11 +7,9 @@ import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
 import FormElement from '../../common/FormElement'
-import FormGroup from '../../common/FormGroup'
 import Navigation from '../../common/Navigation'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 
 interface Props extends StepProps {
@@ -47,11 +46,13 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
     return (
         <FormProvider {...methods}>
             <form>
-                <StepHeading>{t('title')}</StepHeading>
+                <VStack align="center" marginBlock="12 8">
+                    <Heading size={'medium'}>{t('title')}</Heading>
+                </VStack>
 
-                <FormGroup>
+                <Box marginBlock="0 8">
                     <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
-                </FormGroup>
+                </Box>
                 <FormElement>
                     <RHFInput name={'address'} label={t('address')} valgfri={true} />
                 </FormElement>

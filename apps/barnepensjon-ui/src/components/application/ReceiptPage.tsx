@@ -1,21 +1,6 @@
-import { Alert, BodyLong, BodyShort, Button, Heading, Link } from '@navikt/ds-react'
-import FormGroup from '../common/FormGroup'
-import useTranslation from '../../hooks/useTranslation'
-import FormElement from '../common/FormElement'
+import { Alert, BodyLong, BodyShort, Box, Button, Heading, Link, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
-import styled from 'styled-components'
-
-const FormGroupCenter = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 0 0 2rem 0;
-    padding: 0;
-    border: 0;
-`
-
-const ReceiptContainer = styled.div`
-    margin-top: 2rem;
-`
+import useTranslation from '../../hooks/useTranslation'
 
 export default function ReceiptPage() {
     const { t } = useTranslation('receipt')
@@ -28,65 +13,56 @@ export default function ReceiptPage() {
     }, [])
 
     return (
-        <ReceiptContainer>
+        <VStack gap="8" marginBlock="8 0">
             <Heading size={'large'} spacing align={'center'}>
                 {t('pageTitle')}
             </Heading>
 
-            <FormGroup>
-                <Alert variant={'success'}>{t('contact')}</Alert>
-            </FormGroup>
+            <Alert variant={'success'}>{t('contact')}</Alert>
 
-            <FormGroup>
+            <Box>
                 <Heading size={'medium'}>{t('viewCaseTitle')}</Heading>
+                <BodyLong>
+                    {t('viewCaseInfoContentPart1')}{' '}
+                    <Link href={t('processingTimeHref')}>{t('processingTimeLink')}</Link>
+                </BodyLong>
 
-                <FormElement>
-                    <BodyLong>
-                        {t('viewCaseInfoContentPart1')}{' '}
-                        <Link href={t('processingTimeHref')}>{t('processingTimeLink')}</Link>
-                    </BodyLong>
-                </FormElement>
+                <BodyLong>
+                    {t('viewCaseInfoContent2')}
+                    <Link href={t('viewCaseInfoLinkHref2')}>{t('viewCaseInfoLinkText2')}</Link>.
+                </BodyLong>
+            </Box>
 
-                <FormElement>
-                    <BodyLong>
-                        {t('viewCaseInfoContent2')}&nbsp;
-                        <Link href={t('viewCaseInfoLinkHref2')}>{t('viewCaseInfoLinkText2')}</Link>.
-                    </BodyLong>
-                </FormElement>
-            </FormGroup>
+            <Alert variant={'info'}>
+                <Heading size={'medium'}>{t('youMustNotifyRegardingChanges')}</Heading>
 
-            <FormGroup>
-                <Alert variant={'info'}>
-                    <Heading size={'medium'}>{t('youMustNotifyRegardingChanges')}</Heading>
+                <BodyLong>{t('importantChangesCanAffectYourRights')}</BodyLong>
 
-                    <BodyLong>{t('importantChangesCanAffectYourRights')}</BodyLong>
+                <ul>
+                    <li>
+                        <BodyShort>{t('changeInLivingSituation')}</BodyShort>
+                    </li>
+                    <li>
+                        <BodyShort>{t('changeAddressOrMoveAbroad')}</BodyShort>
+                    </li>
+                </ul>
 
-                    <ul>
-                        <li>
-                            <BodyShort>{t('changeInLivingSituation')}</BodyShort>
-                        </li>
-                        <li>
-                            <BodyShort>{t('changeAddressOrMoveAbroad')}</BodyShort>
-                        </li>
-                    </ul>
+                <BodyLong>
+                    {t('moreAboutChanges')}&nbsp;
+                    <Link href={t('moreAboutChangesLinkHref')}>{t('moreAboutChangesLinkText')}</Link>
+                </BodyLong>
+            </Alert>
 
-                    <BodyLong>
-                        {t('moreAboutChanges')}&nbsp;
-                        <Link href={t('moreAboutChangesLinkHref')}>{t('moreAboutChangesLinkText')}</Link>
-                    </BodyLong>
-                </Alert>
-            </FormGroup>
-
-            <FormGroup>
+            <Box>
                 <Heading size={'medium'}>{t('submissionOfGuardianshipInfo')}</Heading>
 
                 <BodyLong>
-                    {t('guardianshipMustBeConfirmed')}&nbsp;
+                    {t('guardianshipMustBeConfirmed')}
                     <Link href={t('guardianshipMustBeConfirmedHref')}>{t('guardianshipMustBeConfirmedLink')}</Link>
                 </BodyLong>
-            </FormGroup>
+            </Box>
 
-            <FormGroup>
+            <Box>
                 <Heading size={'medium'}>{t('taxDeductionTitle')}</Heading>
                 <BodyLong spacing>{t('taxDeductionDescription1')}</BodyLong>
 
@@ -95,17 +71,18 @@ export default function ReceiptPage() {
                     <Link href={t('taxDeductionLinkHref')}>{t('taxDeductionLinkText')}</Link>
                 </BodyLong>
                 <BodyLong>{t('taxDeductionDescription3')}</BodyLong>
-            </FormGroup>
-
-            <FormGroupCenter>
-                <Button
-                    variant={'secondary'}
-                    type={'button'}
-                    onClick={() => (window.location.href = t('closeApplicationButtonHref'))}
-                >
-                    {t('closeApplicationButton')}
-                </Button>
-            </FormGroupCenter>
-        </ReceiptContainer>
+            </Box>
+            <VStack align="center">
+                <div>
+                    <Button
+                        variant={'secondary'}
+                        type={'button'}
+                        onClick={() => (window.location.href = t('closeApplicationButtonHref'))}
+                    >
+                        {t('closeApplicationButton')}
+                    </Button>
+                </div>
+            </VStack>
+        </VStack>
     )
 }

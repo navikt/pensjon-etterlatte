@@ -1,5 +1,5 @@
+import { Heading, VStack } from '@navikt/ds-react'
 import { ActionTypes } from '../../../context/application/application'
-import StepHeading from '../../common/StepHeading'
 import useTranslation from '../../../hooks/useTranslation'
 import { ApplicantSituation } from '../../../types/applicant'
 
@@ -22,8 +22,8 @@ export default function DeceasedParentTitle({ type, situation }: Props) {
     }
 
     return (
-        <>
-            <StepHeading>{title}</StepHeading>
-        </>
+        <VStack marginBlock="12 0" align="center">
+            <Heading size={'medium'}>{title}</Heading>
+        </VStack>
     )
 }

@@ -1,22 +1,20 @@
-import { BodyShort, Button, Checkbox, GuidePanel, Heading, Modal, Panel } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Checkbox, GuidePanel, Heading, Modal, Panel, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
-import ikon from '../../../assets/ukjent_person.svg'
-import { ActionTypes, IDeceasedParent, IParent } from '~context/application/application'
+import { FormProvider, useForm } from 'react-hook-form'
+import ErrorSummaryWrapper from '~components/common/ErrorSummaryWrapper'
 import { useApplicationContext } from '~context/application/ApplicationContext'
+import { ActionTypes, IDeceasedParent, IParent } from '~context/application/application'
+import { ApplicantRole, ApplicantSituation } from '~types/applicant'
+import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
 import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
-import FormGroup from '../../common/FormGroup'
+import FormElement from '../../common/FormElement'
 import Navigation from '../../common/Navigation'
-import StepHeading from '../../common/StepHeading'
 import { StepProps } from '../Dialogue'
 import DeceasedParent from './DeceasedParent'
 import LivingParent from './LivingParent'
 import ParentInfoCard from './ParentInfoCard'
-import { FormProvider, useForm } from 'react-hook-form'
-import FormElement from '../../common/FormElement'
-import { ApplicantRole, ApplicantSituation } from '~types/applicant'
-import ErrorSummaryWrapper from '~components/common/ErrorSummaryWrapper'
 
 enum EditParent {
     NONE,
@@ -131,14 +129,16 @@ export default function AboutParents({ next, prev }: StepProps) {
         <FormProvider {...methods}>
             {editing === EditParent.NONE && (
                 <>
-                    <StepHeading>{t('aboutParentsTitle')}</StepHeading>
-                    <FormGroup>
+                    <VStack marginBlock="12 8" align="center">
+                        <Heading size={'medium'}>{t('aboutParentsTitle')}</Heading>
+                    </VStack>
+                    <Box marginBlock="0 8">
                         <GuidePanel>
                             <BodyShort>{guidePanelText()}</BodyShort>
                         </GuidePanel>
-                    </FormGroup>
+                    </Box>
 
-                    <FormGroup>
+                    <Box marginBlock="0 8">
                         <InfocardWrapper>
                             {isEmpty(state.firstParent) ? (
                                 <Infocard>
@@ -225,7 +225,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                 />
                             )}
                         </InfocardWrapper>
-                    </FormGroup>
+                    </Box>
 
                     <ErrorSummaryWrapper errors={getValidationError(state.firstParent, state.secondParent)} />
 

@@ -1,6 +1,5 @@
-import { BodyShort, Button, ButtonProps, Heading, Loader, Modal } from '@navikt/ds-react'
+import { BodyShort, Box, Button, ButtonProps, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
-import styled, { css } from 'styled-components'
 import { deleteDraft } from '../../api/api'
 import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes as ApplicationActionTypes } from '../../context/application/application'
@@ -8,52 +7,6 @@ import { useUserContext } from '../../context/user/UserContext'
 import { ActionTypes as UserActionTypes } from '../../context/user/user'
 import { EventType, LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import useTranslation from '../../hooks/useTranslation'
-import FormGroup from './FormGroup'
-
-export const NavRow = styled.div<{ disabled?: boolean }>`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    column-gap: 1rem;
-    margin-bottom: 2rem;
-
-    .knapp {
-        margin-bottom: 0;
-    }
-
-    ${(props) => {
-        if (props.disabled) {
-            return css`
-                opacity: 0.6;
-                pointer-events: none;
-            `
-        }
-    }}
-`
-
-const NavFooter = styled(FormGroup)`
-    @media screen and (max-width: 650px) {
-        .knapp {
-            font-size: 1rem;
-            padding: 0 1rem;
-            width: 50%;
-        }
-    }
-`
-
-const FlexCenter = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-`
-
-const FlatDangerButton = styled(Button)`
-    color: var(--a-surface-danger);
-
-    &:hover {
-        box-shadow: inset 0 0 0 2px var(--a-surface-danger);
-    }
-`
 
 interface NavButtonProps extends Pick<ButtonProps, 'variant' | 'disabled'> {
     label?: string
@@ -97,39 +50,42 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
 
     return (
         <>
-            <NavFooter>
-                <NavRow disabled={loading}>
-                    {!!left && (
-                        <Button
-                            type={'button'}
-                            variant={left?.variant || 'secondary'}
-                            onClick={left?.onClick}
-                            disabled={left?.disabled}
-                        >
-                            {left?.label || t('backButton', { ns: 'btn' })}
-                        </Button>
-                    )}
+            <Box marginBlock="0 8">
+                <VStack marginBlock="0 4" align="center">
+                    <HStack gap="4">
+                        {!!left && (
+                            <Button
+                                type={'button'}
+                                variant={left?.variant || 'secondary'}
+                                onClick={left?.onClick}
+                                disabled={left?.disabled}
+                                loading={loading}
+                            >
+                                {left?.label || t('backButton', { ns: 'btn' })}
+                            </Button>
+                        )}
 
-                    {!!right && (
-                        <Button
-                            type={'button'}
-                            variant={right?.variant || 'primary'}
-                            onClick={right?.onClick}
-                            disabled={right?.disabled}
-                        >
-                            {right?.label || t('nextButton', { ns: 'btn' })} {loading && <Loader />}
-                        </Button>
-                    )}
-                </NavRow>
-
+                        {!!right && (
+                            <Button
+                                type={'button'}
+                                variant={right?.variant || 'primary'}
+                                onClick={right?.onClick}
+                                disabled={right?.disabled}
+                                loading={loading}
+                            >
+                                {right?.label || t('nextButton', { ns: 'btn' })}
+                            </Button>
+                        )}
+                    </HStack>
+                </VStack>
                 {!hideCancel && (
-                    <NavRow>
+                    <VStack marginBlock="0 4" align="center">
                         <Button id={'avbryt-btn'} variant={'tertiary'} type={'button'} onClick={() => setIsOpen(true)}>
                             {t('cancelButton', { ns: 'btn' })}
                         </Button>
-                    </NavRow>
+                    </VStack>
                 )}
-            </NavFooter>
+            </Box>
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('cancelApplicationTitle')}>
                 <Modal.Header>
@@ -141,38 +97,35 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <FlexCenter>
-                        <Button
-                            id={'avbryt-nei-btn'}
-                            variant={'secondary'}
-                            type={'button'}
-                            onClick={continueApplication}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('continueApplicationButton')}
-                        </Button>
+                    <VStack align="center" width="100%">
+                        <HStack gap="4" wrap={false}>
+                            <Button
+                                id={'avbryt-nei-btn'}
+                                variant={'secondary'}
+                                type={'button'}
+                                onClick={continueApplication}
+                            >
+                                {t('continueApplicationButton')}
+                            </Button>
 
-                        <Button
-                            id={'avbryt-ja-btn'}
-                            variant={'primary'}
-                            type={'button'}
-                            onClick={cancelApplication}
-                            style={{ margin: '10px' }}
-                        >
-                            {t('cancelApplicationButton')}
-                        </Button>
-                    </FlexCenter>
+                            <Button
+                                id={'avbryt-ja-btn'}
+                                variant={'primary'}
+                                type={'button'}
+                                onClick={cancelApplication}
+                            >
+                                {t('cancelApplicationButton')}
+                            </Button>
+                        </HStack>
+                    </VStack>
 
-                    <FlexCenter>
-                        <FlatDangerButton
-                            id={'slett-soeknad'}
-                            type={'button'}
-                            variant={'tertiary'}
-                            onClick={deleteApplication}
-                        >
-                            {t('deleteApplicationButton')}
-                        </FlatDangerButton>
-                    </FlexCenter>
+                    <VStack align="center" width="100%">
+                        <div>
+                            <Button id={'slett-soeknad'} type={'button'} variant={'danger'} onClick={deleteApplication}>
+                                {t('deleteApplicationButton')}
+                            </Button>
+                        </div>
+                    </VStack>
                 </Modal.Footer>
             </Modal>
         </>
