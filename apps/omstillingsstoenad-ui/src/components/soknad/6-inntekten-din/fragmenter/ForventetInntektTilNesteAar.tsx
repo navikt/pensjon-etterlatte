@@ -2,7 +2,7 @@ import { Box, Heading, List, ReadMore, VStack } from '@navikt/ds-react'
 import { differenceInYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
+import { RHFInntektInput, RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
@@ -58,19 +58,17 @@ export const ForventetInntektTilNesteAar = () => {
                 </List>
 
                 <VStack gap="2">
-                    <RHFNumberInput
+                    <RHFInntektInput
                         name={'forventetInntektTilNesteAar.arbeidsinntekt'}
                         label={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt')}
-                        htmlSize={Bredde.M}
                     />
                     <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
                 <VStack gap="2">
-                    <RHFNumberInput
+                    <RHFInntektInput
                         name={'forventetInntektTilNesteAar.naeringsinntekt.inntekt'}
                         label={t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt')}
-                        htmlSize={Bredde.M}
                     />
                     <NaeringsinntekterDuSkalFylleUtReadMore />
                 </VStack>
@@ -102,10 +100,9 @@ export const ForventetInntektTilNesteAar = () => {
 
                 {skalViseAfpFelter(bruker) && (
                     <VStack gap="2">
-                        <RHFNumberInput
+                        <RHFInntektInput
                             name={'forventetInntektTilNesteAar.afpInntekt.inntekt'}
                             label={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt')}
-                            htmlSize={Bredde.M}
                         />
                         {!!forventetInntektTilNesteAar?.afpInntekt?.inntekt &&
                             forventetInntektTilNesteAar?.afpInntekt?.inntekt !== '0' && (
@@ -122,11 +119,10 @@ export const ForventetInntektTilNesteAar = () => {
                 )}
 
                 <VStack gap="2">
-                    <RHFNumberInput
+                    <RHFInntektInput
                         name={'forventetInntektTilNesteAar.inntektFraUtland'}
                         label={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland')}
                         description={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse')}
-                        htmlSize={Bredde.M}
                     />
                     <InntekterFraUtlandDuSkalFylleUt />
                 </VStack>
@@ -137,10 +133,9 @@ export const ForventetInntektTilNesteAar = () => {
                 />
                 {forventetInntektTilNesteAar?.andreInntekter?.valg === IValg.JA && (
                     <>
-                        <RHFNumberInput
+                        <RHFInntektInput
                             name={'forventetInntektTilNesteAar.andreInntekter.inntekt'}
                             label={'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt'}
-                            htmlSize={Bredde.M}
                         />
                         <RHFInputArea
                             name={'forventetInntektTilNesteAar.andreInntekter.beskrivelse'}
