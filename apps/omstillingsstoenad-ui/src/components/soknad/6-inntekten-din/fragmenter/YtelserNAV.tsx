@@ -24,7 +24,10 @@ const YtelserNAV = () => {
                 <RHFSpoersmaalRadio
                     name={'ytelserNAV.svar'}
                     legend={t('inntektenDin.ytelserNAV.svar')}
-                    description={t('inntektenDin.ytelserNAV.hvorfor')}
+                    description={
+                        omsSoeknadNyttInntektStegFeatureToggle.status !== FeatureToggleStatus.PAA &&
+                        t('inntektenDin.ytelserNAV.hvorfor')
+                    }
                 />
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA && (
                     <ReadMore header={t('inntektenDin.ytelserNAV.hvorforViSpoer.tittel')}>
