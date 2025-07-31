@@ -15,7 +15,6 @@ import useCountries, { Options } from '../../../hooks/useCountries'
 import useTranslation from '../../../hooks/useTranslation'
 import Datepicker from '../../common/Datepicker'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import FormElement from '../../common/FormElement'
 import Navigation from '../../common/Navigation'
 import PaymentDetails from '../../common/PaymentDetails'
 import { RHFTelefonInput } from '../../common/rhf/RHFInput'
@@ -65,83 +64,71 @@ export default function AboutYou({ next }: StepProps) {
 
             <FormProvider {...methods}>
                 <form>
-                    <FormElement>
+                    <VStack marginBlock="8 0" gap="4">
                         {!user.adressebeskyttelse && isChild && (
                             <Box marginBlock="0 8">
-                                <FormElement>
+                                <VStack gap="4">
                                     <Heading size={'small'}>{t('staysAbroadTitle')}</Heading>
-                                </FormElement>
-
-                                <RHFGeneralQuestionRadio name={'residesInNorway'} legend={t('residesInNorway')} />
-
-                                {residesInNorway === JaNeiVetIkke.JA && (
-                                    <FormElement>
+                                    <RHFGeneralQuestionRadio name={'residesInNorway'} legend={t('residesInNorway')} />
+                                    {residesInNorway === JaNeiVetIkke.JA && (
                                         <RHFGeneralQuestionRadio name={'stayedAbroad'} legend={t('stayedAbroad')} />
-                                    </FormElement>
-                                )}
-
-                                {stayedAbroad === JaNeiVetIkke.JA && (
-                                    <>
-                                        <Box maxWidth="14rem">
-                                            <FormElement>
+                                    )}
+                                    {stayedAbroad === JaNeiVetIkke.JA && (
+                                        <>
+                                            <Box maxWidth="14rem">
                                                 <RHFCombobox
                                                     id={'stayedAbroadCountry'}
                                                     name={'stayedAbroadCountry'}
                                                     label={t('stayedAbroadCountry')}
                                                     options={countries.map((country) => country.label)}
                                                 />
-                                            </FormElement>
-                                        </Box>
-                                        <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
-                                            <Datepicker
-                                                name={'stayedAbroadFromDate'}
-                                                label={t('stayedAbroadFromDate')}
-                                                maxDate={new Date()}
-                                                valgfri={true}
-                                            />
-                                            <Datepicker
-                                                name={'stayedAbroadToDate'}
-                                                label={t('stayedAbroadToDate')}
-                                                maxDate={new Date()}
-                                                valgfri={true}
-                                            />
-                                        </HGrid>
-                                    </>
-                                )}
-
-                                {residesInNorway === JaNeiVetIkke.NEI && (
-                                    <Box maxWidth="14rem">
-                                        <FormElement>
+                                            </Box>
+                                            <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
+                                                <Datepicker
+                                                    name={'stayedAbroadFromDate'}
+                                                    label={t('stayedAbroadFromDate')}
+                                                    maxDate={new Date()}
+                                                    valgfri={true}
+                                                />
+                                                <Datepicker
+                                                    name={'stayedAbroadToDate'}
+                                                    label={t('stayedAbroadToDate')}
+                                                    maxDate={new Date()}
+                                                    valgfri={true}
+                                                />
+                                            </HGrid>
+                                        </>
+                                    )}
+                                    {residesInNorway === JaNeiVetIkke.NEI && (
+                                        <Box maxWidth="14rem">
                                             <RHFCombobox
                                                 id={'countryOfResidence'}
                                                 name={'countryOfResidence'}
                                                 label={t('countryOfResidence')}
                                                 options={countries.map((country) => country.label)}
                                             />
-                                        </FormElement>
-                                    </Box>
-                                )}
+                                        </Box>
+                                    )}
+                                </VStack>
                             </Box>
                         )}
 
                         {!!user.foedselsnummer && !user.telefonnummer && !isGuardian && (
-                            <FormElement>
-                                <RHFTelefonInput
-                                    name={'phoneNumber'}
-                                    label={t('phoneNumberOptional', { ns: 'common' })}
-                                    valgfri={true}
-                                    htmlSize={Bredde.S}
-                                    autoComplete="tel"
-                                />
-                            </FormElement>
+                            <RHFTelefonInput
+                                name={'phoneNumber'}
+                                label={t('phoneNumberOptional', { ns: 'common' })}
+                                valgfri={true}
+                                htmlSize={Bredde.S}
+                                autoComplete="tel"
+                            />
                         )}
-                    </FormElement>
+                    </VStack>
 
                     {!user.adressebeskyttelse && isChild && (
                         <>
                             <Heading size={'small'}>{t('paymentsFromNav')}</Heading>
-                            <Box marginBlock="0 8">
-                                <FormElement>
+                            <VStack gap="4" marginBlock="0 8">
+                                <VStack>
                                     <RHFGeneralQuestionRadio
                                         name={'disabilityBenefits'}
                                         legend={t('disabilityBenefits')}
@@ -149,9 +136,9 @@ export default function AboutYou({ next }: StepProps) {
                                     <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
                                         {t('disabilityBenefitsInfo')}
                                     </ReadMore>
-                                </FormElement>
+                                </VStack>
 
-                                <FormElement>
+                                <VStack>
                                     <RHFGeneralQuestionRadio
                                         name={'workAssessmentAllowance'}
                                         legend={t('workAssessmentAllowance')}
@@ -159,8 +146,8 @@ export default function AboutYou({ next }: StepProps) {
                                     <ReadMore header={t('whyWeAsk', { ns: 'common' })}>
                                         {t('workAssessmentAllowanceInfo')}
                                     </ReadMore>
-                                </FormElement>
-                            </Box>
+                                </VStack>
+                            </VStack>
                         </>
                     )}
 

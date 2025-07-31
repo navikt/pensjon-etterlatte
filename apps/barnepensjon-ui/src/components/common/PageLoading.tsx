@@ -1,6 +1,6 @@
 import { Heading, HStack, Skeleton, VStack } from '@navikt/ds-react'
 
-export const SideLaster = () => {
+export const PageLoading = () => {
     return (
         <HStack justify="center" padding="8">
             <VStack gap="6" width="42.5rem">

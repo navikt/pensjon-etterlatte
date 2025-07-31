@@ -1,3 +1,4 @@
+import { DatePicker, DatePickerProps, useDatepicker } from '@navikt/ds-react'
 import { format, parseISO } from 'date-fns'
 import { get } from 'lodash'
 import { ReactNode } from 'react'
@@ -5,7 +6,6 @@ import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { useLanguageContext } from '../../context/language/LanguageContext'
 import useTranslation from '../../hooks/useTranslation'
 import { getErrorKey } from '../../utils/errors'
-import { useDatepicker, DatePicker, DatePickerProps } from '@navikt/ds-react'
 
 interface DatepickerProps {
     name: string
@@ -14,7 +14,6 @@ interface DatepickerProps {
     minDate?: Date | string
     maxDate?: Date | string
     valgfri?: boolean
-    className?: string
 }
 
 const formatDate = (dato?: Date | string) => {
@@ -41,7 +40,6 @@ const Datepicker = ({
     minDate = new Date(1900, 0, 1),
     maxDate = new Date(),
     valgfri,
-    className,
 }: DatepickerProps) => {
     const { t } = useTranslation('common')
     const { language } = useLanguageContext()
@@ -60,38 +58,36 @@ const Datepicker = ({
         : `${t('dateSRLabel')} ${t('dateFormat')}`
 
     return (
-        <section className={`skjemaelement ${className}`}>
-            <Controller
-                name={name}
-                control={control}
-                defaultValue={undefined}
-                rules={{
-                    required: !valgfri,
-                    validate: (date: Date | string) => !date || isValid(date),
-                }}
-                render={({ field: { onChange, value } }) => {
-                    const { datepickerProps, inputProps } = useDatepicker({
-                        fromDate: minDate ? parseDateMaxMin(minDate) : undefined,
-                        toDate: maxDate ? parseDateMaxMin(maxDate) : undefined,
-                        locale: language as DatePickerProps['locale'],
-                        inputFormat: 'dd.MM.yyyy',
-                        defaultSelected: value ? new Date(value) : undefined,
-                        onDateChange: (date) => onChange(formatDate(date)),
-                    })
-                    return (
-                        <DatePicker {...datepickerProps} dropdownCaption>
-                            <DatePicker.Input
-                                id={name}
-                                {...inputProps}
-                                label={labelWithOptional}
-                                error={errorMessage}
-                                description={descriptionWithFormat}
-                            />
-                        </DatePicker>
-                    )
-                }}
-            />
-        </section>
+        <Controller
+            name={name}
+            control={control}
+            defaultValue={undefined}
+            rules={{
+                required: !valgfri,
+                validate: (date: Date | string) => !date || isValid(date),
+            }}
+            render={({ field: { onChange, value } }) => {
+                const { datepickerProps, inputProps } = useDatepicker({
+                    fromDate: minDate ? parseDateMaxMin(minDate) : undefined,
+                    toDate: maxDate ? parseDateMaxMin(maxDate) : undefined,
+                    locale: language as DatePickerProps['locale'],
+                    inputFormat: 'dd.MM.yyyy',
+                    defaultSelected: value ? new Date(value) : undefined,
+                    onDateChange: (date) => onChange(formatDate(date)),
+                })
+                return (
+                    <DatePicker {...datepickerProps} dropdownCaption>
+                        <DatePicker.Input
+                            id={name}
+                            {...inputProps}
+                            label={labelWithOptional}
+                            error={errorMessage}
+                            description={descriptionWithFormat}
+                        />
+                    </DatePicker>
+                )
+            }}
+        />
     )
 }
 

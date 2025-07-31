@@ -1,4 +1,4 @@
-import { basePath, Button } from '../util/constants'
+import { Button, basePath } from '../util/constants'
 
 describe('System Unavailable', { testIsolation: false }, () => {
     before(() => {
@@ -13,7 +13,7 @@ describe('System Unavailable', { testIsolation: false }, () => {
 
     it('should redirect you to SystemUnavailable when backend services are down', function () {
         cy.url().should('include', 'system-utilgjengelig')
-        cy.get('.navds-box').should('have.text', 'Har mistet noen i nær familie')
+        cy.get('.navds-box').should('include.text', 'Har mistet noen i nær familie')
     })
 
     it('should send you to the front page when clicking the retry button if systems are up', function () {

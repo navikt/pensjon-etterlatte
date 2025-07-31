@@ -1,4 +1,4 @@
-import { Box, Heading, VStack } from '@navikt/ds-react'
+import { Heading, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useApplicationContext } from '~context/application/ApplicationContext'
@@ -6,7 +6,6 @@ import { IDeceasedParent, ILivingParent, IParent } from '~context/application/ap
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import useTranslation from '../../../hooks/useTranslation'
 import ErrorSummaryWrapper from '../../common/ErrorSummaryWrapper'
-import FormElement from '../../common/FormElement'
 import Navigation from '../../common/Navigation'
 import PersonInfo from '../../common/PersonInfo'
 import { RHFInput, RHFTelefonInput } from '../../common/rhf/RHFInput'
@@ -50,19 +49,15 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
                     <Heading size={'medium'}>{t('title')}</Heading>
                 </VStack>
 
-                <Box marginBlock="0 8">
+                <VStack marginBlock="0 4" gap="4">
                     <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
-                </Box>
-                <FormElement>
                     <RHFInput name={'address'} label={t('address')} valgfri={true} />
-                </FormElement>
-                <FormElement>
                     <RHFTelefonInput
                         name={'phoneNumber'}
                         label={t('phoneNumberOptional', { ns: 'common' })}
                         valgfri={true}
                     />
-                </FormElement>
+                </VStack>
                 <ErrorSummaryWrapper errors={errors} />
 
                 <Navigation

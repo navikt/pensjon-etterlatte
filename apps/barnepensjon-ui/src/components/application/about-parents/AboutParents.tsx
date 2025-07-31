@@ -1,4 +1,4 @@
-import { BodyShort, Box, Button, Checkbox, GuidePanel, Heading, Modal, Panel, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Checkbox, GuidePanel, Heading, HGrid, HStack, Modal, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -8,8 +8,6 @@ import { ActionTypes, IDeceasedParent, IParent } from '~context/application/appl
 import { ApplicantRole, ApplicantSituation } from '~types/applicant'
 import ikon from '../../../assets/ukjent_person.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
-import FormElement from '../../common/FormElement'
 import Navigation from '../../common/Navigation'
 import { StepProps } from '../Dialogue'
 import DeceasedParent from './DeceasedParent'
@@ -139,32 +137,51 @@ export default function AboutParents({ next, prev }: StepProps) {
                     </Box>
 
                     <Box marginBlock="0 8">
-                        <InfocardWrapper>
+                        <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
                             {isEmpty(state.firstParent) ? (
-                                <Infocard>
-                                    <InfocardHeader>
-                                        <img alt="forelder" src={ikon} />
-                                    </InfocardHeader>
-                                    <InformationBox>
-                                        <strong>{bothParentsDeceased ? t('firstParent') : t('survivingParent')}</strong>
-                                    </InformationBox>
-                                    <InformationBox>
-                                        {childAndOneParentDeceased || guardianAndOneParentDeceased ? (
-                                            <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
-                                        ) : (
-                                            <Button
-                                                title={
-                                                    bothParentsDeceased ? t('firstParent') : t('addSurvivingParentBtn')
-                                                }
-                                                variant={'primary'}
-                                                type={'button'}
-                                                onClick={() => updateEditing(EditParent.FIRST)}
-                                            >
-                                                {t('addParentBtn')}
-                                            </Button>
-                                        )}
-                                    </InformationBox>
-                                </Infocard>
+                                <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                    <Box
+                                        borderRadius="4 4 0 0"
+                                        height="128px"
+                                        borderWidth="0 0 4 0"
+                                        style={{
+                                            backgroundColor: '#4d3e55',
+                                            borderBottomColor: '#826ba1',
+                                            opacity: 0.4,
+                                        }}
+                                    >
+                                        <HStack justify="center" align="end" height="100%">
+                                            <img alt="forelder" src={ikon} />
+                                        </HStack>
+                                    </Box>
+                                    <Box paddingBlock="8">
+                                        <HStack marginBlock="0 4" justify="center">
+                                            <strong>
+                                                {bothParentsDeceased ? t('firstParent') : t('survivingParent')}
+                                            </strong>
+                                        </HStack>
+                                    </Box>
+                                    <Box paddingBlock="8">
+                                        <HStack paddingInline="2" marginBlock="0 4" justify="center">
+                                            {childAndOneParentDeceased || guardianAndOneParentDeceased ? (
+                                                <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
+                                            ) : (
+                                                <Button
+                                                    title={
+                                                        bothParentsDeceased
+                                                            ? t('firstParent')
+                                                            : t('addSurvivingParentBtn')
+                                                    }
+                                                    variant={'primary'}
+                                                    type={'button'}
+                                                    onClick={() => updateEditing(EditParent.FIRST)}
+                                                >
+                                                    {t('addParentBtn')}
+                                                </Button>
+                                            )}
+                                        </HStack>
+                                    </Box>
+                                </Box>
                             ) : (
                                 <ParentInfoCard
                                     parent={state.firstParent!}
@@ -176,15 +193,30 @@ export default function AboutParents({ next, prev }: StepProps) {
                             )}
 
                             {isEmpty(state.secondParent) ? (
-                                <Infocard>
-                                    <InfocardHeader>
-                                        <img alt="forelder" src={ikon} />
-                                    </InfocardHeader>
-                                    <InformationBox>
-                                        <strong>{bothParentsDeceased ? t('secondParent') : t('deceasedParent')}</strong>
-                                    </InformationBox>
-                                    <InformationBox>
-                                        <div style={{ marginBottom: '1rem' }}>
+                                <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                    <Box
+                                        borderRadius="4 4 0 0"
+                                        height="128px"
+                                        borderWidth="0 0 4 0"
+                                        style={{
+                                            backgroundColor: '#4d3e55',
+                                            borderBottomColor: '#826ba1',
+                                            opacity: 0.4,
+                                        }}
+                                    >
+                                        <HStack justify="center" align="end" height="100%">
+                                            <img alt="forelder" src={ikon} />
+                                        </HStack>
+                                    </Box>
+                                    <Box padding="8">
+                                        <HStack marginBlock="0 4" justify="center">
+                                            <strong>
+                                                {bothParentsDeceased ? t('secondParent') : t('deceasedParent')}
+                                            </strong>
+                                        </HStack>
+                                    </Box>
+                                    <Box padding="8">
+                                        <HStack gap="4" marginBlock="0 4" justify="center">
                                             <Button
                                                 title={
                                                     bothParentsDeceased ? t('secondParent') : t('addDeceasedParentBtn')
@@ -196,25 +228,25 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             >
                                                 {t('addParentBtn')}
                                             </Button>
-                                        </div>
 
-                                        {bothParentsDeceased && (
-                                            <Checkbox
-                                                value={true}
-                                                onClick={() => {
-                                                    if (state.unknownParent) {
-                                                        setUnknownParent(false)
-                                                    } else {
-                                                        setIsOpen(true)
-                                                    }
-                                                }}
-                                                checked={!!state.unknownParent}
-                                            >
-                                                {t('unknownParent')}
-                                            </Checkbox>
-                                        )}
-                                    </InformationBox>
-                                </Infocard>
+                                            {bothParentsDeceased && (
+                                                <Checkbox
+                                                    value={true}
+                                                    onClick={() => {
+                                                        if (state.unknownParent) {
+                                                            setUnknownParent(false)
+                                                        } else {
+                                                            setIsOpen(true)
+                                                        }
+                                                    }}
+                                                    checked={!!state.unknownParent}
+                                                >
+                                                    {t('unknownParent')}
+                                                </Checkbox>
+                                            )}
+                                        </HStack>
+                                    </Box>
+                                </Box>
                             ) : (
                                 <ParentInfoCard
                                     parent={state.secondParent!}
@@ -224,7 +256,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                                     firstParent={false}
                                 />
                             )}
-                        </InfocardWrapper>
+                        </HGrid>
                     </Box>
 
                     <ErrorSummaryWrapper errors={getValidationError(state.firstParent, state.secondParent)} />
@@ -237,8 +269,8 @@ export default function AboutParents({ next, prev }: StepProps) {
             )}
 
             {editing === EditParent.FIRST && (
-                <FormElement>
-                    <Panel border={true}>
+                <Box marginBlock="8">
+                    <Box padding="4" borderWidth="1" borderRadius="small">
                         {bothParentsDeceased ? (
                             <DeceasedParent
                                 type={ActionTypes.UPDATE_FIRST_PARENT}
@@ -254,21 +286,21 @@ export default function AboutParents({ next, prev }: StepProps) {
                                 fnrRegisteredParent={fnrRegisteredParent()}
                             />
                         )}
-                    </Panel>
-                </FormElement>
+                    </Box>
+                </Box>
             )}
 
             {editing === EditParent.SECOND && (
-                <FormElement>
-                    <Panel border={true}>
+                <Box marginBlock="8">
+                    <Box padding="4" borderWidth="1" borderRadius="small">
                         <DeceasedParent
                             type={ActionTypes.UPDATE_SECOND_PARENT}
                             prev={stopEditing}
                             next={stopEditing}
                             fnrRegisteredParent={fnrRegisteredParent()}
                         />
-                    </Panel>
-                </FormElement>
+                    </Box>
+                </Box>
             )}
 
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('unknownParent')}>

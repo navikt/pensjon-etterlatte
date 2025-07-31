@@ -1,8 +1,7 @@
-import useTranslation from '../../../../hooks/useTranslation'
-import FormElement from '../../../common/FormElement'
-import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
+import { BodyShort, Box } from '@navikt/ds-react'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
-import { BodyShort } from '@navikt/ds-react'
+import useTranslation from '../../../../hooks/useTranslation'
+import { RHFGeneralQuestionRadio } from '../../../common/rhf/RHFRadio'
 
 interface Props {
     isGuardian: boolean
@@ -16,13 +15,13 @@ export const IsGuardianQuestion = ({ isGuardian, loggedInUserIsGuardian }: Props
         <>
             {isGuardian && (
                 <>
-                    <FormElement>
+                    <Box marginBlock="8">
                         <RHFGeneralQuestionRadio
                             id={'isGuardianQuestion'}
                             name={'loggedInUserIsGuardian'}
                             legend={t('loggedInUserIsGuardian')}
                         />
-                    </FormElement>
+                    </Box>
 
                     {loggedInUserIsGuardian === JaNeiVetIkke.JA && (
                         <BodyShort>{t('needToSendInDocumentation')}</BodyShort>
