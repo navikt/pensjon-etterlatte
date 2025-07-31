@@ -155,9 +155,9 @@ export const ForventetInntektTilNesteAar = () => {
                     <VStack gap="2">
                         <RHFSelect
                             name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
-                            label={
+                            label={t(
                                 'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
-                            }
+                            )}
                             selectOptions={[{ label: t('felles.velg'), value: '' }].concat(
                                 grunnTilPaaVirkelseAvInntektOptions
                             )}
