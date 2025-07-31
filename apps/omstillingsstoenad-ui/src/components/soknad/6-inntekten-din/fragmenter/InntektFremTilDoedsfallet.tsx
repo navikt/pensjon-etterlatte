@@ -2,7 +2,7 @@ import { Box, Heading, List, ReadMore, VStack } from '@navikt/ds-react'
 import { differenceInYears } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
+import { RHFInntektInput, RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
 import { InntekterFraUtlandDuSkalFylleUt } from '~components/soknad/6-inntekten-din/fragmenter/felles/InntekterFraUtlandDuSkalFylleUt'
@@ -23,6 +23,7 @@ export const InntektFremTilDoedsfallet = () => {
     const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
 
     // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker er eldre enn 62 år
+    // TODO: skal det være like regler på tvers av skjemaene her?
     const skalViseAfpFelter = (bruker: IBruker): boolean => {
         if (!!bruker.foedselsdato) {
             const alder = differenceInYears(new Date(), bruker.foedselsdato)
@@ -44,19 +45,17 @@ export const InntektFremTilDoedsfallet = () => {
                 </List>
 
                 <VStack gap="2">
-                    <RHFNumberInput
+                    <RHFInntektInput
                         name={'inntektFremTilDoedsfallet.arbeidsinntekt'}
                         label={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt')}
-                        htmlSize={Bredde.M}
                     />
                     <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
                 <VStack gap="2">
-                    <RHFNumberInput
+                    <RHFInntektInput
                         name={'inntektFremTilDoedsfallet.naeringsinntekt.inntekt'}
                         label={t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt')}
-                        htmlSize={Bredde.M}
                     />
                     <NaeringsinntekterDuSkalFylleUtReadMore />
                 </VStack>
@@ -88,10 +87,9 @@ export const InntektFremTilDoedsfallet = () => {
 
                 {skalViseAfpFelter(bruker) && (
                     <VStack gap="2">
-                        <RHFNumberInput
+                        <RHFInntektInput
                             name={'inntektFremTilDoedsfallet.afpInntekt.inntekt'}
                             label={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt')}
-                            htmlSize={Bredde.M}
                         />
                         {!!inntektFremTilDoedsfallet?.afpInntekt?.inntekt &&
                             inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0' && (
@@ -108,11 +106,10 @@ export const InntektFremTilDoedsfallet = () => {
                 )}
 
                 <VStack gap="2">
-                    <RHFNumberInput
+                    <RHFInntektInput
                         name={'inntektFremTilDoedsfallet.inntektFraUtland'}
                         label={t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland')}
                         description={t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse')}
-                        htmlSize={Bredde.M}
                     />
                     <InntekterFraUtlandDuSkalFylleUt />
                 </VStack>
@@ -123,10 +120,9 @@ export const InntektFremTilDoedsfallet = () => {
                 />
                 {inntektFremTilDoedsfallet?.andreInntekter?.valg === IValg.JA && (
                     <>
-                        <RHFNumberInput
+                        <RHFInntektInput
                             name={'inntektFremTilDoedsfallet.andreInntekter.inntekt'}
                             label={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt')}
-                            htmlSize={Bredde.M}
                         />
                         <RHFInputArea
                             name={'inntektFremTilDoedsfallet.andreInntekter.beskrivelse'}
