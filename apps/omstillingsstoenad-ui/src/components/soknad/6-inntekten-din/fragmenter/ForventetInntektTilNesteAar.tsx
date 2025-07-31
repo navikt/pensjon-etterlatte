@@ -137,7 +137,7 @@ export const ForventetInntektTilNesteAar = () => {
                     <>
                         <RHFInntektInput
                             name={'forventetInntektTilNesteAar.andreInntekter.inntekt'}
-                            label={'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt'}
+                            label={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt')}
                         />
                         <RHFInputArea
                             name={'forventetInntektTilNesteAar.andreInntekter.beskrivelse'}
