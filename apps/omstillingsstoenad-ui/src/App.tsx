@@ -1,9 +1,8 @@
 import { Page } from '@navikt/ds-react'
-import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, Route, Routes } from 'react-router'
 import { GlobalErrorAlert } from '~components/felles/globalErrorAlert/GlobalErrorAlert'
 import { SideLaster } from '~components/felles/SideLaster'
-import Banner from './components/felles/Banner'
+import { SkjemaTittel } from '~components/felles/SkjemaTittel'
 import SystemUtilgjengelig from './components/felles/systemUtilgjengelig/SystemUtilgjengelig'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
@@ -20,13 +19,12 @@ const App = () => {
     useInnloggetBruker()
     const soknadContext = useSoknadContext()
     useAnalytics()
-    const { t } = useTranslation()
 
     const lasterSoeknad = useSoeknad()
 
     return (
         <>
-            <Banner tekst={t('banner.tittel')} />
+            <SkjemaTittel />
 
             {lasterSoeknad ? (
                 <SideLaster />
