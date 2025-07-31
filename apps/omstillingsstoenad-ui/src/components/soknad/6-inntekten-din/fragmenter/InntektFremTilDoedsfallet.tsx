@@ -69,6 +69,8 @@ export const InntektFremTilDoedsfallet = () => {
                                     description={t(
                                         'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse'
                                     )}
+                                    visPersonopplysningerVarsel={false}
+                                    maxLength={1000}
                                 />
                             )}
                         </>
@@ -117,6 +119,8 @@ export const InntektFremTilDoedsfallet = () => {
                         <RHFInputArea
                             name={'inntektFremTilDoedsfallet.andreInntekter.beskrivelse'}
                             label={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse')}
+                            visPersonopplysningerVarsel={false}
+                            maxLength={1000}
                         />
                     </>
                 )}

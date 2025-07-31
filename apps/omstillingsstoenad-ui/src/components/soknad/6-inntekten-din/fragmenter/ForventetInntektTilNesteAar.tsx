@@ -74,6 +74,8 @@ export const ForventetInntektTilNesteAar = () => {
                                     description={t(
                                         'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse'
                                     )}
+                                    visPersonopplysningerVarsel={false}
+                                    maxLength={1000}
                                 />
                             )}
                         </>
@@ -122,6 +124,8 @@ export const ForventetInntektTilNesteAar = () => {
                         <RHFInputArea
                             name={'forventetInntektTilNesteAar.andreInntekter.beskrivelse'}
                             label={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse')}
+                            visPersonopplysningerVarsel={false}
+                            maxLength={1000}
                         />
                     </>
                 )}
