@@ -1,4 +1,4 @@
-import { BodyShort, Box, Button, GuidePanel, Heading, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, GuidePanel, Heading, HGrid, HStack, VStack } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
@@ -8,7 +8,6 @@ import { ApplicantRole } from '~types/applicant'
 import { IAboutChildren, IChild } from '~types/person'
 import ikon from '../../../assets/barn1.svg'
 import useTranslation from '../../../hooks/useTranslation'
-import { Infocard, InfocardHeader, InfocardWrapper, InformationBox } from '../../common/card/InfoCard'
 import Navigation from '../../common/Navigation'
 import { RHFInput } from '../../common/rhf/RHFInput'
 import { StepProps } from '../Dialogue'
@@ -111,7 +110,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                             </GuidePanel>
 
                             <Box>
-                                <InfocardWrapper>
+                                <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
                                     {fields?.map((field: FieldArrayWithId, index: number) => (
                                         <ChildInfocard
                                             key={uuid()}
@@ -122,17 +121,30 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         />
                                     ))}
 
-                                    <Infocard>
-                                        <InfocardHeader>
-                                            <img alt="barn" src={ikon} />
-                                        </InfocardHeader>
-                                        <InformationBox>
-                                            <Button variant={'primary'} type={'button'} onClick={addNewChild}>
-                                                {!isChild ? t('addChildButton') : t('addSiblingButton')}
-                                            </Button>
-                                        </InformationBox>
-                                    </Infocard>
-                                </InfocardWrapper>
+                                    <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                        <Box
+                                            borderRadius="4 4 0 0"
+                                            height="128px"
+                                            borderWidth="0 0 4 0"
+                                            style={{
+                                                backgroundColor: '#4d3e55',
+                                                borderBottomColor: '#826ba1',
+                                                opacity: 0.4,
+                                            }}
+                                        >
+                                            <HStack justify="center" align="end" height="100%">
+                                                <img alt="barn" src={ikon} />
+                                            </HStack>
+                                        </Box>
+                                        <Box padding="8">
+                                            <HStack marginBlock="0 4" justify="center">
+                                                <Button variant={'primary'} type={'button'} onClick={addNewChild}>
+                                                    {!isChild ? t('addChildButton') : t('addSiblingButton')}
+                                                </Button>
+                                            </HStack>
+                                        </Box>
+                                    </Box>
+                                </HGrid>
                             </Box>
 
                             {/* Ensure at least one child is applying for childrens pension */}

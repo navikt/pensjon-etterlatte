@@ -1,4 +1,4 @@
-import { HStack, Heading, Skeleton, VStack } from '@navikt/ds-react'
+import { Heading, HStack, Skeleton, VStack } from '@navikt/ds-react'
 
 export const SideLaster = () => {
     return (
@@ -7,7 +7,7 @@ export const SideLaster = () => {
                 <VStack gap="6" width="42.5rem">
                     <Skeleton variant="rectangle" width="100%" height={160} />
                     <Heading as={Skeleton} size="large">
-                        Side tittel
+                        Sidetittel
                     </Heading>
 
                     <Skeleton variant="rectangle" width="100%" height={80} />
