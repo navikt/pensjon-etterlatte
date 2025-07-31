@@ -9,7 +9,7 @@ export const SkjemaTittel = () => {
         <VStack align="center" padding="4" marginBlock="8 4">
             <HStack gap="4" align="center">
                 <Hide below="md">
-                    <img src={ikon} aria-hidden />
+                    <img src={ikon} alt="Illustrasjon av at det regner over en blomst med en paraply" aria-hidden />
                 </Hide>
                 <VStack>
                     <BodyShort size="small">Nav 17-01.06</BodyShort>
