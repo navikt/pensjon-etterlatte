@@ -13,9 +13,7 @@ export const ApplicationTitle = () => {
                 </Hide>
                 <VStack>
                     <BodyShort size="small">Nav 18-01.05</BodyShort>
-                    <Heading size="xlarge" level="1">
-                        {t('applicationTitle')}
-                    </Heading>
+                    <Heading size="xlarge">{t('applicationTitle')}</Heading>
                 </VStack>
             </HStack>
         </VStack>

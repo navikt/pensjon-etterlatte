@@ -13,9 +13,7 @@ export const SkjemaTittel = () => {
                 </Hide>
                 <VStack>
                     <BodyShort size="small">Nav 17-01.06</BodyShort>
-                    <Heading size="xlarge" level="1">
-                        {t('banner.tittel')}
-                    </Heading>
+                    <Heading size="xlarge">{t('banner.tittel')}</Heading>
                 </VStack>
             </HStack>
         </VStack>
