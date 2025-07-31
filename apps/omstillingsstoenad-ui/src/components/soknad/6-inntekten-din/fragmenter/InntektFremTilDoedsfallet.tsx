@@ -67,6 +67,7 @@ export const InntektFremTilDoedsfallet = () => {
                                 legend={t(
                                     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
                                 )}
+                                vetIkke
                             />
                             {inntektFremTilDoedsfallet?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt?.valg ===
                                 IValg.NEI && (
@@ -117,6 +118,7 @@ export const InntektFremTilDoedsfallet = () => {
                 <RHFSpoersmaalRadio
                     name={'inntektFremTilDoedsfallet.andreInntekter.valg'}
                     legend={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg')}
+                    vetIkke
                 />
                 {inntektFremTilDoedsfallet?.andreInntekter?.valg === IValg.JA && (
                     <>

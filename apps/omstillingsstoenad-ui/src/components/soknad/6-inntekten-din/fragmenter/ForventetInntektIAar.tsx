@@ -71,6 +71,7 @@ export const ForventetInntektIAar = () => {
                                 legend={t(
                                     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
                                 )}
+                                vetIkke
                             />
                             {forventetInntektIAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt?.valg ===
                                 IValg.NEI && (
@@ -119,6 +120,7 @@ export const ForventetInntektIAar = () => {
                 <RHFSpoersmaalRadio
                     name={'forventetInntektIAar.andreInntekter.valg'}
                     legend={t('inntektenDin.forventetInntektIAar.andreInntekter.valg')}
+                    vetIkke
                 />
                 {forventetInntektIAar?.andreInntekter?.valg === IValg.JA && (
                     <>
@@ -136,6 +138,7 @@ export const ForventetInntektIAar = () => {
                 <RHFSpoersmaalRadio
                     name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.valg'}
                     legend={t('inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg')}
+                    vetIkke
                 />
                 {forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
                     <VStack gap="2">
