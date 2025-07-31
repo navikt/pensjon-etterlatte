@@ -4,7 +4,6 @@ import { Outlet, Route, Routes } from 'react-router-dom'
 import ErrorBoundary from '~ErrorBoundary'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'
-import Banner from './components/common/Banner'
 import { ContinueApplicationModal } from './components/common/ContinueApplicationModal'
 import SpinnerOverlay from './components/common/SpinnerOverlay'
 import { InvalidApplicant } from './components/error/InvalidApplicant'
@@ -17,6 +16,7 @@ import useScrollToTop from './hooks/useScrollToTop'
 import useTranslation from './hooks/useTranslation'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
 import './app.css'
+import { ApplicationTitle } from '~components/common/ApplicationTitle'
 
 export default function App() {
     const isLoading = useApplication()
@@ -28,7 +28,7 @@ export default function App() {
     return (
         <ErrorBoundary>
             <>
-                <Banner tekst={t('applicationTitle')} />
+                <ApplicationTitle />
 
                 <SpinnerOverlay visible={isLoading} label={t('fetchingApplicationDetails')} />
                 <ContinueApplicationModal />
