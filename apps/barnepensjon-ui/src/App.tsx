@@ -12,7 +12,6 @@ import FrontPage from './components/FrontPage'
 import useApplication from './hooks/useApplication'
 import useLoggedInUser from './hooks/useLoggedInUser'
 import useScrollToTop from './hooks/useScrollToTop'
-import useTranslation from './hooks/useTranslation'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
 import './app.css'
 import { ApplicationTitle } from '~components/common/ApplicationTitle'
@@ -20,7 +19,6 @@ import { PageLoading } from '~components/common/PageLoading'
 
 export default function App() {
     const isLoading = useApplication()
-    const { t } = useTranslation('app')
 
     useLoggedInUser()
     useScrollToTop()
