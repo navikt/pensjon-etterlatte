@@ -6,7 +6,7 @@ export const SkjemaTittel = () => {
     const { t } = useTranslation()
 
     return (
-        <VStack align="center" padding="4" marginBlock="8 4">
+        <VStack as="header" role="banner" align="center" padding="4" marginBlock="8 4">
             <HStack gap="4" align="center">
                 <Hide below="md">
                     <img src={ikon} alt="Illustrasjon av at det regner over en blomst med en paraply" aria-hidden />
