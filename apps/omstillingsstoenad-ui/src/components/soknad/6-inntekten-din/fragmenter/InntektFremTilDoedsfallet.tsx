@@ -1,14 +1,13 @@
-import { Box, Heading, List, ReadMore, VStack } from '@navikt/ds-react'
-import { differenceInYears } from 'date-fns'
+import { Box, Heading, List, VStack } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { RHFInntektInput, RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
+import { RHFInntektInput, RHFInput, RHFInputArea } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { skalViseAFPFelter } from '~components/soknad/6-inntekten-din/fragmenter/afp'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
 import { InntekterFraUtlandDuSkalFylleUt } from '~components/soknad/6-inntekten-din/fragmenter/felles/InntekterFraUtlandDuSkalFylleUt'
 import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
-import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
 import { IInntekt } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
@@ -21,17 +20,6 @@ export const InntektFremTilDoedsfallet = () => {
     const { watch } = useFormContext<IInntekt>()
 
     const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
-
-    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker er eldre enn 62 år
-    // TODO: skal det være like regler på tvers av skjemaene her?
-    const skalViseAfpFelter = (bruker: IBruker): boolean => {
-        if (!!bruker.foedselsdato) {
-            const alder = differenceInYears(new Date(), bruker.foedselsdato)
-            return alder > 62
-        } else {
-            return false
-        }
-    }
 
     return (
         <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
@@ -86,7 +74,7 @@ export const InntektFremTilDoedsfallet = () => {
                         </>
                     )}
 
-                {skalViseAfpFelter(bruker) && (
+                {skalViseAFPFelter(bruker) && (
                     <VStack gap="2">
                         <RHFInntektInput
                             name={'inntektFremTilDoedsfallet.afpInntekt.inntekt'}

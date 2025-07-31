@@ -1,15 +1,14 @@
-import { Box, Heading, List, ReadMore, VStack } from '@navikt/ds-react'
-import { differenceInYears } from 'date-fns'
+import { Box, Heading, List, VStack } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { RHFInntektInput, RHFInput, RHFInputArea, RHFNumberInput } from '~components/felles/rhf/RHFInput'
+import { RHFInntektInput, RHFInput, RHFInputArea } from '~components/felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
 import { RHFSelect } from '~components/felles/rhf/RHFSelect'
+import { skalViseAFPFelter } from '~components/soknad/6-inntekten-din/fragmenter/afp'
 import { ArbeidsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/ArbeidsinntekterDuSkalFylleUtReadMore'
 import { InntekterFraUtlandDuSkalFylleUt } from '~components/soknad/6-inntekten-din/fragmenter/felles/InntekterFraUtlandDuSkalFylleUt'
 import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
-import { IBruker } from '~context/bruker/bruker'
 import Bredde from '~typer/bredde'
 import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
@@ -26,25 +25,6 @@ export const ForventetInntektTilNesteAar = () => {
     const grunnTilPaaVirkelseAvInntektOptions = Object.values(GrunnTilPaavirkelseAvInntekt).map((value) => {
         return { label: t(value), value }
     })
-
-    // Inntekts felter for Avtalefestet alderspensjon skal kun vises hvis bruker fyller 62 neste år eller er eldre enn 62
-    const skalViseAfpFelter = (bruker: IBruker): boolean => {
-        if (!!bruker.foedselsdato) {
-            const nesteAar = new Date().setFullYear(new Date().getFullYear() + 1)
-            const alderNesteAar = differenceInYears(nesteAar, bruker.foedselsdato)
-
-            const alder = differenceInYears(new Date(), bruker.foedselsdato)
-            if (alder > 62) {
-                return true
-            } else if (alderNesteAar === 62) {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return false
-        }
-    }
 
     return (
         <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
@@ -99,7 +79,7 @@ export const ForventetInntektTilNesteAar = () => {
                         </>
                     )}
 
-                {skalViseAfpFelter(bruker) && (
+                {skalViseAFPFelter(bruker) && (
                     <VStack gap="2">
                         <RHFInntektInput
                             name={'forventetInntektTilNesteAar.afpInntekt.inntekt'}
