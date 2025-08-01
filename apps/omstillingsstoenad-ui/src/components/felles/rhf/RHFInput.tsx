@@ -1,8 +1,8 @@
-import { BodyShort, Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
+import { BodyShort, Box, Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import { isValidBIC, isValidIBAN } from 'ibantools'
 import { get } from 'lodash'
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, ReactNode } from 'react'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
@@ -16,6 +16,7 @@ import {
 } from '../../../utils/matchers'
 import { getTransKey } from '../../../utils/translation'
 import './rhfInput.css'
+import { useSoknadContext } from '~context/soknad/SoknadContext'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
     name: FieldPath<FieldValues>
@@ -48,6 +49,51 @@ export const RHFInput = ({ name, rules, className, valgfri, ...rest }: RHFProps)
                 <div className={className}>
                     <TextField id={name} value={value || ''} onChange={onChange} error={feilmelding} {...rest} />
                 </div>
+            )}
+        />
+    )
+}
+
+interface RHFInntektInputProps {
+    name: FieldPath<FieldValues>
+    label: string
+    description?: string | ReactNode | Array<ReactNode>
+}
+
+export const RHFInntektInput = ({ name, label, description }: RHFInntektInputProps) => {
+    const { t } = useTranslation()
+    const { state: soknadState } = useSoknadContext()
+
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field: { value, onChange } }) => (
+                <Box maxWidth="20rem">
+                    <TextField
+                        id={name}
+                        label={label}
+                        description={description}
+                        value={value || '0'}
+                        // Fjerne alt som ikke er tall og gjøre om til Number
+                        onChange={(e) =>
+                            onChange(
+                                new Intl.NumberFormat(soknadState.spraak ?? 'nb').format(
+                                    Number(e.target.value.replace(/[^0-9.]/g, ''))
+                                )
+                            )
+                        }
+                        error={feilmelding}
+                        inputMode="numeric"
+                    />
+                </Box>
             )}
         />
     )
