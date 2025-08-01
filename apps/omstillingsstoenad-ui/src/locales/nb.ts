@@ -353,7 +353,7 @@ export default {
         'Skriv kort om hvordan inntekten varierer gjennom året',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
         'For eksempel når på året det er lav og høy inntekt',
-    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt': 'Avtalefestet pensjon (AFP) offentlig eller privat',
     'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
     'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': 'Alle inntekter fra utland',
@@ -378,9 +378,9 @@ export default {
     'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektIAar.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Har du andre inntekter?',
     'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Andre inntekter',
-    'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'Hva slags inntekt er det?',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg':
         'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
@@ -404,9 +404,9 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'Alle inntekter fra utland',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': 'Inntektene skal oppgis i norske kroner',
-    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Hadde du andre inntekter?',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Kommer du til å ha andre inntekter?',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Andre inntekter',
-    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt var det?',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'Hva slags inntekt er det?',
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg':
         'Er det noe du vet om i dag som kan påvirke inntekten din fremover?',
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
