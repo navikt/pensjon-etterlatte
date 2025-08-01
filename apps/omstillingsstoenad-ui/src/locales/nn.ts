@@ -325,13 +325,16 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre årsakar',
     'inntektenDin.tittel': 'Inntekten din',
     // TODO: språk keys for den nye datastrukturen
-    'inntektenDin.ingress.ny': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': '',
-    'inntektenDin.inntekteneDine.tittel': '',
+    'inntektenDin.ingress.ny':
+        'Kor mykje omstillingsstønad du kan få, avheng av kva du tener. For at vi skal kunne rekne ut rett beløp, treng vi informasjon om alle inntektene dine.\n\n Du må oppgi inntekta di før skatt, altså bruttoinntekta.\n\n I enkelte tilfelle kan du bli beden om å dokumentere kva du tener etter at søknaden er send inn.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du ta ut alderspensjon til i år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
+        'Skal du ta ut alderspensjon til neste år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan eg ta ut alderspensjon?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
+        'Du kan ta ut alderspensjon frå månaden etter at du fyller 67 år.\n\n Viss du har høg nok opptening, kan du starte uttak allereie frå du er 62 år.\n\n Det er viktig for oss å vite om du planlegg å gå av med alderspensjon, slik at vi kan sikre rett utbetaling. Dersom du ikkje har bestemt deg enno, må du hugse å melde frå til oss dersom du ønskjer å gå av med alderspensjon.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': 'Når planlegg du å ta ut alderspensjon?',
+    'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': '',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1': '',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li2': '',

@@ -335,13 +335,19 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Other reasons',
     'inntektenDin.tittel': 'Your income',
     // TODO nye keys for datastruktur
-    'inntektenDin.ingress.ny': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': '',
-    'inntektenDin.inntekteneDine.tittel': '',
+    'inntektenDin.ingress.ny':
+        'The amount of adjustment allowance you can be paid depends on how much you earn. To calculate the correct amount, we need information about your income.\n\n You must state your income before tax – i.e. your gross income.\n\n In some cases, you will be asked to document your earnings after your application has been submitted.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar':
+        'Are you going to retire with a retirement pension this year?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
+        'Are you going to retire with a retirement pension next year?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel':
+        'When can I start to receive my retirement pension?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
+        'You can start to receive retirement pension in the month after you turn 67.\n\n If you have high enough earnings, you can start withdrawing from the age of 62.\n\n It is important for us to know if you are planning to retire on a retirement pension so we can ensure correct payments. If you have not yet decided, remember to notify us if you wish to retire using your retirement pension.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
+        'When do you plan to withdraw your retirement pension?',
+    'inntektenDin.inntekteneDine.tittel': 'Enter your income(s)',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': '',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1': '',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li2': '',

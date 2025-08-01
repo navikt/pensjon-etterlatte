@@ -330,14 +330,13 @@ export default {
     // Språk keys for den nye datastrukturen
     'inntektenDin.ingress.ny':
         'Hvor mye omstillingsstønad du kan få, avhenger av hva du tjener. For at vi skal kunne regne ut riktig beløp, trenger vi informasjon om alle inntektene dine.\n\n Du må oppgi inntekten din før skatt, altså bruttoinntekten.\n\n I noen tilfeller kan du bli bedt om å dokumentere hva du tjener etter søknaden er sendt inn.',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon i år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du ta ut alderspensjon til i år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
-        'Planlegger du å gå av med alderspensjon neste år?',
+        'Skal du ta ut alderspensjon til neste år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan jeg ta ut alderspensjon?',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
         'Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.\n\n Har du høy nok opptjening, kan du starte uttak allerede fra du er 62 år. I noen unntakstilfeller kan du starte enda tidligere.\n\n Det er viktig for oss å vite om du planlegger å gå av med alderspensjon, slik at vi kan sikre riktig utbetaling. Hvis du ikke har bestemt deg ennå, må du huske å melde fra til oss hvis du ønsker å gå av med alderspensjon.',
-    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
-        'Når planlegger du å gå av med alderspensjon?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': 'Når planlegger du å ta ut alderspensjon?',
     'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Inntekt frem til dødsfallet',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
