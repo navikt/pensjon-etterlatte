@@ -373,7 +373,7 @@ export default {
         'Skriv kort om hvordan inntekten varierer gjennom året',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
         'For eksempel når på året det er lav og høy inntekt',
-    'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': 'Avtalefestet pensjon (AFP) offentlig eller privat',
     'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
     'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektIAar.inntektFraUtland': 'Alle inntekter fra utland',
@@ -399,7 +399,7 @@ export default {
         'Skriv kort om hvordan inntekten varierer gjennom året',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
         'For eksempel når på året det er lav og høy inntekt',
-    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt': 'AFP offentlig eller privat',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt': 'Avtalefestet pensjon (AFP) offentlig eller privat',
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning': 'Hvilken tjenesteordning får du AFP fra?',
     'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'For eksempel KLP, SPK',
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'Alle inntekter fra utland',
