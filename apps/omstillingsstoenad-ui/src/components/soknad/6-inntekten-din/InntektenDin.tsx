@@ -2,6 +2,7 @@ import { Box, GuidePanel, Heading, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
+import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { IInntekt } from '~typer/inntekt'
@@ -27,6 +28,8 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
 
     const { state, dispatch } = useSoknadContext()
+
+    const { state: bruker } = useBrukerContext()
 
     const methods = useForm<IInntekt>({
         defaultValues: state.inntektenDin || {},
@@ -63,6 +66,14 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
     const erValidert = state.inntektenDin.erValidert
 
+    const skalViseFelterForSkalGaaAvMedAlderspensjon = (): boolean => {
+        if (bruker.foedselsdato) {
+            return new Date(bruker.foedselsdato).getFullYear() >= new Date().getFullYear()
+        }
+
+        return false
+    }
+
     const skalViseSkjemaForInntektNesteAar = (): boolean => {
         if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
             return true
@@ -90,7 +101,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
-                        <SkalGaaAvMedAlderspensjon />
+                        {skalViseFelterForSkalGaaAvMedAlderspensjon() && <SkalGaaAvMedAlderspensjon />}
 
                         <VStack gap="6">
                             <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
