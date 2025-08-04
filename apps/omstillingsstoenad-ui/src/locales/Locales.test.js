@@ -22,14 +22,14 @@ describe('Validering av språkfiler', () => {
     it('Bokmål har ingen tomme verdier', () => {
         expect(finnesTommeVerdier(nbLocale)).toBeFalsy()
     })
-    // TODO: kommenterer ut disse til vi har fått inn alle nye oversettinger for nynorsk og engelsk i det nye inntekt steget
-    // it('Nynorsk har ingen tomme verdier', () => {
-    //     expect(finnesTommeVerdier(nnLocale)).toBeFalsy()
-    // })
-    //
-    // it('Engelsk har ingen tomme verdier', () => {
-    //     expect(finnesTommeVerdier(enLocale)).toBeFalsy()
-    // })
+
+    it('Nynorsk har ingen tomme verdier', () => {
+        expect(finnesTommeVerdier(nnLocale)).toBeFalsy()
+    })
+
+    it('Engelsk har ingen tomme verdier', () => {
+        expect(finnesTommeVerdier(enLocale)).toBeFalsy()
+    })
 
     it('Alle har like mange nøkler', () => {
         const nbCount = Object.entries(nbLocale).length

@@ -1,5 +1,5 @@
 import { ReadMore, VStack } from '@navikt/ds-react'
-import { addYears } from 'date-fns'
+import { addYears, startOfYear } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
@@ -45,7 +45,11 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
                     label={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
-                    fromDate={visTekstForAlderspensjonNesteAar() ? new Date(addYears(new Date(), 1)) : new Date()}
+                    fromDate={
+                        visTekstForAlderspensjonNesteAar()
+                            ? new Date(addYears(new Date(startOfYear(new Date())), 1))
+                            : new Date(startOfYear(new Date()))
+                    }
                 />
             )}
         </VStack>

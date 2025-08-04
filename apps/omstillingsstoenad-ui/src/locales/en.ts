@@ -335,111 +335,189 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Other reasons',
     'inntektenDin.tittel': 'Your income',
     // TODO nye keys for datastruktur
-    'inntektenDin.ingress.ny': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold': '',
-    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': '',
-    'inntektenDin.inntekteneDine.tittel': '',
-    'inntektenDin.inntektFremTilDoedsfallet.tittel': '',
-    'inntektenDin.inntektFremTilDoedsfallet.innhold.li1': '',
-    'inntektenDin.inntektFremTilDoedsfallet.innhold.li2': '',
-    'inntektenDin.inntektFremTilDoedsfallet.innhold.li3': '',
-    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': '',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': '',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg': '',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse': '',
-    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse': '',
-    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt': '',
-    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning': '',
-    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': '',
-    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': '',
-    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse': '',
-    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': '',
-    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': '',
-    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': '',
-    'inntektenDin.forventetInntektIAar.tittel': '',
-    'inntektenDin.forventetInntektIAar.innhold.li1': '',
-    'inntektenDin.forventetInntektIAar.innhold.li2': '',
-    'inntektenDin.forventetInntektIAar.innhold.li3': '',
-    'inntektenDin.forventetInntektIAar.arbeidsinntekt': '',
-    'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': '',
-    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg': '',
-    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse': '',
-    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse': '',
-    'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': '',
-    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning': '',
-    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': '',
-    'inntektenDin.forventetInntektIAar.inntektFraUtland': '',
-    'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': '',
-    'inntektenDin.forventetInntektIAar.andreInntekter.valg': '',
-    'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': '',
-    'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': '',
-    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg': '',
-    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt': '',
-    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': '',
-    'inntektenDin.forventetInntektTilNesteAar.tittel': '',
-    'inntektenDin.forventetInntektTilNesteAar.innhold.li1': '',
-    'inntektenDin.forventetInntektTilNesteAar.innhold.li2': '',
-    'inntektenDin.forventetInntektTilNesteAar.innhold.li3': '',
-    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': '',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': '',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg': '',
-    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse': '',
+    'inntektenDin.ingress.ny':
+        'The amount of adjustment allowance you can be paid depends on how much you earn. To calculate the correct amount, we need information about your income.\n\n You must state your income before tax – i.e. your gross income.\n\n In some cases, you will be asked to document your earnings after your application has been submitted.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar':
+        'Are you going to retire with a retirement pension this year?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
+        'Are you going to retire with a retirement pension next year?',
+    'feil.skalGaaAvMedAlderspensjon.valg.required': 'You must answer whether you plan to retire on retirement pension',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel':
+        'When can I start to receive my retirement pension?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
+        'You can start to receive retirement pension in the month after you turn 67.\n\n If you have high enough earnings, you can start withdrawing from the age of 62.\n\n It is important for us to know if you are planning to retire on a retirement pension so we can ensure correct payments. If you have not yet decided, remember to notify us if you wish to retire using your retirement pension.',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
+        'When do you plan to withdraw your retirement pension?',
+    'feil.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.required':
+        'You must fill in the date of retirement pension (mm.yy)',
+    'inntektenDin.inntekteneDine.tittel': 'Enter your income(s)',
+    'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Income up to the date of death',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
+        'You must enter the amount you earned from January up to and including the month in which death occurred.',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li2':
+        'If death occurred in January, state the income for January. If death occurred in December, state the entire income for that year.',
+    'inntektenDin.inntektFremTilDoedsfallet.innhold.li3':
+        'Income shall be gross income, i.e. income before tax is deducted.',
+    'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Employment income and other payments received',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Business income',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Is the business income earned during the year?',
+    'feil.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg.required':
+        'Respond to whether the income is evenly earned throughout the year, or not',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
+        'Tell us briefly how the income varies during the year',
+    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
+        'For example, what time of the year it is low and when it is high',
+    'feil.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.required':
+        'Specify the variations in income',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt':
+        'AFP (contractual pension in the public or private sector)',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning':
+        'Which occupational pension scheme do you receive AFP from?',
+    'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.beskrivelse': 'E.g. KLP, SPK',
+    'feil.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning.required':
+        'You must enter which occupational pension scheme you receive AFP from',
+    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland': 'All income from foreign countries',
+    'inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse':
+        'Income must be stated in Norwegian kroner (NOK)',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Did you have any other income(s)?',
+    'feil.inntektFremTilDoedsfallet.andreInntekter.valg.required': 'Respond to question concerning other income',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Other income(s)',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Kva slags inntekt var det?',
+    'feil.inntektFremTilDoedsfallet.andreInntekter.beskrivelse.required': 'Specify what type of income this relates to',
+    'inntektenDin.forventetInntektIAar.tittel': 'Expected annual income this year',
+    'inntektenDin.forventetInntektIAar.innhold.li1': 'You must enter the income you expect to earn this year.',
+    'inntektenDin.forventetInntektIAar.innhold.li2': 'From January up to and including December.',
+    'inntektenDin.forventetInntektIAar.innhold.li3':
+        'Income must be stated as gross income, i.e. income before tax is deducted.',
+    'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Employment income and other payments received',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Business income',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Is the bussines income earned evenly throughout the year?',
+    'feil.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg.required':
+        'Respond to whether the income is evenly earned throughout the year, or not',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
+        'Tell us briefly how the income varies during the year',
+    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
+        'For example, what time of the year it is low and when it is high',
+    'feil.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.required':
+        'Specify the variations in income',
+    'inntektenDin.forventetInntektIAar.afpInntekt.inntekt': 'AFP (contractual pension in the public or private sector)',
+    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning':
+        'Which occupational pension scheme do you receive AFP from?',
+    'inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning.beskrivelse': 'E.g. KLP, SPK',
+    'feil.forventetInntektIAar.afpInntekt.tjenesteordning.required':
+        'You must enter which occupational pension scheme you receive AFP from',
+    'inntektenDin.forventetInntektIAar.inntektFraUtland': 'All income from foreign countries',
+    'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Income must be stated in Norwegian kroner (NOK)',
+    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Do you have any other income(s)?',
+    'feil.forventetInntektIAar.andreInntekter.valg.required': 'Respond to question concerning other income',
+    'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Other income(s)',
+    'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'What kind of income is this?',
+    'feil.forventetInntektIAar.andreInntekter.beskrivelse.required': 'Specify what type of income this relates to',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg':
+        'Are you aware of any circumstances at present that may affect your income in the future?',
+    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg.required':
+        'Respond to whether you know of anything that can affect your income',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
+        'What are the reasons for the changes in your income?',
+    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required':
+        'Respond to why income varies',
+    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Specify the changes',
+    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse.required': 'Specify the change',
+    'inntektenDin.forventetInntektTilNesteAar.tittel': 'Expected income in the next year',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li1': 'You must enter the amount you expect to earn next year.',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li2': 'From January up to and including December.',
+    'inntektenDin.forventetInntektTilNesteAar.innhold.li3':
+        'Income must be stated as gross income, i.e. income before tax is deducted.',
+    'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Employment income and other payments received',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Business income',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
+        'Is the bussines income earned evenly throughout the year?',
+    'feil.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg.required':
+        'Respond to whether the income is evenly earned throughout the year, or not',
+    'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
+        'Tell us briefly how the income varies during the year',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.beskrivelse':
-        '',
-    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt': '',
-    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning': '',
-    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': '',
-    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': '',
-    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse': '',
-    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': '',
-    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': '',
-    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': '',
-    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg': '',
-    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt': '',
-    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1': '',
-    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2': '',
-    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': '',
-    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': '',
-    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': '',
-    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': '',
+        'For example, what time of the year it is low and when it is high',
+    'feil.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse.required':
+        'Specify the variations in income',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt':
+        'AFP (contractual pension in the public or private sector)',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning':
+        'Which occupational pension scheme do you receive AFP from?',
+    'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.beskrivelse': 'E.g. KLP, SPK',
+    'feil.forventetInntektTilNesteAar.afpInntekt.tjenesteordning.required':
+        'You must enter which occupational pension scheme you receive AFP from',
+    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland': 'All income from foreign countries',
+    'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse':
+        'Income must be stated in Norwegian kroner (NOK)',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Will you have any other income(s) in the future?',
+    'feil.forventetInntektTilNesteAar.andreInntekter.valg.required': 'Respond to question concerning other income',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Other income(s)',
+    'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'What kind of income is this?',
+    'feil.forventetInntektTilNesteAar.andreInntekter.beskrivelse.required':
+        'Specify what type of income this relates to',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg':
+        'Are you aware of any circumstances at present that may affect your income in the future?',
+    'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg.required':
+        'Respond to whether you know of anything that can affect your income',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
+        'What are the reasons for the changes in your income?',
+    'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required':
+        'Respond to why income varies',
+    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Specify the changes',
+    'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse.required': 'Specify the change',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Employment income and other payments received that you must report',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Income from work',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fixed salary',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'extra hours and overtime',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'holiday pay',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
+        'Financial support from Nav and other pension providers',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': 'These can be e.g.:',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': 'Work Assessment Allowance (AAP)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': 'unemployment benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': 'parental benefit',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': 'foster care grant',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': 'qualification benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6':
+        'care pay/care benefits (municipal support)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': 'care benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': 'training allowance',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': 'attendance allowance',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': 'sickness benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2':
+        'If you receive disability benefits, you must not declare it as income here.',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Other payments that are considered income',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1': 'taxable part of insurance',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuses and other pensionable supplements and allowances. This also includes remuneration in the form of commissions, fees, royalties or remuneration for participation in boards, committees, supervisory boards or similar.',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Business income you must report',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'business income',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'sale of business activities',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': 'Income from foreign countries that you must report',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Income from work',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fixed salary',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'extra hours and overtime',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'holiday pay',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': 'Business income',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': 'business income',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': 'sale of business activities',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Other payments that are considered income',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1': 'taxable part of insurance',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuses and other pensionable supplements and allowances. This also includes remuneration in the form of commissions, fees, royalties or remuneration for participation in boards, committees, supervisory boards or similar.',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label':
+        'Benefits and monetary support from the country you live in',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p':
+        'For example, monetary support from',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'unemployment',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'children and care',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'illness and disability',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Increased position percentage',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Reduced position percentage',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Unpaid leave',
@@ -448,10 +526,12 @@ export default {
     'grunnTilPaavirkelseAvInntekt.sesongarbeid': 'Seasonal work',
     'grunnTilPaavirkelseAvInntekt.bytteAvJobb': 'Job change',
     'grunnTilPaavirkelseAvInntekt.annenGrunn': 'Other reason',
-    'inntektenDin.ytelserNAV.hvorforViSpoer.tittel': '',
-    'inntektenDin.ytelserNAV.hvorforViSpoer.innhold': '',
-    'inntektenDin.ytelserAndre.hvorforViSpoer.tittel': '',
-    'inntektenDin.ytelserAndre.hvorforViSpoer.innhold': '',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.tittel': 'Why are we asking you about this?',
+    'inntektenDin.ytelserNAV.hvorforViSpoer.innhold':
+        'We need this information because some benefits from Nav are considered income.',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.tittel': 'Why are we asking you about this?',
+    'inntektenDin.ytelserAndre.hvorforViSpoer.innhold':
+        'Some benefits are considered income, while other benefits cannot be combined with the transitional benefits.',
     // TODO gamle keys for datastruktur
     'inntektenDin.undertittel': 'Income, pension and other disbursements in Norway and abroad',
     'inntektenDin.ingress':
