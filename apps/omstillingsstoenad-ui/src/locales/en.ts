@@ -393,7 +393,7 @@ export default {
     'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Employment income and other payments received',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt': 'Business income',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
-        'Is the business income earned during the year?',
+        'Is the bussines income earned evenly throughout the year?',
     'feil.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg.required':
         'Respond to whether the income is evenly earned throughout the year, or not',
     'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -433,7 +433,7 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt': 'Employment income and other payments received',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt': 'Business income',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
-        'Is the business income earned during the year?',
+        'Is the bussines income earned evenly throughout the year?',
     'feil.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg.required':
         'Respond to whether the income is evenly earned throughout the year, or not',
     'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
