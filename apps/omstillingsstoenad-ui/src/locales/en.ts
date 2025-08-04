@@ -453,7 +453,7 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse':
         'Income must be stated in Norwegian kroner (NOK)',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg': 'Will you have any other income(s) in the future?',
-    'feil.forventetInntektTilnesteAar.andreInntekter.valg.required': 'Respond to question concerning other income',
+    'feil.forventetInntektTilNesteAar.andreInntekter.valg.required': 'Respond to question concerning other income',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt': 'Other income(s)',
     'inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse': 'What kind of income is this?',
     'feil.forventetInntektTilNesteAar.andreInntekter.beskrivelse.required':
