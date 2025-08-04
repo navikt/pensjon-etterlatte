@@ -76,24 +76,23 @@ export const RHFInntektInput = ({ name, label, description }: RHFInntektInputPro
             name={name}
             control={control}
             render={({ field: { value, onChange } }) => (
-                <Box maxWidth="20rem">
-                    <TextField
-                        id={name}
-                        label={label}
-                        description={description}
-                        value={value || '0'}
-                        // Fjerne alt som ikke er tall og gjøre om til Number
-                        onChange={(e) =>
-                            onChange(
-                                new Intl.NumberFormat(soknadState.spraak ?? 'nb').format(
-                                    Number(e.target.value.replace(/[^0-9.]/g, ''))
-                                )
+                <TextField
+                    id={name}
+                    className="rhf-inntekt-input"
+                    label={label}
+                    description={description}
+                    value={value || '0'}
+                    // Fjerne alt som ikke er tall og gjøre om til Number
+                    onChange={(e) =>
+                        onChange(
+                            new Intl.NumberFormat(soknadState.spraak ?? 'nb').format(
+                                Number(e.target.value.replace(/[^0-9.]/g, ''))
                             )
-                        }
-                        error={feilmelding}
-                        inputMode="numeric"
-                    />
-                </Box>
+                        )
+                    }
+                    error={feilmelding}
+                    inputMode="numeric"
+                />
             )}
         />
     )

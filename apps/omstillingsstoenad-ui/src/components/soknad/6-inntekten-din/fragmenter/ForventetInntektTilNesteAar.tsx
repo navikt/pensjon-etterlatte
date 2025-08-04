@@ -136,7 +136,7 @@ export const ForventetInntektTilNesteAar = () => {
                     vetIkke
                 />
                 {forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                    <VStack gap="2">
+                    <VStack gap="4">
                         <RHFSelect
                             name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
                             label={t(
@@ -148,12 +148,13 @@ export const ForventetInntektTilNesteAar = () => {
                         />
                         {forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt ===
                             GrunnTilPaavirkelseAvInntekt.annenGrunn && (
-                            <RHFInput
+                            <RHFInputArea
                                 name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'}
                                 label={t(
                                     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'
                                 )}
-                                htmlSize={Bredde.M}
+                                visPersonopplysningerVarsel={false}
+                                maxLength={1000}
                             />
                         )}
                     </VStack>
