@@ -411,7 +411,7 @@ export default {
     'inntektenDin.forventetInntektIAar.inntektFraUtland': 'All income from foreign countries',
     'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Income must be stated in Norwegian kroner (NOK)',
     'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Do you have any other income(s)?',
-    'feil.forventetInntektIaar.andreInntekter.valg.required': 'Respond to question concerning other income',
+    'feil.forventetInntektIAar.andreInntekter.valg.required': 'Respond to question concerning other income',
     'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Other income(s)',
     'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'What kind of income is this?',
     'feil.forventetInntektIAar.andreInntekter.beskrivelse.required': 'Specify what type of income this relates to',
