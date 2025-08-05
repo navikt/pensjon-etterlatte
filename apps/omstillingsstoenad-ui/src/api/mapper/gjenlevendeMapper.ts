@@ -1,3 +1,4 @@
+import { differenceInYears } from 'date-fns'
 import { TFunction } from 'i18next'
 import { skalViseAFPOffentligFelter } from '~components/soknad/6-inntekten-din/fragmenter/PensjonEllerUfoere'
 import { IBruker } from '../../context/bruker/bruker'
@@ -44,6 +45,7 @@ import {
     PensjonEllerUfoere,
     SelvstendigNaeringsdrivende,
     SivilstatusType,
+    SkalGaaAvMedAlderspensjon,
     Stoenader,
     TilbudOmJobb,
     Utdanning,
@@ -641,8 +643,32 @@ const hentInntektOgPensjon = (
 ): InntektOgPensjon => {
     const doedsfallIAar = doedsdatoErIAar(datoForDoedsfall)
     const foedt1963EllerTidligere = bruker.foedselsaar! <= 1963
+    const harMulighetTilAaGaaAvMedAlderspensjon = differenceInYears(new Date(), bruker.foedselsdato!) >= 62
     const erIkkeDesember = new Date(datoForDoedsfall).getMonth() !== 11
 
+    // TODO NYE DATASTRUKTUR FOR INNTEKT
+    let skalGaaAvMedAlderspensjon: SkalGaaAvMedAlderspensjon | undefined
+    if (harMulighetTilAaGaaAvMedAlderspensjon) {
+        skalGaaAvMedAlderspensjon = {
+            valg: {
+                spoersmaal: erMellomOktoberogDesember()
+                    ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
+                    : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar'),
+                svar: valgTilSvar(t, inntektenDin.skalGaaAvMedAlderspensjon!.valg!),
+            },
+            datoForAaGaaAvMedAlderspensjon:
+                inntektenDin.skalGaaAvMedAlderspensjon!.valg! === IValg.JA
+                    ? {
+                          spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'),
+                          svar: {
+                              innhold: inntektenDin.skalGaaAvMedAlderspensjon!.datoForAaGaaAvMedAlderspensjon!,
+                          },
+                      }
+                    : undefined,
+        }
+    }
+
+    // TODO GAMMLE DATASTRUKTUR FOR INNTEKT
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
         loennsinntekt = {
@@ -1221,6 +1247,9 @@ const hentInntektOgPensjon = (
     }
 
     return {
+        // TODO NYE DATASTRUKTUR FOR INNTEKT
+        skalGaaAvMedAlderspensjon,
+        // TODO GAMMLE DATASTRUKTUR FOR INNTEKT
         loennsinntekt,
         naeringsinntekt,
         pensjonEllerUfoere,

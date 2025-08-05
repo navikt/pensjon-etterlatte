@@ -134,10 +134,7 @@ export interface ArbeidOgUtdanning {
 
 export interface InntektOgPensjon {
     // TODO: FELTER FOR DEN NYE DATASTRUKTUREN
-    skalGaaAvMedAlderspensjon?: Opplysning<{
-        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
-        datoForAaGaaAvMedAlderspensjon?: Opplysning<DatoSvar>
-    }>
+    skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
     inntektFremTilDoedsfallet?: Opplysning<{
         arbeidsinntekt?: Opplysning<FritekstSvar>
         naeringsinntekt?: {
@@ -212,6 +209,13 @@ export interface InntektOgPensjon {
     ytelserAndre: YtelserAndre
 }
 
+//TODO FELTER FOR DEN NYE DATASTRUKTUREN
+export interface SkalGaaAvMedAlderspensjon {
+    valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    datoForAaGaaAvMedAlderspensjon?: Opplysning<DatoSvar>
+}
+
+// TODO FELTER FOR DEN GAMMLE DATASTRUKTUREN
 export interface LoennsOgNaeringsinntekt {
     norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>[]>
     norge?: InntektsType

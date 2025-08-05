@@ -1,5 +1,21 @@
-import { JobbStatus, Utdanning as GammelUtdanning } from '../../typer/situasjon'
-import { IngenJobb, StillingType as GammelStillingType } from '../../typer/arbeidsforhold'
+import { StillingType as GammelStillingType, IngenJobb } from '../../typer/arbeidsforhold'
+import {
+    EndringAvInntektGrunn,
+    InntektEllerUtbetaling,
+    NorgeOgUtland,
+    PensjonEllerTrygd,
+    PensjonsYtelse,
+    SoekbareYtelserAndre,
+    SoekbareYtelserNAV,
+} from '../../typer/inntekt'
+import {
+    OppholdUtlandType as GammelOppholdUtlandType,
+    ForholdTilAvdoede as RelasjonAvdoed,
+    Sivilstatus,
+} from '../../typer/person'
+import { Utdanning as GammelUtdanning, JobbStatus } from '../../typer/situasjon'
+import { Studieform } from '../../typer/utdanning'
+import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import {
     EndringAvInntektGrunnType,
     ForholdTilAvdoedeType,
@@ -18,22 +34,6 @@ import {
     StudieformType,
     Ytelser,
 } from '../dto/FellesOpplysninger'
-import {
-    ForholdTilAvdoede as RelasjonAvdoed,
-    OppholdUtlandType as GammelOppholdUtlandType,
-    Sivilstatus,
-} from '../../typer/person'
-import { Ytelser as GamleYtelser } from '../../typer/ytelser'
-import {
-    EndringAvInntektGrunn,
-    InntektEllerUtbetaling,
-    NorgeOgUtland,
-    PensjonEllerTrygd,
-    PensjonsYtelse,
-    SoekbareYtelserAndre,
-    SoekbareYtelserNAV,
-} from '../../typer/inntekt'
-import { Studieform } from '../../typer/utdanning'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
     switch (type) {
@@ -102,35 +102,6 @@ export const konverterJobbStatus = (type: JobbStatus): JobbStatusType => {
             return JobbStatusType.INGEN
         default:
             throw Error(`Ukjent type sivilstatus: ${type}`)
-    }
-}
-
-export const konverterYtelser = (type: GamleYtelser): Ytelser => {
-    switch (type) {
-        case GamleYtelser.dagpenger:
-            return Ytelser.DAGPENGER
-        case GamleYtelser.sykepenger:
-            return Ytelser.SYKEPENGER
-        case GamleYtelser.pleiepenger:
-            return Ytelser.PLEIEPENGER
-        case GamleYtelser.svangerskapspenger:
-            return Ytelser.SVANGERSKAPSPENGER
-        case GamleYtelser.foreldrepenger:
-            return Ytelser.FORELDREPENGER
-        case GamleYtelser.arbeidsavklaringspenger:
-            return Ytelser.ARBEIDSAVKLARINGSPENGER
-        case GamleYtelser.kvalifiseringsstoenad:
-            return Ytelser.KVALIFISERINGSSTOENAD
-        case GamleYtelser.kommunal:
-            return Ytelser.KOMMUNAL_OMSORGSSTONAD
-        case GamleYtelser.fosterhjem:
-            return Ytelser.FOSTERHJEMSGODTGJOERING
-        case GamleYtelser.omsorgspenger:
-            return Ytelser.OMSORGSPENGER
-        case GamleYtelser.opplaeringspenger:
-            return Ytelser.OPPLAERINGSPENGER
-        default:
-            throw Error(`Ukjent type ytelses: ${type}`)
     }
 }
 
