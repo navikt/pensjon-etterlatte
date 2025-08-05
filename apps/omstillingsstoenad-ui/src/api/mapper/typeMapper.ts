@@ -33,7 +33,6 @@ import {
     SoekbareYtelserNAVType,
     StillingType,
     StudieformType,
-    Ytelser,
 } from '../dto/FellesOpplysninger'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {

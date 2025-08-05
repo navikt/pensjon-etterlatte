@@ -35,6 +35,7 @@ import {
     ForholdTilAvdoede,
     ForholdTilAvdoedeType,
     ForventetInntektIAar,
+    ForventetInntektTilNesteAar,
     FritekstSvar,
     HoeyesteUtdanning,
     IngenInntekt,
@@ -880,6 +881,139 @@ const hentInntektOgPensjon = (
             },
         },
     }
+
+    let forventetInntektTilNesteAar: Opplysning<ForventetInntektTilNesteAar> | undefined
+    if (erMellomOktoberogDesember()) {
+        forventetInntektTilNesteAar = {
+            spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.tittel'),
+            svar: {
+                arbeidsinntekt: {
+                    spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt'),
+                    svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.arbeidsinntekt! },
+                },
+                naeringsinntekt: {
+                    inntekt: {
+                        spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt'),
+                        svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.naeringsinntekt!.inntekt! },
+                    },
+                    erNaeringsinntektOpptjentJevnt:
+                        !!inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
+                        inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0'
+                            ? {
+                                  valg: {
+                                      spoersmaal: t(
+                                          'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                      ),
+                                      svar: valgTilSvar(
+                                          t,
+                                          inntektenDin.forventetInntektTilNesteAar!.naeringsinntekt!
+                                              .erNaeringsinntektOpptjentJevnt!.valg!
+                                      ),
+                                  },
+                                  beskrivelse: {
+                                      spoersmaal: t(
+                                          'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                      ),
+                                      svar: {
+                                          innhold:
+                                              inntektenDin.forventetInntektTilNesteAar!.naeringsinntekt!
+                                                  .erNaeringsinntektOpptjentJevnt!.beskrivelse!,
+                                      },
+                                  },
+                              }
+                            : undefined,
+                },
+                afpInntekt: skalViseAFPFelter(bruker)
+                    ? {
+                          inntekt: {
+                              spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt'),
+                              svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.afpInntekt!.inntekt! },
+                          },
+                          tjenesteordning:
+                              !!inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt &&
+                              inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt !== '0'
+                                  ? {
+                                        spoersmaal: t(
+                                            'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.forventetInntektTilNesteAar!.afpInntekt!.tjenesteordning!,
+                                        },
+                                    }
+                                  : undefined,
+                      }
+                    : undefined,
+                inntektFraUtland: {
+                    spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland'),
+                    svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.inntektFraUtland! },
+                },
+                andreInntekter: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg'),
+                        svar: valgTilSvar(t, inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.valg!),
+                    },
+                    inntekt:
+                        inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt'),
+                                  svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.inntekt! },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse'),
+                                  svar: {
+                                      innhold: inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+                noeSomKanPaavirkeInntekten: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg'),
+                        svar: valgTilSvar(
+                            t,
+                            inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!.valg!
+                        ),
+                    },
+                    grunnTilPaavirkelseAvInntekt:
+                        inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!.valg! === IValg.JA
+                            ? {
+                                  spoersmaal: t(
+                                      'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
+                                  ),
+                                  svar: {
+                                      verdi: konverterGrunnTilPaavirkelseAvInntekt(
+                                          inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                                              .grunnTilPaavirkelseAvInntekt!
+                                      ),
+                                      innhold: t(
+                                          inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                                              .grunnTilPaavirkelseAvInntekt!
+                                      ),
+                                  },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                            .grunnTilPaavirkelseAvInntekt === GrunnTilPaavirkelseAvInntekt.annenGrunn
+                            ? {
+                                  spoersmaal: t(
+                                      'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'
+                                  ),
+                                  svar: {
+                                      innhold:
+                                          inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                                              .beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+            },
+        }
+    }
     // TODO GAMMLE DATASTRUKTUR FOR INNTEKT
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
@@ -1463,6 +1597,7 @@ const hentInntektOgPensjon = (
         skalGaaAvMedAlderspensjon,
         inntektFremTilDoedsfallet,
         forventetInntektIAar,
+        forventetInntektTilNesteAar,
         // TODO GAMMLE DATASTRUKTUR FOR INNTEKT
         loennsinntekt,
         naeringsinntekt,
