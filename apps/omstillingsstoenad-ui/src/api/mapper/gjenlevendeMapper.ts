@@ -1,5 +1,6 @@
 import { differenceInYears } from 'date-fns'
 import { TFunction } from 'i18next'
+import { skalViseAFPFelter } from '~components/soknad/6-inntekten-din/fragmenter/afp'
 import { skalViseAFPOffentligFelter } from '~components/soknad/6-inntekten-din/fragmenter/PensjonEllerUfoere'
 import { IBruker } from '../../context/bruker/bruker'
 import { ISoeknad } from '../../context/soknad/soknad'
@@ -35,6 +36,7 @@ import {
     FritekstSvar,
     HoeyesteUtdanning,
     IngenInntekt,
+    InntektFremTilDoedsfallet,
     InntektOgPensjon,
     InntektViaYtelserFraNAV,
     JaNeiVetIkke,
@@ -668,6 +670,93 @@ const hentInntektOgPensjon = (
         }
     }
 
+    const inntektFremTilDoedsfallet: Opplysning<InntektFremTilDoedsfallet> = {
+        spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.tittel'),
+        svar: {
+            arbeidsinntekt: {
+                spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt'),
+                svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.arbeidsinntekt! },
+            },
+            naeringsinntekt: {
+                inntekt: {
+                    spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt'),
+                    svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!.inntekt! },
+                },
+                erNaeringsinntektOpptjentJevtnt:
+                    !!inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
+                    inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0'
+                        ? {
+                              valg: {
+                                  spoersmaal: t(
+                                      'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                  ),
+                                  svar: valgTilSvar(
+                                      t,
+                                      inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!
+                                          .erNaeringsinntektOpptjentJevnt!.valg!
+                                  ),
+                              },
+                              beskrivelse:
+                                  inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!
+                                      .erNaeringsinntektOpptjentJevnt!.valg! === IValg.NEI
+                                      ? {
+                                            spoersmaal: t(
+                                                'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                            ),
+                                            svar: {
+                                                innhold:
+                                                    inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!
+                                                        .erNaeringsinntektOpptjentJevnt!.beskrivelse!,
+                                            },
+                                        }
+                                      : undefined,
+                          }
+                        : undefined,
+            },
+            afpInntekt: skalViseAFPFelter(bruker)
+                ? {
+                      inntekt: {
+                          spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt'),
+                          svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.afpInntekt!.inntekt! },
+                      },
+                      tjenesteordning:
+                          !!inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt &&
+                          inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0'
+                              ? {
+                                    spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning'),
+                                    svar: {
+                                        innhold: inntektenDin.inntektFremTilDoedsfallet!.afpInntekt!.tjenesteordning!,
+                                    },
+                                }
+                              : undefined,
+                  }
+                : undefined,
+            inntektFraUtland: {
+                spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland'),
+                svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.inntektFraUtland! },
+            },
+            andreInntekter: {
+                valg: {
+                    spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg'),
+                    svar: valgTilSvar(t, inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.valg!),
+                },
+                inntekt:
+                    inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.valg === IValg.JA
+                        ? {
+                              spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt'),
+                              svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.inntekt! },
+                          }
+                        : undefined,
+                beskrivelse:
+                    inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.valg === IValg.JA
+                        ? {
+                              spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse'),
+                              svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.beskrivelse! },
+                          }
+                        : undefined,
+            },
+        },
+    }
     // TODO GAMMLE DATASTRUKTUR FOR INNTEKT
     let loennsinntekt: Opplysning<LoennsOgNaeringsinntekt> | undefined
     if (inntektenDin.inntektstyper?.includes(InntektsTyper.loenn)) {
@@ -1249,6 +1338,7 @@ const hentInntektOgPensjon = (
     return {
         // TODO NYE DATASTRUKTUR FOR INNTEKT
         skalGaaAvMedAlderspensjon,
+        inntektFremTilDoedsfallet,
         // TODO GAMMLE DATASTRUKTUR FOR INNTEKT
         loennsinntekt,
         naeringsinntekt,
