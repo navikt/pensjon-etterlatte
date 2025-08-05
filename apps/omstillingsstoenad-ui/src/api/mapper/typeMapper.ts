@@ -1,6 +1,7 @@
 import { StillingType as GammelStillingType, IngenJobb } from '../../typer/arbeidsforhold'
 import {
     EndringAvInntektGrunn,
+    GrunnTilPaavirkelseAvInntekt,
     InntektEllerUtbetaling,
     NorgeOgUtland,
     PensjonEllerTrygd,
@@ -145,6 +146,29 @@ export const konverterIngenJobb = (type: IngenJobb): IngenJobbType => {
             return IngenJobbType.FRIVILLIG_ARBEID
         case IngenJobb.hjemmearbeidende:
             return IngenJobbType.HJEMMEARBEIDEND
+    }
+}
+
+export const konverterGrunnTilPaavirkelseAvInntekt = (
+    type: GrunnTilPaavirkelseAvInntekt
+): EndringAvInntektGrunnType => {
+    switch (type) {
+        case GrunnTilPaavirkelseAvInntekt.oektStillingsprosent:
+            return EndringAvInntektGrunnType.OEKT_STILLINGSPROSENT
+        case GrunnTilPaavirkelseAvInntekt.redusertStillingsprosent:
+            return EndringAvInntektGrunnType.REDUSERT_STILLINGSPROSENT
+        case GrunnTilPaavirkelseAvInntekt.permisjonUtenLoenn:
+            return EndringAvInntektGrunnType.PERMISJON_UTEN_LOENN
+        case GrunnTilPaavirkelseAvInntekt.loennsoekning:
+            return EndringAvInntektGrunnType.LOENNSOEKNING
+        case GrunnTilPaavirkelseAvInntekt.arbeidsledig:
+            return EndringAvInntektGrunnType.ARBEIDSLEDIG
+        case GrunnTilPaavirkelseAvInntekt.sesongarbeid:
+            return EndringAvInntektGrunnType.SESONGARBEID
+        case GrunnTilPaavirkelseAvInntekt.bytteAvJobb:
+            return EndringAvInntektGrunnType.BYTTE_AV_JOBB
+        case GrunnTilPaavirkelseAvInntekt.annenGrunn:
+            return EndringAvInntektGrunnType.ANNEN_GRUNN
     }
 }
 

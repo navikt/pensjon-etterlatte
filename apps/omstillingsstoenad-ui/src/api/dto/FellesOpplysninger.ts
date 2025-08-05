@@ -136,31 +136,7 @@ export interface InntektOgPensjon {
     // TODO: FELTER FOR DEN NYE DATASTRUKTUREN
     skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
     inntektFremTilDoedsfallet?: Opplysning<InntektFremTilDoedsfallet>
-    forventetInntektIAar?: Opplysning<{
-        arbeidsinntekt?: Opplysning<FritekstSvar>
-        naeringsinntekt?: {
-            inntekt?: Opplysning<FritekstSvar>
-            erNaeringsinntektOpptjentJevtnt?: {
-                valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
-                beskrivelse?: Opplysning<FritekstSvar>
-            }
-        }
-        afpInntekt?: {
-            inntekt?: Opplysning<FritekstSvar>
-            tjenesteordning?: Opplysning<FritekstSvar>
-        }
-        inntektFraUtland?: Opplysning<FritekstSvar>
-        andreInntekter?: {
-            valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
-            inntekt?: Opplysning<FritekstSvar>
-            beskrivelse?: Opplysning<FritekstSvar>
-        }
-        noeSomKanPaavirkeInntekten?: {
-            valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
-            grunnTilPaavirkelseAvInntekt?: Opplysning<EnumSvar<EndringAvInntektGrunnType>>
-            beskrivelse?: Opplysning<FritekstSvar>
-        }
-    }>
+    forventetInntektIAar?: Opplysning<ForventetInntektIAar>
     forventetInntektTilNesteAar?: Opplysning<{
         arbeidsinntekt?: Opplysning<FritekstSvar>
         naeringsinntekt?: {
@@ -206,7 +182,7 @@ export interface InntektFremTilDoedsfallet {
     arbeidsinntekt?: Opplysning<FritekstSvar>
     naeringsinntekt?: {
         inntekt?: Opplysning<FritekstSvar>
-        erNaeringsinntektOpptjentJevtnt?: {
+        erNaeringsinntektOpptjentJevnt?: {
             valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
             beskrivelse?: Opplysning<FritekstSvar>
         }
@@ -219,6 +195,32 @@ export interface InntektFremTilDoedsfallet {
     andreInntekter?: {
         valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
         inntekt?: Opplysning<FritekstSvar>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+}
+
+export interface ForventetInntektIAar {
+    arbeidsinntekt?: Opplysning<FritekstSvar>
+    naeringsinntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+            beskrivelse?: Opplysning<FritekstSvar>
+        }
+    }
+    afpInntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        tjenesteordning?: Opplysning<FritekstSvar>
+    }
+    inntektFraUtland?: Opplysning<FritekstSvar>
+    andreInntekter?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        inntekt?: Opplysning<FritekstSvar>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+    noeSomKanPaavirkeInntekten?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        grunnTilPaavirkelseAvInntekt?: Opplysning<EnumSvar<EndringAvInntektGrunnType>>
         beskrivelse?: Opplysning<FritekstSvar>
     }
 }
