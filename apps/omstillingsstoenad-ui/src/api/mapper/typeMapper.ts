@@ -1,5 +1,22 @@
-import { JobbStatus, Utdanning as GammelUtdanning } from '../../typer/situasjon'
-import { IngenJobb, StillingType as GammelStillingType } from '../../typer/arbeidsforhold'
+import { StillingType as GammelStillingType, IngenJobb } from '../../typer/arbeidsforhold'
+import {
+    EndringAvInntektGrunn,
+    GrunnTilPaavirkelseAvInntekt,
+    InntektEllerUtbetaling,
+    NorgeOgUtland,
+    PensjonEllerTrygd,
+    PensjonsYtelse,
+    SoekbareYtelserAndre,
+    SoekbareYtelserNAV,
+} from '../../typer/inntekt'
+import {
+    OppholdUtlandType as GammelOppholdUtlandType,
+    ForholdTilAvdoede as RelasjonAvdoed,
+    Sivilstatus,
+} from '../../typer/person'
+import { Utdanning as GammelUtdanning, JobbStatus } from '../../typer/situasjon'
+import { Studieform } from '../../typer/utdanning'
+import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import {
     EndringAvInntektGrunnType,
     ForholdTilAvdoedeType,
@@ -16,24 +33,7 @@ import {
     SoekbareYtelserNAVType,
     StillingType,
     StudieformType,
-    Ytelser,
 } from '../dto/FellesOpplysninger'
-import {
-    ForholdTilAvdoede as RelasjonAvdoed,
-    OppholdUtlandType as GammelOppholdUtlandType,
-    Sivilstatus,
-} from '../../typer/person'
-import { Ytelser as GamleYtelser } from '../../typer/ytelser'
-import {
-    EndringAvInntektGrunn,
-    InntektEllerUtbetaling,
-    NorgeOgUtland,
-    PensjonEllerTrygd,
-    PensjonsYtelse,
-    SoekbareYtelserAndre,
-    SoekbareYtelserNAV,
-} from '../../typer/inntekt'
-import { Studieform } from '../../typer/utdanning'
 
 export const konverterStillingType = (type: GammelStillingType): StillingType => {
     switch (type) {
@@ -105,35 +105,6 @@ export const konverterJobbStatus = (type: JobbStatus): JobbStatusType => {
     }
 }
 
-export const konverterYtelser = (type: GamleYtelser): Ytelser => {
-    switch (type) {
-        case GamleYtelser.dagpenger:
-            return Ytelser.DAGPENGER
-        case GamleYtelser.sykepenger:
-            return Ytelser.SYKEPENGER
-        case GamleYtelser.pleiepenger:
-            return Ytelser.PLEIEPENGER
-        case GamleYtelser.svangerskapspenger:
-            return Ytelser.SVANGERSKAPSPENGER
-        case GamleYtelser.foreldrepenger:
-            return Ytelser.FORELDREPENGER
-        case GamleYtelser.arbeidsavklaringspenger:
-            return Ytelser.ARBEIDSAVKLARINGSPENGER
-        case GamleYtelser.kvalifiseringsstoenad:
-            return Ytelser.KVALIFISERINGSSTOENAD
-        case GamleYtelser.kommunal:
-            return Ytelser.KOMMUNAL_OMSORGSSTONAD
-        case GamleYtelser.fosterhjem:
-            return Ytelser.FOSTERHJEMSGODTGJOERING
-        case GamleYtelser.omsorgspenger:
-            return Ytelser.OMSORGSPENGER
-        case GamleYtelser.opplaeringspenger:
-            return Ytelser.OPPLAERINGSPENGER
-        default:
-            throw Error(`Ukjent type ytelses: ${type}`)
-    }
-}
-
 export const konverterRelasjonAvdoed = (type: RelasjonAvdoed | string): ForholdTilAvdoedeType => {
     switch (type) {
         case RelasjonAvdoed.gift:
@@ -174,6 +145,29 @@ export const konverterIngenJobb = (type: IngenJobb): IngenJobbType => {
             return IngenJobbType.FRIVILLIG_ARBEID
         case IngenJobb.hjemmearbeidende:
             return IngenJobbType.HJEMMEARBEIDEND
+    }
+}
+
+export const konverterGrunnTilPaavirkelseAvInntekt = (
+    type: GrunnTilPaavirkelseAvInntekt
+): EndringAvInntektGrunnType => {
+    switch (type) {
+        case GrunnTilPaavirkelseAvInntekt.oektStillingsprosent:
+            return EndringAvInntektGrunnType.OEKT_STILLINGSPROSENT
+        case GrunnTilPaavirkelseAvInntekt.redusertStillingsprosent:
+            return EndringAvInntektGrunnType.REDUSERT_STILLINGSPROSENT
+        case GrunnTilPaavirkelseAvInntekt.permisjonUtenLoenn:
+            return EndringAvInntektGrunnType.PERMISJON_UTEN_LOENN
+        case GrunnTilPaavirkelseAvInntekt.loennsoekning:
+            return EndringAvInntektGrunnType.LOENNSOEKNING
+        case GrunnTilPaavirkelseAvInntekt.arbeidsledig:
+            return EndringAvInntektGrunnType.ARBEIDSLEDIG
+        case GrunnTilPaavirkelseAvInntekt.sesongarbeid:
+            return EndringAvInntektGrunnType.SESONGARBEID
+        case GrunnTilPaavirkelseAvInntekt.bytteAvJobb:
+            return EndringAvInntektGrunnType.BYTTE_AV_JOBB
+        case GrunnTilPaavirkelseAvInntekt.annenGrunn:
+            return EndringAvInntektGrunnType.ANNEN_GRUNN
     }
 }
 

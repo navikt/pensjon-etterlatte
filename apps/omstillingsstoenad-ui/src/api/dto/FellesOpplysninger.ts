@@ -133,6 +133,12 @@ export interface ArbeidOgUtdanning {
 }
 
 export interface InntektOgPensjon {
+    // TODO: FELTER FOR DEN NYE DATASTRUKTUREN
+    skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
+    inntektFremTilDoedsfallet?: Opplysning<InntektFremTilDoedsfallet>
+    forventetInntektIAar?: Opplysning<ForventetInntektIAar>
+    forventetInntektTilNesteAar?: Opplysning<ForventetInntektTilNesteAar>
+    // TODO FELTER FOR DEN GAMMLE DATASTRUKTUREN
     loennsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     naeringsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
     pensjonEllerUfoere?: PensjonEllerUfoere
@@ -142,6 +148,86 @@ export interface InntektOgPensjon {
     ytelserAndre: YtelserAndre
 }
 
+//TODO FELTER FOR DEN NYE DATASTRUKTUREN
+export interface SkalGaaAvMedAlderspensjon {
+    valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    datoForAaGaaAvMedAlderspensjon?: Opplysning<DatoSvar>
+}
+
+export interface InntektFremTilDoedsfallet {
+    arbeidsinntekt?: Opplysning<FritekstSvar>
+    naeringsinntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+            beskrivelse?: Opplysning<FritekstSvar>
+        }
+    }
+    afpInntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        tjenesteordning?: Opplysning<FritekstSvar>
+    }
+    inntektFraUtland?: Opplysning<FritekstSvar>
+    andreInntekter?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        inntekt?: Opplysning<FritekstSvar>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+}
+
+export interface ForventetInntektIAar {
+    arbeidsinntekt?: Opplysning<FritekstSvar>
+    naeringsinntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+            beskrivelse?: Opplysning<FritekstSvar>
+        }
+    }
+    afpInntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        tjenesteordning?: Opplysning<FritekstSvar>
+    }
+    inntektFraUtland?: Opplysning<FritekstSvar>
+    andreInntekter?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        inntekt?: Opplysning<FritekstSvar>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+    noeSomKanPaavirkeInntekten?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        grunnTilPaavirkelseAvInntekt?: Opplysning<EnumSvar<EndringAvInntektGrunnType>>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+}
+
+export interface ForventetInntektTilNesteAar {
+    arbeidsinntekt?: Opplysning<FritekstSvar>
+    naeringsinntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        erNaeringsinntektOpptjentJevnt?: {
+            valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+            beskrivelse?: Opplysning<FritekstSvar>
+        }
+    }
+    afpInntekt?: {
+        inntekt?: Opplysning<FritekstSvar>
+        tjenesteordning?: Opplysning<FritekstSvar>
+    }
+    inntektFraUtland?: Opplysning<FritekstSvar>
+    andreInntekter?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        inntekt?: Opplysning<FritekstSvar>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+    noeSomKanPaavirkeInntekten?: {
+        valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+        grunnTilPaavirkelseAvInntekt?: Opplysning<EnumSvar<EndringAvInntektGrunnType>>
+        beskrivelse?: Opplysning<FritekstSvar>
+    }
+}
+
+// TODO FELTER FOR DEN GAMMLE DATASTRUKTUREN
 export interface LoennsOgNaeringsinntekt {
     norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>[]>
     norge?: InntektsType

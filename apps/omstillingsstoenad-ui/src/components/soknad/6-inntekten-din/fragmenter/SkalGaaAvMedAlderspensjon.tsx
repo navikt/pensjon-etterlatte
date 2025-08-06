@@ -4,25 +4,16 @@ import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
-import { FeatureToggleNavn, FeatureToggleStatus, useFeatureToggle } from '~context/featureToggle/FeatureToggleContext'
 import { IInntekt } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
 import { erMellomOktoberogDesember } from '~utils/dato'
 
 export const SkalGaaAvMedAlderspensjon = () => {
-    const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
-
     const { t } = useTranslation()
 
     const { watch } = useFormContext<IInntekt>()
 
     const skalGaAavMedAlderspensjon = watch('skalGaaAvMedAlderspensjon')
-
-    const visTekstForAlderspensjonNesteAar = (): boolean => {
-        if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
-            return true
-        } else return erMellomOktoberogDesember()
-    }
 
     return (
         <VStack gap="4">
@@ -30,7 +21,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 <RHFSpoersmaalRadio
                     name={'skalGaaAvMedAlderspensjon.valg'}
                     legend={
-                        visTekstForAlderspensjonNesteAar()
+                        erMellomOktoberogDesember()
                             ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
                             : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
                     }
@@ -46,7 +37,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
                     label={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
                     fromDate={
-                        visTekstForAlderspensjonNesteAar()
+                        erMellomOktoberogDesember()
                             ? new Date(addYears(new Date(startOfYear(new Date())), 1))
                             : new Date(startOfYear(new Date()))
                     }

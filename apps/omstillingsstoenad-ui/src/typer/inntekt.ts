@@ -4,7 +4,6 @@ import { IValg } from './Spoersmaal'
 export interface IInntekt {
     // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
     skalGaaAvMedAlderspensjon?: ISkalGaaAvMedAlderspensjon
-    // TODO: disse er veldig like, må se på noen felles interfacer for de
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
     forventetInntektIAar?: IForventetInntektIAar
     forventetInntektTilNesteAar?: IForventetInntektTilNesteAar
