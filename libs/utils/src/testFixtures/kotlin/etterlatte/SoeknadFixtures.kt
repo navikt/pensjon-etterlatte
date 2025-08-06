@@ -254,6 +254,10 @@ object InnsendtSoeknadFixtures {
                         ),
                     inntektOgPensjon =
                         InntektOgPensjon(
+                            skalGaaAvMedAlderspensjon = null,
+                            inntektFremTilDoedsfallet = null,
+                            forventetInntektIAar = null,
+                            forventetInntektTilNesteAar = null,
                             loennsinntekt = null,
                             naeringsinntekt = null,
                             pensjonEllerUfoere = null,
