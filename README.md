@@ -37,7 +37,6 @@ classDef text fill:none,color:#ddd
 barnepensjon-ui --> innsendt-soeknad
 omstillingsstonad-ui --> innsendt-soeknad
 selvbetjening-ui --> selvbetjening-backend
-sanity --> selvbetjening-ui
 
 selvbetjening-backend --> pdl
 selvbetjening-backend <--> selvbetjening-backend-v2[(selvbetjening <br/> database)]
@@ -61,7 +60,6 @@ subgraph selvbetjening["Selvbetjening"]
     selvbetjening-ui:::app
     selvbetjening-backend:::app
     selvbetjening-backend-v2:::db
-    sanity:::db
 end
 
 subgraph gjenny["Gjenny"]
