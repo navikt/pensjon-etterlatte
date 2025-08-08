@@ -660,7 +660,7 @@ const hentInntektOgPensjon = (
     let forventetInntektTilNesteAar: Opplysning<ForventetInntektTilNesteAar> | undefined
 
     // TODO NYE DATASTRUKTUR FOR INNTEKT
-    if (harMulighetTilAaGaaAvMedAlderspensjon) {
+    if (harMulighetTilAaGaaAvMedAlderspensjon && !!inntektenDin.skalGaaAvMedAlderspensjon) {
         skalGaaAvMedAlderspensjon = {
             valg: {
                 spoersmaal: erMellomOktoberogDesember()
