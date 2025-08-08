@@ -61,7 +61,7 @@ subgraph selvbetjening["Selvbetjening"]
     selvbetjening-ui:::app
     selvbetjening-backend:::app
     selvbetjening-backend-v2:::db
-    sanity::db
+    sanity:::db
 end
 
 subgraph gjenny["Gjenny"]
