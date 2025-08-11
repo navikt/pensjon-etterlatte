@@ -65,7 +65,9 @@ export const ForventetInntektIAar = () => {
                             {forventetInntektIAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt?.valg ===
                                 IValg.NEI && (
                                 <RHFInputArea
-                                    name={'forventetInntektIAar.naeringsinntekt.beskrivelse'}
+                                    name={
+                                        'forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                    }
                                     label={t(
                                         'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
                                     )}
