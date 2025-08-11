@@ -110,6 +110,30 @@
         ]
     },
     "inntektenDin": {
+        "skalGaaAvMedAlderspensjon": {
+            "valg": "radiobuttons.ja",
+            "datoForAaGaaAvMedAlderspensjon": "2025-03-01"
+        },
+        "inntektFremTilDoedsfallet": {
+            "arbeidsinntekt": "10000",
+            "naeringsinntekt": {
+                "inntekt": "10000",
+                "erNaeringsinntektOpptjentJevnt": {
+                    "valg": "radiobuttons.nei",
+                    "beskrivelse": "Blir en del mer på sommeren"
+                }
+            },
+            "afpInntekt": {
+                "inntekt": "10000",
+                "tjenesteordning": "PLK"
+            },
+            "inntektFraUtland": "10000",
+            "andreInntekter": {
+                "valg": "radiobuttons.ja",
+                "inntekt": "10000",
+                "beskrivelse": "Selger lyspærer i helgene"
+            }
+        },
         "inntektstyper": [
             "inntekt.loenn",
             "inntekt.naering",
