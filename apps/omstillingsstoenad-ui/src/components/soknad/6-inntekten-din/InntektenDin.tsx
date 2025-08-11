@@ -41,6 +41,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
         handleSubmit,
         formState: { errors },
         getValues,
+        watch,
     } = methods
 
     const lagreNeste = (data: IInntekt) => {
@@ -97,17 +98,36 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
-                        {skalViseFelterForSkalGaaAvMedAlderspensjon() && <SkalGaaAvMedAlderspensjon />}
+                        {skalViseFelterForSkalGaaAvMedAlderspensjon() ? (
+                            <>
+                                <SkalGaaAvMedAlderspensjon />
+                                {!!watch('skalGaaAvMedAlderspensjon.valg') && (
+                                    <>
+                                        <VStack gap="6">
+                                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                        <VStack gap="6">
-                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
+                                            <InntektFremTilDoedsfallet />
+                                        </VStack>
 
-                            <InntektFremTilDoedsfallet />
-                        </VStack>
+                                        <ForventetInntektIAar />
 
-                        <ForventetInntektIAar />
+                                        {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                                    </>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                <VStack gap="6">
+                                    <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                        {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                                    <InntektFremTilDoedsfallet />
+                                </VStack>
+
+                                <ForventetInntektIAar />
+
+                                {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                            </>
+                        )}
                     </VStack>
                 ) : (
                     <Inntekt />
