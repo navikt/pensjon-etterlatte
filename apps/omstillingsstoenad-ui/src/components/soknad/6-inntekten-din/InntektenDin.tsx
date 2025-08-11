@@ -76,12 +76,6 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
         return false
     }
 
-    const skalViseSkjemaForInntektNesteAar = (): boolean => {
-        if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
-            return true
-        } else return erMellomOktoberogDesember()
-    }
-
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -113,7 +107,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                         <ForventetInntektIAar />
 
-                        {skalViseSkjemaForInntektNesteAar() && <ForventetInntektTilNesteAar />}
+                        {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
                     </VStack>
                 ) : (
                     <Inntekt />
