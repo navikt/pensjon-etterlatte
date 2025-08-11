@@ -41,6 +41,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
         handleSubmit,
         formState: { errors },
         getValues,
+        watch,
     } = methods
 
     const lagreNeste = (data: IInntekt) => {
@@ -69,17 +70,19 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
     const skalViseFelterForSkalGaaAvMedAlderspensjon = (): boolean => {
         if (bruker.foedselsdato) {
-            const alder = differenceInYears(new Date(), bruker.foedselsdato)
-            return alder >= 62
+            const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0))
+            return alderIAar >= 62
         }
 
         return false
     }
 
-    const skalViseSkjemaForInntektNesteAar = (): boolean => {
-        if (omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA) {
-            return true
-        } else return erMellomOktoberogDesember()
+    const harSvartAtGaarAvMedAlderspensjonIAar = (datoForAaGaaAvMedAlderspensjon?: string): boolean => {
+        if (!!datoForAaGaaAvMedAlderspensjon) {
+            return new Date(datoForAaGaaAvMedAlderspensjon).getFullYear() === new Date().getFullYear()
+        }
+
+        return false
     }
 
     return (
@@ -103,17 +106,38 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
                     <VStack gap="12" paddingBlock="0 12">
-                        {skalViseFelterForSkalGaaAvMedAlderspensjon() && <SkalGaaAvMedAlderspensjon />}
+                        {skalViseFelterForSkalGaaAvMedAlderspensjon() ? (
+                            <>
+                                <SkalGaaAvMedAlderspensjon />
+                                {!!watch('skalGaaAvMedAlderspensjon.valg') && (
+                                    <>
+                                        <VStack gap="6">
+                                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                        <VStack gap="6">
-                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
+                                            <InntektFremTilDoedsfallet />
+                                        </VStack>
 
-                            <InntektFremTilDoedsfallet />
-                        </VStack>
+                                        <ForventetInntektIAar />
+                                        {!harSvartAtGaarAvMedAlderspensjonIAar(
+                                            watch('skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')
+                                        ) &&
+                                            erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                                    </>
+                                )}
+                            </>
+                        ) : (
+                            <>
+                                <VStack gap="6">
+                                    <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                        <ForventetInntektIAar />
+                                    <InntektFremTilDoedsfallet />
+                                </VStack>
 
-                        {skalViseSkjemaForInntektNesteAar() && <ForventetInntektTilNesteAar />}
+                                <ForventetInntektIAar />
+
+                                {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                            </>
+                        )}
                     </VStack>
                 ) : (
                     <Inntekt />

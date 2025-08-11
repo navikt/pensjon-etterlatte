@@ -3,19 +3,10 @@ import { differenceInYears } from 'date-fns'
 import { IBruker } from '~context/bruker/bruker'
 
 export const skalViseAFPFelter = (bruker: IBruker): boolean => {
-    if (!!bruker.foedselsdato) {
-        const nesteAar = new Date().setFullYear(new Date().getFullYear() + 1)
-        const alderNesteAar = differenceInYears(nesteAar, bruker.foedselsdato)
-
-        const alder = differenceInYears(new Date(), bruker.foedselsdato)
-        if (alder > 62) {
-            return true
-        } else if (alderNesteAar === 62) {
-            return true
-        } else {
-            return false
-        }
-    } else {
-        return false
+    if (bruker.foedselsdato) {
+        const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0))
+        return alderIAar >= 62
     }
+
+    return false
 }

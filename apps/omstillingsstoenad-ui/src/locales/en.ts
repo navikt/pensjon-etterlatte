@@ -383,7 +383,7 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Did you have any other income(s)?',
     'feil.inntektFremTilDoedsfallet.andreInntekter.valg.required': 'Respond to question concerning other income',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Other income(s)',
-    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Kva slags inntekt var det?',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'What kind of income was this?',
     'feil.inntektFremTilDoedsfallet.andreInntekter.beskrivelse.required': 'Specify what type of income this relates to',
     'inntektenDin.forventetInntektIAar.tittel': 'Expected annual income this year',
     'inntektenDin.forventetInntektIAar.innhold.li1': 'You must enter the income you expect to earn this year.',
@@ -421,8 +421,7 @@ export default {
         'Respond to whether you know of anything that can affect your income',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'What are the reasons for the changes in your income?',
-    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required':
-        'Respond to why income varies',
+    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required': 'Specify the change',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Specify the changes',
     'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse.required': 'Specify the change',
     'inntektenDin.forventetInntektTilNesteAar.tittel': 'Expected income in the next year',
@@ -465,7 +464,7 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'What are the reasons for the changes in your income?',
     'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required':
-        'Respond to why income varies',
+        'Specify the change',
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Specify the changes',
     'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse.required': 'Specify the change',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
