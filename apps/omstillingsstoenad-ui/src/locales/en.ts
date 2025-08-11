@@ -383,7 +383,7 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg': 'Did you have any other income(s)?',
     'feil.inntektFremTilDoedsfallet.andreInntekter.valg.required': 'Respond to question concerning other income',
     'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt': 'Other income(s)',
-    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'Kva slags inntekt var det?',
+    'inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse': 'What kind of income was this?',
     'feil.inntektFremTilDoedsfallet.andreInntekter.beskrivelse.required': 'Specify what type of income this relates to',
     'inntektenDin.forventetInntektIAar.tittel': 'Expected annual income this year',
     'inntektenDin.forventetInntektIAar.innhold.li1': 'You must enter the income you expect to earn this year.',
