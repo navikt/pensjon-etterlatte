@@ -77,6 +77,14 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
         return false
     }
 
+    const harSvartAtGaarAvMedAlderspensjonIAar = (datoForAaGaaAvMedAlderspensjon?: string): boolean => {
+        if (!!datoForAaGaaAvMedAlderspensjon) {
+            return new Date(datoForAaGaaAvMedAlderspensjon).getFullYear() === new Date().getFullYear()
+        }
+
+        return false
+    }
+
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -110,8 +118,10 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                                         </VStack>
 
                                         <ForventetInntektIAar />
-
-                                        {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                                        {!harSvartAtGaarAvMedAlderspensjonIAar(
+                                            watch('skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')
+                                        ) &&
+                                            erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
                                     </>
                                 )}
                             </>
