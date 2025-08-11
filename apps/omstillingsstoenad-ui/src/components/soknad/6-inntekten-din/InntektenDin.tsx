@@ -70,8 +70,8 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
     const skalViseFelterForSkalGaaAvMedAlderspensjon = (): boolean => {
         if (bruker.foedselsdato) {
-            const alder = differenceInYears(new Date(), bruker.foedselsdato)
-            return alder >= 62
+            const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0))
+            return alderIAar >= 62
         }
 
         return false
