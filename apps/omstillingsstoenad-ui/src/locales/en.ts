@@ -421,8 +421,7 @@ export default {
         'Respond to whether you know of anything that can affect your income',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'What are the reasons for the changes in your income?',
-    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required':
-        'Respond to why income varies',
+    'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required': 'Specify the change',
     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Specify the changes',
     'feil.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse.required': 'Specify the change',
     'inntektenDin.forventetInntektTilNesteAar.tittel': 'Expected income in the next year',
@@ -465,7 +464,7 @@ export default {
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt':
         'What are the reasons for the changes in your income?',
     'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt.required':
-        'Respond to why income varies',
+        'Specify the change',
     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse': 'Specify the changes',
     'feil.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse.required': 'Specify the change',
     'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
