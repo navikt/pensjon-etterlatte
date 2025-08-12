@@ -214,79 +214,78 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Verifiser felter og fyll ut skjema.
         const inntektenDin = mockSoeknad.inntektenDin
-        inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
 
-        // Lønnsinntekt
-        selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
+        // Inntekt frem til dødsfallet
+        getById('inntektFremTilDoedsfallet.arbeidsinntekt').type(inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt)
 
-        getById('loennsinntekt.norge.inntektIAar.tilDoedsfall').type(
-            inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall
+        getById('inntektFremTilDoedsfallet.naeringsinntekt.inntekt').type(
+            inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt
+        )
+        selectValueForId(
+            'inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg',
+            inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg
         )
 
-        getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(
-            inntektenDin.loennsinntekt.norge.inntektIAar.aarsinntekt
+        getById('inntektFremTilDoedsfallet.inntektFraUtland').type(
+            inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland
         )
 
-        if (dagensDato.getMonth() >= oktober)
-            getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt
+        selectValueForId(
+            'inntektFremTilDoedsfallet.andreInntekter.valg',
+            inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg
+        )
+
+        // Forventet inntekt i år
+        getById('forventetInntektIAar.arbeidsinntekt').type(inntektenDin.forventetInntektIAar.arbeidsinntekt)
+
+        getById('forventetInntektIAar.naeringsinntekt.inntekt').type(
+            inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt
+        )
+        selectValueForId(
+            'forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg',
+            inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg
+        )
+
+        getById('forventetInntektIAar.inntektFraUtland').type(inntektenDin.forventetInntektIAar.inntektFraUtland)
+
+        selectValueForId(
+            'forventetInntektIAar.andreInntekter.valg',
+            inntektenDin.forventetInntektIAar.andreInntekter.valg
+        )
+
+        selectValueForId(
+            'forventetInntektIAar.noeSomKanPaavirkeInntekten.valg',
+            inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg
+        )
+
+        // Forventet inntekt til neste år
+        if (dagensDato.getMonth() >= oktober) {
+            getById('forventetInntektTilNesteAar.arbeidsinntekt').type(
+                inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt
             )
 
-        selectValueForId(
-            'loennsinntekt.forventerEndringAvInntekt.svar',
-            inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar
-        )
-
-        // Næringsinntekt
-        selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
-
-        selectValueForId(
-            'naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar',
-            inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar
-        )
-        getById('naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse').type(
-            inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse
-        )
-
-        getById('naeringsinntekt.norge.inntektIAar.tilDoedsfall').type(
-            inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall
-        )
-        getById('naeringsinntekt.norge.inntektIAar.aarsinntekt').type(
-            inntektenDin.naeringsinntekt.norge.inntektIAar.aarsinntekt
-        )
-
-        if (dagensDato.getMonth() >= oktober)
-            getById('naeringsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt
+            getById('forventetInntektTilNesteAar.naeringsinntekt.inntekt').type(
+                inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt
+            )
+            selectValueForId(
+                'forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg',
+                inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg
             )
 
-        selectValueForId(
-            'naeringsinntekt.forventerEndringAvInntekt.svar',
-            inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar
-        )
+            getById('forventetInntektTilNesteAar.inntektFraUtland').type(
+                inntektenDin.forventetInntektTilNesteAar.inntektFraUtland
+            )
 
-        // Pensjon eller uføre
-        inntektenDin.pensjonEllerUfoere.pensjonstype.forEach((pensjon) => selectValue(pensjon))
+            selectValueForId(
+                'forventetInntektTilNesteAar.andreInntekter.valg',
+                inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg
+            )
 
-        // Tjenestepensjonsordning
-        inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type.forEach((type) => selectValue(type))
-        getById('pensjonEllerUfoere.tjenestepensjonsordning.utbetaler').type(
-            inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler
-        )
-
-        // Pensjon fra utlandet
-        getById('pensjonEllerUfoere.utland.land').type('{downArrow}').type('{enter}')
-        getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
-        getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
-        getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
-
-        // Ytelser fra Nav
-        selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)
-
-        // Ingen eller annen inntekt
-        selectValueForId('ingenInntekt.svar', inntektenDin.ingenInntekt.svar)
-        getById('ingenInntekt.beloep').type(inntektenDin.ingenInntekt.beloep)
-        getById('ingenInntekt.beskrivelse').type(inntektenDin.ingenInntekt.beskrivelse)
+            selectValueForId(
+                'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg',
+                inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg
+            )
+        }
 
         // Andre ytelser
         selectValueForId('ytelserNAV.svar', inntektenDin.ytelserNAV.svar)

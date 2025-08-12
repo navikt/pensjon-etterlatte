@@ -110,75 +110,50 @@
         ]
     },
     "inntektenDin": {
-        "inntektstyper": [
-            "inntekt.loenn",
-            "inntekt.naering",
-            "inntekt.pensjonEllerUfoere",
-            "inntekt.ytelser",
-            "inntekt.annen"
-        ],
-        "loennsinntekt": {
-            "norgeEllerUtland": ["inntekt.norge"],
-            "norge": {
-                "inntektNesteAar": {
-                    "aarsinntekt": "10000"
-                },
-                "inntektIFjor": {
-                    "tilDoedsfall": "20000",
-                    "aarsinntekt": "10000"
-                },
-                "inntektIAar": {
-                    "tilDoedsfall": "20000",
-                    "aarsinntekt": "10000"
+        "inntektFremTilDoedsfallet": {
+            "arbeidsinntekt": "10000",
+            "naeringsinntekt": {
+                "inntekt": "10000",
+                "erNaeringsinntektOpptjentJevnt": {
+                    "valg": "radiobuttons.ja"
                 }
             },
-            "forventerEndringAvInntekt": {
-                "svar": "radiobuttons.nei"
+            "inntektFraUtland": "10000",
+            "andreInntekter": {
+                "valg": "radiobuttons.nei"
             }
         },
-        "naeringsinntekt": {
-            "norgeEllerUtland": ["inntekt.norge"],
-            "norge": {
-                "inntektIFjor": {
-                    "tilDoedsfall": "20000",
-                    "aarsinntekt": "10000"
-                },
-                "inntektIAar": {
-                    "aarsinntekt": "20000",
-                    "tilDoedsfall": "30000"
-                },
-                "inntektNesteAar": {
-                    "aarsinntekt": "10000"
-                },
-                "jevntOpptjentNaeringsinntekt": {
-                    "svar": "radiobuttons.nei",
-                    "beskrivelse": "Selger julelys i desember"
+        "forventetInntektIAar": {
+            "arbeidsinntekt": "10000",
+            "naeringsinntekt": {
+                "inntekt": "10000",
+                "erNaeringsinntektOpptjentJevnt": {
+                    "valg": "radiobuttons.ja"
                 }
             },
-            "forventerEndringAvInntekt": {
-                "svar": "radiobuttons.nei"
-            }
-        },
-        "pensjonEllerUfoere": {
-            "pensjonstype": ["soekbarYtelse.tjenestepensjonsordning", "soekbarYtelse.pensjonFraUtlandet"],
-            "tjenestepensjonsordning": {
-                "type": ["soekbarYtelse.alderspensjon"],
-                "utbetaler": "Staten"
+            "inntektFraUtland": "10000",
+            "andreInntekter": {
+                "valg": "radiobuttons.nei"
             },
-            "utland": {
-                "type": "Alderspensjon",
-                "land": "Island",
-                "beloep": "30 000",
-                "valuta": "Islandske kroner (ISK)"
+            "noeSomKanPaavirkeInntekten": {
+                "valg": "radiobuttons.nei"
             }
         },
-        "inntektViaYtelserFraNAV": {
-            "ytelser": ["soekbarYtelse.omsorgspenger"]
-        },
-        "ingenInntekt": {
-            "svar": "radiobuttons.ja",
-            "beloep": "320 000",
-            "beskrivelse": "Får inn litt inntekt fra siden"
+        "forventetInntektTilNesteAar": {
+            "arbeidsinntekt": "10000",
+            "naeringsinntekt": {
+                "inntekt": "10000",
+                "erNaeringsinntektOpptjentJevnt": {
+                    "valg": "radiobuttons.ja"
+                }
+            },
+            "inntektFraUtland": "10000",
+            "andreInntekter": {
+                "valg": "radiobuttons.nei"
+            },
+            "noeSomKanPaavirkeInntekten": {
+                "valg": "radiobuttons.nei"
+            }
         },
         "ytelserNAV": {
             "svar": "radiobuttons.ja",
