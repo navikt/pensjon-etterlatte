@@ -214,7 +214,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
 
         // Verifiser felter og fyll ut skjema.
         const inntektenDin = mockSoeknad.inntektenDin
-        inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
+        // inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
 
         // Inntekt frem til dødsfallet
         getById('inntektFremTilDoedsfallet.arbeidsinntekt').type(inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt)
