@@ -16,7 +16,6 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { ForventetInntektIAar } from './fragmenter/ForventetInntektIAar'
 import { ForventetInntektTilNesteAar } from './fragmenter/ForventetInntektTilNesteAar'
-import Inntekt from './fragmenter/Inntekt'
 import { InntektFremTilDoedsfallet } from './fragmenter/InntektFremTilDoedsfallet'
 import { SkalGaaAvMedAlderspensjon } from './fragmenter/SkalGaaAvMedAlderspensjon'
 import YtelserAndre from './fragmenter/YtelserAndre'
@@ -25,8 +24,6 @@ import YtelserNAV from './fragmenter/YtelserNAV'
 const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { logEvent } = useAnalytics()
-
-    const omsSoeknadNyttInntektStegFeatureToggle = useFeatureToggle(FeatureToggleNavn.OMS_SOEKNAD_NYTT_INNTEKT_STEG)
 
     const { state, dispatch } = useSoknadContext()
 
@@ -95,53 +92,43 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 </Box>
 
                 <Box marginBlock="0 12">
-                    <GuidePanel>
-                        {t(
-                            omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA
-                                ? 'inntektenDin.ingress.ny'
-                                : 'inntektenDin.ingress'
-                        )}
-                    </GuidePanel>
+                    <GuidePanel>{t('inntektenDin.ingress.ny')}</GuidePanel>
                 </Box>
 
-                {omsSoeknadNyttInntektStegFeatureToggle.status === FeatureToggleStatus.PAA ? (
-                    <VStack gap="12" paddingBlock="0 12">
-                        {skalViseFelterForSkalGaaAvMedAlderspensjon() ? (
-                            <>
-                                <SkalGaaAvMedAlderspensjon />
-                                {!!watch('skalGaaAvMedAlderspensjon.valg') && (
-                                    <>
-                                        <VStack gap="6">
-                                            <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
+                <VStack gap="12" paddingBlock="0 12">
+                    {skalViseFelterForSkalGaaAvMedAlderspensjon() ? (
+                        <>
+                            <SkalGaaAvMedAlderspensjon />
+                            {!!watch('skalGaaAvMedAlderspensjon.valg') && (
+                                <>
+                                    <VStack gap="6">
+                                        <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                                            <InntektFremTilDoedsfallet />
-                                        </VStack>
+                                        <InntektFremTilDoedsfallet />
+                                    </VStack>
 
-                                        <ForventetInntektIAar />
-                                        {!harSvartAtGaarAvMedAlderspensjonIAar(
-                                            watch('skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')
-                                        ) &&
-                                            erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
-                                    </>
-                                )}
-                            </>
-                        ) : (
-                            <>
-                                <VStack gap="6">
-                                    <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
+                                    <ForventetInntektIAar />
+                                    {!harSvartAtGaarAvMedAlderspensjonIAar(
+                                        watch('skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')
+                                    ) &&
+                                        erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                                </>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            <VStack gap="6">
+                                <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
-                                    <InntektFremTilDoedsfallet />
-                                </VStack>
+                                <InntektFremTilDoedsfallet />
+                            </VStack>
 
-                                <ForventetInntektIAar />
+                            <ForventetInntektIAar />
 
-                                {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
-                            </>
-                        )}
-                    </VStack>
-                ) : (
-                    <Inntekt />
-                )}
+                            {erMellomOktoberogDesember() && <ForventetInntektTilNesteAar />}
+                        </>
+                    )}
+                </VStack>
 
                 <YtelserNAV />
 

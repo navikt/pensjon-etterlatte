@@ -89,12 +89,6 @@ export enum SivilstatusType {
     SAMBOERSKAP = 'SAMBOERSKAP',
 }
 
-export enum SagtOppEllerRedusertType {
-    OPPSAGT = 'OPPSAGT',
-    REDUSERT = 'REDUSERT',
-    NEI = 'NEI',
-}
-
 export enum StudieformType {
     HELTID = 'HELTID',
     DELTID = 'DELTID',
@@ -133,22 +127,14 @@ export interface ArbeidOgUtdanning {
 }
 
 export interface InntektOgPensjon {
-    // TODO: FELTER FOR DEN NYE DATASTRUKTUREN
     skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
     inntektFremTilDoedsfallet?: Opplysning<InntektFremTilDoedsfallet>
     forventetInntektIAar?: Opplysning<ForventetInntektIAar>
     forventetInntektTilNesteAar?: Opplysning<ForventetInntektTilNesteAar>
-    // TODO FELTER FOR DEN GAMMLE DATASTRUKTUREN
-    loennsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
-    naeringsinntekt?: Opplysning<LoennsOgNaeringsinntekt>
-    pensjonEllerUfoere?: PensjonEllerUfoere
-    inntektViaYtelserFraNAV?: InntektViaYtelserFraNAV
-    ingenInntekt?: IngenInntekt
     ytelserNAV: YtelserNav
     ytelserAndre: YtelserAndre
 }
 
-//TODO FELTER FOR DEN NYE DATASTRUKTUREN
 export interface SkalGaaAvMedAlderspensjon {
     valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
     datoForAaGaaAvMedAlderspensjon?: Opplysning<DatoSvar>
@@ -227,63 +213,6 @@ export interface ForventetInntektTilNesteAar {
     }
 }
 
-// TODO FELTER FOR DEN GAMMLE DATASTRUKTUREN
-export interface LoennsOgNaeringsinntekt {
-    norgeEllerUtland: Opplysning<EnumSvar<NorgeEllerUtlandType>[]>
-    norge?: InntektsType
-    utland?: InntektsType
-    endringAvInntekt: EndringAvInntekt
-}
-
-interface InntektsType {
-    inntektAaretFoerDoedsfall?: Opplysning<FritekstSvar>
-    inntektIFjor?: {
-        tilDoedsfall?: Opplysning<FritekstSvar>
-        aarsinntekt?: Opplysning<FritekstSvar>
-    }
-    inntektIAar: {
-        tilDoedsfall?: Opplysning<FritekstSvar>
-        etterDoedsfall?: Opplysning<FritekstSvar>
-        aarsinntekt?: Opplysning<FritekstSvar>
-    }
-    inntektNesteAar?: {
-        aarsinntekt: Opplysning<FritekstSvar>
-    }
-    jevntOpptjentNaeringsinntekt?: {
-        svar: Opplysning<EnumSvar<JaNeiVetIkke>>
-        beskrivelse?: Opplysning<FritekstSvar>
-    }
-}
-
-export interface PensjonEllerUfoere {
-    pensjonstype: Opplysning<EnumSvar<PensjonEllerTrygdType>[]>
-    tjenestepensjonsordning?: {
-        type: Opplysning<EnumSvar<PensjonsYtelseType>[]>
-        afpOffentlig?: {
-            innvilget: Opplysning<DatoSvar>
-            beloep: Opplysning<FritekstSvar>
-        }
-        utbetaler: Opplysning<FritekstSvar>
-    }
-    utland?: {
-        type: Opplysning<FritekstSvar>
-        land: Opplysning<FritekstSvar>
-        beloepMedValuta: Opplysning<FritekstSvar>
-    }
-}
-
-export interface InntektViaYtelserFraNAV {
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    ytelser: Opplysning<any>
-    aktivitetsplan?: Opplysning<EnumSvar<JaNeiVetIkke>>
-}
-
-export interface IngenInntekt {
-    svar: Opplysning<EnumSvar<JaNeiVetIkke>>
-    beloep?: Opplysning<FritekstSvar>
-    beskrivelse?: Opplysning<FritekstSvar>
-}
-
 export interface YtelserNav {
     soektOmYtelse: Opplysning<EnumSvar<JaNeiVetIkke>>
     soektYtelse?: Opplysning<EnumSvar<SoekbareYtelserNAVType>[]>
@@ -293,12 +222,6 @@ export interface YtelserAndre {
     soektOmYtelse: Opplysning<EnumSvar<JaNeiVetIkke>>
     soektYtelse?: Opplysning<EnumSvar<SoekbareYtelserAndreType>[]>
     pensjonsordning?: Opplysning<FritekstSvar>
-}
-
-export interface EndringAvInntekt {
-    fremtidigEndringAvInntekt: Opplysning<EnumSvar<JaNeiVetIkke>>
-    grunn?: Opplysning<EnumSvar<EndringAvInntektGrunnType>>
-    annenGrunn?: Opplysning<FritekstSvar>
 }
 
 export interface EtablererVirksomhet {
@@ -360,7 +283,6 @@ export interface Arbeidstaker {
     harSluttdato?: Opplysning<EnumSvar<JaNeiVetIkke>>
     sluttdato?: Opplysning<DatoSvar>
     endretArbeidssituasjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EndretInntektBegrunnelse> | undefined>
-    // sagtOppEllerRedusert: Opplysning<EnumSvar<SagtOppEllerRedusertType>>
 }
 
 export interface AnnenSituasjon {
@@ -380,20 +302,6 @@ export enum Ytelser {
     FOSTERHJEMSGODTGJOERING = 'FOSTERHJEMSGODTGJOERING',
     OMSORGSPENGER = 'OMSORGSPENGER',
     OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
-}
-
-export type Pensjonsordning = FritekstSvar
-
-export interface AndreYtelser {
-    kravOmAnnenStonad: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<EnumSvar<Ytelser>> | undefined>
-    annenPensjon: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<Pensjonsordning> | undefined>
-    pensjonUtland: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, PensjonUtland | undefined>
-}
-
-export interface PensjonUtland {
-    pensjonsType?: Opplysning<FritekstSvar>
-    land?: Opplysning<FritekstSvar>
-    bruttobeloepPrAar?: Opplysning<FritekstSvar>
 }
 
 export interface OppholdUtland {
@@ -431,35 +339,6 @@ export enum EndringAvInntektGrunnType {
     ANNEN_GRUNN = 'ANNEN_GRUNN',
 }
 
-export enum PensjonsYtelseType {
-    AVTALEFESTET_PENSJON_OFFENTLIG = 'AVTALEFESTET_PENSJON_OFFENTLIG',
-    AVTALEFESTET_PENSJON_PRIVAT = 'AVTALEFESTET_PENSJON_PRIVAT',
-    SAERALDERSPENSJON = 'SAERALDERSPENSJON',
-    UFOEREPENSJON = 'UFOEREPENSJON',
-    ALDERSPENSJON = 'ALDERSPENSJON',
-}
-
-export enum PensjonEllerTrygdType {
-    TJENESTEPENSJONSORDNING = 'TJENESTEPENSJONSORDNING',
-    UFOEREPENSJON_FRA_NAV = 'UFOEREPENSJON_FRA_NAV',
-    ALDERSPENSJON_FRA_NAV = 'ALDERSPENSJON_FRA_NAV',
-    PENSJON_FRA_UTLANDET = 'PENSJON_FRA_UTLANDET',
-}
-
-export enum InntektEllerUtbetalingType {
-    DAGSPENGER = 'DAGSPENGER',
-    SYKEPENGER = 'SYKEPENGER',
-    PLEIEPENGER = 'PLEIEPENGER',
-    SVANGERSKAPSPENGER = 'SVANGERSKAPSPENGER',
-    FORELDREPENGER = 'FORELDREPENGER',
-    ARBEIDSAVKLARINGSPENGER = 'ARBEIDSAVKLARINGSPENGER',
-    KVALIFISERINGSSTOENAD = 'KVALIFISERINGSSTOENAD',
-    KOMMUNAL_OMSORGSSTOENAD = 'KOMMUNAL_OMSORGSSTOENAD',
-    FOSTERHJEMSGODTGJOERING = 'FOSTERHJEMSGODTGJOERING',
-    OMSORGSPENGER = 'OMSORGSPENGER',
-    OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
-}
-
 export enum SoekbareYtelserAndreType {
     AVTALEFESTET_PENSJON_OFFENTLIG = 'AVTALEFESTET_PENSJON_OFFENTLIG',
     AVTALEFESTET_PENSJON_PRIVAT = 'AVTALEFESTET_PENSJON_PRIVAT',
@@ -482,14 +361,4 @@ export enum SoekbareYtelserNAVType {
     OPPLAERINGSPENGER = 'OPPLAERINGSPENGER',
     UFOERETRYGD = 'UFOERETRYGD',
     ALDERSPENSJON = 'ALDERSPENSJON',
-}
-
-export enum ArbeidsmengdeType {
-    PROSENT = 'PROSENT',
-    TIMER = 'TIMER',
-}
-
-export enum NorgeEllerUtlandType {
-    NORGE = 'NORGE',
-    UTLAND = 'UTLAND',
 }

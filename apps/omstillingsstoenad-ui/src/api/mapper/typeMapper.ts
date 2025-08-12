@@ -1,14 +1,5 @@
 import { StillingType as GammelStillingType, IngenJobb } from '../../typer/arbeidsforhold'
-import {
-    EndringAvInntektGrunn,
-    GrunnTilPaavirkelseAvInntekt,
-    InntektEllerUtbetaling,
-    NorgeOgUtland,
-    PensjonEllerTrygd,
-    PensjonsYtelse,
-    SoekbareYtelserAndre,
-    SoekbareYtelserNAV,
-} from '../../typer/inntekt'
+import { GrunnTilPaavirkelseAvInntekt, SoekbareYtelserAndre, SoekbareYtelserNAV } from '../../typer/inntekt'
 import {
     OppholdUtlandType as GammelOppholdUtlandType,
     ForholdTilAvdoede as RelasjonAvdoed,
@@ -16,18 +7,13 @@ import {
 } from '../../typer/person'
 import { Utdanning as GammelUtdanning, JobbStatus } from '../../typer/situasjon'
 import { Studieform } from '../../typer/utdanning'
-import { Ytelser as GamleYtelser } from '../../typer/ytelser'
 import {
     EndringAvInntektGrunnType,
     ForholdTilAvdoedeType,
     HoeyesteUtdanning,
     IngenJobbType,
-    InntektEllerUtbetalingType,
     JobbStatusType,
-    NorgeEllerUtlandType,
     OppholdUtlandType,
-    PensjonEllerTrygdType,
-    PensjonsYtelseType,
     SivilstatusType,
     SoekbareYtelserAndreType,
     SoekbareYtelserNAVType,
@@ -171,82 +157,6 @@ export const konverterGrunnTilPaavirkelseAvInntekt = (
     }
 }
 
-export const konverterEndringAvInntektGrunn = (type: EndringAvInntektGrunn): EndringAvInntektGrunnType => {
-    switch (type) {
-        case EndringAvInntektGrunn.oektStillingsprosent:
-            return EndringAvInntektGrunnType.OEKT_STILLINGSPROSENT
-        case EndringAvInntektGrunn.redusertStillingsprosent:
-            return EndringAvInntektGrunnType.REDUSERT_STILLINGSPROSENT
-        case EndringAvInntektGrunn.permisjonUtenLoenn:
-            return EndringAvInntektGrunnType.PERMISJON_UTEN_LOENN
-        case EndringAvInntektGrunn.loennsoekning:
-            return EndringAvInntektGrunnType.LOENNSOEKNING
-        case EndringAvInntektGrunn.arbeidsledig:
-            return EndringAvInntektGrunnType.ARBEIDSLEDIG
-        case EndringAvInntektGrunn.sesongarbeid:
-            return EndringAvInntektGrunnType.SESONGARBEID
-        case EndringAvInntektGrunn.bytteAvJobb:
-            return EndringAvInntektGrunnType.BYTTE_AV_JOBB
-        case EndringAvInntektGrunn.annenGrunn:
-            return EndringAvInntektGrunnType.ANNEN_GRUNN
-    }
-}
-
-export const konverterPensjonsYtelse = (type: PensjonsYtelse): PensjonsYtelseType => {
-    switch (type) {
-        case PensjonsYtelse.avtalefestetPensjonOffentlig:
-            return PensjonsYtelseType.AVTALEFESTET_PENSJON_OFFENTLIG
-        case PensjonsYtelse.avtalefestetPensjonPrivat:
-            return PensjonsYtelseType.AVTALEFESTET_PENSJON_PRIVAT
-        case PensjonsYtelse.saeralderpensjon:
-            return PensjonsYtelseType.SAERALDERSPENSJON
-        case PensjonsYtelse.ufoerepensjon:
-            return PensjonsYtelseType.UFOEREPENSJON
-        case PensjonsYtelse.alderspensjon:
-            return PensjonsYtelseType.ALDERSPENSJON
-    }
-}
-
-export const konverterPensjonEllerTrygd = (type: PensjonEllerTrygd): PensjonEllerTrygdType => {
-    switch (type) {
-        case PensjonEllerTrygd.tjenestepensjonsordning:
-            return PensjonEllerTrygdType.TJENESTEPENSJONSORDNING
-        case PensjonEllerTrygd.ufoeretrygdFraNAV:
-            return PensjonEllerTrygdType.UFOEREPENSJON_FRA_NAV
-        case PensjonEllerTrygd.alderspensjonFraNAV:
-            return PensjonEllerTrygdType.ALDERSPENSJON_FRA_NAV
-        case PensjonEllerTrygd.pensjonFraUtlandet:
-            return PensjonEllerTrygdType.PENSJON_FRA_UTLANDET
-    }
-}
-
-export const konverterInntektEllerUtbetaling = (type: InntektEllerUtbetaling): InntektEllerUtbetalingType => {
-    switch (type) {
-        case InntektEllerUtbetaling.dagspenger:
-            return InntektEllerUtbetalingType.DAGSPENGER
-        case InntektEllerUtbetaling.sykepenger:
-            return InntektEllerUtbetalingType.SYKEPENGER
-        case InntektEllerUtbetaling.pleiepenger:
-            return InntektEllerUtbetalingType.PLEIEPENGER
-        case InntektEllerUtbetaling.svangerskapspenger:
-            return InntektEllerUtbetalingType.SVANGERSKAPSPENGER
-        case InntektEllerUtbetaling.foreldrepenger:
-            return InntektEllerUtbetalingType.FORELDREPENGER
-        case InntektEllerUtbetaling.arbeidsavklaringspenger:
-            return InntektEllerUtbetalingType.ARBEIDSAVKLARINGSPENGER
-        case InntektEllerUtbetaling.kvalifiseringsstoenad:
-            return InntektEllerUtbetalingType.KVALIFISERINGSSTOENAD
-        case InntektEllerUtbetaling.kommunalOmsorgsstoenad:
-            return InntektEllerUtbetalingType.KOMMUNAL_OMSORGSSTOENAD
-        case InntektEllerUtbetaling.fosterhjemsgodtgjoering:
-            return InntektEllerUtbetalingType.FOSTERHJEMSGODTGJOERING
-        case InntektEllerUtbetaling.omsorgspenger:
-            return InntektEllerUtbetalingType.OMSORGSPENGER
-        case InntektEllerUtbetaling.opplaeringspenger:
-            return InntektEllerUtbetalingType.OPPLAERINGSPENGER
-    }
-}
-
 export const konverterSoekteYtelserAndre = (type: SoekbareYtelserAndre): SoekbareYtelserAndreType => {
     switch (type) {
         case SoekbareYtelserAndre.avtalefestetPensjonOffentlig:
@@ -299,14 +209,5 @@ export const konverterStudieform = (type: Studieform): StudieformType => {
             return StudieformType.HELTID
         case Studieform.deltid:
             return StudieformType.DELTID
-    }
-}
-
-export const konverterNorgeEllerUtland = (type: NorgeOgUtland): NorgeEllerUtlandType => {
-    switch (type) {
-        case NorgeOgUtland.norge:
-            return NorgeEllerUtlandType.NORGE
-        case NorgeOgUtland.utland:
-            return NorgeEllerUtlandType.UTLAND
     }
 }

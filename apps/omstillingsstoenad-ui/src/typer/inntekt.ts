@@ -1,25 +1,14 @@
-import { IValgfrittSvar } from './arbeidsforhold'
 import { IValg } from './Spoersmaal'
 
 export interface IInntekt {
-    // TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
     skalGaaAvMedAlderspensjon?: ISkalGaaAvMedAlderspensjon
     inntektFremTilDoedsfallet?: IInntektFremTilDoedsfallet
     forventetInntektIAar?: IForventetInntektIAar
     forventetInntektTilNesteAar?: IForventetInntektTilNesteAar
-    // TODO: FELTER FOR DEN GAMMLE DATASTRUKTUREN
-    inntektstyper?: InntektsTyper[]
-    loennsinntekt?: ILoennsinntekt
-    naeringsinntekt?: ILoennsinntekt
-    pensjonEllerUfoere?: IPensjonEllerUfoere
-    inntektViaYtelserFraNAV?: IInntektViaYtelserFraNAV
-    ingenInntekt?: IIngenInntekt
     ytelserNAV?: IYtelserNAV
     ytelserAndre?: IYtelserAndre
     erValidert?: boolean
 }
-
-// TODO: FELTER FOR DEN NYE DATASTASTRUKTUREN
 
 export interface ISkalGaaAvMedAlderspensjon {
     valg?: IValg
@@ -110,7 +99,6 @@ export enum GrunnTilPaavirkelseAvInntekt {
     annenGrunn = 'grunnTilPaavirkelseAvInntekt.annenGrunn',
 }
 
-// TODO: FELTER FOR DEN GAMMLE DATASTRUKTUREN
 interface IYtelserNAV {
     svar?: IValg
     soekteYtelser?: SoekbareYtelserNAV[]
@@ -120,67 +108,6 @@ interface IYtelserAndre {
     svar?: IValg
     soekteYtelser?: SoekbareYtelserAndre[]
     pensjonsordning?: string
-}
-
-export interface IForventerEndringAvInntekt {
-    svar?: IValg
-    grunn?: EndringAvInntektGrunn
-    annenGrunn?: string
-}
-
-export interface IIngenInntekt {
-    svar?: IValg
-    beloep?: string
-    beskrivelse?: string
-}
-
-export interface ILoennsinntekt {
-    norgeEllerUtland: NorgeOgUtland[]
-    norge?: IInntekter
-    utland?: IInntekter
-    forventerEndringAvInntekt: IForventerEndringAvInntekt
-}
-
-export interface IInntekter {
-    inntektAaretFoerDoedsfall?: string
-    inntektIFjor?: {
-        tilDoedsfall?: string
-        aarsinntekt?: string
-    }
-    inntektIAar?: {
-        tilDoedsfall?: string
-        aarsinntekt?: string
-    }
-    inntektNesteAar?: {
-        aarsinntekt?: string
-    }
-    jevntOpptjentNaeringsinntekt?: {
-        svar?: IValg
-        beskrivelse?: string
-    }
-}
-
-export interface IPensjonEllerUfoere {
-    pensjonstype: PensjonEllerTrygd[]
-    tjenestepensjonsordning?: {
-        type: PensjonsYtelse[]
-        afpOffentlig?: {
-            innvilget: Date
-            beloep: string
-        }
-        utbetaler: string
-    }
-    utland?: {
-        type?: string
-        land?: string
-        beloep?: string
-        valuta?: string
-    }
-}
-
-export interface IInntektViaYtelserFraNAV {
-    ytelser: InntektEllerUtbetaling[]
-    aktivitetsplan: IValgfrittSvar
 }
 
 export enum InntektsTyper {
