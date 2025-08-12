@@ -258,11 +258,6 @@ object InnsendtSoeknadFixtures {
                             inntektFremTilDoedsfallet = null,
                             forventetInntektIAar = null,
                             forventetInntektTilNesteAar = null,
-                            loennsinntekt = null,
-                            naeringsinntekt = null,
-                            pensjonEllerUfoere = null,
-                            inntektViaYtelserFraNAV = null,
-                            ingenInntekt = null,
                             ytelserNAV =
                                 YtelserNav(
                                     soektOmYtelse =
