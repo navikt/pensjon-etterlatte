@@ -772,7 +772,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
                                           ?.valg === IValg.NEI
                                           ? {
                                                 spoersmaal: t(
-                                                    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beksrivelse'
+                                                    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
                                                 ),
                                                 svar: {
                                                     innhold:
@@ -787,7 +787,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
                 afpInntekt: skalViseAFPFelter(bruker)
                     ? {
                           inntekt: {
-                              spoersmaal: t('inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning'),
+                              spoersmaal: t('inntektenDin.forventetInntektIAar.afpInntekt.inntekt'),
                               svar: { innhold: inntektenDin.forventetInntektIAar!.afpInntekt!.inntekt! },
                           },
                           tjenesteordning:
