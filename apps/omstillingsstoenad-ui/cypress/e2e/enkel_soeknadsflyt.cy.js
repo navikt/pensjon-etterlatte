@@ -216,6 +216,26 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         const inntektenDin = mockSoeknad.inntektenDin
         inntektenDin.inntektstyper.map((inntektsType) => selectValue(inntektsType))
 
+        // Inntekt frem til dødsfallet
+        getById('inntektFremTilDoedsfallet.arbeidsinntekt').type(inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt)
+
+        getById('inntektFremTilDoedsfallet.naeringsinntekt.inntekt').type(
+            inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt
+        )
+        selectValueForId(
+            'inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg',
+            inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg
+        )
+
+        getById('inntektFremTilDoedsfallet.inntektFraUtland').type(
+            inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland
+        )
+
+        selectValueForId(
+            'inntektFremTilDoedsfallet.andreInntekter.valg',
+            inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg
+        )
+
         // Lønnsinntekt
         selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
 
