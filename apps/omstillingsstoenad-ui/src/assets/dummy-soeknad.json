@@ -134,6 +134,52 @@
                 "beskrivelse": "Selger lyspærer i helgene"
             }
         },
+        "forventetInntektIAar": {
+            "arbeidsinntekt": "10000",
+            "naeringsinntekt": {
+                "inntekt": "10000",
+                "erNaeringsinntektOpptjentJevnt": {
+                    "valg": "radiobuttons.nei",
+                    "beskrivelse": "Blir en del mer på sommeren"
+                }
+            },
+            "afpInntekt": {
+                "inntekt": "10000",
+                "tjenesteordning": "PLK"
+            },
+            "inntektFraUtland": "10000",
+            "andreInntekter": {
+                "valg": "radiobuttons.ja",
+                "inntekt": "10000",
+                "beskrivelse": "Selger lyspærer i helgene"
+            },
+            "noeSomKanPaavirkeInntekten": {
+                "valg": "radiobuttons.nei"
+            }
+        },
+        "forventetInntektTilNesteAar": {
+            "arbeidsinntekt": "10000",
+            "naeringsinntekt": {
+                "inntekt": "10000",
+                "erNaeringsinntektOpptjentJevnt": {
+                    "valg": "radiobuttons.nei",
+                    "beskrivelse": "Blir en del mer på sommeren"
+                }
+            },
+            "afpInntekt": {
+                "inntekt": "10000",
+                "tjenesteordning": "PLK"
+            },
+            "inntektFraUtland": "10000",
+            "andreInntekter": {
+                "valg": "radiobuttons.ja",
+                "inntekt": "10000",
+                "beskrivelse": "Selger lyspærer i helgene"
+            },
+            "noeSomKanPaavirkeInntekten": {
+                "valg": "radiobuttons.nei"
+            }
+        },
         "inntektstyper": [
             "inntekt.loenn",
             "inntekt.naering",
