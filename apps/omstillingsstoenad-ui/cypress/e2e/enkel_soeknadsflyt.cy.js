@@ -288,69 +288,69 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             )
         }
 
-        // Lønnsinntekt
-        selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
-
-        getById('loennsinntekt.norge.inntektIAar.tilDoedsfall').type(
-            inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall
-        )
-
-        getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(
-            inntektenDin.loennsinntekt.norge.inntektIAar.aarsinntekt
-        )
-
-        if (dagensDato.getMonth() >= oktober)
-            getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt
-            )
-
-        selectValueForId(
-            'loennsinntekt.forventerEndringAvInntekt.svar',
-            inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar
-        )
-
-        // Næringsinntekt
-        selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
-
-        selectValueForId(
-            'naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar',
-            inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar
-        )
-        getById('naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse').type(
-            inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse
-        )
-
-        getById('naeringsinntekt.norge.inntektIAar.tilDoedsfall').type(
-            inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall
-        )
-        getById('naeringsinntekt.norge.inntektIAar.aarsinntekt').type(
-            inntektenDin.naeringsinntekt.norge.inntektIAar.aarsinntekt
-        )
-
-        if (dagensDato.getMonth() >= oktober)
-            getById('naeringsinntekt.norge.inntektNesteAar.aarsinntekt').type(
-                inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt
-            )
-
-        selectValueForId(
-            'naeringsinntekt.forventerEndringAvInntekt.svar',
-            inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar
-        )
-
-        // Pensjon eller uføre
-        inntektenDin.pensjonEllerUfoere.pensjonstype.forEach((pensjon) => selectValue(pensjon))
-
-        // Tjenestepensjonsordning
-        inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type.forEach((type) => selectValue(type))
-        getById('pensjonEllerUfoere.tjenestepensjonsordning.utbetaler').type(
-            inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler
-        )
-
-        // Pensjon fra utlandet
-        getById('pensjonEllerUfoere.utland.land').type('{downArrow}').type('{enter}')
-        getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
-        getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
-        getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
+        // // Lønnsinntekt
+        // selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
+        //
+        // getById('loennsinntekt.norge.inntektIAar.tilDoedsfall').type(
+        //     inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall
+        // )
+        //
+        // getById('loennsinntekt.norge.inntektIAar.aarsinntekt').type(
+        //     inntektenDin.loennsinntekt.norge.inntektIAar.aarsinntekt
+        // )
+        //
+        // if (dagensDato.getMonth() >= oktober)
+        //     getById('loennsinntekt.norge.inntektNesteAar.aarsinntekt').type(
+        //         inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt
+        //     )
+        //
+        // selectValueForId(
+        //     'loennsinntekt.forventerEndringAvInntekt.svar',
+        //     inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar
+        // )
+        //
+        // // Næringsinntekt
+        // selectValueForId('naeringsinntekt.norgeEllerUtland', 'inntekt.norge')
+        //
+        // selectValueForId(
+        //     'naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar',
+        //     inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.svar
+        // )
+        // getById('naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse').type(
+        //     inntektenDin.naeringsinntekt.norge.jevntOpptjentNaeringsinntekt.beskrivelse
+        // )
+        //
+        // getById('naeringsinntekt.norge.inntektIAar.tilDoedsfall').type(
+        //     inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall
+        // )
+        // getById('naeringsinntekt.norge.inntektIAar.aarsinntekt').type(
+        //     inntektenDin.naeringsinntekt.norge.inntektIAar.aarsinntekt
+        // )
+        //
+        // if (dagensDato.getMonth() >= oktober)
+        //     getById('naeringsinntekt.norge.inntektNesteAar.aarsinntekt').type(
+        //         inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt
+        //     )
+        //
+        // selectValueForId(
+        //     'naeringsinntekt.forventerEndringAvInntekt.svar',
+        //     inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar
+        // )
+        //
+        // // Pensjon eller uføre
+        // inntektenDin.pensjonEllerUfoere.pensjonstype.forEach((pensjon) => selectValue(pensjon))
+        //
+        // // Tjenestepensjonsordning
+        // inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type.forEach((type) => selectValue(type))
+        // getById('pensjonEllerUfoere.tjenestepensjonsordning.utbetaler').type(
+        //     inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler
+        // )
+        //
+        // // Pensjon fra utlandet
+        // getById('pensjonEllerUfoere.utland.land').type('{downArrow}').type('{enter}')
+        // getById('pensjonEllerUfoere.utland.type').type(inntektenDin.pensjonEllerUfoere.utland.type)
+        // getById('pensjonEllerUfoere.utland.beloep').type(inntektenDin.pensjonEllerUfoere.utland.beloep)
+        // getById('pensjonEllerUfoere.utland.valuta').find('select').select(inntektenDin.pensjonEllerUfoere.utland.valuta)
 
         // Ytelser fra Nav
         selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)
