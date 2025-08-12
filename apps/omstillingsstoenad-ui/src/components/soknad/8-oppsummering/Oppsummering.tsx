@@ -1,9 +1,7 @@
 import { Accordion, Alert, BodyLong, Box, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link as RouterLink, useNavigate } from 'react-router-dom'
-import { StegPath } from '~typer/steg'
-import { erMellomOktoberogDesember } from '~utils/dato'
+import { useNavigate } from 'react-router-dom'
 import { sendSoeknad } from '../../../api/api'
 import { SoeknadRequest, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { mapTilBarnepensjonSoeknadListe, mapTilOmstillingsstoenadSoeknad } from '../../../api/mapper/soeknadMapper'
@@ -32,31 +30,6 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
     const [senderSoeknad, setSenderSoeknad] = useState(false)
     const [error, setError] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const fylltUtAarsinntektForNesteAar = () => {
-        if (erMellomOktoberogDesember()) {
-            const loennsinntekt = soeknad.inntektenDin.loennsinntekt
-            const naeringsinntekt = soeknad.inntektenDin.loennsinntekt
-            if (loennsinntekt) {
-                if (
-                    (loennsinntekt?.norge && loennsinntekt.norge?.inntektNesteAar?.aarsinntekt === undefined) ||
-                    (loennsinntekt?.utland && loennsinntekt.utland?.inntektNesteAar?.aarsinntekt === undefined)
-                ) {
-                    return false
-                }
-            }
-
-            if (naeringsinntekt) {
-                if (
-                    (naeringsinntekt?.norge && naeringsinntekt.norge?.inntektNesteAar?.aarsinntekt === undefined) ||
-                    (naeringsinntekt?.utland && naeringsinntekt.utland?.inntektNesteAar?.aarsinntekt === undefined)
-                ) {
-                    return false
-                }
-            }
-            return true
-        }
-        return true
-    }
 
     const send = () => {
         setSenderSoeknad(true)
@@ -117,17 +90,6 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
             </Accordion>
 
             <br />
-
-            {!fylltUtAarsinntektForNesteAar() && (
-                <Box marginBlock="0 12">
-                    <Alert variant={'error'}>
-                        {t('oppsummering.ikkeFylltUtAarsinntekt')}
-                        <RouterLink to={`/skjema/steg/${StegPath.InntektenDin}`}>
-                            {t('oppsummering.ikkeFylltUtAarsinntekt.tittel')}
-                        </RouterLink>
-                    </Alert>
-                </Box>
-            )}
 
             {error && (
                 <Box marginBlock="0 12">
