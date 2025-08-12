@@ -236,6 +236,58 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg
         )
 
+        // Forventet inntekt i år
+        getById('forventetInntektIAar.arbeidsinntekt').type(inntektenDin.forventetInntektIAar.arbeidsinntekt)
+
+        getById('forventetInntektIAar.naeringsinntekt.inntekt').type(
+            inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt
+        )
+        selectValueForId(
+            'forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg',
+            inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg
+        )
+
+        getById('forventetInntektIAar.inntektFraUtland').type(inntektenDin.forventetInntektIAar.inntektFraUtland)
+
+        selectValueForId(
+            'forventetInntektIAar.andreInntekter.valg',
+            inntektenDin.forventetInntektIAar.andreInntekter.valg
+        )
+
+        selectValueForId(
+            'forventetInntektIAar.noeSomKanPaavirkeInntekten.valg',
+            inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg
+        )
+
+        // Forventet inntekt til neste år
+        if (dagensDato.getMonth() >= oktober) {
+            getById('forventetInntektTilNesteAar.arbeidsinntekt').type(
+                inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt
+            )
+
+            getById('forventetInntektTilNesteAar.naeringsinntekt.inntekt').type(
+                inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt
+            )
+            selectValueForId(
+                'forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg',
+                inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg
+            )
+
+            getById('forventetInntektTilNesteAar.inntektFraUtland').type(
+                inntektenDin.forventetInntektTilNesteAar.inntektFraUtland
+            )
+
+            selectValueForId(
+                'forventetInntektTilNesteAar.andreInntekter.valg',
+                inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg
+            )
+
+            selectValueForId(
+                'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg',
+                inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg
+            )
+        }
+
         // Lønnsinntekt
         selectValueForId('loennsinntekt.norgeEllerUtland', 'inntekt.norge')
 
