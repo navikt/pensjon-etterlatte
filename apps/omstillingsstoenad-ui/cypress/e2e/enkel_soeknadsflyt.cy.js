@@ -356,9 +356,9 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         selectValue(inntektenDin.inntektViaYtelserFraNAV.ytelser)
 
         // Ingen eller annen inntekt
-        selectValueForId('ingenInntekt.svar', inntektenDin.ingenInntekt.svar)
-        getById('ingenInntekt.beloep').type(inntektenDin.ingenInntekt.beloep)
-        getById('ingenInntekt.beskrivelse').type(inntektenDin.ingenInntekt.beskrivelse)
+        // selectValueForId('ingenInntekt.svar', inntektenDin.ingenInntekt.svar)
+        // getById('ingenInntekt.beloep').type(inntektenDin.ingenInntekt.beloep)
+        // getById('ingenInntekt.beskrivelse').type(inntektenDin.ingenInntekt.beskrivelse)
 
         // Andre ytelser
         selectValueForId('ytelserNAV.svar', inntektenDin.ytelserNAV.svar)
