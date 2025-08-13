@@ -542,12 +542,8 @@ export default {
     'inntektenDin.ytelserAndre.pensjonsordning': 'State which pension scheme',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse':
         'Examples: Norwegian Public Service Pension Fund, Oslo Retirement Insurance',
-    'inntektenDin.ytelserAndre.pensjonsordning.info': '<MANGLER OVERSETTELSE>',
     'inntektenDin.ytelserAndre.hvorfor':
         'Some benefits are considered income, while other benefits cannot be combined with the transitional benefits.',
-    'inntektenDin.forventerEndringAvInntekt.svar': 'Do you expect your income to change in the near future?',
-    'inntektenDin.forventerEndringAvInntekt.grunn': 'What is the reason for the change?',
-    'inntektenDin.forventerEndringAvInntekt.annenGrunn': 'Provide a brief description of the changes',
     'omDeg.tittel': 'Personal data',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Information about the applicant',

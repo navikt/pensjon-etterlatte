@@ -524,12 +524,8 @@ export default {
     'inntektenDin.ytelserAndre.pensjonsordning': 'Oppgi hvilken pensjonsordning',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse':
         'Du kan oppgi flere pensjonordninger. Eksempler: Statens pensjonskasse, Oslo pensjonsforsikring.',
-    'inntektenDin.ytelserAndre.pensjonsordning.info': 'Vennligst ikke fyll inn personsensitive opplysninger.',
     'inntektenDin.ytelserAndre.hvorfor':
         'Noen ytelser regnes som inntekt, mens andre ytelser ikke kan kombineres med omstillingsstønad.',
-    'inntektenDin.forventerEndringAvInntekt.svar': 'Regner du med at inntekten din endrer seg fremover i tid?',
-    'inntektenDin.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
     'omDeg.tittel': 'Personopplysninger',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysninger om søkeren',
