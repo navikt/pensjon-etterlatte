@@ -668,28 +668,6 @@ exports[`Oppsummering > Snapshot 1`] = `
           <h1
             class="navds-heading navds-heading--small"
           >
-            inntektenDin.undertittel
-          </h1>
-          <div
-            class="tekstgruppe"
-          >
-            <label
-              class="navds-label"
-            >
-              inntektenDin.inntektstyper
-            </label>
-            <p
-              class="navds-body-short navds-body-short--medium"
-            />
-          </div>
-        </div>
-        <div
-          class="navds-r-p navds-box navds-box-bg navds-box-border-width"
-          style="--__ac-r-p-xs: var(--a-spacing-4); --__ac-box-background: var(--a-surface-default); --__ac-box-border-width: 0px;"
-        >
-          <h1
-            class="navds-heading navds-heading--small"
-          >
             inntektenDin.ytelserNAV.tittel
           </h1>
           <div
