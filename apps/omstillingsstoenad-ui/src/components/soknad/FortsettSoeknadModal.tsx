@@ -1,4 +1,4 @@
-import { Button, Heading, HStack, Modal } from '@navikt/ds-react'
+import { Button, Heading, Modal } from '@navikt/ds-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import { BodyShort, Box, Button, GuidePanel, Heading, HGrid, HStack, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, GuidePanel, Heading, HGrid, HStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { FieldArrayWithId, FormProvider, useFieldArray, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'

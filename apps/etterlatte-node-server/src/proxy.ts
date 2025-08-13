@@ -1,4 +1,4 @@
-import { Request, RequestHandler, Response } from 'express'
+import { Request, Response } from 'express'
 import { requestTokenxOboToken, validateIdportenToken } from '@navikt/oasis'
 import config from './config'
 import { logger } from './monitoring/logger'

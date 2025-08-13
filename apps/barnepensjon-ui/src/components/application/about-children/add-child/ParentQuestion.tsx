@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Box, Panel, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, VStack } from '@navikt/ds-react'
 import { useApplicationContext } from '../../../../context/application/ApplicationContext'
 import useTranslation from '../../../../hooks/useTranslation'
 import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'

@@ -1,4 +1,4 @@
-import { BodyShort, Box, Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
+import { Textarea, TextareaProps, TextField, TextFieldProps } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import { isValidBIC, isValidIBAN } from 'ibantools'
 import { get } from 'lodash'

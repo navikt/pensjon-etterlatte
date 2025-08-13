@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Box, Button, Heading, HStack, Label, Panel, ReadMore, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, Button, Heading, HStack, Label, ReadMore, VStack } from '@navikt/ds-react'
 import { fnr as fnrValidator } from '@navikt/fnrvalidator'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
