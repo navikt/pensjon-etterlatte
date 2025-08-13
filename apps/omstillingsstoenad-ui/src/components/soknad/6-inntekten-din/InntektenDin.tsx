@@ -91,7 +91,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 </Box>
 
                 <Box marginBlock="0 12">
-                    <GuidePanel>{t('inntektenDin.ingress.ny')}</GuidePanel>
+                    <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
                 </Box>
 
                 <VStack gap="12" paddingBlock="0 12">
