@@ -327,8 +327,7 @@ export default {
     'merOmSituasjonenDin.forventerEndretInntektType.bytteAvJobb': 'Bytte av jobb',
     'merOmSituasjonenDin.forventerEndretInntektType.annet': 'Andre grunner',
     'inntektenDin.tittel': 'Inntekten din',
-    // Språk keys for den nye datastrukturen
-    'inntektenDin.ingress.ny':
+    'inntektenDin.ingress':
         'Hvor mye omstillingsstønad du kan få, avhenger av hva du tjener. For at vi skal kunne regne ut riktig beløp, trenger vi informasjon om alle inntektene dine.\n\n Du må oppgi inntekten din før skatt, altså bruttoinntekten.\n\n I noen tilfeller kan du bli bedt om å dokumentere hva du tjener etter søknaden er sendt inn.',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon i år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
@@ -515,182 +514,6 @@ export default {
     'inntektenDin.ytelserAndre.hvorforViSpoer.tittel': 'Grunnen til at vi spør om dette',
     'inntektenDin.ytelserAndre.hvorforViSpoer.innhold':
         'Noen ytelser regnes som inntekt, mens andre ytelser ikke kan kombineres med omstillingsstønad.',
-    // Språk keys for den gamle datastrukturen
-    'inntektenDin.undertittel': 'Inntekt, pensjon og andre utbetalinger i Norge og i utlandet',
-    'inntektenDin.ingress':
-        'Hvor mye du kan få i omstillingsstønad avhenger av arbeidsinntekten din. Alle pengene du tjener skal tas med når den forventede inntekten beregnes.\n\n Det er viktig at du opplyser oss om brutto inntekt. Det vil si inntekten din før skattetrekk.',
-    'inntektenDin.inntektstyper': 'Velg alle typer inntekter du har',
-    'inntektenDin.loennsinntekt.tittel': 'Arbeidsinntekt',
-    'inntektenDin.loennsinntekt.ingress':
-        'Har du flere arbeidsforhold eller inntekt fra utlandet, skal du ta med dette i arbeidsinntekten du oppgir. Uføretrygd skal ikke oppgis som arbeidsinntekt. Arbeidsinntekten oppgir du i norske kroner.',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.tittel': 'Hva regnes som inntekt?',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivende inntekt regnes blant annet',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li1': 'fastlønn',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li2': 'ekstra timer og overtid',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li3': 'feriepenger',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li4': 'skattepliktig del av forsikringer',
-    'inntektenDin.loennsinntekt.hvaRegnesSominntekt.innhold.li5':
-        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjørelse for deltakelse i styrer, utvalg, representantskap eller lignende, samt kvalifiseringsstønad, omsorgslønn og fosterhjemsgodtgjørelse.',
-    'inntektenDin.loennsinntekt.norgeEllerUtland': 'Hvor har du arbeidsinntekt fra?',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.norge': 'Arbeidsinntekt i Norge',
-    'inntektenDin.loennsinntekt.norgeEllerUtland.utland': 'Arbeidsinntekt i utlandet',
-    'inntektenDin.loennsinntekt.info':
-        'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
-    'inntektenDin.loennsinntekt.bruttoinntekt':
-        'Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt. Du finner brutto arbeidsinntekt på lønnsslippen din.',
-    'inntektenDin.loennsinntekt.bruttoinntekt.utland':
-        'Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt. Du kan bli bedt om å dokumentere denne inntekten senere.',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.tittel': 'Arbeidsinntekten din året før dødsfallet',
-    'inntektenDin.loennsinntekt.norge.inntektIFjor.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer':
-        'Hva var brutto årsinntekt i dødsfallsåret?',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, kan du oppgi årsinntekten som vises på lønnsslippen for desember for det året.',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse.utland':
-        'Dersom du ikke kjenner inntekten dette året, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
-    'inntektenDin.loennsinntekt.utland.inntektIFjor.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, kan du oppgi årsinntekten som vises på lønnsslippen for desember.',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
-        'Dersom du ikke kjenner inntekten, må du anslå arbeidsinntekten for dette året.',
-    'inntektenDin.loennsinntekt.inntektIFjor.aarsinntekt.doedsfallIFjor.beskrivelse':
-        'Oppgi inntekt fra januar til og med desember.',
-    'inntektenDin.loennsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.utland.inntektIAar.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.norge.inntektIFjor.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.utland.inntektIFjor.tilDoedsfall': 'Hva var brutto arbeidsinntekt frem til dødsfallet?',
-    'inntektenDin.loennsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
-        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
-    'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
-        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
-    'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
-        'Skjedde dødsfallet i januar eller i desember?',
-    'inntektenDin.loennsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold':
-        'Hvis måneden for dødsfallet er januar, oppgir du inntekten for denne måneden. Hvis måneden for dødsfallet er desember, oppgir du hele årsinntekten.',
-    'inntektenDin.loennsinntekt.norge.inntektNesteAar.aarsinntekt':
-        'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.utland.inntektNesteAar.aarsinntekt':
-        'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto årsinntekt i år?',
-    'inntektenDin.loennsinntekt.inntektIAar.aarsinntekt.beskrivelse':
-        'Oppgi forventet inntekt fra januar til og med desember.',
-    'inntektenDin.loennsinntekt.forventerEndringAvInntekt.svar':
-        'Regner du med at inntekten din endrer seg fremover i tid?',
-    'inntektenDin.loennsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.loennsinntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
-    'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall': 'Hva var brutto årsinntekt i året før dødsfallet?',
-    'inntektenDin.loennsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
-        'Dersom du ikke kjenner inntekten, må du anslå arbeidsinntekten for dette året.',
-    'inntektenDin.naeringsinntekt.tittel': 'Næringsinntekt',
-    'inntektenDin.naeringsinntekt.ingress':
-        'All næringsinntekt fra Norge og utlandet, skal med i næringsinntekten du oppgir. Næringsinntekter oppgir du i norske kroner.',
-    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.tittel': 'Hva regnes som inntekt?',
-    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivende inntekt regnes blant annet',
-    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li1': 'næringsinntekt',
-    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li2': 'salg av næringsvirksomhet',
-    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li3': 'skattepliktig del av forsikringer',
-    'inntektenDin.naeringsinntekt.hvaRegnesSominntekt.innhold.li4':
-        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjørelse for deltakelse i styrer, utvalg, representantskap eller lignende.',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland': 'Hvor har du næringsinntekt fra?',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.norge': 'Næringsinntekt i Norge',
-    'inntektenDin.naeringsinntekt.norgeEllerUtland.utland': 'Næringsinntekt i utlandet',
-    'inntektenDin.naeringsinntekt.info':
-        'Hvis inntekten din endrer seg etter du har sendt inn søknaden, må du melde fra om endringen til oss.',
-    'inntektenDin.naeringsinntekt.bruttoinntekt':
-        'Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt.',
-    'inntektenDin.naeringsinntekt.bruttoinntekt.utland':
-        'Inntekten du oppgir, skal være brutto inntekt, altså inntekt før skatt. Du kan bli bedt om å dokumentere denne inntekten senere.',
-    'inntektenDin.naeringsinntekt.norge.inntektIFjor.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
-    'inntektenDin.naeringsinntekt.utland.inntektIFjor.aarsinntekt': 'Hva var brutto årsinntekt i fjor?',
-    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer':
-        'Hva var brutto årsinntekt i dødsfallsåret?',
-    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.doedsfallAaretFoer.beskrivelse':
-        'Dersom du ikke kjenner inntekten, må du anslå næringsinntekten for dette året.',
-    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse':
-        'Dersom fastsettelsen av inntekten fra Skatteetaten ikke er tilgjengelig, må du anslå næringsinntekten for dette året.',
-    'inntektenDin.naeringsinntekt.inntektIFjor.aarsinntekt.beskrivelse.utland':
-        'Dersom du ikke kjenner inntekten, må du anslå næringsinntekten for dette året.',
-    'inntektenDin.naeringsinntekt.norge.inntektIFjor.tilDoedsfall':
-        'Hva var brutto næringsinntekt frem til dødsfallet?',
-    'inntektenDin.naeringsinntekt.utland.inntektIFjor.tilDoedsfall':
-        'Hva var brutto næringsinntekt frem til dødsfallet?',
-    'inntektenDin.naeringsinntekt.inntektIFjor.tilDoedsfall.beskrivelse':
-        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
-    'inntektenDin.naeringsinntekt.norge.inntektIAar.tilDoedsfall': 'Hva var brutto næringsinntekt frem til dødsfallet?',
-    'inntektenDin.naeringsinntekt.utland.inntektIAar.tilDoedsfall':
-        'Hva var brutto næringsinntekt frem til dødsfallet?',
-    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.beskrivelse':
-        'Oppgi inntekt du har hatt fra januar til og med samme måned som dødsfallet.',
-    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.tittel':
-        'Skjedde dødsfallet i januar eller i desember?',
-    'inntektenDin.naeringsinntekt.inntektIAar.tilDoedsfall.hvorforSpoerVi.innhold':
-        'Hvis måneden for dødsfallet er januar, oppgir du inntekten for denne måneden. Hvis måneden for dødsfallet er desember, oppgir du hele årsinntekten.',
-    'inntektenDin.naeringsinntekt.norge.inntektNesteAar.aarsinntekt':
-        'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.naeringsinntekt.utland.inntektNesteAar.aarsinntekt':
-        'Hva forventer du i brutto årsinntekt til neste år?',
-    'inntektenDin.naeringsinntekt.inntektNesteAar.aarsinntekt.beskrivelse':
-        'Skriv hva du forventer å ha i næringsinntekt fra samme måned som dødsfallet til desember.',
-    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt': 'Hva forventer du å ha i brutto årsinntekt i år?',
-    'inntektenDin.naeringsinntekt.inntektIAar.aarsinntekt.beskrivelse':
-        'Oppgi forventet næringsinntekt fra januar til og med desember.',
-    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.svar':
-        'Er næringsinntekten opptjent jevnt i løpet av året?',
-    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse':
-        'Gi en kort beskrivelse av variasjonene i inntekten.',
-    'inntektenDin.naeringsinntekt.jevntOpptjentNaeringsinntekt.beskrivelse.beskrivelse':
-        'For eksempel når på året det er lav og høy inntekt.',
-    'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.svar':
-        'Regner du med at inntekten din endrer seg fremover i tid?',
-    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall': 'Hva var brutto årsinntekt i året før dødsfallet?',
-    'inntektenDin.naeringsinntekt.inntektAaretFoerDoedsfall.beskrivelse':
-        'Dersom du ikke kjenner inntekten, må du anslå næringsinntekten for dette året.',
-    'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.naeringsinntekt.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
-    'inntektenDin.pensjonEllerUfoere.tittel': 'Pensjon eller uføretrygd',
-    'inntektenDin.pensjonEllerUfoere.pensjonstype': 'Hvilken pensjon eller trygd har du?',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.type': 'Hva slags pensjon mottar du?',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilget': 'Når fikk du innvilget AFP?',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep':
-        'Hva er din forventede AFP-utbetaling i år, før skatt?',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.beloep.beskrivelse':
-        'Fra januar til og med desember',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.tittel':
-        'Fikk du innvilget AFP i år?',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.afpOffentlig.innvilgetIAar.innhold':
-        'Skriv forventet beløp fra måneden du fikk AFP til og med desember',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler':
-        'Hvilken tjenestepensjonsordning utbetaler pensjonen din?',
-    'inntektenDin.pensjonEllerUfoere.tjenestepensjonsordning.utbetaler.beskrivelse':
-        'Eksempler: Statens pensjonskasse, Oslo pensjonsforsikring',
-    'inntektenDin.pensjonEllerUfoere.pensjonsUtbetaler.hvorfor':
-        ' Vi må vite om utbetalingen får betydning for rett til omstillingsstønad',
-    'inntektenDin.pensjonEllerUfoere.utland.svar': 'Mottar du pensjon fra utlandet?',
-    'inntektenDin.pensjonEllerUfoere.utland.type': 'Hva slags pensjon?',
-    'inntektenDin.pensjonEllerUfoere.utland.type.beskrivelse': 'Eksempler: alderspensjon, uføretrygd',
-    'inntektenDin.pensjonEllerUfoere.utland.land': 'Hvilket land mottar du fra? ',
-    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årlig beløp',
-    'inntektenDin.pensjonEllerUfoere.utland.valuta': 'Landets valuta',
-    'inntektenDin.pensjonEllerUfoere.utland.beloepMedValuta': 'Årlig beløp i landets valuta',
-    'inntektenDin.pensjonEllerUfoere.utland.hvorfor': 'Vi må vite dette for å vurdere ditt medlemskap i Folketrygden.',
-    'inntektenDin.ingenInntekt.tittel': 'Ingen inntekt eller annen utbetaling',
-    'inntektenDin.ingenInntekt.svar': 'Har du inntekt eller noen andre utbetalinger?',
-    'inntektenDin.ingenInntekt.beloep': 'Anslå årsbeløpet for dette året',
-    'inntektenDin.ingenInntekt.beskrivelse': 'Beskriv hvilken type utbetaling du har',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.tittel': 'Hva regnes som inntekt?',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold': 'Som pensjonsgivende inntekt regnes blant annet',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li1': 'noen ytelser fra Nav',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li2': 'fastlønn',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li3': 'ekstra timer og overtid',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li4': 'næringsinntekt',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li5': 'salg av næringsvirksomhet',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li6': 'skattepliktig del av forsikringer',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li7': 'feriepenger',
-    'inntektenDin.ingenInntekt.hvaRegnesSominntekt.innhold.li8':
-        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjørelse for deltakelse i styrer, utvalg, representantskap eller lignende, samt kvalifiseringsstønad, omsorgslønn og fosterhjemsgodtgjørelse.',
-    'inntektenDin.inntektViaYtelserFraNAV.tittel': 'Ytelser fra Nav',
-    'inntektenDin.inntektViaYtelserFraNAV.ytelser': 'Hvilke inntekter eller utbetalinger har du?',
-    'inntektenDin.inntektViaYtelserFraNAV.aktivitetsplan.svar': 'Har du en aktivitetsplan?',
     'inntektenDin.ytelserNAV.tittel': 'Søknad om ytelser fra Nav',
     'inntektenDin.ytelserNAV.svar': 'Har du søkt om ytelser fra Nav som du ikke har fått svar på?',
     'inntektenDin.ytelserNAV.soekteYtelser': 'Hvilke ytelser har du søkt om?',
@@ -701,12 +524,8 @@ export default {
     'inntektenDin.ytelserAndre.pensjonsordning': 'Oppgi hvilken pensjonsordning',
     'inntektenDin.ytelserAndre.pensjonsordning.beskrivelse':
         'Du kan oppgi flere pensjonordninger. Eksempler: Statens pensjonskasse, Oslo pensjonsforsikring.',
-    'inntektenDin.ytelserAndre.pensjonsordning.info': 'Vennligst ikke fyll inn personsensitive opplysninger.',
     'inntektenDin.ytelserAndre.hvorfor':
         'Noen ytelser regnes som inntekt, mens andre ytelser ikke kan kombineres med omstillingsstønad.',
-    'inntektenDin.forventerEndringAvInntekt.svar': 'Regner du med at inntekten din endrer seg fremover i tid?',
-    'inntektenDin.forventerEndringAvInntekt.grunn': 'Hva er grunnen til endringene?',
-    'inntektenDin.forventerEndringAvInntekt.annenGrunn': 'Gi en kort beskrivelse av endringene',
     'omDeg.tittel': 'Personopplysninger',
     'omDeg.undertittel.personalia': 'Personalia',
     'omDeg.undertittel.opplysningerOmSoeker': 'Opplysninger om søkeren',

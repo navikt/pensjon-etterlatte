@@ -1,6 +1,6 @@
-import { Alert, Box, HStack, VStack } from '@navikt/ds-react'
+import { Alert, HStack, VStack } from '@navikt/ds-react'
 import ErrorStackParser from 'error-stack-parser'
-import React, { ErrorInfo, ReactNode } from 'react'
+import React, { ErrorInfo } from 'react'
 import { Link } from 'react-router-dom'
 import { logger } from '~utils/logger'
 

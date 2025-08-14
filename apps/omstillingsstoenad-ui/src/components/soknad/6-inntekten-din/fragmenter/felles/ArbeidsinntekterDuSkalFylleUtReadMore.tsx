@@ -1,4 +1,4 @@
-import { BodyShort, Box, Label, List, ReadMore, VStack } from '@navikt/ds-react'
+import { BodyShort, Label, List, ReadMore, VStack } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 
 export const ArbeidsinntekterDuSkalFylleUtReadMore = () => {

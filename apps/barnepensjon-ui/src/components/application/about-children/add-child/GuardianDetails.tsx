@@ -1,4 +1,4 @@
-import { Box, HGrid, Label, VStack } from '@navikt/ds-react'
+import { HGrid, Label, VStack } from '@navikt/ds-react'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
 import { GridColumns, GridGap } from '../../../../utils/grid'

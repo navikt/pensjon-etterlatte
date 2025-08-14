@@ -102,7 +102,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          inntektenDin.ingress.ny
+          inntektenDin.ingress
         </div>
       </div>
     </div>
@@ -3384,7 +3384,7 @@ exports[`Inntekten din > Snapshot 1`] = `
         <div
           class="navds-guide-panel__content"
         >
-          inntektenDin.ingress.ny
+          inntektenDin.ingress
         </div>
       </div>
     </div>
