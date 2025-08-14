@@ -750,7 +750,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
                 },
                 naeringsinntekt: {
                     inntekt: {
-                        spoersmaal: t('inntekt.forventetInntektIAar.naeringsinntekt.inntekt'),
+                        spoersmaal: t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt'),
                         svar: { innhold: inntektenDin.forventetInntektIAar!.naeringsinntekt!.inntekt! },
                     },
                     erNaeringsinntektOpptjentJevnt:
