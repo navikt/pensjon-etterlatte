@@ -10,3 +10,7 @@ export const erForUng = (alder: number): boolean => alder < MIN_ALDER
 export const erMyndig = (alder: number): boolean => alder >= MIN_ALDER
 
 export const erForGammel = (alder: number): boolean => alder > MAKS_ALDER
+
+export const fyllerSekstiSyvIAar = (): boolean => {
+    return true
+}

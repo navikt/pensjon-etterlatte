@@ -32,8 +32,16 @@ export const ForventetInntektIAar = () => {
                 <Heading size="small">{t('inntektenDin.forventetInntektIAar.tittel')}</Heading>
 
                 <List>
-                    <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li1')}</List.Item>
-                    <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li2')}</List.Item>
+                    {watch('skalGaaAvMedAlderspensjon.valg') === IValg.JA ? (
+                        <List.Item>
+                            {t('inntektenDin.forventetInntektIAar.innhold.li1.skalGaaAvMedAlderspensjon')}
+                        </List.Item>
+                    ) : (
+                        <>
+                            <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li1')}</List.Item>
+                            <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li2')}</List.Item>
+                        </>
+                    )}
                     <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li3')}</List.Item>
                 </List>
 
