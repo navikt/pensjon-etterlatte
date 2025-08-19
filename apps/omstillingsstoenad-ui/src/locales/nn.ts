@@ -329,6 +329,8 @@ export default {
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du ta ut alderspensjon til i år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
         'Skal du ta ut alderspensjon til neste år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.fyllerSekstiSyvIAar':
+        'Skal du ta ut alderspensjon før du fyller 67 år?',
     'feil.skalGaaAvMedAlderspensjon.valg.required': 'Du må svare på om du planlegg å gå av med alderspensjon',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan eg ta ut alderspensjon?',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':

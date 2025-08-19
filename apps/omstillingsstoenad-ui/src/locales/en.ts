@@ -340,6 +340,8 @@ export default {
         'Are you going to retire with a retirement pension this year?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
         'Are you going to retire with a retirement pension next year?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.fyllerSekstiSyvIAar':
+        'Are you going to retire with a retirement pension, before you turn 67?',
     'feil.skalGaaAvMedAlderspensjon.valg.required': 'You must answer whether you plan to retire on retirement pension',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel':
         'When can I start to receive my retirement pension?',

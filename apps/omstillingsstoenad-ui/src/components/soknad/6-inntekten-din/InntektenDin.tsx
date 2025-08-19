@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { IInntekt } from '~typer/inntekt'
+import { erEldreEnnSekstiTo } from '~utils/alder'
 import { erMellomOktoberogDesember } from '~utils/dato'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../../context/soknad/soknad'
@@ -62,17 +63,6 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
         )
     }
 
-    const erValidert = state.inntektenDin.erValidert
-
-    const skalViseFelterForSkalGaaAvMedAlderspensjon = (): boolean => {
-        if (bruker.foedselsdato) {
-            const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0))
-            return alderIAar >= 62
-        }
-
-        return false
-    }
-
     const harSvartAtGaarAvMedAlderspensjonIAar = (datoForAaGaaAvMedAlderspensjon?: string): boolean => {
         if (!!datoForAaGaaAvMedAlderspensjon) {
             return new Date(datoForAaGaaAvMedAlderspensjon).getFullYear() === new Date().getFullYear()
@@ -80,6 +70,8 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
 
         return false
     }
+
+    const erValidert = state.inntektenDin.erValidert
 
     return (
         <FormProvider {...methods}>
@@ -95,7 +87,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 </Box>
 
                 <VStack gap="12" paddingBlock="0 12">
-                    {skalViseFelterForSkalGaaAvMedAlderspensjon() ? (
+                    {erEldreEnnSekstiTo(bruker) ? (
                         <>
                             <SkalGaaAvMedAlderspensjon />
                             {!!watch('skalGaaAvMedAlderspensjon.valg') && (

@@ -1,3 +1,6 @@
+import { differenceInYears } from 'date-fns'
+import { IBruker } from '~context/bruker/bruker'
+
 const MAKS_ALDER = 67
 const MIN_ALDER = 18
 
@@ -11,6 +14,20 @@ export const erMyndig = (alder: number): boolean => alder >= MIN_ALDER
 
 export const erForGammel = (alder: number): boolean => alder > MAKS_ALDER
 
-export const fyllerSekstiSyvIAar = (): boolean => {
-    return true
+export const fyllerSekstiSyvIAar = (bruker: IBruker): boolean => {
+    if (bruker.foedselsdato) {
+        const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0, 0))
+        return alderIAar === 67
+    }
+
+    return false
+}
+
+export const erEldreEnnSekstiTo = (bruker: IBruker): boolean => {
+    if (bruker.foedselsdato) {
+        const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0, 0))
+        return alderIAar >= 62
+    }
+
+    return false
 }
