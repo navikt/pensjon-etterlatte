@@ -9,7 +9,7 @@ testcontainers-version = "1.21.3"
 flyway-version = "11.11.5"
 
 [libraries]
-navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2025080508591754377187.3bb45f5904cf" }
+navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version" }
 
