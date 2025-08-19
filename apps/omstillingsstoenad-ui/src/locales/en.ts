@@ -390,6 +390,8 @@ export default {
     'inntektenDin.forventetInntektIAar.innhold.li1': 'You must enter the income you expect to earn this year.',
     'inntektenDin.forventetInntektIAar.innhold.li1.skalGaaAvMedAlderspensjon':
         'You must fill in what you expect to earn, from January until the month prior to retiring on a retirement pension.',
+    'inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar':
+        'You must fill in what you expect to earn, from January until the end of the month in which you turn 67.',
     'inntektenDin.forventetInntektIAar.innhold.li2': 'From January up to and including December.',
     'inntektenDin.forventetInntektIAar.innhold.li3':
         'Income must be stated as gross income, i.e. income before tax is deducted.',
