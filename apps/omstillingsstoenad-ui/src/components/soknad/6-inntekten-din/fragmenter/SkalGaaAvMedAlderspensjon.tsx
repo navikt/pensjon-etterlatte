@@ -4,14 +4,28 @@ import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
 import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IInntekt } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
+import { fyllerSekstiSyvIAar } from '~utils/alder'
 import { erMellomOktoberogDesember } from '~utils/dato'
 
 export const SkalGaaAvMedAlderspensjon = () => {
     const { t } = useTranslation()
 
+    const { state: bruker } = useBrukerContext()
+
     const { watch } = useFormContext<IInntekt>()
+
+    const velgLegendTekstForSkalGaaAvMedAlderspensjon = (): string => {
+        if (fyllerSekstiSyvIAar(bruker)) {
+            return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.fyllerSekstiSyvIAar')
+        } else if (erMellomOktoberogDesember()) {
+            return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
+        } else {
+            return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
+        }
+    }
 
     const skalGaAavMedAlderspensjon = watch('skalGaaAvMedAlderspensjon')
 
@@ -20,11 +34,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
             <VStack gap="2">
                 <RHFSpoersmaalRadio
                     name={'skalGaaAvMedAlderspensjon.valg'}
-                    legend={
-                        erMellomOktoberogDesember()
-                            ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
-                            : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
-                    }
+                    legend={velgLegendTekstForSkalGaaAvMedAlderspensjon()}
                     vetIkke
                 />
                 <ReadMore header={t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel')}>

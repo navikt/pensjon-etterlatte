@@ -340,6 +340,8 @@ export default {
         'Are you going to retire with a retirement pension this year?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
         'Are you going to retire with a retirement pension next year?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.fyllerSekstiSyvIAar':
+        'Are you going to retire with a retirement pension, before you turn 67?',
     'feil.skalGaaAvMedAlderspensjon.valg.required': 'You must answer whether you plan to retire on retirement pension',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel':
         'When can I start to receive my retirement pension?',
@@ -386,6 +388,10 @@ export default {
     'feil.inntektFremTilDoedsfallet.andreInntekter.beskrivelse.required': 'Specify what type of income this relates to',
     'inntektenDin.forventetInntektIAar.tittel': 'Expected annual income this year',
     'inntektenDin.forventetInntektIAar.innhold.li1': 'You must enter the income you expect to earn this year.',
+    'inntektenDin.forventetInntektIAar.innhold.li1.skalGaaAvMedAlderspensjon':
+        'You must fill in what you expect to earn, from January until the month prior to retiring on a retirement pension.',
+    'inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar':
+        'You must fill in what you expect to earn, from January until the end of the month in which you turn 67.',
     'inntektenDin.forventetInntektIAar.innhold.li2': 'From January up to and including December.',
     'inntektenDin.forventetInntektIAar.innhold.li3':
         'Income must be stated as gross income, i.e. income before tax is deducted.',

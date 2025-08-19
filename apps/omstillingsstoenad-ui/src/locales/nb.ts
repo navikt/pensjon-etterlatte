@@ -332,6 +332,8 @@ export default {
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar': 'Skal du gå av med alderspensjon i år?',
     'inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar':
         'Skal du ta ut alderspensjon til neste år?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.valg.fyllerSekstiSyvIAar':
+        'Skal du ta ut alderspensjon før du fyller 67 år?',
     'feil.skalGaaAvMedAlderspensjon.valg.required': 'Du må svare på om du planlegger å gå av med alderspensjon',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel': 'Når kan jeg ta ut alderspensjon?',
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
@@ -373,6 +375,10 @@ export default {
     'feil.inntektFremTilDoedsfallet.andreInntekter.beskrivelse.required': 'Beskriv hva slags inntekt det gjelder',
     'inntektenDin.forventetInntektIAar.tittel': 'Forventet årsinntekt i år',
     'inntektenDin.forventetInntektIAar.innhold.li1': 'Du skal fylle inn det du forventer å tjene i år.',
+    'inntektenDin.forventetInntektIAar.innhold.li1.skalGaaAvMedAlderspensjon':
+        'Du skal fylle inn det du forventer å tjene, fra januar frem til måneden du går av med alderspensjon.',
+    'inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar':
+        'Du skal fylle inn det du forventer å tjene, fra januar til og med måneden du fyller 67 år.',
     'inntektenDin.forventetInntektIAar.innhold.li2': 'Fra januar til og med desember.',
     'inntektenDin.forventetInntektIAar.innhold.li3': 'Inntekten skal være brutto inntekt, altså inntekt før skatt.',
     'inntektenDin.forventetInntektIAar.arbeidsinntekt': 'Arbeidsinntekt og andre utbetalinger',
