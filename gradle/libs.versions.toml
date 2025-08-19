@@ -6,7 +6,7 @@ token-version = "5.0.34"
 ktor-version = "2.3.13"
 jupiter-version = "5.13.4"
 testcontainers-version = "1.21.3"
-flyway-version = "11.11.5"
+flyway-version = "11.11.1"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
