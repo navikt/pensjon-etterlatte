@@ -23,7 +23,7 @@ export const fyllerSekstiSyvIAar = (bruker: IBruker): boolean => {
     return false
 }
 
-export const erEldreEnnSekstiTo = (bruker: IBruker): boolean => {
+export const erEldreEnnSekstiEn = (bruker: IBruker): boolean => {
     if (bruker.foedselsdato) {
         const alderIAar = differenceInYears(new Date(), new Date(bruker.foedselsdato).setMonth(0, 0))
         return alderIAar >= 62

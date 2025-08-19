@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { IInntekt } from '~typer/inntekt'
-import { erEldreEnnSekstiTo } from '~utils/alder'
+import { erEldreEnnSekstiEn } from '~utils/alder'
 import { erMellomOktoberogDesember } from '~utils/dato'
 import { useSoknadContext } from '../../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../../context/soknad/soknad'
@@ -87,7 +87,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                 </Box>
 
                 <VStack gap="12" paddingBlock="0 12">
-                    {erEldreEnnSekstiTo(bruker) ? (
+                    {erEldreEnnSekstiEn(bruker) ? (
                         <>
                             <SkalGaaAvMedAlderspensjon />
                             {!!watch('skalGaaAvMedAlderspensjon.valg') && (
