@@ -362,7 +362,7 @@ export default {
     'inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt': 'Employment income and other payments received',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt': 'Business income',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg':
-        'Is the business income earned during the year?',
+        'Is the bussines income earned evenly throughout the year?',
     'feil.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg.required':
         'Respond to whether the income is evenly earned throughout the year, or not',
     'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse':
@@ -415,7 +415,7 @@ export default {
         'You must enter which occupational pension scheme you receive AFP from',
     'inntektenDin.forventetInntektIAar.inntektFraUtland': 'All income from foreign countries',
     'inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse': 'Income must be stated in Norwegian kroner (NOK)',
-    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Do you have any other income(s)?',
+    'inntektenDin.forventetInntektIAar.andreInntekter.valg': 'Did you have any other income(s)?',
     'feil.forventetInntektIAar.andreInntekter.valg.required': 'Respond to question concerning other income',
     'inntektenDin.forventetInntektIAar.andreInntekter.inntekt': 'Other income(s)',
     'inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse': 'What kind of income is this?',
