@@ -14,6 +14,7 @@ export default {
     'radiobuttons.ja': 'Yes',
     'radiobuttons.nei': 'No',
     'radiobuttons.vetIkke': 'Don’t know',
+    'radiobuttons.tarAlleredeUtAlderspensjon': '',
     'knapp.tilbake': 'Back',
     'knapp.neste': 'Next',
     'knapp.avbryt': 'Cancel',
@@ -349,6 +350,7 @@ export default {
         'You can start to receive retirement pension in the month after you turn 67.\n\n If you have high enough earnings, you can start withdrawing from the age of 62.\n\n It is important for us to know if you are planning to retire on a retirement pension so we can ensure correct payments. If you have not yet decided, remember to notify us if you wish to retire using your retirement pension.',
     'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
         'When do you plan to withdraw your retirement pension?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon': '',
     'feil.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.required':
         'You must fill in the date of retirement pension (mm.yy)',
     'inntektenDin.inntekteneDine.tittel': 'Enter your income(s)',

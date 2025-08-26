@@ -14,6 +14,7 @@ export default {
     'radiobuttons.ja': 'Ja',
     'radiobuttons.nei': 'Nei',
     'radiobuttons.vetIkke': 'Vet ikke',
+    'radiobuttons.tarAlleredeUtAlderspensjon': 'Har allerede begynt å ta ut alderspensjon',
     'knapp.tilbake': 'Tilbake',
     'knapp.neste': 'Neste',
     'knapp.avbryt': 'Avbryt',
@@ -339,6 +340,8 @@ export default {
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
         'Du kan ta ut alderspensjon fra måneden etter at du fyller 67 år.\n\n Har du høy nok opptjening, kan du starte uttak allerede fra du er 62 år. I noen unntakstilfeller kan du starte enda tidligere.\n\n Det er viktig for oss å vite om du planlegger å gå av med alderspensjon, slik at vi kan sikre riktig utbetaling. Hvis du ikke har bestemt deg ennå, må du huske å melde fra til oss hvis du ønsker å gå av med alderspensjon.',
     'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': 'Når planlegger du å ta ut alderspensjon?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon':
+        'Når startet du å ta ut alderspensjon?',
     'feil.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.required':
         'Du må fylle ut dato for alderspensjon (mm.åå)',
     'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',

@@ -10,8 +10,15 @@ export interface IInntekt {
     erValidert?: boolean
 }
 
+export enum SkalGaaAvMedAlderspensjonValg {
+    JA = 'radiobuttons.ja',
+    NEI = 'radiobuttons.nei',
+    VET_IKKE = 'radiobuttons.vetIkke',
+    TAR_ALLEREDE_UT_ALDERSPENSJON = 'radiobuttons.tarAlleredeUtAlderspensjon',
+}
+
 export interface ISkalGaaAvMedAlderspensjon {
-    valg?: IValg
+    valg?: SkalGaaAvMedAlderspensjonValg
     datoForAaGaaAvMedAlderspensjon?: string
 }
 

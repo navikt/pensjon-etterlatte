@@ -1,12 +1,11 @@
-import { ReadMore, VStack } from '@navikt/ds-react'
-import { addYears, startOfYear } from 'date-fns'
+import { RadioProps, ReadMore, VStack } from '@navikt/ds-react'
+import { addYears, endOfYear, startOfYear } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
-import { RHFSpoersmaalRadio } from '~components/felles/rhf/RHFRadio'
+import { RHFRadio } from '~components/felles/rhf/RHFRadio'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
-import { IInntekt } from '~typer/inntekt'
-import { IValg } from '~typer/Spoersmaal'
+import { IInntekt, SkalGaaAvMedAlderspensjonValg } from '~typer/inntekt'
 import { fyllerSekstiSyvIAar } from '~utils/alder'
 import { erMellomOktoberogDesember } from '~utils/dato'
 
@@ -32,17 +31,21 @@ export const SkalGaaAvMedAlderspensjon = () => {
     return (
         <VStack gap="4">
             <VStack gap="2">
-                <RHFSpoersmaalRadio
+                <RHFRadio
                     name={'skalGaaAvMedAlderspensjon.valg'}
                     legend={velgLegendTekstForSkalGaaAvMedAlderspensjon()}
-                    vetIkke
-                />
+                >
+                    {Object.values(SkalGaaAvMedAlderspensjonValg).map((value) => {
+                        return { children: t(value), value } as RadioProps
+                    })}
+                </RHFRadio>
+
                 <ReadMore header={t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel')}>
                     {t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold')}
                 </ReadMore>
             </VStack>
 
-            {skalGaAavMedAlderspensjon?.valg === IValg.JA && (
+            {skalGaAavMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.JA && (
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
                     label={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
@@ -51,6 +54,16 @@ export const SkalGaaAvMedAlderspensjon = () => {
                             ? new Date(addYears(new Date(startOfYear(new Date())), 1))
                             : new Date(startOfYear(new Date()))
                     }
+                />
+            )}
+
+            {skalGaAavMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON && (
+                <Maanedvelger
+                    name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
+                    label={t(
+                        'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
+                    )}
+                    toDate={endOfYear(new Date())}
                 />
             )}
         </VStack>
