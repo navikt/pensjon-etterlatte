@@ -32,6 +32,13 @@ export enum JaNeiVetIkke {
     VET_IKKE = 'VET_IKKE',
 }
 
+export enum SkalGaaAvMedAlderspensjonValgSvar {
+    JA = 'JA',
+    NEI = 'NEI',
+    VET_IKKE = 'VET_IKKE',
+    TAR_ALLEREDE_UT_ALDERSPENSJON = 'TAR_ALLEREDE_UT_ALDERSPENSJON',
+}
+
 export interface Utenlandsadresse {
     land: Opplysning<FritekstSvar>
     adresse: Opplysning<FritekstSvar>
@@ -136,7 +143,7 @@ export interface InntektOgPensjon {
 }
 
 export interface SkalGaaAvMedAlderspensjon {
-    valg?: Opplysning<EnumSvar<JaNeiVetIkke>>
+    valg?: Opplysning<EnumSvar<SkalGaaAvMedAlderspensjonValgSvar>>
     datoForAaGaaAvMedAlderspensjon?: Opplysning<DatoSvar>
 }
 

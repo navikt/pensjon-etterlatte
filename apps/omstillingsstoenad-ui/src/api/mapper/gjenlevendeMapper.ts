@@ -4,7 +4,7 @@ import { skalViseAFPFelter } from '~components/soknad/6-inntekten-din/fragmenter
 import { IBruker } from '../../context/bruker/bruker'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
-import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '../../typer/inntekt'
+import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '../../typer/inntekt'
 import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
 import { IValg } from '../../typer/Spoersmaal'
 import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
@@ -42,7 +42,7 @@ import {
     YtelserNav,
 } from '../dto/FellesOpplysninger'
 import { Gjenlevende, PersonType, Samboer } from '../dto/Person'
-import { valgTilSvar } from './fellesMapper'
+import { skalGaaAvMedAlderspensjonValgTilSvar, valgTilSvar } from './fellesMapper'
 import {
     konverterGrunnTilPaavirkelseAvInntekt,
     konverterIngenJobb,
@@ -629,10 +629,12 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
                 spoersmaal: erMellomOktoberogDesember()
                     ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
                     : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar'),
-                svar: valgTilSvar(t, inntektenDin.skalGaaAvMedAlderspensjon!.valg!),
+                svar: skalGaaAvMedAlderspensjonValgTilSvar(t, inntektenDin.skalGaaAvMedAlderspensjon!.valg!),
             },
             datoForAaGaaAvMedAlderspensjon:
-                inntektenDin.skalGaaAvMedAlderspensjon!.valg! === IValg.JA
+                inntektenDin.skalGaaAvMedAlderspensjon!.valg! === SkalGaaAvMedAlderspensjonValg.JA ||
+                inntektenDin.skalGaaAvMedAlderspensjon!.valg! ===
+                    SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON
                     ? {
                           spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'),
                           svar: {
