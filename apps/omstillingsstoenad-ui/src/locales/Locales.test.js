@@ -46,14 +46,14 @@ describe('Validering av språkfiler', () => {
         expect(enCount).toEqual(nnCount)
     })
 
-    function finnesTommeVerdier(locale) {
-        return Object.keys(locale).filter((key) => !locale[key]).length
-    }
-
-    function inneholderSammeNoekler(obj1, obj2) {
-        const o1 = Object.keys(obj1)
-        const o2 = Object.keys(obj2)
-
-        return o1.filter((key) => !o2.includes(key))
-    }
+    // function finnesTommeVerdier(locale) {
+    //     return Object.keys(locale).filter((key) => !locale[key]).length
+    // }
+    //
+    // function inneholderSammeNoekler(obj1, obj2) {
+    //     const o1 = Object.keys(obj1)
+    //     const o2 = Object.keys(obj2)
+    //
+    //     return o1.filter((key) => !o2.includes(key))
+    // }
 })
