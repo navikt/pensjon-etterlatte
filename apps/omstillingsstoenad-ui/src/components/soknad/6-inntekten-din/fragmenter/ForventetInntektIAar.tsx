@@ -39,12 +39,16 @@ export const ForventetInntektIAar = () => {
                         </List.Item>
                     ) : (
                         <>
-                            <List.Item>
-                                {fyllerSekstiSyvIAar(bruker)
-                                    ? t('inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar')
-                                    : t('inntektenDin.forventetInntektIAar.innhold.li1')}
-                            </List.Item>
-                            <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li2')}</List.Item>
+                            {fyllerSekstiSyvIAar(bruker) ? (
+                                <List.Item>
+                                    {t('inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar')}
+                                </List.Item>
+                            ) : (
+                                <>
+                                    <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li1')}</List.Item>
+                                    <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li2')}</List.Item>
+                                </>
+                            )}
                         </>
                     )}
                     <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li3')}</List.Item>
