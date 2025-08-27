@@ -38,7 +38,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
                                 : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
                         }
-                        innhold={inntektenDin.skalGaaAvMedAlderspensjon?.valg}
+                        innhold={t(inntektenDin.skalGaaAvMedAlderspensjon?.valg || '')}
                     />
 
                     {inntektenDin.skalGaaAvMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.JA && (
