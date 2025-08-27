@@ -47,6 +47,16 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                             innhold={inntektenDin.skalGaaAvMedAlderspensjon?.datoForAaGaaAvMedAlderspensjon}
                         />
                     )}
+
+                    {inntektenDin.skalGaaAvMedAlderspensjon?.valg ===
+                        SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON && (
+                        <TekstGruppe
+                            tittel={t(
+                                'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
+                            )}
+                            innhold={inntektenDin.skalGaaAvMedAlderspensjon?.datoForAaGaaAvMedAlderspensjon}
+                        />
+                    )}
                 </Panel>
             )}
 

@@ -636,7 +636,9 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
                 inntektenDin.skalGaaAvMedAlderspensjon!.valg! ===
                     SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON
                     ? {
-                          spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'),
+                          spoersmaal: t(
+                              'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
+                          ),
                           svar: {
                               innhold: inntektenDin.skalGaaAvMedAlderspensjon!.datoForAaGaaAvMedAlderspensjon!,
                           },
