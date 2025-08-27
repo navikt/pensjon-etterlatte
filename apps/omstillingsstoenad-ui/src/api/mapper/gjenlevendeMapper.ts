@@ -4,7 +4,12 @@ import { skalViseAFPFelter } from '~components/soknad/6-inntekten-din/fragmenter
 import { IBruker } from '../../context/bruker/bruker'
 import { ISoeknad } from '../../context/soknad/soknad'
 import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
-import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '../../typer/inntekt'
+import {
+    GrunnTilPaavirkelseAvInntekt,
+    IInntekt,
+    ISkalGaaAvMedAlderspensjon,
+    SkalGaaAvMedAlderspensjonValg,
+} from '../../typer/inntekt'
 import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
 import { IValg } from '../../typer/Spoersmaal'
 import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
@@ -615,6 +620,27 @@ const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin)
     }
 }
 
+const mapDatoForAaGaaAvMedAlderspensjon = (
+    t: TFunction,
+    skalGaaAvMedAlderspensjon: ISkalGaaAvMedAlderspensjon
+): Opplysning<DatoSvar> | undefined => {
+    if (skalGaaAvMedAlderspensjon.valg === SkalGaaAvMedAlderspensjonValg.JA) {
+        return {
+            spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'),
+            svar: { innhold: skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon! },
+        }
+    } else if (skalGaaAvMedAlderspensjon.valg === SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON) {
+        return {
+            spoersmaal: t(
+                'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
+            ),
+            svar: { innhold: skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon! },
+        }
+    } else {
+        return undefined
+    }
+}
+
 const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBruker): InntektOgPensjon => {
     const harMulighetTilAaGaaAvMedAlderspensjon = differenceInYears(new Date(), bruker.foedselsdato!) >= 62
 
@@ -631,19 +657,10 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
                     : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar'),
                 svar: skalGaaAvMedAlderspensjonValgTilSvar(t, inntektenDin.skalGaaAvMedAlderspensjon!.valg!),
             },
-            datoForAaGaaAvMedAlderspensjon:
-                inntektenDin.skalGaaAvMedAlderspensjon!.valg! === SkalGaaAvMedAlderspensjonValg.JA ||
-                inntektenDin.skalGaaAvMedAlderspensjon!.valg! ===
-                    SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON
-                    ? {
-                          spoersmaal: t(
-                              'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
-                          ),
-                          svar: {
-                              innhold: inntektenDin.skalGaaAvMedAlderspensjon!.datoForAaGaaAvMedAlderspensjon!,
-                          },
-                      }
-                    : undefined,
+            datoForAaGaaAvMedAlderspensjon: mapDatoForAaGaaAvMedAlderspensjon(
+                t,
+                inntektenDin.skalGaaAvMedAlderspensjon!
+            ),
         }
     }
 
