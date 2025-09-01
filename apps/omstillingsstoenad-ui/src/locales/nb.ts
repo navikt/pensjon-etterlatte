@@ -346,7 +346,7 @@ export default {
         'Du må fylle ut dato for alderspensjon (mm.åå)',
     'inntektenDin.alderspensjonOgOmstillingsstoenad.tittel': 'Alderspensjon og omstillingsstønad',
     'inntektenDin.alderspensjonOgOmstillingsstoenad.innhold':
-        'Omstillingsstønaden stopper senest når du fyller 67 år, eller hvis du tar ut alderspensjon før du fyller 67 år.\n\n For å få pensjon etter at du blir 67 år, må du søke om alderspensjon.\n\n Hvis du er født før 1963, kan du ha rett til gjenlevenderett i alderspensjonen.\n\n Hvis du tok ut alderspensjon fra folketrygden før du fylte 67 år, men stoppet utbetalingen helt, kan du likevel ha rett på omstillingsstønad. Utbetalingen må ha vært stoppet før dødsfallet skjedde.',
+        'Omstillingsstønaden stopper senest når du fyller 67 år, eller hvis du tar ut alderspensjon før du fyller 67 år.\n\n For å få pensjon etter at du blir 67 år, må du <a href="https://www.nav.no/alderspensjon#soke">søke om alderspensjon</a>.\n\n Hvis du er født før 1963, kan du ha rett til <a href="https://www.nav.no/alderspensjon#gjenlevende">gjenlevenderett i alderspensjonen</a>.\n\n Hvis du tok ut alderspensjon fra folketrygden før du fylte 67 år, men stoppet utbetalingen helt, kan du likevel ha rett på omstillingsstønad. Utbetalingen må ha vært stoppet før dødsfallet skjedde.',
     'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Inntekt frem til dødsfallet',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
