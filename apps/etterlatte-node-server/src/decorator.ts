@@ -1,7 +1,7 @@
-import { injectDecoratorServerSide, DecoratorFetchProps } from '@navikt/nav-dekoratoren-moduler/ssr'
-import { Request, RequestHandler, Response } from 'express'
+import { type DecoratorFetchProps, injectDecoratorServerSide } from '@navikt/nav-dekoratoren-moduler/ssr'
+import type { Request, RequestHandler, Response } from 'express'
 import config from './config'
-import {logger} from "./monitoring/logger";
+import { logger } from './monitoring/logger'
 
 const { isProdCluster } = config.env
 
@@ -11,11 +11,10 @@ const props: DecoratorFetchProps = {
     env,
     serviceDiscovery: true,
     params: {
-        urlLookupTable: false,
         context: 'privatperson',
         simple: true,
-        logoutWarning: true
-    }
+        logoutWarning: true,
+    },
 }
 
 export default function decorator(filePath: string): RequestHandler {
