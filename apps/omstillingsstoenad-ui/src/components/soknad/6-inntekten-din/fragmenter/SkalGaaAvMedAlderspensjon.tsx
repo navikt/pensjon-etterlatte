@@ -1,4 +1,4 @@
-import { RadioProps, ReadMore, VStack } from '@navikt/ds-react'
+import { BodyShort, Link, RadioProps, ReadMore, VStack } from '@navikt/ds-react'
 import { addYears, endOfYear, startOfYear } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -45,7 +45,22 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 </ReadMore>
 
                 <ReadMore header={t('inntektenDin.alderspensjonOgOmstillingsstoenad.tittel')}>
-                    {t('inntektenDin.alderspensjonOgOmstillingsstoenad.innhold')}
+                    <VStack gap="4">
+                        <BodyShort>{t('inntektenDin.alderspensjonOgOmstillingsstoenad.p1')}</BodyShort>
+                        <BodyShort>
+                            {t('inntektenDin.alderspensjonOgOmstillingsstoenad.p2')}{' '}
+                            <Link href={t('inntektenDin.alderspensjonOgOmstillingsstoenad.p2.lenke.href')}>
+                                {t('inntektenDin.alderspensjonOgOmstillingsstoenad.p2.lenke.tekst')}
+                            </Link>
+                        </BodyShort>
+                        <BodyShort>
+                            {t('inntektenDin.alderspensjonOgOmstillingsstoenad.p3')}{' '}
+                            <Link href={t('inntektenDin.alderspensjonOgOmstillingsstoenad.p3.lenke.href')}>
+                                {t('inntektenDin.alderspensjonOgOmstillingsstoenad.p3.lenke.tekst')}
+                            </Link>
+                        </BodyShort>
+                        <BodyShort>{t('inntektenDin.alderspensjonOgOmstillingsstoenad.p4')}</BodyShort>
+                    </VStack>
                 </ReadMore>
             </VStack>
 

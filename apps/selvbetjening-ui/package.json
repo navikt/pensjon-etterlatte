@@ -42,6 +42,7 @@
         "axe-core": "^4.10.2",
         "concurrently": "^9.2.0",
         "cypress-axe": "^1.7.0",
+        "concurrently": "^9.2.1",
         "globals": "^16.2.0",
         "husky": "~9.1.7",
         "license-checker-rseidelsohn": "^4.4.2",

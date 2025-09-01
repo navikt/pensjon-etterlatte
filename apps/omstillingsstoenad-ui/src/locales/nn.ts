@@ -342,8 +342,16 @@ export default {
     'feil.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.required':
         'Du må fylle ut dato for alderspensjon (mm.åå)',
     'inntektenDin.alderspensjonOgOmstillingsstoenad.tittel': 'Alderspensjon og omstillingsstønad',
-    'inntektenDin.alderspensjonOgOmstillingsstoenad.innhold':
-        'Omstillingsstønaden stoppar seinast når du fyller 67 år, eller dersom du tek ut alderspensjon før du fyller 67 år.\n\n For å få pensjon etter at du blir 67 år må du søkje om alderspensjon.\n\n Dersom du er fødd før 1963, kan du ha rett på attlevanderett i alderspensjonen.\n\n Dersom du tok ut alderspensjon frå folketrygda før du fylte 67 år, men stoppa utbetalinga heilt, kan du likevel ha rett på omstillingsstønad. Utbetalinga må ha vore stoppa før dødsfallet skjedde.',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p1':
+        'Omstillingsstønaden stoppar seinast når du fyller 67 år, eller dersom du tek ut alderspensjon før du fyller 67 år.',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p2': 'For å få pensjon etter at du blir 67 år må du',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p2.lenke.tekst': 'søkje om alderspensjon.',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p2.lenke.href': 'https://www.nav.no/alderspensjon#soke',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p3': 'Dersom du er fødd før 1963, kan du ha rett på',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p3.lenke.tekst': 'attlevanderett i alderspensjonen.',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p3.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.p4':
+        'Dersom du tok ut alderspensjon frå folketrygda før du fylte 67 år, men stoppa utbetalinga heilt, kan du likevel ha rett på omstillingsstønad. Utbetalinga må ha vore stoppa før dødsfallet skjedde.',
     'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Inntekt fram til dødsfallet',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
