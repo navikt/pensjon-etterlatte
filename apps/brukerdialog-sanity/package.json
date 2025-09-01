@@ -21,15 +21,15 @@
   "dependencies": {
     "@sanity/export": "^3.45.2",
     "@sanity/vision": "^4.2.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "sanity": "^4.2.0",
     "styled-components": "^6.1",
     "tsx": "^4.20.3"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
-    "@types/react": "^19.1.8",
+    "@types/react": "^19.1.12",
     "eslint": "^9.34.0",
     "typescript": "^5.9.2",
     "prettier": "^3.6.2"
