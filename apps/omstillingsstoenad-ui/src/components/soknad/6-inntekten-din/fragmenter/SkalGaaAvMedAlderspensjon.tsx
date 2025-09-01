@@ -43,6 +43,10 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 <ReadMore header={t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.tittel')}>
                     {t('inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold')}
                 </ReadMore>
+
+                <ReadMore header={t('inntektenDin.alderspensjonOgOmstillingsstoenad.tittel')}>
+                    {t('inntektenDin.alderspensjonOgOmstillingsstoenad.innhold')}
+                </ReadMore>
             </VStack>
 
             {skalGaAavMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.JA && (
