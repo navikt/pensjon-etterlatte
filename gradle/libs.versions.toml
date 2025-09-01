@@ -6,7 +6,7 @@ token-version = "5.0.34"
 ktor-version = "2.3.13"
 jupiter-version = "5.13.4"
 testcontainers-version = "1.21.3"
-flyway-version = "11.11.1"
+flyway-version = "11.11.2"
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
@@ -27,7 +27,7 @@ ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-vers
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version" }
 
-database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "7.0.1" }
+database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "7.0.2" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
 database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.7" }
@@ -46,9 +46,9 @@ micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus
 
 mockk = { module = "io.mockk:mockk", version = "1.14.5" }
 
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "5.9.1" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.0.1" }
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
 
-unleash-client = { module = "io.getunleash:unleash-client-java", version = "11.0.2" }
+unleash-client = { module = "io.getunleash:unleash-client-java", version = "11.1.0" }
