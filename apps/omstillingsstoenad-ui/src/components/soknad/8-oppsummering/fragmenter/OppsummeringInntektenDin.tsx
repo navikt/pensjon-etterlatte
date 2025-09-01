@@ -2,7 +2,7 @@ import { Heading } from '@navikt/ds-react'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { erMellomOktoberogDesember } from '~utils/dato'
-import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '../../../../typer/inntekt'
+import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { Panel } from '../../../felles/Panel'
@@ -32,18 +32,28 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                             : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}
                     </Heading>
 
-                    <TekstGruppeJaNeiVetIkke
+                    <TekstGruppe
                         tittel={
                             erMellomOktoberogDesember()
                                 ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
                                 : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
                         }
-                        innhold={inntektenDin.skalGaaAvMedAlderspensjon?.valg}
+                        innhold={t(inntektenDin.skalGaaAvMedAlderspensjon?.valg || '')}
                     />
 
-                    {inntektenDin.skalGaaAvMedAlderspensjon?.valg === IValg.JA && (
+                    {inntektenDin.skalGaaAvMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.JA && (
                         <TekstGruppe
                             tittel={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
+                            innhold={inntektenDin.skalGaaAvMedAlderspensjon?.datoForAaGaaAvMedAlderspensjon}
+                        />
+                    )}
+
+                    {inntektenDin.skalGaaAvMedAlderspensjon?.valg ===
+                        SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON && (
+                        <TekstGruppe
+                            tittel={t(
+                                'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
+                            )}
                             innhold={inntektenDin.skalGaaAvMedAlderspensjon?.datoForAaGaaAvMedAlderspensjon}
                         />
                     )}

@@ -14,6 +14,7 @@ export default {
     'radiobuttons.ja': 'Yes',
     'radiobuttons.nei': 'No',
     'radiobuttons.vetIkke': 'Don’t know',
+    'radiobuttons.tarAlleredeUtAlderspensjon': 'Have already started withdrawing retirement pension',
     'knapp.tilbake': 'Back',
     'knapp.neste': 'Next',
     'knapp.avbryt': 'Cancel',
@@ -349,8 +350,13 @@ export default {
         'You can start to receive retirement pension in the month after you turn 67.\n\n If you have high enough earnings, you can start withdrawing from the age of 62.\n\n It is important for us to know if you are planning to retire on a retirement pension so we can ensure correct payments. If you have not yet decided, remember to notify us if you wish to retire using your retirement pension.',
     'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon':
         'When do you plan to withdraw your retirement pension?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon':
+        'When did you start withdrawing your retirement pension?',
     'feil.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.required':
         'You must fill in the date of retirement pension (mm.yy)',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.tittel': 'Retirement pension and adjustment allowance',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.innhold':
+        'When you turn 67 years old, or if you start claiming retirement pension before you turn 67, payment of adjustment allowance will cease.\n\n In order to claim retirement pension after you turn 67 years old, you must apply for retirement pension.\n\n If you were born before 1963, you may be entitled to a survivor’s supplement as part of your pension.\n\n If you started claiming retirement pension from National Insurance before you turned 67 years old, but then suspended payments completely, you may still be entitled to adjustment allowance. In order to qualify, payments must have been suspended before the death.',
     'inntektenDin.inntekteneDine.tittel': 'Enter your income(s)',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Income up to the date of death',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':

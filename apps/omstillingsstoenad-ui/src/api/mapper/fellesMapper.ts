@@ -1,11 +1,17 @@
 import { TFunction } from 'i18next'
+import { SkalGaaAvMedAlderspensjonValg } from '~typer/inntekt'
+import { IBruker } from '../../context/bruker/bruker'
+import { ISoeknad } from '../../context/soknad/soknad'
 import { BarnRelasjon, IBarn } from '../../typer/person'
+import { IValg } from '../../typer/Spoersmaal'
+import { BankkontoType as GammelBankkontoType, IUtbetalingsInformasjon } from '../../typer/utbetaling'
 import {
     BankkontoType,
     BetingetOpplysning,
     EnumSvar,
     JaNeiVetIkke,
     Opplysning,
+    SkalGaaAvMedAlderspensjonValgSvar,
     UtbetalingsInformasjon,
     Utenlandsadresse,
 } from '../dto/FellesOpplysninger'
@@ -20,12 +26,8 @@ import {
     PersonType,
     Verge,
 } from '../dto/Person'
-import { BankkontoType as GammelBankkontoType, IUtbetalingsInformasjon } from '../../typer/utbetaling'
-import { IValg } from '../../typer/Spoersmaal'
-import { ISoeknad } from '../../context/soknad/soknad'
-import { IBruker } from '../../context/bruker/bruker'
-import { mapGjenlevende } from './gjenlevendeMapper'
 import { mapAvdoed } from './avdoedMapper'
+import { mapGjenlevende } from './gjenlevendeMapper'
 
 export const valgTilSvar = (t: TFunction, valg: IValg): EnumSvar<JaNeiVetIkke> => {
     switch (valg!) {
@@ -43,6 +45,36 @@ export const valgTilSvar = (t: TFunction, valg: IValg): EnumSvar<JaNeiVetIkke> =
             return {
                 verdi: JaNeiVetIkke.VET_IKKE,
                 innhold: t(IValg.VET_IKKE),
+            }
+        default:
+            throw Error()
+    }
+}
+
+export const skalGaaAvMedAlderspensjonValgTilSvar = (
+    t: TFunction,
+    skalGaaAvMedAlderspensjonValg: SkalGaaAvMedAlderspensjonValg
+): EnumSvar<SkalGaaAvMedAlderspensjonValgSvar> => {
+    switch (skalGaaAvMedAlderspensjonValg!) {
+        case SkalGaaAvMedAlderspensjonValg.JA:
+            return {
+                verdi: SkalGaaAvMedAlderspensjonValgSvar.JA,
+                innhold: t(SkalGaaAvMedAlderspensjonValg.JA),
+            }
+        case SkalGaaAvMedAlderspensjonValg.NEI:
+            return {
+                verdi: SkalGaaAvMedAlderspensjonValgSvar.NEI,
+                innhold: t(SkalGaaAvMedAlderspensjonValg.NEI),
+            }
+        case SkalGaaAvMedAlderspensjonValg.VET_IKKE:
+            return {
+                verdi: SkalGaaAvMedAlderspensjonValgSvar.VET_IKKE,
+                innhold: t(SkalGaaAvMedAlderspensjonValg.VET_IKKE),
+            }
+        case SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON:
+            return {
+                verdi: SkalGaaAvMedAlderspensjonValgSvar.TAR_ALLEREDE_UT_ALDERSPENSJON,
+                innhold: t(SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON),
             }
         default:
             throw Error()

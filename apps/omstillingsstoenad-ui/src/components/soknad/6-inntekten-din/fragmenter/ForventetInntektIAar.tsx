@@ -10,7 +10,7 @@ import { InntekterFraUtlandDuSkalFylleUt } from '~components/soknad/6-inntekten-
 import { NaeringsinntekterDuSkalFylleUtReadMore } from '~components/soknad/6-inntekten-din/fragmenter/felles/NaeringsinntekterDuSkalFylleUtReadMore'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import Bredde from '~typer/bredde'
-import { GrunnTilPaavirkelseAvInntekt, IInntekt } from '~typer/inntekt'
+import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '~typer/inntekt'
 import { IValg } from '~typer/Spoersmaal'
 import { fyllerSekstiSyvIAar } from '~utils/alder'
 
@@ -33,18 +33,22 @@ export const ForventetInntektIAar = () => {
                 <Heading size="small">{t('inntektenDin.forventetInntektIAar.tittel')}</Heading>
 
                 <List>
-                    {watch('skalGaaAvMedAlderspensjon.valg') === IValg.JA ? (
+                    {watch('skalGaaAvMedAlderspensjon.valg') === SkalGaaAvMedAlderspensjonValg.JA ? (
                         <List.Item>
                             {t('inntektenDin.forventetInntektIAar.innhold.li1.skalGaaAvMedAlderspensjon')}
                         </List.Item>
                     ) : (
                         <>
-                            <List.Item>
-                                {fyllerSekstiSyvIAar(bruker)
-                                    ? t('inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar')
-                                    : t('inntektenDin.forventetInntektIAar.innhold.li1')}
-                            </List.Item>
-                            <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li2')}</List.Item>
+                            {fyllerSekstiSyvIAar(bruker) ? (
+                                <List.Item>
+                                    {t('inntektenDin.forventetInntektIAar.innhold.li1.fyllerSekstiSyvIAar')}
+                                </List.Item>
+                            ) : (
+                                <>
+                                    <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li1')}</List.Item>
+                                    <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li2')}</List.Item>
+                                </>
+                            )}
                         </>
                     )}
                     <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li3')}</List.Item>

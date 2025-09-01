@@ -14,6 +14,7 @@ export default {
     'radiobuttons.ja': 'Ja',
     'radiobuttons.nei': 'Nei',
     'radiobuttons.vetIkke': 'Veit ikkje',
+    'radiobuttons.tarAlleredeUtAlderspensjon': 'Har allereie begynt å ta ut alderspensjon',
     'knapp.tilbake': 'Tilbake',
     'knapp.neste': 'Neste',
     'knapp.avbryt': 'Avbryt',
@@ -336,8 +337,13 @@ export default {
     'inntektenDin.skalGaaAvMedAlderspensjon.naarKanJegTaUtAlderspensjon.innhold':
         'Du kan ta ut alderspensjon frå månaden etter at du fyller 67 år.\n\n Viss du har høg nok opptening, kan du starte uttak allereie frå du er 62 år.\n\n Det er viktig for oss å vite om du planlegg å gå av med alderspensjon, slik at vi kan sikre rett utbetaling. Dersom du ikkje har bestemt deg enno, må du hugse å melde frå til oss dersom du ønskjer å gå av med alderspensjon.',
     'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon': 'Når planlegg du å ta ut alderspensjon?',
+    'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon':
+        'Når starta du å ta ut alderspensjon?',
     'feil.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.required':
         'Du må fylle ut dato for alderspensjon (mm.åå)',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.tittel': 'Alderspensjon og omstillingsstønad',
+    'inntektenDin.alderspensjonOgOmstillingsstoenad.innhold':
+        'Omstillingsstønaden stoppar seinast når du fyller 67 år, eller dersom du tek ut alderspensjon før du fyller 67 år.\n\n For å få pensjon etter at du blir 67 år må du søkje om alderspensjon.\n\n Dersom du er fødd før 1963, kan du ha rett på attlevanderett i alderspensjonen.\n\n Dersom du tok ut alderspensjon frå folketrygda før du fylte 67 år, men stoppa utbetalinga heilt, kan du likevel ha rett på omstillingsstønad. Utbetalinga må ha vore stoppa før dødsfallet skjedde.',
     'inntektenDin.inntekteneDine.tittel': 'Fyll inn inntektene dine',
     'inntektenDin.inntektFremTilDoedsfallet.tittel': 'Inntekt fram til dødsfallet',
     'inntektenDin.inntektFremTilDoedsfallet.innhold.li1':
