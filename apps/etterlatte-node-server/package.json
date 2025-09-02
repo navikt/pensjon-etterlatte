@@ -10,6 +10,7 @@
         "@navikt/oasis": "^3.8.0",
         "@sanity/client": "^7.8.1",
         "cls-rtracer": "^2.6.0",
+        "csp-header": "^6.1.0",
         "dotenv": "^16.5.0",
         "express": "^5.1.0",
         "jsdom": ">=26.x",

@@ -721,6 +721,11 @@ cross-spawn@^7.0.0:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+csp-header@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/csp-header/-/csp-header-6.1.0.tgz#248e36ec8206493103fcdc75233fff222508970a"
+  integrity sha512-vtQIp6C6Pt5vd48fa3wiq3OirDG+Efo3vouLVEeJSJVe+LdpAFZw/IxV77BsDTMtVwzVT78xJ4zRykJoDx+ZeA==
+
 cssstyle@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/cssstyle/-/cssstyle-4.2.1.tgz#5142782410fea95db66fb68147714a652a7c2381"
