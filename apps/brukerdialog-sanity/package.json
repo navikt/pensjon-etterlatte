@@ -19,11 +19,11 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/export": "^3.45.2",
-    "@sanity/vision": "^4.2.0",
+    "@sanity/export": "^4.0.1",
+    "@sanity/vision": "^4.10.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "sanity": "^4.2.0",
+    "sanity": "^4.10.2",
     "styled-components": "^6.1",
     "tsx": "^4.20.3"
   },
@@ -31,7 +31,7 @@
     "@sanity/eslint-config-studio": "^5.0.2",
     "@types/react": "^19.1.12",
     "eslint": "^9.36.0",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "prettier": "^3.6.2"
   },
   "prettier": {
