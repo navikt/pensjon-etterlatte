@@ -1,10 +1,10 @@
 import { FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SideLaster } from '../../common/SideLaster.tsx'
 import { apiURL, poster } from '../../common/api/api.ts'
 import { logger } from '../../common/logger/logger.ts'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
@@ -69,12 +69,6 @@ export const MeldInnEndringOppsummering = () => {
                                 <FormSummary.Heading level="2">
                                     {innhold.skjemaSammendrag?.tittel?.[spraak]}
                                 </FormSummary.Heading>
-                                <FormSummary.EditLink
-                                    href="#"
-                                    onClick={() => navigate('/meld-inn-endring/meld-fra-om-endring')}
-                                >
-                                    {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
-                                </FormSummary.EditLink>
                             </FormSummary.Header>
                             <FormSummary.Answers>
                                 <FormSummary.Answer>
@@ -94,6 +88,14 @@ export const MeldInnEndringOppsummering = () => {
                                     </FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
+                            <FormSummary.Footer>
+                                <FormSummary.EditLink
+                                    href="#"
+                                    onClick={() => navigate('/meld-inn-endring/meld-fra-om-endring')}
+                                >
+                                    {innhold.skjemaSammendrag?.endreSvarLenke?.tekst?.[spraak]}
+                                </FormSummary.EditLink>
+                            </FormSummary.Footer>
                         </FormSummary>
 
                         {apiFeil && <FeilIOppretelseAvEndring />}

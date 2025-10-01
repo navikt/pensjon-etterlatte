@@ -40,7 +40,6 @@
         "@types/react-dom": "^19.1.9",
         "@vitejs/plugin-react": "^4.3.3",
         "axe-core": "^4.10.2",
-        "concurrently": "^9.2.0",
         "cypress-axe": "^1.7.0",
         "concurrently": "^9.2.1",
         "globals": "^16.4.0",
