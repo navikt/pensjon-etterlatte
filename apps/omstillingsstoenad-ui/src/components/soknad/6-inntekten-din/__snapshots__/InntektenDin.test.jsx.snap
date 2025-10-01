@@ -248,7 +248,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-«r1b»"
+                  id="textField-error-«r1t»"
                 />
               </div>
               <div
@@ -809,7 +809,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-«r1d»"
+                  id="textField-error-«r1v»"
                 />
               </div>
               <div
@@ -931,12 +931,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </label>
                 <div
                   class="navds-form-field__description navds-body-short navds-body-short--medium"
-                  id="textField-description-«r1f»"
+                  id="textField-description-«r21»"
                 >
                   inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland.beskrivelse
                 </div>
                 <input
-                  aria-describedby="textField-description-«r1f»"
+                  aria-describedby="textField-description-«r21»"
                   class="navds-text-field__input navds-body-short navds-body-short--medium"
                   id="inntektFremTilDoedsfallet.inntektFraUtland"
                   inputmode="numeric"
@@ -947,7 +947,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-«r1f»"
+                  id="textField-error-«r21»"
                 />
               </div>
               <div
@@ -1361,12 +1361,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               id="inntektFremTilDoedsfallet.andreInntekter.valg"
             >
               <fieldset
-                aria-labelledby="«r1i»"
+                aria-labelledby="«r24»"
                 class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
               >
                 <legend
                   class="navds-fieldset__legend navds-label"
-                  id="«r1i»"
+                  id="«r24»"
                 >
                   inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg
                 </legend>
@@ -1378,14 +1378,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   >
                     <input
                       class="navds-radio__input"
-                      id="radio-«r1k»"
+                      id="radio-«r26»"
                       name="inntektFremTilDoedsfallet.andreInntekter.valg"
                       type="radio"
                       value="radiobuttons.ja"
                     />
                     <label
                       class="navds-radio__label"
-                      for="radio-«r1k»"
+                      for="radio-«r26»"
                     >
                       <span
                         class="navds-radio__content"
@@ -1403,14 +1403,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   >
                     <input
                       class="navds-radio__input"
-                      id="radio-«r1l»"
+                      id="radio-«r27»"
                       name="inntektFremTilDoedsfallet.andreInntekter.valg"
                       type="radio"
                       value="radiobuttons.nei"
                     />
                     <label
                       class="navds-radio__label"
-                      for="radio-«r1l»"
+                      for="radio-«r27»"
                     >
                       <span
                         class="navds-radio__content"
@@ -1428,14 +1428,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   >
                     <input
                       class="navds-radio__input"
-                      id="radio-«r1m»"
+                      id="radio-«r28»"
                       name="inntektFremTilDoedsfallet.andreInntekter.valg"
                       type="radio"
                       value="radiobuttons.vetIkke"
                     />
                     <label
                       class="navds-radio__label"
-                      for="radio-«r1m»"
+                      for="radio-«r28»"
                     >
                       <span
                         class="navds-radio__content"
@@ -1453,7 +1453,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-fieldset__error"
-                  id="fieldset-error-«r1j»"
+                  id="fieldset-error-«r25»"
                 />
               </fieldset>
             </div>
@@ -1589,7 +1589,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-«r1n»"
+                id="textField-error-«r29»"
               />
             </div>
             <div
@@ -2150,7 +2150,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-«r1p»"
+                id="textField-error-«r2b»"
               />
             </div>
             <div
@@ -2272,12 +2272,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               </label>
               <div
                 class="navds-form-field__description navds-body-short navds-body-short--medium"
-                id="textField-description-«r1r»"
+                id="textField-description-«r2d»"
               >
                 inntektenDin.forventetInntektIAar.inntektFraUtland.beskrivelse
               </div>
               <input
-                aria-describedby="textField-description-«r1r»"
+                aria-describedby="textField-description-«r2d»"
                 class="navds-text-field__input navds-body-short navds-body-short--medium"
                 id="forventetInntektIAar.inntektFraUtland"
                 inputmode="numeric"
@@ -2288,7 +2288,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-form-field__error"
-                id="textField-error-«r1r»"
+                id="textField-error-«r2d»"
               />
             </div>
             <div
@@ -2702,12 +2702,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             id="forventetInntektIAar.andreInntekter.valg"
           >
             <fieldset
-              aria-labelledby="«r1u»"
+              aria-labelledby="«r2g»"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
                 class="navds-fieldset__legend navds-label"
-                id="«r1u»"
+                id="«r2g»"
               >
                 inntektenDin.forventetInntektIAar.andreInntekter.valg
               </legend>
@@ -2719,14 +2719,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-«r20»"
+                    id="radio-«r2i»"
                     name="forventetInntektIAar.andreInntekter.valg"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-«r20»"
+                    for="radio-«r2i»"
                   >
                     <span
                       class="navds-radio__content"
@@ -2744,14 +2744,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-«r21»"
+                    id="radio-«r2j»"
                     name="forventetInntektIAar.andreInntekter.valg"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-«r21»"
+                    for="radio-«r2j»"
                   >
                     <span
                       class="navds-radio__content"
@@ -2769,14 +2769,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-«r22»"
+                    id="radio-«r2k»"
                     name="forventetInntektIAar.andreInntekter.valg"
                     type="radio"
                     value="radiobuttons.vetIkke"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-«r22»"
+                    for="radio-«r2k»"
                   >
                     <span
                       class="navds-radio__content"
@@ -2794,7 +2794,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-«r1v»"
+                id="fieldset-error-«r2h»"
               />
             </fieldset>
           </div>
@@ -2802,12 +2802,12 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             id="forventetInntektIAar.noeSomKanPaavirkeInntekten.valg"
           >
             <fieldset
-              aria-labelledby="«r24»"
+              aria-labelledby="«r2m»"
               class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
             >
               <legend
                 class="navds-fieldset__legend navds-label"
-                id="«r24»"
+                id="«r2m»"
               >
                 inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg
               </legend>
@@ -2819,14 +2819,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-«r26»"
+                    id="radio-«r2o»"
                     name="forventetInntektIAar.noeSomKanPaavirkeInntekten.valg"
                     type="radio"
                     value="radiobuttons.ja"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-«r26»"
+                    for="radio-«r2o»"
                   >
                     <span
                       class="navds-radio__content"
@@ -2844,14 +2844,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-«r27»"
+                    id="radio-«r2p»"
                     name="forventetInntektIAar.noeSomKanPaavirkeInntekten.valg"
                     type="radio"
                     value="radiobuttons.nei"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-«r27»"
+                    for="radio-«r2p»"
                   >
                     <span
                       class="navds-radio__content"
@@ -2869,14 +2869,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 >
                   <input
                     class="navds-radio__input"
-                    id="radio-«r28»"
+                    id="radio-«r2q»"
                     name="forventetInntektIAar.noeSomKanPaavirkeInntekten.valg"
                     type="radio"
                     value="radiobuttons.vetIkke"
                   />
                   <label
                     class="navds-radio__label"
-                    for="radio-«r28»"
+                    for="radio-«r2q»"
                   >
                     <span
                       class="navds-radio__content"
@@ -2894,7 +2894,1447 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 aria-live="polite"
                 aria-relevant="additions removals"
                 class="navds-fieldset__error"
-                id="fieldset-error-«r25»"
+                id="fieldset-error-«r2n»"
+              />
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div
+        class="navds-r-p navds-box navds-box-bg navds-box-border-color navds-box-border-width"
+        style="--__ac-r-p-xs: var(--a-spacing-6); --__ac-box-background: var(--a-surface-action-subtle); --__ac-box-border-color: var(--a-border-action); --__ac-box-border-width: 0px 0px 0px 4px;"
+      >
+        <div
+          class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: column;"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            inntektenDin.forventetInntektTilNesteAar.tittel
+          </h1>
+          <div
+            class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+          >
+            <ul
+              role="list"
+            >
+              <li
+                class="navds-list__item"
+              >
+                <div
+                  class="navds-list__item-marker navds-list__item-marker--bullet"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.375rem"
+                    role="img"
+                    viewBox="0 0 6 6"
+                    width="0.375rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="currentColor"
+                      height="6"
+                      rx="3"
+                      width="6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  inntektenDin.forventetInntektTilNesteAar.innhold.li1
+                </div>
+              </li>
+              <li
+                class="navds-list__item"
+              >
+                <div
+                  class="navds-list__item-marker navds-list__item-marker--bullet"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.375rem"
+                    role="img"
+                    viewBox="0 0 6 6"
+                    width="0.375rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="currentColor"
+                      height="6"
+                      rx="3"
+                      width="6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  inntektenDin.forventetInntektTilNesteAar.innhold.li2
+                </div>
+              </li>
+              <li
+                class="navds-list__item"
+              >
+                <div
+                  class="navds-list__item-marker navds-list__item-marker--bullet"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.375rem"
+                    role="img"
+                    viewBox="0 0 6 6"
+                    width="0.375rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="currentColor"
+                      height="6"
+                      rx="3"
+                      width="6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  inntektenDin.forventetInntektTilNesteAar.innhold.li3
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+            style="--__ac-stack-gap-xs: var(--a-spacing-2); --__ac-stack-direction-xs: column;"
+          >
+            <div
+              class="rhf-inntekt-input navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="forventetInntektTilNesteAar.arbeidsinntekt"
+              >
+                inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="forventetInntektTilNesteAar.arbeidsinntekt"
+                inputmode="numeric"
+                type="text"
+                value="0"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-«r2r»"
+              />
+            </div>
+            <div
+              class="navds-read-more navds-read-more--medium"
+              data-volume="low"
+            >
+              <button
+                aria-expanded="false"
+                class="navds-read-more__button navds-body-short"
+                data-state="closed"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="navds-read-more__expand-icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                data-state="closed"
+              >
+                <div
+                  class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+                  style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: column;"
+                >
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <div
+                      class="navds-stack navds-vstack navds-stack-direction"
+                      style="--__ac-stack-direction-xs: column;"
+                    >
+                      <label
+                        class="navds-label"
+                      >
+                        inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label
+                      </label>
+                      <p
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1
+                      </p>
+                    </div>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <p
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2
+                    </p>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+            style="--__ac-stack-gap-xs: var(--a-spacing-2); --__ac-stack-direction-xs: column;"
+          >
+            <div
+              class="rhf-inntekt-input navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="forventetInntektTilNesteAar.naeringsinntekt.inntekt"
+              >
+                inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="forventetInntektTilNesteAar.naeringsinntekt.inntekt"
+                inputmode="numeric"
+                type="text"
+                value="0"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-«r2t»"
+              />
+            </div>
+            <div
+              class="navds-read-more navds-read-more--medium"
+              data-volume="low"
+            >
+              <button
+                aria-expanded="false"
+                class="navds-read-more__button navds-body-short"
+                data-state="closed"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="navds-read-more__expand-icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                data-state="closed"
+              >
+                <div
+                  class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                >
+                  <ul
+                    role="list"
+                  >
+                    <li
+                      class="navds-list__item"
+                    >
+                      <div
+                        class="navds-list__item-marker navds-list__item-marker--bullet"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="0.375rem"
+                          role="img"
+                          viewBox="0 0 6 6"
+                          width="0.375rem"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            fill="currentColor"
+                            height="6"
+                            rx="3"
+                            width="6"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1
+                      </div>
+                    </li>
+                    <li
+                      class="navds-list__item"
+                    >
+                      <div
+                        class="navds-list__item-marker navds-list__item-marker--bullet"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="0.375rem"
+                          role="img"
+                          viewBox="0 0 6 6"
+                          width="0.375rem"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            fill="currentColor"
+                            height="6"
+                            rx="3"
+                            width="6"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+            style="--__ac-stack-gap-xs: var(--a-spacing-2); --__ac-stack-direction-xs: column;"
+          >
+            <div
+              class="rhf-inntekt-input navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="forventetInntektTilNesteAar.inntektFraUtland"
+              >
+                inntektenDin.forventetInntektTilNesteAar.inntektFraUtland
+              </label>
+              <div
+                class="navds-form-field__description navds-body-short navds-body-short--medium"
+                id="textField-description-«r2v»"
+              >
+                inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse
+              </div>
+              <input
+                aria-describedby="textField-description-«r2v»"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="forventetInntektTilNesteAar.inntektFraUtland"
+                inputmode="numeric"
+                type="text"
+                value="0"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-«r2v»"
+              />
+            </div>
+            <div
+              class="navds-read-more navds-read-more--medium"
+              data-volume="low"
+            >
+              <button
+                aria-expanded="false"
+                class="navds-read-more__button navds-body-short"
+                data-state="closed"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="navds-read-more__expand-icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                data-state="closed"
+              >
+                <div
+                  class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+                  style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: column;"
+                >
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <div
+                      class="navds-stack navds-vstack navds-stack-direction"
+                      style="--__ac-stack-direction-xs: column;"
+                    >
+                      <label
+                        class="navds-label"
+                      >
+                        inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label
+                      </label>
+                      <p
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p
+                      </p>
+                    </div>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="forventetInntektTilNesteAar.andreInntekter.valg"
+          >
+            <fieldset
+              aria-labelledby="«r32»"
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            >
+              <legend
+                class="navds-fieldset__legend navds-label"
+                id="«r32»"
+              >
+                inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r34»"
+                    name="forventetInntektTilNesteAar.andreInntekter.valg"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r34»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.ja
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r35»"
+                    name="forventetInntektTilNesteAar.andreInntekter.valg"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r35»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r36»"
+                    name="forventetInntektTilNesteAar.andreInntekter.valg"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r36»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-«r33»"
+              />
+            </fieldset>
+          </div>
+          <div
+            id="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+          >
+            <fieldset
+              aria-labelledby="«r38»"
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            >
+              <legend
+                class="navds-fieldset__legend navds-label"
+                id="«r38»"
+              >
+                inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r3a»"
+                    name="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r3a»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.ja
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r3b»"
+                    name="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r3b»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r3c»"
+                    name="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r3c»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-«r39»"
               />
             </fieldset>
           </div>
@@ -2918,18 +4358,18 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           id="ytelserNAV.svar"
         >
           <fieldset
-            aria-labelledby="«r2a» fieldset-description-«r2b»"
+            aria-labelledby="«r3e» fieldset-description-«r3f»"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«r2a»"
+              id="«r3e»"
             >
               inntektenDin.ytelserNAV.svar
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-«r2b»"
+              id="fieldset-description-«r3f»"
             >
               inntektenDin.ytelserNAV.hvorfor
             </div>
@@ -2941,14 +4381,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r2c»"
+                  id="radio-«r3g»"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r2c»"
+                  for="radio-«r3g»"
                 >
                   <span
                     class="navds-radio__content"
@@ -2966,14 +4406,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r2d»"
+                  id="radio-«r3h»"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r2d»"
+                  for="radio-«r3h»"
                 >
                   <span
                     class="navds-radio__content"
@@ -2991,7 +4431,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«r2b»"
+              id="fieldset-error-«r3f»"
             />
           </fieldset>
         </div>
@@ -3014,18 +4454,18 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
           id="ytelserAndre.svar"
         >
           <fieldset
-            aria-labelledby="«r2f» fieldset-description-«r2g»"
+            aria-labelledby="«r3j» fieldset-description-«r3k»"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«r2f»"
+              id="«r3j»"
             >
               inntektenDin.ytelserAndre.svar
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-«r2g»"
+              id="fieldset-description-«r3k»"
             >
               inntektenDin.ytelserAndre.hvorfor
             </div>
@@ -3037,14 +4477,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r2h»"
+                  id="radio-«r3l»"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r2h»"
+                  for="radio-«r3l»"
                 >
                   <span
                     class="navds-radio__content"
@@ -3062,14 +4502,14 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r2i»"
+                  id="radio-«r3m»"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r2i»"
+                  for="radio-«r3m»"
                 >
                   <span
                     class="navds-radio__content"
@@ -3087,7 +4527,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«r2g»"
+              id="fieldset-error-«r3k»"
             />
           </fieldset>
         </div>
@@ -3160,7 +4600,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«r2l»"
+              aria-labelledby="title-«r3p»"
               fill="none"
               focusable="false"
               height="1em"
@@ -3170,7 +4610,7 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«r2l»"
+                id="title-«r3p»"
               >
                 Lukk
               </title>
@@ -6153,6 +7593,1446 @@ exports[`Inntekten din > Snapshot 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="navds-r-p navds-box navds-box-bg navds-box-border-color navds-box-border-width"
+        style="--__ac-r-p-xs: var(--a-spacing-6); --__ac-box-background: var(--a-surface-action-subtle); --__ac-box-border-color: var(--a-border-action); --__ac-box-border-width: 0px 0px 0px 4px;"
+      >
+        <div
+          class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+          style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: column;"
+        >
+          <h1
+            class="navds-heading navds-heading--small"
+          >
+            inntektenDin.forventetInntektTilNesteAar.tittel
+          </h1>
+          <div
+            class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+          >
+            <ul
+              role="list"
+            >
+              <li
+                class="navds-list__item"
+              >
+                <div
+                  class="navds-list__item-marker navds-list__item-marker--bullet"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.375rem"
+                    role="img"
+                    viewBox="0 0 6 6"
+                    width="0.375rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="currentColor"
+                      height="6"
+                      rx="3"
+                      width="6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  inntektenDin.forventetInntektTilNesteAar.innhold.li1
+                </div>
+              </li>
+              <li
+                class="navds-list__item"
+              >
+                <div
+                  class="navds-list__item-marker navds-list__item-marker--bullet"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.375rem"
+                    role="img"
+                    viewBox="0 0 6 6"
+                    width="0.375rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="currentColor"
+                      height="6"
+                      rx="3"
+                      width="6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  inntektenDin.forventetInntektTilNesteAar.innhold.li2
+                </div>
+              </li>
+              <li
+                class="navds-list__item"
+              >
+                <div
+                  class="navds-list__item-marker navds-list__item-marker--bullet"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="0.375rem"
+                    role="img"
+                    viewBox="0 0 6 6"
+                    width="0.375rem"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="currentColor"
+                      height="6"
+                      rx="3"
+                      width="6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  inntektenDin.forventetInntektTilNesteAar.innhold.li3
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+            style="--__ac-stack-gap-xs: var(--a-spacing-2); --__ac-stack-direction-xs: column;"
+          >
+            <div
+              class="rhf-inntekt-input navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="forventetInntektTilNesteAar.arbeidsinntekt"
+              >
+                inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="forventetInntektTilNesteAar.arbeidsinntekt"
+                inputmode="numeric"
+                type="text"
+                value="0"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-«ru»"
+              />
+            </div>
+            <div
+              class="navds-read-more navds-read-more--medium"
+              data-volume="low"
+            >
+              <button
+                aria-expanded="false"
+                class="navds-read-more__button navds-body-short"
+                data-state="closed"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="navds-read-more__expand-icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                data-state="closed"
+              >
+                <div
+                  class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+                  style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: column;"
+                >
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <div
+                      class="navds-stack navds-vstack navds-stack-direction"
+                      style="--__ac-stack-direction-xs: column;"
+                    >
+                      <label
+                        class="navds-label"
+                      >
+                        inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label
+                      </label>
+                      <p
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1
+                      </p>
+                    </div>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <p
+                      class="navds-body-short navds-body-short--medium"
+                    >
+                      inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2
+                    </p>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+            style="--__ac-stack-gap-xs: var(--a-spacing-2); --__ac-stack-direction-xs: column;"
+          >
+            <div
+              class="rhf-inntekt-input navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="forventetInntektTilNesteAar.naeringsinntekt.inntekt"
+              >
+                inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt
+              </label>
+              <input
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="forventetInntektTilNesteAar.naeringsinntekt.inntekt"
+                inputmode="numeric"
+                type="text"
+                value="0"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-«r10»"
+              />
+            </div>
+            <div
+              class="navds-read-more navds-read-more--medium"
+              data-volume="low"
+            >
+              <button
+                aria-expanded="false"
+                class="navds-read-more__button navds-body-short"
+                data-state="closed"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="navds-read-more__expand-icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                data-state="closed"
+              >
+                <div
+                  class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                >
+                  <ul
+                    role="list"
+                  >
+                    <li
+                      class="navds-list__item"
+                    >
+                      <div
+                        class="navds-list__item-marker navds-list__item-marker--bullet"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="0.375rem"
+                          role="img"
+                          viewBox="0 0 6 6"
+                          width="0.375rem"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            fill="currentColor"
+                            height="6"
+                            rx="3"
+                            width="6"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1
+                      </div>
+                    </li>
+                    <li
+                      class="navds-list__item"
+                    >
+                      <div
+                        class="navds-list__item-marker navds-list__item-marker--bullet"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          fill="none"
+                          focusable="false"
+                          height="0.375rem"
+                          role="img"
+                          viewBox="0 0 6 6"
+                          width="0.375rem"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect
+                            fill="currentColor"
+                            height="6"
+                            rx="3"
+                            width="6"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+            style="--__ac-stack-gap-xs: var(--a-spacing-2); --__ac-stack-direction-xs: column;"
+          >
+            <div
+              class="rhf-inntekt-input navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-label"
+                for="forventetInntektTilNesteAar.inntektFraUtland"
+              >
+                inntektenDin.forventetInntektTilNesteAar.inntektFraUtland
+              </label>
+              <div
+                class="navds-form-field__description navds-body-short navds-body-short--medium"
+                id="textField-description-«r12»"
+              >
+                inntektenDin.forventetInntektTilNesteAar.inntektFraUtland.beskrivelse
+              </div>
+              <input
+                aria-describedby="textField-description-«r12»"
+                class="navds-text-field__input navds-body-short navds-body-short--medium"
+                id="forventetInntektTilNesteAar.inntektFraUtland"
+                inputmode="numeric"
+                type="text"
+                value="0"
+              />
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="textField-error-«r12»"
+              />
+            </div>
+            <div
+              class="navds-read-more navds-read-more--medium"
+              data-volume="low"
+            >
+              <button
+                aria-expanded="false"
+                class="navds-read-more__button navds-body-short"
+                data-state="closed"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="navds-read-more__expand-icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                data-state="closed"
+              >
+                <div
+                  class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
+                  style="--__ac-stack-gap-xs: var(--a-spacing-4); --__ac-stack-direction-xs: column;"
+                >
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <label
+                      class="navds-label"
+                    >
+                      inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label
+                    </label>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="navds-stack navds-vstack navds-stack-direction"
+                    style="--__ac-stack-direction-xs: column;"
+                  >
+                    <div
+                      class="navds-stack navds-vstack navds-stack-direction"
+                      style="--__ac-stack-direction-xs: column;"
+                    >
+                      <label
+                        class="navds-label"
+                      >
+                        inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label
+                      </label>
+                      <p
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p
+                      </p>
+                    </div>
+                    <div
+                      class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
+                    >
+                      <ul
+                        role="list"
+                      >
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2
+                          </div>
+                        </li>
+                        <li
+                          class="navds-list__item"
+                        >
+                          <div
+                            class="navds-list__item-marker navds-list__item-marker--bullet"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="none"
+                              focusable="false"
+                              height="0.375rem"
+                              role="img"
+                              viewBox="0 0 6 6"
+                              width="0.375rem"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="6"
+                                rx="3"
+                                width="6"
+                              />
+                            </svg>
+                          </div>
+                          <div>
+                            inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="forventetInntektTilNesteAar.andreInntekter.valg"
+          >
+            <fieldset
+              aria-labelledby="«r15»"
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            >
+              <legend
+                class="navds-fieldset__legend navds-label"
+                id="«r15»"
+              >
+                inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r17»"
+                    name="forventetInntektTilNesteAar.andreInntekter.valg"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r17»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.ja
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r18»"
+                    name="forventetInntektTilNesteAar.andreInntekter.valg"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r18»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r19»"
+                    name="forventetInntektTilNesteAar.andreInntekter.valg"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r19»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-«r16»"
+              />
+            </fieldset>
+          </div>
+          <div
+            id="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+          >
+            <fieldset
+              aria-labelledby="«r1b»"
+              class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
+            >
+              <legend
+                class="navds-fieldset__legend navds-label"
+                id="«r1b»"
+              >
+                inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg
+              </legend>
+              <div
+                class="navds-radio-buttons"
+              >
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r1d»"
+                    name="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+                    type="radio"
+                    value="radiobuttons.ja"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r1d»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.ja
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r1e»"
+                    name="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+                    type="radio"
+                    value="radiobuttons.nei"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r1e»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.nei
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  class="radioBorder navds-radio navds-radio--medium"
+                >
+                  <input
+                    class="navds-radio__input"
+                    id="radio-«r1f»"
+                    name="forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg"
+                    type="radio"
+                    value="radiobuttons.vetIkke"
+                  />
+                  <label
+                    class="navds-radio__label"
+                    for="radio-«r1f»"
+                  >
+                    <span
+                      class="navds-radio__content"
+                    >
+                      <span
+                        class="navds-body-short navds-body-short--medium"
+                      >
+                        radiobuttons.vetIkke
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-fieldset__error"
+                id="fieldset-error-«r1c»"
+              />
+            </fieldset>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="navds-r-mb navds-box"
@@ -6171,18 +9051,18 @@ exports[`Inntekten din > Snapshot 1`] = `
           id="ytelserNAV.svar"
         >
           <fieldset
-            aria-labelledby="«rv» fieldset-description-«r10»"
+            aria-labelledby="«r1h» fieldset-description-«r1i»"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«rv»"
+              id="«r1h»"
             >
               inntektenDin.ytelserNAV.svar
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-«r10»"
+              id="fieldset-description-«r1i»"
             >
               inntektenDin.ytelserNAV.hvorfor
             </div>
@@ -6194,14 +9074,14 @@ exports[`Inntekten din > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r11»"
+                  id="radio-«r1j»"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r11»"
+                  for="radio-«r1j»"
                 >
                   <span
                     class="navds-radio__content"
@@ -6219,14 +9099,14 @@ exports[`Inntekten din > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r12»"
+                  id="radio-«r1k»"
                   name="ytelserNAV.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r12»"
+                  for="radio-«r1k»"
                 >
                   <span
                     class="navds-radio__content"
@@ -6244,7 +9124,7 @@ exports[`Inntekten din > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«r10»"
+              id="fieldset-error-«r1i»"
             />
           </fieldset>
         </div>
@@ -6267,18 +9147,18 @@ exports[`Inntekten din > Snapshot 1`] = `
           id="ytelserAndre.svar"
         >
           <fieldset
-            aria-labelledby="«r14» fieldset-description-«r15»"
+            aria-labelledby="«r1m» fieldset-description-«r1n»"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«r14»"
+              id="«r1m»"
             >
               inntektenDin.ytelserAndre.svar
             </legend>
             <div
               class="navds-fieldset__description navds-body-short navds-body-short--medium"
-              id="fieldset-description-«r15»"
+              id="fieldset-description-«r1n»"
             >
               inntektenDin.ytelserAndre.hvorfor
             </div>
@@ -6290,14 +9170,14 @@ exports[`Inntekten din > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r16»"
+                  id="radio-«r1o»"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r16»"
+                  for="radio-«r1o»"
                 >
                   <span
                     class="navds-radio__content"
@@ -6315,14 +9195,14 @@ exports[`Inntekten din > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r17»"
+                  id="radio-«r1p»"
                   name="ytelserAndre.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r17»"
+                  for="radio-«r1p»"
                 >
                   <span
                     class="navds-radio__content"
@@ -6340,7 +9220,7 @@ exports[`Inntekten din > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«r15»"
+              id="fieldset-error-«r1n»"
             />
           </fieldset>
         </div>
@@ -6413,7 +9293,7 @@ exports[`Inntekten din > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«r1a»"
+              aria-labelledby="title-«r1s»"
               fill="none"
               focusable="false"
               height="1em"
@@ -6423,7 +9303,7 @@ exports[`Inntekten din > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«r1a»"
+                id="title-«r1s»"
               >
                 Lukk
               </title>
