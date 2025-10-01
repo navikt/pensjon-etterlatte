@@ -14,7 +14,7 @@
         "dotenv": "^16.5.0",
         "express": "^5.1.0",
         "html-react-parser": "^5.2.6",
-        "jsdom": ">=26.x",
+        "jsdom": ">=27.x",
         "jsonwebtoken": "9.0.2",
         "node-cache": "5.1.2",
         "node-fetch": "^3.3.2",
@@ -24,7 +24,7 @@
         "typescript": "5.9.3",
         "unleash-client": "^6.4.3",
         "uuid": "^13.0.0",
-        "winston": "3.17.0",
+        "winston": "3.18.3",
         "winston-transport": "^4.8.0"
     },
     "devDependencies": {
