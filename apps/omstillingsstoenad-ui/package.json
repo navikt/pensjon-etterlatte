@@ -53,7 +53,7 @@
         "cypress": "^15.0.0",
         "cypress-axe": "^1.7.0",
         "concurrently": "^9.2.1",
-        "globals": "^16.2.0",
+        "globals": "^16.4.0",
         "husky": "~9.1.7",
         "jsdom": "^26.1.0",
         "license-checker-rseidelsohn": "^4.4.2",
