@@ -2037,7 +2037,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
-                        style="--__ac-textarea-height: -4px; --__axc-textarea-height: -4px; overflow: hidden;"
+                        style="--__ac-textarea-height: 0px; --__axc-textarea-height: 0px; overflow: hidden;"
                       />
                       <textarea
                         aria-hidden="true"
@@ -2440,7 +2440,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       class="navds-textarea__input navds-body-short navds-body-short--medium"
                       id="selvstendig.[0].forventerEndretArbeidssituasjon.beskrivelse"
                       rows="3"
-                      style="--__ac-textarea-height: -4px; --__axc-textarea-height: -4px; overflow: hidden;"
+                      style="--__ac-textarea-height: 0px; --__axc-textarea-height: 0px; overflow: hidden;"
                     />
                     <textarea
                       aria-hidden="true"
@@ -5138,7 +5138,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
-                        style="--__ac-textarea-height: -4px; --__axc-textarea-height: -4px; overflow: hidden;"
+                        style="--__ac-textarea-height: 0px; --__axc-textarea-height: 0px; overflow: hidden;"
                       />
                       <textarea
                         aria-hidden="true"
