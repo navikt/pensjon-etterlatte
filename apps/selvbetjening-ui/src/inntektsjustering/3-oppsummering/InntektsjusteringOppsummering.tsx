@@ -2,11 +2,11 @@ import { Bleed, FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react
 import { format } from 'date-fns'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SideLaster } from '../../common/SideLaster.tsx'
 import { apiURL, poster } from '../../common/api/api.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { logger } from '../../common/logger/logger.ts'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
@@ -91,12 +91,6 @@ export const InntektsjusteringOppsummering = () => {
                         <FormSummary>
                             <FormSummary.Header>
                                 <FormSummary.Heading level="2">{tittel?.[spraak]}</FormSummary.Heading>
-                                <FormSummary.EditLink
-                                    href="#"
-                                    onClick={() => navigate(`/inntekt/inntekt-til-neste-aar`)}
-                                >
-                                    {endreSvarLenke?.tekst?.[spraak]}
-                                </FormSummary.EditLink>
                             </FormSummary.Header>
                             <FormSummary.Answers>
                                 {finnAlder(innloggetBruker) !== Alder.ATTEN_TIL_SEKSTI_EN && (
@@ -179,6 +173,14 @@ export const InntektsjusteringOppsummering = () => {
                                     <FormSummary.Value>{inntektSkjemaValues.inntektFraUtland} kr</FormSummary.Value>
                                 </FormSummary.Answer>
                             </FormSummary.Answers>
+                            <FormSummary.Footer>
+                                <FormSummary.EditLink
+                                    href="#"
+                                    onClick={() => navigate(`/inntekt/inntekt-til-neste-aar`)}
+                                >
+                                    {endreSvarLenke?.tekst?.[spraak]}
+                                </FormSummary.EditLink>
+                            </FormSummary.Footer>
                         </FormSummary>
 
                         {apiFeil && <FeilIAPIKall />}

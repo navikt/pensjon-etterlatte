@@ -131,14 +131,14 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r6»"
+                  id="radio-«r7»"
                   name="utbetalingsInformasjon.bankkontoType"
                   type="radio"
                   value="bankkontoType.utenlandsk"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r6»"
+                  for="radio-«r7»"
                 >
                   <span
                     class="navds-radio__content"
@@ -196,7 +196,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«ra»"
+              id="textField-error-«rc»"
             />
           </div>
         </div>
@@ -226,7 +226,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«rb»"
+              id="textField-error-«rd»"
             />
           </div>
         </div>
@@ -258,7 +258,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-«rd»"
+                    aria-labelledby="title-«rf»"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -269,7 +269,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-«rd»"
+                      id="title-«rf»"
                     >
                       Mer informasjon
                     </title>
@@ -289,7 +289,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-«re»"
+                    aria-labelledby="title-«rg»"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -300,7 +300,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-«re»"
+                      id="title-«rg»"
                     >
                       Mer informasjon
                     </title>
@@ -352,7 +352,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«rc»"
+            id="textField-error-«re»"
           />
         </div>
       </div>
@@ -383,7 +383,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-«rh»"
+                    aria-labelledby="title-«rj»"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -394,7 +394,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-«rh»"
+                      id="title-«rj»"
                     >
                       Mer informasjon
                     </title>
@@ -414,7 +414,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-«ri»"
+                    aria-labelledby="title-«rk»"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -425,7 +425,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <title
-                      id="title-«ri»"
+                      id="title-«rk»"
                     >
                       Mer informasjon
                     </title>
@@ -477,7 +477,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«rg»"
+            id="textField-error-«ri»"
           />
         </div>
       </div>
@@ -539,7 +539,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«r9»"
+              aria-labelledby="title-«rb»"
               fill="none"
               focusable="false"
               height="1em"
@@ -549,7 +549,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«r9»"
+                id="title-«rb»"
               >
                 Lukk
               </title>
