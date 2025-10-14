@@ -46,7 +46,12 @@ export const MeldInnEndringOppsummering = () => {
             ...meldInnEndring,
             forventetInntektTilNesteAar:
                 meldInnEndring.endring === Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR
-                    ? forventetInntektTilNesteAarSkjemaValuesTilValues(meldInnEndring.forventetInntektTilNesteAar!)
+                    ? {
+                          ...forventetInntektTilNesteAarSkjemaValuesTilValues(
+                              meldInnEndring.forventetInntektTilNesteAar!
+                          ),
+                          inntektsaar: 2026,
+                      }
                     : undefined,
         }
 
