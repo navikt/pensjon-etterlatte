@@ -8,10 +8,58 @@ export enum Endring {
 
 export interface MeldtInnEndring {
     endring: Endring | undefined
+    forventetInntektTilNesteAar?: ForventetInntektTilNesteAarSkjema
     beskrivelse: string
 }
 
 export const meldInnEndringDefaultValues: MeldtInnEndring = {
     endring: undefined,
+    forventetInntektTilNesteAar: {
+        arbeidsinntekt: '0',
+        naeringsinntekt: '0',
+        afpInntekt: '0',
+        inntektFraUtland: '0',
+    },
     beskrivelse: '',
+}
+
+export interface IInnloggetBruker {
+    fornavn?: string
+    etternavn?: string
+    foedselsnummer?: string
+    foedselsaar?: number
+    foedselsdato?: Date | string
+}
+
+export enum Alder {
+    ATTEN_TIL_SEKSTI_EN,
+    SEKSTI_TO_TIL_SEKSTI_SEKS,
+    SEKSTI_SYV,
+    IKKE_GYLDIG,
+}
+
+export interface ForventetInntektTilNesteAarSkjema {
+    skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
+    datoForAaGaaAvMedAlderspensjon?: Date | string
+    arbeidsinntekt: string
+    naeringsinntekt: string
+    inntektFraUtland: string
+    afpInntekt: string
+    afpTjenesteordning?: string
+}
+
+export interface ForventetInntektTilNesteAar {
+    skalGaaAvMedAlderspensjon?: SkalGaaAvMedAlderspensjon
+    datoForAaGaaAvMedAlderspensjon?: Date | string
+    arbeidsinntekt: number
+    naeringsinntekt: number
+    inntektFraUtland: number
+    afpInntekt: number
+    afpTjenesteordning?: string
+}
+
+export enum SkalGaaAvMedAlderspensjon {
+    JA = 'JA',
+    NEI = 'NEI',
+    VET_IKKE = 'VET_IKKE',
 }

@@ -1,7 +1,7 @@
 import { Alert, HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { SideLaster } from '../../common/SideLaster.tsx'
+import { erMellomOktoberogDesember } from '../../common/dato.ts'
 import {
     FeatureToggleNavn,
     FeatureToggleStatus,
@@ -9,6 +9,7 @@ import {
 } from '../../common/featureToggles/FeatureTogglesContext.tsx'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 import { SammendragAvSkjemaFeil } from '../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -20,6 +21,7 @@ import {
     useMeldInnEndringDispatch,
 } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
 import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity.types.ts'
+import { ForventetInntektTIlNesteAar } from './forventetInntektTilNesteAar/ForventetInntektTIlNesteAar.tsx'
 import { InformasjonOmAktivitetOgInntekt } from './InformasjonOmAktivitetOgInntekt.tsx'
 import { InformasjonOmAnnet } from './InformasjonOmAnnet.tsx'
 import { InformasjonOmInntekt } from './InformasjonOmInntekt.tsx'
@@ -36,13 +38,7 @@ export const MeldInnEndringMeldFra = () => {
 
     const navigate = useNavigate()
 
-    const {
-        register,
-        control,
-        watch,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<MeldtInnEndring>({ defaultValues: meldInnEndring })
+    const methods = useForm<MeldtInnEndring>({ defaultValues: meldInnEndring })
 
     const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
         '*[_type == "meldInnEndringMeldFra"]'
@@ -73,6 +69,8 @@ export const MeldInnEndringMeldFra = () => {
                         text={innhold?.informasjonOmEndring?.svarPaaEtteroppgjoer?.hovedinnhold?.[spraak]}
                     />
                 )
+            case Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR:
+                return 'Her kommer det masse informasjon om forventet intekt til neste år'
             case Endring.ANNET:
                 return <InformasjonOmAnnet />
             default:
@@ -86,11 +84,11 @@ export const MeldInnEndringMeldFra = () => {
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={2} stegLabelKey="steg2" skjemaNavn="meld-inn-endring" />
-                        <form>
+                        <FormProvider {...methods}>
                             <VStack gap="6" width="fit-content">
                                 <ControlledRadioGruppe
                                     name="endring"
-                                    control={control}
+                                    control={methods.control}
                                     legend={innhold.endring?.legend?.[spraak]}
                                     description={innhold.endring?.description?.[spraak]}
                                     errorVedTomInput={innhold.endring?.errorVedTomInput?.[spraak]}
@@ -112,6 +110,11 @@ export const MeldInnEndringMeldFra = () => {
                                                     {innhold.endring?.radios?.svarPaaEtteroppgjoer?.label?.[spraak]}
                                                 </Radio>
                                             )}
+                                            {erMellomOktoberogDesember() && (
+                                                <Radio value={Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR}>
+                                                    Forventet inntekt til neste år
+                                                </Radio>
+                                            )}
                                             <Radio value={Endring.ANNET}>
                                                 {innhold.endring?.radios?.annet?.label?.[spraak]}
                                             </Radio>
@@ -119,45 +122,53 @@ export const MeldInnEndringMeldFra = () => {
                                     }
                                 />
 
-                                {!!watch('endring') && (
+                                {!!methods.watch('endring') && (
                                     <>
-                                        {velgVisningAvInformasjonForEndring(watch('endring'))}
+                                        {velgVisningAvInformasjonForEndring(methods.watch('endring'))}
 
-                                        <Textarea
-                                            {...register('beskrivelse', {
-                                                required: {
-                                                    value: true,
-                                                    message:
-                                                        innhold.beskrivelseAvEndring?.errorVedTomInput?.[spraak] ?? '',
-                                                },
-                                                maxLength: {
-                                                    value: MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING,
-                                                    message:
-                                                        innhold.beskrivelseAvEndring?.errorVedForMangeTegn?.[spraak] ??
-                                                        '',
-                                                },
-                                            })}
-                                            label={
-                                                watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER
-                                                    ? innhold.beskrivelseAvEndring?.svarPaaEtteroppgjoerLabel?.[spraak]
-                                                    : innhold.beskrivelseAvEndring?.label?.[spraak]
-                                            }
-                                            description={
-                                                watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER
-                                                    ? innhold.beskrivelseAvEndring?.svarPaaEtteroppgjoerDescription?.[
-                                                          spraak
-                                                      ]
-                                                    : innhold.beskrivelseAvEndring?.description?.[spraak]
-                                            }
-                                            maxLength={MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING}
-                                            i18n={{
-                                                counterLeft: innhold.beskrivelseAvEndring?.tegnIgjen?.[spraak],
-                                                counterTooMuch: innhold.beskrivelseAvEndring?.forMangeTegn?.[spraak],
-                                            }}
-                                            error={errors?.beskrivelse?.message}
-                                        />
+                                        {methods.watch('endring') === Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR ? (
+                                            <ForventetInntektTIlNesteAar />
+                                        ) : (
+                                            <Textarea
+                                                {...methods.register('beskrivelse', {
+                                                    required: {
+                                                        value: true,
+                                                        message:
+                                                            innhold.beskrivelseAvEndring?.errorVedTomInput?.[spraak] ??
+                                                            '',
+                                                    },
+                                                    maxLength: {
+                                                        value: MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING,
+                                                        message:
+                                                            innhold.beskrivelseAvEndring?.errorVedForMangeTegn?.[
+                                                                spraak
+                                                            ] ?? '',
+                                                    },
+                                                })}
+                                                label={
+                                                    methods.watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER
+                                                        ? innhold.beskrivelseAvEndring?.svarPaaEtteroppgjoerLabel?.[
+                                                              spraak
+                                                          ]
+                                                        : innhold.beskrivelseAvEndring?.label?.[spraak]
+                                                }
+                                                description={
+                                                    methods.watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER
+                                                        ? innhold.beskrivelseAvEndring
+                                                              ?.svarPaaEtteroppgjoerDescription?.[spraak]
+                                                        : innhold.beskrivelseAvEndring?.description?.[spraak]
+                                                }
+                                                maxLength={MAKS_ANTALL_TEGN_I_BESKRIVELSE_AV_ENDRING}
+                                                i18n={{
+                                                    counterLeft: innhold.beskrivelseAvEndring?.tegnIgjen?.[spraak],
+                                                    counterTooMuch:
+                                                        innhold.beskrivelseAvEndring?.forMangeTegn?.[spraak],
+                                                }}
+                                                error={methods.formState.errors?.beskrivelse?.message}
+                                            />
+                                        )}
 
-                                        {watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER && (
+                                        {methods.watch('endring') === Endring.SVAR_PAA_ETTEROPPGJOER && (
                                             <Alert variant="info">
                                                 {innhold.svarPaaEtteroppgjoerDokumentasjonInfoAlert?.[spraak]}
                                             </Alert>
@@ -165,14 +176,14 @@ export const MeldInnEndringMeldFra = () => {
                                     </>
                                 )}
 
-                                <SammendragAvSkjemaFeil errors={errors} />
+                                <SammendragAvSkjemaFeil errors={methods.formState.errors} />
 
                                 <NavigasjonMeny
                                     tilbakePath="/meld-inn-endring/innledning"
-                                    onNeste={handleSubmit(onMeldInnInntektSubmit)}
+                                    onNeste={methods.handleSubmit(onMeldInnInntektSubmit)}
                                 />
                             </VStack>
-                        </form>
+                        </FormProvider>
                     </VStack>
                 </HStack>
             </main>
