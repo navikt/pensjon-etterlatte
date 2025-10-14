@@ -32,6 +32,9 @@ export const MeldInnEndringMeldFra = () => {
     const spraak = useSpraak()
 
     const etteroppgjoerFeatureToggle = useFeatureToggle(FeatureToggleNavn.ETTEROPPGJOER)
+    const migrerInntektSKjemaFeatureToggle = useFeatureToggle(
+        FeatureToggleNavn.MIGRER_INNTEKT_SKJEMA_TIL_MELD_INN_ENDRING_SKJEMA
+    )
 
     const meldInnEndring = useMeldInnEndring()
     const meldInnEndringDispatch = useMeldInnEndringDispatch()
@@ -110,11 +113,12 @@ export const MeldInnEndringMeldFra = () => {
                                                     {innhold.endring?.radios?.svarPaaEtteroppgjoer?.label?.[spraak]}
                                                 </Radio>
                                             )}
-                                            {erMellomOktoberogDesember() && (
-                                                <Radio value={Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR}>
-                                                    Forventet inntekt til neste år
-                                                </Radio>
-                                            )}
+                                            {erMellomOktoberogDesember() &&
+                                                migrerInntektSKjemaFeatureToggle.status === FeatureToggleStatus.PAA && (
+                                                    <Radio value={Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR}>
+                                                        Forventet inntekt til neste år
+                                                    </Radio>
+                                                )}
                                             <Radio value={Endring.ANNET}>
                                                 {innhold.endring?.radios?.annet?.label?.[spraak]}
                                             </Radio>
