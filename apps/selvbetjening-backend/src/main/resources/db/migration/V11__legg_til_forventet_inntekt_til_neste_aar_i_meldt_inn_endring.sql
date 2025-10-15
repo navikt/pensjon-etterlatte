@@ -1,1 +1,1 @@
-ALTER TABLE oms_meld_inn_endring ADD COLUMN forventet_inntekt_neste_aar JSONB NULL
+ALTER TABLE oms_meld_inn_endring ADD COLUMN forventet_inntekt_til_neste_aar JSONB NULL

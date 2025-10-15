@@ -39,7 +39,7 @@ class OmsMeldInnEndringRepository(
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
                         forventetInntektTilNesteAar =
                             objectMapper.readValue<ForventetInntektTilNesteAar?>(
-                                getString("forventet_inntekt_neste_aar"),
+                                getString("forventet_inntekt_til_neste_aar"),
                             ),
                     )
                 }
@@ -92,7 +92,7 @@ private fun ResultSet.toOmsMeldtInnEndring() =
         tidspunkt = getTimestamp("tidspunkt").toInstant(),
         forventetInntektTilNesteAar =
             objectMapper.readValue<ForventetInntektTilNesteAar?>(
-                getString("forventet_inntekt_neste_aar"),
+                getString("forventet_inntekt_til_neste_aar"),
             ),
     )
 
@@ -104,7 +104,7 @@ private object Queries {
 
     val LAGRE_ENDRINGER =
         """
-        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt, forventet_inntekt_neste_aar) values (?,?,?,?,?,?,?)
+        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt, forventet_inntekt_til_neste_aar) values (?,?,?,?,?,?,?)
         """.trimIndent()
 
     val HENT_ENDRING_MED_STATUS =
