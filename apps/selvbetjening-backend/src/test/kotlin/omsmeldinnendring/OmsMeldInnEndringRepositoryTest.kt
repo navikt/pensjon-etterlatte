@@ -52,6 +52,7 @@ class OmsMeldInnEndringRepositoryTest {
                 fnr = Foedselsnummer.of("09038520129"),
                 endring = OmsEndring.ANNET,
                 beskrivelse = "Beskrivelse av alle endringer til bruker",
+                forventetInntektTilNesteAar = null,
             )
 
         repository.lagreEndringer(endringer)
@@ -68,6 +69,7 @@ class OmsMeldInnEndringRepositoryTest {
                 fnr = Foedselsnummer.of("09038520129"),
                 endring = OmsEndring.ANNET,
                 beskrivelse = "Beskrivelse av alle endringer til bruker",
+                forventetInntektTilNesteAar = null,
             )
         repository.lagreEndringer(endring)
 
