@@ -38,9 +38,9 @@ class OmsMeldInnEndringRepository(
                         beskrivelse = getString("beskrivelse"),
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
                         forventetInntektTilNesteAar =
-                            objectMapper.readValue<ForventetInntektTilNesteAar?>(
-                                getString("forventet_inntekt_til_neste_aar") ?: """{}""",
-                            ),
+                            getString(
+                                "forventet_inntekt_til_neste_aar",
+                            )?.let { objectMapper.readValue(it) },
                     )
                 }
         }
@@ -91,9 +91,9 @@ private fun ResultSet.toOmsMeldtInnEndring() =
         beskrivelse = getString("beskrivelse"),
         tidspunkt = getTimestamp("tidspunkt").toInstant(),
         forventetInntektTilNesteAar =
-            objectMapper.readValue<ForventetInntektTilNesteAar?>(
-                getString("forventet_inntekt_til_neste_aar") ?: """{}""",
-            ),
+            getString(
+                "forventet_inntekt_til_neste_aar",
+            )?.let { objectMapper.readValue(it) },
     )
 
 private object Queries {
