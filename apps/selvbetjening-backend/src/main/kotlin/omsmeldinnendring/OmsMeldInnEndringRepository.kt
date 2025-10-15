@@ -57,7 +57,7 @@ class OmsMeldInnEndringRepository(
                     setString(4, endringer.beskrivelse)
                     setString(5, OmsMeldtInnEndringStatus.LAGRET.name)
                     setTimestamp(6, Timestamp.from(endringer.tidspunkt))
-                    setString(7, endringer.forventetInntektTilNesteAar?.toJson())
+                    setObject(7, endringer.forventetInntektTilNesteAar?.toJson())
                 }.execute()
         }
 
