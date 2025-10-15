@@ -2,7 +2,6 @@ package no.nav.etterlatte.omsendringer
 
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.etterlatte.common.objectMapper
-import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
@@ -14,6 +13,8 @@ import no.nav.etterlatte.omsendringer.Queries.HENT_ENDRING_MED_STATUS
 import no.nav.etterlatte.omsendringer.Queries.LAGRE_ENDRINGER
 import no.nav.etterlatte.omsendringer.Queries.OPPDATER_STATUS
 import no.nav.etterlatte.toJson
+import org.postgresql.util.PGobject
+import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.Timestamp
 import java.util.UUID
@@ -57,7 +58,7 @@ class OmsMeldInnEndringRepository(
                     setString(4, endringer.beskrivelse)
                     setString(5, OmsMeldtInnEndringStatus.LAGRET.name)
                     setTimestamp(6, Timestamp.from(endringer.tidspunkt))
-                    setObject(7, endringer.forventetInntektTilNesteAar?.toJson())
+                    setJsonb(7, endringer.forventetInntektTilNesteAar?.toJson())
                 }.execute()
         }
 
@@ -117,4 +118,18 @@ private object Queries {
         """
         UPDATE oms_meld_inn_endring SET status = ? WHERE id = ?
         """.trimIndent()
+}
+
+inline fun <reified T : Any> PreparedStatement.setJsonb(
+    parameterIndex: Int,
+    jsonb: T?,
+): PreparedStatement {
+    if (jsonb == null) {
+        this.setNull(parameterIndex, java.sql.Types.NULL)
+    }
+    val jsonObject = PGobject()
+    jsonObject.type = "json"
+    jsonObject.value = objectMapper.writeValueAsString(jsonb)
+    this.setObject(parameterIndex, jsonObject)
+    return this
 }
