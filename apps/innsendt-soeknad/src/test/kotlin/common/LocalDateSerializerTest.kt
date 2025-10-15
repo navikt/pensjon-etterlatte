@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.MissingKotlinParameterException
+import com.fasterxml.jackson.module.kotlin.KotlinInvalidNullException
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.kotest.assertions.throwables.shouldThrow
@@ -61,7 +61,7 @@ internal class LocalDateSerializerTest {
 
     @Test
     fun `Skal kaste feil hvis feltet ikke er optional`() {
-        shouldThrow<MissingKotlinParameterException> {
+        shouldThrow<KotlinInvalidNullException> {
             jacksonObjectMapper.readValue<TestClassRequiredDate>("""{"date":null}""")
         }
     }
