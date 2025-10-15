@@ -17,6 +17,7 @@ class OmsMeldInnEndringService(
                 fnr = fnr,
                 endring = request.endring,
                 beskrivelse = request.beskrivelse,
+                forventetInntektTilNesteAar = request.forventetInntektTilNesteAar,
             ),
         )
     }

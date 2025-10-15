@@ -1,5 +1,8 @@
 package no.nav.etterlatte.omsendringer
 
+import com.fasterxml.jackson.module.kotlin.readValue
+import no.nav.etterlatte.common.objectMapper
+import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
@@ -34,6 +37,10 @@ class OmsMeldInnEndringRepository(
                         endring = OmsEndring.valueOf(getString("endring")),
                         beskrivelse = getString("beskrivelse"),
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
+                        forventetInntektTilNesteAar =
+                            objectMapper.readValue<ForventetInntektTilNesteAar?>(
+                                getString("forventet_inntekt_neste_aar"),
+                            ),
                     )
                 }
         }
@@ -49,6 +56,7 @@ class OmsMeldInnEndringRepository(
                     setString(4, endringer.beskrivelse)
                     setString(5, OmsMeldtInnEndringStatus.LAGRET.name)
                     setTimestamp(6, Timestamp.from(endringer.tidspunkt))
+                    setObject(7, endringer.forventetInntektTilNesteAar)
                 }.execute()
         }
 
@@ -82,6 +90,10 @@ private fun ResultSet.toOmsMeldtInnEndring() =
         endring = OmsEndring.valueOf(getString("endring")),
         beskrivelse = getString("beskrivelse"),
         tidspunkt = getTimestamp("tidspunkt").toInstant(),
+        forventetInntektTilNesteAar =
+            objectMapper.readValue<ForventetInntektTilNesteAar?>(
+                getString("forventet_inntekt_neste_aar"),
+            ),
     )
 
 private object Queries {
@@ -92,7 +104,7 @@ private object Queries {
 
     val LAGRE_ENDRINGER =
         """
-        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt) values (?,?,?,?,?,?)
+        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt, forventet_inntekt_neste_aar) values (?,?,?,?,?,?,?)
         """.trimIndent()
 
     val HENT_ENDRING_MED_STATUS =

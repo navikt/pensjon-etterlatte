@@ -1,0 +1,1 @@
+ALTER TABLE oms_meld_inn_endring ADD COLUMN forventet_inntekt_neste_aar JSONB
