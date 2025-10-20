@@ -37,6 +37,7 @@ classDef text fill:none,color:#ddd
 barnepensjon-ui --> innsendt-soeknad
 omstillingsstonad-ui --> innsendt-soeknad
 selvbetjening-ui --> selvbetjening-backend
+selvbetjening-ui <-- brukerdialog-sanity[(sanity)]
 
 selvbetjening-backend --> pdl
 selvbetjening-backend <--> selvbetjening-backend-v2[(selvbetjening <br/> database)]
@@ -60,10 +61,11 @@ subgraph selvbetjening["Selvbetjening"]
     selvbetjening-ui:::app
     selvbetjening-backend:::app
     selvbetjening-backend-v2:::db
+    brukerdialig-sanity::db
 end
 
 subgraph gjenny["Gjenny"]
-    etterlatte-gyldig-soeknad:::river
+    etterlatte-behandling-kafka:::river
     etterlatte-behandling:::app
 end
 
