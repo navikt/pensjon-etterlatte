@@ -1,12 +1,15 @@
 package omsmeldinnendring
 
+import com.fasterxml.jackson.module.kotlin.readValue
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
+import no.nav.etterlatte.common.objectMapper
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.kafka.KafkaProdusent
+import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus

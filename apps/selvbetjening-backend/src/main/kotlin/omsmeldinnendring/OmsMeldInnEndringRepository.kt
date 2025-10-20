@@ -2,6 +2,7 @@ package no.nav.etterlatte.omsendringer
 
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.nav.etterlatte.common.objectMapper
+import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
@@ -42,7 +43,7 @@ class OmsMeldInnEndringRepository(
                         forventetInntektTilNesteAar =
                             getString(
                                 "forventet_inntekt_til_neste_aar",
-                            )?.let { objectMapper.readValue(it) },
+                            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar>(it) },
                     )
                 }
         }
@@ -95,7 +96,7 @@ private fun ResultSet.toOmsMeldtInnEndring() =
         forventetInntektTilNesteAar =
             getString(
                 "forventet_inntekt_til_neste_aar",
-            )?.let { objectMapper.readValue(it) },
+            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar>(it) },
     )
 
 private object Queries {
