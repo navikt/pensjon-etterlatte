@@ -1,5 +1,8 @@
 package no.nav.etterlatte.omsendringer
 
+import com.fasterxml.jackson.module.kotlin.readValue
+import no.nav.etterlatte.common.objectMapper
+import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
@@ -10,6 +13,9 @@ import no.nav.etterlatte.omsendringer.Queries.HENT_ENDRING
 import no.nav.etterlatte.omsendringer.Queries.HENT_ENDRING_MED_STATUS
 import no.nav.etterlatte.omsendringer.Queries.LAGRE_ENDRINGER
 import no.nav.etterlatte.omsendringer.Queries.OPPDATER_STATUS
+import no.nav.etterlatte.toJson
+import org.postgresql.util.PGobject
+import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.Timestamp
 import java.util.UUID
@@ -34,6 +40,10 @@ class OmsMeldInnEndringRepository(
                         endring = OmsEndring.valueOf(getString("endring")),
                         beskrivelse = getString("beskrivelse"),
                         tidspunkt = getTimestamp("tidspunkt").toInstant(),
+                        forventetInntektTilNesteAar =
+                            getString(
+                                "forventet_inntekt_til_neste_aar",
+                            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar?>(it) },
                     )
                 }
         }
@@ -49,6 +59,7 @@ class OmsMeldInnEndringRepository(
                     setString(4, endringer.beskrivelse)
                     setString(5, OmsMeldtInnEndringStatus.LAGRET.name)
                     setTimestamp(6, Timestamp.from(endringer.tidspunkt))
+                    setJsonb(7, endringer.forventetInntektTilNesteAar)
                 }.execute()
         }
 
@@ -82,6 +93,10 @@ private fun ResultSet.toOmsMeldtInnEndring() =
         endring = OmsEndring.valueOf(getString("endring")),
         beskrivelse = getString("beskrivelse"),
         tidspunkt = getTimestamp("tidspunkt").toInstant(),
+        forventetInntektTilNesteAar =
+            getString(
+                "forventet_inntekt_til_neste_aar",
+            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar?>(it) },
     )
 
 private object Queries {
@@ -92,7 +107,7 @@ private object Queries {
 
     val LAGRE_ENDRINGER =
         """
-        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt) values (?,?,?,?,?,?)
+        INSERT INTO oms_meld_inn_endring (id, fnr, endring, beskrivelse, status, tidspunkt, forventet_inntekt_til_neste_aar) values (?,?,?,?,?,?,?)
         """.trimIndent()
 
     val HENT_ENDRING_MED_STATUS =
@@ -104,4 +119,18 @@ private object Queries {
         """
         UPDATE oms_meld_inn_endring SET status = ? WHERE id = ?
         """.trimIndent()
+}
+
+inline fun <reified T : Any> PreparedStatement.setJsonb(
+    parameterIndex: Int,
+    jsonb: T?,
+): PreparedStatement {
+    if (jsonb == null) {
+        this.setNull(parameterIndex, java.sql.Types.NULL)
+    }
+    val jsonObject = PGobject()
+    jsonObject.type = "json"
+    jsonObject.value = objectMapper.writeValueAsString(jsonb)
+    this.setObject(parameterIndex, jsonObject)
+    return this
 }

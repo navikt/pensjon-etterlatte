@@ -8,6 +8,7 @@ import io.ktor.server.routing.Route
 import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
+import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 
 fun Route.omsMeldInnEndring(service: OmsMeldInnEndringService) {
@@ -24,4 +25,5 @@ fun Route.omsMeldInnEndring(service: OmsMeldInnEndringService) {
 data class OmsMeldtInnEndringRequest(
     val endring: OmsEndring,
     val beskrivelse: String,
+    val forventetInntektTilNesteAar: ForventetInntektTilNesteAar?,
 )

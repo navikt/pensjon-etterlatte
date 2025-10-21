@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 import { apiURL, poster } from '../api/api.ts'
 import { logger } from '../logger/logger.ts'
 
@@ -9,9 +9,8 @@ export enum FeatureToggleStatus {
     HENTING_FEILET = 'HENTING_FEILET',
 }
 export enum FeatureToggleNavn {
-    OMS_INNTEKTSJUSTERING_SKJEMA = 'oms-inntektsjustering-skjema',
-    OMS_MELD_INN_ENDRING_SKJEMA = 'oms-meld-inn-endring-skjema',
     ETTEROPPGJOER = 'etteroppgjoer',
+    MIGRER_INNTEKT_SKJEMA_TIL_MELD_INN_ENDRING_SKJEMA = 'migrer-inntekt-skjema-til-meld-inn-endring-skjema',
 }
 
 export interface FeatureToggle {
