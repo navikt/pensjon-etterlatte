@@ -13,6 +13,7 @@ import no.nav.etterlatte.omsendringer.Queries.HENT_ENDRING
 import no.nav.etterlatte.omsendringer.Queries.HENT_ENDRING_MED_STATUS
 import no.nav.etterlatte.omsendringer.Queries.LAGRE_ENDRINGER
 import no.nav.etterlatte.omsendringer.Queries.OPPDATER_STATUS
+import no.nav.etterlatte.toJson
 import org.postgresql.util.PGobject
 import java.sql.PreparedStatement
 import java.sql.ResultSet
