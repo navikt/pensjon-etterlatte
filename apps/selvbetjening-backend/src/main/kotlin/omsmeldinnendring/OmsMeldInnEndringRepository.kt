@@ -43,7 +43,7 @@ class OmsMeldInnEndringRepository(
                         forventetInntektTilNesteAar =
                             getString(
                                 "forventet_inntekt_til_neste_aar",
-                            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar>(it) },
+                            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar?>(it) },
                     )
                 }
         }
@@ -96,7 +96,7 @@ private fun ResultSet.toOmsMeldtInnEndring() =
         forventetInntektTilNesteAar =
             getString(
                 "forventet_inntekt_til_neste_aar",
-            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar>(it) },
+            )?.let { objectMapper.readValue<ForventetInntektTilNesteAar?>(it) },
     )
 
 private object Queries {
