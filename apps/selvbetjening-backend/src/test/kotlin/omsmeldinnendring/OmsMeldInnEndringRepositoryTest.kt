@@ -2,6 +2,7 @@ package omsmeldinnendring
 
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.DataSourceBuilder
+import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndring
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsMeldtInnEndringStatus
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.shaded.org.checkerframework.checker.units.qual.m
 import java.util.UUID
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -46,13 +48,25 @@ class OmsMeldInnEndringRepositoryTest {
 
     @Test
     fun `lagre endring`() {
+        val forventetInntektTilNesteAar =
+            ForventetInntektTilNesteAar(
+                2026,
+                skalGaaAvMedAlderspensjon = "NEI",
+                datoForAaGaaAvMedAlderspensjon = null,
+                arbeidsinntekt = 1234,
+                naeringsinntekt = 4321,
+                inntektFraUtland = 78,
+                afpInntekt = 7881,
+                afpTjenesteordning = "KLP",
+            )
+
         val endringer =
             OmsMeldtInnEndring(
                 id = UUID.randomUUID(),
                 fnr = Foedselsnummer.of("09038520129"),
                 endring = OmsEndring.ANNET,
                 beskrivelse = "Beskrivelse av alle endringer til bruker",
-                forventetInntektTilNesteAar = null,
+                forventetInntektTilNesteAar = forventetInntektTilNesteAar,
             )
 
         repository.lagreEndringer(endringer)
