@@ -40,6 +40,7 @@ class PubliserOmsMeldtInnEndringJobbTest {
                 fnr = Foedselsnummer.of("09038520129"),
                 endring = OmsEndring.ANNET,
                 beskrivelse = "asdfasdf",
+                forventetInntektTilNesteAar = null,
             )
         val forsoekt =
             ny.copy(

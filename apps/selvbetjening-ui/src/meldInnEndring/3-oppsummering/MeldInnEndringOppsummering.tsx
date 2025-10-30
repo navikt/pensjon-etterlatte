@@ -9,6 +9,8 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { Endring } from '../../types/meldInnEndring.ts'
+import { forventetInntektTilNesteAarSkjemaValuesTilValues } from '../2-meld-fra-om-endring/forventetInntektTilNesteAar/skjemaer/utils.ts'
 import { useMeldInnEndring } from '../components/meldInnEndringContext/MeldInnEndringContext.tsx'
 import { MeldInnEndringOppsummering as MeldInnEndringOppsummeringInnhold } from '../sanity.types.ts'
 import { FeilIOppretelseAvEndring } from './FeilIOppretelseAvEndring.tsx'
@@ -39,8 +41,22 @@ export const MeldInnEndringOppsummering = () => {
     const sendInnEndring = async () => {
         setLaster(true)
         setApiFeil(false)
+
+        const body = {
+            ...meldInnEndring,
+            forventetInntektTilNesteAar:
+                meldInnEndring.endring === Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR
+                    ? {
+                          ...forventetInntektTilNesteAarSkjemaValuesTilValues(
+                              meldInnEndring.forventetInntektTilNesteAar!
+                          ),
+                          inntektsaar: 2026,
+                      }
+                    : undefined,
+        }
+
         try {
-            const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body: meldInnEndring })
+            const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body })
             if ([200, 304].includes(res.status)) {
                 navigate('/meld-inn-endring/kvittering')
             }

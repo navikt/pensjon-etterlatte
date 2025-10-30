@@ -1,10 +1,10 @@
-import { STOR_SNERK_FORENKLET } from './mock-user'
 import parser from 'body-parser'
-import express, { NextFunction, Request, Response } from 'express'
-import config from '../config'
+import express, { type NextFunction, type Request, type Response } from 'express'
 import NodeCache from 'node-cache'
-import { FeatureToggleStatus } from '../routers/unleashRouter'
+import config from '../config'
 import { sanityClient } from '../routers/sanityProxy'
+import { FeatureToggleStatus } from '../routers/unleashRouter'
+import { STOR_SNERK_FORENKLET } from './mock-user'
 
 const cache = new NodeCache()
 
@@ -12,7 +12,7 @@ export const mockSelvbetjeningApi = (app: any) => {
     const innloggetBruker = STOR_SNERK_FORENKLET
 
     app.use(parser.json())
-    app.use(function (req: Request, res: Response, next: NextFunction) {
+    app.use((req: Request, res: Response, next: NextFunction) => {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
         res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -84,15 +84,11 @@ export const mockSelvbetjeningApi = (app: any) => {
     app.post(`${config.app.basePath}/api/feature`, express.json(), (req: Request, res: Response) => {
         res.send([
             {
-                name: 'oms-meld-inn-endring-skjema',
+                name: 'etteroppgjoer',
                 status: FeatureToggleStatus.PAA,
             },
             {
-                name: 'oms-inntektsjustering-skjema',
-                status: FeatureToggleStatus.PAA,
-            },
-            {
-                name: "etteroppgjoer",
+                name: 'migrer-inntekt-skjema-til-meld-inn-endring-skjema',
                 status: FeatureToggleStatus.PAA,
             },
         ])
