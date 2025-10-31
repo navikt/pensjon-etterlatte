@@ -374,6 +374,33 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                 attenTilSekstiEnAarSkjemaSchemaField,
                 sekstiToTilSekstiSeksAarSkjemaSchemaField,
                 sekstiSyvAarSkjemaSchemaField,
+                defineField({
+                    name: 'ikkeGyldigAlder',
+                    title: 'Alder ikke gyldig for å melde inn inntekt',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'innhold', title: 'Innhold', type: 'object', fields: spraakBlockFields }),
+                        defineField({
+                            name: 'gaaTilNAVKnapp',
+                            title: 'Gå til nav knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'tekst',
+                                    title: 'Tekst',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                                defineField({
+                                    name: 'lenke',
+                                    title: 'Lenke',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ],
+                        }),
+                    ],
+                }),
             ],
         }),
         defineField({
