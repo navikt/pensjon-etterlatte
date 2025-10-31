@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
-
+//TODO: HUSKE Å OPPDATERE FOR OPPSUMMERING OGSÅ
 export const meldInnEndringOppsummeringSchemaType = defineType({
     name: 'meldInnEndringOppsummering',
     title: '3 - Oppsummering av endring',
