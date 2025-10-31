@@ -1,6 +1,13 @@
 import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
 import { errorVedTomInputSchemaField, textFieldSchemaFields } from '../inntektsjustering/skjemaer/fellesSchemaFields'
+import {
+    attenTilSekstiEnAarSkjemaSchemaField
+} from '../inntektsjustering/skjemaer/attenTilSekstiEnAarSkjemaSchemaField'
+import {
+    sekstiToTilSekstiSeksAarSkjemaSchemaField
+} from '../inntektsjustering/skjemaer/sekstiToTilSekstiSeksAarSkjemaSchemaField'
+import { sekstiSyvAarSkjemaSchemaField } from '../inntektsjustering/skjemaer/sekstiSyvAarSkjemaSchemaField'
 
 export const meldInnEndringMeldFraSchemaType = defineType({
     name: 'meldInnEndringMeldFra',
@@ -72,19 +79,32 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                                 }),
                             ],
                         }),
-                            defineField({
-                                name: 'svarPaaEtteroppgjoer',
-                                title: 'Svar på etteroppgjør',
-                                type: 'object',
-                                fields: [
-                                    defineField({
-                                        name: 'label',
-                                        title: 'Label',
-                                        type: 'object',
-                                        fields: spraakStringFields,
-                                    }),
-                                ]
-                            }),
+                        defineField({
+                            name: 'svarPaaEtteroppgjoer',
+                            title: 'Svar på etteroppgjør',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'label',
+                                    title: 'Label',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ]
+                        }),
+                        defineField({
+                            name: 'forventetInntektTilNesteAar',
+                            title: 'Forventet inntekt til neste år',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'label',
+                                    title: 'Label',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ]
+                        }),
                         defineField({
                             name: 'annet',
                             title: 'Annet',
@@ -249,6 +269,19 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     ]
                 }),
                 defineField({
+                    name: 'forventetInntektTilNesteAar',
+                    title: 'Forventet inntekt til neste år',
+                    type: 'object',
+                    fields: [
+                        defineField({
+                            name: 'hovedinnhold',
+                            title: 'Hovedinnhold',
+                            type: 'object',
+                            fields: spraakBlockFields,
+                        })
+                    ]
+                }),
+                defineField({
                     name: 'annet',
                     title: 'Annet',
                     type: 'object',
@@ -331,6 +364,43 @@ export const meldInnEndringMeldFraSchemaType = defineType({
                     type: 'object',
                     fields: spraakStringFields
                 })
+            ],
+        }),
+        defineField({
+            name: 'forventetInntektTilNesteAarSkjemer',
+            title: 'Forventet inntekt til neste år skjemaer',
+            type: 'object',
+            fields: [
+                attenTilSekstiEnAarSkjemaSchemaField,
+                sekstiToTilSekstiSeksAarSkjemaSchemaField,
+                sekstiSyvAarSkjemaSchemaField,
+                defineField({
+                    name: 'ikkeGyldigAlder',
+                    title: 'Alder ikke gyldig for å melde inn inntekt',
+                    type: 'object',
+                    fields: [
+                        defineField({ name: 'innhold', title: 'Innhold', type: 'object', fields: spraakBlockFields }),
+                        defineField({
+                            name: 'gaaTilNAVKnapp',
+                            title: 'Gå til nav knapp',
+                            type: 'object',
+                            fields: [
+                                defineField({
+                                    name: 'tekst',
+                                    title: 'Tekst',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                                defineField({
+                                    name: 'lenke',
+                                    title: 'Lenke',
+                                    type: 'object',
+                                    fields: spraakStringFields,
+                                }),
+                            ],
+                        }),
+                    ],
+                }),
             ],
         }),
         defineField({
