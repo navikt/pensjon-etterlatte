@@ -25,7 +25,7 @@
     "react-dom": "^19.1.1",
     "sanity": "^4.10.2",
     "styled-components": "^6.1",
-    "tsx": "^4.20.3"
+    "tsx": "^4.20.6"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
