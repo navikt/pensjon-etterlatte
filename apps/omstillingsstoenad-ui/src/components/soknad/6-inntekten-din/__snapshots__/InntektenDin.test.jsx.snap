@@ -278,9 +278,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   <div
                     class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -809,9 +809,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   <div
                     class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
@@ -943,9 +943,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   <div
                     class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -1559,9 +1559,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -2090,9 +2090,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
@@ -2224,9 +2224,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -2939,9 +2939,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -3470,9 +3470,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
@@ -3604,9 +3604,9 @@ exports[`Inntekten din > Skal rendre selvstendig 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -4791,9 +4791,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   <div
                     class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -5322,9 +5322,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   <div
                     class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
@@ -5456,9 +5456,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   <div
                     class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -6072,9 +6072,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -6603,9 +6603,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
@@ -6737,9 +6737,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -7452,9 +7452,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
@@ -7983,9 +7983,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-list navds-list--medium navds-body-long navds-body-long--medium"
@@ -8117,9 +8117,9 @@ exports[`Inntekten din > Snapshot 1`] = `
                 </span>
               </button>
               <div
-                aria-hidden="true"
                 class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                 data-state="closed"
+                tabindex="0"
               >
                 <div
                   class="navds-stack navds-vstack navds-stack-gap navds-stack-direction"
