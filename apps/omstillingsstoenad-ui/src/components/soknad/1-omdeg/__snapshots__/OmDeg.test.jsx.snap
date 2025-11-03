@@ -254,11 +254,12 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               >
                 <button
                   aria-expanded="false"
+                  aria-label="Mer informasjon"
                   class="navds-help-text__button"
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-«rf»"
+                    aria-hidden="true"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -268,11 +269,6 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <title
-                      id="title-«rf»"
-                    >
-                      Mer informasjon
-                    </title>
                     <circle
                       cx="12"
                       cy="12"
@@ -289,7 +285,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-«rg»"
+                    aria-hidden="true"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -299,11 +295,6 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <title
-                      id="title-«rg»"
-                    >
-                      Mer informasjon
-                    </title>
                     <circle
                       cx="12"
                       cy="12"
@@ -379,11 +370,12 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               >
                 <button
                   aria-expanded="false"
+                  aria-label="Mer informasjon"
                   class="navds-help-text__button"
                   type="button"
                 >
                   <svg
-                    aria-labelledby="title-«rj»"
+                    aria-hidden="true"
                     class="navds-help-text__icon"
                     fill="none"
                     focusable="false"
@@ -393,11 +385,6 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <title
-                      id="title-«rj»"
-                    >
-                      Mer informasjon
-                    </title>
                     <circle
                       cx="12"
                       cy="12"
@@ -414,7 +401,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     />
                   </svg>
                   <svg
-                    aria-labelledby="title-«rk»"
+                    aria-hidden="true"
                     class="navds-help-text__icon navds-help-text__icon--filled"
                     fill="none"
                     focusable="false"
@@ -424,11 +411,6 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <title
-                      id="title-«rk»"
-                    >
-                      Mer informasjon
-                    </title>
                     <circle
                       cx="12"
                       cy="12"
@@ -477,7 +459,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«ri»"
+            id="textField-error-«rg»"
           />
         </div>
       </div>

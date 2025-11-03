@@ -1273,7 +1273,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                                         Gå til neste måned
                                       </title>
                                       <path
-                                        d="M14.087 6.873a.75.75 0 0 1 .943.097l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H5a.75.75 0 0 1-.75-.74V12a.75.75 0 0 1 .75-.75h12.19l-3.22-3.22a.75.75 0 0 1 .117-1.157"
+                                        d="M14.088 6.873a.75.75 0 0 1 .942.097l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H5a.75.75 0 0 1-.75-.74V12a.75.75 0 0 1 .75-.75h12.19l-3.22-3.22a.75.75 0 0 1 .118-1.157"
                                         fill="currentColor"
                                       />
                                     </svg>
@@ -2086,9 +2086,9 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor
                 </div>
@@ -2493,9 +2493,9 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor
                 </div>
@@ -2906,9 +2906,9 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
           </span>
         </button>
         <div
-          aria-hidden="true"
           class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
           data-state="closed"
+          tabindex="0"
         >
           merOmSituasjonenDin.utdanning.hvorfor
         </div>
@@ -4346,7 +4346,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                                         Gå til neste måned
                                       </title>
                                       <path
-                                        d="M14.087 6.873a.75.75 0 0 1 .943.097l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H5a.75.75 0 0 1-.75-.74V12a.75.75 0 0 1 .75-.75h12.19l-3.22-3.22a.75.75 0 0 1 .117-1.157"
+                                        d="M14.088 6.873a.75.75 0 0 1 .942.097l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H5a.75.75 0 0 1-.75-.74V12a.75.75 0 0 1 .75-.75h12.19l-3.22-3.22a.75.75 0 0 1 .118-1.157"
                                         fill="currentColor"
                                       />
                                     </svg>
@@ -5159,9 +5159,9 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                   </span>
                 </button>
                 <div
-                  aria-hidden="true"
                   class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                   data-state="closed"
+                  tabindex="0"
                 >
                   merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor
                 </div>
@@ -5573,9 +5573,9 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
           </span>
         </button>
         <div
-          aria-hidden="true"
           class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
           data-state="closed"
+          tabindex="0"
         >
           merOmSituasjonenDin.utdanning.hvorfor
         </div>
