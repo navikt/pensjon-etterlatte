@@ -73,7 +73,11 @@ export const MeldInnEndringMeldFra = () => {
                     />
                 )
             case Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR:
-                return 'Her kommer det masse informasjon om forventet intekt til neste år'
+                return (
+                    <SanityRikTekst
+                        text={innhold?.informasjonOmEndring?.forventetInntektTilNesteAar?.hovedinnhold?.[spraak]}
+                    />
+                )
             case Endring.ANNET:
                 return <InformasjonOmAnnet />
             default:
@@ -116,7 +120,10 @@ export const MeldInnEndringMeldFra = () => {
                                             {erMellomOktoberogDesember() &&
                                                 migrerInntektSKjemaFeatureToggle.status === FeatureToggleStatus.PAA && (
                                                     <Radio value={Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR}>
-                                                        Forventet inntekt til neste år
+                                                        {
+                                                            innhold.endring?.radios?.forventetInntektTilNesteAar
+                                                                ?.label?.[spraak]
+                                                        }
                                                     </Radio>
                                                 )}
                                             <Radio value={Endring.ANNET}>
