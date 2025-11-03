@@ -9,7 +9,7 @@
         "@navikt/ds-icons": "3.4.3",
         "@navikt/ds-react": "^7.31.0",
         "@navikt/fnrvalidator": "2.1.5",
-        "@navikt/nav-dekoratoren-moduler": "^3.4.0",
+        "@navikt/nav-dekoratoren-moduler": "^3.5.0",
         "@vitejs/plugin-react-swc": "^4.2.0",
         "@vitest/coverage-v8": "^3.1.1",
         "axios": "1.12.2",
@@ -55,7 +55,7 @@
         "concurrently": "^9.2.1",
         "globals": "^16.4.0",
         "husky": "~9.1.7",
-        "jsdom": "^27.0.0",
+        "jsdom": "^27.1.0",
         "license-checker-rseidelsohn": "^4.4.2",
         "pretty-quick": "4.1.1"
     },
