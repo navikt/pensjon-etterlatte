@@ -496,10 +496,10 @@
   resolved "https://npm.pkg.github.com/download/@navikt/ds-tokens/7.31.0/c8ff6b4d9a463ddab2a357fd4dee135c26693322#c8ff6b4d9a463ddab2a357fd4dee135c26693322"
   integrity sha512-cW7be0OyW9FIcIrgagIO0/YZoc3774iCqq9VYvx9cyIYT3CK6kSziCEyT/Kro3wEzyW+nJokTORgyx28zk3y9A==
 
-"@navikt/nav-dekoratoren-moduler@^3.1.3":
-  version "3.4.0"
-  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.4.0/e368316e1b7d6e0fb7f15fbd087c34400a7208f3#e368316e1b7d6e0fb7f15fbd087c34400a7208f3"
-  integrity sha512-dAD2TDjadqt7kdR8pZ421q6lqqfnFfNg8AuRpWFQ7Bd3lML29/oipe/d+g/vQwaLH4aVTDIpGX8nVrR/g2NXfA==
+"@navikt/nav-dekoratoren-moduler@^3.5.0":
+  version "3.5.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.5.0/6df0830237b010f08b3a2a302013fd0edafe77f7#6df0830237b010f08b3a2a302013fd0edafe77f7"
+  integrity sha512-fi0XWVT97MedJJ5BrOjl0Ymj2QthTdbNNzlXbtM/H5o2/kC1yEbpf5odJOoM557x3Z292xcxeG+ISznLn1dckQ==
   dependencies:
     js-cookie "^3.0.5"
 
