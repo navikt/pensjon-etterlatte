@@ -63,12 +63,19 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     )}
                 </VStack>
 
-                <ControlledInntektTextField
-                    name={'forventetInntektTilNesteAar.inntektFraUtland'}
-                    control={control}
-                    label={inntektFraUtland?.label?.[spraak]}
-                    description={inntektFraUtland?.description?.[spraak]}
-                />
+                <VStack gap="2">
+                    <ControlledInntektTextField
+                        name={'forventetInntektTilNesteAar.inntektFraUtland'}
+                        control={control}
+                        label={inntektFraUtland?.label?.[spraak]}
+                        description={inntektFraUtland?.description?.[spraak]}
+                    />
+                    {!!inntektFraUtland?.readMore && (
+                        <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
+                            <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
+                        </ReadMore>
+                    )}
+                </VStack>
 
                 <SumAvOppgittInntekt
                     forventetInntektTilNesteAar={forventetInntektTilNesteAarSkjemaValuesTilValues(
