@@ -43,7 +43,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         description={arbeidsinntekt?.description?.[spraak]}
                     />
                     {!!arbeidsinntekt?.readMore && (
-                        <ReadMore header={!!arbeidsinntekt?.readMore?.tittel?.[spraak]}>
+                        <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
                             <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
                         </ReadMore>
                     )}
