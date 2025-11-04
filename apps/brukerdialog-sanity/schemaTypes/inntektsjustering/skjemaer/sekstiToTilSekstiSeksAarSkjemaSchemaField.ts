@@ -112,34 +112,7 @@ export const sekstiToTilSekstiSeksAarSkjemaSchemaField = defineField({
             name: 'afpInntekt',
             title: 'AFP offentlig eller privat',
             type: 'object',
-            fields: [
-                defineField({
-                    name: 'label',
-                    title: 'Tittel',
-                    type: 'object',
-                    fields: [
-                        defineField({
-                            name: 'afpOffentligEllerPrivat',
-                            title: 'AFP offentlig eller privat',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                        defineField({
-                            name: 'afpPrivat',
-                            title: 'AFP privat',
-                            type: 'object',
-                            fields: spraakStringFields,
-                        }),
-                    ],
-                }),
-                defineField({
-                    name: 'description',
-                    title: 'Description (valgfri)',
-                    type: 'object',
-                    fields: spraakStringFields,
-                }),
-                valgfriReadMoreSchemaField,
-            ],
+            fields: textFieldSchemaFields,
         }),
         defineField({
             name: 'afpTjenestepensjonordning',

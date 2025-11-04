@@ -17,7 +17,7 @@ export const ControlledInntektTextField = <T extends FieldValues>({ name, contro
             name={name}
             control={control}
             render={({ field: { value, onChange } }) => (
-                <Box maxWidth="20rem">
+                <Box maxWidth="25rem">
                     <TextField
                         label={label}
                         description={description}
