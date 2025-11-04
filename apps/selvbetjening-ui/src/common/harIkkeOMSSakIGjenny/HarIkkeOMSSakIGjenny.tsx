@@ -1,9 +1,9 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { Button, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../SideLaster.tsx'
-import { HarIkkeOMSSakIGjenny as HarIkkeOMSSakIGjennyInnhold } from '../sanity.types.ts'
 import { SanityRikTekst } from '../sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { HarIkkeOMSSakIGjenny as HarIkkeOMSSakIGjennyInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 export const HarIkkeOMSSakIGjenny = ({ skjemaNavn }: { skjemaNavn: 'inntektsjustering' | 'meld-inn-endring' }) => {
@@ -11,8 +11,8 @@ export const HarIkkeOMSSakIGjenny = ({ skjemaNavn }: { skjemaNavn: 'inntektsjust
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<HarIkkeOMSSakIGjennyInnhold>(
         `*[_type == "harIkkeOMSSakIGjenny" ${encodeURIComponent('&&')} dokumentTittel == "${skjemaNavn}"]`
     )

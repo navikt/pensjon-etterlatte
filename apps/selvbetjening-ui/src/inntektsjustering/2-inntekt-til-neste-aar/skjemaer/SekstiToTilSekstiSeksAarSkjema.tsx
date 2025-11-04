@@ -1,10 +1,10 @@
 import { Box, Radio, ReadMore, TextField, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { SideLaster } from '../../../common/SideLaster.tsx'
 import { ControlledMaanedVelger } from '../../../common/maanedVelger/ControlledMaanedVelger.tsx'
 import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledRadioGruppe } from '../../../common/radioGruppe/ControlledRadioGruppe.tsx'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 import { SammendragAvSkjemaFeil } from '../../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
@@ -27,8 +27,8 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )

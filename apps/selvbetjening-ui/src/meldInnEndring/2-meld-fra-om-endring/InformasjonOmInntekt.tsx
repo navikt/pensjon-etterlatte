@@ -8,16 +8,16 @@ import { MeldInnEndringMeldFra as MeldInnEndringMeldFraInnhold } from '../sanity
 export const InformasjonOmInntekt = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
         '*[_type == "meldInnEndringMeldFra"]'
     )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
 
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     if (!innhold?.informasjonOmEndring?.inntekt) {

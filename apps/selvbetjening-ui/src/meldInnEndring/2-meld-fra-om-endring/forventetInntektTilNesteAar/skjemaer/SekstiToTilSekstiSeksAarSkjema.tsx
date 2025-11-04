@@ -23,13 +23,15 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
         formState: { errors },
     } = useFormContext<MeldtInnEndring>()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFra>('*[_type == "meldInnEndringMeldFra"]')
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFra>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
     if (!innhold?.forventetInntektTilNesteAarSkjemer?.sekstiToTilSekstiSeksAarSkjema) {
         throw Error('Finner ikke sanity innhold for skjema 62-66 år')

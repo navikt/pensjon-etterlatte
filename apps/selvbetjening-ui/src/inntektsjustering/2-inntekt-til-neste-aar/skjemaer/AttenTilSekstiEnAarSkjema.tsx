@@ -1,8 +1,8 @@
 import { ReadMore, VStack } from '@navikt/ds-react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { SideLaster } from '../../../common/SideLaster.tsx'
 import { NavigasjonMeny } from '../../../common/navigasjonMeny/NavigasjonMeny.tsx'
+import { SideLaster } from '../../../common/SideLaster.tsx'
 import { SammendragAvSkjemaFeil } from '../../../common/sammendragAvSkjemaFeil/SammendragAvSkjemaFeil.tsx'
 import { SanityRikTekst } from '../../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../../common/sanity/useSanityInnhold.ts'
@@ -25,8 +25,8 @@ export const AttenTilSekstiEnAarSkjema = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )

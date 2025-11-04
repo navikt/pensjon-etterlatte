@@ -1,6 +1,6 @@
 import { Select } from '@navikt/ds-react'
-import { SpraakVelger as SpraakVelgerInnhold } from '../sanity.types.ts'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SpraakVelger as SpraakVelgerInnhold } from '../sanity.types.ts'
 import { useSpraak, useSpraakDispatch } from '../spraak/SpraakContext.tsx'
 import { Spraak } from '../spraak/spraak.ts'
 
@@ -9,9 +9,10 @@ export const SpraakVelger = () => {
 
     const spraakDispatch = useSpraakDispatch()
 
-    const { innhold, error, isLoading } = useSanityInnhold<SpraakVelgerInnhold>('*[_type == "spraakVelger"]')
+    const { innhold, innholdError, innholdIsLoading } =
+        useSanityInnhold<SpraakVelgerInnhold>('*[_type == "spraakVelger"]')
 
-    if (error && !isLoading) {
+    if (innholdError && !innholdIsLoading) {
         throw Error('Kunne ikke laste sanity innhold')
     }
 

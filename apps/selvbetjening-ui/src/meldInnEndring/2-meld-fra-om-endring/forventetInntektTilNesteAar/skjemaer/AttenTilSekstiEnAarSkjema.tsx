@@ -15,14 +15,16 @@ export const AttenTilSekstiEnAarSkjema = () => {
 
     const { control, watch } = useFormContext<MeldtInnEndring>()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFra>('*[_type == "meldInnEndringMeldFra"]')
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFra>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
 
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     if (!innhold?.forventetInntektTilNesteAarSkjemer?.attenTilSekstiEnAarSkjema) {

@@ -1,6 +1,6 @@
 import { FormProgress } from '@navikt/ds-react'
-import { SkjemaHeader } from '../sanity.types.ts'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SkjemaHeader } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 export const SkjemaProgresjon = ({
@@ -12,12 +12,12 @@ export const SkjemaProgresjon = ({
 }) => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<SkjemaHeader>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<SkjemaHeader>(
         `*[_type == "skjemaHeader" ${encodeURIComponent('&&')} dokumentTittel == "${skjemaNavn}"]`
     )
 
-    if (error && !isLoading) {
-        throw error
+    if (innholdError && !innholdIsLoading) {
+        throw innholdError
     }
 
     return (

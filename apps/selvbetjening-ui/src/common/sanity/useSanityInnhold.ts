@@ -5,8 +5,8 @@ export const useSanityInnhold = <T>(
     sanityQuery: string
 ): {
     innhold: T | undefined
-    error: ApiError | undefined
-    isLoading: boolean
+    innholdError: ApiError | undefined
+    innholdIsLoading: boolean
 } => {
     const { data, error, isLoading }: SWRResponse<T[], ApiError, boolean> = useSWR(
         `${apiURL}/sanity?` + new URLSearchParams(`sanityQuery=${sanityQuery}`)
@@ -14,7 +14,7 @@ export const useSanityInnhold = <T>(
 
     return {
         innhold: data?.[data?.length - 1],
-        error,
-        isLoading,
+        innholdError: error,
+        innholdIsLoading: isLoading,
     }
 }

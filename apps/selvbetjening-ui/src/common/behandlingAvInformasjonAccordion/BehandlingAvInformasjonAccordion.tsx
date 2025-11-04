@@ -1,23 +1,23 @@
 import { Accordion, BodyShort, Link } from '@navikt/ds-react'
 import { KomponentLaster } from '../KomponentLaster.tsx'
-import { BehandlingAvInformasjonAccordion as BehandlingAvInformasjonAccordionInnhold } from '../sanity.types.ts'
 import { SanityRikTekst } from '../sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { BehandlingAvInformasjonAccordion as BehandlingAvInformasjonAccordionInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 export const BehandlingAvInformasjonAccordion = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<BehandlingAvInformasjonAccordionInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<BehandlingAvInformasjonAccordionInnhold>(
         '*[_type == "behandlingAvInformasjonAccordion"]'
     )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
 
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     return (

@@ -1,21 +1,22 @@
 import { HStack, VStack } from '@navikt/ds-react'
 import { SideLaster } from './SideLaster.tsx'
-import { FantIkkeSiden as FantIkkeSidenInnhold } from './sanity.types.ts'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { FantIkkeSiden as FantIkkeSidenInnhold } from './sanity.types.ts'
 import { useSpraak } from './spraak/SpraakContext.tsx'
 import { SpraakVelger } from './spraakVelger/SpraakVelger.tsx'
 
 export const FantIkkeSiden = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<FantIkkeSidenInnhold>('*[_type == "fantIkkeSiden"]')
+    const { innhold, innholdError, innholdIsLoading } =
+        useSanityInnhold<FantIkkeSidenInnhold>('*[_type == "fantIkkeSiden"]')
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <SideLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     return (

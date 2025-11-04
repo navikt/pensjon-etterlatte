@@ -1,7 +1,7 @@
 import { ErrorSummary } from '@navikt/ds-react'
 import { FieldErrors, FieldValues } from 'react-hook-form'
-import { SammendragAvSkjemaFeil as SammendragAvSkjemaFeilInnhold } from '../sanity.types.ts'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SammendragAvSkjemaFeil as SammendragAvSkjemaFeilInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { formaterFieldErrors } from './skjemaError.ts'
 
@@ -12,12 +12,12 @@ interface Props<T extends FieldValues> {
 export const SammendragAvSkjemaFeil = <T extends FieldValues>({ errors }: Props<T>) => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<SammendragAvSkjemaFeilInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<SammendragAvSkjemaFeilInnhold>(
         '*[_type == "sammendragAvSkjemaFeil"]'
     )
 
-    if (error && !isLoading) {
-        throw error
+    if (innholdError && !innholdIsLoading) {
+        throw innholdError
     }
 
     return (

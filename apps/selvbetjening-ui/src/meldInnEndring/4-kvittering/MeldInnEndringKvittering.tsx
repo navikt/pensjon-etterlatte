@@ -19,8 +19,8 @@ export const MeldInnEndringKvittering = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<MeldInnEndringKvitteringInnhold>('*[_type == "meldInnEndringKvittering"]')
 
     if (innholdIsLoading) {

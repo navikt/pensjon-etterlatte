@@ -15,7 +15,9 @@ import { forventetInntektTilNesteAarSkjemaValuesTilValues } from './utils.ts'
 export const SekstiSyvAarSkjema = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFra>('*[_type == "meldInnEndringMeldFra"]')
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFra>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
 
     const {
         control,
@@ -24,11 +26,11 @@ export const SekstiSyvAarSkjema = () => {
         formState: { errors },
     } = useFormContext<MeldtInnEndring>()
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
     if (!innhold?.forventetInntektTilNesteAarSkjemer?.sekstiSyvAarSkjema) {
         throw Error('Finner ikke sanity innhold for skjema 67 år')

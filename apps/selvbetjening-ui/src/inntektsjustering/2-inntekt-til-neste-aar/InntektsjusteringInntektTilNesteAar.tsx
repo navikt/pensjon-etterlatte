@@ -1,6 +1,6 @@
 import { HStack, VStack } from '@navikt/ds-react'
-import { SideLaster } from '../../common/SideLaster.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { Alder, IInnloggetBruker } from '../../types/person.ts'
@@ -20,8 +20,8 @@ export const InntektsjusteringInntektTilNesteAar = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<InntektsjusteringInntektTilNesteAarInnhold>(
         '*[_type == "inntektsjusteringInntektTilNesteAar"]'
     )

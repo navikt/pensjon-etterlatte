@@ -1,8 +1,8 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { Bleed, Button, GuidePanel, HStack, Heading, VStack } from '@navikt/ds-react'
+import { Bleed, Button, GuidePanel, Heading, HStack, VStack } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
-import { SideLaster } from '../../common/SideLaster.tsx'
 import { BehandlingAvInformasjonAccordion } from '../../common/behandlingAvInformasjonAccordion/BehandlingAvInformasjonAccordion.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
@@ -16,8 +16,8 @@ export const MeldInnEndringInnledning = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<MeldFraOmEndringInnledningInnhold>('*[_type == "meldInnEndringInnledning"]')
 
     if (innholdIsLoading) {

@@ -3,9 +3,9 @@ import ErrorStackParser from 'error-stack-parser'
 import { useEffect } from 'react'
 import { useRouteError } from 'react-router-dom'
 import { logger } from './logger/logger.ts'
-import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from './sanity.types.ts'
 import { SanityRikTekst } from './sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from './sanity/useSanityInnhold.ts'
+import { SystemUtilgjengelig as SystemUtilgjengeligInnhold } from './sanity.types.ts'
 import { useSpraak } from './spraak/SpraakContext.tsx'
 import { SpraakVelger } from './spraakVelger/SpraakVelger.tsx'
 
@@ -20,7 +20,9 @@ export const SystemUtilgjengelig = () => {
 
     const spraak = useSpraak()
 
-    const { innhold, isLoading } = useSanityInnhold<SystemUtilgjengeligInnhold>('*[_type == "systemUtilgjengelig"]')
+    const { innhold, innholdIsLoading } = useSanityInnhold<SystemUtilgjengeligInnhold>(
+        '*[_type == "systemUtilgjengelig"]'
+    )
 
     useEffect(() => {
         if (error instanceof Error) {
@@ -52,7 +54,7 @@ export const SystemUtilgjengelig = () => {
                     <HStack justify="end">
                         <SpraakVelger />
                     </HStack>
-                    {!!innhold && !isLoading ? (
+                    {!!innhold && !innholdIsLoading ? (
                         <div>
                             <Detail textColor="subtle">{innhold.statuskodeDetail?.[spraak]}</Detail>
                             <SanityRikTekst text={innhold.hovedinnhold?.[spraak]} />

@@ -3,10 +3,10 @@ import { Button, HStack, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useSWR, { SWRResponse } from 'swr'
-import { SideLaster } from '../../common/SideLaster.tsx'
 import { ApiError, apiURL } from '../../common/api/api.ts'
 import { BehandlingAvInformasjonAccordion } from '../../common/behandlingAvInformasjonAccordion/BehandlingAvInformasjonAccordion.tsx'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
+import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
@@ -37,8 +37,8 @@ export const InntektsjusteringInnledning = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<InntektsjusteringInnledningInnhold>('*[_type == "inntektsjusteringInnledning"]')
 
     useEffect(() => {
