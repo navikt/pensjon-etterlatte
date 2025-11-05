@@ -7,10 +7,12 @@ export enum LogEvents {
     INGEN_OMS_SAK = 'ingen oms sak',
     KLIKK = 'klikk',
     ETTERSEND_DOKUMENTASJON_KLIKK = 'ettersend dokumentasjon klikk',
+    MELD_INN_ENDRING_ENDRING_TYPE = 'meld inn endring endring type',
 }
 
 export enum EventType {
     LENKE_KLIKK = 'lenke klikk',
+    INNSENDELSE = 'innsendelse',
 }
 
 export const useAnalytics = () => {

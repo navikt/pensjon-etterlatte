@@ -2,6 +2,7 @@ import { FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { EventType, LogEvents, useAnalytics } from '../../common/analytics/useAnalytics.ts'
 import { apiURL, poster } from '../../common/api/api.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { logger } from '../../common/logger/logger.ts'
@@ -24,6 +25,7 @@ import { velgTekstForEndring, velgTekstForSkalGaaAvMedAlderspensjon } from './ve
 
 export const MeldInnEndringOppsummering = () => {
     const navigate = useNavigate()
+    const { logEvent } = useAnalytics()
 
     const spraak = useSpraak()
     const meldInnEndring = useMeldInnEndring()
@@ -70,6 +72,10 @@ export const MeldInnEndringOppsummering = () => {
         try {
             const res = await poster(`${apiURL}/api/oms/meld_inn_endringer`, { body })
             if ([200, 304].includes(res.status)) {
+                logEvent(LogEvents.MELD_INN_ENDRING_ENDRING_TYPE, {
+                    type: EventType.INNSENDELSE,
+                    endring: meldInnEndring.endring,
+                })
                 navigate('/meld-inn-endring/kvittering')
             }
         } catch (e) {
