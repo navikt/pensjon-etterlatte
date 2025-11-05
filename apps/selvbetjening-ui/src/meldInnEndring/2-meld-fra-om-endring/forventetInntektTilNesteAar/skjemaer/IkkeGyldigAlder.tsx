@@ -9,13 +9,15 @@ import { MeldInnEndringMeldFra } from '../../../sanity.types.ts'
 export const IkkeGyldigAlder = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFra>('*[_type == "meldInnEndringMeldFra"]')
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFra>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     return (

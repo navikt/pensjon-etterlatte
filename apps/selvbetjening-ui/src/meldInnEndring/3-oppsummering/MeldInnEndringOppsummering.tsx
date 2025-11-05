@@ -39,8 +39,8 @@ export const MeldInnEndringOppsummering = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<MeldInnEndringOppsummeringInnhold>('*[_type == "meldInnEndringOppsummering"]')
 
     if (innholdIsLoading || innloggetBrukerIsLoading) {

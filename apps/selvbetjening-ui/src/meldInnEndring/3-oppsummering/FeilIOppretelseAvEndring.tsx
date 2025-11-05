@@ -10,8 +10,8 @@ export const FeilIOppretelseAvEndring = () => {
 
     const {
         innhold,
-        error: innholdError,
-        isLoading: innholdIsLoading,
+        innholdError: innholdError,
+        innholdIsLoading: innholdIsLoading,
     } = useSanityInnhold<MeldInnEndringOppsummering>('*[_type == "meldInnEndringOppsummering"]')
 
     if (innholdIsLoading) {

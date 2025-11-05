@@ -1,12 +1,12 @@
-import { BodyShort, HStack, Heading, Hide, VStack } from '@navikt/ds-react'
+import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../SideLaster.tsx'
-import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
+import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
-import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
 import { FyllUtSkjemaIcon } from './icons/FyllUtSkjemaIcon.tsx'
 import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
+import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
 
 interface Props {
     aktivtSteg: number
@@ -17,15 +17,15 @@ interface Props {
 export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<SkjemaHeaderInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<SkjemaHeaderInnhold>(
         `*[_type == "skjemaHeader" ${encodeURIComponent('&&')} dokumentTittel == "${skjemaNavn}"]`
     )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <SideLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     return (

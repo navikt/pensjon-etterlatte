@@ -8,12 +8,11 @@ import { useSanityInnhold } from '../../../../common/sanity/useSanityInnhold.ts'
 import { useSpraak } from '../../../../common/spraak/SpraakContext.tsx'
 import { ControlledInntektTextField } from '../../../../inntektsjustering/components/controlledInntektTextField/ControlledInntektTextField.tsx'
 import { Alder, MeldtInnEndring, SkalGaaAvMedAlderspensjon } from '../../../../types/meldInnEndring.ts'
-import { IInnloggetBruker } from '../../../../types/person.ts'
 import { MeldInnEndringMeldFra } from '../../../sanity.types.ts'
 import { SumAvOppgittInntekt } from './SumAvOppgittInntekt.tsx'
 import { forventetInntektTilNesteAarSkjemaValuesTilValues } from './utils.ts'
 
-export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetBruker: IInnloggetBruker }) => {
+export const SekstiToTilSekstiSeksAarSkjema = () => {
     const spraak = useSpraak()
 
     const {
@@ -23,20 +22,18 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
         formState: { errors },
     } = useFormContext<MeldtInnEndring>()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFra>('*[_type == "meldInnEndringMeldFra"]')
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFra>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
     if (!innhold?.forventetInntektTilNesteAarSkjemer?.sekstiToTilSekstiSeksAarSkjema) {
         throw Error('Finner ikke sanity innhold for skjema 62-66 år')
-    }
-
-    const skalViseAfpPrivat = (innloggetBruker: IInnloggetBruker): boolean => {
-        return innloggetBruker.foedselsaar! < 1963
     }
 
     const nesteAar = new Date().getFullYear() + 1
@@ -160,12 +157,7 @@ export const SekstiToTilSekstiSeksAarSkjema = ({ innloggetBruker }: { innloggetB
                         <ControlledInntektTextField
                             name="forventetInntektTilNesteAar.afpInntekt"
                             control={control}
-                            label={
-                                skalViseAfpPrivat(innloggetBruker)
-                                    ? afpInntekt?.label?.afpPrivat?.[spraak]
-                                    : afpInntekt?.label?.afpOffentligEllerPrivat?.[spraak]
-                            }
-                            description={afpInntekt?.description?.[spraak]}
+                            label={afpInntekt?.label?.[spraak]}
                         />
 
                         {!!watch('forventetInntektTilNesteAar.afpInntekt') &&

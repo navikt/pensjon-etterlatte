@@ -24,14 +24,14 @@ export const OppgittInntektAlert = ({
 
     const {
         innhold: fellesKomponenterInnhold,
-        error: fellesKomponenterInnholdError,
-        isLoading: fellesKomponenterInnholdIsLoading,
+        innholdError: fellesKomponenterInnholdError,
+        innholdIsLoading: fellesKomponenterInnholdIsLoading,
     } = useSanityInnhold<FellesKomponenter>('*[_type == "fellesKomponenter"]')
 
     const {
         innhold: inntektsjusteringInnledningInnhold,
-        error: inntektsjusteringInnledningInnholdError,
-        isLoading: inntektsjusteringInnledningInnholdIsLoading,
+        innholdError: inntektsjusteringInnledningInnholdError,
+        innholdIsLoading: inntektsjusteringInnledningInnholdIsLoading,
     } = useSanityInnhold<InntektsjusteringInnledningInnhold>('*[_type == "inntektsjusteringInnledning"]')
 
     if (fellesKomponenterInnholdError && !fellesKomponenterInnholdIsLoading) {

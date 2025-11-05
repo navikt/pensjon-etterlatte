@@ -7,6 +7,7 @@ import {
     FeatureToggleStatus,
     useFeatureToggle,
 } from '../../common/featureToggles/FeatureTogglesContext.tsx'
+import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
 import { ControlledRadioGruppe } from '../../common/radioGruppe/ControlledRadioGruppe.tsx'
 import { SideLaster } from '../../common/SideLaster.tsx'
@@ -15,7 +16,9 @@ import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
 import { SkjemaHeader } from '../../common/skjemaHeader/SkjemaHeader.tsx'
 import { useSpraak } from '../../common/spraak/SpraakContext.tsx'
+import { finnAlder } from '../../inntektsjustering/2-inntekt-til-neste-aar/finnAlder.ts'
 import { Endring, MeldtInnEndring } from '../../types/meldInnEndring.ts'
+import { Alder } from '../../types/person.ts'
 import {
     useMeldInnEndring,
     useMeldInnEndringDispatch,
@@ -36,6 +39,12 @@ export const MeldInnEndringMeldFra = () => {
         FeatureToggleNavn.MIGRER_INNTEKT_SKJEMA_TIL_MELD_INN_ENDRING_SKJEMA
     )
 
+    const {
+        data: innloggetBruker,
+        error: innloggetBrukerError,
+        isLoading: innloggetBrukerIsLoading,
+    } = useInnloggetInnbygger()
+
     const meldInnEndring = useMeldInnEndring()
     const meldInnEndringDispatch = useMeldInnEndringDispatch()
 
@@ -43,16 +52,16 @@ export const MeldInnEndringMeldFra = () => {
 
     const methods = useForm<MeldtInnEndring>({ defaultValues: meldInnEndring })
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFraInnhold>(
         '*[_type == "meldInnEndringMeldFra"]'
     )
 
-    if (isLoading) {
+    if (innholdIsLoading || innloggetBrukerIsLoading) {
         return <SideLaster />
     }
 
-    if (error) {
-        throw error
+    if (innholdError || innloggetBrukerError) {
+        throw innholdError || innloggetBrukerError
     }
 
     const onMeldInnInntektSubmit = (meldInnEndring: MeldtInnEndring) => {
@@ -86,7 +95,8 @@ export const MeldInnEndringMeldFra = () => {
     }
 
     return (
-        !!innhold && (
+        !!innhold &&
+        !!innloggetBruker && (
             <main>
                 <HStack justify="center" padding="8" minHeight="100vh">
                     <VStack gap="6" maxWidth="36rem">
@@ -188,11 +198,13 @@ export const MeldInnEndringMeldFra = () => {
                                 )}
 
                                 <SammendragAvSkjemaFeil errors={methods.formState.errors} />
-
-                                <NavigasjonMeny
-                                    tilbakePath="/meld-inn-endring/innledning"
-                                    onNeste={methods.handleSubmit(onMeldInnInntektSubmit)}
-                                />
+                                {finnAlder(innloggetBruker) !== Alder.IKKE_GYLDIG &&
+                                    methods.watch('endring') !== Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR && (
+                                        <NavigasjonMeny
+                                            tilbakePath="/meld-inn-endring/innledning"
+                                            onNeste={methods.handleSubmit(onMeldInnInntektSubmit)}
+                                        />
+                                    )}
                             </VStack>
                         </FormProvider>
                     </VStack>

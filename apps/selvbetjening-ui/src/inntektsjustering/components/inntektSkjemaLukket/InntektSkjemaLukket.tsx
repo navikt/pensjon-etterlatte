@@ -10,16 +10,16 @@ import { InntektSkjemaLukket as InntektSkjemaLukketInnhold } from '../../sanity.
 export const InntektSkjemaLukket = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InntektSkjemaLukketInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<InntektSkjemaLukketInnhold>(
         '*[_type == "inntektSkjemaLukket"]'
     )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <SideLaster />
     }
 
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     return (

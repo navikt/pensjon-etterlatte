@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
-import { Alert, Button, HStack, Heading, VStack } from '@navikt/ds-react'
+import { Alert, Button, Heading, HStack, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../common/sanity/useSanityInnhold.ts'
@@ -11,15 +11,15 @@ import './index.css'
 export const InntektsjusteringKvittering = () => {
     const spraak = useSpraak()
 
-    const { innhold, error, isLoading } = useSanityInnhold<InntektsjusteringKvitteringInnhold>(
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<InntektsjusteringKvitteringInnhold>(
         '*[_type == "inntektsjusteringKvittering"]'
     )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <SideLaster />
     }
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     return (

@@ -15,14 +15,16 @@ export const AttenTilSekstiEnAarSkjema = () => {
 
     const { control, watch } = useFormContext<MeldtInnEndring>()
 
-    const { innhold, error, isLoading } = useSanityInnhold<MeldInnEndringMeldFra>('*[_type == "meldInnEndringMeldFra"]')
+    const { innhold, innholdError, innholdIsLoading } = useSanityInnhold<MeldInnEndringMeldFra>(
+        '*[_type == "meldInnEndringMeldFra"]'
+    )
 
-    if (isLoading) {
+    if (innholdIsLoading) {
         return <KomponentLaster />
     }
 
-    if (error) {
-        throw error
+    if (innholdError) {
+        throw innholdError
     }
 
     if (!innhold?.forventetInntektTilNesteAarSkjemer?.attenTilSekstiEnAarSkjema) {
@@ -43,7 +45,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                         description={arbeidsinntekt?.description?.[spraak]}
                     />
                     {!!arbeidsinntekt?.readMore && (
-                        <ReadMore header={!!arbeidsinntekt?.readMore?.tittel?.[spraak]}>
+                        <ReadMore header={arbeidsinntekt?.readMore?.tittel?.[spraak]}>
                             <SanityRikTekst text={arbeidsinntekt?.readMore?.innhold?.[spraak]} />
                         </ReadMore>
                     )}
@@ -63,12 +65,19 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     )}
                 </VStack>
 
-                <ControlledInntektTextField
-                    name={'forventetInntektTilNesteAar.inntektFraUtland'}
-                    control={control}
-                    label={inntektFraUtland?.label?.[spraak]}
-                    description={inntektFraUtland?.description?.[spraak]}
-                />
+                <VStack gap="2">
+                    <ControlledInntektTextField
+                        name={'forventetInntektTilNesteAar.inntektFraUtland'}
+                        control={control}
+                        label={inntektFraUtland?.label?.[spraak]}
+                        description={inntektFraUtland?.description?.[spraak]}
+                    />
+                    {!!inntektFraUtland?.readMore && (
+                        <ReadMore header={inntektFraUtland?.readMore?.tittel?.[spraak]}>
+                            <SanityRikTekst text={inntektFraUtland?.readMore?.innhold?.[spraak]} />
+                        </ReadMore>
+                    )}
+                </VStack>
 
                 <SumAvOppgittInntekt
                     forventetInntektTilNesteAar={forventetInntektTilNesteAarSkjemaValuesTilValues(

@@ -2178,16 +2178,9 @@ export type MeldInnEndringMeldFra = {
             }
             afpInntekt?: {
                 label?: {
-                    afpOffentligEllerPrivat?: {
-                        NB?: string
-                        NN?: string
-                        EN?: string
-                    }
-                    afpPrivat?: {
-                        NB?: string
-                        NN?: string
-                        EN?: string
-                    }
+                    NB?: string
+                    NN?: string
+                    EN?: string
                 }
                 description?: {
                     NB?: string
