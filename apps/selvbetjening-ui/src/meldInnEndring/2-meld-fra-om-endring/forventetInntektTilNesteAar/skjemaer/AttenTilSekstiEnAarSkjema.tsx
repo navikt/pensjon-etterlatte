@@ -31,12 +31,13 @@ export const AttenTilSekstiEnAarSkjema = () => {
         throw new Error('Fant ikke sanity innhold for 18 - 61 år')
     }
 
-    const { arbeidsinntekt, inntektFraUtland, naeringsinntekt, sumAvInntekt } =
+    const { hovedinnhold, arbeidsinntekt, inntektFraUtland, naeringsinntekt, sumAvInntekt } =
         innhold.forventetInntektTilNesteAarSkjemer.attenTilSekstiEnAarSkjema
 
     return (
         !!innhold && (
             <>
+                <SanityRikTekst text={hovedinnhold?.[spraak]} />
                 <VStack gap="2">
                     <ControlledInntektTextField
                         name={'forventetInntektTilNesteAar.arbeidsinntekt'}

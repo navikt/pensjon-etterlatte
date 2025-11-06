@@ -82,11 +82,7 @@ export const MeldInnEndringMeldFra = () => {
                     />
                 )
             case Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR:
-                return (
-                    <SanityRikTekst
-                        text={innhold?.informasjonOmEndring?.forventetInntektTilNesteAar?.hovedinnhold?.[spraak]}
-                    />
-                )
+                return null
             case Endring.ANNET:
                 return <InformasjonOmAnnet />
             default:
@@ -198,13 +194,19 @@ export const MeldInnEndringMeldFra = () => {
                                 )}
 
                                 <SammendragAvSkjemaFeil errors={methods.formState.errors} />
-                                {finnAlder(innloggetBruker) !== Alder.IKKE_GYLDIG &&
-                                    methods.watch('endring') !== Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR && (
+                                {methods.watch('endring') === Endring.FORVENTET_INNTEKT_TIL_NESTE_AAR ? (
+                                    finnAlder(innloggetBruker) !== Alder.IKKE_GYLDIG && (
                                         <NavigasjonMeny
                                             tilbakePath="/meld-inn-endring/innledning"
                                             onNeste={methods.handleSubmit(onMeldInnInntektSubmit)}
                                         />
-                                    )}
+                                    )
+                                ) : (
+                                    <NavigasjonMeny
+                                        tilbakePath="/meld-inn-endring/innledning"
+                                        onNeste={methods.handleSubmit(onMeldInnInntektSubmit)}
+                                    />
+                                )}
                             </VStack>
                         </FormProvider>
                     </VStack>
