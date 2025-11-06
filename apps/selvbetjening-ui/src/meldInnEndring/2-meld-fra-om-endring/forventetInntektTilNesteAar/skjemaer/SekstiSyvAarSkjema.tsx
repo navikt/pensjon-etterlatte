@@ -41,6 +41,7 @@ export const SekstiSyvAarSkjema = () => {
     const sisteDagNesteAar = new Date(nesteAar, 11, 31)
 
     const {
+        hovedinnhold,
         skalGaaAvMedAlderspensjon,
         datoForAaGaaAvMedAlderspensjon,
         inntekterSomSkalMeldesInn,
@@ -55,6 +56,8 @@ export const SekstiSyvAarSkjema = () => {
     return (
         !!innhold && (
             <>
+                <SanityRikTekst text={hovedinnhold?.[spraak]} />
+
                 <VStack gap="2">
                     <ControlledRadioGruppe
                         name="forventetInntektTilNesteAar.skalGaaAvMedAlderspensjon"
