@@ -11,7 +11,7 @@ jobs:
       SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/*
           cache: yarn
