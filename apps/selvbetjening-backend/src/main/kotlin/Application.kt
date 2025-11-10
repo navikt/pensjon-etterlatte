@@ -31,13 +31,8 @@ import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleProperties
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
-import no.nav.etterlatte.inntektsjustering.InntektsjusteringMottatkGjennyFullfoert
-import no.nav.etterlatte.inntektsjustering.InntektsjusteringRepository
-import no.nav.etterlatte.inntektsjustering.InntektsjusteringService
-import no.nav.etterlatte.inntektsjustering.inntektsjustering
 import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
-import no.nav.etterlatte.jobs.PubliserInntektsjusteringJobb
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.KafkaProdusent
 import no.nav.etterlatte.kafka.TestProdusent
@@ -110,11 +105,6 @@ fun main() {
             TestProdusent()
         }
 
-    val inntektsjusteringService =
-        InntektsjusteringService(
-            InntektsjusteringRepository(datasourceBuilder.dataSource),
-        )
-
     val omsMeldInnEndringService =
         OmsMeldInnEndringService(
             OmsMeldInnEndringRepository(datasourceBuilder.dataSource),
@@ -147,7 +137,6 @@ fun main() {
             .withKtorModule {
                 apiModule {
                     metricsApi()
-                    inntektsjustering(inntektsjusteringService)
                     person(peronService)
                     sak(sakService)
                     omsMeldInnEndring(omsMeldInnEndringService)
@@ -155,11 +144,6 @@ fun main() {
             }.build {
                 datasourceBuilder.migrate()
             }.also { rapidConnection ->
-                PubliserInntektsjusteringJobb(rapid, inntektsjusteringService, featureToggleService)
-                    .schedule()
-                    ?.addShutdownHook()
-                InntektsjusteringMottatkGjennyFullfoert(rapidConnection, inntektsjusteringService)
-
                 PubliserOmsMeldtInnEndringJobb(rapid, omsMeldInnEndringService, featureToggleService)
                     .schedule()
                     ?.addShutdownHook()
