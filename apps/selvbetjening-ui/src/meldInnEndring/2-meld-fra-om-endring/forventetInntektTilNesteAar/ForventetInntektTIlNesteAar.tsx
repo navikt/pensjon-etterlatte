@@ -1,7 +1,7 @@
 import { useInnloggetInnbygger } from '../../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { KomponentLaster } from '../../../common/KomponentLaster.tsx'
-import { finnAlder } from '../../../inntektsjustering/2-inntekt-til-neste-aar/finnAlder.ts'
 import { Alder } from '../../../types/person.ts'
+import { finnAlder } from './finnAlder.ts'
 import { AttenTilSekstiEnAarSkjema } from './skjemaer/AttenTilSekstiEnAarSkjema.tsx'
 import { IkkeGyldigAlder } from './skjemaer/IkkeGyldigAlder.tsx'
 import { SekstiSyvAarSkjema } from './skjemaer/SekstiSyvAarSkjema.tsx'
