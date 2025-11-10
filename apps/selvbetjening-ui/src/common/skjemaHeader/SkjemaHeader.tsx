@@ -1,17 +1,16 @@
-import { BodyShort, Heading, Hide, HStack, VStack } from '@navikt/ds-react'
+import { Heading, Hide, HStack, VStack } from '@navikt/ds-react'
 import { SideLaster } from '../SideLaster.tsx'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { SkjemaHeader as SkjemaHeaderInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 import { SpraakVelger } from '../spraakVelger/SpraakVelger.tsx'
 import { FyllUtSkjemaIcon } from './icons/FyllUtSkjemaIcon.tsx'
-import { VarigLoonnstilskuddIcon } from './icons/VarigLoonnstilskuddIcon.tsx'
 import { SkjemaProgresjon } from './SkjemaProgresjon.tsx'
 
 interface Props {
     aktivtSteg: number
     stegLabelKey: 'steg1' | 'steg2' | 'steg3' | 'steg4'
-    skjemaNavn: 'inntektsjustering' | 'meld-inn-endring'
+    skjemaNavn: 'meld-inn-endring'
 }
 
 export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) => {
@@ -35,12 +34,8 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) =>
                     <SpraakVelger />
                 </HStack>
                 <HStack gap="4" align="center">
-                    <Hide below="md">
-                        {skjemaNavn === 'inntektsjustering' && <VarigLoonnstilskuddIcon aria-hidden />}
-                        {skjemaNavn === 'meld-inn-endring' && <FyllUtSkjemaIcon aria-hidden />}
-                    </Hide>
+                    <Hide below="md">{skjemaNavn === 'meld-inn-endring' && <FyllUtSkjemaIcon aria-hidden />}</Hide>
                     <VStack>
-                        {skjemaNavn === 'inntektsjustering' && <BodyShort size="small">Nav 17-09.02</BodyShort>}
                         <Heading size="xlarge" level="1">
                             {innhold.skjemaTittel?.[spraak]}
                         </Heading>

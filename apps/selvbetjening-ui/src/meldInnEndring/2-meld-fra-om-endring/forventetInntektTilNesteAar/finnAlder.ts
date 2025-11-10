@@ -1,5 +1,5 @@
 import { differenceInYears } from 'date-fns'
-import { Alder, IInnloggetBruker } from '../../types/person.ts'
+import { Alder, IInnloggetBruker } from '../../../types/person.ts'
 
 export const finnAlder = (innloggetBruker: IInnloggetBruker): Alder => {
     // Beregn alder utifra neste år, trenger kun å være ut ifra fødselsår, ikke spesifik dato

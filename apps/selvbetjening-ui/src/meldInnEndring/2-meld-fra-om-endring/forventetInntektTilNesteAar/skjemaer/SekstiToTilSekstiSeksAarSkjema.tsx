@@ -6,9 +6,10 @@ import { ControlledRadioGruppe } from '../../../../common/radioGruppe/Controlled
 import { SanityRikTekst } from '../../../../common/sanity/SanityRikTekst.tsx'
 import { useSanityInnhold } from '../../../../common/sanity/useSanityInnhold.ts'
 import { useSpraak } from '../../../../common/spraak/SpraakContext.tsx'
-import { ControlledInntektTextField } from '../../../../inntektsjustering/components/controlledInntektTextField/ControlledInntektTextField.tsx'
-import { Alder, MeldtInnEndring, SkalGaaAvMedAlderspensjon } from '../../../../types/meldInnEndring.ts'
+import { MeldtInnEndring, SkalGaaAvMedAlderspensjon } from '../../../../types/meldInnEndring.ts'
+import { Alder } from '../../../../types/person.ts'
 import { MeldInnEndringMeldFra } from '../../../sanity.types.ts'
+import { ControlledInntektTextField } from './ControlledInntektTextField.tsx'
 import { SumAvOppgittInntekt } from './SumAvOppgittInntekt.tsx'
 import { forventetInntektTilNesteAarSkjemaValuesTilValues } from './utils.ts'
 

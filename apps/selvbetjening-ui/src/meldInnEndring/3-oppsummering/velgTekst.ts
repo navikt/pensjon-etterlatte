@@ -1,6 +1,5 @@
 import { Spraak } from '../../common/spraak/spraak.ts'
-import { SkalGaaAvMedAlderspensjon } from '../../types/inntektsjustering.ts'
-import { Endring } from '../../types/meldInnEndring.ts'
+import { Endring, SkalGaaAvMedAlderspensjon } from '../../types/meldInnEndring.ts'
 import { MeldInnEndringOppsummering } from '../sanity.types.ts'
 
 export const velgTekstForEndring = (

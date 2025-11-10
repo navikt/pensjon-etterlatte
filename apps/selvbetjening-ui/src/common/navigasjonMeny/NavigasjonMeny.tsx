@@ -2,7 +2,7 @@ import { ArrowLeftIcon, ArrowRightIcon, PaperplaneIcon } from '@navikt/aksel-ico
 import { Button, HGrid, VStack } from '@navikt/ds-react'
 import { useNavigate } from 'react-router-dom'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
-import { NavigasjonsMeny as NavigasjonsMenyInnhold } from '../sanity.types.ts'
+import { NavigasjonMeny as NavigasjonMenyInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
 
 interface Props {
@@ -18,7 +18,7 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeInnSkjema, onNeste, neste
     const spraak = useSpraak()
 
     const { innhold, innholdError, innholdIsLoading } =
-        useSanityInnhold<NavigasjonsMenyInnhold>('*[_type == "navigasjonMeny"]')
+        useSanityInnhold<NavigasjonMenyInnhold>('*[_type == "navigasjonMeny"]')
 
     if (innholdError && !innholdIsLoading) throw innholdError
 
