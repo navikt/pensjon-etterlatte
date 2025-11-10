@@ -38,7 +38,7 @@ Kjøre opp både frontend og [etterlatte-node-server](../etterlatte-node-server)
 Kjøre prosjektet (mot lokalt kjørende [etterlatte-node-server](../etterlatte-node-server)):\
 `yarn start`
 
-Åpne [http://localhost:5173/omstillingsstonad/skjema/inntekt/innledning](http://localhost:5173/omstillingsstonad/inntekt/innledning) i nettleseren.
+Åpne [http://localhost:5173/omstillingsstonad/skjema/meld-inn-endring/innledning](http://localhost:5173/omstillingsstonad/inntekt/innledning) i nettleseren.
 
 ### Testing
 
@@ -60,7 +60,7 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
-[https://etterlatte.ekstern.dev.nav.no/omstillingsstonad/inntekt/innledning](https://etterlatte.intern.dev.nav.no/selvbetjening)
+[https://etterlatte.ekstern.dev.nav.no/omstillingsstonad/skjema/meld-inn.endring/innledning](https://etterlatte.intern.dev.nav.no/selvbetjening)
 
 Må koble til [naisdevice](https://doc.nais.io/device/) eller åpne adressen via Citrix/Utviklerimage.
 
