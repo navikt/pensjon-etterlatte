@@ -2,7 +2,8 @@ import { EqualsIcon } from '@navikt/aksel-icons'
 import { Box, Heading, VStack } from '@navikt/ds-react'
 import { ReactNode } from 'react'
 import { useSpraak } from '../../../../common/spraak/SpraakContext.tsx'
-import { Alder, ForventetInntektTilNesteAar } from '../../../../types/meldInnEndring.ts'
+import { ForventetInntektTilNesteAar } from '../../../../types/meldInnEndring.ts'
+import { Alder } from '../../../../types/person.ts'
 
 interface Props {
     forventetInntektTilNesteAar: ForventetInntektTilNesteAar
