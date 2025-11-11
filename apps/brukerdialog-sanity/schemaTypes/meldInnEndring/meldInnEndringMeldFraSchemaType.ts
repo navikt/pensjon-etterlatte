@@ -1,13 +1,13 @@
 import { defineField, defineType } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../spraak'
-import { errorVedTomInputSchemaField, textFieldSchemaFields } from '../inntektsjustering/skjemaer/fellesSchemaFields'
+import { errorVedTomInputSchemaField, textFieldSchemaFields } from '../fellesSchemaFields'
 import {
     attenTilSekstiEnAarSkjemaSchemaField
-} from '../inntektsjustering/skjemaer/attenTilSekstiEnAarSkjemaSchemaField'
+} from './forventetInntektTilNesteAar/attenTilSekstiEnAarSkjemaSchemaField'
 import {
     sekstiToTilSekstiSeksAarSkjemaSchemaField
-} from '../inntektsjustering/skjemaer/sekstiToTilSekstiSeksAarSkjemaSchemaField'
-import { sekstiSyvAarSkjemaSchemaField } from '../inntektsjustering/skjemaer/sekstiSyvAarSkjemaSchemaField'
+} from './forventetInntektTilNesteAar/sekstiToTilSekstiSeksAarSkjemaSchemaField'
+import { sekstiSyvAarSkjemaSchemaField } from './forventetInntektTilNesteAar/sekstiSyvAarSkjemaSchemaField'
 
 export const meldInnEndringMeldFraSchemaType = defineType({
     name: 'meldInnEndringMeldFra',

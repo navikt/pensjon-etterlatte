@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
 import { spraakBlockFields, spraakStringFields } from '../../spraak'
-import { errorVedTomInputSchemaField, textFieldSchemaFields, valgfriReadMoreSchemaField } from './fellesSchemaFields'
+import { errorVedTomInputSchemaField, textFieldSchemaFields, valgfriReadMoreSchemaField } from '../../fellesSchemaFields'
 
 export const sekstiToTilSekstiSeksAarSkjemaSchemaField = defineField({
     name: 'sekstiToTilSekstiSeksAarSkjema',
