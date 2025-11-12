@@ -1,5 +1,5 @@
 import { defineField } from 'sanity'
-import { textFieldSchemaFields } from './fellesSchemaFields'
+import { textFieldSchemaFields } from '../../fellesSchemaFields'
 import { spraakBlockFields } from '../../spraak'
 
 export const attenTilSekstiEnAarSkjemaSchemaField = defineField({

@@ -1,7 +1,6 @@
 import { AuthConfig, defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
-import { inntektsjusteringSchemaTypes } from './schemaTypes/inntektsjustering'
 import { felleskomponenterSchemaType } from './schemaTypes/felleskomponenter'
 import { meldInnEndringSchemaType } from './schemaTypes/meldInnEndring'
 
@@ -19,18 +18,6 @@ const auth: AuthConfig = {
 }
 
 export default defineConfig([
-    {
-        projectId: 'u0dlg8d8',
-        dataset: 'selvbetjening-ui',
-        name: 'inntektsjustering',
-        title: 'Inntektsjustering',
-        basePath: '/inntektsjustering',
-        plugins: [structureTool(), visionTool()],
-        auth,
-        schema: {
-            types: [...inntektsjusteringSchemaTypes],
-        },
-    },
     {
         projectId: 'u0dlg8d8',
         dataset: 'selvbetjening-ui',

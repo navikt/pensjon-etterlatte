@@ -1,5 +1,5 @@
 import { defineField } from 'sanity'
-import { spraakBlockFields, spraakStringFields } from '../../spraak'
+import { spraakBlockFields, spraakStringFields } from './spraak'
 
 export const valgfriReadMoreSchemaField = defineField({
     name: 'readMore',
