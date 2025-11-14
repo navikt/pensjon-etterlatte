@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react'
-import { ActionTypes } from '../context/soknad/soknad'
-import { useSoknadContext } from '../context/soknad/SoknadContext'
+import { useEffect, useState } from "react";
+import { ActionTypes } from "../context/soknad/soknad";
+import { useSoknadContext } from "../context/soknad/SoknadContext";
 
-let timer: NodeJS.Timeout
+let timer: ReturnType<typeof setTimeout>;
 
 export const useError = () => {
-    const [message, setMessage] = useState<null | string>(null)
-    const { dispatch } = useSoknadContext()
+    const [message, setMessage] = useState<null | string>(null);
+    const { dispatch } = useSoknadContext();
 
     const clearMessage = () => {
-        setMessage(null)
-    }
+        setMessage(null);
+    };
 
     useEffect(() => {
-        clearTimeout(timer)
+        clearTimeout(timer);
         timer = setTimeout(() => {
-            clearMessage()
-        }, 10000)
+            clearMessage();
+        }, 10000);
         dispatch({
             type: ActionTypes.SET_ERROR,
             payload: message,
-        })
-    }, [message])
+        });
+    }, [message]);
 
     const setError = (errorMsg: string | null) => {
-        setMessage(errorMsg)
-    }
+        setMessage(errorMsg);
+    };
 
-    return { setError, message }
-}
+    return { setError, message };
+};
