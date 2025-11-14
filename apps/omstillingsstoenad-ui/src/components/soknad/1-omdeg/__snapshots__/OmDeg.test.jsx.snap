@@ -41,7 +41,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«r0»"
+              id="textField-error-_r_0_"
             />
           </div>
         </div>
@@ -72,7 +72,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«r1»"
+            id="textField-error-_r_1_"
           />
         </div>
       </div>
@@ -89,12 +89,12 @@ exports[`Om deg og avdød > Snapshot 1`] = `
           id="utbetalingsInformasjon.bankkontoType"
         >
           <fieldset
-            aria-labelledby="«r3»"
+            aria-labelledby="_r_3_"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«r3»"
+              id="_r_3_"
             >
               omDeg.utbetalingsInformasjon.bankkontoType
             </legend>
@@ -106,14 +106,14 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r5»"
+                  id="radio-_r_5_"
                   name="utbetalingsInformasjon.bankkontoType"
                   type="radio"
                   value="bankkontoType.norsk"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r5»"
+                  for="radio-_r_5_"
                 >
                   <span
                     class="navds-radio__content"
@@ -131,14 +131,14 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r7»"
+                  id="radio-_r_7_"
                   name="utbetalingsInformasjon.bankkontoType"
                   type="radio"
                   value="bankkontoType.utenlandsk"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r7»"
+                  for="radio-_r_7_"
                 >
                   <span
                     class="navds-radio__content"
@@ -156,7 +156,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«r4»"
+              id="fieldset-error-_r_4_"
             />
           </fieldset>
         </div>
@@ -196,7 +196,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«rc»"
+              id="textField-error-_r_c_"
             />
           </div>
         </div>
@@ -226,7 +226,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«rd»"
+              id="textField-error-_r_d_"
             />
           </div>
         </div>
@@ -343,7 +343,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«re»"
+            id="textField-error-_r_e_"
           />
         </div>
       </div>
@@ -459,7 +459,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«rg»"
+            id="textField-error-_r_g_"
           />
         </div>
       </div>
@@ -521,7 +521,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«rb»"
+              aria-labelledby="title-_r_b_"
               fill="none"
               focusable="false"
               height="1em"
@@ -531,7 +531,7 @@ exports[`Om deg og avdød > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«rb»"
+                id="title-_r_b_"
               >
                 Lukk
               </title>

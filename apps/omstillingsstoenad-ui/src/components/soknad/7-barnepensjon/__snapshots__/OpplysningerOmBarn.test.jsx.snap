@@ -240,7 +240,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«r2»"
+              aria-labelledby="title-_r_2_"
               fill="none"
               focusable="false"
               height="1em"
@@ -250,7 +250,7 @@ exports[`Opplysninger om barn > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«r2»"
+                id="title-_r_2_"
               >
                 Lukk
               </title>

@@ -17,7 +17,7 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
       data-variant="success"
     >
       <svg
-        aria-labelledby="title-«r0»"
+        aria-labelledby="title-_r_0_"
         class="navds-alert__icon"
         fill="none"
         focusable="false"
@@ -28,7 +28,7 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <title
-          id="title-«r0»"
+          id="title-_r_0_"
         >
           Suksess
         </title>
@@ -91,7 +91,7 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
       data-variant="info"
     >
       <svg
-        aria-labelledby="title-«r1»"
+        aria-labelledby="title-_r_1_"
         class="navds-alert__icon"
         fill="none"
         focusable="false"
@@ -102,7 +102,7 @@ exports[`SoknadKvittering > skal matche snapshot 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <title
-          id="title-«r1»"
+          id="title-_r_1_"
         >
           Informasjon
         </title>

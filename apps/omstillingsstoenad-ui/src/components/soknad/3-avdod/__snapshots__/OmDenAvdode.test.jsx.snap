@@ -43,7 +43,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«r0»"
+              id="textField-error-_r_0_"
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="textField-error-«r1»"
+              id="textField-error-_r_1_"
             />
           </div>
         </div>
@@ -97,19 +97,19 @@ exports[`Om den avdøde > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-form-field__error"
-            id="textField-error-«r2»"
+            id="textField-error-_r_2_"
           />
         </div>
         <div
           id="ukjentFoedselsnummer"
         >
           <fieldset
-            aria-labelledby="«r3»"
+            aria-labelledby="_r_3_"
             class="navds-checkbox-group navds-checkbox-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-sr-only navds-label"
-              id="«r3»"
+              id="_r_3_"
             >
               omDenAvdoede.ukjentFoedselsnummer
             </legend>
@@ -121,13 +121,13 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-checkbox__input"
-                  id="checkbox-«r5»"
+                  id="checkbox-_r_5_"
                   type="checkbox"
                   value="false"
                 />
                 <label
                   class="navds-checkbox__label"
-                  for="checkbox-«r5»"
+                  for="checkbox-_r_5_"
                 >
                   <span
                     class="navds-checkbox__icon"
@@ -165,7 +165,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«r4»"
+              id="fieldset-error-_r_4_"
             />
           </fieldset>
         </div>
@@ -182,7 +182,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
           >
             <label
               class="navds-form-field__label navds-label"
-              for="comboboxfield-«r7»"
+              for="comboboxfield-_r_7_"
             >
               omDenAvdoede.statsborgerskap
             </label>
@@ -204,12 +204,12 @@ exports[`Om den avdøde > Snapshot 1`] = `
                   <li>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="comboboxfield-«r7»-filtered-options"
-                      aria-describedby="comboboxfield-«r7»-no-hits"
+                      aria-controls="comboboxfield-_r_7_-filtered-options"
+                      aria-describedby="comboboxfield-_r_7_-no-hits"
                       aria-expanded="false"
                       autocomplete="off"
                       class="navds-combobox__input navds-body-short navds-body-short--medium navds-combobox__input--hide-caret"
-                      id="comboboxfield-«r7»"
+                      id="comboboxfield-_r_7_"
                       role="combobox"
                       type="text"
                       value=""
@@ -248,7 +248,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                   data-align="center"
                   data-index="0"
                   data-side="bottom"
-                  id="comboboxfield-«r7»-filtered-options"
+                  id="comboboxfield-_r_7_-filtered-options"
                   style="max-height: 290px; animation: none;"
                   tabindex="-1"
                 >
@@ -258,7 +258,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                   >
                     <div
                       class="navds-combobox__list-item--no-options"
-                      id="comboboxfield-«r7»-no-hits"
+                      id="comboboxfield-_r_7_-no-hits"
                     >
                       Ingen søketreff
                     </div>
@@ -270,7 +270,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="comboboxfield-error-«r7»"
+              id="comboboxfield-error-_r_7_"
             />
           </div>
         </div>
@@ -293,7 +293,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
             </label>
             <div
               class="navds-form-field__description navds-body-short navds-body-short--medium"
-              id="datepicker-input-description-«ra»"
+              id="datepicker-input-description-_r_a_"
             >
               felles.oppgiDato felles.datoformat
             </div>
@@ -301,7 +301,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               class="navds-date__field-wrapper"
             >
               <input
-                aria-describedby="datepicker-input-description-«ra»"
+                aria-describedby="datepicker-input-description-_r_a_"
                 autocomplete="off"
                 class="navds-date__field-input navds-text-field__input navds-body-short navds-body-short--medium"
                 id="datoForDoedsfallet"
@@ -314,7 +314,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                 type="button"
               >
                 <svg
-                  aria-labelledby="title-«rb»"
+                  aria-labelledby="title-_r_b_"
                   fill="none"
                   focusable="false"
                   height="1em"
@@ -324,7 +324,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <title
-                    id="title-«rb»"
+                    id="title-_r_b_"
                   >
                     Åpne datovelger
                   </title>
@@ -341,7 +341,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-form-field__error"
-              id="datepicker-input-error-«ra»"
+              id="datepicker-input-error-_r_a_"
             />
           </div>
           <div
@@ -349,7 +349,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
             class="navds-popover navds-date__popover navds-popover--hidden"
             data-index="0"
             data-placement="bottom-start"
-            id="«r9»"
+            id="_r_9_"
             role="dialog"
             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
           >
@@ -383,7 +383,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                         class="navds-button__icon"
                       >
                         <svg
-                          aria-labelledby="title-«rd»"
+                          aria-labelledby="title-_r_d_"
                           fill="none"
                           focusable="false"
                           height="1em"
@@ -393,7 +393,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title
-                            id="title-«rd»"
+                            id="title-_r_d_"
                           >
                             Gå til forrige måned
                           </title>
@@ -412,7 +412,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                       >
                         <label
                           class="navds-form-field__label navds-sr-only navds-label"
-                          for="select-«re»"
+                          for="select-_r_e_"
                         >
                           Måned
                         </label>
@@ -421,7 +421,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                         >
                           <select
                             class="navds-select__input navds-body-short navds-body-short--medium"
-                            id="select-«re»"
+                            id="select-_r_e_"
                           >
                             <option
                               value="0"
@@ -518,7 +518,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                           aria-live="polite"
                           aria-relevant="additions removals"
                           class="navds-form-field__error"
-                          id="select-error-«re»"
+                          id="select-error-_r_e_"
                         />
                       </div>
                       <div
@@ -526,7 +526,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                       >
                         <label
                           class="navds-form-field__label navds-sr-only navds-label"
-                          for="select-«rg»"
+                          for="select-_r_g_"
                         >
                           År
                         </label>
@@ -535,7 +535,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                         >
                           <select
                             class="navds-select__input navds-body-short navds-body-short--medium"
-                            id="select-«rg»"
+                            id="select-_r_g_"
                           >
                             <option
                               value="2015"
@@ -611,7 +611,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                           aria-live="polite"
                           aria-relevant="additions removals"
                           class="navds-form-field__error"
-                          id="select-error-«rg»"
+                          id="select-error-_r_g_"
                         />
                       </div>
                     </div>
@@ -626,7 +626,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                         class="navds-button__icon"
                       >
                         <svg
-                          aria-labelledby="title-«ri»"
+                          aria-labelledby="title-_r_i_"
                           fill="none"
                           focusable="false"
                           height="1em"
@@ -636,7 +636,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <title
-                            id="title-«ri»"
+                            id="title-_r_i_"
                           >
                             Gå til neste måned
                           </title>
@@ -1293,12 +1293,12 @@ exports[`Om den avdøde > Snapshot 1`] = `
           id="doedsfallAarsak"
         >
           <fieldset
-            aria-labelledby="«rl»"
+            aria-labelledby="_r_l_"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«rl»"
+              id="_r_l_"
             >
               omDenAvdoede.doedsfallAarsak
             </legend>
@@ -1310,14 +1310,14 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rn»"
+                  id="radio-_r_n_"
                   name="doedsfallAarsak"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rn»"
+                  for="radio-_r_n_"
                 >
                   <span
                     class="navds-radio__content"
@@ -1335,14 +1335,14 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rp»"
+                  id="radio-_r_p_"
                   name="doedsfallAarsak"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rp»"
+                  for="radio-_r_p_"
                 >
                   <span
                     class="navds-radio__content"
@@ -1360,14 +1360,14 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rr»"
+                  id="radio-_r_r_"
                   name="doedsfallAarsak"
                   type="radio"
                   value="radiobuttons.vetIkke"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rr»"
+                  for="radio-_r_r_"
                 >
                   <span
                     class="navds-radio__content"
@@ -1385,7 +1385,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«rm»"
+              id="fieldset-error-_r_m_"
             />
           </fieldset>
         </div>
@@ -1413,12 +1413,12 @@ exports[`Om den avdøde > Snapshot 1`] = `
           id="boddEllerJobbetUtland.svar"
         >
           <fieldset
-            aria-labelledby="«ru»"
+            aria-labelledby="_r_u_"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«ru»"
+              id="_r_u_"
             >
               omDenAvdoede.boddEllerJobbetUtland.svar
             </legend>
@@ -1430,14 +1430,14 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r10»"
+                  id="radio-_r_10_"
                   name="boddEllerJobbetUtland.svar"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r10»"
+                  for="radio-_r_10_"
                 >
                   <span
                     class="navds-radio__content"
@@ -1455,14 +1455,14 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r12»"
+                  id="radio-_r_12_"
                   name="boddEllerJobbetUtland.svar"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r12»"
+                  for="radio-_r_12_"
                 >
                   <span
                     class="navds-radio__content"
@@ -1480,14 +1480,14 @@ exports[`Om den avdøde > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«r14»"
+                  id="radio-_r_14_"
                   name="boddEllerJobbetUtland.svar"
                   type="radio"
                   value="radiobuttons.vetIkke"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«r14»"
+                  for="radio-_r_14_"
                 >
                   <span
                     class="navds-radio__content"
@@ -1505,7 +1505,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«rv»"
+              id="fieldset-error-_r_v_"
             />
           </fieldset>
         </div>
@@ -1578,7 +1578,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«r18»"
+              aria-labelledby="title-_r_18_"
               fill="none"
               focusable="false"
               height="1em"
@@ -1588,7 +1588,7 @@ exports[`Om den avdøde > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«r18»"
+                id="title-_r_18_"
               >
                 Lukk
               </title>

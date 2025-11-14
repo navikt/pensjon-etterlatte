@@ -206,18 +206,18 @@ exports[`Omsorg for barn > Snapshot 1`] = `
         id="nySivilstatus.sivilstatus"
       >
         <fieldset
-          aria-labelledby="«r1» fieldset-description-«r2»"
+          aria-labelledby="_r_1_ fieldset-description-_r_2_"
           class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
         >
           <legend
             class="navds-fieldset__legend navds-label"
-            id="«r1»"
+            id="_r_1_"
           >
             situasjonenDin.nySivilstatus.sivilstatus
           </legend>
           <div
             class="navds-fieldset__description navds-body-short navds-body-short--medium"
-            id="fieldset-description-«r2»"
+            id="fieldset-description-_r_2_"
           >
             situasjonenDin.nySivilstatus.beskrivelse
           </div>
@@ -229,14 +229,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-«r3»"
+                id="radio-_r_3_"
                 name="nySivilstatus.sivilstatus"
                 type="radio"
                 value="nySivilstatus.enke"
               />
               <label
                 class="navds-radio__label"
-                for="radio-«r3»"
+                for="radio-_r_3_"
               >
                 <span
                   class="navds-radio__content"
@@ -254,14 +254,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-«r5»"
+                id="radio-_r_5_"
                 name="nySivilstatus.sivilstatus"
                 type="radio"
                 value="nySivilstatus.ekteskap"
               />
               <label
                 class="navds-radio__label"
-                for="radio-«r5»"
+                for="radio-_r_5_"
               >
                 <span
                   class="navds-radio__content"
@@ -279,14 +279,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-«r7»"
+                id="radio-_r_7_"
                 name="nySivilstatus.sivilstatus"
                 type="radio"
                 value="nySivilstatus.enslig"
               />
               <label
                 class="navds-radio__label"
-                for="radio-«r7»"
+                for="radio-_r_7_"
               >
                 <span
                   class="navds-radio__content"
@@ -304,14 +304,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             >
               <input
                 class="navds-radio__input"
-                id="radio-«r9»"
+                id="radio-_r_9_"
                 name="nySivilstatus.sivilstatus"
                 type="radio"
                 value="nySivilstatus.samboerskap"
               />
               <label
                 class="navds-radio__label"
-                for="radio-«r9»"
+                for="radio-_r_9_"
               >
                 <span
                   class="navds-radio__content"
@@ -329,7 +329,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             aria-live="polite"
             aria-relevant="additions removals"
             class="navds-fieldset__error"
-            id="fieldset-error-«r2»"
+            id="fieldset-error-_r_2_"
           />
         </fieldset>
       </div>
@@ -356,12 +356,12 @@ exports[`Omsorg for barn > Snapshot 1`] = `
           id="omsorgMinstFemti"
         >
           <fieldset
-            aria-labelledby="«rc»"
+            aria-labelledby="_r_c_"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«rc»"
+              id="_r_c_"
             >
               situasjonenDin.omsorgMinstFemti
             </legend>
@@ -373,14 +373,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«re»"
+                  id="radio-_r_e_"
                   name="omsorgMinstFemti"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«re»"
+                  for="radio-_r_e_"
                 >
                   <span
                     class="navds-radio__content"
@@ -398,14 +398,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rg»"
+                  id="radio-_r_g_"
                   name="omsorgMinstFemti"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rg»"
+                  for="radio-_r_g_"
                 >
                   <span
                     class="navds-radio__content"
@@ -423,7 +423,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«rd»"
+              id="fieldset-error-_r_d_"
             />
           </fieldset>
         </div>
@@ -436,12 +436,12 @@ exports[`Omsorg for barn > Snapshot 1`] = `
           id="gravidEllerNyligFoedt"
         >
           <fieldset
-            aria-labelledby="«rj»"
+            aria-labelledby="_r_j_"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«rj»"
+              id="_r_j_"
             >
               situasjonenDin.gravidEllerNyligFoedt
             </legend>
@@ -453,14 +453,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rl»"
+                  id="radio-_r_l_"
                   name="gravidEllerNyligFoedt"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rl»"
+                  for="radio-_r_l_"
                 >
                   <span
                     class="navds-radio__content"
@@ -478,14 +478,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rn»"
+                  id="radio-_r_n_"
                   name="gravidEllerNyligFoedt"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rn»"
+                  for="radio-_r_n_"
                 >
                   <span
                     class="navds-radio__content"
@@ -503,7 +503,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«rk»"
+              id="fieldset-error-_r_k_"
             />
           </fieldset>
         </div>
@@ -531,12 +531,12 @@ exports[`Omsorg for barn > Snapshot 1`] = `
           id="bosattINorge"
         >
           <fieldset
-            aria-labelledby="«rq»"
+            aria-labelledby="_r_q_"
             class="navds-radio-group navds-radio-group--medium navds-fieldset navds-fieldset--medium"
           >
             <legend
               class="navds-fieldset__legend navds-label"
-              id="«rq»"
+              id="_r_q_"
             >
               situasjonenDin.bosattINorge
             </legend>
@@ -548,14 +548,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«rs»"
+                  id="radio-_r_s_"
                   name="bosattINorge"
                   type="radio"
                   value="radiobuttons.ja"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«rs»"
+                  for="radio-_r_s_"
                 >
                   <span
                     class="navds-radio__content"
@@ -573,14 +573,14 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               >
                 <input
                   class="navds-radio__input"
-                  id="radio-«ru»"
+                  id="radio-_r_u_"
                   name="bosattINorge"
                   type="radio"
                   value="radiobuttons.nei"
                 />
                 <label
                   class="navds-radio__label"
-                  for="radio-«ru»"
+                  for="radio-_r_u_"
                 >
                   <span
                     class="navds-radio__content"
@@ -598,7 +598,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               aria-live="polite"
               aria-relevant="additions removals"
               class="navds-fieldset__error"
-              id="fieldset-error-«rr»"
+              id="fieldset-error-_r_r_"
             />
           </fieldset>
         </div>
@@ -671,7 +671,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
             class="navds-button__icon"
           >
             <svg
-              aria-labelledby="title-«r12»"
+              aria-labelledby="title-_r_12_"
               fill="none"
               focusable="false"
               height="1em"
@@ -681,7 +681,7 @@ exports[`Omsorg for barn > Snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-«r12»"
+                id="title-_r_12_"
               >
                 Lukk
               </title>
