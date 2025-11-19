@@ -3,13 +3,15 @@ license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
 
 [versions]
 token-version = "5.0.34"
-ktor-version = "2.3.13"
+ktor-version = "3.3.0"
 jupiter-version = "6.0.1"
 testcontainers-version = "1.21.3"
 flyway-version = "11.15.0"
+rapidsandrivers-version = "2025081112301754908236.47b364d7b14c" # OBS! tbdlibs brukes av denne. De bør stemme overens
+tbdlibs-version = "2025.08.07-09.55-15719a86" # OBS! rapidsandrivers bruker denne. De bør stemme overens
 
 [libraries]
-navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version = "2024082313161724411773.1db923f4402d" }
+navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version.ref = "rapidsandrivers-version" }
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version" }
 
@@ -25,7 +27,7 @@ ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-versi
 ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor-version" }
 
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-version" }
-ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor-version" }
+ktor-servertests = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor-version" }
 
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "7.0.2" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
@@ -46,6 +48,7 @@ micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus
 
 mockk = { module = "io.mockk:mockk", version = "1.14.6" }
 
+test-navfelles-rapidsandriversktor = { module = "com.github.navikt.tbd-libs:rapids-and-rivers-test", version.ref = "tbdlibs-version" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.0.4" }
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }

@@ -14,8 +14,6 @@ import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
-import io.ktor.server.application.ApplicationCall
-import io.ktor.server.application.call
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
@@ -27,8 +25,8 @@ import io.ktor.server.request.header
 import io.ktor.server.request.path
 import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
+import io.ktor.server.routing.RoutingContext
 import io.ktor.server.routing.routing
-import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleProperties
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
 import no.nav.etterlatte.internal.healthApi
@@ -131,28 +129,28 @@ fun main() {
             properties = featureToggleProperties(config),
         )
 
-    val rapidApplication =
-        RapidApplication
-            .Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
-            .withKtorModule {
-                apiModule {
-                    metricsApi()
-                    person(peronService)
-                    sak(sakService)
-                    omsMeldInnEndring(omsMeldInnEndringService)
+    RapidApplication
+        .create(
+            env = env,
+            builder = {
+                withKtorModule {
+                    apiModule {
+                        metricsApi()
+                        person(peronService)
+                        sak(sakService)
+                        omsMeldInnEndring(omsMeldInnEndringService)
+                    }
+                }.build { datasourceBuilder.migrate() }.also { rapidConnection ->
+                    PubliserOmsMeldtInnEndringJobb(rapid, omsMeldInnEndringService, featureToggleService)
+                        .schedule()
+                        ?.addShutdownHook()
+                    OmsMeldtInnEndringMottakFullfoert(rapidConnection, omsMeldInnEndringService)
                 }
-            }.build {
-                datasourceBuilder.migrate()
-            }.also { rapidConnection ->
-                PubliserOmsMeldtInnEndringJobb(rapid, omsMeldInnEndringService, featureToggleService)
-                    .schedule()
-                    ?.addShutdownHook()
-                OmsMeldtInnEndringMottakFullfoert(rapidConnection, omsMeldInnEndringService)
-            }
-    rapidApplication.start()
+            },
+        ).start()
 }
 
-fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
+fun RoutingContext.fnrFromToken() =
     call
         .principal<TokenValidationContextPrincipal>()
         ?.context

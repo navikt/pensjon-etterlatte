@@ -27,7 +27,7 @@ dependencies {
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(libs.testcontainers.postgresql)
 
-    testImplementation(libs.ktor.server.tests)
+    testImplementation(libs.ktor.servertests)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
 }

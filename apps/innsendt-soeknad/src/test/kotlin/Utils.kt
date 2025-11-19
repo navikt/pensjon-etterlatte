@@ -1,8 +1,6 @@
-import io.micrometer.prometheusmetrics.PrometheusConfig
-import io.micrometer.prometheusmetrics.PrometheusMeterRegistry
+import com.github.navikt.tbd_libs.rapids_and_rivers.JsonMessage
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageProblems
 import no.nav.etterlatte.mapper
-import no.nav.helse.rapids_rivers.JsonMessage
-import no.nav.helse.rapids_rivers.MessageProblems
 import soeknad.LagretSoeknad
 import soeknad.SlettetSoeknad
 import soeknad.SoeknadID
@@ -14,7 +12,7 @@ fun jsonTestMessage(
     journalpost: Long,
     soeknad: Long,
     dokumentInfoId: Long? = null,
-) = JsonMessage("{}", MessageProblems("{}"), PrometheusMeterRegistry(PrometheusConfig.DEFAULT)).apply {
+) = JsonMessage("{}", MessageProblems("{}")).apply {
     this["@dokarkivRetur"] =
         mapper.createObjectNode().also {
             it.put("journalpostferdigstilt", false)

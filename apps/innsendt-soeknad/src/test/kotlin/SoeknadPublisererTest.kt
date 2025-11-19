@@ -1,7 +1,10 @@
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.FailedMessage
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageContext
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.OutgoingMessage
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.SentMessage
 import no.nav.etterlatte.EventName
 import no.nav.etterlatte.SoeknadPubliserer
-import no.nav.helse.rapids_rivers.MessageContext
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.Test
@@ -84,6 +87,10 @@ internal class MessageContextStub : MessageContext {
         message: String,
     ) {
         publishedMessages += key to message
+    }
+
+    override fun publish(messages: List<OutgoingMessage>): Pair<List<SentMessage>, List<FailedMessage>> {
+        TODO("Not yet implemented")
     }
 
     override fun rapidName(): String {

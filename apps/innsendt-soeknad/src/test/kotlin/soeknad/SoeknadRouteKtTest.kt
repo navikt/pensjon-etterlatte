@@ -1,10 +1,19 @@
 package soeknad
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.nimbusds.jwt.JWTClaimsSet
+import com.nimbusds.jwt.PlainJWT
+import io.ktor.client.request.HttpRequestBuilder
+import io.ktor.client.request.delete
+import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.request.parameter
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
@@ -18,9 +27,7 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.routing
-import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.setBody
-import io.ktor.server.testing.withTestApplication
+import io.ktor.server.testing.testApplication
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -38,7 +45,6 @@ import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v2.TokenValidationContextPrincipal
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import tokenFor
 import java.util.Arrays
 import java.util.stream.Collectors
 
@@ -60,77 +66,106 @@ internal class SoeknadRouteKtTest {
                 ),
             )
 
-        withTestApplication({ testModule { soknadApi(service) } }) {
-            coEvery { service.sendSoeknad(any(), any(), kilde) } returns true
-            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(STOR_SNERK)
-                setBody(soeknad.toJson())
-            }.apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
+        testApplication {
+            application {
+                testModule { soknadApi(service) }
             }
+
+            coEvery { service.sendSoeknad(any(), any(), kilde) } returns true
+
+            val response =
+                client.post("/api/soeknad") {
+                    parameter("kilde", kilde)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    addToken(STOR_SNERK)
+                    setBody(soeknad.toJson())
+                }
+
+            assertEquals(HttpStatusCode.OK, response.status)
+            coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
         }
     }
 
     @Test
     fun `Skal lagre kladd`() {
-        withTestApplication({ testModule { soknadApi(service) } }) {
-            every { service.lagreKladd(any(), any(), kilde) } returns 1L
-            handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(STOR_SNERK)
-                setBody(dummyJson)
-            }.apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("1", response.content)
-                coVerify(exactly = 1) { service.lagreKladd(any(), any(), kilde) }
+        testApplication {
+            application {
+                testModule { soknadApi(service) }
             }
+
+            every { service.lagreKladd(any(), any(), kilde) } returns 1L
+
+            val response =
+                client.post("/api/kladd") {
+                    parameter("kilde", kilde)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    addToken(STOR_SNERK)
+                    setBody(dummyJson)
+                }
+
+            assertEquals(HttpStatusCode.OK, response.status)
+            assertEquals("1", response.bodyAsText())
+            coVerify(exactly = 1) { service.lagreKladd(any(), any(), kilde) }
         }
     }
 
     @Test
     fun `Skal hente kladd`() {
-        withTestApplication({ testModule { soknadApi(service) } }) {
-            val kladd =
-                LagretSoeknad(1L, "", "").apply {
-                    status = Status.LAGRETKLADD
-                }
+        testApplication {
+            application {
+                testModule { soknadApi(service) }
+            }
+
+            val kladd = LagretSoeknad(1L, "", "").apply { status = Status.LAGRETKLADD }
             coEvery { service.hentKladd(any(), kilde) } returns kladd
 
-            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
-                tokenFor(STOR_SNERK)
-            }.apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals(kladd, deserialize<LagretSoeknad>(response.content!!))
-                coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
-            }
+            val response =
+                client.get("api/kladd") {
+                    parameter("kilde", kilde)
+                    addToken(STOR_SNERK)
+                }
+
+            assertEquals(HttpStatusCode.OK, response.status)
+            assertEquals(kladd, deserialize<LagretSoeknad>(response.bodyAsText()))
+            coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
         }
     }
 
     @Test
     fun `Skal håndtere at kladd ikke finnes`() {
-        withTestApplication({ testModule { soknadApi(service) } }) {
-            coEvery { service.hentKladd(any(), kilde) } returns null
-            handleRequest(HttpMethod.Get, "/api/kladd?kilde=$kilde") {
-                tokenFor(STOR_SNERK)
-            }.apply {
-                assertEquals(HttpStatusCode.NotFound, response.status())
-                coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
+        testApplication {
+            application {
+                testModule { soknadApi(service) }
             }
+
+            coEvery { service.hentKladd(any(), kilde) } returns null
+
+            val response =
+                client.get("api/kladd") {
+                    parameter("kilde", kilde)
+                    addToken(STOR_SNERK)
+                }
+
+            assertEquals(HttpStatusCode.NotFound, response.status)
+            coVerify(exactly = 1) { service.hentKladd(any(), kilde) }
         }
     }
 
     @Test
     fun `Skal slette kladd`() {
-        withTestApplication({ testModule { soknadApi(service) } }) {
-            coEvery { service.slettKladd(any(), kilde) } just Runs
-            handleRequest(HttpMethod.Delete, "/api/kladd?kilde=$kilde") {
-                tokenFor(STOR_SNERK)
-            }.apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                coVerify(exactly = 1) { service.slettKladd(any(), kilde) }
+        testApplication {
+            application {
+                testModule { soknadApi(service) }
             }
+            coEvery { service.slettKladd(any(), kilde) } just Runs
+            val response =
+                client.delete("api/kladd") {
+                    parameter("kilde", kilde)
+                    addToken(STOR_SNERK)
+                }
+
+            assertEquals(HttpStatusCode.OK, response.status)
+            coVerify(exactly = 1) { service.slettKladd(any(), kilde) }
         }
     }
 }
@@ -202,3 +237,18 @@ class TokenSupportAcceptAllProvider : AuthenticationProvider(ProviderConfigurati
 }
 
 fun AuthenticationConfig.tokenTestSupportAcceptsAllTokens() = register(TokenSupportAcceptAllProvider())
+
+fun HttpRequestBuilder.addToken(fnr: String) {
+    header(
+        HttpHeaders.Authorization,
+        """Bearer ${
+            PlainJWT(
+                JWTClaimsSet
+                    .Builder()
+                    .claim("pid", fnr)
+                    .issuer("lol")
+                    .build(),
+            ).serialize()
+        }""",
+    )
+}

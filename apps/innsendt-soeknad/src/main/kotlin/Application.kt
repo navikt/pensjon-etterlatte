@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
-import io.ktor.server.application.ApplicationCall
-import io.ktor.server.application.call
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
@@ -17,6 +15,7 @@ import io.ktor.server.request.header
 import io.ktor.server.request.path
 import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
+import io.ktor.server.routing.RoutingContext
 import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import no.nav.etterlatte.internal.healthApi
@@ -51,41 +50,43 @@ fun main() {
 
     val context = ApplicationContext(env)
     with(context) {
-        val rapidApplication =
-            RapidApplication
-                .Builder(RapidApplication.RapidApplicationConfig.fromEnv(env))
-                .withKtorModule {
-                    apiModule(context) {
-                        healthApi()
-                        metricsApi()
-                        selftestApi()
-                        authenticate {
-                            securityMediator.autentiser(this)
-                            personApi(personService)
-                            kodeverkApi(kodeverkService)
-                            soknadApi(soeknadService)
-                            sak(sakService)
+        RapidApplication
+            .create(
+                env = env,
+                builder = {
+                    withKtorModule {
+                        apiModule(context) {
+                            healthApi()
+                            metricsApi()
+                            selftestApi()
+                            authenticate {
+                                securityMediator.autentiser(this)
+                                personApi(personService)
+                                kodeverkApi(kodeverkService)
+                                soknadApi(soeknadService)
+                                sak(sakService)
+                            }
                         }
+                    }.build {
+                        datasourceBuilder.migrate()
+                    }.also { rapidConnection ->
+                        JournalpostSkrevet(rapidConnection, db)
+                        BehandlingOpprettetGjenny(rapidConnection, db)
+
+                        PubliserTilstandJobb(db, SoeknadPubliserer(rapidConnection, db), utkastPubliserer)
+                            .schedule()
+                            .addShutdownHook()
+
+                        PubliserMetrikkerJobb(db)
+                            .schedule()
+                            .addShutdownHook()
                     }
-                }.build {
-                    datasourceBuilder.migrate()
-                }.also { rapidConnection ->
-                    JournalpostSkrevet(rapidConnection, db)
-                    BehandlingOpprettetGjenny(rapidConnection, db)
-
-                    PubliserTilstandJobb(db, SoeknadPubliserer(rapidConnection, db), utkastPubliserer)
-                        .schedule()
-                        .addShutdownHook()
-
-                    PubliserMetrikkerJobb(db)
-                        .schedule()
-                        .addShutdownHook()
-                }
-        rapidApplication.start()
+                },
+            ).start()
     }
 }
 
-fun PipelineContext<Unit, ApplicationCall>.fnrFromToken() =
+fun RoutingContext.fnrFromToken() =
     call
         .principal<TokenValidationContextPrincipal>()
         ?.context

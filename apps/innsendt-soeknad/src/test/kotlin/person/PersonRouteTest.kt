@@ -1,11 +1,12 @@
 package no.nav.etterlatte.person
 
+import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.request.parameter
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.withTestApplication
+import io.ktor.server.testing.testApplication
 import io.mockk.clearMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -39,7 +40,11 @@ internal class PersonRouteTest {
     @ParameterizedTest
     @EnumSource(SoeknadType::class)
     fun `Enkel test av endepunkt`(type: SoeknadType) {
-        withTestApplication({ testModule { personApi(service) } }) {
+        testApplication {
+            application {
+                testModule { personApi(service) }
+            }
+
             coEvery { service.hentPerson(any(), any()) } returns
                 Person(
                     fornavn = "STOR",
@@ -48,24 +53,31 @@ internal class PersonRouteTest {
                     adressebeskyttelse = false,
                 )
 
-            handleRequest(HttpMethod.Get, "/person/innlogget?soeknadType=$type") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-            }.apply {
-                Assertions.assertEquals(HttpStatusCode.OK, response.status())
-                coVerify(exactly = 1) { service.hentPerson(any(), type) }
-            }
+            val response =
+                client.get("/person/innlogget") {
+                    parameter("soeknadType", type)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                }
+
+            Assertions.assertEquals(HttpStatusCode.OK, response.status)
+            coVerify(exactly = 1) { service.hentPerson(any(), type) }
         }
     }
 
     @ParameterizedTest
     @EnumSource(SoeknadType::class)
     fun `Feil i kodeverk kaster riktig feilkode`(type: SoeknadType) {
-        withTestApplication({ testModule { personApi(service) } }) {
+        testApplication {
+            application {
+                testModule { personApi(service) }
+            }
+
             coEvery { service.hentPerson(any(), any()) } throws Exception("Ukjent feil")
 
             runCatching {
-                handleRequest(HttpMethod.Get, "/person/innlogget?soeknadType=$type") {
-                    addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                client.get("/person/innlogget") {
+                    parameter("soeknadType", type)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 }
             }.fold(
                 onSuccess = { fail { "Feil i kodeverk skal propagere til frontend" } },
