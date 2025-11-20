@@ -71,6 +71,15 @@
     },
     {
       "moduleLicense": "The Apache License, Version 2.0"
+    },
+    {
+      "moduleName": "com.github.navikt.tbd-libs:kafka"
+    },
+    {
+      "moduleName": "com.github.navikt.tbd-libs:rapids-and-rivers"
+    },
+    {
+      "moduleName": "com.github.navikt.tbd-libs:rapids-and-rivers-api"
     }
   ]
 }

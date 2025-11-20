@@ -1,7 +1,7 @@
 package no.nav.etterlatte
 
+import com.github.navikt.tbd_libs.rapids_and_rivers.JsonMessage
 import no.nav.etterlatte.kafka.KafkaProdusent
-import no.nav.helse.rapids_rivers.JsonMessage
 import org.slf4j.LoggerFactory
 import soeknad.LagretSoeknad
 import soeknad.SoeknadID
