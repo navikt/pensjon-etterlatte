@@ -59,9 +59,10 @@ internal class KunBarnepensjon : SoeknadIntegrationTest() {
                 header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                 addToken(INNSENDER)
                 setBody(dummyKladd)
-                db.finnKladd(INNSENDER, kilde) shouldNotBe null
-                db.finnKladd(BARN, kilde) shouldBe null
             }
+
+            db.finnKladd(INNSENDER, kilde) shouldNotBe null
+            db.finnKladd(BARN, kilde) shouldBe null
         }
 
         @Test

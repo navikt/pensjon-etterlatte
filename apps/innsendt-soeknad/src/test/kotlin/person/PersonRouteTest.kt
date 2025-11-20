@@ -1,5 +1,6 @@
 package no.nav.etterlatte.person
 
+import io.ktor.client.plugins.expectSuccess
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.request.parameter
@@ -78,9 +79,13 @@ internal class PersonRouteTest {
                 client.get("/person/innlogget") {
                     parameter("soeknadType", type)
                     header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    expectSuccess = true
                 }
             }.fold(
-                onSuccess = { fail { "Feil i kodeverk skal propagere til frontend" } },
+                onSuccess = { result ->
+                    println(result)
+                    fail { "Feil i kodeverk skal propagere til frontend" }
+                },
                 onFailure = {
                     Assertions.assertNotNull(it)
                 },
