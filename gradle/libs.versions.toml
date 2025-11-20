@@ -13,14 +13,14 @@ tbdlibs-version = "2025.08.07-09.55-15719a86" # OBS! rapidsandrivers bruker denn
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version.ref = "rapidsandrivers-version" }
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
-navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v2", version.ref = "token-version" }
+navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v3", version.ref = "token-version" }
 
 etterlatte-common = { module = "pensjon-etterlatte-felles:common", version = "2025.11.10-14.35.6c85e2f202a7" }
 
-ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor-version" }
-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
 ktor-client-cio-jvm = { module = "io.ktor:ktor-client-cio-jvm", version.ref = "ktor-version" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version" }
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor-version" }
 ktor-server-metrics-micrometer = { module = "io.ktor:ktor-server-metrics-micrometer", version.ref = "ktor-version" }
 ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version" }

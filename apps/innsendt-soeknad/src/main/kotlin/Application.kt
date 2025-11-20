@@ -9,7 +9,7 @@ import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
-import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.plugins.calllogging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.request.header
 import io.ktor.server.request.path
@@ -31,8 +31,8 @@ import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.sak.sak
 import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.helse.rapids_rivers.RapidApplication
-import no.nav.security.token.support.v2.TokenValidationContextPrincipal
-import no.nav.security.token.support.v2.tokenValidationSupport
+import no.nav.security.token.support.v3.TokenValidationContextPrincipal
+import no.nav.security.token.support.v3.tokenValidationSupport
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level

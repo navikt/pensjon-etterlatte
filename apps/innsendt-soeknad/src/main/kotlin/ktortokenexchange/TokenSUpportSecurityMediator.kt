@@ -20,7 +20,7 @@ import kotlinx.coroutines.withContext
 import no.nav.etterlatte.oauth.ClientConfig
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
-import no.nav.security.token.support.v2.TokenValidationContextPrincipal
+import no.nav.security.token.support.v3.TokenValidationContextPrincipal
 
 class TokenSecurityContext(
     private val tokens: TokenValidationContext,

@@ -19,7 +19,7 @@ import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
 import io.ktor.server.auth.principal
 import io.ktor.server.config.HoconApplicationConfig
-import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.plugins.calllogging.CallLogging
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.request.header
 import io.ktor.server.request.path
@@ -53,8 +53,8 @@ import no.nav.etterlatte.sak.SakKlient
 import no.nav.etterlatte.sak.SakService
 import no.nav.etterlatte.sak.sak
 import no.nav.helse.rapids_rivers.RapidApplication
-import no.nav.security.token.support.v2.TokenValidationContextPrincipal
-import no.nav.security.token.support.v2.tokenValidationSupport
+import no.nav.security.token.support.v3.TokenValidationContextPrincipal
+import no.nav.security.token.support.v3.tokenValidationSupport
 import org.slf4j.event.Level
 import java.util.Timer
 import java.util.UUID
