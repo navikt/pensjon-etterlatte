@@ -4,13 +4,14 @@ import SoeknadIntegrationTest
 import apiTestModule
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import io.ktor.client.request.header
+import io.ktor.client.request.parameter
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.setBody
-import io.ktor.server.testing.withTestApplication
+import io.ktor.server.testing.testApplication
 import io.mockk.coEvery
 import no.nav.etterlatte.deserialize
 import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
@@ -25,7 +26,7 @@ import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.etterlatte.toJson
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import tokenFor
+import soeknad.addToken
 
 @DisplayName("Innsender av søknad har barn med adressebeskyttelse")
 internal class SoekerMedAdressebeskyttelse : SoeknadIntegrationTest() {
@@ -95,14 +96,20 @@ internal class SoekerMedAdressebeskyttelse : SoeknadIntegrationTest() {
                 Foedselsnummer.of(BARN_UGRADERT) to Gradering.UGRADERT,
             )
 
-        withTestApplication({ apiTestModule { soknadApi(service) } }) {
-            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(INNSENDER)
-                setBody(soeknadRequest.toJson())
+        testApplication {
+            application {
+                apiTestModule { soknadApi(service) }
             }
-        }.apply {
-            response.status() shouldBe HttpStatusCode.OK
+
+            val response =
+                client.post("/api/soeknad") {
+                    parameter("kilde", kilde)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    addToken(INNSENDER)
+                    setBody(soeknadRequest.toJson())
+                }
+
+            response.status shouldBe HttpStatusCode.OK
         }
 
         BARN_STRENGT_FORTROLIG.let { strengtFortrolig ->
@@ -180,14 +187,20 @@ internal class SoekerMedAdressebeskyttelse : SoeknadIntegrationTest() {
                 Foedselsnummer.of(BARN_UGRADERT) to Gradering.UGRADERT,
             )
 
-        withTestApplication({ apiTestModule { soknadApi(service) } }) {
-            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(INNSENDER)
-                setBody(soeknadRequest.toJson())
+        testApplication {
+            application {
+                apiTestModule { soknadApi(service) }
             }
-        }.apply {
-            response.status() shouldBe HttpStatusCode.OK
+
+            val response =
+                client.post("/api/soeknad") {
+                    parameter("kilde", kilde)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    addToken(INNSENDER)
+                    setBody(soeknadRequest.toJson())
+                }
+
+            response.status shouldBe HttpStatusCode.OK
         }
 
         INNSENDER.let { OmsSoeker ->

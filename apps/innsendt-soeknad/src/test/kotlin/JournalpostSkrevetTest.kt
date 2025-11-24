@@ -1,7 +1,7 @@
+import com.github.navikt.tbd_libs.rapids_and_rivers.test_support.TestRapid
 import io.mockk.spyk
 import io.mockk.verify
 import no.nav.etterlatte.JournalpostSkrevet
-import no.nav.helse.rapids_rivers.testsupport.TestRapid
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

@@ -4,13 +4,14 @@ import SoeknadIntegrationTest
 import apiTestModule
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import io.ktor.client.request.header
+import io.ktor.client.request.parameter
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.setBody
-import io.ktor.server.testing.withTestApplication
+import io.ktor.server.testing.testApplication
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
@@ -24,6 +25,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
 import soeknad.Status
+import soeknad.addToken
 import tokenFor
 
 @DisplayName("Gjenlevende søker for seg selv og barn")
@@ -54,14 +56,19 @@ internal class GjenlevendeMedBarnTest : SoeknadIntegrationTest() {
     @Order(1)
     fun `Skal opprette kladd for gjenlevende`() {
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } returns Unit
+        testApplication {
+            application {
+                apiTestModule { soknadApi(service) }
+            }
 
-        withTestApplication({ apiTestModule { soknadApi(service) } }) {
-            handleRequest(HttpMethod.Post, "/api/kladd?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(GJENLEVENDE)
+            client.post("api/kladd") {
+                parameter("kilde", kilde)
+                header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                addToken(GJENLEVENDE)
                 setBody(dummyKladd)
             }
         }
+
         db.finnKladd(GJENLEVENDE, kilde) shouldNotBe null
         db.finnKladd(BARN, kilde) shouldBe null
     }
@@ -71,10 +78,15 @@ internal class GjenlevendeMedBarnTest : SoeknadIntegrationTest() {
     fun `Skal opprette soeknad for gjenlevende og for barn`() {
         every { mockUtkastPubliserer.publiserSlettUtkastFraMinSide(any(), any()) } just Runs
 
-        withTestApplication({ apiTestModule { soknadApi(service) } }) {
-            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(GJENLEVENDE)
+        testApplication {
+            application {
+                apiTestModule { soknadApi(service) }
+            }
+
+            client.post("api/soeknad") {
+                parameter("kilde", kilde)
+                header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                addToken(GJENLEVENDE)
                 setBody(request.toJson())
             }
         }
@@ -118,14 +130,20 @@ internal class GjenlevendeMedBarnTest : SoeknadIntegrationTest() {
     @Test
     @Order(5)
     fun `Skal ikke kunne sende inn soeknad om det allerede finnes en innsendt`() {
-        withTestApplication({ apiTestModule { soknadApi(service) } }) {
-            handleRequest(HttpMethod.Post, "/api/soeknad?kilde=$kilde") {
-                addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                tokenFor(GJENLEVENDE)
-                setBody(request.toJson())
-            }.apply {
-                response.status() shouldBe HttpStatusCode.Conflict
+        testApplication {
+            application {
+                apiTestModule { soknadApi(service) }
             }
+
+            val response =
+                client.post("api/soeknad") {
+                    parameter("kilde", kilde)
+                    header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                    addToken(GJENLEVENDE)
+                    setBody(request.toJson())
+                }
+
+            response.status shouldBe HttpStatusCode.Conflict
         }
     }
 }
