@@ -1,5 +1,5 @@
 import { BodyShort, Link, RadioProps, ReadMore, VStack } from '@navikt/ds-react'
-import { addYears, endOfYear, startOfYear } from 'date-fns'
+import { addYears, startOfYear } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
@@ -23,6 +23,16 @@ export const SkalGaaAvMedAlderspensjon = () => {
             return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
         } else {
             return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
+        }
+    }
+
+    const velgStartDate = () => {
+        if (fyllerSekstiSyvIAar(bruker)) {
+            return new Date(startOfYear(new Date()))
+        } else if (erMellomOktoberogDesember()) {
+            return new Date(addYears(new Date(startOfYear(new Date())), 1))
+        } else {
+            return new Date(startOfYear(new Date()))
         }
     }
 
@@ -68,11 +78,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
                     label={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
-                    fromDate={
-                        erMellomOktoberogDesember()
-                            ? new Date(addYears(new Date(startOfYear(new Date())), 1))
-                            : new Date(startOfYear(new Date()))
-                    }
+                    fromDate={velgStartDate()}
                 />
             )}
 
@@ -82,7 +88,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
                     label={t(
                         'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
                     )}
-                    toDate={endOfYear(new Date())}
+                    toDate={startOfYear(new Date())}
                 />
             )}
         </VStack>
