@@ -2,6 +2,7 @@ import { Accordion, Alert, BodyLong, Box, Button, Heading, Link, Loader, Modal }
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { FormSummaryItemOmDeg } from '~components/soknad/8-oppsummering/fragmenter/FormSummaryItemOmDeg'
 import { sendSoeknad } from '../../../api/api'
 import { SoeknadRequest, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { mapTilBarnepensjonSoeknadListe, mapTilOmstillingsstoenadSoeknad } from '../../../api/mapper/soeknadMapper'
@@ -73,8 +74,10 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
                 <BodyLong>{t('oppsummering.beskrivelse')}</BodyLong>
             </Box>
 
+            <FormSummaryItemOmDeg></FormSummaryItemOmDeg>
+
             <Accordion>
-                <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad} />
+                {/*<OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad} />*/}
                 <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} senderSoeknad={senderSoeknad} />
                 <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} senderSoeknad={senderSoeknad} />
                 <OppsummeringSituasjonenDin situasjonenDin={soeknad.situasjonenDin} senderSoeknad={senderSoeknad} />

@@ -578,6 +578,7 @@ export default {
     'omDeg.flyktningHvorfor':
         'If you are registered as a refugee with the Norwegian Directorate of Immigration (UDI), this may affect whether you get a survivor’s pension and how much money you get.',
     'omDeg.kontaktinfo.telefonnummer': 'Phone number (optional)',
+    'omDeg.utbetalingsInformasjon.oppsummeringstittel': 'Bank details',
     'omDeg.utbetalingsInformasjon.tittel': 'Enter your bank details',
     'omDeg.utbetalingsInformasjon.bankkontoType':
         'Do you want the pension to be paid into a Norwegian bank account or a foreign bank account?',

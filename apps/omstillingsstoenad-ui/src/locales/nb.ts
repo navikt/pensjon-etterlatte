@@ -557,6 +557,7 @@ export default {
     'omDeg.flyktningHvorfor':
         'Hvis du er registrert som flyktning hos UDI kan det avgjøre om du får omstillingsstønad og hvor mye du kan få.',
     'omDeg.kontaktinfo.telefonnummer': 'Telefonnummer (valgfri)',
+    'omDeg.utbetalingsInformasjon.oppsummeringstittel': 'Bankopplysninger',
     'omDeg.utbetalingsInformasjon.tittel': 'Oppgi bankopplysninger',
     'omDeg.utbetalingsInformasjon.bankkontoType': 'Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?',
     'omDeg.utbetalingsInformasjon.kontonummer': 'Oppgi norsk kontonummer for utbetaling',
