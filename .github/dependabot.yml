@@ -9,6 +9,8 @@ updates:
     schedule:
       interval: "monthly"
       day: "sunday"
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 10
     groups:
       backend:
@@ -41,6 +43,8 @@ updates:
     schedule:
       interval: "monthly"
       day: "sunday"
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 10
     groups:
       ds:
@@ -122,6 +126,8 @@ updates:
     schedule:
       interval: "monthly"
       day: "sunday"
+    cooldown:
+      default-days: 7
 
 
   # ===========
@@ -133,9 +139,13 @@ updates:
     schedule:
       interval: "monthly"
       day: "sunday"
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: "docker"
     directory: "/apps/etterlatte-node-server"
     schedule:
       interval: "monthly"
       day: "sunday"
+    cooldown:
+      default-days: 7
