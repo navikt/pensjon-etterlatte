@@ -30,7 +30,7 @@ export const mapTilBarnepensjonSoeknadListe = (
     }
     const children: IChild[] | undefined = application.aboutChildren?.children
 
-    if (!children || children.length) {
+    if (!children || children.length <= 0) {
         throw Error('Kan ikke sende inn søknad med tom liste over barn!')
     }
 
