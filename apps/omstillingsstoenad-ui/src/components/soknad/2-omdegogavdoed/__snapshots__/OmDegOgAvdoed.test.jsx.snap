@@ -216,7 +216,6 @@ exports[`Om deg og avdød > Snapshot med sivilstatus samboer 1`] = `
           <div
             aria-hidden="true"
             class="navds-popover navds-date__popover navds-popover--hidden"
-            data-index="0"
             data-placement="bottom-start"
             id="«rs»"
             role="dialog"

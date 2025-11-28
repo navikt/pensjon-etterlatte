@@ -314,7 +314,6 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-popover navds-help-text__popover navds-popover--hidden"
-                  data-index="0"
                   data-placement="top"
                   style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
                 >
@@ -430,7 +429,6 @@ exports[`Om deg og avdød > Snapshot 1`] = `
                 <div
                   aria-hidden="true"
                   class="navds-popover navds-help-text__popover navds-popover--hidden"
-                  data-index="0"
                   data-placement="top"
                   style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
                 >

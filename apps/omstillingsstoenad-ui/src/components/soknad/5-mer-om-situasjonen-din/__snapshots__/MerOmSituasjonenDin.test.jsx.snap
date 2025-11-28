@@ -935,7 +935,6 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       <div
                         aria-hidden="true"
                         class="navds-popover navds-date__popover navds-popover--hidden"
-                        data-index="0"
                         data-placement="bottom-start"
                         id="«r3j»"
                         role="dialog"
@@ -2023,7 +2022,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
-                        style="--__ac-textarea-height: 0px; --__axc-textarea-height: 0px; overflow: hidden;"
+                        style="--__ac-textarea-height: auto; --__axc-textarea-height: auto; overflow: hidden;"
                       />
                       <textarea
                         aria-hidden="true"
@@ -2426,7 +2425,7 @@ exports[`Mer om situasjonen din > Skal rendre selvstendig 1`] = `
                       class="navds-textarea__input navds-body-short navds-body-short--medium"
                       id="selvstendig.[0].forventerEndretArbeidssituasjon.beskrivelse"
                       rows="3"
-                      style="--__ac-textarea-height: 0px; --__axc-textarea-height: 0px; overflow: hidden;"
+                      style="--__ac-textarea-height: auto; --__axc-textarea-height: auto; overflow: hidden;"
                     />
                     <textarea
                       aria-hidden="true"
@@ -4008,7 +4007,6 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                       <div
                         aria-hidden="true"
                         class="navds-popover navds-date__popover navds-popover--hidden"
-                        data-index="0"
                         data-placement="bottom-start"
                         id="«r15»"
                         role="dialog"
@@ -5096,7 +5094,7 @@ exports[`Mer om situasjonen din > Snapshot 1`] = `
                         class="navds-textarea__input navds-body-short navds-body-short--medium"
                         id="arbeidsforhold[0].forventerEndretArbeidssituasjon.beskrivelse"
                         rows="3"
-                        style="--__ac-textarea-height: 0px; --__axc-textarea-height: 0px; overflow: hidden;"
+                        style="--__ac-textarea-height: auto; --__axc-textarea-height: auto; overflow: hidden;"
                       />
                       <textarea
                         aria-hidden="true"
