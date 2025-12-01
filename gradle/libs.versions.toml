@@ -1,12 +1,12 @@
 [plugins]
-license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
+license = { id = 'com.github.jk1.dependency-license-report', version = '3.0.1' }
 
 [versions]
 token-version = "5.0.34"
-ktor-version = "3.3.0"
+ktor-version = "3.3.2"
 jupiter-version = "6.0.1"
 testcontainers-version = "1.21.3"
-flyway-version = "11.15.0"
+flyway-version = "11.17.1"
 rapidsandrivers-version = "2025081112301754908236.47b364d7b14c" # OBS! tbdlibs brukes av denne. De bør stemme overens
 tbdlibs-version = "2025.08.07-09.55-15719a86" # OBS! rapidsandrivers bruker denne. De bør stemme overens
 
@@ -41,15 +41,15 @@ jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.re
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 
 logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
-logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.20" }
+logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.21" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "9.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.15.5" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.16.0" }
 
 mockk = { module = "io.mockk:mockk", version = "1.14.6" }
 
 test-navfelles-rapidsandriversktor = { module = "com.github.navikt.tbd-libs:rapids-and-rivers-test", version.ref = "tbdlibs-version" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.0.4" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.0.5" }
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
