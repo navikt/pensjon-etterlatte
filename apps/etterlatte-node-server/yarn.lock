@@ -770,10 +770,10 @@ cross-spawn@^7.0.0:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-csp-header@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/csp-header/-/csp-header-6.1.0.tgz#248e36ec8206493103fcdc75233fff222508970a"
-  integrity sha512-vtQIp6C6Pt5vd48fa3wiq3OirDG+Efo3vouLVEeJSJVe+LdpAFZw/IxV77BsDTMtVwzVT78xJ4zRykJoDx+ZeA==
+csp-header@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/csp-header/-/csp-header-6.2.0.tgz#0a29c87ee65b4cbc54339f1f20d41d15bece6cb9"
+  integrity sha512-5r/zQO0nz6MGFOQWYXYGlAn2oH71D0sRpxN/F8wDHhHnHBx0N73VGLvkeXST7t/MrjC97QrsL45qZ3hsDwhTgw==
 
 css-tree@^3.1.0:
   version "3.1.0"
