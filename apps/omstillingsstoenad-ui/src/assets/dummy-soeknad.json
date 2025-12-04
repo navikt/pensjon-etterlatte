@@ -82,7 +82,7 @@
                 "arbeidsgiver": "Potetskreller AS",
                 "ansettelsesforhold": "stillingType.midlertidig",
                 "arbeidsmengde": {
-                    "svar": "50%",
+                    "svar": "50",
                     "type": "arbeidsmengde.prosent"
                 },
                 "midlertidig": {
@@ -101,7 +101,7 @@
                 "arbeidsgiver": "Bananskreller AS",
                 "ansettelsesforhold": "stillingType.fast",
                 "arbeidsmengde": {
-                    "svar": "50"
+                    "svar": "50%"
                 },
                 "forventerEndretArbeidssituasjon": {
                     "svar": "radiobuttons.nei"

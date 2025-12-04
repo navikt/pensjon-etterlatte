@@ -171,25 +171,39 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             // selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
         })
 
-        // --------------------------------------------------------------
-        // Sjekk at arbeidsforhold 2 beholdes hvis man sletter den første
-        cy.get('[data-testid=fjern-arbeidsforhold-knapp]').first().click()
-
         getById('arbeidsforhold[0].arbeidsgiver').should(
             'have.value',
-            merOmSituasjonenDin.arbeidsforhold[1].arbeidsgiver
+            merOmSituasjonenDin.arbeidsforhold[0].arbeidsgiver
         )
 
         getById('arbeidsforhold[0].ansettelsesforhold')
-            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].ansettelsesforhold}"]`)
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[0].ansettelsesforhold}"]`)
             .should('be.checked')
 
         getById('arbeidsforhold[0].arbeidsmengde.svar').should(
             'have.value',
-            merOmSituasjonenDin.arbeidsforhold[1].arbeidsmengde.svar
+            merOmSituasjonenDin.arbeidsforhold[0].arbeidsmengde.svar
         )
 
         getById('arbeidsforhold[0].forventerEndretArbeidssituasjon.svar')
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[0].forventerEndretArbeidssituasjon.svar}"]`)
+            .should('be.checked')
+
+        getById('arbeidsforhold[1].arbeidsgiver').should(
+            'have.value',
+            merOmSituasjonenDin.arbeidsforhold[1].arbeidsgiver
+        )
+
+        getById('arbeidsforhold[1].ansettelsesforhold')
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].ansettelsesforhold}"]`)
+            .should('be.checked')
+
+        getById('arbeidsforhold[1].arbeidsmengde.svar').should(
+            'have.value',
+            merOmSituasjonenDin.arbeidsforhold[1].arbeidsmengde.svar
+        )
+
+        getById('arbeidsforhold[1].forventerEndretArbeidssituasjon.svar')
             .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].forventerEndretArbeidssituasjon.svar}"]`)
             .should('be.checked')
         // --------------------------------------------------------------
