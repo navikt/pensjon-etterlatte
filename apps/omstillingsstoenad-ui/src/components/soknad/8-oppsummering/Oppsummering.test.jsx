@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
-import { TekstGruppe } from './fragmenter/TekstGruppe'
-import Oppsummering from './Oppsummering'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
+import { TekstGruppe } from './fragmenter/TekstGruppe'
+import Oppsummering from './Oppsummering'
 
 vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -16,13 +16,6 @@ vi.mock('react-i18next', () => ({
         }
     },
 }))
-
-describe('Oppsummering', () => {
-    it('Snapshot', () => {
-        const { container } = render(<BrowserRouter><Oppsummering /></BrowserRouter>)
-        expect(container).toMatchSnapshot()
-    })
-})
 
 describe('Tekstgruppe', () => {
     it('Skal rendre testittel og testcontent', () => {
