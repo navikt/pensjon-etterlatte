@@ -321,7 +321,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('fornavn').type(barn.fornavn)
             getById('etternavn').type(barn.etternavn)
             getById('foedselsnummer').type(barn.foedselsnummer)
-            getById('statsborgerskap').type(barn.statsborgerskap).type('{downArrow}').type('{enter}')
+            getById('statsborgerskap').type(`${barn.statsborgerskap}{downArrow}{enter}`)
             selectValueForId('bosattUtland.svar', barn.bosattUtland.svar)
             if (barn.foedselsnummer === '14812290208') {
                 // under 18 år
