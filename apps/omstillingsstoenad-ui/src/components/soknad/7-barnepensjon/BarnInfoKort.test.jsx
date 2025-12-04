@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
-import BarnInfokort from './BarnInfokort'
 import { describe, expect, it, vi } from 'vitest'
+import BarnInfokort from './BarnInfokort'
 
 vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
@@ -15,7 +15,7 @@ vi.mock('react-i18next', () => ({
 }))
 
 describe('BarnInfoKort', () => {
-    it('Snapshot', () => {
+    it('Burde vise info om barn', () => {
         const { getByText } = render(
             <BarnInfokort barn={{ fornavn: 'Treig', etternavn: 'Floskel', foedselsnummer: '04096222195' }} />
         )
