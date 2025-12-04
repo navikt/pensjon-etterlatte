@@ -59,17 +59,14 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('etternavn').type(omDenAvdoede.etternavn)
         getById('datoForDoedsfallet').type(foersteDagIAaret)
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
-        getById('statsborgerskap').type(omDenAvdoede.statsborgerskap).type('{downArrow}').type('{enter}')
+        getById('statsborgerskap').type(`${omDenAvdoede.statsborgerskap}{downArrow}{enter}`)
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
 
         // Legg til land
         omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.map((oppholdUtland, idx) => {
             const baseId = `boddEllerJobbetUtland\.oppholdUtland\[${idx}\].`
 
-            getById(baseId + 'land')
-                .type('{downArrow}')
-                .type('{downArrow}')
-                .type('{enter}')
+            getById(baseId + 'land').type('{downArrow}{downArrow}{enter}')
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)) // Bodd/Arbeidet checkbox
             getById(baseId + 'fraDato').type(format(oppholdUtland.fraDato, 'dd.MM.yyyy'))
             getById(baseId + 'tilDato').type(format(oppholdUtland.tilDato, 'dd.MM.yyyy'))
