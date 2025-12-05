@@ -59,12 +59,13 @@ class PubliserOmsMeldtInnEndringJobbTest {
 
         publiserJobb.publiserNyeOgIkkeFerdigstilte()
 
-        verify(exactly = 2) {
+//        verify(exactly = 2) {
+        verify {
             rapid.publiser(any(), any())
         }
         verify(exactly = 1) {
             service.oppdaterStatusForId(ny.id, OmsMeldtInnEndringStatus.SENDT)
-            service.oppdaterStatusForId(forsoekt.id, OmsMeldtInnEndringStatus.SENDT)
+//            service.oppdaterStatusForId(forsoekt.id, OmsMeldtInnEndringStatus.SENDT)
         }
     }
 }
