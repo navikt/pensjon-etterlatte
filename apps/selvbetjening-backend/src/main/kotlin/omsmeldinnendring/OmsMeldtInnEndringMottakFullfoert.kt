@@ -19,8 +19,8 @@ internal class OmsMeldtInnEndringMottakFullfoert(
     init {
         River(rapidsConnection)
             .apply {
-                validate {
-                    it.demandValue(
+                precondition {
+                    it.requireValue(
                         "@event_name",
                         MOTTAK_FULLFOERT_EVENT,
                     )
