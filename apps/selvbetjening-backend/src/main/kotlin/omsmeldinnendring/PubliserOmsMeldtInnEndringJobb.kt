@@ -74,7 +74,9 @@ class PubliserOmsMeldtInnEndringJobb(
                 logger.warn(
                     "Omstillingstønad meldt inn endring tidligere sendt til Gjenny sendes på nytt med id=${it.id}",
                 )
-                publiser(it)
+
+                // TODO: Legg på denne igjen når vi har fått gått opp og kartlagt hva som går galt
+                // publiser(it)
             }
         }.onFailure { e ->
             logger.error("Feil oppsto under jobb for publisering av meldt inn endring omstillingstønad: ", e)
