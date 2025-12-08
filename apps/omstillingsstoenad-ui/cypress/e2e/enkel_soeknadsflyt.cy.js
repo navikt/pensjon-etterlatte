@@ -59,17 +59,14 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         getById('etternavn').type(omDenAvdoede.etternavn)
         getById('datoForDoedsfallet').type(foersteDagIAaret)
         getById('foedselsnummer').type(omDenAvdoede.foedselsnummer)
-        getById('statsborgerskap').type(omDenAvdoede.statsborgerskap).type('{downArrow}').type('{enter}')
+        getById('statsborgerskap').type(`${omDenAvdoede.statsborgerskap}{downArrow}{enter}`)
         selectValueForId('boddEllerJobbetUtland.svar', omDenAvdoede.boddEllerJobbetUtland.svar)
 
         // Legg til land
         omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.map((oppholdUtland, idx) => {
             const baseId = `boddEllerJobbetUtland\.oppholdUtland\[${idx}\].`
 
-            getById(baseId + 'land')
-                .type('{downArrow}')
-                .type('{downArrow}')
-                .type('{enter}')
+            getById(baseId + 'land').type('{downArrow}{downArrow}{enter}')
             oppholdUtland.beskrivelse.map((utlandType) => selectValue(utlandType)) // Bodd/Arbeidet checkbox
             getById(baseId + 'fraDato').type(format(oppholdUtland.fraDato, 'dd.MM.yyyy'))
             getById(baseId + 'tilDato').type(format(oppholdUtland.tilDato, 'dd.MM.yyyy'))
@@ -174,25 +171,39 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             // selectValueForId(baseId + 'sagtOppEllerRedusert.svar', arbeid.sagtOppEllerRedusert.svar)
         })
 
-        // --------------------------------------------------------------
-        // Sjekk at arbeidsforhold 2 beholdes hvis man sletter den første
-        cy.get('[data-testid=fjern-arbeidsforhold-knapp]').first().click()
-
         getById('arbeidsforhold[0].arbeidsgiver').should(
             'have.value',
-            merOmSituasjonenDin.arbeidsforhold[1].arbeidsgiver
+            merOmSituasjonenDin.arbeidsforhold[0].arbeidsgiver
         )
 
         getById('arbeidsforhold[0].ansettelsesforhold')
-            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].ansettelsesforhold}"]`)
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[0].ansettelsesforhold}"]`)
             .should('be.checked')
 
         getById('arbeidsforhold[0].arbeidsmengde.svar').should(
             'have.value',
-            merOmSituasjonenDin.arbeidsforhold[1].arbeidsmengde.svar
+            merOmSituasjonenDin.arbeidsforhold[0].arbeidsmengde.svar
         )
 
         getById('arbeidsforhold[0].forventerEndretArbeidssituasjon.svar')
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[0].forventerEndretArbeidssituasjon.svar}"]`)
+            .should('be.checked')
+
+        getById('arbeidsforhold[1].arbeidsgiver').should(
+            'have.value',
+            merOmSituasjonenDin.arbeidsforhold[1].arbeidsgiver
+        )
+
+        getById('arbeidsforhold[1].ansettelsesforhold')
+            .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].ansettelsesforhold}"]`)
+            .should('be.checked')
+
+        getById('arbeidsforhold[1].arbeidsmengde.svar').should(
+            'have.value',
+            merOmSituasjonenDin.arbeidsforhold[1].arbeidsmengde.svar
+        )
+
+        getById('arbeidsforhold[1].forventerEndretArbeidssituasjon.svar')
             .find(`[value="${merOmSituasjonenDin.arbeidsforhold[1].forventerEndretArbeidssituasjon.svar}"]`)
             .should('be.checked')
         // --------------------------------------------------------------
@@ -310,7 +321,7 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
             getById('fornavn').type(barn.fornavn)
             getById('etternavn').type(barn.etternavn)
             getById('foedselsnummer').type(barn.foedselsnummer)
-            getById('statsborgerskap').type(barn.statsborgerskap).type('{downArrow}').type('{enter}')
+            getById('statsborgerskap').type(`${barn.statsborgerskap}{downArrow}{enter}`)
             selectValueForId('bosattUtland.svar', barn.bosattUtland.svar)
             if (barn.foedselsnummer === '14812290208') {
                 // under 18 år
