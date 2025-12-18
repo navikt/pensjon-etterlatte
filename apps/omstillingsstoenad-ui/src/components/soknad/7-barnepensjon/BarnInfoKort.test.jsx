@@ -17,9 +17,9 @@ vi.mock('react-i18next', () => ({
 describe('BarnInfoKort', () => {
     it('Burde vise info om barn', () => {
         const { getByText } = render(
-            <BarnInfokort barn={{ fornavn: 'Treig', etternavn: 'Floskel', foedselsnummer: '04096222195' }} />
+            <BarnInfokort barn={{ fornavn: 'Ufruktbar', etternavn: 'Flygefisk', foedselsnummer: '19440397142' }} />
         )
-        expect(getByText('Treig Floskel')).toBeDefined()
-        expect(getByText('040962 22195')).toBeDefined()
+        expect(getByText('Ufruktbar Flygefisk')).toBeDefined()
+        expect(getByText('194403 97142')).toBeDefined()
     })
 })
