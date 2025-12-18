@@ -47,7 +47,7 @@ object InnsendtSoeknadFixtures {
         // BLÅØYD SAKS
         soekerFnr: Foedselsnummer = Foedselsnummer.of("05111850870"),
         avdoed: Foedselsnummer? = null,
-        soesken: List<Foedselsnummer> = listOf(Foedselsnummer.of("29080775995")),
+        soesken: List<Foedselsnummer> = listOf(Foedselsnummer.of("26430489347")),
     ) = Barnepensjon(
         imageTag = UUID.randomUUID().toString(),
         spraak = Spraak.NB,

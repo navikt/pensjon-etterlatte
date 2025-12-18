@@ -37,7 +37,7 @@ describe('About Children', { testIsolation: false }, () => {
         cy.get('#firstName').type('Stort')
         cy.get('#lastName').type('Barn')
         cy.get('#citizenship').type('{downArrow}').type('{enter}')
-        cy.get('#fnrDnr').type('11058019471')
+        cy.get('#fnrDnr').type('26430489347')
         cy.get('[type="radio"]').first().check({ force: true })
 
         cy.get('#above18Warning').should('exist')
