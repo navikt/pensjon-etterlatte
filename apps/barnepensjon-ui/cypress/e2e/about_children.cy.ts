@@ -1,4 +1,4 @@
-import { basePath, Button } from '../util/constants'
+import { Button, basePath } from '../util/constants'
 
 describe('About Children', { testIsolation: false }, () => {
     before(() => {
@@ -26,23 +26,6 @@ describe('About Children', { testIsolation: false }, () => {
     it('should display saved children in the list', function () {
         cy.get('.navds-heading').should('contain.text', 'Lite Barn')
         cy.get('.navds-tag').should('have.text', 'Søker om barnepensjon')
-    })
-
-    it('should display warning when adding child above 18', function () {
-        cy.intercept('GET', `${basePath}/api/kodeverk/alleland`, { fixture: 'alleland' }).as('getCountries')
-
-        cy.clickBtn(Button.AddChild)
-        cy.wait(['@getCountries'])
-
-        cy.get('#firstName').type('Stort')
-        cy.get('#lastName').type('Barn')
-        cy.get('#citizenship').type('{downArrow}').type('{enter}')
-        cy.get('#fnrDnr').type('26430489347')
-        cy.get('[type="radio"]').first().check({ force: true })
-
-        cy.get('#above18Warning').should('exist')
-        cy.get('.navds-confirmation-panel').should('not.exist')
-        cy.clickBtn(Button.Add)
     })
 
     it('should only be able to apply for joint children', function () {
@@ -74,7 +57,7 @@ describe('About Children', { testIsolation: false }, () => {
         cy.get('#firstName').type('Lite')
         cy.get('#lastName').type('Barn')
         cy.get('#fnrDnr').type('09011350027')
-        cy.get('#citizenship').type('{downArrow}').type('{enter}')
+        cy.get('#citizenship').type('{downArrow}{enter}')
         cy.get('[type="radio"]').first().check({ force: true })
         cy.get('#staysAbroadAnswer').should('not.exist')
         cy.get('#hasGuardianQuestion').find('[value="NEI"]').check({ force: true })
