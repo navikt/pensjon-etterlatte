@@ -27,7 +27,7 @@ import org.junit.jupiter.api.assertThrows
 
 internal class PersonServiceTest {
     private companion object {
-        private const val TREIG_FLOSKEL = "04096222195"
+        private const val UFRUKTBAR_FLYGEFISK = "19440397142"
         private const val TRIVIELL_MIDTPUNKT = "19040550081"
     }
 
@@ -123,7 +123,7 @@ internal class PersonServiceTest {
 
         assertThrows<NotFoundException> {
             runBlocking {
-                service.hentPerson(Foedselsnummer.of(TREIG_FLOSKEL), SoeknadType.OMSTILLINGSSTOENAD)
+                service.hentPerson(Foedselsnummer.of(UFRUKTBAR_FLYGEFISK), SoeknadType.OMSTILLINGSSTOENAD)
             }
         }
     }

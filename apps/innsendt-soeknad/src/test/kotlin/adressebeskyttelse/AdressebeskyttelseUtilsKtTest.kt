@@ -20,14 +20,14 @@ internal class AdressebeskyttelseUtilsKtTest {
                 innsenderFnr = Foedselsnummer.of("24014021406"),
                 barn =
                     listOf(
-                        eksempelBarn(Foedselsnummer.of("29080775995")),
+                        eksempelBarn(Foedselsnummer.of("26430489347")),
                         eksempelBarn(Foedselsnummer.of("03081375711")),
                     ),
             )
         val barnepensjon =
             InnsendtSoeknadFixtures.barnepensjon(
                 innsenderFnr = Foedselsnummer.of("24014021406"),
-                soekerFnr = Foedselsnummer.of("29080775995"),
+                soekerFnr = Foedselsnummer.of("26430489347"),
             )
 
         val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))
@@ -35,7 +35,7 @@ internal class AdressebeskyttelseUtilsKtTest {
         request.finnUnikeBarn() shouldContainExactlyInAnyOrder
             listOf(
                 Foedselsnummer.of("03081375711"),
-                Foedselsnummer.of("29080775995"),
+                Foedselsnummer.of("26430489347"),
             )
     }
 
@@ -48,11 +48,11 @@ internal class AdressebeskyttelseUtilsKtTest {
         val barnepensjon =
             InnsendtSoeknadFixtures.barnepensjon(
                 innsenderFnr = Foedselsnummer.of("24014021406"),
-                soekerFnr = Foedselsnummer.of("29080775995"),
+                soekerFnr = Foedselsnummer.of("26430489347"),
             )
 
         val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))
-        val barnFnr = listOf(Foedselsnummer.of("29080775995"), Foedselsnummer.of("24014021406"))
+        val barnFnr = listOf(Foedselsnummer.of("26430489347"), Foedselsnummer.of("24014021406"))
 
         val updatedRequest = request.fjernStedslokaliserendeInfo(barnFnr)
 
