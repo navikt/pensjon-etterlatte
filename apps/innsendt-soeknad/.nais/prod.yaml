@@ -103,6 +103,8 @@ spec:
           namespace: team-rocket
         - application: kodeverk-api
           namespace: team-rocket
+        - application: logging
+          namespace: nais-system
       external:
         - host: pdl-api.prod-fss-pub.nais.io
     inbound:

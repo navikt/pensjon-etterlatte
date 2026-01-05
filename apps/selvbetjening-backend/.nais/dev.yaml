@@ -70,6 +70,8 @@ spec:
     outbound:
       rules:
         - application: etterlatte-api
+        - application: logging
+          namespace: nais-system
       external:
         - host: pdl-api.dev-fss-pub.nais.io
         - host: etterlatte-unleash-api.nav.cloud.nais.io
