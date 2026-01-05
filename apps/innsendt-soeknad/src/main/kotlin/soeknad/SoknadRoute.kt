@@ -61,8 +61,6 @@ fun Route.soknadApi(service: SoeknadService) {
         get {
             val kilde = call.request.queryParameters["kilde"]!!
 
-            sikkerLogg.info("Tester sikker logg")
-
             try {
                 val soeknad = service.hentKladd(fnrFromToken(), kilde)
                 if (soeknad == null) {
