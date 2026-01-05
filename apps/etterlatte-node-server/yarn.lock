@@ -222,13 +222,13 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@sanity/client@^7.13.0":
-  version "7.13.0"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-7.13.0.tgz#43f4733d3e63990b61c58483f09fe9ff164bc90f"
-  integrity sha512-+iqJxxIqak5Q43Ullt8gsxL8K9B64lvX52ilhOS1yPZ3NPwcsBSuV1ipTPJFy5LfUxDLCuyQfKJlWzxDlDkuWQ==
+"@sanity/client@^7.13.2":
+  version "7.13.2"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-7.13.2.tgz#c7975653eb05def1e22b4e58f7b6fe14246fd1f4"
+  integrity sha512-bXuQGWgrpkSInZy8lfCMmOgdTNpsoZ7PORW0+zXss8qVpNo1DC002l1c8to6kfxNF0OaL9v7LwsPqKcTZ/VWrw==
   dependencies:
     "@sanity/eventsource" "^5.0.2"
-    get-it "^8.6.9"
+    get-it "^8.7.0"
     nanoid "^3.3.11"
     rxjs "^7.0.0"
 
@@ -1158,10 +1158,10 @@ get-intrinsic@^1.2.5, get-intrinsic@^1.2.6, get-intrinsic@^1.3.0:
     hasown "^2.0.2"
     math-intrinsics "^1.1.0"
 
-get-it@^8.6.9:
-  version "8.6.9"
-  resolved "https://registry.yarnpkg.com/get-it/-/get-it-8.6.9.tgz#89b939130ff387aebe84c8785626ef3acd96e779"
-  integrity sha512-CSUbVbfTZZbRrPqiMPaV3mWw+3MDgRPANtqBxLSp94cUUUZVAZfjGDwArvu5z2bx5ABW2MNB5kdT3PTOxe3cTw==
+get-it@^8.7.0:
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/get-it/-/get-it-8.7.0.tgz#dbb5728e301c248d3aa02f0efd01f2af381c9842"
+  integrity sha512-uong/+jOz0GiuIWIUJXp2tnQKgQKukC99LEqOxLckPUoHYoerQbV6vC0Tu+/pSgk0tgHh1xX2aJtCk4y35LLLg==
   dependencies:
     "@types/follow-redirects" "^1.14.4"
     decompress-response "^7.0.0"

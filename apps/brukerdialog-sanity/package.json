@@ -18,11 +18,11 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/export": "^4.0.1",
-    "@sanity/vision": "^4.19.0",
+    "@sanity/export": "^6.0.2",
+    "@sanity/vision": "^5.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sanity": "^4.19.0",
+    "sanity": "^5.1.0",
     "styled-components": "^6.1",
     "tsx": "^4.21.0"
   },
