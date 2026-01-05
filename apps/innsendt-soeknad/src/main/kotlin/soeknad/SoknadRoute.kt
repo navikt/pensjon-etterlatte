@@ -12,6 +12,7 @@ import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.sikkerLogg
 import soeknad.Status
 
 fun Route.soknadApi(service: SoeknadService) {
@@ -59,6 +60,8 @@ fun Route.soknadApi(service: SoeknadService) {
 
         get {
             val kilde = call.request.queryParameters["kilde"]!!
+
+            sikkerLogg.info("Tester sikker logg")
 
             try {
                 val soeknad = service.hentKladd(fnrFromToken(), kilde)
