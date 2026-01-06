@@ -1,8 +1,6 @@
 import { render } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import { TekstGruppe } from './fragmenter/TekstGruppe'
-import Oppsummering from './Oppsummering'
 
 vi.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown

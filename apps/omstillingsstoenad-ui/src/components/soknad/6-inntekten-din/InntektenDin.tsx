@@ -1,5 +1,4 @@
 import { Box, GuidePanel, Heading, VStack } from '@navikt/ds-react'
-import { differenceInYears } from 'date-fns'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
