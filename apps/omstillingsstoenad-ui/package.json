@@ -8,7 +8,7 @@
         "@navikt/ds-css": "^7.36.0",
         "@navikt/ds-icons": "3.4.3",
         "@navikt/ds-react": "^7.36.0",
-        "@navikt/fnrvalidator": "2.1.5",
+        "@navikt/fnrvalidator": "2.2.1",
         "@navikt/nav-dekoratoren-moduler": "^3.5.0",
         "@vitejs/plugin-react-swc": "^4.2.2",
         "@vitest/coverage-v8": "^4.0.16",
