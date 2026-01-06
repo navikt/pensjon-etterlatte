@@ -352,13 +352,6 @@
     "@types/node" "*"
     form-data "^4.0.4"
 
-"@types/node-jose@^1.1.13":
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/@types/node-jose/-/node-jose-1.1.13.tgz#aeb9f5894afa8ae6c13182ca99d92f4bcc22f70f"
-  integrity sha512-QjMd4yhwy1EvSToQn0YI3cD29YhyfxFwj7NecuymjLys2/P0FwxWnkgBlFxCai6Y3aBCe7rbwmqwJJawxlgcXw==
-  dependencies:
-    "@types/node" "*"
-
 "@types/node@*":
   version "24.1.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-24.1.0.tgz#0993f7dc31ab5cc402d112315b463e383d68a49c"
