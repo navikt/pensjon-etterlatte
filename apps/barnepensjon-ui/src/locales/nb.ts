@@ -505,7 +505,7 @@ const receipt = {
     changeAddressOrMoveAbroad: 'Flytting eller opphold i et annet land over tid',
     changeInEduation: 'utdanningssituasjon og/eller arbeidsinntekt',
     moreAboutChanges: 'Du kan lese mer om å ',
-    moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
+    moreAboutChangesLinkHref: 'https://www.nav.no/barnepensjon#melde',
     moreAboutChangesLinkText: 'melde fra om endringer.',
     submissionOfGuardianshipInfo: 'Verge',
     guardianshipMustBeConfirmed:
