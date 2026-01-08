@@ -1,5 +1,5 @@
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label, VStack } from '@navikt/ds-react'
+import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label, ReadMore, VStack } from '@navikt/ds-react'
 import React, { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -53,7 +53,6 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     return (
         <Box marginBlock="0 12">
             <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
-            <BodyLong>{t('omDenAvdoede.boddEllerJobbetUtland.ingress')}</BodyLong>
 
             <Box marginBlock="4">
                 <RHFSpoersmaalRadio
@@ -61,6 +60,9 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     legend={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
                     vetIkke
                 />
+                <ReadMore header={t('readmore.tittel.hvorfor.spoer.vi')}>
+                    {t('omDenAvdoede.boddEllerJobbetUtland.ingress')}
+                </ReadMore>
             </Box>
 
             {boddEllerArbeidetUtland === IValg.JA && (
