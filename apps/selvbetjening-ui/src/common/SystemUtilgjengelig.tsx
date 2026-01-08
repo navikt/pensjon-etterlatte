@@ -76,7 +76,7 @@ export const SystemUtilgjengelig = () => {
                             </Heading>
                             <BodyLong>
                                 Ein teknisk feil på serverane våre gjer at sidan er utilgjengeleg. Dette kjem ikkje av
-                                noko du gjorde.{' '}
+                                noko du gjorde.
                             </BodyLong>
                             <BodyLong>Du kan prøva å</BodyLong>
                             <List>
