@@ -516,7 +516,7 @@ const receipt = {
     changeAddressOrMoveAbroad: 'Move to or stay in another country over an extended period of time',
     changeInEduation: 'educational situation and/or earned income',
     moreAboutChanges: 'You can read more about ',
-    moreAboutChangesLinkHref: 'https://www.nav.no/endringer',
+    moreAboutChangesLinkHref: 'https://www.nav.no/barnepensjon/en#notify',
     moreAboutChangesLinkText: 'notifying us of any changes.',
     submissionOfGuardianshipInfo: 'Guardian',
     guardianshipMustBeConfirmed:
