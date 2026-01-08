@@ -1161,4 +1161,5 @@ export default {
         'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
+    'readmore.tittel.hvorfor.spoer.vi': 'Hvorfor spør vi om dette?',
 }

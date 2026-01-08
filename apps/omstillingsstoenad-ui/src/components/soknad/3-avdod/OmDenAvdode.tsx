@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Box, Heading, HGrid, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, Heading, HGrid, ReadMore, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
@@ -132,13 +132,15 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
 
                 <Box marginBlock="0 12">
                     <Heading size="small">{t('omDenAvdoede.doedsfallAarsak.tittel')}</Heading>
-                    <BodyLong>{t('omDenAvdoede.doedsfallAarsakHvorfor')}</BodyLong>
                     <Box marginBlock="4">
                         <RHFSpoersmaalRadio
                             name={'doedsfallAarsak'}
                             legend={t('omDenAvdoede.doedsfallAarsak')}
                             vetIkke
                         />
+                        <ReadMore header={t('readmore.tittel.hvorfor.spoer.vi')}>
+                            {t('omDenAvdoede.doedsfallAarsakHvorfor')}
+                        </ReadMore>
                     </Box>
                 </Box>
 
