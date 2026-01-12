@@ -295,13 +295,6 @@
   resolved "https://registry.yarnpkg.com/@types/eventsource/-/eventsource-1.1.15.tgz#949383d3482e20557cbecbf3b038368d94b6be27"
   integrity sha512-XQmGcbnxUNa06HR3VBVkc9+A2Vpi9ZyLJcdS5dwaQQ/4ZMWFO+5c90FnMUpbtMZwB/FChoYHwuVg8TvkECacTA==
 
-"@types/express-http-proxy@^1.6.7":
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/@types/express-http-proxy/-/express-http-proxy-1.6.7.tgz#7536a8dbaa3bbbfc4c5d3dc519a2295822e6150b"
-  integrity sha512-CEp9pbnwVI1RzN9PXc+KESMxwUW5r1O7tkWb5h7Wg/YAIf+KulD/zKev8fbbn+Ljt0Yvs8MXwV2W6Id+cKxe2Q==
-  dependencies:
-    "@types/express" "*"
-
 "@types/express-serve-static-core@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-5.0.0.tgz#91f06cda1049e8f17eeab364798ed79c97488a1c"
@@ -312,7 +305,7 @@
     "@types/range-parser" "*"
     "@types/send" "*"
 
-"@types/express@*", "@types/express@^5.0.5":
+"@types/express@^5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-5.0.5.tgz#3ba069177caa34ab96585ca23b3984d752300cdc"
   integrity sha512-LuIQOcb6UmnF7C1PCFmEU1u2hmiHL43fgFQX67sN3H4Z+0Yk0Neo++mFsBjhOAuLzvlQeqAAkeDOZrJs9rzumQ==
@@ -358,13 +351,6 @@
   dependencies:
     "@types/node" "*"
     form-data "^4.0.4"
-
-"@types/node-jose@^1.1.13":
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/@types/node-jose/-/node-jose-1.1.13.tgz#aeb9f5894afa8ae6c13182ca99d92f4bcc22f70f"
-  integrity sha512-QjMd4yhwy1EvSToQn0YI3cD29YhyfxFwj7NecuymjLys2/P0FwxWnkgBlFxCai6Y3aBCe7rbwmqwJJawxlgcXw==
-  dependencies:
-    "@types/node" "*"
 
 "@types/node@*":
   version "24.1.0"
