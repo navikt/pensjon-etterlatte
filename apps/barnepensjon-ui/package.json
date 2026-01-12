@@ -22,7 +22,7 @@
         "nav-faker": "^3.2.4",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
-        "react-hook-form": "^7.69.0",
+        "react-hook-form": "^7.70.0",
         "react-router-dom": "^7.11.0",
         "typescript": "^5.9.3",
         "uuid": "^13.0.0",
