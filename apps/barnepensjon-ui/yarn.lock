@@ -216,59 +216,59 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-1.0.2.tgz#bbe12dca5b4ef983a0d0af4b07b9bc90ea0ababa"
   integrity sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==
 
-"@biomejs/biome@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/biome/-/biome-2.3.10.tgz#19059a29306081f2c0e095bdb26c91c8c7e3970a"
-  integrity sha512-/uWSUd1MHX2fjqNLHNL6zLYWBbrJeG412/8H7ESuK8ewoRoMPUgHDebqKrPTx/5n6f17Xzqc9hdg3MEqA5hXnQ==
+"@biomejs/biome@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/biome/-/biome-2.3.11.tgz#a8f3682b3b2c0112e2728f6d51d9c67a6c5521f8"
+  integrity sha512-/zt+6qazBWguPG6+eWmiELqO+9jRsMZ/DBU3lfuU2ngtIQYzymocHhKiZRyrbra4aCOoyTg/BmY+6WH5mv9xmQ==
   optionalDependencies:
-    "@biomejs/cli-darwin-arm64" "2.3.10"
-    "@biomejs/cli-darwin-x64" "2.3.10"
-    "@biomejs/cli-linux-arm64" "2.3.10"
-    "@biomejs/cli-linux-arm64-musl" "2.3.10"
-    "@biomejs/cli-linux-x64" "2.3.10"
-    "@biomejs/cli-linux-x64-musl" "2.3.10"
-    "@biomejs/cli-win32-arm64" "2.3.10"
-    "@biomejs/cli-win32-x64" "2.3.10"
+    "@biomejs/cli-darwin-arm64" "2.3.11"
+    "@biomejs/cli-darwin-x64" "2.3.11"
+    "@biomejs/cli-linux-arm64" "2.3.11"
+    "@biomejs/cli-linux-arm64-musl" "2.3.11"
+    "@biomejs/cli-linux-x64" "2.3.11"
+    "@biomejs/cli-linux-x64-musl" "2.3.11"
+    "@biomejs/cli-win32-arm64" "2.3.11"
+    "@biomejs/cli-win32-x64" "2.3.11"
 
-"@biomejs/cli-darwin-arm64@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-arm64/-/cli-darwin-arm64-2.3.10.tgz#94d587738e1ee84b0e376f8ec73f220e15f6e785"
-  integrity sha512-M6xUjtCVnNGFfK7HMNKa593nb7fwNm43fq1Mt71kpLpb+4mE7odO8W/oWVDyBVO4ackhresy1ZYO7OJcVo/B7w==
+"@biomejs/cli-darwin-arm64@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-arm64/-/cli-darwin-arm64-2.3.11.tgz#3aa71d119e7216d66620282121673b95257fcc35"
+  integrity sha512-/uXXkBcPKVQY7rc9Ys2CrlirBJYbpESEDme7RKiBD6MmqR2w3j0+ZZXRIL2xiaNPsIMMNhP1YnA+jRRxoOAFrA==
 
-"@biomejs/cli-darwin-x64@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-x64/-/cli-darwin-x64-2.3.10.tgz#8a65aae0d323542f6082f6873965df04da50cb09"
-  integrity sha512-Vae7+V6t/Avr8tVbFNjnFSTKZogZHFYl7MMH62P/J1kZtr0tyRQ9Fe0onjqjS2Ek9lmNLmZc/VR5uSekh+p1fg==
+"@biomejs/cli-darwin-x64@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-darwin-x64/-/cli-darwin-x64-2.3.11.tgz#3003d7c24e4fbba9693fba98692c6386884fedcf"
+  integrity sha512-fh7nnvbweDPm2xEmFjfmq7zSUiox88plgdHF9OIW4i99WnXrAC3o2P3ag9judoUMv8FCSUnlwJCM1B64nO5Fbg==
 
-"@biomejs/cli-linux-arm64-musl@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64-musl/-/cli-linux-arm64-musl-2.3.10.tgz#23af18ae2333cfab31fda88145287b112b918d4d"
-  integrity sha512-B9DszIHkuKtOH2IFeeVkQmSMVUjss9KtHaNXquYYWCjH8IstNgXgx5B0aSBQNr6mn4RcKKRQZXn9Zu1rM3O0/A==
+"@biomejs/cli-linux-arm64-musl@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64-musl/-/cli-linux-arm64-musl-2.3.11.tgz#a17fb411ba8146ba60f3592857b7c49c8f0fe936"
+  integrity sha512-XPSQ+XIPZMLaZ6zveQdwNjbX+QdROEd1zPgMwD47zvHV+tCGB88VH+aynyGxAHdzL+Tm/+DtKST5SECs4iwCLg==
 
-"@biomejs/cli-linux-arm64@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64/-/cli-linux-arm64-2.3.10.tgz#075122503ade20ec78c3591c3f6af598094de693"
-  integrity sha512-hhPw2V3/EpHKsileVOFynuWiKRgFEV48cLe0eA+G2wO4SzlwEhLEB9LhlSrVeu2mtSn205W283LkX7Fh48CaxA==
+"@biomejs/cli-linux-arm64@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-arm64/-/cli-linux-arm64-2.3.11.tgz#643830d1e53071d594e16b919e88a46fbc5c0b55"
+  integrity sha512-l4xkGa9E7Uc0/05qU2lMYfN1H+fzzkHgaJoy98wO+b/7Gl78srbCRRgwYSW+BTLixTBrM6Ede5NSBwt7rd/i6g==
 
-"@biomejs/cli-linux-x64-musl@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64-musl/-/cli-linux-x64-musl-2.3.10.tgz#18910580d674305c92abc56001475a62b0f51362"
-  integrity sha512-QTfHZQh62SDFdYc2nfmZFuTm5yYb4eO1zwfB+90YxUumRCR171tS1GoTX5OD0wrv4UsziMPmrePMtkTnNyYG3g==
+"@biomejs/cli-linux-x64-musl@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64-musl/-/cli-linux-x64-musl-2.3.11.tgz#e9165c6d05f085829ab73a7ea0123a6a9b45dc89"
+  integrity sha512-vU7a8wLs5C9yJ4CB8a44r12aXYb8yYgBn+WeyzbMjaCMklzCv1oXr8x+VEyWodgJt9bDmhiaW/I0RHbn7rsNmw==
 
-"@biomejs/cli-linux-x64@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64/-/cli-linux-x64-2.3.10.tgz#e582f7c336fc9bed5490ce8c344a4f54acd4dd18"
-  integrity sha512-wwAkWD1MR95u+J4LkWP74/vGz+tRrIQvr8kfMMJY8KOQ8+HMVleREOcPYsQX82S7uueco60L58Wc6M1I9WA9Dw==
+"@biomejs/cli-linux-x64@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-linux-x64/-/cli-linux-x64-2.3.11.tgz#3571049b1310132f1d12d67596ea5f39419836d0"
+  integrity sha512-/1s9V/H3cSe0r0Mv/Z8JryF5x9ywRxywomqZVLHAoa/uN0eY7F8gEngWKNS5vbbN/BsfpCG5yeBT5ENh50Frxg==
 
-"@biomejs/cli-win32-arm64@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-arm64/-/cli-win32-arm64-2.3.10.tgz#d103a5039ea8bbca4ad8fe015585367026eac606"
-  integrity sha512-o7lYc9n+CfRbHvkjPhm8s9FgbKdYZu5HCcGVMItLjz93EhgJ8AM44W+QckDqLA9MKDNFrR8nPbO4b73VC5kGGQ==
+"@biomejs/cli-win32-arm64@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-arm64/-/cli-win32-arm64-2.3.11.tgz#6769907655cd06938b00d040c6576c2fdf6c34a2"
+  integrity sha512-PZQ6ElCOnkYapSsysiTy0+fYX+agXPlWugh6+eQ6uPKI3vKAqNp6TnMhoM3oY2NltSB89hz59o8xIfOdyhi9Iw==
 
-"@biomejs/cli-win32-x64@2.3.10":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-x64/-/cli-win32-x64-2.3.10.tgz#19e5c86cf6e91290154afa7e44ca53ce18d7e910"
-  integrity sha512-pHEFgq7dUEsKnqG9mx9bXihxGI49X+ar+UBrEIj3Wqj3UCZp1rNgV+OoyjFgcXsjCWpuEAF4VJdkZr3TrWdCbQ==
+"@biomejs/cli-win32-x64@2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@biomejs/cli-win32-x64/-/cli-win32-x64-2.3.11.tgz#71ba2fb5505b3b01dd3cf551ef329e0094636125"
+  integrity sha512-43VrG813EW+b5+YbDbz31uUsheX+qFKCpXeY9kfdAx+ww3naKxeVkTD9zLIWxUPfJquANMHrmW3wbe/037G0Qg==
 
 "@csstools/color-helpers@^5.1.0":
   version "5.1.0"
@@ -557,38 +557,38 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@navikt/aksel-icons@^7.36.0":
-  version "7.36.0"
-  resolved "https://npm.pkg.github.com/download/@navikt/aksel-icons/7.36.0/5d01680f20cd3ad3c447ea53fd4f71d9e40056e1#5d01680f20cd3ad3c447ea53fd4f71d9e40056e1"
-  integrity sha512-zFLkhbaKFyXLWxXSnx3GW9tEGDz/fJ/Eug29tfgb6Lb934s3VEVUXQiYB8+BuUt6fTLz3ZGh3jv0NfWoGGtR1A==
+"@navikt/aksel-icons@^7.37.0":
+  version "7.38.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/aksel-icons/7.38.0/f21368acbac4d1e28604e774d0b95f50404da561#f21368acbac4d1e28604e774d0b95f50404da561"
+  integrity sha512-v+Kiss6gp/DXlbskkXrzfWUWvFEK+XQuhfauo0CP41JDyKsx3DSPKeB/pxFocio6MXGUNK/QQzjBfMPJh7ESng==
 
-"@navikt/ds-css@^7.36.0":
-  version "7.36.0"
-  resolved "https://npm.pkg.github.com/download/@navikt/ds-css/7.36.0/d9e4574fe73a39a74ec442ac341d22ff61aab0d4#d9e4574fe73a39a74ec442ac341d22ff61aab0d4"
-  integrity sha512-MLWHW8jj0ypW2l0suDE+k6ZmqX15kKzvlM9qLacbyDBrOP5AQY/nRWFem5IRple6mjDNUcLfzk3Z7UVMozzqCA==
+"@navikt/ds-css@^7.37.0":
+  version "7.37.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/ds-css/7.37.0/b0752aaf6a6ea970fedd2f6cdc0da93aa7b0c9fa#b0752aaf6a6ea970fedd2f6cdc0da93aa7b0c9fa"
+  integrity sha512-Fvt6Cou4APj2BR8/1oH98H945si4Nr+IfTMwJTG7mBdnlqltGoQocOSyF7yKFl78UfB6z1x2bWLjpzGM8sgyZQ==
 
 "@navikt/ds-icons@^3.4.3":
   version "3.4.3"
   resolved "https://npm.pkg.github.com/download/@navikt/ds-icons/3.4.3/eaa8fc38f6d184806d3405a5efbc9d137c2b8d27#eaa8fc38f6d184806d3405a5efbc9d137c2b8d27"
   integrity sha512-Ys25tnDUzS+AtagMMW4/154OCZy+pTxCv9uiV4YcZUeXMfjnMiRWx1dueyCODb7FF7Jd6TwELd3G6ieQt/rf+w==
 
-"@navikt/ds-react@^7.36.0":
-  version "7.36.0"
-  resolved "https://npm.pkg.github.com/download/@navikt/ds-react/7.36.0/6deea33d6483ed91e7eee9a7dc57c0d10c9185c6#6deea33d6483ed91e7eee9a7dc57c0d10c9185c6"
-  integrity sha512-mDTLc31q35kkf5KwIKbKISTKW2KjEplXDAhk/mAaa/E1HfZciLwhkOfnqVF89ktb4XsAUORwGVzrHp9PqabTUw==
+"@navikt/ds-react@^7.37.0":
+  version "7.37.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/ds-react/7.37.0/da57447763c409e4a99673de00cf52d33e3aa693#da57447763c409e4a99673de00cf52d33e3aa693"
+  integrity sha512-6dDTNA6Q/iJ3kiBPk9wzejvsNAHqO/ep+iWrWrMF/dR9u7/xVzc7h1gJG9yz1pTcP9U5pODSS94H8PbkhYmX8w==
   dependencies:
     "@floating-ui/react" "0.27.8"
     "@floating-ui/react-dom" "^2.1.6"
-    "@navikt/aksel-icons" "^7.36.0"
-    "@navikt/ds-tokens" "^7.36.0"
+    "@navikt/aksel-icons" "^7.37.0"
+    "@navikt/ds-tokens" "^7.37.0"
     clsx "^2.1.0"
     date-fns "^4.0.0"
     react-day-picker "9.7.0"
 
-"@navikt/ds-tokens@^7.36.0":
-  version "7.36.0"
-  resolved "https://npm.pkg.github.com/download/@navikt/ds-tokens/7.36.0/ad3ab2a9f2179c5a4703738de33233af54336dc2#ad3ab2a9f2179c5a4703738de33233af54336dc2"
-  integrity sha512-qGLDJfnqQJoSHz03lsxqXkbl4MqN/d9W532TKyGcXswsYSeTEj425weFUvPwTh2w29dM4ncGmomijZAUjFYH/w==
+"@navikt/ds-tokens@^7.37.0":
+  version "7.38.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/ds-tokens/7.38.0/d98840acd074278426e3cbe2f767e3841d8b6bd6#d98840acd074278426e3cbe2f767e3841d8b6bd6"
+  integrity sha512-4U3ozOfRap+9PcsQu1G96sZu4tQaYY2/eBil1Viqyqm+VvSNTJ4sEmDM9qUqOysEZl/8PKHHlegy0W9aDo/iag==
 
 "@navikt/fnrvalidator@^2.2.1":
   version "2.2.1"
@@ -2847,10 +2847,10 @@ react-error-boundary@^3.1.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-hook-form@^7.69.0:
-  version "7.69.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.69.0.tgz#40f5e5ba2a436c2eee12b75ab30da5bb743744e7"
-  integrity sha512-yt6ZGME9f4F6WHwevrvpAjh42HMvocuSnSIHUGycBqXIJdhqGSPQzTpGF+1NLREk/58IdPxEMfPcFCjlMhclGw==
+react-hook-form@^7.70.0:
+  version "7.70.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.70.0.tgz#256fa2ca71633c99f16ca2cd6074628aa52001b2"
+  integrity sha512-COOMajS4FI3Wuwrs3GPpi/Jeef/5W1DRR84Yl5/ShlT3dKVFUfoGiEZ/QE6Uw8P4T2/CLJdcTVYKvWBMQTEpvw==
 
 react-is@^17.0.1:
   version "17.0.2"
