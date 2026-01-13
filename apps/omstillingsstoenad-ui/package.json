@@ -17,7 +17,7 @@
         "bowser": "^2.13.1",
         "date-fns": "^4.1.0",
         "error-stack-parser": "^2.1.4",
-        "i18next": "25.6.3",
+        "i18next": "25.7.3",
         "ibantools": "^4.5.1",
         "lodash": "4.17.21",
         "nav-faker": "^3.2.4",
@@ -29,9 +29,9 @@
         "react-hook-form": "7.70.0",
         "typescript": "5.9.3",
         "uuid": "13.0.0",
-        "vite": "^7.2.4",
+        "vite": "^7.3.0",
         "vite-plugin-svgr": "^4.5.0",
-        "vite-tsconfig-paths": "^5.1.4",
+        "vite-tsconfig-paths": "^6.0.3",
         "vitest": "^4.0.16"
     },
     "devDependencies": {
