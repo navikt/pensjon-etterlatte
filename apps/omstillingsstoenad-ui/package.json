@@ -19,7 +19,7 @@
         "error-stack-parser": "^2.1.4",
         "i18next": "25.6.3",
         "ibantools": "^4.5.1",
-        "lodash": "4.17.21",
+        "lodash": "4.17.23",
         "nav-faker": "^3.2.4",
         "react": "19.2.3",
         "react-dom": "19.2.3",
