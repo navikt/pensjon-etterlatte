@@ -27,17 +27,11 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
             {inntektenDin.skalGaaAvMedAlderspensjon && (
                 <Panel>
                     <Heading size={'small'}>
-                        {erMellomOktoberogDesember()
-                            ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
-                            : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}
+                        {t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}
                     </Heading>
 
                     <TekstGruppe
-                        tittel={
-                            erMellomOktoberogDesember()
-                                ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
-                                : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
-                        }
+                        tittel={t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}
                         innhold={t(inntektenDin.skalGaaAvMedAlderspensjon?.valg || '')}
                     />
 

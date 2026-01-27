@@ -652,9 +652,7 @@ const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBru
     if (harMulighetTilAaGaaAvMedAlderspensjon && !!inntektenDin.skalGaaAvMedAlderspensjon) {
         skalGaaAvMedAlderspensjon = {
             valg: {
-                spoersmaal: erMellomOktoberogDesember()
-                    ? t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
-                    : t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar'),
+                spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar'),
                 svar: skalGaaAvMedAlderspensjonValgTilSvar(t, inntektenDin.skalGaaAvMedAlderspensjon!.valg!),
             },
             datoForAaGaaAvMedAlderspensjon: mapDatoForAaGaaAvMedAlderspensjon(
