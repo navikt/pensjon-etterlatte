@@ -1,5 +1,5 @@
 import { BodyShort, Link, RadioProps, ReadMore, VStack } from '@navikt/ds-react'
-import { addYears, endOfYear, startOfYear } from 'date-fns'
+import { addYears, endOfYear, startOfMonth, startOfYear } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
@@ -19,8 +19,6 @@ export const SkalGaaAvMedAlderspensjon = () => {
     const velgLegendTekstForSkalGaaAvMedAlderspensjon = (): string => {
         if (fyllerSekstiSyvIAar(bruker)) {
             return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.fyllerSekstiSyvIAar')
-        } else if (erMellomOktoberogDesember()) {
-            return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektTilNesteAar')
         } else {
             return t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')
         }
@@ -68,11 +66,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
                     label={t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon')}
-                    fromDate={
-                        erMellomOktoberogDesember()
-                            ? new Date(addYears(new Date(startOfYear(new Date())), 1))
-                            : new Date(startOfYear(new Date()))
-                    }
+                    fromDate={startOfMonth(new Date())}
                 />
             )}
 
