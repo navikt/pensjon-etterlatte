@@ -22,7 +22,7 @@
         "react": "^19.2.3",
         "source-map": "~0.7.6",
         "typescript": "5.9.3",
-        "unleash-client": "^6.8.0",
+        "unleash-client": "^6.9.5",
         "uuid": "^13.0.0",
         "winston": "3.19.0",
         "winston-transport": "^4.8.0"
