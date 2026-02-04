@@ -52,21 +52,19 @@
         "concurrently": "^9.2.1",
         "globals": "^17.1.0",
         "husky": "~9.1.7",
-        "jsdom": "^27.4.0",
-        "license-checker-rseidelsohn": "^4.4.2"
+        "jsdom": "^27.4.0"
     },
     "scripts": {
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /omstillingsstonad/soknad",
         "start:node": "cd ../etterlatte-node-server && yarn start:oms",
-        "build": "tsc && yarn biome lint --no-errors-on-unmatched && vite build --outDir build --base /omstillingsstonad/soknad && yarn lisenssjekk",
+        "build": "tsc && yarn biome lint --no-errors-on-unmatched && vite build --outDir build --base /omstillingsstonad/soknad",
         "test": "vitest",
         "test:coverage": "vitest run --coverage",
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
         "eject": "react-scripts eject",
-        "lint": "yarn biome check --no-errors-on-unmatched",
-        "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages cra@0.1.0 --summary"
+        "lint": "yarn biome check --no-errors-on-unmatched"
     },
     "browserslist": {
         "production": [

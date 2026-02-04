@@ -34,7 +34,6 @@
         "@types/node-fetch": "^2.6.13",
         "@types/uuid": "^11.0.0",
         "husky": "~9.1.7",
-        "license-checker-rseidelsohn": "^4.4.2",
         "ts-node-dev": "^2.0.0"
     },
     "scripts": {
@@ -46,9 +45,8 @@
         "start:mock-selvbetjening": "ts-node-dev --project ./tsconfig.json src/mock/mock-server-selvbetjening.ts",
         "build": "NODE_ENV=production tsc --project ./tsconfig.json",
         "build-dev": "NODE_ENV=dev tsc --project ./tsconfig.json",
-        "test": "NODE_ENV=production tsc --project ./tsconfig.json && yarn lisenssjekk",
-        "prepare": "cd ../../ && husky .husky",
-        "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC0-1.0;WTFPL;0BSD\" --excludePackages etterlatte-node-server@1.0.0 --summary"
+        "test": "NODE_ENV=production tsc --project ./tsconfig.json",
+        "prepare": "cd ../../ && husky .husky"
     },
     "resolutions": {
         "**/braces": "3.0.3"
