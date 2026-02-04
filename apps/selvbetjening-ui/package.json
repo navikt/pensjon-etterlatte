@@ -15,9 +15,9 @@
         "lisenssjekk": "yarn license-checker-rseidelsohn --onlyAllow \"MIT;Apache-2.0;BSD;BSD-3-Clause;ISC;BSD-2-Clause;BlueOak-1.0.0;CC-BY-3.0;CC-BY-4.0;CC0-1.0;Python-2.0;MPL-2.0;Unlicense\" --excludePackages selvbetjening-ui@0.1.0 --summary"
     },
     "dependencies": {
-        "@navikt/aksel-icons": "^7.0.0",
-        "@navikt/ds-css": "^7.37.0",
-        "@navikt/ds-react": "^7.37.0",
+        "@navikt/aksel-icons": "^8.1.0",
+        "@navikt/ds-css": "^8.1.0",
+        "@navikt/ds-react": "^8.1.0",
         "@navikt/nav-dekoratoren-moduler": "^3.6.1",
         "@portabletext/react": "^3.2.0",
         "@types/cypress": "^1.1.3",
