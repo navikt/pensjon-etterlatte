@@ -99,11 +99,6 @@ En app bygges og deployes automatisk når en endring legges til i `main`.
 
 For å trigge **manuell deploy** kan du gå til `Actions -> (velg workflow) -> Run workflow from <branch>`
 
-# Sjekker
-
-I frontend bruker vi `license-checker-rseidelsohn`, som kjøres automatisk i GitHub-actions-byggejobben, og som kan
-køyrast manuelt med `yarn lisenssjekk`
-
 # Henvendelser
 
 Spørsmål knyttet til koden eller prosjektet kan stilles som issues her på GitHub.
