@@ -1,12 +1,12 @@
 [plugins]
-license = { id = 'com.github.jk1.dependency-license-report', version = '2.9' }
+license = { id = 'com.github.jk1.dependency-license-report', version = '3.0.1' }
 
 [versions]
 token-version = "5.0.34"
-ktor-version = "3.3.0"
-jupiter-version = "6.0.1"
-testcontainers-version = "1.21.3"
-flyway-version = "11.15.0"
+ktor-version = "3.4.0"
+jupiter-version = "6.0.2"
+testcontainers-version = "1.21.4"
+flyway-version = "11.20.2"
 rapidsandrivers-version = "2025110410541762250064.d7e58c3fad81" # OBS! tbdlibs brukes av denne. De bør stemme overens
 tbdlibs-version = "2025.12.17-10.36-a2cc649b" # OBS! rapidsandrivers bruker denne. De bør stemme overens
 
@@ -32,7 +32,7 @@ ktor-servertests = { module = "io.ktor:ktor-server-test-host", version.ref = "kt
 database-hikari-cp = { module = "com.zaxxer:HikariCP", version = "7.0.2" }
 database-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 database-flyway-postgres = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
-database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.8" }
+database-postgresql = { module = "org.postgresql:postgresql", version = "42.7.9" }
 
 jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "jupiter-version" }
 jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "jupiter-version" }
@@ -41,17 +41,17 @@ jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.re
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 
 logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
-logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.20" }
+logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.25" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "9.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.15.5" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.16.2" }
 
-mockk = { module = "io.mockk:mockk", version = "1.14.6" }
+mockk = { module = "io.mockk:mockk", version = "1.14.7" }
 
 test-navfelles-rapidsandriversktor = { module = "com.github.navikt.tbd-libs:rapids-and-rivers-test", version.ref = "tbdlibs-version" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.0.4" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.1.1" }
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
 
-unleash-client = { module = "io.getunleash:unleash-client-java", version = "11.1.1" }
+unleash-client = { module = "io.getunleash:unleash-client-java", version = "12.1.0" }
