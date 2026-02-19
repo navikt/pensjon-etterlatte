@@ -28,7 +28,7 @@ class PubliserMetrikkerJobb(
         Gauge.builder("alder_eldste_usendte") {
             db.eldsteUsendte()?.let {
                 ChronoUnit.MINUTES.between(it, LocalDateTime.now()).toDouble()
-            }
+            } ?: 0
         }
             .description("Alder på eldste usendte søknad")
             .register(registry)
@@ -36,7 +36,7 @@ class PubliserMetrikkerJobb(
         Gauge.builder("alder_eldste_uarkiverte") {
             db.eldsteUarkiverte()?.let {
                 ChronoUnit.MINUTES.between(it, LocalDateTime.now()).toDouble()
-            }
+            } ?: 0
         }
             .description("Alder på eldste ikke-arkiverte søknad")
             .register(registry)
@@ -44,7 +44,7 @@ class PubliserMetrikkerJobb(
         Gauge.builder("soknader_lagretkladd") {
             db.soeknaderMedHendelseStatus(Status.LAGRETKLADD)
                 .also { antall -> logger.info("Hentet $antall søknader som har blitt lagret som kladd") }
-                ?.toDouble()
+                ?.toDouble() ?: 0
         }
             .description("Søknader som har vært lagret som kladd")
             .register(registry)
@@ -53,7 +53,7 @@ class PubliserMetrikkerJobb(
             .builder("soknader_ferdigstilt") {
                 db.soeknaderMedHendelseStatus(Status.FERDIGSTILT)
                     .also { antall -> logger.info("Hentet $antall søknader som har blitt ferdigstilt") }
-                    ?.toDouble()
+                    ?.toDouble() ?: 0
             }
             .description("Søknader som har vært lagret som ferdigstilt")
             .register(registry)
