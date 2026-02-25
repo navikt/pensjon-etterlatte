@@ -7,8 +7,8 @@ ktor-version = "3.3.3"
 jupiter-version = "6.0.2"
 testcontainers-version = "1.21.4"
 flyway-version = "11.20.2"
-rapidsandrivers-version = "2025110410541762250064.d7e58c3fad81" # OBS! tbdlibs brukes av denne. De bør stemme overens
-tbdlibs-version = "2025.12.17-10.36-a2cc649b" # OBS! rapidsandrivers bruker denne. De bør stemme overens
+rapidsandrivers-version = "2026021921161771532161.7a37f8c9e0cc" # OBS! tbdlibs brukes av denne. De bør stemme overens
+tbdlibs-version = "2026.02.19-20.58-521cdd3c" # OBS! rapidsandrivers bruker denne. De bør stemme overens
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version.ref = "rapidsandrivers-version" }
