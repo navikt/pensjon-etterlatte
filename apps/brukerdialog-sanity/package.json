@@ -12,7 +12,8 @@
     "generer-typer:felleskomponenter": "sanity schema extract --workspace felleskomponenter && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/common && rm -rf schema.json",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "export-sanity-innhold": "yarn tsx exportSanityInnhold.ts"
+    "export-sanity-innhold": "yarn tsx exportSanityInnhold.ts",
+    "lint": "eslint"
   },
   "keywords": [
     "sanity"
@@ -41,5 +42,10 @@
     "singleQuote": true,
     "bracketSpacing": true
   },
+  "lint-staged": {
+        "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+            "eslint"
+        ]
+    },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
