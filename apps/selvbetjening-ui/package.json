@@ -41,7 +41,7 @@
         "axe-core": "^4.11.1",
         "cypress-axe": "^1.7.0",
         "concurrently": "^9.2.1",
-        "globals": "^17.1.0",
+        "globals": "^17.3.0",
         "husky": "~9.1.7",
         "typescript": "^5.9.3",
         "vite": "^7.3.0"
