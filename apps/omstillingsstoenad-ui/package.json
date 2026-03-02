@@ -47,7 +47,7 @@
         "@types/uuid": "11.0.0",
         "axe-core": "^4.11.1",
         "chai-dom": "^1.12.1",
-        "cypress": "^15.9.0",
+        "cypress": "^15.10.0",
         "cypress-axe": "^1.7.0",
         "concurrently": "^9.2.1",
         "globals": "^17.3.0",
