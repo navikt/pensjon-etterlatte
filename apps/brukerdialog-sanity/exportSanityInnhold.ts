@@ -1,11 +1,11 @@
 import { createClient } from '@sanity/client'
-import exportDataset from "@sanity/export";
+import { exportDataset } from '@sanity/export'
 
 const exportSelvbetjeningUISanityDataset = async () => {
     const client = createClient({
         projectId: 'u0dlg8d8',
         dataset: 'selvbetjening-ui',
-        token: process.env.SANITY_AUTH_TOKEN
+        token: process.env.SANITY_AUTH_TOKEN,
     })
 
     await exportDataset({
