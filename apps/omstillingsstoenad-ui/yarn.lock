@@ -1000,10 +1000,10 @@
     "@types/history" "^4.7.11"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@19.2.9":
-  version "19.2.9"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.2.9.tgz#84ec7669742bb3e7e2e8d6a5258d95ead7764200"
-  integrity sha512-Lpo8kgb/igvMIPeNV2rsYKTgaORYdO1XGVZ4Qz3akwOj0ySGYMPlQWa8BaLn0G63D1aSaAQ5ldR06wCpChQCjA==
+"@types/react@*", "@types/react@19.2.14":
+  version "19.2.14"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.2.14.tgz#39604929b5e3957e3a6fa0001dafb17c7af70bad"
+  integrity sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==
   dependencies:
     csstype "^3.2.2"
 
@@ -2663,10 +2663,10 @@ react-day-picker@9.7.0:
     date-fns "4.1.0"
     date-fns-jalali "4.1.0-0"
 
-react-dom@19.2.3:
-  version "19.2.3"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.2.3.tgz#f0b61d7e5c4a86773889fcc1853af3ed5f215b17"
-  integrity sha512-yELu4WmLPw5Mr/lmeEpox5rw3RETacE++JgHqQzd2dg+YbJuat3jH4ingc+WPZhxaoFzdv9y33G+F7Nl5O0GBg==
+react-dom@19.2.4:
+  version "19.2.4"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.2.4.tgz#6fac6bd96f7db477d966c7ec17c1a2b1ad8e6591"
+  integrity sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==
   dependencies:
     scheduler "^0.27.0"
 
@@ -2677,15 +2677,15 @@ react-error-boundary@^3.1.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-react-hook-form@7.71.1:
-  version "7.71.1"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.71.1.tgz#6a758958861682cf0eb22131eead684ba3618f66"
-  integrity sha512-9SUJKCGKo8HUSsCO+y0CtqkqI5nNuaDqTxyqPsZPqIwudpj4rCrAz/jZV+jn57bx5gtZKOh3neQu94DXMc+w5w==
+react-hook-form@7.71.2:
+  version "7.71.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.71.2.tgz#a5f1d2b855be9ecf1af6e74df9b80f54beae7e35"
+  integrity sha512-1CHvcDYzuRUNOflt4MOq3ZM46AronNJtQ1S7tnX6YN4y72qhgiUItpacZUAQ0TyWYci3yz1X+rXaSxiuEm86PA==
 
-react-i18next@16.5.3:
-  version "16.5.3"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-16.5.3.tgz#1f102c8e8e7b0c9069e21ac40cd730f32a64e180"
-  integrity sha512-fo+/NNch37zqxOzlBYrWMx0uy/yInPkRfjSuy4lqKdaecR17nvCHnEUt3QyzA8XjQ2B/0iW/5BhaHR3ZmukpGw==
+react-i18next@16.5.4:
+  version "16.5.4"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-16.5.4.tgz#4f458b1baab274dca439ab67629c854203bf97c6"
+  integrity sha512-6yj+dcfMncEC21QPhOTsW8mOSO+pzFmT6uvU7XXdvM/Cp38zJkmTeMeKmTrmCMD5ToT79FmiE/mRWiYWcJYW4g==
   dependencies:
     "@babel/runtime" "^7.28.4"
     html-parse-stringify "^3.0.1"
@@ -2711,10 +2711,10 @@ react-router@7.13.0:
     cookie "^1.0.1"
     set-cookie-parser "^2.6.0"
 
-react@19.2.3:
-  version "19.2.3"
-  resolved "https://registry.yarnpkg.com/react/-/react-19.2.3.tgz#d83e5e8e7a258cf6b4fe28640515f99b87cd19b8"
-  integrity sha512-Ku/hhYbVjOQnXDZFv2+RibmLFGwFdeeKHFcOTlrt7xplBnya5OGn/hIRDsqDiSUcfORsDC7MPxwork8jBwsIWA==
+react@19.2.4:
+  version "19.2.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.2.4.tgz#438e57baa19b77cb23aab516cf635cd0579ee09a"
+  integrity sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==
 
 redent@^3.0.0:
   version "3.0.0"
