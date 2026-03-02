@@ -217,10 +217,10 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.9.0.tgz#d03eba68273dc0f7509e2a3d5cba21eae10379fe"
   integrity sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==
 
-"@sanity/client@^7.14.0":
-  version "7.14.0"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-7.14.0.tgz#94d9f364a610bcc7519c07a754f1a37dbad36ebc"
-  integrity sha512-eXue3rc4MqJh89mvuTC0h0pdoY8lwXjlV8odFB3EF7aSFKF7F5BL0NU2mlTrCZYbPAlV3JTvMPPLGJCORqOKDw==
+"@sanity/client@^7.15.0":
+  version "7.15.0"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-7.15.0.tgz#4733973c736c46ce666911cb1a1681ba9140d752"
+  integrity sha512-3RlK9c1lhNT4c4PhQp9/z6Zghb7n/HCmB5U1AgX8eFQBnx7vDUPwBge3mOakCh279cUA4e+8uys+rN9oQsrjXA==
   dependencies:
     "@sanity/eventsource" "^5.0.2"
     get-it "^8.7.0"
