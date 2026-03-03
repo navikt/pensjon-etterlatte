@@ -53,7 +53,7 @@ const btn = {
     deleteButton: 'Delete',
     editButton: 'Change',
     continueButton: 'Continue',
-    yesButton: 'Yes, submit application',
+    yesButton: 'Yes, submit',
     noButton: 'No, go back',
     yesUnknownParent: 'Yes, my parent is unknown',
     yesUnknownParentGuardian: 'Yes, the parent is unknown',
@@ -376,7 +376,7 @@ const summary = {
     summaryTitle: 'Summary',
     readTheSummaryBeforeSending:
         'Read through the summary of the application before submitting.  \nIf you need to make changes, you can go back and do this.',
-    sendApplicationButton: 'Submit application',
+    sendApplicationButton: 'Submit',
     AboutYou: 'Change answers about you',
     AboutTheParents: 'Change answers about parents',
     AboutTheDeceased: 'Change answers about the deceased',

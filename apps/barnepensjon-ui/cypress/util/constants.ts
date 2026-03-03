@@ -9,9 +9,9 @@ export enum Button {
     AddChild = 'Legg til barn',
     Back = 'Tilbake',
     Cancel = 'Avbryt',
-    Send = 'Send søknad',
+    Send = 'Send inn',
     Exit = 'Les mer om barnepensjon',
-    Yes = 'Ja, send søknad',
+    Yes = 'Ja, send inn',
     No = 'Nei, gå tilbake',
     TryAgain = 'Prøv igjen',
 }

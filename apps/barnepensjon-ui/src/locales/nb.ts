@@ -51,7 +51,7 @@ const btn = {
     removeButton: 'Fjern',
     deleteButton: 'Slette',
     editButton: 'Endre',
-    yesButton: 'Ja, send søknad',
+    yesButton: 'Ja, send inn',
     noButton: 'Nei, gå tilbake',
     continueButton: 'Fortsett',
     yesUnknownParent: 'Ja, min forelder er ukjent',
@@ -368,7 +368,7 @@ const summary = {
     summaryTitle: 'Oppsummering',
     readTheSummaryBeforeSending:
         'Les gjennom oppsummeringen av søknaden før du sender.\nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
-    sendApplicationButton: 'Send søknad',
+    sendApplicationButton: 'Send inn',
     AboutYou: 'Endre svar om deg',
     AboutTheParents: 'Endre svar om foreldre',
     AboutTheDeceased: 'Endre svar om den avdøde',

@@ -18,7 +18,7 @@ export default {
     'knapp.tilbake': 'Back',
     'knapp.neste': 'Next',
     'knapp.avbryt': 'Cancel',
-    'knapp.sendSoeknad': 'Submit application',
+    'knapp.sendSoeknad': 'Submit',
     'knapp.leggTil': 'Add',
     'knapp.leggTilLand': 'Add more countries',
     'knapp.leggTilArbeidsforhold': 'Add more employment relationships',
@@ -30,7 +30,7 @@ export default {
     'knapp.lagreEndring': 'Save changes',
     'knapp.slett': 'Delete the application',
     'knapp.endre': 'Change',
-    'knapp.ja': 'Yes, send application',
+    'knapp.ja': 'Yes, submit',
     'knapp.nei': 'No, go back',
     'forside.tittel': 'Apply for adjustment allowance',
     'forside.ingress':

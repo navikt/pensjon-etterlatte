@@ -362,8 +362,8 @@ describe('Skal gå igjennom hele søknaden uten feil', () => {
         cy.intercept('POST', `${basePath}/api/api/soeknad`, '13').as('postSoeknad')
 
         // Send inn søknad
-        cy.get('[type="button"').contains('Send søknad').click()
-        cy.get('[type="button"').contains('Ja, send søknad').click()
+        cy.get('[type="button"').contains('Send inn').click()
+        cy.get('[type="button"').contains('Ja, send inn').click()
 
         // Verifiser søknad mottatt
         // TODO: Vil ikke lenger fungere nå som sendt data er annerledes fra state

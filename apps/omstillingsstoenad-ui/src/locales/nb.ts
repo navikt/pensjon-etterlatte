@@ -18,7 +18,7 @@ export default {
     'knapp.tilbake': 'Tilbake',
     'knapp.neste': 'Neste',
     'knapp.avbryt': 'Avbryt',
-    'knapp.sendSoeknad': 'Send søknad',
+    'knapp.sendSoeknad': 'Send inn',
     'knapp.leggTil': 'Legg til',
     'knapp.leggTilLand': 'Legg til flere land',
     'knapp.leggTilArbeidsforhold': 'Legg til flere arbeidsforhold',
@@ -30,7 +30,7 @@ export default {
     'knapp.lagreEndring': 'Lagre endring',
     'knapp.slett': 'Slett søknad',
     'knapp.endre': 'Endre',
-    'knapp.ja': 'Ja, send søknad',
+    'knapp.ja': 'Ja, send inn',
     'knapp.nei': 'Nei, gå tilbake',
     'forside.tittel': 'Søk om omstillingsstønad',
     'forside.ingress':
