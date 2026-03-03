@@ -94,11 +94,11 @@ export const MeldInnEndringMeldFra = () => {
         !!innhold &&
         !!innloggetBruker && (
             <main>
-                <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="36rem">
+                <HStack justify="center" padding="space-8" minHeight="100vh">
+                    <VStack gap="space-24" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={2} stegLabelKey="steg2" skjemaNavn="meld-inn-endring" />
                         <FormProvider {...methods}>
-                            <VStack gap="6" width="fit-content">
+                            <VStack gap="space-24" width="fit-content">
                                 <ControlledRadioGruppe
                                     name="endring"
                                     control={methods.control}

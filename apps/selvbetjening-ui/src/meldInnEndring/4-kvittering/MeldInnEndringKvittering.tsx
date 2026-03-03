@@ -33,8 +33,8 @@ export const MeldInnEndringKvittering = () => {
     return (
         !!innhold && (
             <main>
-                <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="36rem">
+                <HStack justify="center" padding="space-8" minHeight="100vh">
+                    <VStack gap="space-24" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={4} stegLabelKey="steg4" skjemaNavn="meld-inn-endring" />
 
                         <Heading size="large" level="2">

@@ -39,7 +39,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
         !!innhold && (
             <>
                 <SanityRikTekst text={hovedinnhold?.[spraak]} />
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <ControlledInntektTextField
                         name={'forventetInntektTilNesteAar.arbeidsinntekt'}
                         control={control}
@@ -53,7 +53,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     )}
                 </VStack>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <ControlledInntektTextField
                         name={'forventetInntektTilNesteAar.naeringsinntekt'}
                         control={control}
@@ -67,7 +67,7 @@ export const AttenTilSekstiEnAarSkjema = () => {
                     )}
                 </VStack>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <ControlledInntektTextField
                         name={'forventetInntektTilNesteAar.inntektFraUtland'}
                         control={control}

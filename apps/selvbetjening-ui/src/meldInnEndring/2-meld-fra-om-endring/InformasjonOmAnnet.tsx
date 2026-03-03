@@ -28,7 +28,7 @@ export const InformasjonOmAnnet = () => {
         innhold.informasjonOmEndring.annet
 
     return (
-        <VStack gap="6" maxWidth="42.5rem">
+        <VStack gap="space-24" maxWidth="42.5rem">
             <Heading size="medium">{tittel?.[spraak]}</Heading>
 
             <div>

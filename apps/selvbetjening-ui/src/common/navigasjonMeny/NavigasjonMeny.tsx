@@ -24,8 +24,12 @@ export const NavigasjonMeny = ({ tilbakePath, skalSendeInnSkjema, onNeste, neste
 
     return (
         !!innhold && (
-            <VStack gap="4">
-                <HGrid gap={{ xs: '4', sm: '8 4' }} columns={{ xs: 1, sm: 2 }} width={{ sm: 'fit-content' }}>
+            <VStack gap="space-16">
+                <HGrid
+                    gap={{ xs: 'space-16', sm: 'space-32 space-16' }}
+                    columns={{ xs: 1, sm: 2 }}
+                    width={{ sm: 'fit-content' }}
+                >
                     <Button
                         type="button"
                         variant="secondary"

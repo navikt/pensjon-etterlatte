@@ -27,7 +27,7 @@ export const HarIkkeOMSSakIGjenny = ({ skjemaNavn }: { skjemaNavn: 'inntektsjust
 
     return (
         !!innhold && (
-            <VStack gap="6">
+            <VStack gap="space-24">
                 <div>
                     <SanityRikTekst text={innhold.innhold?.[spraak]} />
                 </div>
