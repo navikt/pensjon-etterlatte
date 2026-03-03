@@ -74,6 +74,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                                 onClick={right?.onClick}
                                 disabled={right?.disabled}
                                 loading={loading}
+                                iconPosition="right"
                                 icon={<ArrowRightIcon fontSize="1.5rem" />}
                             >
                                 {right?.label || t('nextButton', { ns: 'btn' })}

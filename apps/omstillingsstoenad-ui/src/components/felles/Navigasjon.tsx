@@ -85,6 +85,7 @@ const Navigasjon = ({
                             variant={'primary'}
                             type={'button'}
                             onClick={neste.onClick}
+                            iconPosition="right"
                             icon={<ArrowRightIcon fontSize="1.5rem" />}
                         >
                             {neste.label || t('knapp.neste')}
