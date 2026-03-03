@@ -743,11 +743,12 @@ export default {
     'ugyldigSoeker.infolenker.alderspensjon.href': 'https://www.nav.no/no/person/pensjon/alderspensjon',
     'ugyldigSoeker.infolenker.alderspensjon.tekst':
         'Her kan du lese meir om kven som kan få alderspensjon og korleis du søker.',
-    'avbrytModal.spoersmaal': 'Vil du avbryte søknaden?',
-    'avbrytModal.svarNei': 'Nei, eg vil fortsette å søke ',
-    'avbrytModal.svarJa': 'Ja, avbryt og fortsett seinare',
+    'avbrytModal.spoersmaal': 'Vil du fortsetje seinare?',
+    'avbrytModal.svarNei': 'Nei, eg vil halde fram no',
+    'avbrytModal.svarJa': 'Ja, fortset seinare',
     'avbrytModal.svarSlett': 'Ja, avbryt og slett søknaden',
-    'avbrytModal.informasjon': 'Du kan halde fram nå eller seinare. Søknaden din vert lagra i 72 timar.',
+    'avbrytModal.informasjon':
+        'Du kan ta ein pause. Søknaden (utfyllinga di) din blir lagra i 72 timar, så du kan halde fram seinare utan å miste noko.',
     hvorforSpoerVi: 'Kvifor spør vi om dette',
     'avdoede.relasjon.gift': 'Gift eller partnar',
     'avdoede.relasjon.separert': 'Separert',

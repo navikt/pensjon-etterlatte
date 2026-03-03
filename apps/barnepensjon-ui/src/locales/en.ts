@@ -35,10 +35,11 @@ const common = {
 }
 
 const navigation = {
-    cancelApplicationTitle: 'Do you want to quit this application?',
-    cancelApplicationBody: 'You can continue now or later. Your application will be saved for 72 hours.',
-    continueApplicationButton: 'No, I want to continue',
-    cancelApplicationButton: 'Yes, I want to quit now and continue later',
+    cancelApplicationTitle: 'Would you like to continue later?',
+    cancelApplicationBody:
+        'You can take a break. Your application (submission) will be saved for 72 hours, so you can continue later without losing any information. ',
+    continueApplicationButton: 'No, I want to continue now',
+    cancelApplicationButton: 'Yes, continue later',
     deleteApplicationButton: 'Yes, I want to quit now and clear the application form',
 }
 

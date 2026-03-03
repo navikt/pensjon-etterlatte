@@ -34,10 +34,11 @@ const common = {
 }
 
 const navigation = {
-    cancelApplicationTitle: 'Vil du avbryte søknaden?',
-    cancelApplicationBody: 'Du kan halde fram no eller seinare. Søknaden din vert lagra i 72 timer.',
-    continueApplicationButton: 'Nei, eg vil halde fram',
-    cancelApplicationButton: 'Ja, avbryt og hald fram seinare',
+    cancelApplicationTitle: 'Vil du fortsetje seinare?',
+    cancelApplicationBody:
+        'Du kan ta ein pause. Søknaden (utfyllinga di) din blir lagra i 72 timar, så du kan halde fram seinare utan å miste noko.',
+    continueApplicationButton: 'Nei, eg vil halde fram no',
+    cancelApplicationButton: 'Ja, fortset seinare',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
 }
 

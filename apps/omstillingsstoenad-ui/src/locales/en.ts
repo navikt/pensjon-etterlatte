@@ -777,11 +777,12 @@ export default {
     'ugyldigSoeker.infolenker.alderspensjon.href': 'https://www.nav.no/no/person/pensjon/alderspensjon',
     'ugyldigSoeker.infolenker.alderspensjon.tekst':
         'Here you can read more about who can get an old-age pension and how to apply.',
-    'avbrytModal.spoersmaal': 'Do you want to quit this application?',
-    'avbrytModal.svarNei': 'No, I want to continue applying',
-    'avbrytModal.svarJa': 'Yes, I want to quit now and continue later',
+    'avbrytModal.spoersmaal': 'Would you like to continue later?',
+    'avbrytModal.svarNei': 'No, I want to continue now',
+    'avbrytModal.svarJa': 'Yes, continue later',
     'avbrytModal.svarSlett': 'Yes, I want to quit now and clear the application form',
-    'avbrytModal.informasjon': 'You can continue now or later. Your application will be saved for 72 hours.',
+    'avbrytModal.informasjon':
+        'You can take a break. Your application (submission) will be saved for 72 hours, so you can continue later without losing any information.',
     hvorforSpoerVi: 'Why are we asking you about this?',
     'avdoede.relasjon.gift': 'Married or partner',
     'avdoede.relasjon.separert': 'Separated',

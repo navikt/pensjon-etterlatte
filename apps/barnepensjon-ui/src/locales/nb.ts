@@ -34,10 +34,11 @@ const common = {
 }
 
 const navigation = {
-    cancelApplicationTitle: 'Vil du avbryte søknaden?',
-    cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
-    continueApplicationButton: 'Nei, jeg vil fortsette',
-    cancelApplicationButton: 'Ja, avbryt og fortsett senere',
+    cancelApplicationTitle: 'Vil du fortsette senere?',
+    cancelApplicationBody:
+        'Du kan ta en pause. Søknaden din blir lagret i 72 timer, så du kan fortsette senere uten å miste noe.',
+    continueApplicationButton: 'Nei, jeg vil fortsette nå',
+    cancelApplicationButton: 'Ja, fortsett senere',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
 }
 
