@@ -1,3 +1,4 @@
+import { ArrowLeftIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -69,7 +70,12 @@ const Navigasjon = ({
             <Box marginBlock="0 12">
                 <HStack gap="4" marginBlock="0 8" justify="center">
                     {!!forrige && (
-                        <Button variant={'secondary'} type={'button'} onClick={forrige.onClick}>
+                        <Button
+                            variant={'secondary'}
+                            type={'button'}
+                            onClick={forrige.onClick}
+                            icon={<ArrowLeftIcon fontSize="1.5rem" />}
+                        >
                             {forrige.label || t('knapp.tilbake')}
                         </Button>
                     )}

@@ -15,7 +15,7 @@ export default {
     'radiobuttons.nei': 'Nei',
     'radiobuttons.vetIkke': 'Veit ikkje',
     'radiobuttons.tarAlleredeUtAlderspensjon': 'Har allereie begynt å ta ut alderspensjon',
-    'knapp.tilbake': 'Tilbake',
+    'knapp.tilbake': 'Førre steg',
     'knapp.neste': 'Neste',
     'knapp.avbryt': 'Avbryt',
     'knapp.sendSoeknad': 'Send inn',

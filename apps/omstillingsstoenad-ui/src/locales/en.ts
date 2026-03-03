@@ -15,7 +15,7 @@ export default {
     'radiobuttons.nei': 'No',
     'radiobuttons.vetIkke': 'Don’t know',
     'radiobuttons.tarAlleredeUtAlderspensjon': 'Have already started drawing retirement pension',
-    'knapp.tilbake': 'Back',
+    'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next',
     'knapp.avbryt': 'Cancel',
     'knapp.sendSoeknad': 'Submit',

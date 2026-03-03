@@ -1,3 +1,4 @@
+import { ArrowLeftIcon } from '@navikt/aksel-icons'
 import { BodyLong, Box, Button, GuidePanel, HStack, Link } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -43,7 +44,7 @@ const UgyldigSoeker = () => {
             </Box>
 
             <HStack marginBlock="0 18" justify="center">
-                <Button variant={'primary'} onClick={tilbake}>
+                <Button variant={'primary'} onClick={tilbake} icon={<ArrowLeftIcon fontSize="1.5rem" />}>
                     {t('knapp.tilbake')}
                 </Button>
             </HStack>
