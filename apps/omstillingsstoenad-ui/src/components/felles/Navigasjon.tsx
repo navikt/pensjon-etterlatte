@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from '@navikt/aksel-icons'
+import { ArrowLeftIcon, ArrowRightIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -81,7 +81,12 @@ const Navigasjon = ({
                     )}
 
                     {!!neste && (
-                        <Button variant={'primary'} type={'button'} onClick={neste.onClick}>
+                        <Button
+                            variant={'primary'}
+                            type={'button'}
+                            onClick={neste.onClick}
+                            icon={<ArrowRightIcon fontSize="1.5rem" />}
+                        >
                             {neste.label || t('knapp.neste')}
                         </Button>
                     )}

@@ -43,8 +43,8 @@ const navigation = {
 }
 
 const btn = {
-    backButton: 'Back',
-    nextButton: 'Next',
+    backButton: 'Previous step',
+    nextButton: 'Next step',
     saveButton: 'Save',
     saveChangesButton: 'Save changes',
     addButton: 'Add',

@@ -42,8 +42,8 @@ const navigation = {
 }
 
 const btn = {
-    backButton: 'Tilbake',
-    nextButton: 'Neste',
+    backButton: 'Forrige steg',
+    nextButton: 'Neste steg',
     saveButton: 'Lagre',
     saveChangesButton: 'Lagre endring',
     addButton: 'Legg til',
