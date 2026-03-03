@@ -96,7 +96,7 @@ const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
     ingress:
         'Hei, jeg er her for å veilede deg gjennom søknaden. Svar så godt du kan ut fra hvordan situasjonen er nå og så kan du melde fra om eventuelle endringer senere.\n\n Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
-    startApplication: 'Start søknad',
+    startApplication: 'Start utfyllingen',
     childMayBeApplicableForPension:
         'Barn under 20 år som har mistet en eller begge foreldrene sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:

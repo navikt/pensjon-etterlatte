@@ -35,7 +35,7 @@ export default {
     'forside.tittel': 'Apply for adjustment allowance',
     'forside.ingress':
         'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how to answer some questions about the coming months. Answer as good as you can based on your current situation. You can always notify us about any changes that occur later.',
-    'forside.startSoeknad': 'Start the application',
+    'forside.startSoeknad': 'Start filling in the form',
     'forside.infoOmUtvikling': 'The application may be unstable from February 9th to February 12th.',
     'forside.omYtelsene.innhold':
         'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',

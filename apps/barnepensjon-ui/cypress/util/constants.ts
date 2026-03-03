@@ -3,7 +3,7 @@ export const basePath = '/barnepensjon/soknad'
 export enum Button {
     Next = 'Neste',
     Continue = 'Fortsett',
-    StartApplication = 'Start søknad',
+    StartApplication = 'Start utfyllingen',
     Save = 'Lagre',
     Add = 'Legg til',
     AddChild = 'Legg til barn',

@@ -98,7 +98,7 @@ const frontPage = {
     frontPageTitle: 'Apply for children’s pension',
     ingress:
         'Hello. I am here to guide you through the application process. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.\n\n We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
-    startApplication: 'Start the application',
+    startApplication: 'Start filling in the form',
     childMayBeApplicableForPension:
         'Children under the age of 20 who have lost one or both of their parents may receive financial support.',
     childMayBeApplicableForPension_li1:

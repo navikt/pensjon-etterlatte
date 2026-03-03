@@ -35,7 +35,7 @@ export default {
     'forside.tittel': 'Søk om omstillingsstønad',
     'forside.ingress':
         'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
-    'forside.startSoeknad': 'Start søknad',
+    'forside.startSoeknad': 'Start utfyllinga',
     'forside.infoOmUtvikling': 'Søknaden kan være ustabil fra 9. februar til og med 12. februar.',
     'forside.omYtelsene.innhold':
         'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. I enkelte tilfelle kan du få støtte dersom de tidlegare var gifte.',
