@@ -1,3 +1,4 @@
+import { ArrowLeftIcon, ArrowRightIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, ButtonProps, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
 import { deleteDraft } from '../../api/api'
@@ -60,6 +61,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                                 onClick={left?.onClick}
                                 disabled={left?.disabled}
                                 loading={loading}
+                                icon={<ArrowLeftIcon fontSize="1.5rem" />}
                             >
                                 {left?.label || t('backButton', { ns: 'btn' })}
                             </Button>
@@ -72,6 +74,8 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                                 onClick={right?.onClick}
                                 disabled={right?.disabled}
                                 loading={loading}
+                                iconPosition="right"
+                                icon={<ArrowRightIcon fontSize="1.5rem" />}
                             >
                                 {right?.label || t('nextButton', { ns: 'btn' })}
                             </Button>

@@ -34,16 +34,17 @@ const common = {
 }
 
 const navigation = {
-    cancelApplicationTitle: 'Vil du avbryte søknaden?',
-    cancelApplicationBody: 'Du kan halde fram no eller seinare. Søknaden din vert lagra i 72 timer.',
-    continueApplicationButton: 'Nei, eg vil halde fram',
-    cancelApplicationButton: 'Ja, avbryt og hald fram seinare',
+    cancelApplicationTitle: 'Vil du fortsetje seinare?',
+    cancelApplicationBody:
+        'Du kan ta ein pause. Søknaden (utfyllinga di) din blir lagra i 72 timar, så du kan halde fram seinare utan å miste noko.',
+    continueApplicationButton: 'Nei, eg vil halde fram no',
+    cancelApplicationButton: 'Ja, fortset seinare',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
 }
 
 const btn = {
-    backButton: 'Tilbake',
-    nextButton: 'Neste',
+    backButton: 'Førre steg',
+    nextButton: 'Neste steg',
     saveButton: 'Lagre',
     saveChangesButton: 'Lagre endring',
     addButton: 'Legg til',
@@ -52,7 +53,7 @@ const btn = {
     deleteButton: 'Slette',
     editButton: 'Endre',
     continueButton: 'Fortsett',
-    yesButton: 'Ja, send søknad',
+    yesButton: 'Ja, send inn',
     noButton: 'Nei, gå tilbake',
     yesUnknownParent: 'Ja, forelderen min er ukjend',
     yesUnknownParentGuardian: 'Ja, forelderen er ukjend',
@@ -96,7 +97,7 @@ const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
     ingress:
         'Hei, eg er her for å rettleie deg gjennom søknaden. Svar så godt du kan ut frå korleis situasjonen din ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.\n\n Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
-    startApplication: 'Start søknad',
+    startApplication: 'Start utfyllinga',
     childMayBeApplicableForPension:
         'Barn under 20 år som har mista ein eller begge foreldra sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:
@@ -366,7 +367,7 @@ const summary = {
     summaryTitle: 'Oppsummering',
     readTheSummaryBeforeSending:
         'Les gjennom oppsummeringa av søknaden før du sender.\nViss du treng å gjere endringar, kan du gå tilbake og gjere det.',
-    sendApplicationButton: 'Send søknad',
+    sendApplicationButton: 'Send inn',
     AboutYou: 'Endre svar om deg',
     AboutTheParents: 'Endre svar om foreldre',
     AboutTheDeceased: 'Endre svar om den avdøde',

@@ -34,16 +34,17 @@ const common = {
 }
 
 const navigation = {
-    cancelApplicationTitle: 'Vil du avbryte søknaden?',
-    cancelApplicationBody: 'Du kan fortsette nå eller senere. Søknaden din lagres i 72 timer.',
-    continueApplicationButton: 'Nei, jeg vil fortsette',
-    cancelApplicationButton: 'Ja, avbryt og fortsett senere',
+    cancelApplicationTitle: 'Vil du fortsette senere?',
+    cancelApplicationBody:
+        'Du kan ta en pause. Søknaden din blir lagret i 72 timer, så du kan fortsette senere uten å miste noe.',
+    continueApplicationButton: 'Nei, jeg vil fortsette nå',
+    cancelApplicationButton: 'Ja, fortsett senere',
     deleteApplicationButton: 'Ja, avbryt og slett søknaden',
 }
 
 const btn = {
-    backButton: 'Tilbake',
-    nextButton: 'Neste',
+    backButton: 'Forrige steg',
+    nextButton: 'Neste steg',
     saveButton: 'Lagre',
     saveChangesButton: 'Lagre endring',
     addButton: 'Legg til',
@@ -51,7 +52,7 @@ const btn = {
     removeButton: 'Fjern',
     deleteButton: 'Slette',
     editButton: 'Endre',
-    yesButton: 'Ja, send søknad',
+    yesButton: 'Ja, send inn',
     noButton: 'Nei, gå tilbake',
     continueButton: 'Fortsett',
     yesUnknownParent: 'Ja, min forelder er ukjent',
@@ -96,7 +97,7 @@ const frontPage = {
     frontPageTitle: 'Søk om barnepensjon',
     ingress:
         'Hei, jeg er her for å veilede deg gjennom søknaden. Svar så godt du kan ut fra hvordan situasjonen er nå og så kan du melde fra om eventuelle endringer senere.\n\n Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
-    startApplication: 'Start søknad',
+    startApplication: 'Start utfyllingen',
     childMayBeApplicableForPension:
         'Barn under 20 år som har mistet en eller begge foreldrene sine, kan få barnepensjon.',
     childMayBeApplicableForPension_li1:
@@ -368,7 +369,7 @@ const summary = {
     summaryTitle: 'Oppsummering',
     readTheSummaryBeforeSending:
         'Les gjennom oppsummeringen av søknaden før du sender.\nHvis du trenger å gjøre endringer, kan du gå tilbake og gjøre det.',
-    sendApplicationButton: 'Send søknad',
+    sendApplicationButton: 'Send inn',
     AboutYou: 'Endre svar om deg',
     AboutTheParents: 'Endre svar om foreldre',
     AboutTheDeceased: 'Endre svar om den avdøde',

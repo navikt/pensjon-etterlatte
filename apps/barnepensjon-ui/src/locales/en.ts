@@ -35,16 +35,17 @@ const common = {
 }
 
 const navigation = {
-    cancelApplicationTitle: 'Do you want to quit this application?',
-    cancelApplicationBody: 'You can continue now or later. Your application will be saved for 72 hours.',
-    continueApplicationButton: 'No, I want to continue',
-    cancelApplicationButton: 'Yes, I want to quit now and continue later',
+    cancelApplicationTitle: 'Would you like to continue later?',
+    cancelApplicationBody:
+        'You can take a break. Your application (submission) will be saved for 72 hours, so you can continue later without losing any information. ',
+    continueApplicationButton: 'No, I want to continue now',
+    cancelApplicationButton: 'Yes, continue later',
     deleteApplicationButton: 'Yes, I want to quit now and clear the application form',
 }
 
 const btn = {
-    backButton: 'Back',
-    nextButton: 'Next',
+    backButton: 'Previous step',
+    nextButton: 'Next step',
     saveButton: 'Save',
     saveChangesButton: 'Save changes',
     addButton: 'Add',
@@ -53,7 +54,7 @@ const btn = {
     deleteButton: 'Delete',
     editButton: 'Change',
     continueButton: 'Continue',
-    yesButton: 'Yes, submit application',
+    yesButton: 'Yes, submit',
     noButton: 'No, go back',
     yesUnknownParent: 'Yes, my parent is unknown',
     yesUnknownParentGuardian: 'Yes, the parent is unknown',
@@ -98,7 +99,7 @@ const frontPage = {
     frontPageTitle: 'Apply for children’s pension',
     ingress:
         'Hello. I am here to guide you through the application process. Please respond as well as you can based on your current situation. You can notify us about any changes that occur later.\n\n We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
-    startApplication: 'Start the application',
+    startApplication: 'Start filling in the form',
     childMayBeApplicableForPension:
         'Children under the age of 20 who have lost one or both of their parents may receive financial support.',
     childMayBeApplicableForPension_li1:
@@ -376,7 +377,7 @@ const summary = {
     summaryTitle: 'Summary',
     readTheSummaryBeforeSending:
         'Read through the summary of the application before submitting.  \nIf you need to make changes, you can go back and do this.',
-    sendApplicationButton: 'Submit application',
+    sendApplicationButton: 'Submit',
     AboutYou: 'Change answers about you',
     AboutTheParents: 'Change answers about parents',
     AboutTheDeceased: 'Change answers about the deceased',
