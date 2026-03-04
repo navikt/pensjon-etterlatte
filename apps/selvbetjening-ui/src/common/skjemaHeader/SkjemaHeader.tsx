@@ -29,11 +29,11 @@ export const SkjemaHeader = ({ aktivtSteg, stegLabelKey, skjemaNavn }: Props) =>
 
     return (
         !!innhold && (
-            <VStack gap="6">
+            <VStack gap="space-24">
                 <HStack justify="end">
                     <SpraakVelger />
                 </HStack>
-                <HStack gap="4" align="center">
+                <HStack gap="space-16" align="center">
                     <Hide below="md">{skjemaNavn === 'meld-inn-endring' && <FyllUtSkjemaIcon aria-hidden />}</Hide>
                     <VStack>
                         <Heading size="xlarge" level="1">

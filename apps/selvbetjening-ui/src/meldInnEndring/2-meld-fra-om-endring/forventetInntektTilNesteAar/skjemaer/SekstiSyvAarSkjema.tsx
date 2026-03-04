@@ -59,7 +59,7 @@ export const SekstiSyvAarSkjema = () => {
             <>
                 <SanityRikTekst text={hovedinnhold?.[spraak]} />
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <ControlledRadioGruppe
                         name="forventetInntektTilNesteAar.skalGaaAvMedAlderspensjon"
                         control={control}
@@ -90,7 +90,7 @@ export const SekstiSyvAarSkjema = () => {
                     <>
                         {watch('forventetInntektTilNesteAar.skalGaaAvMedAlderspensjon') ===
                             SkalGaaAvMedAlderspensjon.JA && (
-                            <VStack gap="2">
+                            <VStack gap="space-8">
                                 <ControlledMaanedVelger
                                     name="forventetInntektTilNesteAar.datoForAaGaaAvMedAlderspensjon"
                                     control={control}
@@ -110,11 +110,11 @@ export const SekstiSyvAarSkjema = () => {
                             </VStack>
                         )}
 
-                        <VStack gap="2">
+                        <VStack gap="space-8">
                             <SanityRikTekst text={inntekterSomSkalMeldesInn?.[spraak]} />
                         </VStack>
 
-                        <VStack gap="2">
+                        <VStack gap="space-8">
                             <ControlledInntektTextField
                                 name="forventetInntektTilNesteAar.arbeidsinntekt"
                                 control={control}
@@ -129,7 +129,7 @@ export const SekstiSyvAarSkjema = () => {
                             )}
                         </VStack>
 
-                        <VStack gap="2">
+                        <VStack gap="space-8">
                             <ControlledInntektTextField
                                 name="forventetInntektTilNesteAar.naeringsinntekt"
                                 control={control}
@@ -169,7 +169,7 @@ export const SekstiSyvAarSkjema = () => {
                                 </Box>
                             )}
 
-                        <VStack gap="2">
+                        <VStack gap="space-8">
                             <ControlledInntektTextField
                                 name="forventetInntektTilNesteAar.inntektFraUtland"
                                 control={control}

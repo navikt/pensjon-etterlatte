@@ -90,8 +90,8 @@ export const MeldInnEndringOppsummering = () => {
         !!innloggetBruker &&
         !!innhold && (
             <main>
-                <HStack justify="center" padding="8" minHeight="100vh">
-                    <VStack gap="6" maxWidth="36rem">
+                <HStack justify="center" padding="space-8" minHeight="100vh">
+                    <VStack gap="space-24" maxWidth="36rem">
                         <SkjemaHeader aktivtSteg={3} stegLabelKey="steg3" skjemaNavn="meld-inn-endring" />
 
                         <GuidePanel poster>

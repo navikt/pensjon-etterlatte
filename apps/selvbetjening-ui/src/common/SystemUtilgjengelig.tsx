@@ -37,8 +37,8 @@ export const SystemUtilgjengelig = () => {
 
     return (
         <main>
-            <HStack justify="center" padding="8" minHeight="100vh">
-                <VStack gap="6" maxWidth="42.5rem">
+            <HStack justify="center" padding="space-8" minHeight="100vh">
+                <VStack gap="space-24" maxWidth="42.5rem">
                     <HStack justify="end">
                         <SpraakVelger />
                     </HStack>

@@ -27,7 +27,7 @@ export const InformasjonOmAktivitetOgInntekt = () => {
     const { tittel, endringAccordion, hovedinnhold } = innhold.informasjonOmEndring.aktivitetOgInntekt
 
     return (
-        <VStack gap="6" maxWidth="42.5rem">
+        <VStack gap="space-24" maxWidth="42.5rem">
             <Heading size="medium">{tittel?.[spraak]}</Heading>
 
             <Accordion>
