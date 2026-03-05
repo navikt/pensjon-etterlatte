@@ -43,7 +43,7 @@ jobs:
           team: etterlatte
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          salsa: true
+          salsa: false
           dockerfile: docker/backend/Dockerfile
           docker_context: apps/${{ github.workflow }}/
           image_suffix: ${{ github.workflow }}
@@ -72,30 +72,30 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew checkLicense --no-configuration-cache
-  # salsa:
-  #   name: Generate SBOM, attest and sign image
-  #   runs-on: ubuntu-latest
-  #   needs: build-and-publish
-  #   permissions:
-  #     id-token: write
-  #   steps:
-  #     - name: NAIS login
-  #       uses: nais/login@e7cf2c159677dc7c7d599feff5f808f2bf59c7cf # ratchet:nais/login@v0
-  #       id: login
-  #       with:
-  #         identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
-  #         project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-  #         team: etterlatte
-  #     - name: Lag image-referanse med digest
-  #       run: |
-  #         IMAGE_WITH_TAG="${{ needs.build-and-publish.outputs.image }}"
-  #         IMAGE="${IMAGE_WITH_TAG%%:*}"
-  #         echo "IMAGE_WITH_DIGEST=${IMAGE}@${{ needs.build-and-publish.outputs.digest }}" >> $GITHUB_ENV
-  #     - name: Generate SBOM, attest and sign image
-  #       id: attest-sign
-  #       uses: nais/attest-sign@4026aea21c05a2c711a00bced0d9bb5fc944fcf6 # ratchet:nais/attest-sign@v1
-  #       with:
-  #         image_ref: ${{ env.IMAGE_WITH_DIGEST }}
+  salsa:
+    name: Generate SBOM, attest and sign image
+    runs-on: ubuntu-latest
+    needs: build-and-publish
+    permissions:
+      id-token: write
+    steps:
+      - name: NAIS login
+        uses: nais/login@e7cf2c159677dc7c7d599feff5f808f2bf59c7cf # ratchet:nais/login@v0
+        id: login
+        with:
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          team: etterlatte
+      - name: Lag image-referanse med digest
+        run: |
+          IMAGE_WITH_TAG="${{ needs.build-and-publish.outputs.image }}"
+          IMAGE="${IMAGE_WITH_TAG%%:*}"
+          echo "IMAGE_WITH_DIGEST=${IMAGE}@${{ needs.build-and-publish.outputs.digest }}" >> $GITHUB_ENV
+      - name: Generate SBOM, attest and sign image
+        id: attest-sign
+        uses: nais/attest-sign@4026aea21c05a2c711a00bced0d9bb5fc944fcf6 # ratchet:nais/attest-sign@v1
+        with:
+          image_ref: ${{ env.IMAGE_WITH_DIGEST }}
 
   deploy-to-dev-gcp:
     name: dev-gcp
@@ -115,7 +115,7 @@ jobs:
   deploy-to-prod-gcp:
     name: prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
-    needs: [build-and-publish, license-check, deploy-to-dev-gcp]
+    needs: [build-and-publish, license-check, deploy-to-dev-gcp, salsa]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
