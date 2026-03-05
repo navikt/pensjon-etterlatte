@@ -10,8 +10,8 @@ jobs:
     env:
       SANITY_AUTH_TOKEN: ${{ secrets.SANITY_READ_TOKEN }}
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # ratchet:actions/setup-node@v6
         with:
           node-version: lts/*
           cache: yarn
@@ -23,10 +23,10 @@ jobs:
         working-directory: apps/brukerdialog-sanity
         run: yarn export-sanity-innhold
       - name: Login to GCP bucket
-        uses: "google-github-actions/auth@v3"
+        uses: "google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093" # ratchet:google-github-actions/auth@v3
         with:
           credentials_json: "${{ secrets.GCP_SANITY_BACKUP_SERVICE_ACCOUNT_KEY }}"
-      - uses: "google-github-actions/upload-cloud-storage@v3"
+      - uses: "google-github-actions/upload-cloud-storage@6397bd7208e18d13ba2619ee21b9873edc94427a" # ratchet:google-github-actions/upload-cloud-storage@v3
         with:
           path: ./apps/brukerdialog-sanity
           destination: "brukerdialog-sanity-dataset-backup"
