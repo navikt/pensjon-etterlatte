@@ -6,7 +6,6 @@ import {
     ErrorMessage,
     GuidePanel,
     Heading,
-    HGrid,
     HStack,
     Label,
     RadioProps,
@@ -153,19 +152,22 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                         <Box padding="8">
                             <Box marginBlock="0 12">
                                 <Box marginBlock="4">
-                                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                    <Box marginBlock="4">
                                         <RHFInput
                                             name={'fornavn'}
                                             label={t('omBarn.fornavn')}
                                             rules={{ pattern: /^\D+$/ }}
+                                            htmlSize={Bredde.M}
                                         />
-
+                                    </Box>
+                                    <Box marginBlock="4">
                                         <RHFInput
                                             name={'etternavn'}
                                             label={t('omBarn.etternavn')}
                                             rules={{ pattern: /^\D+$/ }}
+                                            htmlSize={Bredde.M}
                                         />
-                                    </HGrid>
+                                    </Box>
                                 </Box>
                                 <Box marginBlock="4">
                                     {!ukjentFoedselsnummer && (
@@ -251,19 +253,25 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                             <>
                                                 <Label>{t('omBarn.harBarnetVerge.navn')}</Label>
                                                 <Box marginBlock="4">
-                                                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                                    <Box marginBlock="4">
                                                         <RHFInput
                                                             name={'harBarnetVerge.fornavn'}
                                                             label={t('omBarn.harBarnetVerge.fornavn')}
                                                             rules={{ pattern: /^\D+$/ }}
                                                             valgfri={true}
+                                                            htmlSize={Bredde.M}
                                                         />
+                                                    </Box>
+                                                    <Box marginBlock="4">
                                                         <RHFInput
                                                             name={'harBarnetVerge.etternavn'}
                                                             label={t('omBarn.harBarnetVerge.etternavn')}
                                                             rules={{ pattern: /^\D+$/ }}
                                                             valgfri={true}
+                                                            htmlSize={Bredde.M}
                                                         />
+                                                    </Box>
+                                                    <Box marginBlock="4">
                                                         <RHFFoedselsnummerInput
                                                             name={'harBarnetVerge.foedselsnummer'}
                                                             label={t('omBarn.harBarnetVerge.foedselsnummer')}
@@ -271,8 +279,9 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                                                 'omBarn.harBarnetVerge.foedselsnummerPlaceholder'
                                                             )}
                                                             valgfri={true}
+                                                            htmlSize={Bredde.S}
                                                         />
-                                                    </HGrid>
+                                                    </Box>
                                                 </Box>
                                             </>
                                         )}

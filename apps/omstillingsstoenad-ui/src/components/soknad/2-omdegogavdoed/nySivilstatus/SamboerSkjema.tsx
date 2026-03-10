@@ -1,4 +1,4 @@
-import { Box, Heading, HGrid } from '@navikt/ds-react'
+import { Box, Heading } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import { useTranslation } from 'react-i18next'
 import Bredde from '../../../../typer/bredde'
@@ -21,16 +21,18 @@ const SamboerSkjema = () => {
             </Box>
 
             <Box marginBlock="4">
-                <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                    <RHFInput
-                        name={'nySivilstatus.samboerskap.samboer.fornavn'}
-                        label={t('situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn')}
-                    />
-                    <RHFInput
-                        name={'nySivilstatus.samboerskap.samboer.etternavn'}
-                        label={t('situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn')}
-                    />
-                </HGrid>
+                <RHFInput
+                    name={'nySivilstatus.samboerskap.samboer.fornavn'}
+                    label={t('situasjonenDin.nySivilstatus.samboerskap.samboer.fornavn')}
+                    htmlSize={Bredde.M}
+                />
+            </Box>
+            <Box marginBlock="4">
+                <RHFInput
+                    name={'nySivilstatus.samboerskap.samboer.etternavn'}
+                    label={t('situasjonenDin.nySivilstatus.samboerskap.samboer.etternavn')}
+                    htmlSize={Bredde.M}
+                />
             </Box>
 
             <Box marginBlock="4">

@@ -1,4 +1,4 @@
-import { Box, HGrid } from '@navikt/ds-react'
+import { Box } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
@@ -37,21 +37,21 @@ const SkiltFraAvdoede = () => {
     return (
         <Box marginBlock="0 12">
             <Box marginBlock="4">
-                <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                    <Datovelger
-                        name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
-                        label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
-                        minDate={brukerState.foedselsdato}
-                        maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
-                    />
+                <Datovelger
+                    name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
+                    label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
+                    minDate={brukerState.foedselsdato}
+                    maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
+                />
+            </Box>
 
-                    <Datovelger
-                        name={'forholdTilAvdoede.datoForSkilsmisse'}
-                        label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')}
-                        minDate={datoForInngaattPartnerskap}
-                        maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
-                    />
-                </HGrid>
+            <Box marginBlock="4">
+                <Datovelger
+                    name={'forholdTilAvdoede.datoForSkilsmisse'}
+                    label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')}
+                    minDate={datoForInngaattPartnerskap}
+                    maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
+                />
             </Box>
 
             <RHFSpoersmaalRadio

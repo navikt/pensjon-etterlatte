@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Box, GuidePanel, Heading, HGrid, List } from '@navikt/ds-react'
+import { Alert, BodyShort, Box, GuidePanel, Heading, List } from '@navikt/ds-react'
 import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
@@ -138,14 +138,16 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                                         />
                                     </Box>
 
-                                    <HGrid gap={'2'} columns={{ xs: 1, sm: 2 }} align={'start'}>
+                                    <Box marginBlock="4">
                                         <Datovelger
                                             name={'oppholderSegIUtlandet.oppholdFra'}
                                             label={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
                                             valgfri={true}
                                             maxDate={new Date()}
                                         />
+                                    </Box>
 
+                                    <Box marginBlock="4">
                                         <Datovelger
                                             name={'oppholderSegIUtlandet.oppholdTil'}
                                             label={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
@@ -153,7 +155,7 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                                             minDate={oppholdFra}
                                             maxDate={new Date()}
                                         />
-                                    </HGrid>
+                                    </Box>
                                 </>
                             )}
                         </Box>

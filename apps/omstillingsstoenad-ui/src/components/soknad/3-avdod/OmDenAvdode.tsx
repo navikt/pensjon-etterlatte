@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Box, Heading, HGrid, ReadMore, VStack } from '@navikt/ds-react'
+import { Alert, Box, Heading, ReadMore, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
@@ -81,10 +81,12 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
 
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                 <Box marginBlock="0 12">
-                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                        <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
-                        <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
-                    </HGrid>
+                    <Box marginBlock="4">
+                        <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} htmlSize={Bredde.M} />
+                    </Box>
+                    <Box marginBlock="4">
+                        <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} htmlSize={Bredde.M} />
+                    </Box>
                     <Box marginBlock="4">
                         {!ukjentFoedselsnummer && (
                             <RHFFoedselsnummerInput

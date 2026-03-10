@@ -1,5 +1,5 @@
 import { DeleteFilled } from '@navikt/ds-icons'
-import { BodyLong, BodyShort, Box, Button, Heading, HGrid, Label, ReadMore, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, HGrid, Label, ReadMore, VStack } from '@navikt/ds-react'
 import React, { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -134,28 +134,22 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse')}
                                 </BodyShort>
 
-                                <HGrid
-                                    gap={'2'}
-                                    columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}
-                                    align={'start'}
-                                >
-                                    <Box marginBlock="4">
-                                        <RHFNumberInput
-                                            name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beloep`}
-                                            label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')}
-                                            valgfri
-                                        />
-                                    </Box>
+                                <Box marginBlock="4">
+                                    <RHFNumberInput
+                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beloep`}
+                                        label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')} //TODO fiks
+                                        valgfri
+                                    />
+                                </Box>
 
-                                    <Box marginBlock="4">
-                                        <RHFSelect
-                                            name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.valuta`}
-                                            label={t('felles.velgValuta')}
-                                            selectOptions={valutaer}
-                                            valgfri
-                                        />
-                                    </Box>
-                                </HGrid>
+                                <Box marginBlock="4">
+                                    <RHFSelect
+                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.valuta`}
+                                        label={t('felles.velgValuta')}
+                                        selectOptions={valutaer}
+                                        valgfri
+                                    />
+                                </Box>
                             </Box>
 
                             {fields.length > 1 && (

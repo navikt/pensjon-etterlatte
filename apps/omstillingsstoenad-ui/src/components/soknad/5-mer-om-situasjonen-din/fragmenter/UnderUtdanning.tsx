@@ -1,4 +1,4 @@
-import { BodyShort, Box, Heading, HGrid, RadioProps } from '@navikt/ds-react'
+import { BodyShort, Box, Heading, RadioProps } from '@navikt/ds-react'
 import { addYears, isBefore } from 'date-fns'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -74,21 +74,22 @@ const UnderUtdanning = () => {
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
                     </BodyShort>
                 </Box>
-                <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
+                <Box marginBlock="4">
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.startDato'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato')}
                         minDate={state.foedselsdato}
                         maxDate={addYears(new Date(), 1)}
                     />
-
+                </Box>
+                <Box marginBlock="4">
                     <Datovelger
                         name={'utdanning.naavaerendeUtdanning.sluttDato'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato')}
                         minDate={minSluttDato(startDatoUtdanning)}
                         maxDate={addYears(new Date(), 10)}
                     />
-                </HGrid>
+                </Box>
             </Box>
             <Box marginBlock="4">
                 <RHFSpoersmaalRadio
