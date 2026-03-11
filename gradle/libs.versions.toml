@@ -3,7 +3,7 @@ license = { id = 'com.github.jk1.dependency-license-report', version = '3.0.1' }
 
 [versions]
 token-version = "5.0.34"
-ktor-version = "3.3.3"
+ktor-version = "3.4.0"
 jupiter-version = "6.0.2"
 testcontainers-version = "1.21.4"
 flyway-version = "11.20.2"
@@ -17,6 +17,7 @@ navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-k
 
 etterlatte-common = { module = "pensjon-etterlatte-felles:common", version = "2025.11.10-14.35.6c85e2f202a7" }
 
+ktor-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor-version" }
 ktor-client-cio-jvm = { module = "io.ktor:ktor-client-cio-jvm", version.ref = "ktor-version" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor-version" }
@@ -51,6 +52,7 @@ mockk = { module = "io.mockk:mockk", version = "1.14.7" }
 test-navfelles-rapidsandriversktor = { module = "com.github.navikt.tbd-libs:rapids-and-rivers-test", version.ref = "tbdlibs-version" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.1.1" }
 
+test-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "6.0.3" }
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
 

@@ -18,6 +18,7 @@ dependencies {
     implementation(libs.ktor.okhttp)
     implementation(libs.ktor.server.cio)
     implementation(libs.ktor.client.auth)
+    implementation(libs.ktor.auth)
     implementation(libs.ktor.server.metrics.micrometer)
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.client.content.negotiation)
@@ -31,6 +32,7 @@ dependencies {
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(libs.testcontainers.postgresql)
 
+    testImplementation(libs.jupiter.engine)
     testImplementation(libs.ktor.servertests)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
