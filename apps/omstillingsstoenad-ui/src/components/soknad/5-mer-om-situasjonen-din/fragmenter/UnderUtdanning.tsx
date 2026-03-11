@@ -1,4 +1,4 @@
-import { BodyShort, Box, Heading, RadioProps } from '@navikt/ds-react'
+import { BodyShort, Box, Heading, RadioProps, VStack } from '@navikt/ds-react'
 import { addYears, isBefore } from 'date-fns'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -65,8 +65,8 @@ const UnderUtdanning = () => {
                     />
                 </Box>
             )}
-            <Box marginBlock="4">
-                <Box marginBlock="4">
+            <VStack gap="4" marginBlock="4 12">
+                <Box>
                     <Heading size={'small'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}
                     </Heading>
@@ -74,39 +74,30 @@ const UnderUtdanning = () => {
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde.beskrivelse')}
                     </BodyShort>
                 </Box>
-                <Box marginBlock="4">
-                    <Datovelger
-                        name={'utdanning.naavaerendeUtdanning.startDato'}
-                        label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato')}
-                        minDate={state.foedselsdato}
-                        maxDate={addYears(new Date(), 1)}
-                    />
-                </Box>
-                <Box marginBlock="4">
-                    <Datovelger
-                        name={'utdanning.naavaerendeUtdanning.sluttDato'}
-                        label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato')}
-                        minDate={minSluttDato(startDatoUtdanning)}
-                        maxDate={addYears(new Date(), 10)}
-                    />
-                </Box>
-            </Box>
-            <Box marginBlock="4">
+                <Datovelger
+                    name={'utdanning.naavaerendeUtdanning.startDato'}
+                    label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato')}
+                    minDate={state.foedselsdato}
+                    maxDate={addYears(new Date(), 1)}
+                />
+                <Datovelger
+                    name={'utdanning.naavaerendeUtdanning.sluttDato'}
+                    label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato')}
+                    minDate={minSluttDato(startDatoUtdanning)}
+                    maxDate={addYears(new Date(), 10)}
+                />
+
                 <RHFSpoersmaalRadio
                     name={`utdanning.naavaerendeUtdanning.godkjentUtdanning` as const}
                     legend={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning')}
                     vetIkke
                 />
-            </Box>
 
-            <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'utdanning.aktivitetsplan.svar'}
                     legend={t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar')}
                 />
-            </Box>
 
-            <Box marginBlock="4">
                 <br />
                 <RHFCheckboksGruppe
                     name={'utdanning.soeknadOmSkolepenger'}
@@ -120,9 +111,7 @@ const UnderUtdanning = () => {
                         },
                     ]}
                 />
-            </Box>
 
-            <Box marginBlock="4">
                 <RHFCheckboksGruppe
                     name={'utdanning.soeknadOmTilleggsstoenadUtdanning'}
                     legend={t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning')}
@@ -135,7 +124,7 @@ const UnderUtdanning = () => {
                         },
                     ]}
                 />
-            </Box>
+            </VStack>
         </Box>
     )
 }

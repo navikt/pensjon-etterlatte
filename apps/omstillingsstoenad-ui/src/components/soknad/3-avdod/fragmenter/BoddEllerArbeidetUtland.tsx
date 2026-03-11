@@ -18,7 +18,7 @@ interface Props {
     datoForDoedsfallet?: Date
 }
 
-const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
+export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     const { t } = useTranslation()
     // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     const { allCountries }: { allCountries: any } = useCountries()
@@ -75,15 +75,15 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                             background={'surface-selected'}
                             padding="4"
                         >
-                            <Box maxWidth="14rem" marginBlock="4">
-                                <RHFCombobox
-                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].land`}
-                                    label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
-                                    options={allCountries}
-                                />
-                            </Box>
+                            <VStack gap="4" marginBlock={'4 12'}>
+                                <Box maxWidth="14rem">
+                                    <RHFCombobox
+                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].land`}
+                                        label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
+                                        options={allCountries}
+                                    />
+                                </Box>
 
-                            <Box marginBlock="4">
                                 <RHFCheckboksGruppe
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].beskrivelse` as const}
                                     legend={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse')}
@@ -100,9 +100,7 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                         },
                                     ]}
                                 />
-                            </Box>
 
-                            <VStack gap="4" marginBlock="4">
                                 <Datovelger
                                     name={`boddEllerJobbetUtland.oppholdUtland[${index}].fraDato` as const}
                                     label={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
@@ -115,55 +113,53 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     maxDate={datoForDoedsfallet || new Date()}
                                     valgfri
                                 />
-                            </VStack>
 
-                            <RHFSpoersmaalRadio
-                                name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
-                                legend={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd')}
-                                description={t(
-                                    'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst'
+                                <RHFSpoersmaalRadio
+                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].medlemFolketrygd` as const}
+                                    legend={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd')}
+                                    description={t(
+                                        'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygdHjelpetekst'
+                                    )}
+                                    vetIkke
+                                />
+
+                                <Box marginBlock="4">
+                                    <Label>
+                                        {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label')}
+                                    </Label>
+                                    <BodyShort textColor={'subtle'}>
+                                        {t(
+                                            'omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse'
+                                        )}
+                                    </BodyShort>
+                                </Box>
+
+                                <RHFNumberInput
+                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beloep`}
+                                    label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')} //TODO fiks
+                                    valgfri
+                                />
+
+                                <RHFSelect
+                                    name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.valuta`}
+                                    label={t('felles.velgValuta')}
+                                    selectOptions={valutaer}
+                                    valgfri
+                                />
+
+                                {fields.length > 1 && (
+                                    <div>
+                                        <Button
+                                            variant={'secondary'}
+                                            type={'button'}
+                                            onClick={() => fjernOppholdUtland(index)}
+                                            icon={<DeleteFilled />}
+                                        >
+                                            {t('knapp.fjern')}
+                                        </Button>
+                                    </div>
                                 )}
-                                vetIkke
-                            />
-
-                            <Box marginBlock="4">
-                                <Label>
-                                    {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label')}
-                                </Label>
-                                <BodyShort textColor={'subtle'}>
-                                    {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.beskrivelse')}
-                                </BodyShort>
-
-                                <Box marginBlock="4">
-                                    <RHFNumberInput
-                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.beloep`}
-                                        label={t('inntektenDin.pensjonEllerUfoere.utland.beloep')} //TODO fiks
-                                        valgfri
-                                    />
-                                </Box>
-
-                                <Box marginBlock="4">
-                                    <RHFSelect
-                                        name={`boddEllerJobbetUtland.oppholdUtland[${index}].mottokPensjon.valuta`}
-                                        label={t('felles.velgValuta')}
-                                        selectOptions={valutaer}
-                                        valgfri
-                                    />
-                                </Box>
-                            </Box>
-
-                            {fields.length > 1 && (
-                                <div>
-                                    <Button
-                                        variant={'secondary'}
-                                        type={'button'}
-                                        onClick={() => fjernOppholdUtland(index)}
-                                        icon={<DeleteFilled />}
-                                    >
-                                        {t('knapp.fjern')}
-                                    </Button>
-                                </div>
-                            )}
+                            </VStack>
                         </Box>
                     ))}
 
@@ -177,5 +173,3 @@ const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
         </Box>
     )
 }
-
-export default BoddEllerArbeidetUtland

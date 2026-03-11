@@ -1,4 +1,4 @@
-import { Box } from '@navikt/ds-react'
+import { VStack } from '@navikt/ds-react'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '../../../../context/bruker/BrukerContext'
@@ -18,7 +18,7 @@ const giftMindreEnn15aar = (datoForInngaattPartnerskap: string, datoForSkilsmiss
     return IValg.NEI
 }
 
-const SkiltFraAvdoede = () => {
+export const SkiltFraAvdoede = () => {
     const { t } = useTranslation()
 
     const { watch } = useFormContext<ISoekerOgAvdoed>()
@@ -35,24 +35,20 @@ const SkiltFraAvdoede = () => {
     const mindreEnn15aar = giftMindreEnn15aar(datoForInngaattPartnerskap, datoForSkilsmisse)
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
-                <Datovelger
-                    name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
-                    label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
-                    minDate={brukerState.foedselsdato}
-                    maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
-                />
-            </Box>
+        <VStack gap="4" marginBlock="4 12">
+            <Datovelger
+                name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
+                label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
+                minDate={brukerState.foedselsdato}
+                maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
+            />
 
-            <Box marginBlock="4">
-                <Datovelger
-                    name={'forholdTilAvdoede.datoForSkilsmisse'}
-                    label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')}
-                    minDate={datoForInngaattPartnerskap}
-                    maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
-                />
-            </Box>
+            <Datovelger
+                name={'forholdTilAvdoede.datoForSkilsmisse'}
+                label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')}
+                minDate={datoForInngaattPartnerskap}
+                maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
+            />
 
             <RHFSpoersmaalRadio
                 name={'forholdTilAvdoede.fellesBarn'}
@@ -61,33 +57,25 @@ const SkiltFraAvdoede = () => {
             />
 
             {fellesBarn === IValg.JA && mindreEnn15aar === IValg.JA && (
-                <Box marginBlock="4">
-                    <RHFSpoersmaalRadio
-                        name={'forholdTilAvdoede.samboereMedFellesBarn'}
-                        legend={t('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')}
-                    />
-                </Box>
+                <RHFSpoersmaalRadio
+                    name={'forholdTilAvdoede.samboereMedFellesBarn'}
+                    legend={t('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')}
+                />
             )}
 
-            <Box marginBlock="4">
-                <RHFSpoersmaalRadio
-                    name={'forholdTilAvdoede.mottokBidrag.svar'}
-                    legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
-                    description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
-                />
-            </Box>
+            <RHFSpoersmaalRadio
+                name={'forholdTilAvdoede.mottokBidrag.svar'}
+                legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
+                description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
+            />
 
             {mottokBidrag === IValg.JA && (
-                <Box marginBlock="4">
-                    <RHFValutaInput
-                        name={'forholdTilAvdoede.mottokBidrag.sum'}
-                        label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
-                        description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
-                    />
-                </Box>
+                <RHFValutaInput
+                    name={'forholdTilAvdoede.mottokBidrag.sum'}
+                    label={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum')}
+                    description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum.beskrivelse')}
+                />
             )}
-        </Box>
+        </VStack>
     )
 }
-
-export default SkiltFraAvdoede

@@ -43,7 +43,7 @@ interface Props {
     fnrRegistrerteBarn: string[]
 }
 
-const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) => {
+export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) => {
     const { t } = useTranslation()
     const { countries }: { countries: Options[] } = useCountries()
     const { state: bruker } = useBrukerContext()
@@ -150,26 +150,20 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                         </Box>
 
                         <Box padding="8">
-                            <Box marginBlock="0 12">
-                                <Box marginBlock="4">
-                                    <Box marginBlock="4">
-                                        <RHFInput
-                                            name={'fornavn'}
-                                            label={t('omBarn.fornavn')}
-                                            rules={{ pattern: /^\D+$/ }}
-                                            htmlSize={Bredde.M}
-                                        />
-                                    </Box>
-                                    <Box marginBlock="4">
-                                        <RHFInput
-                                            name={'etternavn'}
-                                            label={t('omBarn.etternavn')}
-                                            rules={{ pattern: /^\D+$/ }}
-                                            htmlSize={Bredde.M}
-                                        />
-                                    </Box>
-                                </Box>
-                                <Box marginBlock="4">
+                            <VStack gap="4" marginBlock="4 12">
+                                <RHFInput
+                                    name={'fornavn'}
+                                    label={t('omBarn.fornavn')}
+                                    rules={{ pattern: /^\D+$/ }}
+                                    htmlSize={Bredde.M}
+                                />
+                                <RHFInput
+                                    name={'etternavn'}
+                                    label={t('omBarn.etternavn')}
+                                    rules={{ pattern: /^\D+$/ }}
+                                    htmlSize={Bredde.M}
+                                />
+                                <Box>
                                     {!ukjentFoedselsnummer && (
                                         <RHFFoedselsnummerInput
                                             name={'foedselsnummer'}
@@ -204,7 +198,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                         </VStack>
                                     )}
                                 </Box>
-                                <Box maxWidth="14rem" marginBlock="4">
+                                <Box maxWidth="14rem">
                                     <RHFCombobox
                                         name={`statsborgerskap`}
                                         label={t('omBarn.statsborgerskap')}
@@ -217,7 +211,7 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
                                         <ErrorMessage>{t('feil.foedselsnummer.duplicate')}</ErrorMessage>
                                     </Box>
                                 )}
-                            </Box>
+                            </VStack>
 
                             <Box marginBlock="0 12">
                                 <RHFSpoersmaalRadio name={'bosattUtland.svar'} legend={t('omBarn.bosattUtland.svar')} />
@@ -377,5 +371,3 @@ const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: Props) =
         </>
     )
 }
-
-export default LeggTilBarnSkjema

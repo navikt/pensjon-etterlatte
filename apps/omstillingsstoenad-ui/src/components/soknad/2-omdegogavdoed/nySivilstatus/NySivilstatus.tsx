@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
 import { RHFRadio } from '../../../felles/rhf/RHFRadio'
-import SamboerSkjema from './SamboerSkjema'
+import { SamboerSkjema } from './SamboerSkjema'
 
 const NySivilstatus = () => {
     const { t } = useTranslation()

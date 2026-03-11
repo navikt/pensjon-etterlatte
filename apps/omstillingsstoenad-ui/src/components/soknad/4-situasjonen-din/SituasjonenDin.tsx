@@ -1,4 +1,4 @@
-import { Alert, BodyShort, Box, GuidePanel, Heading, List } from '@navikt/ds-react'
+import { Alert, BodyShort, Box, GuidePanel, Heading, List, VStack } from '@navikt/ds-react'
 import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
@@ -19,7 +19,7 @@ import Navigasjon from '../../felles/Navigasjon'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
 import NySivilstatus from '../2-omdegogavdoed/nySivilstatus/NySivilstatus'
 
-const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
+export const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
@@ -129,8 +129,8 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                                 />
                             </Box>
                             {oppholderSegIUtlandet === IValg.JA && (
-                                <>
-                                    <Box maxWidth="14rem" marginBlock="4">
+                                <VStack gap="4" marginBlock="4 12">
+                                    <Box maxWidth="14rem">
                                         <RHFCombobox
                                             name={`oppholderSegIUtlandet.oppholdsland`}
                                             label={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
@@ -138,25 +138,21 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                                         />
                                     </Box>
 
-                                    <Box marginBlock="4">
-                                        <Datovelger
-                                            name={'oppholderSegIUtlandet.oppholdFra'}
-                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
-                                            valgfri={true}
-                                            maxDate={new Date()}
-                                        />
-                                    </Box>
+                                    <Datovelger
+                                        name={'oppholderSegIUtlandet.oppholdFra'}
+                                        label={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
+                                        valgfri={true}
+                                        maxDate={new Date()}
+                                    />
 
-                                    <Box marginBlock="4">
-                                        <Datovelger
-                                            name={'oppholderSegIUtlandet.oppholdTil'}
-                                            label={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
-                                            valgfri={true}
-                                            minDate={oppholdFra}
-                                            maxDate={new Date()}
-                                        />
-                                    </Box>
-                                </>
+                                    <Datovelger
+                                        name={'oppholderSegIUtlandet.oppholdTil'}
+                                        label={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
+                                        valgfri={true}
+                                        minDate={oppholdFra}
+                                        maxDate={new Date()}
+                                    />
+                                </VStack>
                             )}
                         </Box>
                     )}
@@ -185,5 +181,3 @@ const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
         </FormProvider>
     )
 }
-
-export default SituasjonenDin
