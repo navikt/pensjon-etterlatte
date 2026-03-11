@@ -5,7 +5,7 @@ import { ForholdTilAvdoede, ISoekerOgAvdoed } from '../../../../typer/person'
 import { RHFRadio } from '../../../felles/rhf/RHFRadio'
 import GiftMedAvdoede from './GiftMedAvdoede'
 import SamboerMedAvdoede from './SamboerMedAvdoede'
-import SkiltFraAvdoede from './SkiltFraAvdoede'
+import { SkiltFraAvdoede } from './SkiltFraAvdoede'
 
 const ForholdTilAvdoedeSkjema = () => {
     const { t } = useTranslation()

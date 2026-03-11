@@ -12,7 +12,7 @@ import SoknadSteg from '../../../typer/SoknadSteg'
 import { deepCopy } from '../../../utils/deepCopy'
 import Navigasjon from '../../felles/Navigasjon'
 import BarnInfokort from './BarnInfokort'
-import LeggTilBarnSkjema from './LeggTilBarnSkjema'
+import { LeggTilBarnSkjema } from './LeggTilBarnSkjema'
 
 const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()

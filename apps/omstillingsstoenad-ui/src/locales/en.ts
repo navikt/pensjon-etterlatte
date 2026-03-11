@@ -538,6 +538,7 @@ export default {
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'unemployment',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'children and care',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'illness and disability',
+    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Annual amount',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Increased position percentage',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Reduced position percentage',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Unpaid leave',

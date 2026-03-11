@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Box, Heading, HGrid, ReadMore, VStack } from '@navikt/ds-react'
+import { Alert, Box, Heading, ReadMore, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FieldErrors } from 'react-hook-form/dist/types/errors'
 import { useTranslation } from 'react-i18next'
@@ -18,9 +18,9 @@ import Feilmeldinger from '../../felles/Feilmeldinger'
 import Navigasjon from '../../felles/Navigasjon'
 import { RHFFoedselsnummerInput, RHFInput } from '../../felles/rhf/RHFInput'
 import { RHFSpoersmaalRadio } from '../../felles/rhf/RHFRadio'
-import BoddEllerArbeidetUtland from './fragmenter/BoddEllerArbeidetUtland'
+import { BoddEllerArbeidetUtland } from './fragmenter/BoddEllerArbeidetUtland'
 
-const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
+export const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
     const { t } = useTranslation()
     const { state, dispatch } = useSoknadContext()
     const { countries }: { countries: Options[] } = useCountries()
@@ -80,12 +80,10 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
             </Box>
 
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                <Box marginBlock="0 12">
-                    <HGrid gap={'4'} columns={{ xs: 1, sm: 2 }} align={'start'}>
-                        <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} />
-                        <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} />
-                    </HGrid>
-                    <Box marginBlock="4">
+                <VStack gap="4" marginBlock="4 12">
+                    <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} htmlSize={Bredde.M} />
+                    <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} htmlSize={Bredde.M} />
+                    <Box>
                         {!ukjentFoedselsnummer && (
                             <RHFFoedselsnummerInput
                                 name={'foedselsnummer'}
@@ -112,7 +110,7 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                         )}
                     </Box>
 
-                    <Box maxWidth="14rem" marginBlock="4">
+                    <Box maxWidth="14rem">
                         <RHFCombobox
                             name={`statsborgerskap`}
                             label={t('omDenAvdoede.statsborgerskap')}
@@ -128,11 +126,11 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                             maxDate={new Date()}
                         />
                     </Box>
-                </Box>
+                </VStack>
 
-                <Box marginBlock="0 12">
+                <VStack gap="4" marginBlock="4 12">
                     <Heading size="small">{t('omDenAvdoede.doedsfallAarsak.tittel')}</Heading>
-                    <Box marginBlock="4">
+                    <Box>
                         <RHFSpoersmaalRadio
                             name={'doedsfallAarsak'}
                             legend={t('omDenAvdoede.doedsfallAarsak')}
@@ -142,7 +140,7 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                             {t('omDenAvdoede.doedsfallAarsakHvorfor')}
                         </ReadMore>
                     </Box>
-                </Box>
+                </VStack>
 
                 <BoddEllerArbeidetUtland datoForDoedsfallet={datoForDoedsfallet} />
 
@@ -159,5 +157,3 @@ const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
         </FormProvider>
     )
 }
-
-export default OmDenAvdode

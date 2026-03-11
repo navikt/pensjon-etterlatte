@@ -516,6 +516,7 @@ export default {
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsløyse',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sjukdom og uførleik',
+    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Årleg beløp',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Auka stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon utan løn',
