@@ -74,7 +74,7 @@ export default function AboutYou({ next }: StepProps) {
                                         <RHFGeneralQuestionRadio name={'stayedAbroad'} legend={t('stayedAbroad')} />
                                     )}
                                     {stayedAbroad === JaNeiVetIkke.JA && (
-                                        <>
+                                        <VStack gap={'4'}>
                                             <Box maxWidth="14rem">
                                                 <RHFCombobox
                                                     id={'stayedAbroadCountry'}
@@ -83,21 +83,19 @@ export default function AboutYou({ next }: StepProps) {
                                                     options={countries.map((country) => country.label)}
                                                 />
                                             </Box>
-                                            <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
-                                                <Datepicker
-                                                    name={'stayedAbroadFromDate'}
-                                                    label={t('stayedAbroadFromDate')}
-                                                    maxDate={new Date()}
-                                                    valgfri={true}
-                                                />
-                                                <Datepicker
-                                                    name={'stayedAbroadToDate'}
-                                                    label={t('stayedAbroadToDate')}
-                                                    maxDate={new Date()}
-                                                    valgfri={true}
-                                                />
-                                            </HGrid>
-                                        </>
+                                            <Datepicker
+                                                name={'stayedAbroadFromDate'}
+                                                label={t('stayedAbroadFromDate')}
+                                                maxDate={new Date()}
+                                                valgfri={true}
+                                            />
+                                            <Datepicker
+                                                name={'stayedAbroadToDate'}
+                                                label={t('stayedAbroadToDate')}
+                                                maxDate={new Date()}
+                                                valgfri={true}
+                                            />
+                                        </VStack>
                                     )}
                                     {residesInNorway === JaNeiVetIkke.NEI && (
                                         <Box maxWidth="14rem">
