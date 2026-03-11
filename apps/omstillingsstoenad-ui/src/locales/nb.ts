@@ -520,6 +520,7 @@ export default {
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsledighet',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sykdom og uførhet',
+    'inntektenDin.pensjonEllerUfoere.utland.beloep': 'Oppgi brutto månedsbeløp utbetalt i pensjon fra utlandet',
     'grunnTilPaavirkelseAvInntekt.oektStillingsprosent': 'Økt stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.redusertStillingsprosent': 'Redusert stillingsprosent',
     'grunnTilPaavirkelseAvInntekt.permisjonUtenLoenn': 'Permisjon uten lønn',
