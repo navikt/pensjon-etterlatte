@@ -52,7 +52,6 @@ mockk = { module = "io.mockk:mockk", version = "1.14.7" }
 test-navfelles-rapidsandriversktor = { module = "com.github.navikt.tbd-libs:rapids-and-rivers-test", version.ref = "tbdlibs-version" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.1.1" }
 
-test-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "6.0.3" }
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
 
