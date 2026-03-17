@@ -42,7 +42,7 @@ export default function SystemUtilgjengelig() {
                         as={'a'}
                         href={t('systemUtilgjengelig.merOmYtelseneHref')}
                         borderRadius="8"
-                        shadow="xsmall"
+                        shadow="dialog"
                         paddingBlock={'space-32'}
                         paddingInline={'space-24 space-128'}
                         style={{ color: 'var(--ax-text-neutral)', fontSize: '20px' }}
