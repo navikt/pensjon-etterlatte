@@ -38,7 +38,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     }, [endretArbeidssituasjon])
 
     return (
-        <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
+        <Box padding="4" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
             <Box marginBlock="0 12">
                 <RHFInput
                     name={`${selvstendigName}.beskrivelse` as const}
@@ -58,7 +58,6 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     />
                 </Box>
             </Box>
-
             <Box marginBlock="0 12">
                 <Label>{t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}</Label>
                 <BodyShort textColor="subtle">
@@ -83,14 +82,12 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     />
                 </HGrid>
             </Box>
-
             <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar')}
                 />
             </Box>
-
             <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
                 <Box marginBlock="4">
                     <RHFInputArea
@@ -107,7 +104,6 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     {t('merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor')}
                 </ReadMore>
             </Box>
-
             {lengde > 1 && (
                 <div>
                     <Button variant={'secondary'} type={'button'} onClick={() => fjern(index)}>

@@ -69,7 +69,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     }, [ansettelsesforhold])
 
     return (
-        <Box padding="4" borderColor={'border-info'} borderWidth={'0 0 0 4'} background={'surface-selected'}>
+        <Box padding="4" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
             {lengde > 1 && (
                 <Heading size={'small'}>{`${t('merOmSituasjonenDin.arbeidsforhold.arbeidssted')} ${
                     index + 1
@@ -82,7 +82,6 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     htmlSize={Bredde.M}
                 />
             </Box>
-
             <Box marginBlock="4">
                 <RHFRadio
                     name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
@@ -93,7 +92,6 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     })}
                 </RHFRadio>
             </Box>
-
             <Box marginBlock="0 12">
                 <div style={{ display: visFastArbeidsmengde ? 'block' : 'none' }}>
                     <Box marginBlock="4">
@@ -166,7 +164,6 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     </Box>
                 </div>
             </Box>
-
             <Box marginBlock="0 12">
                 <RHFSpoersmaalRadio
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
@@ -187,7 +184,6 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     {t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.hvorfor')}
                 </ReadMore>
             </Box>
-
             {lengde > 1 && (
                 <div>
                     <Button

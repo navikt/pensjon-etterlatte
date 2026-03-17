@@ -53,7 +53,6 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     return (
         <Box marginBlock="0 12">
             <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
-
             <Box marginBlock="4">
                 <RHFSpoersmaalRadio
                     name={'boddEllerJobbetUtland.svar'}
@@ -64,15 +63,14 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                     {t('omDenAvdoede.boddEllerJobbetUtland.ingress')}
                 </ReadMore>
             </Box>
-
             {boddEllerArbeidetUtland === IValg.JA && (
                 <VStack gap="4">
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Box
-                            borderColor={'border-info'}
+                            borderColor={'info'}
                             borderWidth={'0 0 0 4'}
                             key={field.id}
-                            background={'surface-selected'}
+                            background={'accent-soft'}
                             padding="4"
                         >
                             <VStack gap="4" marginBlock={'4 12'}>

@@ -120,7 +120,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                         setAktivBarnIndex={() => setAktivBarnIndex(index)}
                                     />
                                 ))}
-                                <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                <Box background="neutral-soft" marginBlock="0 4" borderRadius="0 0 4 4">
                                     <Box
                                         borderRadius="4 4 0 0"
                                         height="128px"

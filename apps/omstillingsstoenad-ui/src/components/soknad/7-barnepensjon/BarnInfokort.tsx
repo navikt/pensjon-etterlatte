@@ -20,7 +20,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
     const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+        <Box background="neutral-soft" marginBlock="0 4" borderRadius="0 0 4 4">
             <Box
                 borderRadius="4 4 0 0"
                 height="128px"
@@ -34,7 +34,6 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     <img alt="barn" src={ikon} />
                 </HStack>
             </Box>
-
             <VStack padding="8" align="center">
                 <Heading size={'small'}>
                     {barn.fornavn} {barn.etternavn}

@@ -23,7 +23,6 @@ export default function SystemUtilgjengelig() {
                     </Button>
                 </GuidePanel>
             </Box>
-
             <Box marginBlock="4">
                 <Heading size={'small'} spacing>
                     {t('systemUtilgjengelig.tilbakemelding.tittel')}
@@ -32,7 +31,6 @@ export default function SystemUtilgjengelig() {
                     {t('systemUtilgjengelig.tilbakemelding.meldFra')}
                 </Button>
             </Box>
-
             <Box marginBlock="0 12">
                 <Box marginBlock="4">
                     <Heading size={'small'} spacing>
@@ -43,7 +41,7 @@ export default function SystemUtilgjengelig() {
                     <Box
                         as={'a'}
                         href={t('systemUtilgjengelig.merOmYtelseneHref')}
-                        borderRadius="large"
+                        borderRadius="8"
                         shadow="xsmall"
                         paddingBlock={'8'}
                         paddingInline={'6 32'}
@@ -54,7 +52,6 @@ export default function SystemUtilgjengelig() {
                     </Box>
                 </Box>
             </Box>
-
             <Box>
                 <Heading size={'small'} spacing>
                     {t('systemUtilgjengelig.tittel.engelsk')}

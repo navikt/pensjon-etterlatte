@@ -27,7 +27,7 @@ export const ForventetInntektTilNesteAar = () => {
     })
 
     return (
-        <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
+        <Box padding="6" background="accent-soft" borderColor="accent" borderWidth="0 0 0 4">
             <VStack gap="4">
                 <Heading size="small">{t('inntektenDin.forventetInntektTilNesteAar.tittel')}</Heading>
 
