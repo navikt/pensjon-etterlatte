@@ -63,16 +63,14 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
 
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading size={'medium'} className={'center'}>
                     {t('oppsummering.tittel')}
                 </Heading>
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <BodyLong>{t('oppsummering.beskrivelse')}</BodyLong>
             </Box>
-
             <Accordion>
                 <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad} />
                 <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} senderSoeknad={senderSoeknad} />
@@ -88,11 +86,9 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
                     senderSoeknad={senderSoeknad}
                 />
             </Accordion>
-
             <br />
-
             {error && (
-                <Box marginBlock="0 12">
+                <Box marginBlock="space-0 space-48">
                     <Alert variant={'error'}>
                         {t('oppsummering.feilVedSending')}
                         <Link href={t('oppsummering.feilVedSending.href')}>
@@ -101,13 +97,11 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
                     </Alert>
                 </Box>
             )}
-
             <Navigasjon
                 forrige={{ onClick: forrige }}
                 send={{ onClick: () => setIsOpen(true) }}
                 disabled={senderSoeknad}
             />
-
             <Modal
                 open={isOpen}
                 onClose={() => {

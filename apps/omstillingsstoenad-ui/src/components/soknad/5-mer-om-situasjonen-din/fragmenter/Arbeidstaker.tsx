@@ -34,12 +34,11 @@ const Arbeidstaker = () => {
     }
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidsforhold.tittel')}</Heading>
             </Box>
-
-            <VStack gap="4">
+            <VStack gap="space-16">
                 {fields.map((field: FieldArrayWithId, index: number) => (
                     <ArbeidstakerInfokort
                         key={field.id}

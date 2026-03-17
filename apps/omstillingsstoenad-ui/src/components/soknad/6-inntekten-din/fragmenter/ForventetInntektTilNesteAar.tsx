@@ -27,8 +27,8 @@ export const ForventetInntektTilNesteAar = () => {
     })
 
     return (
-        <Box padding="6" background="accent-soft" borderColor="accent" borderWidth="0 0 0 4">
-            <VStack gap="4">
+        <Box padding="space-24" background="accent-soft" borderColor="accent" borderWidth="0 0 0 4">
+            <VStack gap="space-16">
                 <Heading size="small">{t('inntektenDin.forventetInntektTilNesteAar.tittel')}</Heading>
 
                 <List>
@@ -37,7 +37,7 @@ export const ForventetInntektTilNesteAar = () => {
                     <List.Item>{t('inntektenDin.forventetInntektTilNesteAar.innhold.li3')}</List.Item>
                 </List>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'forventetInntektTilNesteAar.arbeidsinntekt'}
                         label={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt')}
@@ -45,7 +45,7 @@ export const ForventetInntektTilNesteAar = () => {
                     <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'forventetInntektTilNesteAar.naeringsinntekt.inntekt'}
                         label={t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt')}
@@ -82,7 +82,7 @@ export const ForventetInntektTilNesteAar = () => {
                     )}
 
                 {skalViseAFPFelter(bruker) && (
-                    <VStack gap="2">
+                    <VStack gap="space-8">
                         <RHFInntektInput
                             name={'forventetInntektTilNesteAar.afpInntekt.inntekt'}
                             label={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt')}
@@ -101,7 +101,7 @@ export const ForventetInntektTilNesteAar = () => {
                     </VStack>
                 )}
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'forventetInntektTilNesteAar.inntektFraUtland'}
                         label={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland')}
@@ -136,7 +136,7 @@ export const ForventetInntektTilNesteAar = () => {
                     vetIkke
                 />
                 {forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                    <VStack gap="4">
+                    <VStack gap="space-16">
                         <RHFSelect
                             name={'forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
                             label={t(

@@ -20,7 +20,7 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
     const foedselsnummer = barn.foedselsnummer?.replace(/(\d{6})(.*)/, '$1 $2')
 
     return (
-        <Box background="neutral-soft" marginBlock="0 4" borderRadius="0 0 4 4">
+        <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
             <Box
                 borderRadius="4 4 0 0"
                 height="128px"
@@ -34,11 +34,11 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     <img alt="barn" src={ikon} />
                 </HStack>
             </Box>
-            <VStack padding="8" align="center">
+            <VStack padding="space-32" align="center">
                 <Heading size={'small'}>
                     {barn.fornavn} {barn.etternavn}
                 </Heading>
-                <Box marginBlock="2">
+                <Box marginBlock="space-8">
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('omBarn.infokort.foedselsnummer')}</BodyShort>
@@ -65,17 +65,17 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                     </BodyShort>
 
                     {barn.barnepensjon?.soeker ? (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Tag variant={'success'}>{t('omBarn.barnepensjon.soekt')}</Tag>
                         </Box>
                     ) : (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Tag variant={'warning'}>{t('omBarn.barnepensjon.ikkeSoekt')}</Tag>
                         </Box>
                     )}
                 </Box>
 
-                <VStack gap="2" align="center">
+                <VStack gap="space-8" align="center">
                     <Button
                         onClick={() => setAktivBarnIndex()}
                         icon={<PencilIcon fontSize={20} aria-hidden />}

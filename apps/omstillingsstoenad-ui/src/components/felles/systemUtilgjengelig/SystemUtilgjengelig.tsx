@@ -12,7 +12,7 @@ export default function SystemUtilgjengelig() {
 
     return (
         <div style={{ maxWidth: '500px', margin: 'auto' }}>
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <GuidePanel poster>
                     <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.veileder.tittel')}
@@ -23,7 +23,7 @@ export default function SystemUtilgjengelig() {
                     </Button>
                 </GuidePanel>
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading size={'small'} spacing>
                     {t('systemUtilgjengelig.tilbakemelding.tittel')}
                 </Heading>
@@ -31,8 +31,8 @@ export default function SystemUtilgjengelig() {
                     {t('systemUtilgjengelig.tilbakemelding.meldFra')}
                 </Button>
             </Box>
-            <Box marginBlock="0 12">
-                <Box marginBlock="4">
+            <Box marginBlock="space-0 space-48">
+                <Box marginBlock="space-16">
                     <Heading size={'small'} spacing>
                         {t('systemUtilgjengelig.merOmYtelsene')}
                     </Heading>
@@ -43,8 +43,8 @@ export default function SystemUtilgjengelig() {
                         href={t('systemUtilgjengelig.merOmYtelseneHref')}
                         borderRadius="8"
                         shadow="xsmall"
-                        paddingBlock={'8'}
-                        paddingInline={'6 32'}
+                        paddingBlock={'space-32'}
+                        paddingInline={'space-24 space-128'}
                         style={{ color: 'var(--ax-text-neutral)', fontSize: '20px' }}
                     >
                         <img className="blomster-hus-ikon" alt="blomstHjerteHus" src={blomstHjerteHus} />

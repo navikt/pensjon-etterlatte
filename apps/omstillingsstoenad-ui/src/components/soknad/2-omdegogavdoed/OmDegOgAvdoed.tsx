@@ -55,12 +55,11 @@ const OmDegOgAvdoed = ({ neste, forrige }: SoknadSteg) => {
 
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading size={'medium'} className={'center'}>
                     {t('omDegOgAvdoed.tittel')}
                 </Heading>
             </Box>
-
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
                     <ForholdTilAvdoedeSkjema />

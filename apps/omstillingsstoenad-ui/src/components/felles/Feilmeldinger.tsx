@@ -36,7 +36,7 @@ const Feilmeldinger = ({ errors }: { errors: FieldErrors }) => {
     return (
         <>
             {!!Object.keys(errors).length && (
-                <Box marginBlock="0 12" key={uuid()}>
+                <Box marginBlock="space-0 space-48" key={uuid()}>
                     <ErrorSummary heading={t('feil.tittel')}>
                         {konverterFeilmeldinger(errors, t).map((feil) => (
                             <ErrorSummary.Item key={feil.skjemaelementId} href={`#${feil.skjemaelementId}`}>

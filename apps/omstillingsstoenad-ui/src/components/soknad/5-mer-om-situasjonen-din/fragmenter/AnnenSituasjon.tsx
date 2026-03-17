@@ -19,11 +19,11 @@ const AnnenSituasjon = () => {
     })
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('jobbStatus.ingen')}</Heading>
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFCheckboksGruppe
                     name={'annenSituasjon.beskrivelse'}
                     legend={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
@@ -31,7 +31,7 @@ const AnnenSituasjon = () => {
                 />
             </Box>
             {!!annetArbeid?.length && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFInputArea
                         name={`annenSituasjon.annet.beskrivelse`}
                         label={t('merOmSituasjonenDin.annenSituasjon.annet.beskrivelse')}

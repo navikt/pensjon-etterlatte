@@ -7,14 +7,14 @@ const SideIkkeFunnet = () => {
     const { t } = useTranslation()
     return (
         <Panel>
-            <Box marginBlock="0 12">
-                <Box marginBlock="4">
+            <Box marginBlock="space-0 space-48">
+                <Box marginBlock="space-16">
                     <Heading size={'medium'}>{t('sideIkkeFunnet.tittel')}</Heading>
                 </Box>
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <BodyShort>{t('sideIkkeFunnet.beskrivelse')}</BodyShort>
                 </Box>
-                <Box marginBlock="0 12">
+                <Box marginBlock="space-0 space-48">
                     <Button as={'a'} href={t('sideIkkeFunnet.gaaTilForsiden.href')}>
                         {t('sideIkkeFunnet.gaaTilForsiden')}
                     </Button>
@@ -24,10 +24,10 @@ const SideIkkeFunnet = () => {
                     {t('sideIkkeFunnet.feilILenke')}
                 </Link>
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading size={'medium'}>{t('sideIkkeFunnet.tittel.engelsk')}</Heading>
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <BodyShort>
                     {t('sideIkkeFunnet.beskrivelse.engelsk.del1')}
                     <Link href={t('sideIkkeFunnet.gaaTilForsiden.href')} inlineText>

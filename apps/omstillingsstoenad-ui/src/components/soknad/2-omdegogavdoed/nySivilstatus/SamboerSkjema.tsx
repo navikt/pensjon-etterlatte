@@ -9,8 +9,14 @@ export const SamboerSkjema = () => {
     const { t } = useTranslation()
 
     return (
-        <Box marginBlock="4" padding="4" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
-            <VStack gap="4" marginBlock={'4'}>
+        <Box
+            marginBlock="space-16"
+            padding="space-16"
+            borderColor={'info'}
+            borderWidth={'0 0 0 4'}
+            background={'accent-soft'}
+        >
+            <VStack gap="space-16" marginBlock={'space-16'}>
                 <Heading size={'small'}>{t('situasjonenDin.nySivilstatus.samboerskap.samboer.tittel')}</Heading>
 
                 <RHFInput

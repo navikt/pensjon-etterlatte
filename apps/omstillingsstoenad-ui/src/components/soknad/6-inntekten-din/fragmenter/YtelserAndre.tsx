@@ -20,9 +20,9 @@ const YtelserAndre = () => {
     const soekteYtelser = watch('ytelserAndre.soekteYtelser')
 
     return (
-        <Box marginBlock="0 12">
+        <Box marginBlock="space-0 space-48">
             <Heading size={'small'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
-            <VStack marginBlock="4 0">
+            <VStack marginBlock="space-16 space-0">
                 <RHFSpoersmaalRadio
                     name={'ytelserAndre.svar'}
                     legend={t('inntektenDin.ytelserAndre.svar')}
@@ -38,7 +38,7 @@ const YtelserAndre = () => {
                 )}
             </VStack>
             {harSoektYtelse === IValg.JA && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFCheckboksGruppe
                         name={'ytelserAndre.soekteYtelser'}
                         legend={t('inntektenDin.ytelserAndre.soekteYtelser')}
@@ -50,7 +50,7 @@ const YtelserAndre = () => {
             )}
             {soekteYtelser && !!soekteYtelser.length && (
                 <>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <RHFInputArea
                             name={'ytelserAndre.pensjonsordning'}
                             label={t('inntektenDin.ytelserAndre.pensjonsordning')}

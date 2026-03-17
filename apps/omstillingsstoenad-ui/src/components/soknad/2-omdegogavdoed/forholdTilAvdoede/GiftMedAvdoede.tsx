@@ -15,7 +15,7 @@ const GiftMedAvdoede = () => {
 
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Datovelger
                     name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
                     label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
@@ -23,7 +23,7 @@ const GiftMedAvdoede = () => {
                     maxDate={datoforDoedsfallet || new Date()}
                 />
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.fellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}

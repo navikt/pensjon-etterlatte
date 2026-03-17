@@ -51,9 +51,9 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
     }
 
     return (
-        <Box marginBlock="0 12">
+        <Box marginBlock="space-0 space-48">
             <Heading size="small">{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFSpoersmaalRadio
                     name={'boddEllerJobbetUtland.svar'}
                     legend={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
@@ -64,16 +64,16 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                 </ReadMore>
             </Box>
             {boddEllerArbeidetUtland === IValg.JA && (
-                <VStack gap="4">
+                <VStack gap="space-16">
                     {fields.map((field: FieldArrayWithId, index: number) => (
                         <Box
                             borderColor={'info'}
                             borderWidth={'0 0 0 4'}
                             key={field.id}
                             background={'accent-soft'}
-                            padding="4"
+                            padding="space-16"
                         >
-                            <VStack gap="4" marginBlock={'4 12'}>
+                            <VStack gap="space-16" marginBlock={'space-16 space-48'}>
                                 <Box maxWidth="14rem">
                                     <RHFCombobox
                                         name={`boddEllerJobbetUtland.oppholdUtland[${index}].land`}
@@ -121,7 +121,7 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                     vetIkke
                                 />
 
-                                <Box marginBlock="4">
+                                <Box marginBlock="space-16">
                                     <Label>
                                         {t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.mottokPensjon.label')}
                                     </Label>

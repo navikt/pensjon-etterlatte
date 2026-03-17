@@ -28,12 +28,11 @@ const Selvstendig = () => {
     }
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.selvstendig.tittel')}</Heading>
             </Box>
-
-            <VStack gap="4">
+            <VStack gap="space-16">
                 {fields.map((field: FieldArrayWithId, index: number) => (
                     <SelvstendigInfokort key={field.id} lengde={fields.length} index={index} fjern={fjern} />
                 ))}

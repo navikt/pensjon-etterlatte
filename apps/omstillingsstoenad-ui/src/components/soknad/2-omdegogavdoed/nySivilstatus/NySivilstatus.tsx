@@ -12,7 +12,7 @@ const NySivilstatus = () => {
 
     const sivilstatus = watch('nySivilstatus.sivilstatus')
     return (
-        <Box marginBlock="0 12">
+        <Box marginBlock="space-0 space-48">
             <RHFRadio
                 legend={t('situasjonenDin.nySivilstatus.sivilstatus')}
                 description={t('situasjonenDin.nySivilstatus.beskrivelse')}
@@ -22,7 +22,6 @@ const NySivilstatus = () => {
                     return { children: t(value), value, required: true } as RadioProps
                 })}
             </RHFRadio>
-
             {sivilstatus === Sivilstatus.samboerskap && <SamboerSkjema />}
         </Box>
     )

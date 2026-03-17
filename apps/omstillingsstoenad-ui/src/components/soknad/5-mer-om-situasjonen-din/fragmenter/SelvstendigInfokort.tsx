@@ -38,8 +38,8 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
     }, [endretArbeidssituasjon])
 
     return (
-        <Box padding="4" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
-            <Box marginBlock="0 12">
+        <Box padding="space-16" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
+            <Box marginBlock="space-0 space-48">
                 <RHFInput
                     name={`${selvstendigName}.beskrivelse` as const}
                     label={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen')}
@@ -47,7 +47,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     htmlSize={Bredde.M}
                 />
 
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFNumberInput
                         name={`${selvstendigName}.orgnr` as const}
                         description={t('merOmSituasjonenDin.selvstendig.orgnrplaceholder')}
@@ -58,12 +58,12 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     />
                 </Box>
             </Box>
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Label>{t('merOmSituasjonenDin.selvstendig.arbeidsmengde')}</Label>
                 <BodyShort textColor="subtle">
                     {t('merOmSituasjonenDin.selvstendig.arbeidsmengde.beskrivelse')}
                 </BodyShort>
-                <HGrid marginBlock="4" gap="4" columns={{ sm: 1, md: 2 }}>
+                <HGrid marginBlock="space-16" gap="space-16" columns={{ sm: 1, md: 2 }}>
                     <RHFNumberInput
                         name={`${selvstendigName}.arbeidsmengde.svar` as const}
                         label={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
@@ -82,14 +82,14 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     />
                 </HGrid>
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFSpoersmaalRadio
                     name={`${selvstendigName}.forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar')}
                 />
             </Box>
             <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFInputArea
                         name={`${selvstendigName}.forventerEndretArbeidssituasjon.beskrivelse`}
                         label={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse')}
@@ -99,7 +99,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
                     />
                 </Box>
             </div>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <ReadMore header={t('hvorforSpoerVi')}>
                     {t('merOmSituasjonenDin.selvstendig.grunnTilSpoersmål.hvorfor')}
                 </ReadMore>

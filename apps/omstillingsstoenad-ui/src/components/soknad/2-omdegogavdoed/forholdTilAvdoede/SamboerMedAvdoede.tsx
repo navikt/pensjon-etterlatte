@@ -20,7 +20,7 @@ const SamboerMedAvdoede = () => {
 
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Datovelger
                     name={'forholdTilAvdoede.datoForInngaattSamboerskap'}
                     label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap')}
@@ -28,17 +28,15 @@ const SamboerMedAvdoede = () => {
                     maxDate={datoforDoedsfallet || new Date()}
                 />
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.fellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
                     description={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse')}
                 />
             </Box>
-
             {ingenFellesBarn && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFSpoersmaalRadio
                         name={'forholdTilAvdoede.tidligereGift'}
                         legend={t('omDegOgAvdoed.forholdTilAvdoede.tidligereGift')}

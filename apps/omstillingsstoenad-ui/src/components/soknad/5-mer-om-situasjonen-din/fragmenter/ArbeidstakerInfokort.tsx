@@ -69,20 +69,20 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
     }, [ansettelsesforhold])
 
     return (
-        <Box padding="4" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
+        <Box padding="space-16" borderColor={'info'} borderWidth={'0 0 0 4'} background={'accent-soft'}>
             {lengde > 1 && (
                 <Heading size={'small'}>{`${t('merOmSituasjonenDin.arbeidsforhold.arbeidssted')} ${
                     index + 1
                 }`}</Heading>
             )}
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFInput
                     name={`arbeidsforhold[${index}].arbeidsgiver` as const}
                     label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver')}
                     htmlSize={Bredde.M}
                 />
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFRadio
                     name={`arbeidsforhold[${index}].ansettelsesforhold` as const}
                     legend={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
@@ -92,10 +92,10 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     })}
                 </RHFRadio>
             </Box>
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <div style={{ display: visFastArbeidsmengde ? 'block' : 'none' }}>
-                    <Box marginBlock="4">
-                        <Box marginBlock="4">
+                    <Box marginBlock="space-16">
+                        <Box marginBlock="space-16">
                             <Heading size={'small'}>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
@@ -114,8 +114,8 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                 </div>
 
                 <div style={{ display: visMidlertidigArbeidsmengde ? 'block' : 'none' }}>
-                    <Box marginBlock="4">
-                        <Box marginBlock="4">
+                    <Box marginBlock="space-16">
+                        <Box marginBlock="space-16">
                             <Heading size={'small'}>
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.fast.tittel')}
                             </Heading>
@@ -123,7 +123,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 {t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold.midlertidig.beskrivelse')}
                             </BodyShort>
                         </Box>
-                        <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
+                        <HGrid gap="space-16" columns={{ sm: 1, md: 2 }}>
                             <RHFNumberInput
                                 name={`arbeidsforhold[${index}].arbeidsmengde.svar` as const}
                                 label={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
@@ -144,7 +144,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                                 aria-hidden={!visMidlertidigArbeidsmengde}
                             />
                         </HGrid>
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <RHFSpoersmaalRadio
                                 name={`arbeidsforhold[${index}].midlertidig.svar` as const}
                                 legend={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
@@ -164,13 +164,13 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                     </Box>
                 </div>
             </Box>
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <RHFSpoersmaalRadio
                     name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.svar` as const}
                     legend={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
                 />
                 <div style={{ display: visEndretArbeidssituasjon ? 'block' : 'none' }}>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <RHFInputArea
                             name={`arbeidsforhold[${index}].forventerEndretArbeidssituasjon.beskrivelse`}
                             label={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse')}

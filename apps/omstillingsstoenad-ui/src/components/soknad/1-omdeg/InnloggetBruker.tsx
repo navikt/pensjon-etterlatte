@@ -53,7 +53,6 @@ const InnloggetBruker = memo(() => {
                     </div>
                 )}
             </HGrid>
-
             {!state.adressebeskyttelse && state.adresse && (
                 <Alert variant={'info'}>
                     <BodyShort>{t('omDeg.advarsel')}</BodyShort>
@@ -63,9 +62,8 @@ const InnloggetBruker = memo(() => {
                     </Link>
                 </Alert>
             )}
-
             {erForGammel(state.alder!) && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Alert variant={'warning'}>
                         <BodyShort>{t('omDeg.over67')}</BodyShort>
                     </Alert>

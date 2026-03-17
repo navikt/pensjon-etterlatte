@@ -10,26 +10,24 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
     const prefix = kontonummerTilhoererBarn ? 'barnepensjon.' : ''
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('omDeg.utbetalingsInformasjon.tittel')}</Heading>
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFInput
                     name={`${prefix}utbetalingsInformasjon.utenlandskBankNavn`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankNavn')}
                     autoComplete="off"
                 />
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFInput
                     name={`${prefix}utbetalingsInformasjon.utenlandskBankAdresse`}
                     label={t('omDeg.utbetalingsInformasjon.utenlandskBankAdresse')}
                     autoComplete="off"
                 />
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFIbanInput
                     name={`${prefix}utbetalingsInformasjon.iban`}
                     htmlSize={Bredde.M}
@@ -42,7 +40,7 @@ const UtenlandskBankInfo = ({ kontonummerTilhoererBarn = false }: { kontonummerT
                     autoComplete="off"
                 />
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFBicInput
                     name={`${prefix}utbetalingsInformasjon.swift`}
                     htmlSize={Bredde.S}

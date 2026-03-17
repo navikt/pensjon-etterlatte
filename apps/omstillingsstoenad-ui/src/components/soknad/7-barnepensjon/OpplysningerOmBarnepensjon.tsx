@@ -96,21 +96,21 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
             <form autoComplete={isDev ? 'on' : 'off'}>
                 {aktivBarnIndex === undefined && (
                     <>
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Heading size={'medium'} className={'center'}>
                                 {t('omBarn.tittel')}
                             </Heading>
                         </Box>
 
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <GuidePanel>
                                 <Heading size={'small'}>{t('omBarn.informasjon.tittel')}</Heading>
                                 <BodyShort>{t('omBarn.informasjon')}</BodyShort>
                             </GuidePanel>
                         </Box>
 
-                        <Box marginBlock="0 12">
-                            <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
+                        <Box marginBlock="space-0 space-48">
+                            <HGrid gap="space-16" columns={{ sm: 1, md: 2 }}>
                                 {fields?.map((field: FieldArrayWithId, index: number) => (
                                     <BarnInfokort
                                         key={uuid()}
@@ -120,7 +120,7 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                         setAktivBarnIndex={() => setAktivBarnIndex(index)}
                                     />
                                 ))}
-                                <Box background="neutral-soft" marginBlock="0 4" borderRadius="0 0 4 4">
+                                <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
                                     <Box
                                         borderRadius="4 4 0 0"
                                         height="128px"
@@ -135,8 +135,8 @@ const OpplysningerOmBarnepensjon = ({ neste, forrige }: SoknadSteg) => {
                                             <img alt="barn" src={ikon} />
                                         </HStack>
                                     </Box>
-                                    <Box padding="8">
-                                        <HStack marginBlock="0 4" justify="center">
+                                    <Box padding="space-32">
+                                        <HStack marginBlock="space-0 space-16" justify="center">
                                             <Button
                                                 data-testid={'legg-til-barn-knapp'}
                                                 variant={'primary'}

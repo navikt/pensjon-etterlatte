@@ -62,7 +62,7 @@ const SoknadForside = () => {
     return (
         <>
             {erForGammel(brukerState.alder!) && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Alert variant={'info'}>
                         <Heading size={'small'} spacing>
                             {t('forside.over67.tittel')}
@@ -84,21 +84,18 @@ const SoknadForside = () => {
                     </Alert>
                 </Box>
             )}
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <GuidePanel poster>{t('forside.ingress')}</GuidePanel>
             </Box>
-
             <Spraakvalg />
-
             {harSoektOms && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Alert variant={'info'}>
                         <Heading size={'small'} spacing>
                             {t('forside.harSoektOms.tittel')}
                         </Heading>
                         <BodyLong spacing>{t('forside.harSoektOms.avsnitt')}</BodyLong>
-                        <Box marginInline="4 0">
+                        <Box marginInline="space-16 space-0">
                             <List>
                                 <List.Item>
                                     <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
@@ -120,14 +117,13 @@ const SoknadForside = () => {
                     </Alert>
                 </Box>
             )}
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Heading spacing size={'large'}>
                     {t('forside.tittel')}
                 </Heading>
 
                 <BodyLong>{t('forside.omYtelsene.innhold')}</BodyLong>
-                <Box marginInline="4 0">
+                <Box marginInline="space-16 space-0">
                     <List>
                         <List.Item>{t('forside.omYtelsene.innhold.li1')}</List.Item>
                         <List.Item>{t('forside.omYtelsene.innhold.li2')}</List.Item>
@@ -142,14 +138,13 @@ const SoknadForside = () => {
                     </Link>
                 </BodyLong>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Heading size={'small'}>{t('forside.barnepensjon.tittel')}</Heading>
                 <BodyLong spacing>{t('forside.barnepensjon.innhold')}</BodyLong>
                 <Heading size={'small'}>{t('forside.utfyllingAvSoeknad.tittel')}</Heading>
                 <BodyLong spacing>{t('forside.utfyllingAvSoeknad.innhold')}</BodyLong>
 
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <ExpansionCard aria-label={t('forside.klartFoerSoeknad.tittel')} size="small">
                         <ExpansionCard.Header>
                             <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -170,7 +165,7 @@ const SoknadForside = () => {
                     </ExpansionCard>
                 </Box>
 
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')} size="small">
                         <ExpansionCard.Header>
                             <ExpansionCard.Title as={'h2'} size={'small'}>
@@ -181,9 +176,9 @@ const SoknadForside = () => {
                             <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
                             <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
-                                <Box marginInline="4 0">
+                                <Box marginInline="space-16 space-0">
                                     <List as={'ul'}>
                                         <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li1')}</List.Item>
                                         <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li2')}</List.Item>
@@ -195,7 +190,7 @@ const SoknadForside = () => {
                             <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
                             <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
-                            <Box marginInline="4 0">
+                            <Box marginInline="space-16 space-0">
                                 <List as={'ul'}>
                                     <List.Item>{t('forside.uthentingAvInfo.innholdListe.li1')}</List.Item>
                                     <List.Item>{t('forside.uthentingAvInfo.innholdListe.li2')}</List.Item>
@@ -209,14 +204,14 @@ const SoknadForside = () => {
                                 </List>
                             </Box>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
                             </Box>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
 
-                                <Box marginInline="4 0">
+                                <Box marginInline="space-16 space-0">
                                     <List as={'ul'}>
                                         <List.Item>{t('forside.personvern.tredjeperson.li1')}</List.Item>
                                         <List.Item>{t('forside.personvern.tredjeperson.li2')}</List.Item>
@@ -226,20 +221,20 @@ const SoknadForside = () => {
                                 </Box>
                             </Box>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
                                 <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
                             </Box>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
                                 <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
                             </Box>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
                                 <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
-                                <Box marginBlock="4">
+                                <Box marginBlock="space-16">
                                     <BodyLong>
                                         {t('forside.automatiskbehandling.innhold2.del1')}
                                         <Link href={t('forside.automatiskbehandling.innhold2.lenke.href')} inlineText>
@@ -248,14 +243,14 @@ const SoknadForside = () => {
                                         {t('forside.automatiskbehandling.innhold2.del2')}
                                     </BodyLong>
                                 </Box>
-                                <Box marginBlock="4">
+                                <Box marginBlock="space-16">
                                     <BodyLong>{t('forside.automatiskbehandling.innhold3')}</BodyLong>
                                 </Box>
-                                <Box marginBlock="4">
+                                <Box marginBlock="space-16">
                                     <BodyLong>{t('forside.automatiskbehandling.innhold4')}</BodyLong>
                                 </Box>
 
-                                <Box marginInline="4 0">
+                                <Box marginInline="space-16 space-0">
                                     <List as={'ul'}>
                                         <List.Item>{t('forside.automatiskbehandling.innholdListe.li1')}</List.Item>
                                         <List.Item>{t('forside.automatiskbehandling.innholdListe.li2')}</List.Item>
@@ -267,7 +262,7 @@ const SoknadForside = () => {
                                 <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
                             </Box>
 
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
 
                                 <BodyLong>
@@ -282,8 +277,7 @@ const SoknadForside = () => {
                     </ExpansionCard>
                 </Box>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Heading size={'small'} spacing>
                     {t('forside.samtykke.tittel')}
                 </Heading>

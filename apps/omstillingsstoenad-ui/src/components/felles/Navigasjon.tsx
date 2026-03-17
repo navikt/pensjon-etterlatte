@@ -67,8 +67,8 @@ const Navigasjon = ({
 
     return (
         <>
-            <Box marginBlock="0 12">
-                <HStack gap="4" marginBlock="0 8" justify="center">
+            <Box marginBlock="space-0 space-48">
+                <HStack gap="space-16" marginBlock="space-0 space-32" justify="center">
                     {!!forrige && (
                         <Button
                             variant={'secondary'}
@@ -107,8 +107,7 @@ const Navigasjon = ({
                     </HStack>
                 )}
             </Box>
-
-            <HStack marginBlock="0 8" justify="center">
+            <HStack marginBlock="space-0 space-32" justify="center">
                 <Button
                     id={'avbryt-btn'}
                     variant={'tertiary'}
@@ -119,16 +118,15 @@ const Navigasjon = ({
                     {t('knapp.avbryt')}
                 </Button>
             </HStack>
-
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('avbrytModal.spoersmaal')}>
                 <Modal.Header>
                     <Heading size={'medium'}>{t('avbrytModal.spoersmaal')}</Heading>
                 </Modal.Header>
 
                 <Modal.Body>
-                    <VStack gap="12" marginInline="8">
+                    <VStack gap="space-48" marginInline="space-32">
                         <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
-                        <HStack gap="4" justify="center">
+                        <HStack gap="space-16" justify="center">
                             <Button
                                 id={'avbryt-nei-btn'}
                                 variant={'secondary'}

@@ -24,28 +24,25 @@ const TilbudOmJobb = () => {
     })
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.tilbudOmJobb.tittel')}</Heading>
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFInput
                     name={'tilbudOmJobb.arbeidssted'}
                     label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted')}
                     htmlSize={Bredde.M}
                 />
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Datovelger
                     name={`tilbudOmJobb.ansettelsesdato`}
                     label={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato')}
                     minDate={new Date()}
                 />
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFRadio
                     name={`tilbudOmJobb.ansettelsesforhold` as const}
                     legend={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold')}
@@ -55,10 +52,9 @@ const TilbudOmJobb = () => {
                     })}
                 </RHFRadio>
             </Box>
-
             {ansettelsesforhold === StillingType.fast && (
-                <Box marginBlock="4">
-                    <Box marginBlock="4">
+                <Box marginBlock="space-16">
+                    <Box marginBlock="space-16">
                         <Heading size={'small'}>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
                         </Heading>
@@ -73,11 +69,10 @@ const TilbudOmJobb = () => {
                     />
                 </Box>
             )}
-
             {(ansettelsesforhold === StillingType.midlertidig ||
                 ansettelsesforhold === StillingType.tilkallingsvikar) && (
-                <Box marginBlock="4">
-                    <Box marginBlock="4">
+                <Box marginBlock="space-16">
+                    <Box marginBlock="space-16">
                         <Heading size={'small'}>
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
                         </Heading>
@@ -85,10 +80,10 @@ const TilbudOmJobb = () => {
                             {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}
                         </BodyShort>
                     </Box>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <HGrid
                             columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(8rem, 10rem))' }}
-                            gap={'4'}
+                            gap={'space-16'}
                             align={'start'}
                         >
                             <RHFNumberInput
@@ -107,7 +102,7 @@ const TilbudOmJobb = () => {
                             />
                         </HGrid>
                     </Box>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <RHFSpoersmaalRadio
                             name={`tilbudOmJobb.midlertidig.svar` as const}
                             legend={t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar')}
@@ -122,8 +117,7 @@ const TilbudOmJobb = () => {
                     )}
                 </Box>
             )}
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFSpoersmaalRadio
                     name={'tilbudOmJobb.aktivitetsplan.svar'}
                     legend={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
