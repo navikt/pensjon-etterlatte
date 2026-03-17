@@ -1,4 +1,4 @@
-import { DeleteFilled } from '@navikt/ds-icons'
+import { TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HGrid, RadioProps, ReadMore } from '@navikt/ds-react'
 import { memo, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -194,7 +194,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         variant={'secondary'}
                         type={'button'}
                         onClick={() => fjern(index)}
-                        icon={<DeleteFilled fontSize={18} aria-hidden />}
+                        icon={<TrashIcon fontSize={18} aria-hidden />}
                         data-testid={'fjern-arbeidsforhold-knapp'}
                     >
                         {t('knapp.fjern')}

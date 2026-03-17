@@ -1,4 +1,4 @@
-import { DeleteFilled } from '@navikt/ds-icons'
+import { TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, HGrid, Label, ReadMore } from '@navikt/ds-react'
 import { memo, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
@@ -111,7 +111,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             {lengde > 1 && (
                 <div>
                     <Button variant={'secondary'} type={'button'} onClick={() => fjern(index)}>
-                        <DeleteFilled /> &nbsp;{t('knapp.fjern')}
+                        <TrashIcon /> &nbsp;{t('knapp.fjern')}
                     </Button>
                 </div>
             )}

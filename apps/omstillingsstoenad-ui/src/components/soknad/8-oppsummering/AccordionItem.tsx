@@ -1,8 +1,8 @@
+import { PencilIcon } from '@navikt/aksel-icons'
 import { Accordion } from '@navikt/ds-react'
 import { useState } from 'react'
-import { EditFilled } from '@navikt/ds-icons'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pathText, senderSoeknad }: any) => {
@@ -23,7 +23,7 @@ export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pat
             <Accordion.Content>
                 {children}
                 <Link to={path} className={senderSoeknad ? 'disabled' : ''}>
-                    <EditFilled aria-hidden />
+                    <PencilIcon aria-hidden />
                     <span style={{ paddingLeft: '0.25rem' }}>{t(`endreSvarOppsummering.${pathText}`)}</span>
                 </Link>
             </Accordion.Content>

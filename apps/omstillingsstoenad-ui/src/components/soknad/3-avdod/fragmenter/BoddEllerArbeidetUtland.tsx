@@ -1,4 +1,4 @@
-import { DeleteFilled } from '@navikt/ds-icons'
+import { TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HGrid, Label, ReadMore, VStack } from '@navikt/ds-react'
 import React, { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
@@ -153,7 +153,7 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                             variant={'secondary'}
                                             type={'button'}
                                             onClick={() => fjernOppholdUtland(index)}
-                                            icon={<DeleteFilled />}
+                                            icon={<TrashIcon />}
                                         >
                                             {t('knapp.fjern')}
                                         </Button>

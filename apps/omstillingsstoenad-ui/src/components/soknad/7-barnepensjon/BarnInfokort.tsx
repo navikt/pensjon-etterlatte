@@ -1,4 +1,4 @@
-import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { PencilIcon, TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Tag, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import React, { memo } from 'react'
@@ -79,14 +79,14 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                 <VStack gap="2" align="center">
                     <Button
                         onClick={() => setAktivBarnIndex()}
-                        icon={<EditFilled fontSize={20} aria-hidden />}
+                        icon={<PencilIcon fontSize={20} aria-hidden />}
                         variant="tertiary"
                     >
                         {t('knapp.endre')}
                     </Button>
                     <Button
                         onClick={() => fjern(index)}
-                        icon={<DeleteFilled fontSize={20} aria-hidden />}
+                        icon={<TrashIcon fontSize={20} aria-hidden />}
                         variant="tertiary"
                     >
                         {t('knapp.fjernFraSoeknad')}
