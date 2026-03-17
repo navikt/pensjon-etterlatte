@@ -47,7 +47,7 @@ export default function SystemUtilgjengelig() {
                         shadow="xsmall"
                         paddingBlock={'8'}
                         paddingInline={'6 32'}
-                        style={{ color: 'var(--a-text-default)', fontSize: '20px' }}
+                        style={{ color: 'var(--ax-text-neutral)', fontSize: '20px' }}
                     >
                         <img className="blomster-hus-ikon" alt="blomstHjerteHus" src={blomstHjerteHus} />
                         {t('systemUtilgjengelig.merOmYtelseneLenke')}
