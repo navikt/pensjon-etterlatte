@@ -107,7 +107,7 @@ const SelvstendigInfokort = memo(({ lengde, index, fjern }: Props) => {
             {lengde > 1 && (
                 <div>
                     <Button variant={'secondary'} type={'button'} onClick={() => fjern(index)}>
-                        <TrashIcon /> &nbsp;{t('knapp.fjern')}
+                        <TrashIcon fontSize="1.5rem" /> &nbsp;{t('knapp.fjern')}
                     </Button>
                 </div>
             )}

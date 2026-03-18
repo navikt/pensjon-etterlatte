@@ -1,5 +1,5 @@
 import { PencilIcon } from '@navikt/aksel-icons'
-import { Accordion } from '@navikt/ds-react'
+import { Accordion, HStack, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -23,8 +23,10 @@ export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pat
             <Accordion.Content>
                 {children}
                 <Link to={path} className={senderSoeknad ? 'disabled' : ''}>
-                    <PencilIcon aria-hidden />
-                    <span style={{ paddingLeft: '0.25rem' }}>{t(`endreSvarOppsummering.${pathText}`)}</span>
+                    <HStack gap="space-4">
+                        <PencilIcon aria-hidden fontSize="1.5rem" />
+                        <span>{t(`endreSvarOppsummering.${pathText}`)}</span>
+                    </HStack>
                 </Link>
             </Accordion.Content>
         </Accordion.Item>

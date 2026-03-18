@@ -151,7 +151,7 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
                                             variant={'secondary'}
                                             type={'button'}
                                             onClick={() => fjernOppholdUtland(index)}
-                                            icon={<TrashIcon />}
+                                            icon={<TrashIcon fontSize="1.5rem" />}
                                         >
                                             {t('knapp.fjern')}
                                         </Button>

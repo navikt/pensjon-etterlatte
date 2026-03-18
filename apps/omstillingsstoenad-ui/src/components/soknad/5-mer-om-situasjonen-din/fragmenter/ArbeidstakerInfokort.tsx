@@ -190,7 +190,7 @@ const ArbeidstakerInfokort = memo(({ lengde, index, fjern }: Props) => {
                         variant={'secondary'}
                         type={'button'}
                         onClick={() => fjern(index)}
-                        icon={<TrashIcon fontSize={18} aria-hidden />}
+                        icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                         data-testid={'fjern-arbeidsforhold-knapp'}
                     >
                         {t('knapp.fjern')}

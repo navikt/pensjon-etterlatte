@@ -78,14 +78,14 @@ const BarnInfokort = memo(({ barn, index, fjern, setAktivBarnIndex }: Props) => 
                 <VStack gap="space-8" align="center">
                     <Button
                         onClick={() => setAktivBarnIndex()}
-                        icon={<PencilIcon fontSize={20} aria-hidden />}
+                        icon={<PencilIcon fontSize="1.5rem" aria-hidden />}
                         variant="tertiary"
                     >
                         {t('knapp.endre')}
                     </Button>
                     <Button
                         onClick={() => fjern(index)}
-                        icon={<TrashIcon fontSize={20} aria-hidden />}
+                        icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                         variant="tertiary"
                     >
                         {t('knapp.fjernFraSoeknad')}
