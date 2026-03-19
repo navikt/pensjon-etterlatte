@@ -1,4 +1,4 @@
-import { EditFilled } from '@navikt/ds-icons'
+import { PencilIcon } from '@navikt/aksel-icons'
 import { Accordion } from '@navikt/ds-react'
 import { JSX, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -28,7 +28,7 @@ export const AccordionItem = ({ title, children, defaultOpen = false, path, path
             <Accordion.Content>
                 {children}
                 <Link to={path}>
-                    <EditFilled aria-hidden />
+                    <PencilIcon aria-hidden />
                     <span style={{ paddingLeft: '0.25rem' }}>{pathText}</span>
                 </Link>
             </Accordion.Content>

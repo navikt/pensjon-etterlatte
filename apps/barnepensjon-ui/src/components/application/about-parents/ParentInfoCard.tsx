@@ -1,4 +1,4 @@
-import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { PencilIcon, TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, ErrorMessage, Heading, HStack, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import { IParent } from '~context/application/application'
@@ -66,7 +66,7 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                     <VStack gap="2" align="center">
                         <Button
                             type="button"
-                            icon={<EditFilled fontSize={18} aria-hidden />}
+                            icon={<PencilIcon fontSize="1.5rem" aria-hidden />}
                             onClick={edit}
                             variant="tertiary"
                         >
@@ -74,7 +74,7 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                         </Button>
                         <Button
                             type="button"
-                            icon={<DeleteFilled fontSize={18} aria-hidden />}
+                            icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                             onClick={remove}
                             variant="tertiary"
                         >

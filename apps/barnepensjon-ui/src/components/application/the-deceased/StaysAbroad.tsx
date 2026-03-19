@@ -1,4 +1,4 @@
-import { DeleteFilled } from '@navikt/ds-icons'
+import { TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, HGrid, Label, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
@@ -121,7 +121,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                                 variant={'secondary'}
                                 type={'button'}
                                 onClick={() => remove(index)}
-                                icon={<DeleteFilled aria-hidden />}
+                                icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                             >
                                 {t('deleteButton', { ns: 'btn' })}
                             </Button>

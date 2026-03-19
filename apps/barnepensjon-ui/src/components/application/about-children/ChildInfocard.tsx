@@ -1,4 +1,4 @@
-import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { PencilIcon, TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Tag, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import { memo } from 'react'
@@ -76,7 +76,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                 <VStack gap="2">
                     <Button
                         type="button"
-                        icon={<EditFilled fontSize={18} aria-hidden />}
+                        icon={<PencilIcon fontSize="1.5rem" aria-hidden />}
                         onClick={setActiveChildIndex}
                         variant="tertiary"
                     >
@@ -84,7 +84,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </Button>
                     <Button
                         type="button"
-                        icon={<DeleteFilled fontSize={18} aria-hidden />}
+                        icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                         onClick={() => remove(index)}
                         variant="tertiary"
                     >

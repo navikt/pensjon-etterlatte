@@ -1,4 +1,4 @@
-import { ExternalLink } from '@navikt/ds-icons'
+import { ExternalLinkIcon } from '@navikt/aksel-icons'
 import { Alert, BodyShort, HelpText, HGrid, Label, Link, VStack } from '@navikt/ds-react'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
@@ -18,7 +18,8 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
             <Alert variant={'info'}>
                 <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
                 <Link href={t('incorrectInfoMustBeCorrectedHref', { ns: 'loggedInUserInfo' })} target={'_blank'}>
-                    {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })} <ExternalLink aria-hidden />
+                    {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })}{' '}
+                    <ExternalLinkIcon aria-hidden />
                 </Link>
             </Alert>
             <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
