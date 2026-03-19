@@ -16,13 +16,12 @@ export const LivesAbroadQuestion = ({ isChild, countries, livesAbroadAnswer }: P
     const { t } = useTranslation('aboutChildren')
 
     return (
-        <VStack marginBlock="4" gap="4">
+        <VStack marginBlock="space-16" gap="space-16">
             <RHFGeneralQuestionRadio
                 id={'staysAbroadAnswer'}
                 name={'staysAbroad.answer'}
                 legend={!isChild ? t('doesTheChildLiveAbroad') : t('doesTheSiblingLiveAbroad')}
             />
-
             {livesAbroadAnswer === JaNeiVetIkke.JA && (
                 <>
                     <Box maxWidth="14rem">

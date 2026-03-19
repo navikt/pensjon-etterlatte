@@ -106,7 +106,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
     return (
         <FormProvider {...methods}>
             <form autoComplete={isDev ? 'on' : 'off'}>
-                <Box borderRadius="4" borderWidth="1" marginBlock="4">
+                <Box borderRadius="4" borderWidth="1" marginBlock="space-16">
                     <Box
                         borderRadius="4 4 0 0"
                         height="128px"
@@ -124,12 +124,12 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                         </HStack>
                     </Box>
 
-                    <Box padding="8">
-                        <VStack gap="4">
+                    <Box padding="space-32">
+                        <VStack gap="space-16">
                             <Box>
                                 <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
                                 {childOver18() && !isGuardian && (
-                                    <Box padding="4" borderWidth="1" borderRadius="small">
+                                    <Box padding="space-16" borderWidth="1" borderRadius="small">
                                         <Alert id={'above18Warning'} inline={true} variant={'info'}>
                                             <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
                                         </Alert>
@@ -150,7 +150,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                     )}
                                     {!isChild && (
                                         <>
-                                            <VStack gap="8">
+                                            <VStack gap="space-32">
                                                 {!user.adressebeskyttelse && (
                                                     <LivesAbroadQuestion
                                                         isChild={isChild}
@@ -165,7 +165,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                                                 />
 
                                                 {isGuardian && childOver18() && (
-                                                    <VStack gap="4">
+                                                    <VStack gap="space-16">
                                                         <RHFGeneralQuestionRadio
                                                             name={'disabilityBenefitsIsGuardian'}
                                                             legend={t('disabilityBenefitsIsGuardian')}
@@ -209,8 +209,8 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                         </VStack>
 
                         <ErrorSummaryWrapper errors={errors} />
-                        <VStack marginBlock="4 0" align="center">
-                            <HStack gap="4">
+                        <VStack marginBlock="space-16 space-0" align="center">
+                            <HStack gap="space-16">
                                 <Button
                                     id={'cancelAddChildren'}
                                     variant={'secondary'}

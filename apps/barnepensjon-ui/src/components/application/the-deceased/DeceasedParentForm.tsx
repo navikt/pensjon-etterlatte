@@ -41,7 +41,7 @@ export default function DeceaseParentForm({ fnrRegisteredParent }: Props) {
     }, [staysAbroad])
 
     return (
-        <VStack marginBlock="4" gap="4">
+        <VStack marginBlock="space-16" gap="space-16">
             <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
             <Datepicker name={'dateOfDeath'} label={t('dateOfDeath')} maxDate={new Date()} />
             <VStack>

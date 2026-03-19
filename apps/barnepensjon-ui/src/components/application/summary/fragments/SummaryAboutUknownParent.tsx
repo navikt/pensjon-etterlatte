@@ -20,7 +20,7 @@ export const SummaryAboutUnknownParent = memo(({ pathPrefix }: Props) => {
                 ns: 'summary',
             })}
         >
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <TextGroup title={t('unknownParentQuestion')} content={t('yesUnknownParent', { ns: 'btn' })} />
             </Box>
         </AccordionItem>

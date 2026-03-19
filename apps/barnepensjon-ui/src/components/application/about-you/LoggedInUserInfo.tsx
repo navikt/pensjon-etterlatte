@@ -14,7 +14,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     const { t } = useTranslation('common')
 
     return (
-        <VStack marginBlock="4 8" gap="4">
+        <VStack marginBlock="space-16 space-32" gap="space-16">
             <Alert variant={'info'}>
                 <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
                 <Link href={t('incorrectInfoMustBeCorrectedHref', { ns: 'loggedInUserInfo' })} target={'_blank'}>
@@ -43,7 +43,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                         <BodyShort spacing>{user.foedselsnummer}</BodyShort>
                     </div>
                     {user.telefonnummer && (
-                        <HGrid gap="1">
+                        <HGrid gap="space-4">
                             <Label as={'span'}>
                                 {t('phoneNumber')}&nbsp;
                                 <HelpText placement={'top'}>{t('phoneNumberHelpText')}</HelpText>

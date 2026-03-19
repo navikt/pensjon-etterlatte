@@ -19,7 +19,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
 
     const foedselsnummer = child.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
     return (
-        <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+        <Box background="bg-subtle" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
             <Box
                 borderRadius="4 4 0 0"
                 height="128px"
@@ -33,12 +33,11 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     <img alt="barn" src={ikon} />
                 </HStack>
             </Box>
-
-            <VStack padding="8" align="center">
+            <VStack padding="space-32" align="center">
                 <Heading size={'small'}>
                     {child.firstName} {child.lastName}
                 </Heading>
-                <Box marginBlock="2">
+                <Box marginBlock="space-8">
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('infoCard_fnr')}</BodyShort>
@@ -64,16 +63,16 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </BodyShort>
 
                     {!!child.appliesForChildrensPension ? (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Tag variant={'success'}>{t('childAppliedForPension')}</Tag>
                         </Box>
                     ) : (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Tag variant={'warning'}>{t('childNotApplyingForPension')}</Tag>
                         </Box>
                     )}
                 </Box>
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <Button
                         type="button"
                         icon={<PencilIcon fontSize="1.5rem" aria-hidden />}

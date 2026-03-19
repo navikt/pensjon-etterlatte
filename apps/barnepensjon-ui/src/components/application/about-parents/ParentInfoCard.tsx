@@ -21,7 +21,7 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
         <Box
             id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}
             background="bg-subtle"
-            marginBlock="0 4"
+            marginBlock="space-0 space-16"
             borderRadius="0 0 4 4"
             style={
                 !isValidated
@@ -45,14 +45,13 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                     <img alt="forelder" src={ikon} />
                 </HStack>
             </Box>
-
-            <VStack padding="8" align="center">
+            <VStack padding="space-32" align="center">
                 <BodyShort weight="semibold">{t('deceasedParent', { ns: 'aboutParents' })}</BodyShort>
 
                 <Heading size={'small'} spacing>
                     {parent.firstName} {parent.lastName}
                 </Heading>
-                <Box paddingBlock="2">
+                <Box paddingBlock="space-8">
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}
                     <BodyShort>{t('fnrDnr')}</BodyShort>
                     <BodyShort spacing>{foedselsnummer ?? '-'}</BodyShort>
@@ -60,10 +59,10 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                     <BodyShort>{t('citizenship')}</BodyShort>
                     <BodyShort spacing>{parent.citizenship ?? '-'}</BodyShort>
                 </Box>
-                <VStack gap="4">
+                <VStack gap="space-16">
                     {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
 
-                    <VStack gap="2" align="center">
+                    <VStack gap="space-8" align="center">
                         <Button
                             type="button"
                             icon={<PencilIcon fontSize="1.5rem" aria-hidden />}

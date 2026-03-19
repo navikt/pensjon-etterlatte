@@ -53,10 +53,10 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                     borderColor={'border-info'}
                     borderWidth={'0 0 0 4'}
                     background={'surface-selected'}
-                    padding="4"
-                    marginBlock="4"
+                    padding="space-16"
+                    marginBlock="space-16"
                 >
-                    <VStack gap="4">
+                    <VStack gap="space-16">
                         <Box maxWidth="14rem">
                             <RHFCombobox
                                 name={`staysAbroad.abroadStays[${index}].country`}
@@ -94,11 +94,11 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                             <Label>{t('pensionReceivedFromAbroadTitle')}</Label>
                             <BodyShort textColor={'subtle'}>{t('pensionReceivedFromAbroadDescription')}</BodyShort>
                             <HGrid
-                                gap={'2'}
+                                gap={'space-8'}
                                 columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(10rem, 14rem))' }}
                                 align={'start'}
                             >
-                                <VStack gap="4">
+                                <VStack gap="space-16">
                                     <RHFNumberInput
                                         name={`staysAbroad.abroadStays[${index}].pension.amount`}
                                         label={t('amountAbroad')}
@@ -116,7 +116,7 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
                     </VStack>
 
                     {fields.length > 1 && (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Button
                                 variant={'secondary'}
                                 type={'button'}

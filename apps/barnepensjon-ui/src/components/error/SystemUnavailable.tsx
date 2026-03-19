@@ -20,7 +20,7 @@ export default function SystemUnavailable() {
 
     return (
         <div style={{ maxWidth: '500px', margin: 'auto' }}>
-            <VStack gap="8">
+            <VStack gap="space-32">
                 <GuidePanel>
                     <Heading size={'small'} spacing>
                         {t('title')}
@@ -50,8 +50,8 @@ export default function SystemUnavailable() {
                         href={t('moreAboutBenefitsHref')}
                         borderRadius="large"
                         shadow="xsmall"
-                        paddingBlock={'0 8'}
-                        paddingInline={'6'}
+                        paddingBlock={'space-0 space-32'}
+                        paddingInline={'space-24'}
                         style={{ color: 'var(--ax-text-neutral)', fontSize: '20px' }}
                     >
                         <img className="blomster-hjerte-hus-ikon" alt="blomstHjerteHus" src={blomstHjerteHus} />
