@@ -52,7 +52,7 @@ export default function SystemUnavailable() {
                         shadow="xsmall"
                         paddingBlock={'0 8'}
                         paddingInline={'6'}
-                        style={{ color: 'var(--a-text-default)', fontSize: '20px' }}
+                        style={{ color: 'var(--ax-text-neutral)', fontSize: '20px' }}
                     >
                         <img className="blomster-hjerte-hus-ikon" alt="blomstHjerteHus" src={blomstHjerteHus} />
                         {t('moreAboutBenefitsLink')}

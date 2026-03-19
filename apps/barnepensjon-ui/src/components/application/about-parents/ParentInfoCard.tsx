@@ -26,8 +26,8 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
             style={
                 !isValidated
                     ? {
-                          border: '1px solid var(--a-red-500)',
-                          boxShadow: '0 0 0 1px var(--a-red-500, var(--a-red-500, var(--a-red-500)))',
+                          border: '1px solid var(--ax-danger-600)',
+                          boxShadow: '0 0 0 1px var(--ax-danger-600, var(--ax-danger-600, var(--ax-danger-600)))',
                       }
                     : {}
             }
