@@ -28,7 +28,7 @@ export const Spraakvalg = () => {
     }, [soknadState.spraak, brukerState.spraak])
 
     return (
-        <VStack marginBlock="0 12" align="center">
+        <VStack marginBlock="space-0 space-48" align="center">
             <Box width="12rem">
                 <Select
                     onChange={(e) => oppdaterSpraak(e.target.value)}

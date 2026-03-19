@@ -19,12 +19,10 @@ const SoknadKvittering = () => {
             <Heading className={'center'} size={'medium'} spacing={true}>
                 {t('soeknadKvittering.tittel')}
             </Heading>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Alert variant={'success'}>{t('soeknadKvittering.mottatt')}</Alert>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Heading size={'small'}>{t('soeknadKvittering.seSaken.tittel')}</Heading>
 
                 <BodyLong>
@@ -38,8 +36,7 @@ const SoknadKvittering = () => {
                     </Link>
                 </BodyLong>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Alert variant={'info'}>
                     <Heading size={'small'}>{t('soeknadKvittering.endring.tittel')}</Heading>
 
@@ -64,8 +61,7 @@ const SoknadKvittering = () => {
                     </BodyLong>
                 </Alert>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <Heading size={'small'}>{t('soeknadKvittering.andreStoenader.tittel')}</Heading>
 
                 <BodyLong>{t('soeknadKvittering.andreStoenader.informasjon')}</BodyLong>
@@ -89,8 +85,7 @@ const SoknadKvittering = () => {
                     </Link>
                 </BodyShort>
             </Box>
-
-            <HStack marginBlock="0 18" justify="center">
+            <HStack marginBlock="space-0 space-72" justify="center">
                 <Button
                     variant={'secondary'}
                     type={'button'}

@@ -75,23 +75,23 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()}>
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Heading size={'medium'} className={'center'}>
                         {t('inntektenDin.tittel')}
                     </Heading>
                 </Box>
 
-                <Box marginBlock="0 12">
+                <Box marginBlock="space-0 space-48">
                     <GuidePanel>{t('inntektenDin.ingress')}</GuidePanel>
                 </Box>
 
-                <VStack gap="12" paddingBlock="0 12">
+                <VStack gap="space-48" paddingBlock="space-0 space-48">
                     {erEldreEnnSekstiEn(bruker) ? (
                         <>
                             <SkalGaaAvMedAlderspensjon />
                             {!!watch('skalGaaAvMedAlderspensjon.valg') && (
                                 <>
-                                    <VStack gap="6">
+                                    <VStack gap="space-24">
                                         <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
                                         <InntektFremTilDoedsfallet />
@@ -108,7 +108,7 @@ const InntektenDin = ({ neste, forrige }: SoknadSteg) => {
                         </>
                     ) : (
                         <>
-                            <VStack gap="6">
+                            <VStack gap="space-24">
                                 <Heading size="medium">{t('inntektenDin.inntekteneDine.tittel')}</Heading>
 
                                 <InntektFremTilDoedsfallet />

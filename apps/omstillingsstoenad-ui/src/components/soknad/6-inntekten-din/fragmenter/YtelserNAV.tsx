@@ -18,9 +18,9 @@ const YtelserNAV = () => {
     const harSoektYtelse = watch('ytelserNAV.svar')
 
     return (
-        <Box marginBlock="0 12">
+        <Box marginBlock="space-0 space-48">
             <Heading size={'small'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
-            <VStack marginBlock="4 0">
+            <VStack marginBlock="space-16 space-0">
                 <RHFSpoersmaalRadio
                     name={'ytelserNAV.svar'}
                     legend={t('inntektenDin.ytelserNAV.svar')}
@@ -36,7 +36,7 @@ const YtelserNAV = () => {
                 )}
             </VStack>
             {harSoektYtelse === IValg.JA && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFCheckboksGruppe
                         name={'ytelserNAV.soekteYtelser'}
                         legend={t('inntektenDin.ytelserNAV.soekteYtelser')}

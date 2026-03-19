@@ -73,14 +73,13 @@ export const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
 
     return (
         <FormProvider {...methods}>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading className={'center'} size={'medium'}>
                     {t('omDenAvdoede.tittel')}
                 </Heading>
             </Box>
-
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                <VStack gap="4" marginBlock="4 12">
+                <VStack gap="space-16" marginBlock="space-16 space-48">
                     <RHFInput name={'fornavn'} label={t('omDenAvdoede.fornavn')} htmlSize={Bredde.M} />
                     <RHFInput name={'etternavn'} label={t('omDenAvdoede.etternavn')} htmlSize={Bredde.M} />
                     <Box>
@@ -99,7 +98,7 @@ export const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                         />
 
                         {ukjentFoedselsnummer && (
-                            <VStack gap="4">
+                            <VStack gap="space-16">
                                 <Alert variant={'info'}>{t('omDenAvdoede.ukjentFoedselsnummerInfo')}</Alert>
                                 <Datovelger
                                     name={'foedselsdato'}
@@ -118,7 +117,7 @@ export const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                         />
                     </Box>
 
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <Datovelger
                             name={'datoForDoedsfallet'}
                             label={t('omDenAvdoede.datoForDoedsfallet')}
@@ -128,7 +127,7 @@ export const OmDenAvdode = ({ neste, forrige }: SoknadSteg) => {
                     </Box>
                 </VStack>
 
-                <VStack gap="4" marginBlock="4 12">
+                <VStack gap="space-16" marginBlock="space-16 space-48">
                     <Heading size="small">{t('omDenAvdoede.doedsfallAarsak.tittel')}</Heading>
                     <Box>
                         <RHFSpoersmaalRadio

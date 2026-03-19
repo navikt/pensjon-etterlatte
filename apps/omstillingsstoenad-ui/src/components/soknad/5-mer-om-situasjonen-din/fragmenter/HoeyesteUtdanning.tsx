@@ -8,11 +8,10 @@ const HoeyesteUtdanning = () => {
     const { t } = useTranslation()
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittelFullfoert')}</Heading>
             </Box>
-
             <RHFCheckboksGruppe
                 name={'utdanning.hoyesteFullfoerteUtdanning'}
                 legend={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')}
@@ -21,7 +20,6 @@ const HoeyesteUtdanning = () => {
                     return { children: t(value), value, required: true }
                 })}
             />
-
             <ReadMore header={t('hvorforSpoerVi')}>{t('merOmSituasjonenDin.utdanning.hvorfor')}</ReadMore>
         </Box>
     )

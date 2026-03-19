@@ -48,24 +48,23 @@ const OmDeg = ({ neste }: SoknadSteg) => {
 
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <Heading size={'medium'} className={'center'}>
                     {t('omDeg.tittel')}
                 </Heading>
             </Box>
             <InnloggetBruker />
-
             <FormProvider {...methods}>
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         {!brukerState.adressebeskyttelse && !brukerState.adresse && (
-                            <Box marginBlock="0 12">
+                            <Box marginBlock="space-0 space-48">
                                 <RHFInput name={'alternativAdresse'} label={t('omDeg.alternativAdresse')} />
                             </Box>
                         )}
 
                         {!brukerState.telefonnummer && (
-                            <Box marginBlock="4">
+                            <Box marginBlock="space-16">
                                 <RHFTelefonInput
                                     htmlSize={Bredde.S}
                                     name={'kontaktinfo.telefonnummer'}
@@ -79,8 +78,8 @@ const OmDeg = ({ neste }: SoknadSteg) => {
 
                     {/* 2.7 */}
                     {!brukerState.adressebeskyttelse && (
-                        <Box marginBlock="0 12">
-                            <Box marginBlock="4">
+                        <Box marginBlock="space-0 space-48">
+                            <Box marginBlock="space-16">
                                 <RHFRadio
                                     name={'utbetalingsInformasjon.bankkontoType'}
                                     legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}

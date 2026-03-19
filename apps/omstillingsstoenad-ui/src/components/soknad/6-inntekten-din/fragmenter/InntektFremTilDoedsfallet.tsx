@@ -22,8 +22,8 @@ export const InntektFremTilDoedsfallet = () => {
     const inntektFremTilDoedsfallet = watch('inntektFremTilDoedsfallet')
 
     return (
-        <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
-            <VStack gap="4">
+        <Box padding="space-24" background="accent-soft" borderColor="accent" borderWidth="0 0 0 4">
+            <VStack gap="space-16">
                 <Heading size="small">{t('inntektenDin.inntektFremTilDoedsfallet.tittel')}</Heading>
 
                 <List>
@@ -32,7 +32,7 @@ export const InntektFremTilDoedsfallet = () => {
                     <List.Item>{t('inntektenDin.inntektFremTilDoedsfallet.innhold.li3')}</List.Item>
                 </List>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'inntektFremTilDoedsfallet.arbeidsinntekt'}
                         label={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt')}
@@ -40,7 +40,7 @@ export const InntektFremTilDoedsfallet = () => {
                     <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'inntektFremTilDoedsfallet.naeringsinntekt.inntekt'}
                         label={t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt')}
@@ -77,7 +77,7 @@ export const InntektFremTilDoedsfallet = () => {
                     )}
 
                 {skalViseAFPFelter(bruker) && (
-                    <VStack gap="2">
+                    <VStack gap="space-8">
                         <RHFInntektInput
                             name={'inntektFremTilDoedsfallet.afpInntekt.inntekt'}
                             label={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt')}
@@ -96,7 +96,7 @@ export const InntektFremTilDoedsfallet = () => {
                     </VStack>
                 )}
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'inntektFremTilDoedsfallet.inntektFraUtland'}
                         label={t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland')}

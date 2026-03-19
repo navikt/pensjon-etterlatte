@@ -6,7 +6,7 @@ export const ArbeidsinntekterDuSkalFylleUtReadMore = () => {
 
     return (
         <ReadMore header={t('inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel')}>
-            <VStack gap="4">
+            <VStack gap="space-16">
                 <VStack>
                     <Label>
                         {t('inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label')}

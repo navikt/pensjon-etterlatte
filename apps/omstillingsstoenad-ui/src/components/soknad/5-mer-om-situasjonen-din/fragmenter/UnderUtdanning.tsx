@@ -27,26 +27,24 @@ const UnderUtdanning = () => {
     }
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.utdanning.tittel')}</Heading>
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studiested'}
                     label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested')}
                     htmlSize={Bredde.M}
                 />
             </Box>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFInput
                     name={'utdanning.naavaerendeUtdanning.studie'}
                     label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie')}
                     htmlSize={Bredde.M}
                 />
             </Box>
-
             <RHFRadio
                 name={`utdanning.naavaerendeUtdanning.studieform` as const}
                 legend={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform')}
@@ -56,7 +54,7 @@ const UnderUtdanning = () => {
                 })}
             </RHFRadio>
             {studieform === Studieform.deltid && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFProsentInput
                         name={'utdanning.naavaerendeUtdanning.studieprosent'}
                         label={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent')}
@@ -65,7 +63,7 @@ const UnderUtdanning = () => {
                     />
                 </Box>
             )}
-            <VStack gap="4" marginBlock="4 12">
+            <VStack gap="space-16" marginBlock="space-16 space-48">
                 <Box>
                     <Heading size={'small'}>
                         {t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studietsLengde')}

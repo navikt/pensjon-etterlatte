@@ -123,7 +123,7 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
 
     return (
         <>
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <GuidePanel>
                     <Heading size={'small'}>{t('omBarn.informasjon.tittel')}</Heading>
                     <BodyShort>{t('omBarn.informasjon')}</BodyShort>
@@ -149,8 +149,8 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                             </HStack>
                         </Box>
 
-                        <Box padding="8">
-                            <VStack gap="4" marginBlock="4 12">
+                        <Box padding="space-32">
+                            <VStack gap="space-16" marginBlock="space-16 space-48">
                                 <RHFInput
                                     name={'fornavn'}
                                     label={t('omBarn.fornavn')}
@@ -188,7 +188,7 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                     />
 
                                     {ukjentFoedselsnummer && (
-                                        <VStack gap="4">
+                                        <VStack gap="space-16">
                                             <Alert variant={'info'}>{t('omBarn.ukjentFoedselsnummerInfo')}</Alert>
                                             <Datovelger
                                                 name={'foedselsdato'}
@@ -207,18 +207,18 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                 </Box>
 
                                 {visDuplikatFeilmelding() && (
-                                    <Box marginBlock="4">
+                                    <Box marginBlock="space-16">
                                         <ErrorMessage>{t('feil.foedselsnummer.duplicate')}</ErrorMessage>
                                     </Box>
                                 )}
                             </VStack>
 
-                            <Box marginBlock="0 12">
+                            <Box marginBlock="space-0 space-48">
                                 <RHFSpoersmaalRadio name={'bosattUtland.svar'} legend={t('omBarn.bosattUtland.svar')} />
 
                                 {bosattUtlandSvar === IValg.JA && (
                                     <>
-                                        <Box maxWidth="14rem" marginBlock="4">
+                                        <Box maxWidth="14rem" marginBlock="space-16">
                                             <RHFCombobox
                                                 name={'bosattUtland.land'}
                                                 label={t('omBarn.bosattUtland.land')}
@@ -235,8 +235,8 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
 
                             {kanSoekeOmBarnepensjon() && (
                                 <>
-                                    <Box marginBlock="0 12">
-                                        <Box marginBlock="4">
+                                    <Box marginBlock="space-0 space-48">
+                                        <Box marginBlock="space-16">
                                             <RHFSpoersmaalRadio
                                                 name={'harBarnetVerge.svar'}
                                                 legend={t('omBarn.harBarnetVerge.svar')}
@@ -246,8 +246,8 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                         {harBarnetVerge === IValg.JA && (
                                             <>
                                                 <Label>{t('omBarn.harBarnetVerge.navn')}</Label>
-                                                <Box marginBlock="4">
-                                                    <Box marginBlock="4">
+                                                <Box marginBlock="space-16">
+                                                    <Box marginBlock="space-16">
                                                         <RHFInput
                                                             name={'harBarnetVerge.fornavn'}
                                                             label={t('omBarn.harBarnetVerge.fornavn')}
@@ -256,7 +256,7 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                                             htmlSize={Bredde.M}
                                                         />
                                                     </Box>
-                                                    <Box marginBlock="4">
+                                                    <Box marginBlock="space-16">
                                                         <RHFInput
                                                             name={'harBarnetVerge.etternavn'}
                                                             label={t('omBarn.harBarnetVerge.etternavn')}
@@ -265,7 +265,7 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                                             htmlSize={Bredde.M}
                                                         />
                                                     </Box>
-                                                    <Box marginBlock="4">
+                                                    <Box marginBlock="space-16">
                                                         <RHFFoedselsnummerInput
                                                             name={'harBarnetVerge.foedselsnummer'}
                                                             label={t('omBarn.harBarnetVerge.foedselsnummer')}
@@ -282,7 +282,7 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                     </Box>
                                     {!bruker.adressebeskyttelse && (
                                         <>
-                                            <Box marginBlock="4">
+                                            <Box marginBlock="space-16">
                                                 <RHFSpoersmaalRadio
                                                     name={'barnepensjon.kontonummer.svar'}
                                                     legend={t('omBarn.barnepensjon.kontonummer.svar')}
@@ -291,8 +291,8 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                             </Box>
 
                                             {annetKontonummerBarnepensjon === IValg.NEI && (
-                                                <Box marginBlock="4 16">
-                                                    <Box marginBlock="4">
+                                                <Box marginBlock="space-16 space-64">
+                                                    <Box marginBlock="space-16">
                                                         <RHFRadio
                                                             name={'barnepensjon.utbetalingsInformasjon.bankkontoType'}
                                                             legend={t('omDeg.utbetalingsInformasjon.bankkontoType')}
@@ -323,7 +323,7 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
                                         </>
                                     )}
 
-                                    <Box marginBlock="4 16">
+                                    <Box marginBlock="space-16 space-64">
                                         <RHFConfirmationPanel
                                             name={'barnepensjon.soeker'}
                                             label={t('omBarn.barnepensjon.soeker')}
@@ -336,14 +336,14 @@ export const LeggTilBarnSkjema = ({ avbryt, lagre, barn, fnrRegistrerteBarn }: P
 
                             {(relasjon === BarnRelasjon.egneSaerkullsbarn ||
                                 relasjon == BarnRelasjon.avdoedesSaerkullsbarn) && (
-                                <Box marginBlock="0 12">
+                                <Box marginBlock="space-0 space-48">
                                     <RHFSpoersmaalRadio name={'dagligOmsorg'} legend={t('omBarn.dagligOmsorg')} />
                                 </Box>
                             )}
 
                             <Feilmeldinger errors={errors} />
 
-                            <HStack gap="4" justify="center">
+                            <HStack gap="space-16" justify="center">
                                 <Button
                                     id={'avbrytLeggTilBarn'}
                                     variant={'secondary'}

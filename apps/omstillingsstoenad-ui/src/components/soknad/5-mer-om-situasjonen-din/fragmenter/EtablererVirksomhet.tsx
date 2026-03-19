@@ -18,18 +18,16 @@ const EtablererVirksomhet = () => {
     const manglerOrgnr = watch('etablererVirksomhet.manglerOrgnr')
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.etablererVirksomhet.tittel')}</Heading>
             </Box>
-
             <RHFInput
                 name={'etablererVirksomhet.hvaHeterVirksomheten'}
                 label={t('merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten')}
                 htmlSize={Bredde.M}
             />
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFNumberInput
                     name={`etablererVirksomhet.orgnr` as const}
                     label={t('merOmSituasjonenDin.etablererVirksomhet.orgnr')}
@@ -40,8 +38,7 @@ const EtablererVirksomhet = () => {
                     valgfri={!!manglerOrgnr?.length}
                 />
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFCheckboksGruppe
                     name={'etablererVirksomhet.manglerOrgnr'}
                     checkboxes={[
@@ -55,16 +52,14 @@ const EtablererVirksomhet = () => {
                     required={false}
                 />
             </Box>
-
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <RHFSpoersmaalRadio
                     name={`etablererVirksomhet.forretningsplan.svar` as const}
                     legend={t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar')}
                 />
             </Box>
-
             {harForretningsplan === IValg.JA && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFSpoersmaalRadio
                         name={`etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar` as const}
                         legend={t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar')}

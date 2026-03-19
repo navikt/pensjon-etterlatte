@@ -79,19 +79,19 @@ const MerOmSituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()}>
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Heading size={'medium'} className={'center'}>
                         {t('merOmSituasjonenDin.tittel')}
                     </Heading>
                 </Box>
 
-                <Box marginBlock="0 12">
+                <Box marginBlock="space-0 space-48">
                     <GuidePanel>{t('merOmSituasjonenDin.ingress')}</GuidePanel>
                 </Box>
 
                 {!brukerState.adressebeskyttelse && (
                     <>
-                        <Box marginBlock="0 12">
+                        <Box marginBlock="space-0 space-48">
                             <Heading size={'small'} spacing>
                                 {t('merOmSituasjonenDin.jobbStatus.tittel')}
                             </Heading>

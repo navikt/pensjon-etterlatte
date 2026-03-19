@@ -14,14 +14,13 @@ const Arbeidssoeker = () => {
     const registrertArbeidssoeker = watch('arbeidssoeker.svar')
 
     return (
-        <Box marginBlock="0 12">
-            <Box marginBlock="4">
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
                 <Heading size={'small'}>{t('merOmSituasjonenDin.arbeidssoeker.tittel')}</Heading>
             </Box>
-
             <RHFSpoersmaalRadio name={'arbeidssoeker.svar'} legend={t('merOmSituasjonenDin.arbeidssoeker.svar')} />
             {registrertArbeidssoeker === IValg.JA && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <RHFSpoersmaalRadio
                         name={'arbeidssoeker.aktivitetsplan.svar'}
                         legend={t('merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar')}

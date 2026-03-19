@@ -28,7 +28,7 @@ export const OppsummeringBarnepensjon = memo(({ opplysningerOmBarn, senderSoekna
             <Panel>
                 {opplysningerOmBarn.barn?.map((barnet, index) => (
                     <Panel key={index}>
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Heading size={'small'} spacing>{`${barnet.fornavn} ${barnet.etternavn}`}</Heading>
                             {barnet.barnepensjon?.soeker && (
                                 <Tag variant={'success'}>{t('omBarn.barnepensjon.soekt')}</Tag>

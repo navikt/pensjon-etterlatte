@@ -69,13 +69,13 @@ export const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
     return (
         <FormProvider {...methods}>
             <form onSubmit={(e) => e.preventDefault()} autoComplete={isDev ? 'on' : 'off'}>
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Heading size={'medium'} className={'center'}>
                         {t('situasjonenDin.tittel')}
                     </Heading>
                 </Box>
 
-                <Box marginBlock="0 12">
+                <Box marginBlock="space-0 space-48">
                     <GuidePanel>
                         <BodyShort>{t('situasjonenDin.ingress')}</BodyShort>
                         <List as={'ul'}>
@@ -88,22 +88,22 @@ export const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
 
                 <NySivilstatus />
 
-                <Box marginBlock="0 12">
-                    <Box marginBlock="4">
+                <Box marginBlock="space-0 space-48">
+                    <Box marginBlock="space-16">
                         <Heading size={'small'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
                     </Box>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <RHFSpoersmaalRadio name={'omsorgMinstFemti'} legend={t('situasjonenDin.omsorgMinstFemti')} />
                     </Box>
                     {harOmsorg === IValg.JA && (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Alert variant={'info'}>
                                 <BodyShort>{t('situasjonenDin.omsorgMinstFemti.dokumentasjon')}</BodyShort>
                             </Alert>
                         </Box>
                     )}
 
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <RHFSpoersmaalRadio
                             name={'gravidEllerNyligFoedt'}
                             legend={t('situasjonenDin.gravidEllerNyligFoedt')}
@@ -111,17 +111,17 @@ export const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                     </Box>
                 </Box>
 
-                <Box marginBlock="0 12">
-                    <Box marginBlock="4">
+                <Box marginBlock="space-0 space-48">
+                    <Box marginBlock="space-16">
                         <Heading size={'small'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
                     </Box>
-                    <Box marginBlock="4">
+                    <Box marginBlock="space-16">
                         <RHFSpoersmaalRadio name={'bosattINorge'} legend={t('situasjonenDin.bosattINorge')} />
                     </Box>
 
                     {bosattINorge === IValg.JA && (
-                        <Box marginBlock="0 12">
-                            <Box marginBlock="4">
+                        <Box marginBlock="space-0 space-48">
+                            <Box marginBlock="space-16">
                                 <RHFSpoersmaalRadio
                                     name={'oppholderSegIUtlandet.svar'}
                                     legend={t('situasjonenDin.oppholderSegIUtlandet.svar')}
@@ -129,7 +129,7 @@ export const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                                 />
                             </Box>
                             {oppholderSegIUtlandet === IValg.JA && (
-                                <VStack gap="4" marginBlock="4 12">
+                                <VStack gap="space-16" marginBlock="space-16 space-48">
                                     <Box maxWidth="14rem">
                                         <RHFCombobox
                                             name={`oppholderSegIUtlandet.oppholdsland`}
@@ -158,7 +158,7 @@ export const SituasjonenDin = ({ neste, forrige }: SoknadSteg) => {
                     )}
 
                     {bosattINorge === IValg.NEI && (
-                        <Box maxWidth="14rem" marginBlock="0 12">
+                        <Box maxWidth="14rem" marginBlock="space-0 space-48">
                             <RHFCombobox
                                 name={`bosattLand`}
                                 label={t('situasjonenDin.bosattLand')}

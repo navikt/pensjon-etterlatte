@@ -28,8 +28,8 @@ export const ForventetInntektIAar = () => {
     })
 
     return (
-        <Box padding="6" background="surface-action-subtle" borderColor="border-action" borderWidth="0 0 0 4">
-            <VStack gap="4">
+        <Box padding="space-24" background="accent-soft" borderColor="accent" borderWidth="0 0 0 4">
+            <VStack gap="space-16">
                 <Heading size="small">{t('inntektenDin.forventetInntektIAar.tittel')}</Heading>
 
                 <List>
@@ -56,7 +56,7 @@ export const ForventetInntektIAar = () => {
                     <List.Item>{t('inntektenDin.forventetInntektIAar.innhold.li3')}</List.Item>
                 </List>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'forventetInntektIAar.arbeidsinntekt'}
                         label={t('inntektenDin.forventetInntektIAar.arbeidsinntekt')}
@@ -64,7 +64,7 @@ export const ForventetInntektIAar = () => {
                     <ArbeidsinntekterDuSkalFylleUtReadMore />
                 </VStack>
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'forventetInntektIAar.naeringsinntekt.inntekt'}
                         label={t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt')}
@@ -101,7 +101,7 @@ export const ForventetInntektIAar = () => {
                     )}
 
                 {skalViseAFPFelter(bruker) && (
-                    <VStack gap="2">
+                    <VStack gap="space-8">
                         <RHFInntektInput
                             name={'forventetInntektIAar.afpInntekt.inntekt'}
                             label={t('inntektenDin.forventetInntektIAar.afpInntekt.inntekt')}
@@ -120,7 +120,7 @@ export const ForventetInntektIAar = () => {
                     </VStack>
                 )}
 
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <RHFInntektInput
                         name={'forventetInntektIAar.inntektFraUtland'}
                         label={t('inntektenDin.forventetInntektIAar.inntektFraUtland')}
@@ -155,7 +155,7 @@ export const ForventetInntektIAar = () => {
                     vetIkke
                 />
                 {forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                    <VStack gap="4">
+                    <VStack gap="space-16">
                         <RHFSelect
                             name={'forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'}
                             label={t(

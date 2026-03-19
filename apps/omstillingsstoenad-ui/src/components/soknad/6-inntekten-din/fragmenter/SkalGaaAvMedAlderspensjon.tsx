@@ -27,8 +27,8 @@ export const SkalGaaAvMedAlderspensjon = () => {
     const skalGaAavMedAlderspensjon = watch('skalGaaAvMedAlderspensjon')
 
     return (
-        <VStack gap="4">
-            <VStack gap="2">
+        <VStack gap="space-16">
+            <VStack gap="space-8">
                 <RHFRadio
                     name={'skalGaaAvMedAlderspensjon.valg'}
                     legend={velgLegendTekstForSkalGaaAvMedAlderspensjon()}
@@ -43,7 +43,7 @@ export const SkalGaaAvMedAlderspensjon = () => {
                 </ReadMore>
 
                 <ReadMore header={t('inntektenDin.alderspensjonOgOmstillingsstoenad.tittel')}>
-                    <VStack gap="4">
+                    <VStack gap="space-16">
                         <BodyShort>{t('inntektenDin.alderspensjonOgOmstillingsstoenad.p1')}</BodyShort>
                         <BodyShort>
                             {t('inntektenDin.alderspensjonOgOmstillingsstoenad.p2')}{' '}
@@ -61,7 +61,6 @@ export const SkalGaaAvMedAlderspensjon = () => {
                     </VStack>
                 </ReadMore>
             </VStack>
-
             {skalGaAavMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.JA && (
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}
@@ -69,7 +68,6 @@ export const SkalGaaAvMedAlderspensjon = () => {
                     fromDate={startOfMonth(new Date())}
                 />
             )}
-
             {skalGaAavMedAlderspensjon?.valg === SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON && (
                 <Maanedvelger
                     name={'skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'}

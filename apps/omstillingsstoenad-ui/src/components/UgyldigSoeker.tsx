@@ -27,23 +27,20 @@ const UgyldigSoeker = () => {
 
     return (
         <>
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <GuidePanel poster>{t('ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon')}</GuidePanel>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <BodyLong>{t('ugyldigSoeker.info.gjenlevendeEllerBarnepensjon')}</BodyLong>
             </Box>
-
-            <Box marginBlock="0 12">
+            <Box marginBlock="space-0 space-48">
                 <BodyLong>
                     <Link href={t('ugyldigSoeker.infolenker.barnepensjon.href')}>
                         {t('ugyldigSoeker.infolenker.barnepensjon.tekst')}
                     </Link>
                 </BodyLong>
             </Box>
-
-            <HStack marginBlock="0 18" justify="center">
+            <HStack marginBlock="space-0 space-72" justify="center">
                 <Button variant={'primary'} onClick={tilbake} icon={<ArrowLeftIcon fontSize="1.5rem" />}>
                     {t('knapp.tilbake')}
                 </Button>

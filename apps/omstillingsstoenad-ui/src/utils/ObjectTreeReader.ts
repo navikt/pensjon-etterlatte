@@ -1,6 +1,6 @@
 import { TFunction } from 'i18next'
-import { StegPath } from '../typer/steg'
 import { IValg } from '../typer/Spoersmaal'
+import { StegPath } from '../typer/steg'
 
 export interface Innhold {
     key: string

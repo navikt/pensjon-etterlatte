@@ -1,4 +1,4 @@
-import { ExternalLink } from '@navikt/ds-icons'
+import { ExternalLinkIcon } from '@navikt/aksel-icons'
 import { Alert, BodyShort, Box, HGrid, Label, Link } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import React, { memo } from 'react'
@@ -53,19 +53,17 @@ const InnloggetBruker = memo(() => {
                     </div>
                 )}
             </HGrid>
-
             {!state.adressebeskyttelse && state.adresse && (
                 <Alert variant={'info'}>
                     <BodyShort>{t('omDeg.advarsel')}</BodyShort>
                     <Link href={t('omDeg.advarsel.href')} target="_blank" rel="noreferrer">
                         {t('omDeg.advarsel.href.tekst')}
-                        <ExternalLink aria-hidden />
+                        <ExternalLinkIcon aria-hidden />
                     </Link>
                 </Alert>
             )}
-
             {erForGammel(state.alder!) && (
-                <Box marginBlock="4">
+                <Box marginBlock="space-16">
                     <Alert variant={'warning'}>
                         <BodyShort>{t('omDeg.over67')}</BodyShort>
                     </Alert>

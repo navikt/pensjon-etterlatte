@@ -35,40 +35,35 @@ export const SkiltFraAvdoede = () => {
     const mindreEnn15aar = giftMindreEnn15aar(datoForInngaattPartnerskap, datoForSkilsmisse)
 
     return (
-        <VStack gap="4" marginBlock="4 12">
+        <VStack gap="space-16" marginBlock="space-16 space-48">
             <Datovelger
                 name={'forholdTilAvdoede.datoForInngaattPartnerskap'}
                 label={t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap')}
                 minDate={brukerState.foedselsdato}
                 maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
             />
-
             <Datovelger
                 name={'forholdTilAvdoede.datoForSkilsmisse'}
                 label={t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse')}
                 minDate={datoForInngaattPartnerskap}
                 maxDate={soknadState.omDenAvdoede.datoForDoedsfallet || new Date()}
             />
-
             <RHFSpoersmaalRadio
                 name={'forholdTilAvdoede.fellesBarn'}
                 legend={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn')}
                 description={t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn.beskrivelse')}
             />
-
             {fellesBarn === IValg.JA && mindreEnn15aar === IValg.JA && (
                 <RHFSpoersmaalRadio
                     name={'forholdTilAvdoede.samboereMedFellesBarn'}
                     legend={t('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn')}
                 />
             )}
-
             <RHFSpoersmaalRadio
                 name={'forholdTilAvdoede.mottokBidrag.svar'}
                 legend={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.svar')}
                 description={t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.beskrivelse')}
             />
-
             {mottokBidrag === IValg.JA && (
                 <RHFValutaInput
                     name={'forholdTilAvdoede.mottokBidrag.sum'}

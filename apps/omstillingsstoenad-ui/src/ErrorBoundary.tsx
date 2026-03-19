@@ -38,8 +38,8 @@ class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
     render() {
         if (this.state.hasError) {
             return (
-                <HStack justify="center" marginBlock="8">
-                    <VStack gap="4" maxWidth="fit-content">
+                <HStack justify="center" marginBlock="space-32">
+                    <VStack gap="space-16" maxWidth="fit-content">
                         <Alert variant="error">En feil har oppstått og blitt logget.</Alert>
                         <Link to="/" onClick={() => this.setState({ hasError: false })}>
                             Gå til hovedskjermen

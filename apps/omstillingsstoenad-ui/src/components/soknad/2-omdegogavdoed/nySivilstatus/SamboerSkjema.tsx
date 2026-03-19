@@ -10,13 +10,13 @@ export const SamboerSkjema = () => {
 
     return (
         <Box
-            marginBlock="4"
-            padding="4"
-            borderColor={'border-info'}
+            marginBlock="space-16"
+            padding="space-16"
+            borderColor={'info'}
             borderWidth={'0 0 0 4'}
-            background={'surface-selected'}
+            background={'accent-soft'}
         >
-            <VStack gap="4" marginBlock={'4'}>
+            <VStack gap="space-16" marginBlock={'space-16'}>
                 <Heading size={'small'}>{t('situasjonenDin.nySivilstatus.samboerskap.samboer.tittel')}</Heading>
 
                 <RHFInput
