@@ -20,7 +20,7 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
     return (
         <Box
             id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}
-            background="bg-subtle"
+            background="neutral-soft"
             marginBlock="space-0 space-16"
             borderRadius="0 0 4 4"
             style={

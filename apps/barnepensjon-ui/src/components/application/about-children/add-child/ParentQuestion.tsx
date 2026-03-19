@@ -72,7 +72,7 @@ export default function ParentQuestion({ parents }: Props) {
                 ]}
             />
             {!!parents && ParentRelationType.FIRST_PARENT === parents && (
-                <Box padding="space-16" borderWidth="1" borderRadius="small">
+                <Box padding="space-16" borderWidth="1" borderRadius="2">
                     <Alert inline={true} variant={'info'}>
                         {(isParent ||
                             ApplicantSituation.ONE_PARENT_DECEASED === application.applicant?.applicantSituation) && (
@@ -85,7 +85,7 @@ export default function ParentQuestion({ parents }: Props) {
                 </Box>
             )}
             {!!parents && ParentRelationType.SECOND_PARENT === parents && (
-                <Box padding="space-16" borderWidth="1" borderRadius="small">
+                <Box padding="space-16" borderWidth="1" borderRadius="2">
                     <Alert inline={true} variant={'info'}>
                         {isParent ? (
                             <BodyLong>{t('onlyParentOrGuardianCanApplyOnLivingParent')}</BodyLong>

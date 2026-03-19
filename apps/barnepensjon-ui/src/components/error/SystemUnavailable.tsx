@@ -48,8 +48,8 @@ export default function SystemUnavailable() {
                     <Box
                         as={'a'}
                         href={t('moreAboutBenefitsHref')}
-                        borderRadius="large"
-                        shadow="xsmall"
+                        borderRadius="8"
+                        shadow="dialog"
                         paddingBlock={'space-0 space-32'}
                         paddingInline={'space-24'}
                         style={{ color: 'var(--ax-text-neutral)', fontSize: '20px' }}

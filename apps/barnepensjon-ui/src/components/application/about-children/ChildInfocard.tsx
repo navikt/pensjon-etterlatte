@@ -19,7 +19,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
 
     const foedselsnummer = child.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
     return (
-        <Box background="bg-subtle" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
+        <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
             <Box
                 borderRadius="4 4 0 0"
                 height="128px"

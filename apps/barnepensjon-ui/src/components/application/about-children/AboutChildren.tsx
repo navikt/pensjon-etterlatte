@@ -121,7 +121,11 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         />
                                     ))}
 
-                                    <Box background="bg-subtle" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
+                                    <Box
+                                        background="neutral-soft"
+                                        marginBlock="space-0 space-16"
+                                        borderRadius="0 0 4 4"
+                                    >
                                         <Box
                                             borderRadius="4 4 0 0"
                                             height="128px"

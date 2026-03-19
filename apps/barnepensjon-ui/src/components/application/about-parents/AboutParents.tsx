@@ -139,7 +139,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                     <Box marginBlock="space-0 space-32">
                         <HGrid gap="space-16" columns={{ sm: 1, md: 2 }}>
                             {isEmpty(state.firstParent) ? (
-                                <Box background="bg-subtle" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
+                                <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
                                     <Box
                                         borderRadius="4 4 0 0"
                                         height="128px"
@@ -193,7 +193,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             )}
 
                             {isEmpty(state.secondParent) ? (
-                                <Box background="bg-subtle" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
+                                <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
                                     <Box
                                         borderRadius="4 4 0 0"
                                         height="128px"
@@ -269,7 +269,7 @@ export default function AboutParents({ next, prev }: StepProps) {
             )}
             {editing === EditParent.FIRST && (
                 <Box marginBlock="space-32">
-                    <Box padding="space-16" borderWidth="1" borderRadius="small">
+                    <Box padding="space-16" borderWidth="1" borderRadius="2">
                         {bothParentsDeceased ? (
                             <DeceasedParent
                                 type={ActionTypes.UPDATE_FIRST_PARENT}
@@ -290,7 +290,7 @@ export default function AboutParents({ next, prev }: StepProps) {
             )}
             {editing === EditParent.SECOND && (
                 <Box marginBlock="space-32">
-                    <Box padding="space-16" borderWidth="1" borderRadius="small">
+                    <Box padding="space-16" borderWidth="1" borderRadius="2">
                         <DeceasedParent
                             type={ActionTypes.UPDATE_SECOND_PARENT}
                             prev={stopEditing}

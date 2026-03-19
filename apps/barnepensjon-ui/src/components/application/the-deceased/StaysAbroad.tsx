@@ -50,9 +50,9 @@ export default function StaysAbroad({ countries, currencies }: { countries: Opti
             {fields.map((field: FieldArrayWithId, index: number) => (
                 <Box
                     key={field.id}
-                    borderColor={'border-info'}
+                    borderColor={'info'}
                     borderWidth={'0 0 0 4'}
-                    background={'surface-selected'}
+                    background={'accent-soft'}
                     padding="space-16"
                     marginBlock="space-16"
                 >

@@ -129,7 +129,7 @@ const AddChildToForm = ({ cancel, save, child, fnrRegisteredChild, isChild, isGu
                             <Box>
                                 <PersonInfo duplicateList={fnrRegisteredChild} fnrIsUnknown={watch('fnrIsUnknown')} />
                                 {childOver18() && !isGuardian && (
-                                    <Box padding="space-16" borderWidth="1" borderRadius="small">
+                                    <Box padding="space-16" borderWidth="1" borderRadius="2">
                                         <Alert id={'above18Warning'} inline={true} variant={'info'}>
                                             <BodyLong>{t('onlyChildrenUnder18Necessary')}</BodyLong>
                                         </Alert>
