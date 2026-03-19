@@ -13,7 +13,7 @@ describe('Invalid Applicant', () => {
 
     it('should redirect you to separate page when the user is too young to apply', function () {
         cy.url().should('include', 'ugyldig-soeker')
-        cy.get('.navds-body-long').should(
+        cy.get('.aksel-body-long').should(
             'include.text',
             'Det er forelder eller verge som søker om barnepensjon på vegne av deg.'
         )

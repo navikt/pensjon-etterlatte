@@ -1,4 +1,4 @@
-import { basePath, Button } from '../util/constants'
+import { Button, basePath } from '../util/constants'
 
 describe('Summary and Receipt', { testIsolation: false }, () => {
     before(() => {
@@ -13,7 +13,7 @@ describe('Summary and Receipt', { testIsolation: false }, () => {
     })
 
     it('should present summary of application', function () {
-        cy.get('.navds-pageblock')
+        cy.get('.aksel-pageblock')
             .should('include.text', 'Om deg')
             .should('include.text', 'Om den avdøde')
             .should('include.text', 'Om barn')
@@ -23,13 +23,14 @@ describe('Summary and Receipt', { testIsolation: false }, () => {
         cy.clickBtn(Button.Send)
         cy.clickBtn(Button.No)
 
-        cy.get('.navds-heading').should('not.contain.text', 'Send inn søknad')
+        cy.get('.aksel-heading').should('not.contain.text', 'Send inn søknad')
     })
 
     it('should show error message if application cannot be sent', function () {
+        cy.intercept('POST', `${basePath}/api/api/soeknad`, { statusCode: 500 }).as('application')
         cy.clickBtn(Button.Send)
         cy.clickBtn(Button.Yes)
-        cy.get('.navds-alert').should('include.text', 'En feil oppsto ved sending.')
+        cy.get('.aksel-alert').should('include.text', 'En feil oppsto ved sending.')
     })
 
     it('should send application', function () {

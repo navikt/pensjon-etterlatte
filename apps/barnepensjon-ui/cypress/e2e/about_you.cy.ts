@@ -18,11 +18,11 @@ describe('About You', () => {
         // Stop user from continueing when phone number is too short
         cy.get('#phoneNumber').type('12')
         cy.clickBtn(Button.Next)
-        cy.get('.navds-error-summary').should('exist')
+        cy.get('.aksel-error-summary').should('exist')
 
         // When errors are fixed, the error summary should dissapear and user should be able to continue.
         cy.get('#phoneNumber').type('123456789')
-        cy.get('.navds-error-summary').should('not.exist')
+        cy.get('.aksel-error-summary').should('not.exist')
 
         cy.clickBtn(Button.Next)
         cy.url().should('include', 'skjema/forelder/steg/om-avdoede')
