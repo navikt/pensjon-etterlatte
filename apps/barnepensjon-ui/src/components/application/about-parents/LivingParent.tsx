@@ -45,11 +45,11 @@ export default function LivingParent({ next, prev, type, fnrRegisteredParent }: 
     return (
         <FormProvider {...methods}>
             <form>
-                <VStack align="center" marginBlock="12 8">
+                <VStack align="center" marginBlock="space-48 space-32">
                     <Heading size={'medium'}>{t('title')}</Heading>
                 </VStack>
 
-                <VStack marginBlock="0 4" gap="4">
+                <VStack marginBlock="space-0 space-16" gap="space-16">
                     <PersonInfo duplicateList={fnrRegisteredParent} fnrIsUnknown={watch('fnrIsUnknown')} />
                     <RHFInput name={'address'} label={t('address')} valgfri={true} />
                     <RHFTelefonInput

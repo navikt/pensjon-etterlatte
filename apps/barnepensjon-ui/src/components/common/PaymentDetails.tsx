@@ -19,7 +19,7 @@ export default function PaymentDetails() {
     const isParent = state.applicant?.applicantRole === ApplicantRole.PARENT
 
     return (
-        <VStack marginBlock="4 8" gap="4">
+        <VStack marginBlock="space-16 space-32" gap="space-16">
             <RHFRadio
                 id={'accountTypeSelection'}
                 name={'paymentDetails.accountType'}
@@ -28,7 +28,6 @@ export default function PaymentDetails() {
                     return { children: t(value), value } as RadioProps
                 })}
             />
-
             {accountType === BankkontoType.NORSK && (
                 <RHFKontonummerInput
                     name={'paymentDetails.bankAccount'}
@@ -37,18 +36,17 @@ export default function PaymentDetails() {
                     htmlSize={Bredde.XS}
                 />
             )}
-
             {accountType === BankkontoType.UTENLANDSK && (
                 <>
                     <Heading size={'small'}>{t('title')}</Heading>
 
-                    <VStack marginBlock="4" gap="4">
+                    <VStack marginBlock="space-16" gap="space-16">
                         <RHFInput name={'paymentDetails.foreignBankName'} label={t('foreignBankName')} />
                         <RHFInput name={'paymentDetails.foreignBankAddress'} label={t('foreignBankAddress')} />
                         <RHFIbanInput
                             name={'paymentDetails.iban'}
                             label={
-                                <HStack gap="1">
+                                <HStack gap="space-4">
                                     {t('iban')}
                                     <HelpText placement={'top'}>{t('ibanHelpText')}</HelpText>
                                 </HStack>
@@ -58,7 +56,7 @@ export default function PaymentDetails() {
                         <RHFBicInput
                             name={'paymentDetails.swift'}
                             label={
-                                <HStack gap="1">
+                                <HStack gap="space-4">
                                     {t('swift')}
                                     <HelpText placement={'top'}>{t('swiftHelpText')}</HelpText>
                                 </HStack>

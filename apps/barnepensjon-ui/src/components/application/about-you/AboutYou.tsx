@@ -56,25 +56,23 @@ export default function AboutYou({ next }: StepProps) {
 
     return (
         <>
-            <VStack align="center" marginBlock="12 0">
+            <VStack align="center" marginBlock="space-48 space-0">
                 <Heading size="medium">{isGuardian ? t('titleGuardian') : t('title')}</Heading>
             </VStack>
-
             <LoggedInUserInfo user={user} />
-
             <FormProvider {...methods}>
                 <form>
-                    <VStack marginBlock="8 0" gap="4">
+                    <VStack marginBlock="space-32 space-0" gap="space-16">
                         {!user.adressebeskyttelse && isChild && (
-                            <Box marginBlock="0 8">
-                                <VStack gap="4">
+                            <Box marginBlock="space-0 space-32">
+                                <VStack gap="space-16">
                                     <Heading size={'small'}>{t('staysAbroadTitle')}</Heading>
                                     <RHFGeneralQuestionRadio name={'residesInNorway'} legend={t('residesInNorway')} />
                                     {residesInNorway === JaNeiVetIkke.JA && (
                                         <RHFGeneralQuestionRadio name={'stayedAbroad'} legend={t('stayedAbroad')} />
                                     )}
                                     {stayedAbroad === JaNeiVetIkke.JA && (
-                                        <VStack gap={'4'}>
+                                        <VStack gap={'space-16'}>
                                             <Box maxWidth="14rem">
                                                 <RHFCombobox
                                                     id={'stayedAbroadCountry'}
@@ -125,7 +123,7 @@ export default function AboutYou({ next }: StepProps) {
                     {!user.adressebeskyttelse && isChild && (
                         <>
                             <Heading size={'small'}>{t('paymentsFromNav')}</Heading>
-                            <VStack gap="4" marginBlock="0 8">
+                            <VStack gap="space-16" marginBlock="space-0 space-32">
                                 <VStack>
                                     <RHFGeneralQuestionRadio
                                         name={'disabilityBenefits'}

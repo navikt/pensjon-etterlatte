@@ -127,19 +127,19 @@ export default function AboutParents({ next, prev }: StepProps) {
         <FormProvider {...methods}>
             {editing === EditParent.NONE && (
                 <>
-                    <VStack marginBlock="12 8" align="center">
+                    <VStack marginBlock="space-48 space-32" align="center">
                         <Heading size={'medium'}>{t('aboutParentsTitle')}</Heading>
                     </VStack>
-                    <Box marginBlock="0 8">
+                    <Box marginBlock="space-0 space-32">
                         <GuidePanel>
                             <BodyShort>{guidePanelText()}</BodyShort>
                         </GuidePanel>
                     </Box>
 
-                    <Box marginBlock="0 8">
-                        <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
+                    <Box marginBlock="space-0 space-32">
+                        <HGrid gap="space-16" columns={{ sm: 1, md: 2 }}>
                             {isEmpty(state.firstParent) ? (
-                                <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
                                     <Box
                                         borderRadius="4 4 0 0"
                                         height="128px"
@@ -154,15 +154,15 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             <img alt="forelder" src={ikon} />
                                         </HStack>
                                     </Box>
-                                    <Box paddingBlock="8">
-                                        <HStack marginBlock="0 4" justify="center">
+                                    <Box paddingBlock="space-32">
+                                        <HStack marginBlock="space-0 space-16" justify="center">
                                             <strong>
                                                 {bothParentsDeceased ? t('firstParent') : t('survivingParent')}
                                             </strong>
                                         </HStack>
                                     </Box>
-                                    <Box paddingBlock="8">
-                                        <HStack paddingInline="2" marginBlock="0 4" justify="center">
+                                    <Box paddingBlock="space-32">
+                                        <HStack paddingInline="space-8" marginBlock="space-0 space-16" justify="center">
                                             {childAndOneParentDeceased || guardianAndOneParentDeceased ? (
                                                 <BodyShort>{t('childAndOneParentDeceased')}</BodyShort>
                                             ) : (
@@ -193,7 +193,7 @@ export default function AboutParents({ next, prev }: StepProps) {
                             )}
 
                             {isEmpty(state.secondParent) ? (
-                                <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
                                     <Box
                                         borderRadius="4 4 0 0"
                                         height="128px"
@@ -208,15 +208,15 @@ export default function AboutParents({ next, prev }: StepProps) {
                                             <img alt="forelder" src={ikon} />
                                         </HStack>
                                     </Box>
-                                    <Box padding="8">
-                                        <HStack marginBlock="0 4" justify="center">
+                                    <Box padding="space-32">
+                                        <HStack marginBlock="space-0 space-16" justify="center">
                                             <strong>
                                                 {bothParentsDeceased ? t('secondParent') : t('deceasedParent')}
                                             </strong>
                                         </HStack>
                                     </Box>
-                                    <Box padding="8">
-                                        <HStack gap="4" marginBlock="0 4" justify="center">
+                                    <Box padding="space-32">
+                                        <HStack gap="space-16" marginBlock="space-0 space-16" justify="center">
                                             <Button
                                                 title={
                                                     bothParentsDeceased ? t('secondParent') : t('addDeceasedParentBtn')
@@ -267,10 +267,9 @@ export default function AboutParents({ next, prev }: StepProps) {
                     />
                 </>
             )}
-
             {editing === EditParent.FIRST && (
-                <Box marginBlock="8">
-                    <Box padding="4" borderWidth="1" borderRadius="small">
+                <Box marginBlock="space-32">
+                    <Box padding="space-16" borderWidth="1" borderRadius="2">
                         {bothParentsDeceased ? (
                             <DeceasedParent
                                 type={ActionTypes.UPDATE_FIRST_PARENT}
@@ -289,10 +288,9 @@ export default function AboutParents({ next, prev }: StepProps) {
                     </Box>
                 </Box>
             )}
-
             {editing === EditParent.SECOND && (
-                <Box marginBlock="8">
-                    <Box padding="4" borderWidth="1" borderRadius="small">
+                <Box marginBlock="space-32">
+                    <Box padding="space-16" borderWidth="1" borderRadius="2">
                         <DeceasedParent
                             type={ActionTypes.UPDATE_SECOND_PARENT}
                             prev={stopEditing}
@@ -302,7 +300,6 @@ export default function AboutParents({ next, prev }: StepProps) {
                     </Box>
                 </Box>
             )}
-
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('unknownParent')}>
                 <Modal.Header>
                     <Heading size={'small'}>{t('unknownParent')}</Heading>

@@ -51,9 +51,9 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
 
     return (
         <>
-            <Box marginBlock="0 8">
-                <VStack marginBlock="0 4" align="center">
-                    <HStack gap="4">
+            <Box marginBlock="space-0 space-32">
+                <VStack marginBlock="space-0 space-16" align="center">
+                    <HStack gap="space-16">
                         {!!left && (
                             <Button
                                 type={'button'}
@@ -83,14 +83,13 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
                     </HStack>
                 </VStack>
                 {!hideCancel && (
-                    <VStack marginBlock="0 4" align="center">
+                    <VStack marginBlock="space-0 space-16" align="center">
                         <Button id={'avbryt-btn'} variant={'tertiary'} type={'button'} onClick={() => setIsOpen(true)}>
                             {t('cancelButton', { ns: 'btn' })}
                         </Button>
                     </VStack>
                 )}
             </Box>
-
             <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('cancelApplicationTitle')}>
                 <Modal.Header>
                     <Heading size={'medium'}>{t('cancelApplicationTitle')}</Heading>
@@ -102,7 +101,7 @@ export default function Navigation({ right, left, hideCancel, loading }: Navigat
 
                 <Modal.Footer>
                     <VStack align="center" width="100%">
-                        <HStack gap="4" wrap={false}>
+                        <HStack gap="space-16" wrap={false}>
                             <Button
                                 id={'avbryt-nei-btn'}
                                 variant={'secondary'}

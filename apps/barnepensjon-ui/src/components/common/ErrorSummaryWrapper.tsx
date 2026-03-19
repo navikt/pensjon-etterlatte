@@ -35,7 +35,7 @@ export default function ErrorSummaryWrapper({ errors }: { errors: FieldErrors })
     return (
         <>
             {!!Object.keys(errors).length && (
-                <Box marginBlock="0 8" key={uuid()}>
+                <Box marginBlock="space-0 space-32" key={uuid()}>
                     <ErrorSummary heading={t('fixTheseErrorsToContinue')}>
                         {convert(errors, t).map((feil) => (
                             <ErrorSummary.Item key={feil.elementId} href={`#${feil.elementId}`}>

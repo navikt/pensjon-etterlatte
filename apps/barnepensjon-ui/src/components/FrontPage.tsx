@@ -60,7 +60,7 @@ export default function FrontPage() {
 
     return (
         <FormProvider {...methods}>
-            <VStack gap="8">
+            <VStack gap="space-32">
                 <GuidePanel poster>{t('ingress')}</GuidePanel>
 
                 <LanguageSelect />
@@ -74,7 +74,7 @@ export default function FrontPage() {
                         <Trans value={t('childMayBeApplicableForPension')} />
                     </BodyLong>
 
-                    <Box marginInline="4 0">
+                    <Box marginBlock="space-16">
                         <List as={'ul'}>
                             <List.Item>{t('childMayBeApplicableForPension_li1')}</List.Item>
                             <List.Item>{t('childMayBeApplicableForPension_li2')}</List.Item>
@@ -99,7 +99,7 @@ export default function FrontPage() {
                             <Label spacing>{t('parentApplicantInformationLabel')}</Label>
                             <BodyLong>{t('parentApplicantInformation')}</BodyLong>
                         </Box>
-                        <Box marginInline="4">
+                        <Box marginInline="space-16">
                             <Trans value={t('fnrOrBirthdateRequired')} />
                         </Box>
                         <Box>

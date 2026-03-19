@@ -17,7 +17,7 @@ export default function PageNotFound() {
 
     return (
         <div>
-            <VStack gap="8">
+            <VStack gap="space-32">
                 <VStack>
                     <Heading size={'medium'} spacing>
                         {t('title')}

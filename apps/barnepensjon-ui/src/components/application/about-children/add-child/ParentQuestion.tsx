@@ -46,7 +46,7 @@ export default function ParentQuestion({ parents }: Props) {
     }
 
     return (
-        <VStack marginBlock="4" gap="4">
+        <VStack marginBlock="space-16" gap="space-16">
             <RHFRadio
                 legend={t('whoAreTheParents')}
                 description={isParent && t('whoAreTheParentsHelpText')}
@@ -71,9 +71,8 @@ export default function ParentQuestion({ parents }: Props) {
                     },
                 ]}
             />
-
             {!!parents && ParentRelationType.FIRST_PARENT === parents && (
-                <Box padding="4" borderWidth="1" borderRadius="small">
+                <Box padding="space-16" borderWidth="1" borderRadius="2">
                     <Alert inline={true} variant={'info'}>
                         {(isParent ||
                             ApplicantSituation.ONE_PARENT_DECEASED === application.applicant?.applicantSituation) && (
@@ -85,9 +84,8 @@ export default function ParentQuestion({ parents }: Props) {
                     </Alert>
                 </Box>
             )}
-
             {!!parents && ParentRelationType.SECOND_PARENT === parents && (
-                <Box padding="4" borderWidth="1" borderRadius="small">
+                <Box padding="space-16" borderWidth="1" borderRadius="2">
                     <Alert inline={true} variant={'info'}>
                         {isParent ? (
                             <BodyLong>{t('onlyParentOrGuardianCanApplyOnLivingParent')}</BodyLong>

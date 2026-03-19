@@ -5,7 +5,7 @@ export const InvalidApplicant = () => {
     const { t } = useTranslation('invalidApplicant')
 
     return (
-        <Box paddingBlock="0 8">
+        <Box paddingBlock="space-0 space-32">
             <GuidePanel>
                 <Heading size={'small'} spacing>
                     {t('applicantIsTooYoung')}

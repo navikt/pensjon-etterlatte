@@ -23,7 +23,7 @@ interface TextGroupProps {
 
 export const TextGroup = ({ id, title, content }: TextGroupProps) => {
     return (
-        <Box paddingBlock="0 2">
+        <Box paddingBlock="space-0 space-8">
             <Label>{title}</Label>
             <BodyShort id={id}>{stringify(content)}</BodyShort>
         </Box>

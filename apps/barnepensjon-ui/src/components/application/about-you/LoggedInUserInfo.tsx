@@ -1,4 +1,4 @@
-import { ExternalLink } from '@navikt/ds-icons'
+import { ExternalLinkIcon } from '@navikt/aksel-icons'
 import { Alert, BodyShort, HelpText, HGrid, Label, Link, VStack } from '@navikt/ds-react'
 import { User } from '../../../context/user/user'
 import useTranslation from '../../../hooks/useTranslation'
@@ -14,11 +14,12 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
     const { t } = useTranslation('common')
 
     return (
-        <VStack marginBlock="4 8" gap="4">
+        <VStack marginBlock="space-16 space-32" gap="space-16">
             <Alert variant={'info'}>
                 <Trans value={t('incorrectInfoMustBeCorrected', { ns: 'loggedInUserInfo' })} />
                 <Link href={t('incorrectInfoMustBeCorrectedHref', { ns: 'loggedInUserInfo' })} target={'_blank'}>
-                    {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })} <ExternalLink aria-hidden />
+                    {t('incorrectInfoMustBeCorrectedHrefText', { ns: 'loggedInUserInfo' })}{' '}
+                    <ExternalLinkIcon aria-hidden />
                 </Link>
             </Alert>
             <HGrid gap={GridGap} columns={GridColumns} align={'start'}>
@@ -42,7 +43,7 @@ export default function LoggedInUserInfo({ user }: LoggedInUserInfoProps) {
                         <BodyShort spacing>{user.foedselsnummer}</BodyShort>
                     </div>
                     {user.telefonnummer && (
-                        <HGrid gap="1">
+                        <HGrid gap="space-4">
                             <Label as={'span'}>
                                 {t('phoneNumber')}&nbsp;
                                 <HelpText placement={'top'}>{t('phoneNumberHelpText')}</HelpText>
