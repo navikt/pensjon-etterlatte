@@ -74,7 +74,7 @@ export default function FrontPage() {
                         <Trans value={t('childMayBeApplicableForPension')} />
                     </BodyLong>
 
-                    <Box marginInline="space-16 space-0">
+                    <Box marginBlock="space-16">
                         <List as={'ul'}>
                             <List.Item>{t('childMayBeApplicableForPension_li1')}</List.Item>
                             <List.Item>{t('childMayBeApplicableForPension_li2')}</List.Item>

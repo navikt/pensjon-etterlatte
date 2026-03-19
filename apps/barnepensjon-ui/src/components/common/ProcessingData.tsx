@@ -23,7 +23,7 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                         <VStack>
                             <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
 
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>
                                         {t(
@@ -39,7 +39,7 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                             <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
                             <BodyLong>{t(isParent ? 'infoWeRetrieve_parent' : 'infoWeRetrieve_guardian')}</BodyLong>
 
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('infoWeRetrieve_li1')}</List.Item>
                                     <List.Item>{t('infoWeRetrieve_li2')}</List.Item>
@@ -51,7 +51,7 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                             <BodyLong>
                                 {t(isParent ? 'survivingParentInfo_parent' : 'survivingParentInfo_guardian')}
                             </BodyLong>
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('survivingParentInfo_li1')}</List.Item>
                                     <List.Item>{t('survivingParentInfo_li2')}</List.Item>
@@ -81,7 +81,7 @@ export function ProcessingDataParentAndGuardian({ t, isParent }: { t: TFunction;
                             </VStack>
                             <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('automaticProcessingContent_li1')}</List.Item>
                                     <List.Item>{t('automaticProcessingContent_li2')}</List.Item>
@@ -121,7 +121,7 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                         <VStack>
                             <Heading size={'small'}>{t('collectAndProcessTitle')}</Heading>
 
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('collectAndProcess_li1_child')}</List.Item>
                                     <List.Item>{t('collectAndProcess_li2_child')}</List.Item>
@@ -133,7 +133,7 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                             <Heading size={'small'}>{t('weWillRetrieveInfo')}</Heading>
                             <BodyLong>{t('infoWeRetrieve_child')}</BodyLong>
 
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('infoWeRetrieve_li1')}</List.Item>
                                     <List.Item>{t('infoWeRetrieve_li2')}</List.Item>
@@ -143,7 +143,7 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                             </Box>
 
                             <BodyLong>{t('survivingParentInfo_child')}</BodyLong>
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('survivingParentInfo_li1')}</List.Item>
                                     <List.Item>{t('survivingParentInfo_li2')}</List.Item>
@@ -172,7 +172,7 @@ export function ProcessingDataChild({ t }: { t: TFunction }) {
                             </VStack>
                             <BodyLong>{t('automaticProcessingContent4')}</BodyLong>
 
-                            <Box marginInline="space-16 space-0">
+                            <Box marginBlock="space-16">
                                 <List as={'ul'}>
                                     <List.Item>{t('automaticProcessingContent_li1')}</List.Item>
                                     <List.Item>{t('automaticProcessingContent_li2')}</List.Item>
