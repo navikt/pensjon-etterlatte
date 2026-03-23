@@ -6,8 +6,8 @@ export const ApplicationTitle = () => {
     const { t } = useTranslation('app')
 
     return (
-        <VStack as="header" role="banner" align="center" padding="4" marginBlock="8 4">
-            <HStack gap="4" align="center">
+        <VStack as="header" role="banner" align="center" padding="space-16" marginBlock="space-32 space-16">
+            <HStack gap="space-16" align="center">
                 <Hide below="md">
                     <img src={ikon} alt="En hånd som holder en spirende blomst ved siden av et barn" aria-hidden />
                 </Hide>

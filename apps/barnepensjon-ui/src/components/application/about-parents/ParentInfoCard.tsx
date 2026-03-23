@@ -1,4 +1,4 @@
-import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { PencilIcon, TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, ErrorMessage, Heading, HStack, VStack } from '@navikt/ds-react'
 import { memo } from 'react'
 import { IParent } from '~context/application/application'
@@ -20,14 +20,14 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
     return (
         <Box
             id={firstParent ? 'deceasedParentOne' : 'deceasedParentTwo'}
-            background="bg-subtle"
-            marginBlock="0 4"
+            background="neutral-soft"
+            marginBlock="space-0 space-16"
             borderRadius="0 0 4 4"
             style={
                 !isValidated
                     ? {
-                          border: '1px solid var(--a-red-500)',
-                          boxShadow: '0 0 0 1px var(--a-red-500, var(--a-red-500, var(--a-red-500)))',
+                          border: '1px solid var(--ax-danger-600)',
+                          boxShadow: '0 0 0 1px var(--ax-danger-600, var(--ax-danger-600, var(--ax-danger-600)))',
                       }
                     : {}
             }
@@ -45,14 +45,13 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                     <img alt="forelder" src={ikon} />
                 </HStack>
             </Box>
-
-            <VStack padding="8" align="center">
+            <VStack padding="space-32" align="center">
                 <BodyShort weight="semibold">{t('deceasedParent', { ns: 'aboutParents' })}</BodyShort>
 
                 <Heading size={'small'} spacing>
                     {parent.firstName} {parent.lastName}
                 </Heading>
-                <Box paddingBlock="2">
+                <Box paddingBlock="space-8">
                     {/* TODO: Endre fnr / dnr tekst dynamisk ? */}
                     <BodyShort>{t('fnrDnr')}</BodyShort>
                     <BodyShort spacing>{foedselsnummer ?? '-'}</BodyShort>
@@ -60,13 +59,13 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                     <BodyShort>{t('citizenship')}</BodyShort>
                     <BodyShort spacing>{parent.citizenship ?? '-'}</BodyShort>
                 </Box>
-                <VStack gap="4">
+                <VStack gap="space-16">
                     {!isValidated && <ErrorMessage>{t('missingInformation', { ns: 'aboutParents' })}</ErrorMessage>}
 
-                    <VStack gap="2" align="center">
+                    <VStack gap="space-8" align="center">
                         <Button
                             type="button"
-                            icon={<EditFilled fontSize={18} aria-hidden />}
+                            icon={<PencilIcon fontSize="1.5rem" aria-hidden />}
                             onClick={edit}
                             variant="tertiary"
                         >
@@ -74,7 +73,7 @@ const ParentInfoCard = memo(({ parent, edit, remove, isValidated, firstParent }:
                         </Button>
                         <Button
                             type="button"
-                            icon={<DeleteFilled fontSize={18} aria-hidden />}
+                            icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                             onClick={remove}
                             variant="tertiary"
                         >

@@ -13,13 +13,11 @@ export default function ReceiptPage() {
     }, [])
 
     return (
-        <VStack gap="8" marginBlock="8 0">
+        <VStack gap="space-32" marginBlock="space-32 space-0">
             <Heading size={'large'} spacing align={'center'}>
                 {t('pageTitle')}
             </Heading>
-
             <Alert variant={'success'}>{t('contact')}</Alert>
-
             <Box>
                 <Heading size={'medium'}>{t('viewCaseTitle')}</Heading>
                 <BodyLong>
@@ -32,7 +30,6 @@ export default function ReceiptPage() {
                     <Link href={t('viewCaseInfoLinkHref2')}>{t('viewCaseInfoLinkText2')}</Link>.
                 </BodyLong>
             </Box>
-
             <Alert variant={'info'}>
                 <Heading size={'medium'}>{t('youMustNotifyRegardingChanges')}</Heading>
 
@@ -52,7 +49,6 @@ export default function ReceiptPage() {
                     <Link href={t('moreAboutChangesLinkHref')}>{t('moreAboutChangesLinkText')}</Link>
                 </BodyLong>
             </Alert>
-
             <Box>
                 <Heading size={'medium'}>{t('submissionOfGuardianshipInfo')}</Heading>
 
@@ -61,7 +57,6 @@ export default function ReceiptPage() {
                     <Link href={t('guardianshipMustBeConfirmedHref')}>{t('guardianshipMustBeConfirmedLink')}</Link>
                 </BodyLong>
             </Box>
-
             <Box>
                 <Heading size={'medium'}>{t('taxDeductionTitle')}</Heading>
                 <BodyLong spacing>{t('taxDeductionDescription1')}</BodyLong>

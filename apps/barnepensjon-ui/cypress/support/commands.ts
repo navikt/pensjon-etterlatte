@@ -17,7 +17,7 @@ Cypress.Commands.add('clickBtn', (btn: string, index: number = 0) => {
 })
 
 Cypress.Commands.add('agreeToTerms', (gotoNext: boolean = true) => {
-    cy.get('.navds-confirmation-panel').get('[type="checkbox"]').click()
+    cy.get('.aksel-confirmation-panel').get('[type="checkbox"]').click()
     if (gotoNext) cy.clickBtn(Button.StartApplication)
 })
 
@@ -86,9 +86,9 @@ Cypress.Commands.add('addChild', (gotoNext: boolean = false) => {
     cy.get('#staysAbroadAnswer').find('[value="NEI"]').check({ force: true })
     cy.get('#hasGuardianQuestion').find('[value="NEI"]').check({ force: true })
 
-    cy.get('.navds-confirmation-panel').find('[type="checkbox"]').check()
+    cy.get('.aksel-confirmation-panel').find('[type="checkbox"]').check()
     cy.get('#accountTypeSelection').get('[value="NORSK"]').check({ force: true })
-    cy.get('.navds-form-field:contains("Oppgi norsk kontonummer")').find('input').type('1201.05.0101011')
+    cy.get('.aksel-form-field:contains("Oppgi norsk kontonummer")').find('input').type('1201.05.0101011')
 
     cy.clickBtn(Button.Add)
 

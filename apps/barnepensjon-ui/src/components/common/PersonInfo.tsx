@@ -17,15 +17,14 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
     const { countries }: { countries: Options[] } = useCountries()
 
     return (
-        <VStack gap="8">
+        <VStack gap="space-32">
             <Box maxWidth="22rem">
-                <VStack gap="4">
+                <VStack gap="space-16">
                     <RHFInput name={'firstName'} label={t('firstName')} rules={{ pattern: /^\D+$/ }} />
 
                     <RHFInput name={'lastName'} label={t('lastName')} rules={{ pattern: /^\D+$/ }} />
                 </VStack>
             </Box>
-
             <Box>
                 {!fnrIsUnknown && (
                     <RHFFoedselsnummerInput
@@ -54,13 +53,12 @@ export default function PersonInfo({ duplicateList, fnrIsUnknown }: Props) {
                 />
 
                 {fnrIsUnknown && (
-                    <VStack gap="4">
+                    <VStack gap="space-16">
                         <Alert variant={'info'}>{t('fnrIsUnknownHelpText')}</Alert>
                         <Datepicker name={'dateOfBirth'} label={t('dateOfBirth')} maxDate={new Date()} />
                     </VStack>
                 )}
             </Box>
-
             <Box maxWidth="14rem">
                 <RHFCombobox
                     name={'citizenship'}

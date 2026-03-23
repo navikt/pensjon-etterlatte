@@ -1,4 +1,4 @@
-import { basePath, Button } from '../util/constants'
+import { Button, basePath } from '../util/constants'
 
 describe('About The Deceased - PARENT', () => {
     before(() => {
@@ -69,7 +69,7 @@ describe('About The Deceased - GUARDIAN - BOTH PARENTS', { testIsolation: false 
 
         cy.clickBtn(Button.Save)
 
-        cy.get('.navds-error-summary__item').should('contain', 'Duplikat fødselsnummer / d-nummer')
+        cy.get('.aksel-error-summary__item').should('contain', 'Duplikat fødselsnummer / d-nummer')
         cy.get('#fnrDnr').clear().type('26104500284')
         cy.clickBtn(Button.Save)
 

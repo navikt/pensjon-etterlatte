@@ -16,7 +16,7 @@ export const GuardianDetails = ({ isGuardian, childHasGuardianship }: Props) => 
     return (
         <>
             {!isGuardian && (
-                <VStack gap="8">
+                <VStack gap="space-32">
                     <RHFGeneralQuestionRadio
                         id={'hasGuardianQuestion'}
                         name={'childHasGuardianship.answer'}

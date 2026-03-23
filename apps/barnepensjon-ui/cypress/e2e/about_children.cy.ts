@@ -13,7 +13,7 @@ describe('About Children', { testIsolation: false }, () => {
 
     it('should not be allowed to continue without adding a child', function () {
         cy.clickBtn(Button.Next)
-        cy.get('.navds-error-message').should(
+        cy.get('.aksel-error-message').should(
             'have.text',
             'For å sende inn søknaden må du søke om barnepensjon for minst ett barn.'
         )
@@ -24,19 +24,19 @@ describe('About Children', { testIsolation: false }, () => {
     })
 
     it('should display saved children in the list', function () {
-        cy.get('.navds-heading').should('contain.text', 'Lite Barn')
-        cy.get('.navds-tag').should('have.text', 'Søker om barnepensjon')
+        cy.get('.aksel-heading').should('contain.text', 'Lite Barn')
+        cy.get('.aksel-tag').should('have.text', 'Søker om barnepensjon')
     })
 
     it('should only be able to apply for joint children', function () {
         cy.clickBtn(Button.AddChild)
         cy.get('#fnrDnr').type('09011350027')
         cy.get('[type="radio"]').get('[value="FIRST_PARENT"').check({ force: true })
-        cy.get('.navds-confirmation-panel').should('not.exist')
+        cy.get('.aksel-confirmation-panel').should('not.exist')
         cy.get('[type="radio"]').get('[value="SECOND_PARENT"').check({ force: true })
-        cy.get('.navds-confirmation-panel').should('not.exist')
+        cy.get('.aksel-confirmation-panel').should('not.exist')
         cy.get('[type="radio"]').get('[value="BOTH"').check({ force: true })
-        cy.get('.navds-confirmation-panel').should('exist')
+        cy.get('.aksel-confirmation-panel').should('exist')
         cy.clickBtn(Button.Cancel)
     })
 
@@ -61,7 +61,7 @@ describe('About Children', { testIsolation: false }, () => {
         cy.get('[type="radio"]').first().check({ force: true })
         cy.get('#staysAbroadAnswer').should('not.exist')
         cy.get('#hasGuardianQuestion').find('[value="NEI"]').check({ force: true })
-        cy.get('.navds-confirmation-panel').find('[type="checkbox"]').check()
+        cy.get('.aksel-confirmation-panel').find('[type="checkbox"]').check()
         cy.get('#accountTypeSelection').should('not.exist')
         cy.clickBtn(Button.Add)
 

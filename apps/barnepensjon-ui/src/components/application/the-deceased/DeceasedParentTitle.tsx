@@ -22,7 +22,7 @@ export default function DeceasedParentTitle({ type, situation }: Props) {
     }
 
     return (
-        <VStack marginBlock="12 0" align="center">
+        <VStack marginBlock="space-48 space-0" align="center">
             <Heading size={'medium'}>{title}</Heading>
         </VStack>
     )

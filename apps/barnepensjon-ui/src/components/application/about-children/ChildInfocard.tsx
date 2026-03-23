@@ -1,4 +1,4 @@
-import { DeleteFilled, EditFilled } from '@navikt/ds-icons'
+import { PencilIcon, TrashIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Tag, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import { memo } from 'react'
@@ -19,7 +19,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
 
     const foedselsnummer = child.fnrDnr?.replace(/(\d{6})(.*)/, '$1 $2')
     return (
-        <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+        <Box background="neutral-soft" marginBlock="space-0 space-16" borderRadius="0 0 4 4">
             <Box
                 borderRadius="4 4 0 0"
                 height="128px"
@@ -33,12 +33,11 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     <img alt="barn" src={ikon} />
                 </HStack>
             </Box>
-
-            <VStack padding="8" align="center">
+            <VStack padding="space-32" align="center">
                 <Heading size={'small'}>
                     {child.firstName} {child.lastName}
                 </Heading>
-                <Box marginBlock="2">
+                <Box marginBlock="space-8">
                     {foedselsnummer && (
                         <>
                             <BodyShort>{t('infoCard_fnr')}</BodyShort>
@@ -64,19 +63,19 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </BodyShort>
 
                     {!!child.appliesForChildrensPension ? (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Tag variant={'success'}>{t('childAppliedForPension')}</Tag>
                         </Box>
                     ) : (
-                        <Box marginBlock="4">
+                        <Box marginBlock="space-16">
                             <Tag variant={'warning'}>{t('childNotApplyingForPension')}</Tag>
                         </Box>
                     )}
                 </Box>
-                <VStack gap="2">
+                <VStack gap="space-8">
                     <Button
                         type="button"
-                        icon={<EditFilled fontSize={18} aria-hidden />}
+                        icon={<PencilIcon fontSize="1.5rem" aria-hidden />}
                         onClick={setActiveChildIndex}
                         variant="tertiary"
                     >
@@ -84,7 +83,7 @@ const ChildInfoCard = memo(({ child, index, remove, setActiveChildIndex }: Props
                     </Button>
                     <Button
                         type="button"
-                        icon={<DeleteFilled fontSize={18} aria-hidden />}
+                        icon={<TrashIcon fontSize="1.5rem" aria-hidden />}
                         onClick={() => remove(index)}
                         variant="tertiary"
                     >

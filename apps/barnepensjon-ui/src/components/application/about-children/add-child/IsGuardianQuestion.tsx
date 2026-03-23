@@ -15,7 +15,7 @@ export const IsGuardianQuestion = ({ isGuardian, loggedInUserIsGuardian }: Props
         <>
             {isGuardian && (
                 <>
-                    <Box marginBlock="8">
+                    <Box marginBlock="space-32">
                         <RHFGeneralQuestionRadio
                             id={'isGuardianQuestion'}
                             name={'loggedInUserIsGuardian'}

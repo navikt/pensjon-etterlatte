@@ -69,13 +69,11 @@ export default function Summary({ prev }: StepProps) {
     const openModal = () => setIsOpen(true)
 
     return (
-        <VStack gap="8" marginBlock="0 8">
-            <VStack marginBlock="12 0" align="center">
+        <VStack gap="space-32" marginBlock="space-0 space-32">
+            <VStack marginBlock="space-48 space-0" align="center">
                 <Heading size="medium">{t('summaryTitle')}</Heading>
             </VStack>
-
             <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
-
             <Accordion>
                 <SummaryAboutYou
                     aboutYou={application.aboutYou}
@@ -117,19 +115,16 @@ export default function Summary({ prev }: StepProps) {
                     unknownParent={!!application.unknownParent}
                 />
             </Accordion>
-
             {error && (
                 <Alert variant={'error'}>
                     <Trans value={error} />
                 </Alert>
             )}
-
             <Navigation
                 right={{ onClick: openModal, label: t('sendApplicationButton') }}
                 left={{ onClick: prev }}
                 loading={loading}
             />
-
             <Modal
                 open={isOpen}
                 onClose={() => {
@@ -149,8 +144,8 @@ export default function Summary({ prev }: StepProps) {
                     )}
                 </Modal.Body>
                 {!loading && (
-                    <VStack marginBlock="0 4" align="center">
-                        <HStack gap="4">
+                    <VStack marginBlock="space-0 space-16" align="center">
+                        <HStack gap="space-16">
                             <Button
                                 id={'avbryt-ja-btn'}
                                 variant={'secondary'}

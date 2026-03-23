@@ -98,7 +98,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
             <FormProvider {...methods}>
                 {activeChildIndex === undefined && (
                     <>
-                        <VStack gap="8" marginBlock="12 0">
+                        <VStack gap="space-32" marginBlock="space-48 space-0">
                             <VStack align="center">
                                 <Heading size={'medium'}>
                                     {!isChild ? t('aboutChildrenTitle') : t('aboutSiblingsTitle')}
@@ -110,7 +110,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
                             </GuidePanel>
 
                             <Box>
-                                <HGrid gap="4" columns={{ sm: 1, md: 2 }}>
+                                <HGrid gap="space-16" columns={{ sm: 1, md: 2 }}>
                                     {fields?.map((field: FieldArrayWithId, index: number) => (
                                         <ChildInfocard
                                             key={uuid()}
@@ -121,7 +121,11 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                         />
                                     ))}
 
-                                    <Box background="bg-subtle" marginBlock="0 4" borderRadius="0 0 4 4">
+                                    <Box
+                                        background="neutral-soft"
+                                        marginBlock="space-0 space-16"
+                                        borderRadius="0 0 4 4"
+                                    >
                                         <Box
                                             borderRadius="4 4 0 0"
                                             height="128px"
@@ -136,8 +140,8 @@ export default function AboutChildren({ next, prev }: StepProps) {
                                                 <img alt="barn" src={ikon} />
                                             </HStack>
                                         </Box>
-                                        <Box padding="8">
-                                            <HStack marginBlock="0 4" justify="center">
+                                        <Box padding="space-32">
+                                            <HStack marginBlock="space-0 space-16" justify="center">
                                                 <Button variant={'primary'} type={'button'} onClick={addNewChild}>
                                                     {!isChild ? t('addChildButton') : t('addSiblingButton')}
                                                 </Button>
@@ -172,7 +176,7 @@ export default function AboutChildren({ next, prev }: StepProps) {
 
                 {activeChildIndex !== undefined && (
                     <>
-                        <Box marginInline="4">
+                        <Box marginInline="space-16">
                             <GuidePanel>
                                 <BodyShort>{isGuardian ? t('informationGuardian') : t('information')}</BodyShort>
                             </GuidePanel>

@@ -27,7 +27,7 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                 ns: 'summary',
             })}
         >
-            <Box marginBlock="4">
+            <Box marginBlock="space-16">
                 <PersonInfoSummary
                     firstName={aboutTheParent.firstName}
                     lastName={aboutTheParent.lastName}

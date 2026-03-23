@@ -7,14 +7,14 @@ describe('Front Page', { testIsolation: false }, () => {
     })
 
     it('should require user to agree with the terms in order to continue', function () {
-        cy.get('.navds-confirmation-panel').get('[type="checkbox"]').should('not.be.checked')
+        cy.get('.aksel-confirmation-panel').get('[type="checkbox"]').should('not.be.checked')
         cy.clickBtn(Button.StartApplication)
-        cy.get('.navds-error-summary')
+        cy.get('.aksel-error-summary')
     })
 
     it('should not be able to continue before selecting applicant role', function () {
         cy.clickBtn(Button.StartApplication)
-        cy.get('.navds-error-summary')
+        cy.get('.aksel-error-summary')
     })
 
     it('should route correctly when selecting the parent role', function () {
@@ -26,7 +26,7 @@ describe('Front Page', { testIsolation: false }, () => {
     it('should require you to select situation when selecting the guardian role', function () {
         cy.useScenario('GUARDIAN')
         cy.agreeToTerms()
-        cy.get('.navds-error-summary')
+        cy.get('.aksel-error-summary')
     })
 
     it('should route correctly when guardian checks one parent deceased', function () {
