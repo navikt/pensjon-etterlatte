@@ -11,6 +11,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.content.TextContent
 import libs.common.util.unsafeRetry
 import no.nav.etterlatte.common.mapJsonToAny
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadType
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.getCorrelationId
@@ -25,11 +26,6 @@ class PersonKlient(
 ) {
     private val logger = LoggerFactory.getLogger(PersonKlient::class.java)
 
-    companion object {
-        private const val TEMA = "PEN"
-        private const val BEHANDLINGSNUMMER = "behandlingsnummer"
-    }
-
     suspend fun hentPerson(fnr: Foedselsnummer): PersonResponse {
         val query =
             javaClass
@@ -43,9 +39,9 @@ class PersonKlient(
             unsafeRetry {
                 httpClient
                     .post {
-                        header("Tema", TEMA)
+                        header("Tema", "PEN")
+                        header("behandlingsnummer", SoeknadType.OMSTILLINGSSTOENAD.behandlingsnummer.verdi)
                         header(X_CORRELATION_ID, getCorrelationId())
-                        header(BEHANDLINGSNUMMER, "EYO")
                         accept(ContentType.Application.Json)
                         setBody(TextContent(request, ContentType.Application.Json))
                     }.body<ObjectNode>()
