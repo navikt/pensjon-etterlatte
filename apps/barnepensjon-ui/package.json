@@ -9,7 +9,7 @@
         "@navikt/aksel-icons": "^8.7.0",
         "@navikt/ds-react": "^8.7.0",
         "@navikt/fnrvalidator": "^2.2.1",
-        "@navikt/nav-dekoratoren-moduler": "^3.6.2",
+        "@navikt/nav-dekoratoren-moduler": "^3.6.3",
         "@vitejs/plugin-react-swc": "^4.2.3",
         "@vitest/coverage-v8": "^4.0.18",
         "axios": "1.13.5",
@@ -49,7 +49,7 @@
         "cypress": "^15.10.0",
         "globals": "^17.3.0",
         "husky": "~9.1.7",
-        "jsdom": "^28.1.0"
+        "jsdom": "^29.0.1"
     },
     "scripts": {
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
