@@ -24,7 +24,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "sanity": "^5.11.0",
-    "styled-components": "^6.3.11",
+    "styled-components": "^6.3.12",
     "tsx": "^4.21.0"
   },
   "devDependencies": {
