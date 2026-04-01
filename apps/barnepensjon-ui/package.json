@@ -11,7 +11,7 @@
         "@navikt/fnrvalidator": "^2.2.1",
         "@navikt/nav-dekoratoren-moduler": "^3.6.2",
         "@vitejs/plugin-react-swc": "^4.2.3",
-        "@vitest/coverage-v8": "^4.0.18",
+        "@vitest/coverage-v8": "^4.1.1",
         "axios": "1.13.5",
         "axios-retry": "^4.5.0",
         "bowser": "^2.14.1",
@@ -29,7 +29,7 @@
         "vite": "^7.3.0",
         "vite-plugin-svgr": "^4.5.0",
         "vite-tsconfig-paths": "^6.1.1",
-        "vitest": "^4.0.18",
+        "vitest": "^4.1.1",
         "web-vitals": "^5.1.0"
     },
     "devDependencies": {
@@ -46,7 +46,7 @@
         "@types/react-router-dom": "^5.3.3",
         "@types/uuid": "^11.0.0",
         "concurrently": "^9.2.1",
-        "cypress": "^15.10.0",
+        "cypress": "^15.13.0",
         "globals": "^17.3.0",
         "husky": "~9.1.7",
         "jsdom": "^28.1.0"
