@@ -6,7 +6,7 @@
     "private": true,
     "main": "server.js",
     "dependencies": {
-        "@navikt/nav-dekoratoren-moduler": "3.6.2",
+        "@navikt/nav-dekoratoren-moduler": "3.7.1",
         "@navikt/oasis": "^4.1.4",
         "@sanity/client": "^7.15.0",
         "cls-rtracer": "^2.6.0",
@@ -14,7 +14,7 @@
         "dotenv": "^17.2.3",
         "express": "^5.2.1",
         "html-react-parser": "^5.2.12",
-        "jsdom": ">=28.x",
+        "jsdom": ">=29.x",
         "jsonwebtoken": "9.0.3",
         "node-cache": "5.1.2",
         "node-fetch": "^3.3.2",
