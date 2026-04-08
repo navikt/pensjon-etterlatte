@@ -3,10 +3,10 @@ license = { id = 'com.github.jk1.dependency-license-report', version = '3.1.1' }
 
 [versions]
 token-version = "5.0.34"
-ktor-version = "3.4.0"
+ktor-version = "3.4.1"
 jupiter-version = "6.0.3"
 testcontainers-version = "1.21.4"
-flyway-version = "12.0.3"
+flyway-version = "12.1.1"
 rapidsandrivers-version = "2026021921161771532161.7a37f8c9e0cc" # OBS! tbdlibs brukes av denne. De bør stemme overens
 tbdlibs-version = "2026.02.19-20.58-521cdd3c" # OBS! rapidsandrivers bruker denne. De bør stemme overens
 
@@ -45,12 +45,12 @@ logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.32" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "9.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.16.3" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.16.4" }
 
 mockk = { module = "io.mockk:mockk", version = "1.14.9" }
 
 test-navfelles-rapidsandriversktor = { module = "com.github.navikt.tbd-libs:rapids-and-rivers-test", version.ref = "tbdlibs-version" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.1.4" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version = "6.1.9" }
 
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-version" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-version" }
