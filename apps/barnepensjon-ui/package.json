@@ -5,9 +5,9 @@
     "homepage": "/barnepensjon/soknad",
     "type": "module",
     "dependencies": {
-        "@navikt/ds-css": "^8.8.0",
-        "@navikt/aksel-icons": "^8.8.0",
-        "@navikt/ds-react": "^8.8.0",
+        "@navikt/ds-css": "^8.9.0",
+        "@navikt/aksel-icons": "^8.9.0",
+        "@navikt/ds-react": "^8.9.0",
         "@navikt/fnrvalidator": "^2.2.1",
         "@navikt/nav-dekoratoren-moduler": "^3.7.1",
         "@vitejs/plugin-react-swc": "^4.3.0",
