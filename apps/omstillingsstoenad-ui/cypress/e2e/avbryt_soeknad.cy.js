@@ -33,7 +33,10 @@ describe('Skal avbryte en soeknad', () => {
         cy.url().should('include', 'steg/om-den-avdoede')
     })
 
-    xit('Avbryt og fortsett senere', () => {
+    it('Avbryt og fortsett senere', () => {
+        cy.intercept('https://www.nav.no/omstillingsstonad', {
+            statusCode: 200,
+        })
         getById('avbryt-btn').click()
 
         getById('avbryt-ja-btn').click()
@@ -43,6 +46,9 @@ describe('Skal avbryte en soeknad', () => {
     it('Avbryt og slett søknad', () => {
         Cypress.on('uncaught:exception', () => {
             return false
+        })
+        cy.intercept('https://www.nav.no/omstillingsstonad', {
+            statusCode: 200,
         })
         startSoeknad()
 
