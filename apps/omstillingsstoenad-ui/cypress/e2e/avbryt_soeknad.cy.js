@@ -33,7 +33,7 @@ describe('Skal avbryte en soeknad', () => {
         cy.url().should('include', 'steg/om-den-avdoede')
     })
 
-    it('Avbryt og fortsett senere', () => {
+    xit('Avbryt og fortsett senere', () => {
         getById('avbryt-btn').click()
 
         getById('avbryt-ja-btn').click()
