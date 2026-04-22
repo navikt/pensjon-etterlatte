@@ -1,6 +1,5 @@
 import { Heading, VStack } from '@navikt/ds-react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { type FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { useApplicationContext } from '~context/application/ApplicationContext'
 import { IDeceasedParent, ILivingParent, IParent } from '~context/application/application'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'

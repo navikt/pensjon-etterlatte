@@ -1,5 +1,5 @@
 import { Box, ErrorSummary } from '@navikt/ds-react'
-import { FieldError, FieldErrors } from 'react-hook-form/dist/types/errors'
+import type { FieldError, FieldErrors } from 'react-hook-form'
 import { v4 as uuid } from 'uuid'
 import useTranslation, { TFunction } from '../../hooks/useTranslation'
 import { getErrorKey } from '../../utils/errors'

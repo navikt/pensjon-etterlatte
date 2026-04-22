@@ -1,14 +1,13 @@
-import { ChangeEvent } from 'react'
-import { Controller, FieldError, useFormContext } from 'react-hook-form'
-import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { get } from 'lodash'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
+import { TextField, TextFieldProps } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
-import { kontonrMatcher, partialKontonrMatcher, telefonnrMatcher } from '../../../utils/matchers'
+import { isValidBIC, isValidIBAN } from 'ibantools'
+import { get } from 'lodash'
+import { ChangeEvent } from 'react'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import useTranslation from '../../../hooks/useTranslation'
 import { getErrorKey } from '../../../utils/errors'
-import { isValidBIC, isValidIBAN } from 'ibantools'
-import { TextField, TextFieldProps } from '@navikt/ds-react'
+import { kontonrMatcher, partialKontonrMatcher, telefonnrMatcher } from '../../../utils/matchers'
 
 interface RHFProps extends Omit<TextFieldProps, 'name'> {
     name: FieldPath<FieldValues>
