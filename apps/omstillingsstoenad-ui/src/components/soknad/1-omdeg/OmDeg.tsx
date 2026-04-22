@@ -1,6 +1,5 @@
 import { Box, Heading, RadioProps } from '@navikt/ds-react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { type FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
 import { ISoeker } from '~typer/person'

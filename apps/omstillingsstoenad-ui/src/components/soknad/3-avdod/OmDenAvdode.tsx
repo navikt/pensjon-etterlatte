@@ -1,6 +1,5 @@
 import { Alert, Box, Heading, ReadMore, VStack } from '@navikt/ds-react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { type FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { RHFCheckboks } from '~components/felles/rhf/RHFCheckboksPanelGruppe'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'

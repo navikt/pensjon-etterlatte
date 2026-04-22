@@ -3,9 +3,8 @@ import { fnr } from '@navikt/fnrvalidator'
 import { isValidBIC, isValidIBAN } from 'ibantools'
 import { get } from 'lodash'
 import React, { ChangeEvent, ReactNode } from 'react'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
 import { Controller, FieldError, useFormContext } from 'react-hook-form'
-import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { useTranslation } from 'react-i18next'
 import {
     kontonrMatcher,
