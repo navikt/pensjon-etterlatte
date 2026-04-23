@@ -1,20 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "strict": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "outDir": "build",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.test.ts"
-  ]
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "noImplicitAny": true,
+        "outDir": "build",
+        "rootDir": "./src",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "**/*.test.ts"]
 }
