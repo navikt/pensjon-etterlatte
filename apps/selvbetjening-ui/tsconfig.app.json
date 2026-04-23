@@ -5,7 +5,7 @@
         "lib": ["ES2020", "DOM", "DOM.Iterable"],
         "module": "ESNext",
         "skipLibCheck": true,
-        "types": ["cypress", "@testing-library/cypress", "cypress-axe"],
+        "types": ["cypress", "@testing-library/cypress", "cypress-axe", "./global.d.ts"],
         "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
         "isolatedModules": true,
