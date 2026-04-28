@@ -1,0 +1,276 @@
+[
+    {
+        "_createdAt": "2025-01-14T06:59:52Z",
+        "_id": "e0a3ad90-c62a-442c-84f7-c7fd272b1705",
+        "_rev": "Psh6g8C3y8BOvoxmwf5J4Q",
+        "_system": {
+            "base": {
+                "id": "e0a3ad90-c62a-442c-84f7-c7fd272b1705",
+                "rev": "eyXZ58p7YJYlr4DcQT2zjw"
+            }
+        },
+        "_type": "meldInnEndringInnledning",
+        "_updatedAt": "2026-04-28T10:25:44Z",
+        "dokumentTittel": "v1",
+        "hovedinnhold": {
+            "NB": [
+                {
+                    "_key": "116dd1dfe1c0",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "1933f57487f8",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Her kan du melde fra om endring"
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "h3"
+                },
+                {
+                    "_key": "daa58a3c7930",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "ec22a1cec632",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Hei! I dette skjemaet kan du melde fra om endringer som kan påvirke omstillingsstønaden din."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "764de188242c",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "cdb4cadb3363",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "For at vi skal kunne beregne riktig utbetaling, trenger vi informasjon om endringer i livet ditt. Når vi mottar korrekt informasjon, reduserer vi risikoen for at du får for mye utbetalt og må tilbakebetale senere."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "47cb1ecd4913",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "0f1a72e12a13",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Vi forstår at noen spørsmål kan være utfordrende å svare på når det gjelder fremtidige situasjoner. Svar så godt du kan basert på den situasjonen du er i nå, og meld fra igjen dersom det skjer endringer senere."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "57cd9847d169",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "1ef82984e5ce",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Du kan trygt åpne andre vinduer eller faner mens du fyller ut skjemaet. Husk at skjemaet ikke lagres automatisk, så sørg for å sende det inn før du lukker fanen."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ]
+        },
+        "startUtfyllingKnapp": {
+            "EN": "Start filling in the form",
+            "NB": "Start utfyllingen",
+            "NN": "Start utfyllinga"
+        },
+        "tittel": {
+            "EN": "Report changes",
+            "NB": "Her kan du melde fra om endring",
+            "NN": "Her kan du melde frå om endring"
+        },
+        "veiledning": {
+            "EN": [
+                {
+                    "_key": "ceac35e1f860",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "a73c8ab9bce6",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Hello! Use this form to report changes that may affect your adjustment allowance."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "577b3ffe4da6",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "607ac3dd92a5",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "In order for us to calculate the correct payout, we need information about changes in your life. Receiving the correct information reduces the risk of being overpaid and having to repay Nav later."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "aba6f33b9572",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "4ff8c6711d39",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "We understand that some questions may be difficult to answer when it comes to future situations. Please respond as best you can based on your current situation, and report back if there are any changes later."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "801996df2454",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "a4ae1c0bb82e",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "You can safely open other browser windows or tabs along the way. Just remember that the form is not automatically saved, so do not close the tab until you have submitted it."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "NB": [
+                {
+                    "_key": "5b1a430b4dfb",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "e644adf30c9b",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Hei! I dette skjemaet kan du melde fra om endringer som kan påvirke omstillingsstønaden din."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "19c8a302255b",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "7302a929507b",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "For at vi skal kunne beregne riktig utbetaling, trenger vi informasjon om endringer i livet ditt. Når vi mottar korrekt informasjon, reduserer vi risikoen for at du får for mye utbetalt og må tilbakebetale senere."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "1a273a30a826",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "7f525f0e4016",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Vi forstår at noen spørsmål kan være utfordrende å svare på når det gjelder fremtidige situasjoner. Svar så godt du kan basert på den situasjonen du er i nå, og meld fra igjen dersom det skjer endringer senere."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "54f15ffe9bfc",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "fe28121e7b81",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Du kan trygt åpne andre vinduer eller faner mens du fyller ut skjemaet. Husk at skjemaet ikke lagres automatisk, så sørg for å sende det inn før du lukker fanen."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "NN": [
+                {
+                    "_key": "d49535a482d5",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "46b383898401",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Hei! I dette skjemaet kan du melde frå om endringar som kan påverke omstillingsstønaden din."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "27171bc2183f",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "cd3dda9858fe",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "For at vi skal kunne rekne ut utbetalinga du har rett på, treng vi informasjon om endringar i livet ditt. Når vi får korrekt informasjon, vil det vere mindre risiko for at du må betale tilbake fordi du ved ein feil har fått utbetalt for mykje."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "427d19ed5fb2",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "fff212ec8998",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Vi skjønar at enkelte spørsmål om framtidige situasjonar kan vere vanskelege å svare på. Berre svar så godt du kan ut frå korleis situasjonen din er per i dag, og meld frå dersom det skjer endringar seinare."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "22a4c1fbae87",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "381e2e7d2145",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Du kan trygt opne andre vindauge eller faner undervegs. Men hugs: Skjemaet blir ikkje lagra automatisk, så ikkje lukk fana før du har sendt det inn."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ]
+        }
+    }
+]

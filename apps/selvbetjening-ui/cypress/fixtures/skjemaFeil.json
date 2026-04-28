@@ -1,0 +1,15 @@
+[
+    {
+        "_createdAt": "2025-01-24T09:20:50Z",
+        "_id": "82ea2d55-c134-4a3f-ab51-cc0d713ad0e2",
+        "_rev": "YzE7DGtamivW0gaJb31csS",
+        "_type": "sammendragAvSkjemaFeil",
+        "_updatedAt": "2025-02-06T10:37:52Z",
+        "dokumentTittel": "v1",
+        "tittel": {
+            "EN": "You must correct these errors before you can continue",
+            "NB": "Du må rette disse feilene før du kan fortsette",
+            "NN": "Du må rette opp i desse feila før du kan gå vidare"
+        }
+    }
+]
