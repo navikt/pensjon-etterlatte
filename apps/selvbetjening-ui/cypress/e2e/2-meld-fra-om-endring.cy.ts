@@ -8,9 +8,6 @@ describe('2 - Meld fra om endring', () => {
     })
 
     it('Skal vise feilmelding hvis vi ikke fyller ut noe og prøver å gå videre', () => {
-        // cy.findAllByRole('radio').first().click()
-        // cy.findByRole('textbox').type("Endringen jeg ønsker å melde fra er på grunn av en aktivitet")
-
         cy.findByRole('button', { name: 'Neste steg' }).click()
 
         cy.findByText('Du må rette disse feilene før du kan fortsette').should('exist')
