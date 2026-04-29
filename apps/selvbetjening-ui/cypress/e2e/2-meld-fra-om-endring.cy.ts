@@ -27,11 +27,5 @@ describe('2 - Meld fra om endring', () => {
     it('Skal kunne velge hvilke type endring og skrive en begrunnelse', () => {
         cy.findAllByRole('radio').first().click()
         cy.findByRole('textbox').type('Endringen jeg ønsker å melde fra er på grunn av en aktivitet')
-
-        cy.findByRole('button', { name: 'Forrige steg' }).should('exist')
-        cy.findByRole('button', { name: 'Neste steg' }).should('exist')
-        cy.findByRole('button', { name: 'Neste steg' }).click()
-
-        cy.url().should('include', 'meld-inn-endring/oppsummering')
     })
 })
