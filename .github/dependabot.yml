@@ -11,7 +11,7 @@ updates:
       day: "sunday"
     cooldown:
       default-days: 7
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 20
     groups:
       backend:
         patterns:
@@ -27,7 +27,6 @@ updates:
           - "org.postgres*"
           - "org.slf4j*"
           - "org.testcontainers*"
-
 
   # =====================
   # FRONTEND BARNEPENSJON OG OMSTILLINGSSTØNAD
@@ -45,7 +44,7 @@ updates:
       day: "sunday"
     cooldown:
       default-days: 7
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 20
     groups:
       ds:
         patterns:
@@ -115,7 +114,6 @@ updates:
           - "styled-components"
           - "@types/styled-components"
 
-
   # ==============
   # GITHUB ACTIONS
   # ==============
@@ -127,7 +125,6 @@ updates:
       day: "sunday"
     cooldown:
       default-days: 7
-
 
   # ===========
   # DOCKERFILES
