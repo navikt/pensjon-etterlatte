@@ -30,7 +30,7 @@
         "react-router-dom": "^7.13.0",
         "swr": "^2.3.0",
         "vite-tsconfig-paths": "^6.1.1",
-        "vitest": "^4.0.18"
+        "vitest": "^4.1.5"
     },
     "devDependencies": {
         "@biomejs/biome": "2.4.8",
@@ -38,7 +38,7 @@
         "@testing-library/cypress": "^10.1.0",
         "@types/react-dom": "^19.2.3",
         "@vitejs/plugin-react": "^4.3.3",
-        "axe-core": "^4.11.1",
+        "axe-core": "^4.11.3",
         "cypress-axe": "^1.7.0",
         "concurrently": "^9.2.1",
         "globals": "^17.5.0",
