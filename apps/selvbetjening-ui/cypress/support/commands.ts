@@ -58,9 +58,9 @@ Cypress.Commands.add('lastInnledning', () => {
     cy.intercept('GET', `${apiUrl}/api/person/innlogget/forenklet`, {
         statusCode: 200,
         body: {
-            fornavn: 'SNERK',
-            etternavn: 'STORESEN',
-            foedselsnummer: '11057523044',
+            fornavn: 'STORARTET',
+            etternavn: 'SOL',
+            foedselsnummer: '05430657803',
             foedselsaar: 1963,
             foedselsdato: new Date(1963, 4, 11),
         },
