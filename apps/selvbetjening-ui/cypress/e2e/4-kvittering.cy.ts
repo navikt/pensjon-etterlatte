@@ -1,6 +1,6 @@
 describe('4 - Kvittering etter inntekt er sendt inn', () => {
     before(() => {
-        cy.lastInntektsjusteringKvittering()
+        cy.lastKvittering()
     })
 
     it('Kvittering skal ikke ha noen UU feil', () => {

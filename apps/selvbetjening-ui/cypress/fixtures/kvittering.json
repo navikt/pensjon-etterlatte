@@ -1,0 +1,94 @@
+[
+    {
+        "_createdAt": "2025-01-17T12:12:59Z",
+        "_id": "e5e3f377-0ea2-4162-af64-7ddae6c626c0",
+        "_rev": "7tj2V380xq9AK06yloFUPT",
+        "_type": "meldInnEndringKvittering",
+        "_updatedAt": "2025-05-22T12:25:47Z",
+        "dokumentTittel": "v1",
+        "ettersendDokumentasjonKnapp": {
+            "lenke": {
+                "EN": "https://www.nav.no/fyllut-ettersending/en/lospost?tema=EYO",
+                "NB": "https://www.nav.no/fyllut-ettersending/lospost?tema=EYO",
+                "NN": "https://www.nav.no/fyllut-ettersending/nn/lospost?tema=EYO"
+            },
+            "tekst": {
+                "EN": "Submit documentation",
+                "NB": "Ettersend dokumentasjon",
+                "NN": "Ettersend dokumentasjon"
+            }
+        },
+        "gaaTilNAVKnapp": {
+            "lenke": {
+                "EN": "https://www.nav.no/en",
+                "NB": "https://www.nav.no",
+                "NN": "https://www.nav.no"
+            },
+            "tekst": {
+                "EN": "Go to nav.no",
+                "NB": "Gå til nav.no",
+                "NN": "Gå til nav.no"
+            }
+        },
+        "suksess": {
+            "EN": [
+                {
+                    "_key": "76db96c4bc19",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "77b32873584d",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "NAV will now process and review your case. We will contact you if we need more information or documentation from you. Remember to report any new changes if your situation changes again."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "NB": [
+                {
+                    "_key": "335ccaa5cfdc",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "453a5fec0c93",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Saken din er nå til behandling hos Nav. Vi vil ta kontakt med deg hvis vi trenger mer informasjon eller dokumentasjon. Husk å melde fra hvis situasjonen endrer seg på nytt."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "NN": [
+                {
+                    "_key": "e52dd9109748",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "fb164d87e313",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Saka di er no til behandling hos NAV. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon. Hugs å melde frå dersom situasjonen din skulle endre seg på nytt."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ]
+        },
+        "svarPaEtteroppgjoerSuksess": {
+            "EN": "The information has been submitted to Nav. Remember to submit any additional documentation necessary for efficient review of your final annual settlement.",
+            "NB": "Opplysningene er nå sendt til Nav. Husk å ettersende nødvendig dokumentasjon for at etteroppgjøret kan bli vurdert på nytt raskest mulig.",
+            "NN": "Opplysningane er no sende inn til Nav. Hugs å ettersende nødvendig dokumentasjon slik at etteroppgjeret kan bli vurdert raskast råd. "
+        },
+        "tittel": {
+            "EN": "Thanks! You have finished reporting",
+            "NB": "Takk! Du har fullført innmeldingen",
+            "NN": "Takk! Du har fullført innmeldinga"
+        }
+    }
+]

@@ -1,0 +1,383 @@
+[
+    {
+        "_createdAt": "2025-06-16T12:27:23Z",
+        "_id": "0a21e302-244a-43f3-9279-d5e00a5e9458",
+        "_rev": "qStcMQ6l3Hs50yBIz7N2zS",
+        "_type": "behandlingAvInformasjonAccordion",
+        "_updatedAt": "2025-06-16T12:31:22Z",
+        "dokumentTittel": "v1",
+        "hvordanViBehandlerPersonopplysningerItem": {
+            "hvordanNavBehandlerPersonopplysningerSetning": {
+                "lenkeTilNav": {
+                    "lenke": {
+                        "EN": "https://www.nav.no/personvern/en",
+                        "NB": "https://www.nav.no/personvern",
+                        "NN": "https://www.nav.no/personvern"
+                    },
+                    "tekst": {
+                        "EN": "Nav's Privacy Statement (will open in a new tab).",
+                        "NB": "Arbeids- og velferdsetatens personvernerklæring (åpnes i ny fane).",
+                        "NN": "Arbeids- og velferdsetatens personvernerklæring (blir opna i ny fane)."
+                    }
+                },
+                "setningStart": {
+                    "EN": "You can read more about how Nav processes personal data in",
+                    "NB": "Du kan lese mer om hvordan Nav behandler personopplysninger i ",
+                    "NN": "Du kan lese meir om korleis Nav behandlar personopplysningar i"
+                }
+            },
+            "innhold": {
+                "EN": [
+                    {
+                        "_key": "e9c77f284790",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "adf7e0eb25f5",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "We share information with the Norwegian Tax Administration and Statistics Norway about the amount of adjustment allowance you receive."
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ],
+                "NB": [
+                    {
+                        "_key": "2c8931ae66f8",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "c3a371a7e97b",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Vi deler opplysninger om hva du får utbetalt i omstillingsstønad med Skatteetaten og Statistisk sentralbyrå."
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ],
+                "NN": [
+                    {
+                        "_key": "301225e3f06d",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "0480eed18582",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Vi deler opplysningar om kva du får utbetalt i omstillingsstønad, med Skatteetaten og Statistisk sentralbyrå."
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ]
+            },
+            "tittel": {
+                "EN": "How Nav processes personal data",
+                "NB": "Hvordan vi behandler personopplysninger",
+                "NN": "Korleis vi behandlar personopplysningar"
+            }
+        },
+        "informasjonViHenterItem": {
+            "innhold": {
+                "EN": [
+                    {
+                        "_key": "878c923c8fdb",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "0dac6e32b815",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "In addition to the information you stated in the notification, we way collect information such as:"
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "c02dbef473c0",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "afd3d516dc6f",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Personal information about you from the National Population Register."
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "bc0ac840e8c1",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "8dc189ae668a",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Income information from the Norwegian Tax Administration"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "c3257191c8e8",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "ad1907e9e2dc",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Information about employment from employers and the national register of employees"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "c2fa82f7056a",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "a6b0aed8a9fc",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Information about you in our archives"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "b2d18c17804e",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "b183f3234a99",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "We do this to make sure that the information is correct and to process the information correctly. "
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ],
+                "NB": [
+                    {
+                        "_key": "6eb8e22c8a53",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "b36abe7b912a",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "I tillegg til den informasjonen du oppgir i meldingen, henter vi blant annet:"
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "3510ef04dde1",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "e27edbc8771a",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Personinformasjon om deg fra Folkeregisteret"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "51b755fd276c",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "749125afd369",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Inntektsinformasjon fra Skatteetaten"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "d5d3de03b8b5",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "0d8213817b94",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Opplysninger om arbeidsforhold fra Arbeidsgiver- og arbeidstakerregisteret"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "a597ff589944",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "cb3330b8776c",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Opplysninger om deg vi har fra før"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "9f98fe65ecaa",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "986ae4c0cd27",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Dette gjør vi får å være sikre på at opplysningene er korrekte og kan sikre rett behandling."
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ],
+                "NN": [
+                    {
+                        "_key": "03a057f61bcd",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "f5b8887d0144",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "I tillegg til informasjonen du oppgir i meldinga, hentar vi blant anna:"
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "d18352fc39ae",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "bd712456a3d3",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Personinformasjon om deg frå Folkeregisteret"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "38d3bdc61fde",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "4f00726f20b6",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Inntektsinformasjon frå Skatteetaten"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "adbd0d297b1c",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "80e9e64ff13f",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Opplysningar frå Arbeidsgivar- og arbeidstakarregisteret"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "e0058344dea8",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "a68c9fe81702",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Opplysningar vi allereie har lagra om deg"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "90bc4d21f689",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "329d16b87d6c",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Dette gjer vi for å vere sikre på at opplysningane stemmer, slik at behandlinga blir rett."
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ]
+            },
+            "tittel": {
+                "EN": "The information we collect about you",
+                "NB": "Informasjon vi henter om deg",
+                "NN": "Informasjon vi hentar inn om deg"
+            }
+        }
+    }
+]

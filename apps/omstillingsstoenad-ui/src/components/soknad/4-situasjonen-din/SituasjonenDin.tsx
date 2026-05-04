@@ -1,7 +1,6 @@
 import { Alert, BodyShort, Box, GuidePanel, Heading, List, VStack } from '@navikt/ds-react'
 import React from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { type FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { RHFCombobox } from '~components/felles/rhf/RHFCombobox'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'

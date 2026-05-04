@@ -1,10 +1,9 @@
-import React from 'react'
-import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { ComboboxProps, UNSAFE_Combobox } from '@navikt/ds-react'
-import { useTranslation } from 'react-i18next'
-import { Controller, FieldError, useFormContext } from 'react-hook-form'
 import { get } from 'lodash'
+import React from 'react'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form/'
+import { useTranslation } from 'react-i18next'
 import { getTransKey } from '~utils/translation'
 
 interface RHFProps extends Omit<ComboboxProps, 'name'> {

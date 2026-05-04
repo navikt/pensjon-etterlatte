@@ -1,0 +1,25 @@
+[
+    {
+        "_createdAt": "2025-01-15T14:34:42Z",
+        "_id": "057db909-2ecf-407f-86d7-141742fe5136",
+        "_rev": "U2M0wS4iLlKh6xkRPc08ZX",
+        "_type": "navigasjonMeny",
+        "_updatedAt": "2025-02-03T11:39:42Z",
+        "dokumentTittel": "v1",
+        "forrigeStegKnapp": {
+            "EN": "Previous step",
+            "NB": "Forrige steg",
+            "NN": "Førre steg"
+        },
+        "nesteStegKnapp": {
+            "EN": "Next step",
+            "NB": "Neste steg",
+            "NN": "Neste steg"
+        },
+        "sendTilNavKnapp": {
+            "EN": "Send to Nav",
+            "NB": "Send til Nav",
+            "NN": "Send til Nav"
+        }
+    }
+]

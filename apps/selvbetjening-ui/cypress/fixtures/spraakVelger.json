@@ -1,0 +1,15 @@
+[
+    {
+        "_createdAt": "2025-01-13T14:46:33Z",
+        "_id": "8fdd2c14-41c7-4070-b11b-9691655cbfa5",
+        "_rev": "TWryEU74aunIsETY7q5hln",
+        "_type": "spraakVelger",
+        "_updatedAt": "2025-01-13T14:47:54Z",
+        "dokumentTittel": "v1",
+        "label": {
+            "EN": "Choose language",
+            "NB": "Velg språk",
+            "NN": "Vel språk"
+        }
+    }
+]

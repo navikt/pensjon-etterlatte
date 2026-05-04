@@ -1,6 +1,5 @@
-import { Box, Heading, HGrid, ReadMore, VStack } from '@navikt/ds-react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { FieldErrors } from 'react-hook-form/dist/types/errors'
+import { Box, Heading, ReadMore, VStack } from '@navikt/ds-react'
+import { type FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { JaNeiVetIkke } from '~api/dto/FellesOpplysninger'
 import { RHFCombobox } from '~components/common/rhf/RHFCombobox'
 import { useApplicationContext } from '~context/application/ApplicationContext'

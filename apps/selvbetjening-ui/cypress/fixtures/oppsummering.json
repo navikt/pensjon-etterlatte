@@ -1,0 +1,456 @@
+[
+    {
+        "_createdAt": "2025-01-17T07:30:48Z",
+        "_id": "d51c3ab8-3e44-438c-977c-26189cb3da3f",
+        "_rev": "fiY6BsV4DTs0wf2d8EnMfu",
+        "_system": {
+            "base": {
+                "id": "d51c3ab8-3e44-438c-977c-26189cb3da3f",
+                "rev": "fiY6BsV4DTs0wf2d8En3hc"
+            }
+        },
+        "_type": "meldInnEndringOppsummering",
+        "_updatedAt": "2025-10-31T13:48:26Z",
+        "dokumentTittel": "v1",
+        "feilIOppretelseAvEndring": {
+            "innhold": {
+                "EN": [
+                    {
+                        "_key": "b337a4e64df2",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "6d8bd4f33814",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "You cannot submit your form at this time. The error is in our systems and is not necessarily due to anything you have done. "
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "4a4b6bbab7e4",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "77053290b7dc",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "You can try to:"
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "da2e33c78aaf",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "85e7db75723e",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "wait a few minutes and reload the page"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "fe105c1ba932",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "d59bdea11cdf",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "return to the previous page"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "2860e0739e12",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "24dd9c84b225",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "check the fields to make sure the required information is filled in"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ],
+                "NB": [
+                    {
+                        "_key": "07360dda4643",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "3a48528a9a7e",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Det går for øyeblikket ikke å sende inn skjemaet. Feilen er i våre systemer og skyldes nødvendig ikke noe du har gjort. "
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "8d412fe89b4a",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "b647b7b5d7f7",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Du kan prøve å:"
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "529b6a9718f6",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "c9d46705a03d",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "vente noen minutter og laste siden på nytt"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "f3c3a951ea0d",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "df8cfdfc597c",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "gå tilbake til forrige side"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "9df86add1e6c",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "593904df43fc",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "se over felter at nødvendig informasjon er fylt inn"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ],
+                "NN": [
+                    {
+                        "_key": "761e16c63ea0",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "c1e366e7e8cf",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Det er ikkje mogleg å sende inn skjemaet akkurat no. Feilen ligg hos systema våre, og skuldast ikkje nødvendigvis noko du har gjort. "
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "100b908480d8",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "7a92c6e6f035",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "Du kan prøve å:"
+                            }
+                        ],
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "85bfc81b5c14",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "3f1921f7d42d",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "laste inn sida på nytt etter nokre minutt"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "76a2b2b942d3",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "b3e695cc1611",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "gå tilbake til førre side"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    },
+                    {
+                        "_key": "68614526cc05",
+                        "_type": "block",
+                        "children": [
+                            {
+                                "_key": "759d47ffcbe8",
+                                "_type": "span",
+                                "marks": [],
+                                "text": "sjå over at du har fylt ut alle obligatoriske felt"
+                            }
+                        ],
+                        "level": 1,
+                        "listItem": "bullet",
+                        "markDefs": [],
+                        "style": "normal"
+                    }
+                ]
+            },
+            "tittel": {
+                "EN": "Sorry, something went wrong",
+                "NB": "Beklager, noe gikk galt",
+                "NN": "Vi beklagar, men noko gjekk gale"
+            }
+        },
+        "skjemaSammendrag": {
+            "AFPInntekt": {
+                "label": {
+                    "NB": "Dette har du oppgitt som AFP"
+                }
+            },
+            "AFPTjenesteordning": {
+                "label": {
+                    "NB": "Hvilken tjenestepensjonsordning du får AFP fra"
+                }
+            },
+            "arbeidsinntekt": {
+                "label": {
+                    "NB": "Dette har du oppgitt som arbeidsinntekter og andre utbetalinger"
+                }
+            },
+            "beskrivelseAvEndring": {
+                "label": {
+                    "EN": "Your description of the change",
+                    "NB": "Din beskrivelse av endringen",
+                    "NN": "Beskriving av endringa"
+                }
+            },
+            "datoForAaGaaAvMedAlderspensjon": {
+                "label": {
+                    "NB": "Når planlegger du å gå av med alderspensjon? "
+                }
+            },
+            "endreSvarLenke": {
+                "tekst": {
+                    "EN": "Change answer",
+                    "NB": "Endre svar",
+                    "NN": "Endre svar"
+                }
+            },
+            "endring": {
+                "label": {
+                    "EN": "To what does the change apply?",
+                    "NB": "Hva gjelder endringen?",
+                    "NN": "Kva gjeld endringa?"
+                },
+                "value": {
+                    "aktivitetOgInntekt": {
+                        "EN": "Activity and income",
+                        "NB": "Aktivitet og inntekt",
+                        "NN": "Aktivitet og inntekt"
+                    },
+                    "annet": {
+                        "EN": "Other",
+                        "NB": "Annet",
+                        "NN": "Anna"
+                    },
+                    "forventetInntektTilNesteAar": {
+                        "NB": "Forventet inntekt til neste år"
+                    },
+                    "inntekt": {
+                        "EN": "Only income",
+                        "NB": "Inntekt",
+                        "NN": "Berre inntekt"
+                    },
+                    "svarPaaEtteroppgjoer": {
+                        "EN": "Respond to final annual settlement",
+                        "NB": "Svar på etteroppgjør",
+                        "NN": "Svar på etteroppgjer"
+                    }
+                }
+            },
+            "inntektFraUtland": {
+                "label": {
+                    "NB": "Dette har du oppgitt som inntekter fra utland"
+                }
+            },
+            "naeringsinntekt": {
+                "label": {
+                    "NB": "Dette har du oppgitt som næringsinntekt"
+                }
+            },
+            "skalGaaAvMedAlderspensjon": {
+                "label": {
+                    "femtiSyvTilSekstiSeksAar": {
+                        "NB": "Skal du gå av med alderspensjon til neste år? ",
+                        "NN": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
+                    },
+                    "sekstiSyvAar": {
+                        "NB": "Skal du gå av med alderspensjon til neste år før du fyller 67 år?"
+                    }
+                },
+                "value": {
+                    "ja": {
+                        "NB": "Ja"
+                    },
+                    "nei": {
+                        "NB": "Nei"
+                    },
+                    "vetIkke": {
+                        "NB": "Vet ikke"
+                    }
+                }
+            },
+            "tittel": {
+                "EN": "Notify Nav about changes",
+                "NB": "Meld fra om endring",
+                "NN": "Meld frå om endring"
+            }
+        },
+        "veiledning": {
+            "EN": [
+                {
+                    "_key": "654cf8f32a0f",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "af7387b423e8",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Now you can check that everything looks correct. If there is anything you would like to change, you can do it now."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "8f40688e96ea",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "99bb868c0caf",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Once you have submitted the form, you will be taken to a receipt page with information about what to do next."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "NB": [
+                {
+                    "_key": "823b578af55c",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "141005957e67",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Du kan nå se over at alt ser riktig ut. Hvis det er noe du ønsker å endre, kan du gjøre det nå."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "d95664b6af7a",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "1e4bc624c005",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Når du har sendt inn skjemaet kommer du til en kvitteringsside med informasjon om veien videre."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ],
+            "NN": [
+                {
+                    "_key": "4e2db08614ca",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "8c6cd4da26c7",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Du kan no sjå over at alt stemmer. Dersom det er noko du ønskjer å endre, kan du gjere det no."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                },
+                {
+                    "_key": "f423285699ba",
+                    "_type": "block",
+                    "children": [
+                        {
+                            "_key": "652131b306dd",
+                            "_type": "span",
+                            "marks": [],
+                            "text": "Når du har sendt inn skjemaet, kjem det opp ei kvitteringsside med informasjon om kva som skjer vidare."
+                        }
+                    ],
+                    "markDefs": [],
+                    "style": "normal"
+                }
+            ]
+        }
+    }
+]

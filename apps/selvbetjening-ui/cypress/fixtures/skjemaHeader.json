@@ -1,0 +1,61 @@
+[
+    {
+        "_createdAt": "2025-01-13T14:58:41Z",
+        "_id": "3b075d7a-6fd6-4ac5-a661-0ecdeb767f48",
+        "_rev": "vfMsAfWKg2Fb4BjCkz7nPe",
+        "_type": "skjemaHeader",
+        "_updatedAt": "2025-02-06T10:38:20Z",
+        "dokumentTittel": "meld-inn-endring",
+        "skjemaProgresjon": {
+            "skjulAlleSteg": {
+                "EN": "Hide all steps",
+                "NB": "Skjul alle steg",
+                "NN": "Skjul alle stega"
+            },
+            "stegLabels": {
+                "steg1": {
+                    "EN": "Introduction",
+                    "NB": "Innledning",
+                    "NN": "Innleiing"
+                },
+                "steg2": {
+                    "EN": "Notify Nav about changes",
+                    "NB": "Meld fra om endring",
+                    "NN": "Meld frå om endring"
+                },
+                "steg3": {
+                    "EN": "Summary",
+                    "NB": "Oppsummering",
+                    "NN": "Oppsummering"
+                },
+                "steg4": {
+                    "EN": "Receipt",
+                    "NB": "Kvittering",
+                    "NN": "Kvittering"
+                }
+            },
+            "stegXAvX": {
+                "av": {
+                    "EN": "of",
+                    "NB": "av",
+                    "NN": "av"
+                },
+                "steg": {
+                    "EN": "Step",
+                    "NB": "Steg",
+                    "NN": "Steg"
+                }
+            },
+            "visAlleSteg": {
+                "EN": "Show all steps",
+                "NB": "Vis alle steg",
+                "NN": "Vis alle stega"
+            }
+        },
+        "skjemaTittel": {
+            "EN": "Notify Nav about changes",
+            "NB": "Meld fra om endring",
+            "NN": "Meld frå om endring"
+        }
+    }
+]

@@ -1,11 +1,10 @@
-import React, { ReactNode } from 'react'
-import { IValg } from '../../../typer/Spoersmaal'
-import { Controller, FieldError, useFormContext } from 'react-hook-form'
-import { FieldPath, FieldValues } from 'react-hook-form/dist/types'
-import { get } from 'lodash'
-import { useTranslation } from 'react-i18next'
-import { RegisterOptions } from 'react-hook-form/dist/types/validator'
 import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@navikt/ds-react'
+import { get } from 'lodash'
+import React, { ReactNode } from 'react'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { IValg } from '../../../typer/Spoersmaal'
 import { getTransKey } from '../../../utils/translation'
 
 export const RHFSpoersmaalRadio = ({
