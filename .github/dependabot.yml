@@ -87,8 +87,6 @@ updates:
           - "i18next"
           - "ibantools"
           - "web-vitals"
-          - "@types/amplitude-js"
-          - "amplitude-js"
           - "vite"
           - "sanity"
           - "@sanity/*"
