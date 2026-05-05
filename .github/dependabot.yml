@@ -28,7 +28,6 @@ updates:
           - "org.slf4j*"
           - "org.testcontainers*"
 
-
   # =====================
   # FRONTEND BARNEPENSJON OG OMSTILLINGSSTØNAD
   # =====================
@@ -91,7 +90,6 @@ updates:
           - "@types/amplitude-js"
           - "amplitude-js"
           - "vite"
-          - "vite-tsconfig-paths"
           - "sanity"
           - "@sanity/*"
       node-server:
@@ -115,7 +113,6 @@ updates:
           - "styled-components"
           - "@types/styled-components"
 
-
   # ==============
   # GITHUB ACTIONS
   # ==============
@@ -127,7 +124,6 @@ updates:
       day: "sunday"
     cooldown:
       default-days: 7
-
 
   # ===========
   # DOCKERFILES
