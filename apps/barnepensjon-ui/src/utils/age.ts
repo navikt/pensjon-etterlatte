@@ -1,5 +1,5 @@
-import { default as navFaker } from 'nav-faker'
 import { differenceInYears } from 'date-fns'
+import { fødselsnummerTilDato } from './fnr'
 
 const LEGAL_AGE = 18
 
@@ -12,11 +12,11 @@ export const getAgeFromDate = (date: Date | string): number => {
 // Støtter også D-nummer.
 export const getAgeFromFoedselsnummer = (foedselsnummer: string): number => {
     try {
-        const birthDate = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
+        const birthDate = fødselsnummerTilDato(foedselsnummer)
 
         return getAgeFromDate(birthDate)
     } catch {
-        // navFaker støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
+        // funksjonen støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
         return -1
     }
 }
