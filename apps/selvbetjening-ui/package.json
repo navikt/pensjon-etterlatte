@@ -17,7 +17,7 @@
         "@navikt/aksel-icons": "^8.10.4",
         "@navikt/ds-css": "^8.10.4",
         "@navikt/ds-react": "^8.10.4",
-        "@navikt/nav-dekoratoren-moduler": "^3.7.1",
+        "@navikt/nav-dekoratoren-moduler": "^4.0.0",
         "@portabletext/react": "^4.0.3",
         "@vitejs/plugin-react": "^5.2.0",
         "@types/cypress": "^1.1.3",
