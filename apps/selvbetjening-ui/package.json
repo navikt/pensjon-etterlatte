@@ -14,9 +14,9 @@
         "cy:open": "TZ=Europe/Oslo cypress open"
     },
     "dependencies": {
-        "@navikt/aksel-icons": "^8.10.1",
-        "@navikt/ds-css": "^8.10.1",
-        "@navikt/ds-react": "^8.10.1",
+        "@navikt/aksel-icons": "^8.10.4",
+        "@navikt/ds-css": "^8.10.4",
+        "@navikt/ds-react": "^8.10.4",
         "@navikt/nav-dekoratoren-moduler": "^3.7.1",
         "@portabletext/react": "^4.0.3",
         "@vitejs/plugin-react": "^5.2.0",
