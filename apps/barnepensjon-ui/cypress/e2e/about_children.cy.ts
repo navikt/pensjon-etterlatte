@@ -9,6 +9,9 @@ describe('About Children', { testIsolation: false }, () => {
             .useSimpleDeceased(true)
 
         cy.url().should('include', 'skjema/forelder/steg/om-barn')
+
+        // Vent til knappen "Legg til barn" finnes i DOMen før vi går til testene
+        cy.contains(Button.AddChild)
     })
 
     it('should not be allowed to continue without adding a child', function () {
