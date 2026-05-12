@@ -119,7 +119,7 @@ jobs:
           echo "IMAGE_WITH_DIGEST=${IMAGE}@${{ needs.build-and-publish.outputs.digest }}" >> $GITHUB_ENV
       - name: Generate SBOM, attest and sign image
         id: attest-sign
-        uses: nais/attest-sign@518e541b5bd2eaff9ed7cb7fd305ec940b66fdaa # ratchet:nais/attest-sign@v2.0.5
+        uses: nais/attest-sign@2582340c642c3fd834a0f0f0773bf3a70d30a227 # ratchet:nais/attest-sign@v2.0.8
         with:
           image_ref: ${{ env.IMAGE_WITH_DIGEST }}
 
