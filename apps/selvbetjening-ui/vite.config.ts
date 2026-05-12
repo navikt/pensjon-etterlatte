@@ -10,4 +10,7 @@ export default defineConfig({
     build: {
         sourcemap: true,
     },
+    resolve: {
+        tsconfigPaths: true,
+    },
 })

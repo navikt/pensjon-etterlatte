@@ -1,4 +1,4 @@
-import { default as navFaker } from 'nav-faker'
+import { fødselsnummerTilDato } from './fnr'
 
 // 365.25 = antall dager i året + 0.25 for å ta høyde for skuddår
 const millisPrAar = 365.25 * 24 * 60 * 60 * 1000
@@ -14,11 +14,11 @@ export const hentAlder = (foedselsdato: Date | string): number => {
 // Støtter også D-nummer.
 export const hentAlderFraFoedselsnummer = (foedselsnummer: string): number => {
     try {
-        const foedselsDato = navFaker.personIdentifikator.getFødselsdato(foedselsnummer)
+        const foedselsDato = fødselsnummerTilDato(foedselsnummer)
 
         return hentAlder(foedselsDato)
     } catch {
-        // navFaker støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
+        // funksjonen støtter ikke syntetiske fnr og kaster en feil. Returnerer 0 får å omgå problemet...
         return -1
     }
 }

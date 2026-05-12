@@ -19,6 +19,7 @@
         "@navikt/ds-react": "^8.10.1",
         "@navikt/nav-dekoratoren-moduler": "^3.7.1",
         "@portabletext/react": "^4.0.3",
+        "@vitejs/plugin-react": "^5.2.0",
         "@types/cypress": "^1.1.3",
         "bowser": "^2.14.1",
         "cypress": "^15.14.1",
@@ -29,22 +30,20 @@
         "react-hook-form": "^7.71.2",
         "react-router-dom": "^7.13.0",
         "swr": "^2.3.0",
-        "vite-tsconfig-paths": "^6.1.1",
-        "vitest": "^4.0.18"
+        "vite": "^8.0.10"
     },
     "devDependencies": {
         "@biomejs/biome": "2.4.8",
         "@types/react": "^19.2.14",
         "@testing-library/cypress": "^10.1.0",
         "@types/react-dom": "^19.2.3",
-        "@vitejs/plugin-react": "^4.3.3",
         "axe-core": "^4.11.1",
         "cypress-axe": "^1.7.0",
         "concurrently": "^9.2.1",
         "globals": "^17.5.0",
         "husky": "~9.1.7",
         "typescript": "^6.0.2",
-        "vite": "^7.3.2"
+        "vitest": "^4.0.18"
     },
     "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
     "lint-staged": {
