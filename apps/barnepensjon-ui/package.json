@@ -12,12 +12,12 @@
         "@navikt/nav-dekoratoren-moduler": "^3.7.1",
         "@vitejs/plugin-react-swc": "^4.3.0",
         "@vitest/coverage-v8": "^4.1.5",
-        "axios": "1.15.2",
+        "axios": "1.16.0",
         "axios-retry": "^4.5.0",
         "bowser": "^2.14.1",
         "date-fns": "^4.1.0",
         "error-stack-parser": "^2.1.4",
-        "ibantools": "^4.5.1",
+        "ibantools": "^4.5.4",
         "lodash": "^4.18.1",
         "react": "^19.2.4",
         "react-dom": "^19.2.4",
@@ -28,7 +28,7 @@
         "vite": "^8.0.10",
         "vite-plugin-svgr": "^4.5.0",
         "vitest": "^4.1.5",
-        "web-vitals": "^5.1.0"
+        "web-vitals": "^5.2.0"
     },
     "devDependencies": {
         "@testing-library/dom": "^10.4.1",
@@ -38,7 +38,7 @@
         "@testing-library/react-hooks": "^8.0.1",
         "@testing-library/user-event": "^14.6.1",
         "@types/lodash": "^4.17.24",
-        "@types/node": "^25.3.0",
+        "@types/node": "^25.6.0",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "@types/react-router-dom": "^5.3.3",
