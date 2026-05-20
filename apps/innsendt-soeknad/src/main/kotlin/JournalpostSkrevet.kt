@@ -35,7 +35,10 @@ internal class JournalpostSkrevet(
         metadata: MessageMetadata,
         meterRegistry: MeterRegistry,
     ) {
+
         val dokumentInfoId = dokarkivRetur(packet).path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
+
+        logger.info("Mottok melding ${packet["@event_name"].asText()}, soeknadId: ${soeknadIdAsLong(packet)}, dokumentInfoId: $dokumentInfoId")
 
         if (erTestSoeknad(packet)) {
             logger.info("Verifiseringssøknad med id ${soeknadId(packet)} lest med dokumentInfoId $dokumentInfoId")
@@ -44,6 +47,7 @@ internal class JournalpostSkrevet(
         val soeknadSkalTilDoffen = packet["soeknadFordelt"].asBoolean()
 
         if (dokumentInfoId != 0L) {
+            logger.info("Søknad ${soeknadIdAsLong(packet)} skal til Gjenny: $soeknadSkalTilDoffen")
             if (soeknadSkalTilDoffen) {
                 setSoeknadTilDoffenArkivert(packet)
 
