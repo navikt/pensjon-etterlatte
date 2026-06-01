@@ -59,7 +59,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Run e2e tests (Cypress) client
-        uses: cypress-io/github-action@f790eee7a50d9505912f50c2095510be7de06aa7 # ratchet:cypress-io/github-action@v6
+        uses: cypress-io/github-action@dace029018fcdf86e0df89a31bc3cfa5b32570d8 # ratchet:cypress-io/github-action@v6
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
         with:
