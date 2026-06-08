@@ -17,8 +17,6 @@ import io.ktor.server.routing.IgnoreTrailingSlash
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.RoutingContext
 import io.ktor.server.routing.routing
-import io.ktor.util.pipeline.PipelineContext
-import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.internal.selftestApi
 import no.nav.etterlatte.jobs.PubliserMetrikkerJobb
@@ -56,7 +54,6 @@ fun main() {
                 builder = {
                     withKtorModule {
                         apiModule(context) {
-                            healthApi()
                             metricsApi()
                             selftestApi()
                             authenticate {

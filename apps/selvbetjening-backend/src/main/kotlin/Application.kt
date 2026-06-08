@@ -29,7 +29,6 @@ import io.ktor.server.routing.RoutingContext
 import io.ktor.server.routing.routing
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleProperties
 import no.nav.etterlatte.funksjonsbrytere.FeatureToggleService
-import no.nav.etterlatte.internal.healthApi
 import no.nav.etterlatte.internal.metricsApi
 import no.nav.etterlatte.kafka.GcpKafkaConfig
 import no.nav.etterlatte.kafka.KafkaProdusent
@@ -181,7 +180,6 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     }
 
     routing {
-        healthApi()
         authenticate {
             securityMediator.autentiser(this)
             routes()
