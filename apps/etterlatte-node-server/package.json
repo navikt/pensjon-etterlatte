@@ -6,10 +6,10 @@
     "private": true,
     "main": "server.js",
     "dependencies": {
-        "@navikt/nav-dekoratoren-moduler": "3.7.1",
+        "@navikt/nav-dekoratoren-moduler": "4.2.1",
         "@navikt/oasis": "^4.1.4",
         "@sanity/client": "^7.22.0",
-        "cls-rtracer": "^2.6.0",
+        "cls-rtracer": "^2.6.4",
         "csp-header": "^6.3.0",
         "dotenv": "^17.2.3",
         "express": "^5.2.1",
