@@ -393,6 +393,11 @@
   resolved "https://npm.pkg.github.com/download/@navikt/aksel-icons/8.11.0/964e1e0e34af7007f43b4522246daea582e44952#964e1e0e34af7007f43b4522246daea582e44952"
   integrity sha512-enprSpDl7j4yDEAtVtp/BPby2McZKtgXIgarTVDeZ0pmiqnYbXFyCTgzl/ZMg2/EV+hd2DXpLsKzU73PDljpmw==
 
+"@navikt/analytics-types@0.0.9":
+  version "0.0.9"
+  resolved "https://npm.pkg.github.com/download/@navikt/analytics-types/0.0.9/5919241a6dbb782eb101fff3234ce5c36d16e942#5919241a6dbb782eb101fff3234ce5c36d16e942"
+  integrity sha512-bopCvqEogyFcmrJiBxK/Mr25d6yPKF7GR36MGrJqiHCPJYf1rDu6lK4cpooTG4Q//D/1xTkHRom8ZH5BI6dTew==
+
 "@navikt/ds-css@^8.11.0":
   version "8.11.0"
   resolved "https://npm.pkg.github.com/download/@navikt/ds-css/8.11.0/888861af213f1f01d1becab42fe59810b6dba2be#888861af213f1f01d1becab42fe59810b6dba2be"
@@ -415,13 +420,14 @@
   resolved "https://npm.pkg.github.com/download/@navikt/ds-tokens/8.11.1/15883c8c993965a47c8e12dcf588687095a70a4e#15883c8c993965a47c8e12dcf588687095a70a4e"
   integrity sha512-jsPer8drVa+TxqdfHHanZVrsUNjowx+3ZcXQ7/+Nb3q81FTnrXmpvV2VeN7TTzSToWdX5/6oGH9LzrSyiN5UGw==
 
-"@navikt/nav-dekoratoren-moduler@^3.7.1":
-  version "3.7.1"
-  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.7.1/09490a131cedd7779e35d413d20c36bd01ef57a0#09490a131cedd7779e35d413d20c36bd01ef57a0"
-  integrity sha512-MQLxR4uoADCd6i0hFnWHN/XLPevEfxkBK9yEgbtcY0v2gsj69nALH/7DvTKqSxqRovxOHibVa7mZKZEBAMRBvg==
+"@navikt/nav-dekoratoren-moduler@^4.2.1":
+  version "4.2.1"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/4.2.1/085010a71cf51cc25abd0572ba569720e866afe2#085010a71cf51cc25abd0572ba569720e866afe2"
+  integrity sha512-7APU6VFygRbt0uvNbc1Qrh8MZ0v6LwTXaybLwgTUxByr9ErtaUnsxvIK/ojvQi9GtXsqPWdrv/qgLwLvR/8OSQ==
   dependencies:
+    "@navikt/analytics-types" "0.0.9"
     csp-header "6.3.1"
-    js-cookie "3.0.5"
+    js-cookie "3.0.7"
 
 "@oxc-project/types@=0.132.0":
   version "0.132.0"
@@ -1550,10 +1556,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha512-Yljz7ffyPbrLpLngrMtZ7NduUgVvi6wG9RJ9IUcyCd59YQ911PBJphODUcbOVbqYfxe1wuYf/LJ8PauMRwsM/g==
 
-js-cookie@3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
-  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
+js-cookie@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.7.tgz#0a53abfc459c8e89c85d7a38eb6cb68714965b8c"
+  integrity sha512-z/wZZgDrkNV1eA0ULjM/F9/50Ya8fbzgKneSpoPsXSGd0KnpdtHfOZWK+GcwLk+EZbS4F9RBhU+K2RgzuDaItw==
 
 js-tokens@^4.0.0:
   version "4.0.0"
