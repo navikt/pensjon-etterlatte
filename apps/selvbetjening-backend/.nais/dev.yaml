@@ -10,10 +10,10 @@ spec:
   port: 8080
   liveness:
     initialDelay: 5
-    path: /isalive
+    path: /isalive # Endepunkt som følger med R&R. Vi MÅ bruke R&R-endepunktet, ellers så kan appen kjøre i ikke-fungerende tilstand
   readiness:
     initialDelay: 5
-    path: /isready
+    path: /isready # Endepunkt som følger med R&R. Vi MÅ bruke R&R-endepunktet, ellers så kan appen kjøre i ikke-fungerende tilstand
   prometheus:
     enabled: true
     path: /metrics
