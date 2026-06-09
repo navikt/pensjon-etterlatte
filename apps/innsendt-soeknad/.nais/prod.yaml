@@ -9,13 +9,13 @@ spec:
   image: {{image}}
   port: 8080
   liveness:
-    path: internal/isalive
+    path: /isalive # Endepunkt som følger med R&R. Vi MÅ bruke R&R-endepunktet, ellers så kan appen kjøre i ikke-fungerende tilstand
     initialDelay: 60
     timeout: 1
     periodSeconds: 5
     failureThreshold: 10
   readiness:
-    path: internal/isready
+    path: /isready # Endepunkt som følger med R&R. Vi MÅ bruke R&R-endepunktet, ellers så kan appen kjøre i ikke-fungerende tilstand
     initialDelay: 60
     timeout: 1
   prometheus:

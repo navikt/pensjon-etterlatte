@@ -12,10 +12,10 @@ spec:
     - "https://etterlatte-innsendt-soeknad.intern.dev.nav.no" # For å nå f.x. Prometheus-endepunkt ifm testing
   liveness:
     initialDelay: 5
-    path: internal/isalive
+    path: /isalive # Endepunkt som følger med R&R. Vi MÅ bruke R&R-endepunktet, ellers så kan appen kjøre i ikke-fungerende tilstand
   readiness:
     initialDelay: 5
-    path: internal/isready
+    path: /isready # Endepunkt som følger med R&R. Vi MÅ bruke R&R-endepunktet, ellers så kan appen kjøre i ikke-fungerende tilstand
   prometheus:
     enabled: true
     path: internal/metrics
