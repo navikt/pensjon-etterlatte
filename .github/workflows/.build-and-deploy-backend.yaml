@@ -44,13 +44,14 @@ jobs:
           team: etterlatte
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          salsa: false
+          salsa: true
           dockerfile: docker/backend/Dockerfile
           docker_context: apps/${{ github.workflow }}/
           image_suffix: ${{ github.workflow }}
           tag: ${{ env.GITHUB_REF_SLUG }}
       - name: Print docker tag
         run: echo 'Docker-tag er ${{ steps.docker-build-push.outputs.image }} ' >> $GITHUB_STEP_SUMMARY
+
   license-check:
     name: License check
     runs-on: ubuntu-latest
@@ -75,29 +76,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew checkLicense --no-configuration-cache --no-parallel
-  salsa:
-    name: Generate SBOM, attest and sign image
-    runs-on: ubuntu-latest
-    needs: build-and-publish
-    permissions:
-      id-token: write
-    steps:
-      - name: NAIS login
-        uses: nais/login@d6ab5d83f735e9f155eb9d7d29cd20ae46820ea9 # ratchet:nais/login@v0
-        id: login
-        with:
-          team: etterlatte
-      - name: Lag image-referanse med digest
-        run: |
-          IMAGE_WITH_TAG="${{ needs.build-and-publish.outputs.image }}"
-          IMAGE="${IMAGE_WITH_TAG%%:*}"
-          echo "IMAGE_WITH_DIGEST=${IMAGE}@${{ needs.build-and-publish.outputs.digest }}" >> $GITHUB_ENV
-      - name: Generate SBOM, attest and sign image
-        id: attest-sign
-        uses: nais/attest-sign@2548fccb3e472f3f65d1cf0fe6e339c7675d3c55 # ratchet:nais/attest-sign@v2.0.9
-        with:
-          image_ref: ${{ env.IMAGE_WITH_DIGEST }}
-
   deploy-to-dev-gcp:
     name: dev-gcp
     runs-on: ubuntu-latest
@@ -116,7 +94,7 @@ jobs:
   deploy-to-prod-gcp:
     name: prod-gcp
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
-    needs: [build-and-publish, license-check, deploy-to-dev-gcp, salsa]
+    needs: [build-and-publish, license-check, deploy-to-dev-gcp]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6
