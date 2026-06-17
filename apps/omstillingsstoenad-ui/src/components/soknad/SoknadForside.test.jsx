@@ -1,10 +1,9 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import SoknadForside from './SoknadForside'
-import { SoknadProvider } from '../../context/soknad/SoknadContext'
-import { describe, it, vi } from 'vitest'
-import { BrowserRouter } from 'react-router-dom'
-
 import * as chai from 'chai'
+import { BrowserRouter } from 'react-router-dom'
+import { describe, it, vi } from 'vitest'
+import { SoknadProvider } from '../../context/soknad/SoknadContext'
+import SoknadForside from './SoknadForside'
 
 chai.use(require('chai-dom'))
 const expect = chai.expect
@@ -23,24 +22,6 @@ vi.mock('../../context/bruker/BrukerContext', () => ({
             },
         }
     },
-}))
-
-vi.mock('react-router', async () => ({
-    ...(await vi.importActual('react-router')),
-    useLocation: vi.fn().mockImplementation(() => {
-        return {
-            pathname: '/testroute',
-            search: '',
-            hash: '',
-            state: null,
-        }
-    }),
-}))
-
-const mockedUsedNavigate = vi.fn()
-vi.mock('react-router-dom', async () => ({
-    ...(await vi.importActual('react-router-dom')),
-    useNavigate: () => mockedUsedNavigate,
 }))
 
 // Hacker til språk, Kan påvirke andre steder som bruker navigator
