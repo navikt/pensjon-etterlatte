@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@navikt/ds-css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 import { SWRConfig } from 'swr'
 import { fetcher } from './common/api/api.ts'
 import { FantIkkeSiden } from './common/FantIkkeSiden.tsx'

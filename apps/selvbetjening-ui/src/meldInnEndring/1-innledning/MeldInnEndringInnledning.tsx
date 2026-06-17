@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import { Bleed, Button, GuidePanel, Heading, HStack, VStack } from '@navikt/ds-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { BehandlingAvInformasjonAccordion } from '../../common/behandlingAvInformasjonAccordion/BehandlingAvInformasjonAccordion.tsx'
 import { SideLaster } from '../../common/SideLaster.tsx'
 import { SanityRikTekst } from '../../common/sanity/SanityRikTekst.tsx'

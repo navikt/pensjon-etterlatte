@@ -1,6 +1,6 @@
 import { BodyLong, Box, Button, GuidePanel, Heading, Label, List, RadioProps, VStack } from '@navikt/ds-react'
 import { type FieldErrors, FormProvider, useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { useApplicationContext } from '~context/application/ApplicationContext'
 import { ActionTypes, IApplicant } from '~context/application/application'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'

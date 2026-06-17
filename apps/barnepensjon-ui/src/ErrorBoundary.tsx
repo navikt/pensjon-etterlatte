@@ -1,7 +1,7 @@
 import { Alert, HStack, VStack } from '@navikt/ds-react'
 import ErrorStackParser from 'error-stack-parser'
 import React, { ErrorInfo } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { logger } from '~utils/logger'
 
 type Props = {

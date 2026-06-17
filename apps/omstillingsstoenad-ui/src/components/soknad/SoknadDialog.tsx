@@ -1,5 +1,4 @@
-import { Route, Routes } from 'react-router'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router'
 import { SkjemaProgresjon } from '~components/felles/SkjemaProgresjon'
 import { useLanguage } from '../../hooks/useLanguage'
 import { MuligeSteg, StegPath } from '../../typer/steg'

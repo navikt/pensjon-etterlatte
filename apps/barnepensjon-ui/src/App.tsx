@@ -1,6 +1,6 @@
 import { Page } from '@navikt/ds-react'
 import React from 'react'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { Outlet, Route, Routes } from 'react-router'
 import ErrorBoundary from '~ErrorBoundary'
 import Dialogue from './components/application/Dialogue'
 import ReceiptPage from './components/application/ReceiptPage'

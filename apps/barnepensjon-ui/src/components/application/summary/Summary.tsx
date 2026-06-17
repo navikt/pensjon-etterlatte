@@ -1,7 +1,7 @@
 import { Accordion, Alert, BodyLong, BodyShort, Button, Heading, HStack, Loader, Modal, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { sendApplication } from '../../../api/api'
 import { Barnepensjon, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { mapTilBarnepensjonSoeknadListe } from '../../../api/dto/soeknadMapper'

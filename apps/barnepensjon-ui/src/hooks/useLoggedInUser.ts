@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { getLoggedInUser } from '../api/api'
-import { ActionTypes, User } from '../context/user/user'
+import { SoeknadType } from '../api/dto/InnsendtSoeknad'
 import { useUserContext } from '../context/user/UserContext'
+import { ActionTypes, User } from '../context/user/user'
 import { getAgeFromDate, isLegalAge } from '../utils/age'
 import { capitalizeName } from '../utils/capitalize'
-import { SoeknadType } from '../api/dto/InnsendtSoeknad'
 
 export default function useLoggedInUser() {
     const navigate = useNavigate()

@@ -1,7 +1,7 @@
 import { BugIcon } from '@navikt/aksel-icons'
 import { BodyShort, Button, Heading, Link, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import useTranslation from '../../hooks/useTranslation'
 

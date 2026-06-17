@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import reportWebVitals from './reportWebVitals'
 import ContextProviders from './context/ContextProviders'
+import reportWebVitals from './reportWebVitals'
 import '@navikt/ds-css'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router'
 import { setupWindowOnError } from '~utils/logger'
 
 setupWindowOnError()

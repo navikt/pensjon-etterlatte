@@ -6,8 +6,8 @@ const mock = vi.fn(async () => {
 })
 
 const mockedUsedNavigate = vi.fn()
-vi.mock('react-router-dom', () => ({
-    ...vi.importActual('react-router-dom'),
+vi.mock('react-router', () => ({
+    ...vi.importActual('react-router'),
     useNavigate: () => mockedUsedNavigate,
 }))
 

@@ -1,7 +1,7 @@
-import { act } from '@testing-library/react-hooks'
 import { renderHook } from '@testing-library/react'
-import { ActionTypes } from './bruker'
+import { act } from 'react'
 import { BrukerProvider, useBrukerContext } from './BrukerContext'
+import { ActionTypes } from './bruker'
 
 const setup = () => {
     const wrapper = ({ children }) => <BrukerProvider>{children}</BrukerProvider>

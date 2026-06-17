@@ -1,9 +1,9 @@
 import { Button, Heading, Modal } from '@navikt/ds-react'
-import { useApplicationContext } from '../../context/application/ApplicationContext'
-import useTranslation from '../../hooks/useTranslation'
+import { useLocation, useNavigate } from 'react-router'
 import { deleteDraft } from '../../api/api'
+import { useApplicationContext } from '../../context/application/ApplicationContext'
 import { ActionTypes } from '../../context/application/application'
-import { useLocation, useNavigate } from 'react-router-dom'
+import useTranslation from '../../hooks/useTranslation'
 
 export const ContinueApplicationModal = () => {
     const { state, dispatch } = useApplicationContext()

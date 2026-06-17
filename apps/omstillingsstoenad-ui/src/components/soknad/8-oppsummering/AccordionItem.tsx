@@ -2,7 +2,7 @@ import { PencilIcon } from '@navikt/aksel-icons'
 import { Accordion, HStack, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 export const AccordionItem = ({ tittel, children, defaultOpen = false, path, pathText, senderSoeknad }: any) => {

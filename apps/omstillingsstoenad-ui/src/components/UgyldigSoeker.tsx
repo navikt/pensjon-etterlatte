@@ -2,7 +2,7 @@ import { ArrowLeftIcon } from '@navikt/aksel-icons'
 import { BodyLong, Box, Button, GuidePanel, HStack, Link } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { ActionTypes } from '../context/bruker/bruker'
 
