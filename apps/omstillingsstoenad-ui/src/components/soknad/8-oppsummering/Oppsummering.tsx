@@ -1,7 +1,7 @@
 import { Accordion, Alert, BodyLong, Box, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { sendSoeknad } from '../../../api/api'
 import { SoeknadRequest, SoeknadType } from '../../../api/dto/InnsendtSoeknad'
 import { mapTilBarnepensjonSoeknadListe, mapTilOmstillingsstoenadSoeknad } from '../../../api/mapper/soeknadMapper'

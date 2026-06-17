@@ -1,6 +1,6 @@
 import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler'
 import { useCallback, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
 
 // Felles taksonomi for analytics https://github.com/navikt/analytics-taxonomy
 export enum LogEvents {

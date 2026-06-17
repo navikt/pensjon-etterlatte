@@ -1,6 +1,6 @@
 import { FormProgress } from '@navikt/ds-react'
 import React, { useState } from 'react'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router'
 import { v4 as uuid } from 'uuid'
 import { ActionTypes } from '~context/application/application'
 import { StepType } from '~utils/steps'

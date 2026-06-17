@@ -1,7 +1,7 @@
 import { FormSummary, GuidePanel, HStack, VStack } from '@navikt/ds-react'
 import { format } from 'date-fns'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { EventType, LogEvents, useAnalytics } from '../../common/analytics/useAnalytics.ts'
 import { apiURL, poster } from '../../common/api/api.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'

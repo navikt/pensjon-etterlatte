@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
+import { hentSoeknad, lagreSoeknad } from '../api/api'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { useSoknadContext } from '../context/soknad/SoknadContext'
-import { useEffect, useState } from 'react'
-import { hentSoeknad, lagreSoeknad } from '../api/api'
 import { ActionTypes, ISoeknad } from '../context/soknad/soknad'
-import { useNavigate, useLocation } from 'react-router-dom'
 import { useError } from './useError'
 
 const useSoeknad = () => {

@@ -1,7 +1,7 @@
 import { PencilIcon } from '@navikt/aksel-icons'
 import { Accordion, HStack } from '@navikt/ds-react'
 import { JSX, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 interface Props {
     title: string

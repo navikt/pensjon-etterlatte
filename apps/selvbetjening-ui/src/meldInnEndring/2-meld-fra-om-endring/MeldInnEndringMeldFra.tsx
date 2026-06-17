@@ -1,6 +1,6 @@
 import { Alert, HStack, Radio, Textarea, VStack } from '@navikt/ds-react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { erMellomOktoberogDesember } from '../../common/dato.ts'
 import {
     FeatureToggleNavn,

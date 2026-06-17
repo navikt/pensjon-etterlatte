@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import * as chai from 'chai'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router'
 import { describe, it, vi } from 'vitest'
 import { SoknadProvider } from '../../context/soknad/SoknadContext'
 import SoknadForside from './SoknadForside'

@@ -1,6 +1,6 @@
 import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler'
 import { useCallback, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
 
 export enum EventType {
     WHY_WE_ASK = 'hvorfor spør vi',

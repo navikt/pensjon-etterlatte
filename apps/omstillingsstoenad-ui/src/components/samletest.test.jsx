@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import SideIkkeFunnet from './SideIkkeFunnet'
 import UgyldigSoeker from './UgyldigSoeker'
-import { describe, expect, it, vi } from 'vitest'
+
 /**
  * @vitest-environment jsdom
  */
-
 
 vi.mock('react-i18next', () => ({
     ...vi.importActual('react-i18next'),
@@ -15,8 +15,8 @@ vi.mock('react-i18next', () => ({
 }))
 
 const mockedUsedNavigate = vi.fn()
-vi.mock('react-router-dom', () => ({
-    ...vi.importActual('react-router-dom'),
+vi.mock('react-router', () => ({
+    ...vi.importActual('react-router'),
     useNavigate: () => mockedUsedNavigate,
 }))
 

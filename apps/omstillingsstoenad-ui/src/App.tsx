@@ -1,5 +1,5 @@
 import { Page } from '@navikt/ds-react'
-import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes } from 'react-router'
 import { GlobalErrorAlert } from '~components/felles/globalErrorAlert/GlobalErrorAlert'
 import { SideLaster } from '~components/felles/SideLaster'
 import { SkjemaTittel } from '~components/felles/SkjemaTittel'

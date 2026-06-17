@@ -13,7 +13,7 @@ import {
 } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { hentHarSoektOms } from '~api/api'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'

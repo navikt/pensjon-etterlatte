@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 import { hentInnloggetPerson } from '../api/api'
-import { ActionTypes as BrukerActionTypes, IBruker } from '../context/bruker/bruker'
-import { hentAlder } from '../utils/dato'
-import { gyldigAlder } from '../utils/alder'
-import { useBrukerContext } from '../context/bruker/BrukerContext'
-import { useNavigate } from 'react-router-dom'
-import { capitalizeName } from '../utils/capitalize'
 import { SoeknadType } from '../api/dto/InnsendtSoeknad'
+import { useBrukerContext } from '../context/bruker/BrukerContext'
+import { ActionTypes as BrukerActionTypes, IBruker } from '../context/bruker/bruker'
+import { gyldigAlder } from '../utils/alder'
+import { capitalizeName } from '../utils/capitalize'
+import { hentAlder } from '../utils/dato'
 
 const useInnloggetBruker = () => {
     const navigate = useNavigate()

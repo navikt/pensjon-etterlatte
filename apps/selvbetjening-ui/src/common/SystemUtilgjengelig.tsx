@@ -1,7 +1,7 @@
 import { BodyLong, Detail, Heading, HStack, Link, List, VStack } from '@navikt/ds-react'
 import ErrorStackParser from 'error-stack-parser'
 import { useEffect } from 'react'
-import { useRouteError } from 'react-router-dom'
+import { useRouteError } from 'react-router'
 import { logger } from './logger/logger.ts'
 import { useSpraak } from './spraak/SpraakContext.tsx'
 import { Spraak } from './spraak/spraak.ts'

@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, ArrowRightIcon, PaperplaneIcon } from '@navikt/aksel-icons'
 import { Button, HGrid, VStack } from '@navikt/ds-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { useSanityInnhold } from '../sanity/useSanityInnhold.ts'
 import { NavigasjonMeny as NavigasjonMenyInnhold } from '../sanity.types.ts'
 import { useSpraak } from '../spraak/SpraakContext.tsx'
