@@ -4366,9 +4366,9 @@ aws4@^1.13.0, aws4@^1.13.2:
   integrity sha512-lHe62zvbTB5eEABUVi/AwVh0ZKY9rMMDhmm+eeyuuUQbQ3+J+fONVQOZyj+DdrvD4BY33uYniyRJ4UJIaSKAfw==
 
 axe-core@^4.10.0:
-  version "4.11.4"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.11.4.tgz#5b535e381ff1e61ffdd615e5483d16186d3b46a5"
-  integrity sha512-KunSNx+TVpkAw/6ULfhnx+HWRecjqZGTOyquAoWHYLRSdK1tB5Ihce1ZW+UY3fj33bYAFWPu7W/GRSmmrCGuxA==
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.12.1.tgz#69fe2bf6dfc0b24973af91b1d8e945f79e1b7c44"
+  integrity sha512-s7iGf5GaVMxEG0ENN9x+xTr7GFZCb1ZP/1uATUpCEK2X78nDB3RwbtFCo9pGAf9ru+VwoQ464DkaLEeRM08wJA==
 
 axobject-query@^4.1.0:
   version "4.1.0"
@@ -7698,10 +7698,10 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier@^3.8.1, prettier@^3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.8.3.tgz#560f2de55bf01b4c0503bc629d5df99b9a1d09b0"
-  integrity sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==
+prettier@^3.8.1, prettier@^3.8.4:
+  version "3.8.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.8.4.tgz#f334f013ac04a96676f24dabc23c1c4ae1bae411"
+  integrity sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==
 
 pretty-ms@^9.2.0, pretty-ms@^9.3.0:
   version "9.3.0"
