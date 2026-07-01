@@ -28,7 +28,7 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
 
       - name: Inject slug/short variables
-        uses: rlespinasse/github-slug-action@9e7def61550737ba68c62d34a32dd31792e3f429 # ratchet:rlespinasse/github-slug-action@v5
+        uses: rlespinasse/github-slug-action@e6f261660910b273384c5c42b17a0217881b217a # ratchet:rlespinasse/github-slug-action@v5
 
       - name: Cache npm modules webapp
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # ratchet:actions/cache@v5
