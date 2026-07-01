@@ -9,7 +9,7 @@
         "@navikt/ds-css": "^8.11.0",
         "@navikt/ds-react": "^8.11.0",
         "@navikt/fnrvalidator": "^2.2.1",
-        "@navikt/nav-dekoratoren-moduler": "^3.7.1",
+        "@navikt/nav-dekoratoren-moduler": "^4.2.2",
         "@vitejs/plugin-react-swc": "^4.3.0",
         "@vitest/coverage-v8": "^4.1.7",
         "axios": "1.16.1",
@@ -48,7 +48,7 @@
         "cypress-axe": "^1.7.0",
         "globals": "^17.6.0",
         "husky": "~9.1.7",
-        "jsdom": "^29.0.1"
+        "jsdom": "^29.1.1"
     },
     "scripts": {
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
