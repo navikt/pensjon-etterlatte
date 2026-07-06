@@ -15,7 +15,7 @@
         "axios": "1.16.1",
         "axios-retry": "^4.5.0",
         "bowser": "^2.14.1",
-        "date-fns": "^4.1.0",
+        "date-fns": "^4.4.0",
         "error-stack-parser": "^2.1.4",
         "ibantools": "^4.5.4",
         "lodash": "^4.18.1",
