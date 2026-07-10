@@ -29,8 +29,7 @@ export const BoddEllerArbeidetUtland = ({ datoForDoedsfallet }: Props) => {
 
     const boddEllerArbeidetUtland = watch('boddEllerJobbetUtland.svar')
 
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    const { fields, append } = useFieldArray<any>({
+    const { fields, append } = useFieldArray({
         control,
         name: 'boddEllerJobbetUtland.oppholdUtland',
         shouldUnregister: true,
