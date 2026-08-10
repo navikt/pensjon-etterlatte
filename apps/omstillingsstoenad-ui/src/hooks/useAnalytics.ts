@@ -30,8 +30,8 @@ export const useAnalytics = () => {
         setPrevLocation(location)
     }, [location])
     const logEvent = useCallback(
-        <T extends object>(eventName: string, eventData: T = {} as T) => {
-            track(eventName, eventData).catch((error) => console.error(error))
+        <T extends Record<string, unknown>>(eventName: string, eventData: T = {} as T) => {
+            track.custom(eventName, eventData).catch((error) => console.error(error))
         },
         [track]
     )
