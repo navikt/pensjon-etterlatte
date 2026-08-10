@@ -212,20 +212,20 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.9.0.tgz#d03eba68273dc0f7509e2a3d5cba21eae10379fe"
   integrity sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==
 
-"@sanity/client@^7.22.0":
-  version "7.22.0"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-7.22.0.tgz#f2d72c1660e7aedbe2de1ed93e7b36b946b21e13"
-  integrity sha512-KqN9cowZwfZNCwCchRaz1B9WrZTThQxX/gfJhJO1uKJBuk/JcbYGBiSK9CSqocWoYDQ/QqANVXy1r7a8zognww==
+"@sanity/client@^7.26.0":
+  version "7.26.0"
+  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-7.26.0.tgz#c95af82cd889da7800c7efd4081e2e5a968dcfb5"
+  integrity sha512-7GEzTFRY6kWRjHbJYUDEGKPXHVl/XItGpV5LYCLcWMvBlgfujXuAjdp4hJVZqX8F8OtBzIFqdhiSn5Kh5u/V5Q==
   dependencies:
-    "@sanity/eventsource" "^5.0.2"
-    get-it "^8.7.2"
+    "@sanity/eventsource" "^5.0.4"
+    get-it "^8.8.0"
     nanoid "^3.3.11"
     rxjs "^7.0.0"
 
-"@sanity/eventsource@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-5.0.2.tgz#0124214e92122149a2f0357fb40b9f7112924ad9"
-  integrity sha512-/B9PMkUvAlUrpRq0y+NzXgRv5lYCLxZNsBJD2WXVnqZYOfByL9oQBV7KiTaARuObp5hcQYuPfOAVjgXe3hrixA==
+"@sanity/eventsource@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@sanity/eventsource/-/eventsource-5.0.4.tgz#e99b04b7e59d44ad1a8e96fd6cbf8d7e4aa59578"
+  integrity sha512-NT6XrTJePJd7q1ZdTqB3NsTyNNOe9R2zMkg4Hlkqwb0LL6UmekVamAD46yjSJ+HbRyXAKLl1Rb65xZBdzC1f8Q==
   dependencies:
     "@types/event-source-polyfill" "1.0.5"
     "@types/eventsource" "1.1.15"
@@ -1009,10 +1009,10 @@ get-intrinsic@^1.2.5, get-intrinsic@^1.2.6, get-intrinsic@^1.3.0:
     hasown "^2.0.2"
     math-intrinsics "^1.1.0"
 
-get-it@^8.7.2:
-  version "8.7.2"
-  resolved "https://registry.yarnpkg.com/get-it/-/get-it-8.7.2.tgz#a015ff618901f3b751e471774cf4e9015b1a82ba"
-  integrity sha512-slSwC/BBAnoz9OnHopU+V5pJKAieddoF6dmx2CvbWMRePgup8ftiB+D7d+pr2PZzcqNtZOVDMoLOsXGsERhTEg==
+get-it@^8.8.0:
+  version "8.8.3"
+  resolved "https://registry.yarnpkg.com/get-it/-/get-it-8.8.3.tgz#ca7478119b5b15322d8c043b8f2b4ec8238976ca"
+  integrity sha512-IfkbWqOGO2kd2Ccgiz/NIzk3bcwjtVqBm3RNa3j/veHg2q7c1DgS3EXrCrvIWH0jbNTbhkdblnxBP7Dm8CiH+A==
   dependencies:
     decompress-response "^7.0.0"
     is-retry-allowed "^2.2.0"
@@ -2245,10 +2245,10 @@ util-deprecate@^1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-uuid@*, uuid@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-14.0.0.tgz#0af883220163d264ffe0c084f6b8a89b9666966d"
-  integrity sha512-Qo+uWgilfSmAhXCMav1uYFynlQO7fMFiMVZsQqZRMIXp0O7rR7qjkj+cPvBHLgBqi960QCoo/PH2/6ZtVqKvrg==
+uuid@*, uuid@^14.0.1:
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-14.0.1.tgz#8a5975b3e038902bfd169a10b5202f5ec0cf3faf"
+  integrity sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew==
 
 uuid@^9.0.0:
   version "9.0.1"
