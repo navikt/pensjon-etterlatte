@@ -7,26 +7,23 @@ updates:
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "sunday"
     cooldown:
       default-days: 7
     open-pull-requests-limit: 10
     groups:
-      backend:
+      minor-and-patch-dependencies:
         patterns:
-          - "ca*"
-          - "ch*"
-          - "com*"
-          - "io*"
-          - "net*"
-          - "no*"
-          - "org.flyway*"
-          - "org.jetbrains*"
-          - "org.junit*"
-          - "org.postgres*"
-          - "org.slf4j*"
-          - "org.testcontainers*"
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      major-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
 
   # =====================
   # FRONTEND BARNEPENSJON OG OMSTILLINGSSTØNAD
@@ -40,76 +37,23 @@ updates:
       - "/apps/etterlatte-node-server"
       - "/apps/brukerdialog-sanity"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "sunday"
     cooldown:
       default-days: 7
     open-pull-requests-limit: 10
     groups:
-      ds:
+      minor-and-patch-dependencies:
         patterns:
-          - "@navikt/ds-*"
-          - "@navikt/aksel-icons"
-      eslint:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      major-dependencies:
         patterns:
-          - "@typescript-eslint/*"
-          - "typescript-eslint"
-          - "eslint"
-          - "eslint-plugin*"
-          - "@eslint/js"
-      test:
-        patterns:
-          - "prettier"
-          - "axe-core"
-          - "husky"
-          - "cypress"
-          - "cypress-axe"
-          - "@testing-library/*"
-          - "license-checker-rseidelsohn"
-          - "ts-node-dev"
-          - "vitest"
-          - "@vitest/*"
-          - "lint-staged"
-      react:
-        patterns:
-          - "react*"
-          - "@types/react*"
-      prod:
-        patterns:
-          - "lodash"
-          - "@types/lodash"
-          - "axios"
-          - "axios-retry"
-          - "uuid"
-          - "@types/uuid"
-          - "@types/node"
-          - "typescript"
-          - "i18next"
-          - "ibantools"
-          - "web-vitals"
-          - "vite"
-          - "sanity"
-          - "@sanity/*"
-      node-server:
-        patterns:
-          - "@navikt/nav-dekoratoren-moduler"
-          - "@navikt/oasis"
-          - "cls-rtracer"
-          - "express"
-          - "jsdom"
-          - "jsonwebtoken"
-          - "node-cache"
-          - "node-fetch"
-          - "prom-client"
-          - "winston"
-          - "winston-transport"
-          - "@types/express*"
-          - "@types/jsonwebtoken"
-          - "@types/node*"
-      styledcomponents:
-        patterns:
-          - "styled-components"
-          - "@types/styled-components"
+          - "*"
+        update-types:
+          - "major"
 
   # ==============
   # GITHUB ACTIONS
@@ -118,10 +62,14 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "sunday"
     cooldown:
       default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   # ===========
   # DOCKERFILES
@@ -130,7 +78,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/docker/backend"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "sunday"
     cooldown:
       default-days: 7
@@ -138,7 +86,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/apps/etterlatte-node-server"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
       day: "sunday"
     cooldown:
       default-days: 7
