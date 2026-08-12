@@ -19,14 +19,14 @@ jobs:
       digest: ${{ steps.docker-build-push.outputs.digest }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # ratchet:actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
       - name: Setup Java
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # ratchet:actions/setup-java@v5
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # ratchet:actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # ratchet:gradle/actions/setup-gradle@v6.1.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # ratchet:gradle/actions/setup-gradle@v6.3.0
         with:
           cache-provider: basic
           cache-encryption-key: ${{ secrets.gradlekey }}
@@ -38,7 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew :apps:${{ github.workflow }}:build --configuration-cache
       - name: Build and publish docker image
-        uses: nais/docker-build-push@31c3a7321909bcb20799fdf46153fec721fd9512 # ratchet:nais/docker-build-push@v0
+        uses: nais/docker-build-push@2d2b0a7193e65422b7f0355d4afb445e0a8b2cc3 # ratchet:nais/docker-build-push@v0
         id: docker-build-push
         with:
           team: etterlatte
@@ -62,14 +62,14 @@ jobs:
       id-token: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # ratchet:actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
       - name: Setup Java
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # ratchet:actions/setup-java@v5
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # ratchet:actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # ratchet:gradle/actions/setup-gradle@v6.1.0
+        uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # ratchet:gradle/actions/setup-gradle@v6.3.0
         with:
           cache-provider: basic
       - name: Validate licenses
@@ -84,7 +84,7 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # ratchet:actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
       - uses: nais/deploy/actions/deploy@2f28259ff29ea37915f5a0c9e2a8e3542c429df7 # ratchet:nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
@@ -97,7 +97,7 @@ jobs:
     needs: [build-and-publish, license-check, deploy-to-dev-gcp]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # ratchet:actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
       - uses: andstor/file-existence-action@558493d6c74bf472d87c84eab196434afc2fa029 # ratchet:andstor/file-existence-action@v3
         id: check_files
         with:
