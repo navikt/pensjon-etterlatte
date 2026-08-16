@@ -6,7 +6,7 @@ token-version = "5.0.34"
 ktor-version = "3.4.3"
 jupiter-version = "6.0.3"
 testcontainers-version = "1.21.4"
-flyway-version = "12.5.0"
+flyway-version = "13.2.0"
 rapidsandrivers-version = "2026021921161771532161.7a37f8c9e0cc" # OBS! tbdlibs brukes av denne. De bør stemme overens
 tbdlibs-version = "2026.02.19-20.58-521cdd3c" # OBS! rapidsandrivers bruker denne. De bør stemme overens
 
