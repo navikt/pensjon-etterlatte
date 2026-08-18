@@ -34,6 +34,9 @@ Alternativt lim det inn selv i `~/.npmrc` filen
 Installere prosjektet:\
 `yarn install`
 
+Installere etterlatte-node-server:\
+`cd ../etterlatte-node-server && yarn install`
+
 Kjøre opp både frontend og [etterlatte-node-server](../etterlatte-node-server) samtidig:\
 `yarn dev`
 
