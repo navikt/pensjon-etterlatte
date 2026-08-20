@@ -34,7 +34,7 @@ export const RHFCombobox = ({ name, label, options, rules, required = true, ...r
                         {...rest}
                         label={labelWithOptional}
                         options={options}
-                        selectedOptions={value ? [value] : ['']}
+                        selectedOptions={value ? [value] : []}
                         onToggleSelected={(option, isSelected) => {
                             if (isSelected) {
                                 onChange(option)
