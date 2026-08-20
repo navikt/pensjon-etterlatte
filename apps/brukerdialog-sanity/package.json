@@ -20,12 +20,12 @@
   ],
   "dependencies": {
     "@sanity/export": "^6.2.0",
-    "@sanity/vision": "^6.9.1",
+    "@sanity/vision": "^6.9.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "sanity": "^6.9.1",
-    "styled-components": "^6.5.1",
-    "tsx": "^4.23.11"
+    "sanity": "^6.9.2",
+    "styled-components": "^6.5.2",
+    "tsx": "^4.23.12"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^6.0.0",
