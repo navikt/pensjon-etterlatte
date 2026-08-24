@@ -1713,10 +1713,10 @@ raw-body@^3.0.2:
     iconv-lite "~0.7.0"
     unpipe "~1.0.0"
 
-re2js@^1.2.2:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/re2js/-/re2js-1.4.0.tgz#5fa4dc35492f1b583ff5cd2ed9b1aefb2df31794"
-  integrity sha512-KTOIcZTSOpOxbu3i0+T6mFQ6tkxXKlTxfcMFs1trQbsMnG84qNq+DjXr8Afu+FEFjvF1NNlldpC7roPyazFI8g==
+re2js@^2.3.2:
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/re2js/-/re2js-2.8.6.tgz#acbd17a1ad0e98c1f2ee0a2adc17ba0903d9ca95"
+  integrity sha512-xLgQil4kIUCrAzVk9fRSkxkFNwmygLFjVxXrLc65aE1F0+Zsb8rxumFBy4XKyvgMCTL6kilDq3EZ0piE2dP/Dg==
 
 react-property@2.0.2:
   version "2.0.2"
@@ -2176,10 +2176,10 @@ unique-slug@^6.0.0:
   dependencies:
     imurmurhash "^0.1.4"
 
-unleash-client@^6.12.0:
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.12.0.tgz#d514195c62aa2f36f4c745b5841711a16f7bdf40"
-  integrity sha512-KKwdUyAPUk0KSZJ6XBYtZ7wEYKJ/fypExFI6teomGqvKOGMMY4tc4BBZMgOyLjeE/2xn8/p8ZBIu9MWw0A/Grw==
+unleash-client@^6.12.1:
+  version "6.12.1"
+  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.12.1.tgz#53b712e05eb9c8bf4894d9496622698fde25eb25"
+  integrity sha512-xeojMfPZynteI2fqGW70po23Nd588MKSv9cv5dH3BOfQmsVE0jcvypLl7a4/NfrAgmMKOpZ48N4TtnGd7klJDQ==
   dependencies:
     http-proxy-agent "^7.0.2"
     https-proxy-agent "^7.0.5"
@@ -2189,7 +2189,7 @@ unleash-client@^6.12.0:
     make-fetch-happen "^15.0.3"
     murmurhash3js "^3.0.1"
     proxy-from-env "^1.1.0"
-    re2js "^1.2.2"
+    re2js "^2.3.2"
     semver "^7.7.3"
 
 unpipe@~1.0.0:

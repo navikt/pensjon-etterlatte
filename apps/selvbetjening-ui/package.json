@@ -39,7 +39,7 @@
         "@types/react-dom": "^19.2.4",
         "axe-core": "^4.13.0",
         "cypress-axe": "^1.7.0",
-        "concurrently": "^10.0.4",
+        "concurrently": "^10.0.5",
         "globals": "^17.11.0",
         "husky": "~9.1.7",
         "typescript": "^6.0.2",
