@@ -1,9 +1,9 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import tools.jackson.databind.DeserializationFeature
+import tools.jackson.databind.cfg.DateTimeFeature
+import tools.jackson.databind.cfg.EnumFeature
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import io.ktor.client.HttpClient
@@ -12,7 +12,7 @@ import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
-import io.ktor.serialization.jackson.jackson
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
@@ -165,10 +165,9 @@ fun Application.apiModule(routes: Route.() -> Unit) {
     }
     install(ContentNegotiation) {
         jackson {
-            enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+            enable(EnumFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
             disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            registerModule(JavaTimeModule())
+            disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
         }
     }
     install(IgnoreTrailingSlash)
@@ -201,9 +200,8 @@ private fun tokenSecuredEndpoint(endpointConfig: Config) =
     HttpClient(OkHttp) {
         install(io.ktor.client.plugins.contentnegotiation.ContentNegotiation) {
             jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                registerModule(JavaTimeModule())
+                disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
             }
         }
 
@@ -222,9 +220,8 @@ fun httpClientClientCredentials(azureAppScope: String) =
     HttpClient(OkHttp) {
         install(io.ktor.client.plugins.contentnegotiation.ContentNegotiation) {
             jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                registerModule(JavaTimeModule())
+                disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
             }
         }
         val env = System.getenv()

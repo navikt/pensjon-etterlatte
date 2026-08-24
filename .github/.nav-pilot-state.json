@@ -1,0 +1,13 @@
+{
+  "collection": "(à la carte)",
+  "version": "2026.06.23-095021-9ea073a",
+  "scope": "repo",
+  "source_sha": "f8613ae",
+  "installed_at": "2026-08-24T10:34:43Z",
+  "files": [
+    {
+      "path": ".github/skills/jackson-3-migration/",
+      "hash": "9b4932b7b9d4a076"
+    }
+  ]
+}

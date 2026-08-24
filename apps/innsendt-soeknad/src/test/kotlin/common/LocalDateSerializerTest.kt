@@ -1,12 +1,11 @@
 package common
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.databind.module.SimpleModule
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.KotlinInvalidNullException
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
+import tools.jackson.databind.DeserializationFeature
+import tools.jackson.databind.cfg.EnumFeature
+import tools.jackson.databind.module.SimpleModule
+import tools.jackson.module.kotlin.KotlinInvalidNullException
+import tools.jackson.module.kotlin.jacksonMapperBuilder
+import tools.jackson.module.kotlin.readValue
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import no.nav.etterlatte.common.LocalDateSerializer
@@ -23,12 +22,11 @@ internal class LocalDateSerializerTest {
     )
 
     private val jacksonObjectMapper =
-        jacksonObjectMapper()
-            .enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+        jacksonMapperBuilder()
+            .enable(EnumFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            .registerModule(JavaTimeModule())
-            .registerModule(SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer()))
+            .addModule(SimpleModule().addDeserializer(LocalDate::class.java, LocalDateSerializer()))
+            .build()
 
     @Test
     fun `Ved konvertering av UTC string til LocalDate skal vi benytte norsk tidssone`() {
