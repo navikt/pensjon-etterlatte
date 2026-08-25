@@ -8,8 +8,8 @@ import tools.jackson.module.kotlin.jacksonMapperBuilder
 import tools.jackson.module.kotlin.readValue
 
 // TODO: Fjern etter Jackson 3-migrering er verifisert
-private val jacksonMigLog = LoggerFactory.getLogger("JacksonMigrering")
-private val jacksonMigSikkerLogg = LoggerFactory.getLogger("sikkerLogg")
+@PublishedApi
+internal val jacksonMigSikkerLogg = LoggerFactory.getLogger("sikkerLogg")
 
 val objectMapper =
     jacksonMapperBuilder()
@@ -17,23 +17,6 @@ val objectMapper =
         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
         .disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
         .build()
-        .also { m ->
-            // TODO: Fjern etter Jackson 3-migrering er verifisert
-            jacksonMigLog.info(
-                "[Jackson3-verifisering] selvbetjening-backend common objectMapper initialisert:" +
-                    " versjon=${m.version()}," +
-                    " moduler=${m.registeredModuleIds}," +
-                    " FAIL_ON_UNKNOWN_PROPERTIES=${m.deserializationConfig.isEnabled(
-                        DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
-                    )}," +
-                    " READ_UNKNOWN_ENUM_VALUES_AS_NULL=${m.deserializationConfig.isEnabled(
-                        EnumFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL,
-                    )}," +
-                    " WRITE_DATES_AS_TIMESTAMPS=${m.serializationConfig.isEnabled(
-                        DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS,
-                    )}",
-            )
-        }
 
 inline fun <reified T : Any> mapJsonToAny(
     json: String,
@@ -41,7 +24,6 @@ inline fun <reified T : Any> mapJsonToAny(
 ): T =
     objectMapper.readValue<T>(json).also {
         // TODO: Fjern etter Jackson 3-migrering er verifisert
-        jacksonMigLog.debug("[Jackson3-verifisering] mapJsonToAny() OK: måltype=${T::class.simpleName}")
         jacksonMigSikkerLogg.debug(
             "[Jackson3-verifisering] mapJsonToAny() input (måltype=${T::class.simpleName}):\n$json",
         )
