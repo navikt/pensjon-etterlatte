@@ -102,7 +102,7 @@ internal class JournalpostSkrevet(
 
     private fun erTestSoeknad(packet: JsonMessage): Boolean {
         val soeknadId = soeknadId(packet)
-        return soeknadId.asText().startsWith("TEST-") || soeknadId.asLong() == 0L
+        return soeknadId.asString().startsWith("TEST-") || soeknadId.asLong() == 0L
     }
 
     private fun soeknadId(packet: JsonMessage): JsonNode = packet["@lagret_soeknad_id"]

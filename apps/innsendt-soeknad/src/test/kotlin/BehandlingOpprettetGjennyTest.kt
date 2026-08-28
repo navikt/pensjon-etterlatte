@@ -32,4 +32,26 @@ class BehandlingOpprettetGjennyTest {
         verify(exactly = 1) { db.soeknadHarBehandling(any(), any(), any()) }
         verify(exactly = 0) { db.soeknadArkivert(any()) }
     }
+
+    @Test
+    fun `TEST-søknader i BehandlingOpprettetGjenny skal ignoreres uten feil`() {
+        val message =
+            mapOf(
+                "@lagret_soeknad_id" to "TEST-8ca35438-115e-4e9b-9759-ebc90c6e883e",
+                "sakId" to 123,
+                "behandlingId" to UUID.randomUUID(),
+                "@event_name" to EventName.TRENGER_BEHANDLING,
+            ).toJson()
+
+        val db = spyk<TestRepo>()
+        val testRapid =
+            TestRapid().apply {
+                BehandlingOpprettetGjenny(this, db)
+            }
+
+        testRapid.sendTestMessage(message)
+
+        assertEquals(0, db.harBehandlingDoffen.size)
+        verify(exactly = 0) { db.soeknadHarBehandling(any(), any(), any()) }
+    }
 }

@@ -42,7 +42,7 @@ internal class BehandlingOpprettetGjenny(
             }
 
         val soeknadId = packet["@lagret_soeknad_id"]
-        if (soeknadId.asText().startsWith("TEST-") || soeknadId.asLong() == 0L) {
+        if (soeknadId.asString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
             logger.info("Verifiseringssøknad med id $soeknadId lest")
             return
         }
