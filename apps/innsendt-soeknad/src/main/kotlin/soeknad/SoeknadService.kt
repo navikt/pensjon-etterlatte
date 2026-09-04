@@ -1,6 +1,6 @@
 package no.nav.etterlatte.soeknad
 
-import com.fasterxml.jackson.databind.JsonNode
+import tools.jackson.databind.JsonNode
 import io.micrometer.core.instrument.Counter
 import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService

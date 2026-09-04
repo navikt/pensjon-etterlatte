@@ -1,30 +1,36 @@
 package no.nav.etterlatte.common
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
+import org.slf4j.LoggerFactory
+import tools.jackson.databind.DeserializationFeature
+import tools.jackson.databind.cfg.DateTimeFeature
+import tools.jackson.databind.cfg.EnumFeature
+import tools.jackson.module.kotlin.jacksonMapperBuilder
+import tools.jackson.module.kotlin.readValue
 
-val objectMapper: ObjectMapper =
-    jacksonObjectMapper()
-        .enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+// TODO: Fjern etter Jackson 3-migrering er verifisert
+@PublishedApi
+internal val jacksonMigSikkerLogg = LoggerFactory.getLogger("sikkerLogg")
+
+val objectMapper =
+    jacksonMapperBuilder()
+        .enable(EnumFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
         .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-        .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-        .registerModule(JavaTimeModule())
+        .disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
+        .build()
 
-fun Any.toJson(): String = objectMapper.writeValueAsString(this)
+fun Any.toJson(): String =
+    objectMapper.writeValueAsString(this).also { json ->
+        // TODO: Fjern etter Jackson 3-migrering er verifisert
+        jacksonMigSikkerLogg.debug("[Jackson3-verifisering] common.toJson() (type=${this::class.simpleName}):\n$json")
+    }
 
 inline fun <reified T : Any> mapJsonToAny(
     json: String,
     failonunknown: Boolean = false,
 ): T =
-    objectMapper
-        .let {
-            if (failonunknown) {
-                it.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            } else {
-                it
-            }
-        }.readValue(json)
+    objectMapper.readValue<T>(json).also {
+        // TODO: Fjern etter Jackson 3-migrering er verifisert
+        jacksonMigSikkerLogg.debug(
+            "[Jackson3-verifisering] mapJsonToAny() input (måltype=${T::class.simpleName}):\n$json",
+        )
+    }

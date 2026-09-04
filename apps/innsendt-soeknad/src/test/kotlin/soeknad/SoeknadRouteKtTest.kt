@@ -1,6 +1,5 @@
 package soeknad
 
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
 import io.ktor.client.request.HttpRequestBuilder
@@ -15,7 +14,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
-import io.ktor.serialization.jackson.jackson
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
@@ -172,9 +171,7 @@ internal class SoeknadRouteKtTest {
 
 fun Application.testModule(routes: Route.() -> Unit) {
     install(ContentNegotiation) {
-        jackson {
-            registerModule(JavaTimeModule())
-        }
+        jackson()
     }
     install(IgnoreTrailingSlash)
     install(Authentication) {

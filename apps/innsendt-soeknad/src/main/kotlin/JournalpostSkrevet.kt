@@ -1,6 +1,5 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.JsonNode
 import com.github.navikt.tbd_libs.rapids_and_rivers.JsonMessage
 import com.github.navikt.tbd_libs.rapids_and_rivers.River
 import com.github.navikt.tbd_libs.rapids_and_rivers.isMissingOrNull
@@ -10,6 +9,7 @@ import com.github.navikt.tbd_libs.rapids_and_rivers_api.RapidsConnection
 import io.micrometer.core.instrument.MeterRegistry
 import org.slf4j.LoggerFactory
 import soeknad.SoeknadRepository
+import tools.jackson.databind.JsonNode
 import java.time.OffsetDateTime
 
 internal class JournalpostSkrevet(
@@ -35,10 +35,13 @@ internal class JournalpostSkrevet(
         metadata: MessageMetadata,
         meterRegistry: MeterRegistry,
     ) {
-
         val dokumentInfoId = dokarkivRetur(packet).path("dokumenter")[0]?.path("dokumentInfoId")?.asLong() ?: 0L
 
-        logger.info("Mottok melding ${packet["@event_name"].asText()}, soeknadId: ${soeknadIdAsLong(packet)}, dokumentInfoId: $dokumentInfoId")
+        logger.info(
+            "Mottok melding ${packet["@event_name"].asText()}, soeknadId: ${soeknadIdAsLong(
+                packet,
+            )}, dokumentInfoId: $dokumentInfoId",
+        )
 
         if (erTestSoeknad(packet)) {
             logger.info("Verifiseringssøknad med id ${soeknadId(packet)} lest med dokumentInfoId $dokumentInfoId")
@@ -99,7 +102,7 @@ internal class JournalpostSkrevet(
 
     private fun erTestSoeknad(packet: JsonMessage): Boolean {
         val soeknadId = soeknadId(packet)
-        return soeknadId.toString().startsWith("TEST-") || soeknadId.asLong() == 0L
+        return soeknadId.asString().startsWith("TEST-") || soeknadId.asLong() == 0L
     }
 
     private fun soeknadId(packet: JsonMessage): JsonNode = packet["@lagret_soeknad_id"]

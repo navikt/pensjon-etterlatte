@@ -1,9 +1,9 @@
 package no.nav.etterlatte
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import io.ktor.serialization.jackson.jackson
+import tools.jackson.databind.DeserializationFeature
+import tools.jackson.databind.cfg.DateTimeFeature
+import tools.jackson.databind.cfg.EnumFeature
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
@@ -103,10 +103,9 @@ fun Application.apiModule(
 
     install(ContentNegotiation) {
         jackson {
-            enable(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+            enable(EnumFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
             disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            registerModule(JavaTimeModule())
+            disable(DateTimeFeature.WRITE_DATES_AS_TIMESTAMPS)
         }
     }
     install(IgnoreTrailingSlash)

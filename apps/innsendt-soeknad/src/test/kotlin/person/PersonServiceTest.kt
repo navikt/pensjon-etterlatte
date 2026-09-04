@@ -1,9 +1,9 @@
 package person
 
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
+import tools.jackson.databind.DeserializationFeature
+import tools.jackson.databind.cfg.EnumFeature
+import tools.jackson.module.kotlin.jacksonMapperBuilder
+import tools.jackson.module.kotlin.jacksonTypeRef
 import io.ktor.server.plugins.NotFoundException
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
@@ -32,10 +32,10 @@ internal class PersonServiceTest {
     }
 
     private val mapper =
-        jacksonObjectMapper()
-            .configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true)
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            .registerModule(JavaTimeModule())
+        jacksonMapperBuilder()
+            .enable(EnumFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL)
+            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .build()
 
     private val personKlient = mockk<PersonKlient>()
     private val krrKlient =

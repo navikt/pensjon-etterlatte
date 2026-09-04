@@ -18,11 +18,22 @@ class SoeknadPubliserer(
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     fun publiser(soeknad: LagretSoeknad) {
+        // TODO: Fjern etter Jackson 3-migrering er verifisert
+        val skjemaInfo =
+            mapper.readTree(soeknad.payload).also { node ->
+                logger.info(
+                    "[Jackson3-verifisering] readTree() OK for soeknad id=${soeknad.id}:" +
+                        " nodeType=${node.nodeType}, størrelse=${soeknad.payload.length} bytes",
+                )
+                sikkerLogg.info(
+                    "[Jackson3-verifisering] readTree() innhold for soeknad id=${soeknad.id}:\n${node.toPrettyString()}",
+                )
+            }
         val message =
             JsonMessage.newMessage(
                 mapOf(
                     "@event_name" to EventName.SOEKNAD_INNSENDT,
-                    "@skjema_info" to mapper.readTree(soeknad.payload),
+                    "@skjema_info" to skjemaInfo,
                     "@lagret_soeknad_id" to soeknad.id,
                     "@template" to "soeknad",
                     "@fnr_soeker" to soeknad.fnr,
@@ -41,11 +52,22 @@ class SoeknadPubliserer(
             "Publiserer soeknad_journfoert for søknaden med id=${soeknad.id}, " +
                 "for å få opprettet en behandling på saken.",
         )
+        // TODO: Fjern etter Jackson 3-migrering er verifisert
+        val skjemaInfoBehandling =
+            mapper.readTree(soeknad.payload).also { node ->
+                logger.info(
+                    "[Jackson3-verifisering] readTree() OK for behandlingsbehov soeknad id=${soeknad.id}:" +
+                        " nodeType=${node.nodeType}, størrelse=${soeknad.payload.length} bytes",
+                )
+                sikkerLogg.info(
+                    "[Jackson3-verifisering] readTree() innhold for behandlingsbehov soeknad id=${soeknad.id}:\n${node.toPrettyString()}",
+                )
+            }
         val message =
             JsonMessage.newMessage(
                 mapOf(
                     "@event_name" to EventName.TRENGER_BEHANDLING,
-                    "@skjema_info" to mapper.readTree(soeknad.payload),
+                    "@skjema_info" to skjemaInfoBehandling,
                     "@lagret_soeknad_id" to soeknad.id,
                     "@template" to "soeknad",
                     "@fnr_soeker" to soeknad.fnr,

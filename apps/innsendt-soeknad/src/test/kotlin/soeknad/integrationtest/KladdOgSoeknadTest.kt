@@ -2,7 +2,7 @@ package soeknad.integrationtest
 
 import SoeknadIntegrationTest
 import apiTestModule
-import com.fasterxml.jackson.module.kotlin.readValue
+import tools.jackson.module.kotlin.readValue
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.ktor.client.request.delete

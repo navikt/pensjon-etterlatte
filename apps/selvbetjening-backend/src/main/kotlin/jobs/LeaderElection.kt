@@ -1,6 +1,6 @@
 package no.nav.etterlatte.jobs
 
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
@@ -13,7 +13,7 @@ internal object LeaderElection {
 
     private val electorPath: String? = System.getenv("ELECTOR_PATH")
     private val httpClient = HttpClient(CIO)
-    private val objectMapper = jacksonObjectMapper()
+    private val objectMapper = jacksonMapperBuilder().build()
     private val me: String? = InetAddress.getLocalHost().hostName
 
     suspend fun isLeader(): Boolean {
