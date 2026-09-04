@@ -45,7 +45,7 @@ logging-slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.18" }
 logging-logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.6.3" }
 logging-logstash-logback-encoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "9.0" }
 
-micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.17.0" }
+micrometer-prometheus = { module = "io.micrometer:micrometer-registry-prometheus", version = "1.17.1" }
 
 mockk = { module = "io.mockk:mockk", version = "1.14.11" }
 
