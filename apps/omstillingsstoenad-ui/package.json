@@ -75,8 +75,7 @@
         ]
     },
     "resolutions": {
-        "**/braces": "3.0.3",
-        "**/ws": "7.5.10"
+        "**/braces": "3.0.3"
     },
     "lint-staged": {
         "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
