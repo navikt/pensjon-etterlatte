@@ -1,11 +1,11 @@
 package no.nav.etterlatte.ktortokenexchange
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.databind.DeserializationFeature
+import tools.jackson.databind.DeserializationFeature
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.serialization.jackson.jackson
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.ApplicationCallPipeline
 import io.ktor.server.application.call
 import io.ktor.server.auth.principal
@@ -41,8 +41,8 @@ class TokenSupportSecurityContextMediator(
         HttpClient(OkHttp) {
             install(ContentNegotiation) {
                 jackson {
-                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                    disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                    changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
                 }
             }
         }

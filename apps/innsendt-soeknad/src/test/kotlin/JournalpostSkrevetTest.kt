@@ -1,7 +1,10 @@
+import com.github.navikt.tbd_libs.rapids_and_rivers.JsonMessage
 import com.github.navikt.tbd_libs.rapids_and_rivers.test_support.TestRapid
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageProblems
 import io.mockk.spyk
 import io.mockk.verify
 import no.nav.etterlatte.JournalpostSkrevet
+import no.nav.etterlatte.mapper
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -72,5 +75,33 @@ class JournalpostSkrevetTest {
         assertEquals(32L, db.arkiveringFeilet[2])
 
         verify(exactly = 0) { db.soeknadArkivert(any(), any()) }
+    }
+
+    @Test
+    fun `TEST-søknader i JournalpostSkrevet skal ignoreres uten feil`() {
+        val testSoeknadId = "TEST-8ca35438-115e-4e9b-9759-ebc90c6e883e"
+        val message =
+            JsonMessage("{}", MessageProblems("{}"))
+                .apply {
+                    this["@dokarkivRetur"] =
+                        mapper.createObjectNode().also {
+                            it.put("journalpostferdigstilt", true)
+                            it.put("journalpostId", 99L)
+                            it.putArray("dokumenter").addObject().put("dokumentInfoId", 1L)
+                        }
+                    this["@lagret_soeknad_id"] = testSoeknadId
+                }.toJson()
+
+        val db = spyk<TestRepo>()
+        val testRapid =
+            TestRapid().apply {
+                JournalpostSkrevet(this, db)
+            }
+
+        testRapid.sendTestMessage(message)
+
+        assertEquals(0, db.arkiveringOk.size)
+        verify(exactly = 0) { db.soeknadArkivert(any(), any()) }
+        verify(exactly = 0) { db.soeknadTilDoffenArkivert(any(), any()) }
     }
 }

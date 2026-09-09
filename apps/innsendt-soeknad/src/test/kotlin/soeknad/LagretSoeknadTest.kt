@@ -1,14 +1,14 @@
 package soeknad
 
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonTypeRef
+import tools.jackson.module.kotlin.jacksonMapperBuilder
+import tools.jackson.module.kotlin.jacksonTypeRef
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 
 internal class LagretSoeknadTest {
-    private val mapper = jacksonObjectMapper()
+    private val mapper = jacksonMapperBuilder().build()
 
     @Test
     fun serde() {

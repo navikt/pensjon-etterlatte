@@ -18,11 +18,13 @@ class SoeknadPubliserer(
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     fun publiser(soeknad: LagretSoeknad) {
+        val skjemaInfo =
+            mapper.readTree(soeknad.payload)
         val message =
             JsonMessage.newMessage(
                 mapOf(
                     "@event_name" to EventName.SOEKNAD_INNSENDT,
-                    "@skjema_info" to mapper.readTree(soeknad.payload),
+                    "@skjema_info" to skjemaInfo,
                     "@lagret_soeknad_id" to soeknad.id,
                     "@template" to "soeknad",
                     "@fnr_soeker" to soeknad.fnr,
@@ -41,11 +43,14 @@ class SoeknadPubliserer(
             "Publiserer soeknad_journfoert for søknaden med id=${soeknad.id}, " +
                 "for å få opprettet en behandling på saken.",
         )
+
+        val skjemaInfoBehandling =
+            mapper.readTree(soeknad.payload)
         val message =
             JsonMessage.newMessage(
                 mapOf(
                     "@event_name" to EventName.TRENGER_BEHANDLING,
-                    "@skjema_info" to mapper.readTree(soeknad.payload),
+                    "@skjema_info" to skjemaInfoBehandling,
                     "@lagret_soeknad_id" to soeknad.id,
                     "@template" to "soeknad",
                     "@fnr_soeker" to soeknad.fnr,

@@ -20,7 +20,7 @@ dependencies {
     implementation(libs.navfelles.token.client.core)
     implementation(libs.ktor.client.content.negotiation)
 
-    implementation(libs.ktor.serialization.jackson)
+    implementation(libs.ktor.serialization.jackson3)
     implementation(libs.ktor.client.cio.jvm)
     implementation(libs.navfelles.rapids.and.rivers)
 

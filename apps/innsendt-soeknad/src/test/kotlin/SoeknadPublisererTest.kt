@@ -1,4 +1,4 @@
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.FailedMessage
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageContext
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.OutgoingMessage
@@ -62,10 +62,10 @@ class SoeknadPublisererTest {
         assertEquals(1, rapidStub.publishedMessages.size)
         assertEquals(123.toString(), rapidStub.publishedMessages[0].first)
         println(rapidStub.publishedMessages[0].second)
-        val message = jacksonObjectMapper().readTree(rapidStub.publishedMessages[0].second)
+        val message = jacksonMapperBuilder().build().readTree(rapidStub.publishedMessages[0].second)
 
         assertEquals(EventName.SOEKNAD_INNSENDT, message["@event_name"].textValue())
-        assertEquals(jacksonObjectMapper().readTree(soeknadSomSkalPubliseres.payload), message["@skjema_info"])
+        assertEquals(jacksonMapperBuilder().build().readTree(soeknadSomSkalPubliseres.payload), message["@skjema_info"])
         assertEquals(soeknadSomSkalPubliseres.id, message["@lagret_soeknad_id"].longValue())
         assertEquals(soeknadSomSkalPubliseres.fnr, message["@fnr_soeker"].textValue())
         assertEquals(

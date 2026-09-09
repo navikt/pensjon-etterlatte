@@ -1,10 +1,9 @@
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
-import io.ktor.serialization.jackson.jackson
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication
@@ -50,7 +49,7 @@ internal abstract class SoeknadIntegrationTest {
 
     val kilde = "omstillingsstoenad-ui"
     val dummyKladd = """{"harSamtykket":"true"}"""
-    val mapper = jacksonObjectMapper()
+    val mapper = jacksonMapperBuilder().build()
     val mockUtkastPubliserer = mockk<UtkastPubliserer>()
 
     // TODO mock klient istedet for å teste AdressebeskyttelseService
@@ -76,9 +75,7 @@ internal abstract class SoeknadIntegrationTest {
 
 fun Application.apiTestModule(routes: Route.() -> Unit) {
     install(ContentNegotiation) {
-        jackson {
-            registerModule(JavaTimeModule())
-        }
+        jackson()
     }
     install(IgnoreTrailingSlash)
     install(Authentication) {

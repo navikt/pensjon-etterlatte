@@ -1,4 +1,4 @@
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
@@ -29,7 +29,7 @@ class UtkastPublisererTest {
             kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
-        val message = jacksonObjectMapper().readTree(slot.captured)
+        val message = jacksonMapperBuilder().build().readTree(slot.captured)
 
         Assertions.assertEquals("created", message["@event_name"].textValue())
         Assertions.assertEquals("Søknad om barnepensjon", message["tittel"].textValue())
@@ -47,7 +47,7 @@ class UtkastPublisererTest {
             kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
-        val message = jacksonObjectMapper().readTree(slot.captured)
+        val message = jacksonMapperBuilder().build().readTree(slot.captured)
 
         Assertions.assertEquals("created", message["@event_name"].textValue())
         Assertions.assertEquals("Søknad om omstillingsstønad", message["tittel"].textValue())
@@ -84,7 +84,7 @@ class UtkastPublisererTest {
             kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
-        val message = jacksonObjectMapper().readTree(slot.captured)
+        val message = jacksonMapperBuilder().build().readTree(slot.captured)
 
         Assertions.assertEquals(forventetMessage["@event_name"], message["@event_name"].textValue())
         Assertions.assertEquals(forventetMessage["utkastId"], message["utkastId"].textValue())
@@ -107,7 +107,7 @@ class UtkastPublisererTest {
             kafkaProduser.publiser(testNoekkel, capture(slot))
         }
 
-        val message = jacksonObjectMapper().readTree(slot.captured)
+        val message = jacksonMapperBuilder().build().readTree(slot.captured)
 
         Assertions.assertEquals("deleted", message["@event_name"].textValue())
         Assertions.assertEquals(

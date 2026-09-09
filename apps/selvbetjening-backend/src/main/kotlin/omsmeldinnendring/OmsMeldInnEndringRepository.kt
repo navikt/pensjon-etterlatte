@@ -1,6 +1,6 @@
 package no.nav.etterlatte.omsendringer
 
-import com.fasterxml.jackson.module.kotlin.readValue
+import tools.jackson.module.kotlin.readValue
 import no.nav.etterlatte.common.objectMapper
 import no.nav.etterlatte.libs.common.omsmeldinnendring.ForventetInntektTilNesteAar
 import no.nav.etterlatte.libs.common.omsmeldinnendring.OmsEndring

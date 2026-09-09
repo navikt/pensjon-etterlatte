@@ -11,7 +11,7 @@ dependencies {
     implementation(libs.database.flyway.postgres)
     implementation(libs.database.postgresql)
 
-    implementation(libs.ktor.serialization.jackson)
+    implementation(libs.ktor.serialization.jackson3)
     implementation(libs.ktor.client.cio.jvm)
     implementation(libs.navfelles.rapids.and.rivers)
 
@@ -20,7 +20,7 @@ dependencies {
     implementation(libs.ktor.client.auth)
     implementation(libs.ktor.auth)
     implementation(libs.ktor.server.metrics.micrometer)
-    implementation(libs.ktor.serialization.jackson)
+    implementation(libs.ktor.serialization.jackson3)
     implementation(libs.ktor.client.content.negotiation)
 
     implementation(libs.micrometer.prometheus)

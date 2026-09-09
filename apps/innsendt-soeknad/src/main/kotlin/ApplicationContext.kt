@@ -1,8 +1,7 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import tools.jackson.databind.DeserializationFeature
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import io.ktor.client.HttpClient
@@ -12,7 +11,7 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.http.encodedPath
 import io.ktor.http.takeFrom
-import io.ktor.serialization.jackson.jackson
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.config.HoconApplicationConfig
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
 import no.nav.etterlatte.kafka.GcpKafkaConfig
@@ -112,9 +111,8 @@ class ApplicationContext(
         HttpClient(OkHttp) {
             install(ContentNegotiation) {
                 jackson {
-                    configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                    registerModule(JavaTimeModule())
+                    disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                    changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
                 }
             }
 
@@ -144,9 +142,8 @@ fun httpClientClientCredentials(azureAppScope: String) =
     HttpClient(OkHttp) {
         install(ContentNegotiation) {
             jackson {
-                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                registerModule(JavaTimeModule())
+                disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+                changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
             }
         }
         val env = System.getenv()
