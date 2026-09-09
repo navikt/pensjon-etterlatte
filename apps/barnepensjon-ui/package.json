@@ -23,7 +23,7 @@
         "react-dom": "^19.2.8",
         "react-hook-form": "^7.85.0",
         "react-router": "^8.3.0",
-        "typescript": "^6.0.2",
+        "typescript": "^7.0.2",
         "uuid": "^14.0.1",
         "vite": "^8.2.1",
         "vite-plugin-svgr": "^5.2.0",
@@ -43,7 +43,7 @@
         "@types/react-dom": "^19.2.4",
         "@types/uuid": "^11.0.0",
         "concurrently": "^10.0.5",
-        "cypress": "^15.20.1",
+        "cypress": "^16.0.0",
         "globals": "^17.11.0",
         "husky": "~9.1.7",
         "jsdom": "^30.0.1"
