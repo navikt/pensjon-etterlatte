@@ -9,6 +9,7 @@ testcontainers-version = "1.21.4"
 flyway-version = "13.3.0"
 rapidsandrivers-version = "2026071513121784113927" # OBS! tbdlibs brukes av denne. De bør stemme overens
 tbdlibs-version = "20260823.1727" # OBS! rapidsandrivers bruker denne. De bør stemme overens
+# kan verifiseres ved å sjekke dependencies med: ./gradlew --no-daemon --console=plain :apps:innsendt-soeknad:dependencyInsight --configuration testRuntimeClasspath --dependency rapids-and-rivers
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version.ref = "rapidsandrivers-version" }
