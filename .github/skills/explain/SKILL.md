@@ -1,39 +1,77 @@
 ---
 name: explain-diff-html
-description: Use when the user asks for a concise, interactive explanation of a code change, diff, branch, or PR. Produces HTML output.
-  tools:execute/runInTerminal, edit/createDirectory, edit/createFile
+description: Bruk når brukeren ønsker en kortfattet og interaktiv forklaring av logikken i kode fra en branch, PR eller diff. Lager forklaringen som HTML.
+    tools:execute/runInTerminal, edit/createDirectory, edit/createFile
 ---
 
-# Explain Diff
+# Forklar kode
 
-Please make me a concise, interactive explanation of the specified code change.
+Lag en kortfattet og interaktiv forklaring av den aktuelle koden.
 
-It should have these sections:
+Hovedmålet er å forklare hvordan koden virker, hvorfor den er bygget opp slik, og hvordan data og kontroll flyter
+gjennom løsningen. En diff, branch eller PR brukes som utgangspunkt for å finne den relevante koden, men forklaringen
+skal ikke først og fremst være en oppramsing av hva som er endret siden forrige versjon.
 
-- Intuition: Explain the core intuition for the code change. The focus here is to explain the essence, not the full
-  details. Use concrete examples with toy data. Use figures and diagrams liberally.
-- Code: Do a high-level walkthrough of the changes to the code. Group/order the changes in an understandable way.
-- Quiz: Come up with five questions that test the reader's knowledge of this PR. This should be medium difficulty,
-  difficult enough that you actually need to understand the substance of the PR to answer them, but not gotchas. The
-  goal is to help the reader make sure that they've actually understood. These should be presented as interactive
-  multiple-choice questions, and when the user clicks, it tells them whether they were correct and gives feedback.
+Forklaringen skal ha disse delene:
 
-Format:
+- **Kort fortalt:** Gi leseren en enkel mental modell av hva koden gjør og hvilket problem den løser. Forklar essensen
+  uten å gå inn i alle detaljene. Bruk konkrete eksempler med enkle eksempeldata.
+- **Slik virker koden:** Forklar den overordnede flyten gjennom løsningen. Vis hva som starter prosessen, hvilke viktige
+  steg som utføres, hvordan data endres underveis, og hva resultatet blir. Bruk diagrammer når de gjør flyten lettere å
+  forstå.
+- **Gjennomgang av koden:** Gå gjennom de viktigste delene av implementasjonen. Grupper koden etter ansvar eller rolle,
+  ikke nødvendigvis etter fil eller rekkefølgen i diffen. Forklar særlig betingelser, transformasjoner, kall mellom
+  komponenter og viktige designvalg.
+- **Endringen i sammenheng:** Forklar kort hva som er nytt eller annerledes dersom utgangspunktet er en diff, branch
+  eller PR. Knytt endringene til kodeflyten og forklar hvilken praktisk betydning de har. Unngå en detaljert
+  fil-for-fil-oppramsing.
+- **Test forståelsen din:** Lag fem flervalgsoppgaver som tester om leseren har forstått logikken i koden. Oppgavene
+  skal være middels vanskelige og kreve faktisk forståelse, men ikke være lureoppgaver. Når leseren velger et svar, skal
+  det vises om svaret er riktig, sammen med en kort forklaring.
 
-- Output a single self-contained HTML file which includes CSS and JavaScript. Make the whole thing one long page with
-  section headers and a table of contents. Don't use tabs for the top-level structure. Basic responsive styling so you
-  can view it on a phone is nice too. Put the file in a global place on my computer outside of the code repo, and make
-  sure the filename always starts with today's date in `YYYY-MM-DD-` format, because it helps keep the files time-sorted
-  and out of version control. For example: /tmp/2026-01-12-explanation-<slug>.html
-- Please write with the clarity and flow of Martin Kleppmann, making it engaging and written in classic style.
-  Transitions between sections should be smooth.
-- Some tips on diagrams. Ideally, you should pick a small number of diagram families that can be reused throughout the
-  explanation to explain various cases. Some useful kinds of diagrams:
-    - A very simplified version of the UI that the user sees in the app, to explain UI changes.
-    - A system diagram showing data flow or communication between components. Make sure to include example data here!
-- Don't use ASCII diagrams. Always use simple HTML designs for your diagrams, HTML lists for lists of things, etc.
-    - For code blocks, always use `<pre>` tags. If you use a custom styled div instead, it **must** have
-      `white-space: pre-wrap` in its CSS, or the browser will collapse all newlines into a single line.
-      Before saving the file, scan each code block in the HTML source and confirm its CSS includes
-      `white-space: pre` or `pre-wrap`.
-- Use callouts for key concepts or definitions, important edge cases, etc.
+## Format
+
+- Lag én selvstendig HTML-fil som inneholder nødvendig HTML, CSS og JavaScript.
+- Hele forklaringen skal være én sammenhengende side med overskrifter og innholdsfortegnelse. Ikke bruk faner til
+  hovedstrukturen.
+- Siden skal ha enkel responsiv utforming og fungere godt både på datamaskin og mobil.
+- Lagre filen på et globalt sted utenfor kode-repositoriet.
+- Filnavnet skal begynne med dagens dato i formatet `YYYY-MM-DD-`, slik at filene sorteres kronologisk og ikke havner i
+  versjonskontroll.
+- Design i light-mode
+
+Eksempel:
+
+`/tmp/2026-01-12-kodeforklaring-<slug>.html`
+
+## Språk og formidling
+
+- Skriv på naturlig og lettlest norsk.
+- Skriv klart, presist og engasjerende, med en rolig og pedagogisk flyt.
+- Forklar fagbegreper når de først introduseres.
+- Bruk overganger mellom delene slik at forklaringen oppleves som en sammenhengende tekst.
+- Prioriter hvorfor og hvordan fremfor bare hva.
+- Bruk små, realistiske eksempeldata for å gjøre abstrakt logikk konkret.
+- Bruk uthevede faktabokser for sentrale begreper, viktige forutsetninger og relevante grensetilfeller.
+
+## Diagrammer
+
+Velg et lite antall diagramtyper som kan gjenbrukes gjennom forklaringen. Aktuelle diagrammer kan være:
+
+- En forenklet fremstilling av brukergrensesnittet.
+- Et flytdiagram som viser rekkefølgen i behandlingen.
+- Et systemdiagram som viser kommunikasjon mellom komponenter.
+- En fremstilling av hvordan eksempeldata ser ut før, under og etter behandlingen.
+
+Ta med konkrete eksempeldata i diagrammene når det er nyttig.
+
+Ikke bruk ASCII-diagrammer. Lag diagrammene med enkel HTML og CSS. Bruk vanlige HTML-lister når innholdet egentlig er en
+liste.
+
+## Kodeblokker
+
+- Bruk alltid `<pre>` til kodeblokker.
+- Hvis en egendefinert `<div>` brukes i stedet, må CSS-en inneholde `white-space: pre-wrap`.
+- Før filen lagres, kontroller at alle kodeblokker beholder linjeskift ved hjelp av `white-space: pre` eller
+  `white-space: pre-wrap`.
+
