@@ -15,7 +15,6 @@ import { IValg } from '../../typer/Spoersmaal'
 import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
 import { Studieform } from '../../typer/utdanning'
 import { fullAdresse } from '../../utils/adresse'
-import { erMellomOktoberogDesember } from '../../utils/dato'
 import {
     AnnenSituasjon,
     ArbeidOgUtdanning,

@@ -1,7 +1,6 @@
 import { Heading } from '@navikt/ds-react'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { erMellomOktoberogDesember } from '~utils/dato'
 import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
