@@ -1,5 +1,5 @@
 import { TrashIcon } from '@navikt/aksel-icons'
-import { BodyShort, Box, Button, Heading, HGrid, Label, ReadMore, VStack } from '@navikt/ds-react'
+import { BodyShort, Box, Button, Heading, Label, ReadMore, VStack } from '@navikt/ds-react'
 import React, { useEffect } from 'react'
 import { FieldArrayWithId, useFieldArray, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
