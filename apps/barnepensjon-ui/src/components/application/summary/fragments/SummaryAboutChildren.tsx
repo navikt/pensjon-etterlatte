@@ -1,18 +1,18 @@
-import { Heading, Panel } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { memo } from 'react'
 import { v4 as uuid } from 'uuid'
+import { IDeceasedParent, IParent } from '~context/application/application'
 import { JaNeiVetIkke } from '../../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../../hooks/useTranslation'
+import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
 import { IAboutChildren, IChild, ParentRelationType } from '../../../../types/person'
+import { nameAndFnr } from '../../../../utils/personalia'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import { AccordionItem } from '../AccordionItem'
+import { SummaryGroup } from '../SummaryGroup'
+import { SummarySection } from '../SummarySection'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import PaymentDetailsSummary from './PaymentDetailsSummary'
 import PersonInfoSummary from './PersonInfoSummary'
-import { nameAndFnr } from '../../../../utils/personalia'
-import { ApplicantRole, ApplicantSituation } from '../../../../types/applicant'
-import { IDeceasedParent, IParent } from '~context/application/application'
 
 interface Props {
     aboutChildren?: IAboutChildren
@@ -72,14 +72,13 @@ export const SummaryAboutChildren = memo(
         }
 
         return (
-            <AccordionItem
+            <SummarySection
                 title={isChild ? t('aboutSiblingsTitle') : t('aboutChildrenTitle')}
                 path={`/skjema/${pathPrefix}/${StepPath.AboutChildren}`}
                 pathText={t(StepLabelKey.AboutChildren, { ns: 'summary' })}
             >
                 {aboutChildren?.children?.map((child) => (
-                    <Panel key={uuid()}>
-                        <Heading size={'small'}>{`${child.firstName} ${child.lastName}`}</Heading>
+                    <SummaryGroup key={uuid()} title={`${child.firstName} ${child.lastName}`}>
                         <PersonInfoSummary
                             firstName={child.firstName}
                             lastName={child.lastName}
@@ -111,31 +110,22 @@ export const SummaryAboutChildren = memo(
                                     title={t('childHasGuardian')}
                                     content={child.childHasGuardianship?.answer}
                                 />
-                                <Panel>
-                                    {child.childHasGuardianship.firstName && (
-                                        <TextGroup
-                                            title={t('guardianFirstName')}
-                                            content={child.childHasGuardianship?.firstName}
-                                        />
-                                    )}
-                                    {child.childHasGuardianship.lastName && (
-                                        <TextGroup
-                                            title={t('guardianLastName')}
-                                            content={child.childHasGuardianship?.lastName}
-                                        />
-                                    )}
-                                    {child.childHasGuardianship.fnr && (
-                                        <TextGroup title={t('guardianFnr')} content={child.childHasGuardianship?.fnr} />
-                                    )}
-                                </Panel>
+                                {child.childHasGuardianship.firstName && (
+                                    <TextGroup
+                                        title={t('guardianFirstName')}
+                                        content={child.childHasGuardianship?.firstName}
+                                    />
+                                )}
+                                {child.childHasGuardianship.lastName && (
+                                    <TextGroup
+                                        title={t('guardianLastName')}
+                                        content={child.childHasGuardianship?.lastName}
+                                    />
+                                )}
+                                {child.childHasGuardianship.fnr && (
+                                    <TextGroup title={t('guardianFnr')} content={child.childHasGuardianship?.fnr} />
+                                )}
                             </>
-                        )}
-
-                        {child.disabilityBenefitsIsGuardian && (
-                            <TextGroupJaNeiVetIkke
-                                title={t('disabilityBenefitsIsGuardian')}
-                                content={child.disabilityBenefitsIsGuardian}
-                            />
                         )}
 
                         {child.disabilityBenefitsIsGuardian && (
@@ -157,9 +147,9 @@ export const SummaryAboutChildren = memo(
                                 )}
                             </>
                         )}
-                    </Panel>
+                    </SummaryGroup>
                 ))}
-            </AccordionItem>
+            </SummarySection>
         )
     }
 )

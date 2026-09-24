@@ -1,4 +1,4 @@
-import { BodyShort, Box, Label } from '@navikt/ds-react'
+import { FormSummary } from '@navikt/ds-react'
 import { dtf } from '~utils/date'
 import { JaNeiVetIkke } from '../../../api/dto/FellesOpplysninger'
 import useTranslation from '../../../hooks/useTranslation'
@@ -23,10 +23,10 @@ interface TextGroupProps {
 
 export const TextGroup = ({ id, title, content }: TextGroupProps) => {
     return (
-        <Box paddingBlock="space-0 space-8">
-            <Label>{title}</Label>
-            <BodyShort id={id}>{stringify(content)}</BodyShort>
-        </Box>
+        <FormSummary.Answer>
+            <FormSummary.Label>{title}</FormSummary.Label>
+            <FormSummary.Value id={id}>{stringify(content)}</FormSummary.Value>
+        </FormSummary.Answer>
     )
 }
 
