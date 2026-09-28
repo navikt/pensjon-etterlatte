@@ -1,50 +1,51 @@
 {
-  "name": "test-sanity",
-  "private": true,
-  "version": "1.0.0",
-  "main": "package.json",
-  "license": "UNLICENSED",
-  "scripts": {
-    "dev": "sanity dev",
-    "start": "sanity start",
-    "build": "sanity build",
-    "generer-typer:meld-inn-endring": "sanity schema extract --workspace meld-inn-endring && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/meldInnEndring && rm -rf schema.json",
-    "generer-typer:felleskomponenter": "sanity schema extract --workspace felleskomponenter && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/common && rm -rf schema.json",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy",
-    "export-sanity-innhold": "yarn tsx exportSanityInnhold.ts",
-    "lint": "eslint"
-  },
-  "keywords": [
-    "sanity"
-  ],
-  "dependencies": {
-    "@sanity/export": "^6.2.1",
-    "@sanity/vision": "^6.9.2",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "sanity": "^6.9.2",
-    "tsx": "^4.23.12"
-  },
-  "devDependencies": {
-    "@sanity/eslint-config-studio": "^6.0.0",
-    "@types/react": "^19.2.18",
-    "eslint": "^10.8.1",
-    "typescript": "^6.0.2",
-    "prettier": "^3.9.6"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "printWidth": 120,
-    "tabWidth": 4,
-    "semi": false,
-    "singleQuote": true,
-    "bracketSpacing": true
-  },
-  "lint-staged": {
+    "name": "test-sanity",
+    "private": true,
+    "version": "1.0.0",
+    "main": "package.json",
+    "license": "UNLICENSED",
+    "scripts": {
+        "dev": "sanity dev",
+        "start": "sanity start",
+        "build": "sanity build",
+        "generer-typer:meld-inn-endring": "sanity schema extract --workspace meld-inn-endring && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/meldInnEndring && rm -rf schema.json",
+        "generer-typer:felleskomponenter": "sanity schema extract --workspace felleskomponenter && sanity typegen generate && mv sanity.types.ts ../selvbetjening-ui/src/common && rm -rf schema.json",
+        "deploy": "sanity deploy",
+        "deploy-graphql": "sanity graphql deploy",
+        "export-sanity-innhold": "yarn tsx exportSanityInnhold.ts",
+        "lint": "eslint"
+    },
+    "keywords": [
+        "sanity"
+    ],
+    "dependencies": {
+        "@sanity/export": "^6.2.1",
+        "@sanity/vision": "^6.9.2",
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
+        "sanity": "^6.9.2",
+        "styled-components": "^6.5.3",
+        "tsx": "^4.23.12"
+    },
+    "devDependencies": {
+        "@sanity/eslint-config-studio": "^6.0.0",
+        "@types/react": "^19.2.18",
+        "eslint": "^10.8.1",
+        "typescript": "^6.0.2",
+        "prettier": "^3.9.6"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "printWidth": 120,
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true,
+        "bracketSpacing": true
+    },
+    "lint-staged": {
         "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
             "eslint"
         ]
     },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
