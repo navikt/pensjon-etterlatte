@@ -1,4 +1,4 @@
-import { BodyShort, Label } from '@navikt/ds-react'
+import { FormSummary } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
 import { IValg } from '../../../../typer/Spoersmaal'
 
@@ -31,10 +31,10 @@ interface TekstGruppeProps {
 
 export const TekstGruppe = ({ tittel, innhold, id }: TekstGruppeProps) => {
     return (
-        <div className={'tekstgruppe'}>
-            <Label>{tittel}</Label>
-            <BodyShort id={id}>{stringify(innhold)}</BodyShort>
-        </div>
+        <FormSummary.Answer>
+            <FormSummary.Label>{tittel}</FormSummary.Label>
+            <FormSummary.Value id={id}>{stringify(innhold)}</FormSummary.Value>
+        </FormSummary.Answer>
     )
 }
 

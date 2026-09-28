@@ -1,15 +1,14 @@
-import { Heading } from '@navikt/ds-react'
 import { memo } from 'react'
-import { AccordionItem } from '../AccordionItem'
+import { useTranslation } from 'react-i18next'
 import { IBruker } from '../../../../context/bruker/bruker'
 import { ISoeker } from '../../../../typer/person'
-import { useTranslation } from 'react-i18next'
-import { StegPath, StegLabelKey } from '../../../../typer/steg'
-import { TekstGruppe } from './TekstGruppe'
-import PersonInfoOppsummering from './PersonInfoOppsummering'
+import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { fullAdresse } from '../../../../utils/adresse'
+import { OppsummeringGruppe } from '../OppsummeringGruppe'
+import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import PersonInfoOppsummering from './PersonInfoOppsummering'
+import { TekstGruppe } from './TekstGruppe'
 import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
-import { Panel } from '../../../felles/Panel'
 
 interface Props {
     omDeg: ISoeker
@@ -21,15 +20,13 @@ export const OppsummeringOmDeg = memo(({ omDeg, bruker, senderSoeknad }: Props) 
     const { t } = useTranslation()
 
     return (
-        <AccordionItem
+        <OppsummeringSeksjon
             tittel={t(StegLabelKey.OmDeg)}
             path={`/skjema/steg/${StegPath.OmDeg}`}
             pathText={StegPath.OmDeg}
             senderSoeknad={senderSoeknad}
         >
-            <Panel>
-                <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>
-
+            <OppsummeringGruppe tittel={t('omDeg.undertittel.personalia')}>
                 <PersonInfoOppsummering
                     navn={`${bruker.fornavn} ${bruker.etternavn}`}
                     fnrDnr={bruker.foedselsnummer}
@@ -46,13 +43,11 @@ export const OppsummeringOmDeg = memo(({ omDeg, bruker, senderSoeknad }: Props) 
                 {omDeg.alternativAdresse && (
                     <TekstGruppe tittel={t('omDeg.alternativAdresse')} innhold={omDeg.alternativAdresse} />
                 )}
-            </Panel>
+            </OppsummeringGruppe>
 
-            <Panel>
-                {omDeg.utbetalingsInformasjon && (
-                    <UtbetalingsInformasjonOppsummering utbetalingsInformasjon={omDeg.utbetalingsInformasjon} />
-                )}
-            </Panel>
-        </AccordionItem>
+            {omDeg.utbetalingsInformasjon && (
+                <UtbetalingsInformasjonOppsummering utbetalingsInformasjon={omDeg.utbetalingsInformasjon} />
+            )}
+        </OppsummeringSeksjon>
     )
 })
