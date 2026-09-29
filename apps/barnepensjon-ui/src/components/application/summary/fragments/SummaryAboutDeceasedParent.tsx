@@ -27,13 +27,15 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                 ns: 'summary',
             })}
         >
-            <PersonInfoSummary
-                firstName={aboutTheParent.firstName}
-                lastName={aboutTheParent.lastName}
-                fnrDnr={aboutTheParent.fnrDnr}
-                dateOfBirth={aboutTheParent.dateOfBirth}
-                citizenship={aboutTheParent.citizenship}
-            />
+            <SummaryGroup title={t('subtitle.personalia', { ns: 'aboutYou' })}>
+                <PersonInfoSummary
+                    firstName={aboutTheParent.firstName}
+                    lastName={aboutTheParent.lastName}
+                    fnrDnr={aboutTheParent.fnrDnr}
+                    dateOfBirth={aboutTheParent.dateOfBirth}
+                    citizenship={aboutTheParent.citizenship}
+                />
+            </SummaryGroup>
             <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath.toString()} />
             <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
             <TextGroupJaNeiVetIkke

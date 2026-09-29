@@ -3,6 +3,7 @@ import { memo } from 'react'
 import { ILivingParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
+import { SummaryGroup } from '../SummaryGroup'
 import { SummarySection } from '../SummarySection'
 import { TextGroup } from '../TextGroup'
 import PersonInfoSummary from './PersonInfoSummary'
@@ -23,17 +24,22 @@ export const SummaryAboutLivingParent = memo(({ aboutTheParent, pathPrefix }: Pr
             path={`/skjema/${pathPrefix}/${StepPath.AboutTheParents}`}
             pathText={t(StepLabelKey.AboutTheParents, { ns: 'summary' })}
         >
-            <PersonInfoSummary
-                firstName={aboutTheParent.firstName}
-                lastName={aboutTheParent.lastName}
-                fnrDnr={aboutTheParent.fnrDnr}
-                dateOfBirth={aboutTheParent.dateOfBirth}
-                citizenship={aboutTheParent.citizenship}
-            />
-            <TextGroup title={t('address')} content={aboutTheParent?.address} />
-            {aboutTheParent.phoneNumber && (
-                <TextGroup title={t('phoneNumberOptional', { ns: 'common' })} content={aboutTheParent.phoneNumber} />
-            )}
+            <SummaryGroup title={t('subtitle.personalia', { ns: 'aboutYou' })}>
+                <PersonInfoSummary
+                    firstName={aboutTheParent.firstName}
+                    lastName={aboutTheParent.lastName}
+                    fnrDnr={aboutTheParent.fnrDnr}
+                    dateOfBirth={aboutTheParent.dateOfBirth}
+                    citizenship={aboutTheParent.citizenship}
+                />
+                <TextGroup title={t('address')} content={aboutTheParent?.address} />
+                {aboutTheParent.phoneNumber && (
+                    <TextGroup
+                        title={t('phoneNumberOptional', { ns: 'common' })}
+                        content={aboutTheParent.phoneNumber}
+                    />
+                )}
+            </SummaryGroup>
         </SummarySection>
     )
 })
