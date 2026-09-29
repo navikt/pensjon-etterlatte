@@ -30,18 +30,18 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                     foedselsdato={omDenAvdoede.foedselsdato}
                     statsborgerskap={omDenAvdoede.statsborgerskap}
                 />
+            </OppsummeringGruppe>
+            <OppsummeringGruppe tittel={t('omDenAvdoede.doedsfallOgUtenlandsopphold')}>
                 <TekstGruppe tittel={t('omDenAvdoede.datoForDoedsfallet')} innhold={omDenAvdoede.datoForDoedsfallet} />
-
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('omDenAvdoede.doedsfallAarsak')}
                     innhold={omDenAvdoede.doedsfallAarsak}
                 />
+                <TekstGruppeJaNeiVetIkke
+                    tittel={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
+                    innhold={omDenAvdoede.boddEllerJobbetUtland?.svar}
+                />
             </OppsummeringGruppe>
-
-            <TekstGruppeJaNeiVetIkke
-                tittel={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
-                innhold={omDenAvdoede.boddEllerJobbetUtland?.svar}
-            />
             {omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold, index) => (
                 <OppsummeringGruppe key={index} tittel={`Opphold i ${opphold.land}`}>
                     <TekstGruppe

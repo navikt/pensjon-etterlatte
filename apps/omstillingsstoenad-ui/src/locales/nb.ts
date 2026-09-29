@@ -595,6 +595,7 @@ export default {
     'omDenAvdoede.fornavn': 'Fornavn',
     'omDenAvdoede.etternavn': 'Etternavn',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
+    'omDenAvdoede.doedsfallOgUtenlandsopphold': 'Dødsfall og utenlandsopphold',
     'omDenAvdoede.foedselsnummer': 'Fødselsnummer / d-nummer',
     'omDenAvdoede.ukjentFoedselsnummer': 'Jeg kjenner ikke avdødes fødselsnummer (valgfritt)',
     'omDenAvdoede.ukjentFoedselsnummerInfo':
