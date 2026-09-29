@@ -48,8 +48,17 @@ describe('Oppsummering av foreldre', () => {
         expect(personaliaAnswers?.contains(getByText('Kari'))).toBe(true)
         expect(personaliaAnswers?.contains(getByText('Nordmann'))).toBe(true)
         expect(personaliaAnswers?.contains(getByText('aboutTheDeceased:dateOfDeath'))).toBe(false)
+        const deathAndAbroad = getByText('aboutTheDeceased:deathAndStaysAbroad').closest('.aksel-form-summary__answer')
+        const deathAndAbroadAnswers = deathAndAbroad?.querySelector(
+            '.aksel-form-summary__value .aksel-form-summary__answers'
+        )
+        expect(deathAndAbroadAnswers?.contains(getByText('aboutTheDeceased:dateOfDeath'))).toBe(true)
+        expect(deathAndAbroadAnswers?.contains(getByText('aboutTheDeceased:occupationalInjury'))).toBe(true)
+        expect(deathAndAbroadAnswers?.contains(getByText('aboutTheDeceased:didTheDeceasedLiveAbroad'))).toBe(true)
+        expect(personalia?.parentElement).toBe(deathAndAbroad?.parentElement)
         if (hasStaysAbroad) {
             expect(personaliaAnswers?.contains(getByText('Opphold i Danmark'))).toBe(false)
+            expect(deathAndAbroadAnswers?.contains(getByText('Opphold i Danmark'))).toBe(false)
         }
     })
 

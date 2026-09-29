@@ -36,12 +36,14 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                     citizenship={aboutTheParent.citizenship}
                 />
             </SummaryGroup>
-            <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath.toString()} />
-            <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
-            <TextGroupJaNeiVetIkke
-                title={t('didTheDeceasedLiveAbroad')}
-                content={aboutTheParent.staysAbroad.hasStaysAbroad}
-            />
+            <SummaryGroup title={t('deathAndStaysAbroad')}>
+                <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath.toString()} />
+                <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
+                <TextGroupJaNeiVetIkke
+                    title={t('didTheDeceasedLiveAbroad')}
+                    content={aboutTheParent.staysAbroad.hasStaysAbroad}
+                />
+            </SummaryGroup>
             {aboutTheParent.staysAbroad.abroadStays?.map((stay) => (
                 <SummaryGroup key={uuid()} title={`Opphold i ${stay.country}`}>
                     <TextGroup title={t('abroadInWhichCountry')} content={stay.country} />

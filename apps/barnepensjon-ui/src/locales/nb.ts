@@ -274,6 +274,7 @@ const aboutTheDeceased = {
     firstParentTitle: 'Om den første forelderen',
     secondParentTitle: 'Om den andre forelderen',
     singleParentTitle: 'Om den avdøde',
+    deathAndStaysAbroad: 'Dødsfall og utenlandsopphold',
     dateOfDeath: 'Når skjedde dødsfallet?',
     phoneNumber: 'Telefonnummer (valgfri)',
     abroadStaysTitle: 'Opphold utenfor Norge',
