@@ -3,7 +3,8 @@ import { memo } from 'react'
 import { ILivingParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import { AccordionItem } from '../AccordionItem'
+import { SummaryGroup } from '../SummaryGroup'
+import { SummarySection } from '../SummarySection'
 import { TextGroup } from '../TextGroup'
 import PersonInfoSummary from './PersonInfoSummary'
 
@@ -18,12 +19,12 @@ export const SummaryAboutLivingParent = memo(({ aboutTheParent, pathPrefix }: Pr
     if (!aboutTheParent || isEmpty(aboutTheParent)) return null
 
     return (
-        <AccordionItem
+        <SummarySection
             title={t('title')}
             path={`/skjema/${pathPrefix}/${StepPath.AboutTheParents}`}
             pathText={t(StepLabelKey.AboutTheParents, { ns: 'summary' })}
         >
-            <>
+            <SummaryGroup title={t('subtitle.personalia', { ns: 'aboutYou' })}>
                 <PersonInfoSummary
                     firstName={aboutTheParent.firstName}
                     lastName={aboutTheParent.lastName}
@@ -38,7 +39,7 @@ export const SummaryAboutLivingParent = memo(({ aboutTheParent, pathPrefix }: Pr
                         content={aboutTheParent.phoneNumber}
                     />
                 )}
-            </>
-        </AccordionItem>
+            </SummaryGroup>
+        </SummarySection>
     )
 })

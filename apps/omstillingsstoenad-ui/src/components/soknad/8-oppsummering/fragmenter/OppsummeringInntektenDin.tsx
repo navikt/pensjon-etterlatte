@@ -1,11 +1,10 @@
-import { Heading } from '@navikt/ds-react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
-import { Panel } from '../../../felles/Panel'
-import { AccordionItem } from '../AccordionItem'
+import { OppsummeringGruppe } from '../OppsummeringGruppe'
+import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
 interface Props {
@@ -17,18 +16,14 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
     const { t } = useTranslation()
 
     return (
-        <AccordionItem
+        <OppsummeringSeksjon
             tittel={t(StegLabelKey.InntektenDin)}
             path={`/skjema/steg/${StegPath.InntektenDin}`}
             pathText={StegPath.InntektenDin}
             senderSoeknad={senderSoeknad}
         >
             {inntektenDin.skalGaaAvMedAlderspensjon && (
-                <Panel>
-                    <Heading size={'small'}>
-                        {t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}
-                    </Heading>
-
+                <OppsummeringGruppe tittel={t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}>
                     <TekstGruppe
                         tittel={t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar')}
                         innhold={t(inntektenDin.skalGaaAvMedAlderspensjon?.valg || '')}
@@ -50,13 +45,11 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                             innhold={inntektenDin.skalGaaAvMedAlderspensjon?.datoForAaGaaAvMedAlderspensjon}
                         />
                     )}
-                </Panel>
+                </OppsummeringGruppe>
             )}
 
             {inntektenDin.inntektFremTilDoedsfallet && (
-                <Panel>
-                    <Heading size={'small'}>{t('inntektenDin.inntektFremTilDoedsfallet.tittel')}</Heading>
-
+                <OppsummeringGruppe tittel={t('inntektenDin.inntektFremTilDoedsfallet.tittel')}>
                     <TekstGruppe
                         tittel={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt')}
                         innhold={inntektenDin.inntektFremTilDoedsfallet?.arbeidsinntekt}
@@ -68,7 +61,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                     />
                     {!!inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
                         inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0' && (
-                            <Panel>
+                            <>
                                 <TekstGruppeJaNeiVetIkke
                                     tittel={t(
                                         'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
@@ -91,7 +84,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                         }
                                     />
                                 )}
-                            </Panel>
+                            </>
                         )}
 
                     {inntektenDin.inntektFremTilDoedsfallet?.afpInntekt && (
@@ -100,12 +93,10 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt')}
                                 innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt}
                             />
-                            <Panel>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning')}
-                                    innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.tjenesteordning}
-                                />
-                            </Panel>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning')}
+                                innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.tjenesteordning}
+                            />
                         </>
                     )}
 
@@ -119,7 +110,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.valg}
                     />
                     {inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.valg === IValg.JA && (
-                        <Panel>
+                        <>
                             <TekstGruppe
                                 tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt')}
                                 innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.inntekt}
@@ -128,15 +119,13 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse')}
                                 innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.beskrivelse}
                             />
-                        </Panel>
+                        </>
                     )}
-                </Panel>
+                </OppsummeringGruppe>
             )}
 
             {inntektenDin.forventetInntektIAar && (
-                <Panel>
-                    <Heading size={'small'}>{t('inntektenDin.forventetInntektIAar.tittel')}</Heading>
-
+                <OppsummeringGruppe tittel={t('inntektenDin.forventetInntektIAar.tittel')}>
                     <TekstGruppe
                         tittel={t('inntektenDin.forventetInntektIAar.arbeidsinntekt')}
                         innhold={inntektenDin.forventetInntektIAar?.arbeidsinntekt}
@@ -148,7 +137,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                     />
                     {!!inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt &&
                         inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (
-                            <Panel>
+                            <>
                                 <TekstGruppeJaNeiVetIkke
                                     tittel={t(
                                         'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
@@ -171,7 +160,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                         }
                                     />
                                 )}
-                            </Panel>
+                            </>
                         )}
 
                     {inntektenDin.forventetInntektIAar?.afpInntekt && (
@@ -180,12 +169,10 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.inntekt')}
                                 innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt}
                             />
-                            <Panel>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning')}
-                                    innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.tjenesteordning}
-                                />
-                            </Panel>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning')}
+                                innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.tjenesteordning}
+                            />
                         </>
                     )}
 
@@ -199,7 +186,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.valg}
                     />
                     {inntektenDin.forventetInntektIAar?.andreInntekter?.valg === IValg.JA && (
-                        <Panel>
+                        <>
                             <TekstGruppe
                                 tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.inntekt')}
                                 innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.inntekt}
@@ -208,7 +195,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse')}
                                 innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.beskrivelse}
                             />
-                        </Panel>
+                        </>
                     )}
 
                     <TekstGruppeJaNeiVetIkke
@@ -216,7 +203,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         innhold={inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg}
                     />
                     {inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                        <Panel>
+                        <>
                             <TekstGruppe
                                 tittel={t(
                                     'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
@@ -235,15 +222,13 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                     innhold={inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.beskrivelse}
                                 />
                             )}
-                        </Panel>
+                        </>
                     )}
-                </Panel>
+                </OppsummeringGruppe>
             )}
 
             {inntektenDin.forventetInntektTilNesteAar && (
-                <Panel>
-                    <Heading size={'small'}>{t('inntektenDin.forventetInntektTilNesteAar.tittel')}</Heading>
-
+                <OppsummeringGruppe tittel={t('inntektenDin.forventetInntektTilNesteAar.tittel')}>
                     <TekstGruppe
                         tittel={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt')}
                         innhold={inntektenDin.forventetInntektTilNesteAar?.arbeidsinntekt}
@@ -255,7 +240,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                     />
                     {!!inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
                         inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0' && (
-                            <Panel>
+                            <>
                                 <TekstGruppeJaNeiVetIkke
                                     tittel={t(
                                         'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
@@ -278,7 +263,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                         }
                                     />
                                 )}
-                            </Panel>
+                            </>
                         )}
 
                     {inntektenDin.forventetInntektTilNesteAar?.afpInntekt && (
@@ -287,12 +272,10 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt')}
                                 innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.inntekt}
                             />
-                            <Panel>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning')}
-                                    innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.tjenesteordning}
-                                />
-                            </Panel>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning')}
+                                innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.tjenesteordning}
+                            />
                         </>
                     )}
 
@@ -306,7 +289,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.valg}
                     />
                     {inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.valg === IValg.JA && (
-                        <Panel>
+                        <>
                             <TekstGruppe
                                 tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt')}
                                 innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.inntekt}
@@ -315,7 +298,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                 tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse')}
                                 innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.beskrivelse}
                             />
-                        </Panel>
+                        </>
                     )}
 
                     <TekstGruppeJaNeiVetIkke
@@ -323,7 +306,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         innhold={inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg}
                     />
                     {inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                        <Panel>
+                        <>
                             <TekstGruppe
                                 tittel={t(
                                     'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
@@ -345,13 +328,12 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                                     }
                                 />
                             )}
-                        </Panel>
+                        </>
                     )}
-                </Panel>
+                </OppsummeringGruppe>
             )}
 
-            <Panel>
-                <Heading size={'small'}>{t('inntektenDin.ytelserNAV.tittel')}</Heading>
+            <OppsummeringGruppe tittel={t('inntektenDin.ytelserNAV.tittel')}>
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('inntektenDin.ytelserNAV.svar')}
                     innhold={inntektenDin.ytelserNAV?.svar}
@@ -362,9 +344,8 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         innhold={inntektenDin.ytelserNAV?.soekteYtelser?.map((item) => ` ${t(item)}`)}
                     />
                 )}
-            </Panel>
-            <Panel>
-                <Heading size={'small'}>{t('inntektenDin.ytelserAndre.tittel')}</Heading>
+            </OppsummeringGruppe>
+            <OppsummeringGruppe tittel={t('inntektenDin.ytelserAndre.tittel')}>
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('inntektenDin.ytelserAndre.svar')}
                     innhold={inntektenDin.ytelserAndre?.svar}
@@ -381,7 +362,7 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
                         />
                     </>
                 )}
-            </Panel>
-        </AccordionItem>
+            </OppsummeringGruppe>
+        </OppsummeringSeksjon>
     )
 })

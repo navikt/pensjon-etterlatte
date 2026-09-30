@@ -596,6 +596,7 @@ export default {
     'omDenAvdoede.statsborgerskap': 'Statsborgarskap',
     'omDenAvdoede.statsborgerskapPlaceholder': 'Til dømes norsk',
     'omDenAvdoede.datoForDoedsfallet': 'Når skjedde dødsfallet?',
+    'omDenAvdoede.doedsfallOgUtenlandsopphold': 'Dødsfall og opphald i utlandet',
     'omDenAvdoede.boddEllerJobbetUtland.tittel': 'Opphald utanfor Noreg',
     'omDenAvdoede.boddEllerJobbetUtland.ingress':
         'Vi treng å vite om avdøde har budd eller arbeidd utanfor Noreg. Dette kan både ha påverknad på kor mykje du kan få i omstillingsstønad og om det gir deg pensjonsrettar frå andre land.',
