@@ -1,5 +1,5 @@
 import { BodyShort, Link, RadioProps, ReadMore, VStack } from '@navikt/ds-react'
-import { addYears, endOfYear, startOfMonth, startOfYear } from 'date-fns'
+import { endOfYear, startOfMonth } from 'date-fns'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { Maanedvelger } from '~components/felles/Maanedvelger'
@@ -7,7 +7,6 @@ import { RHFRadio } from '~components/felles/rhf/RHFRadio'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { IInntekt, SkalGaaAvMedAlderspensjonValg } from '~typer/inntekt'
 import { fyllerSekstiSyvIAar } from '~utils/alder'
-import { erMellomOktoberogDesember } from '~utils/dato'
 
 export const SkalGaaAvMedAlderspensjon = () => {
     const { t } = useTranslation()
