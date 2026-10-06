@@ -27,6 +27,9 @@
         "styled-components": "^6.5.3",
         "tsx": "^4.23.12"
     },
+    "resolutions": {
+        "**/@module-federation/dts-plugin/undici": "7.29.1"
+    },
     "devDependencies": {
         "@sanity/eslint-config-studio": "^6.0.0",
         "@types/react": "^19.2.18",
