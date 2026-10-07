@@ -279,7 +279,6 @@ const aboutTheDeceased = {
     firstParentTitle: 'About the first parent',
     secondParentTitle: 'About the other parent',
     singleParentTitle: 'About the deceased',
-    deathAndStaysAbroad: 'Death and time spent abroad',
     dateOfDeath: 'When did the death occur?',
     phoneNumber: 'Telephone number (optional)',
     abroadStaysTitle: 'Time spent outside Norway',

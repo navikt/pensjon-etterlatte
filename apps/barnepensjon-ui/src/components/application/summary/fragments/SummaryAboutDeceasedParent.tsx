@@ -27,23 +27,19 @@ export const SummaryAboutDeceasedParent = memo(({ aboutTheParent, pathPrefix }: 
                 ns: 'summary',
             })}
         >
-            <SummaryGroup title={t('subtitle.personalia', { ns: 'aboutYou' })}>
-                <PersonInfoSummary
-                    firstName={aboutTheParent.firstName}
-                    lastName={aboutTheParent.lastName}
-                    fnrDnr={aboutTheParent.fnrDnr}
-                    dateOfBirth={aboutTheParent.dateOfBirth}
-                    citizenship={aboutTheParent.citizenship}
-                />
-            </SummaryGroup>
-            <SummaryGroup title={t('deathAndStaysAbroad')}>
-                <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath.toString()} />
-                <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
-                <TextGroupJaNeiVetIkke
-                    title={t('didTheDeceasedLiveAbroad')}
-                    content={aboutTheParent.staysAbroad.hasStaysAbroad}
-                />
-            </SummaryGroup>
+            <PersonInfoSummary
+                firstName={aboutTheParent.firstName}
+                lastName={aboutTheParent.lastName}
+                fnrDnr={aboutTheParent.fnrDnr}
+                dateOfBirth={aboutTheParent.dateOfBirth}
+                citizenship={aboutTheParent.citizenship}
+            />
+            <TextGroup title={t('dateOfDeath')} content={aboutTheParent.dateOfDeath.toString()} />
+            <TextGroupJaNeiVetIkke title={t('occupationalInjury')} content={aboutTheParent.occupationalInjury} />
+            <TextGroupJaNeiVetIkke
+                title={t('didTheDeceasedLiveAbroad')}
+                content={aboutTheParent.staysAbroad.hasStaysAbroad}
+            />
             {aboutTheParent.staysAbroad.abroadStays?.map((stay) => (
                 <SummaryGroup key={uuid()} title={`Opphold i ${stay.country}`}>
                     <TextGroup title={t('abroadInWhichCountry')} content={stay.country} />

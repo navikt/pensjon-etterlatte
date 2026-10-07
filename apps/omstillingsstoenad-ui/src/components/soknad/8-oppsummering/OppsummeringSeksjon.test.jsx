@@ -48,4 +48,25 @@ describe('OppsummeringSeksjon', () => {
         const lenke = getByRole('link', { name: /endreSvarOppsummering\.omDeg/ })
         expect(lenke.classList.contains('disabled')).toBe(true)
     })
+
+    it('Lar innholdet eie svarlisten når det trenger en egen periodeoverskrift', () => {
+        const { container, getByRole } = render(
+            <MemoryRouter>
+                <OppsummeringSeksjon tittel="Inntekten din" path="/inntekt" pathText="inntekt" medSvarliste={false}>
+                    <Heading level="3" size="small">
+                        Inntekt i år
+                    </Heading>
+                    <FormSummary.Answers>
+                        <TekstGruppe tittel="Arbeidsinntekt" innhold="100000" />
+                    </FormSummary.Answers>
+                </OppsummeringSeksjon>
+            </MemoryRouter>
+        )
+
+        expect(container.querySelectorAll('dl')).toHaveLength(1)
+        expect(getByRole('heading', { level: 3 }).closest('dl')).toBeNull()
+        expect(getByRole('link').closest('.aksel-form-summary__footer')).not.toBeNull()
+    })
 })
+
+import { FormSummary, Heading } from '@navikt/ds-react'

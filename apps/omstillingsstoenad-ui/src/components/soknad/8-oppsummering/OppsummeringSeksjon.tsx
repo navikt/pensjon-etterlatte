@@ -8,10 +8,18 @@ interface Props {
     path: string
     pathText: string
     senderSoeknad?: boolean
+    medSvarliste?: boolean
     children: ReactNode
 }
 
-export const OppsummeringSeksjon = ({ tittel, path, pathText, senderSoeknad, children }: Props) => {
+export const OppsummeringSeksjon = ({
+    tittel,
+    path,
+    pathText,
+    senderSoeknad,
+    medSvarliste = true,
+    children,
+}: Props) => {
     const { t } = useTranslation()
 
     return (
@@ -19,7 +27,7 @@ export const OppsummeringSeksjon = ({ tittel, path, pathText, senderSoeknad, chi
             <FormSummary.Header>
                 <FormSummary.Heading level="2">{tittel}</FormSummary.Heading>
             </FormSummary.Header>
-            <FormSummary.Answers>{children}</FormSummary.Answers>
+            {medSvarliste ? <FormSummary.Answers>{children}</FormSummary.Answers> : children}
             <FormSummary.Footer>
                 <FormSummary.EditLink as={Link} to={path} className={senderSoeknad ? 'disabled' : ''}>
                     {t(`endreSvarOppsummering.${pathText}`)}

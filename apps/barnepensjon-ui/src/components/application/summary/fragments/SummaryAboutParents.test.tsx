@@ -26,58 +26,61 @@ const parent = {
 }
 
 describe('Oppsummering av foreldre', () => {
-    it.each([false, true])('grupperer personalia om den avdøde med utenlandsopphold: %s', (hasStaysAbroad) => {
+    it.each([0, 1, 2])('viser direkte svar og %s grupperte utenlandsopphold om den avdøde', (numberOfStays) => {
+        const countries = ['Danmark', 'Sverige'].slice(0, numberOfStays)
         const deceasedParent: IDeceasedParent = {
             ...parent,
             dateOfDeath: new Date('2026-09-01'),
             staysAbroad: {
-                hasStaysAbroad: hasStaysAbroad ? JaNeiVetIkke.JA : JaNeiVetIkke.NEI,
-                abroadStays: hasStaysAbroad
-                    ? [{ country: 'Danmark', type: [], medlemFolketrygd: JaNeiVetIkke.NEI, pension: {} }]
-                    : [],
+                hasStaysAbroad: numberOfStays ? JaNeiVetIkke.JA : JaNeiVetIkke.NEI,
+                abroadStays: countries.map((country) => ({
+                    country,
+                    type: [],
+                    medlemFolketrygd: JaNeiVetIkke.NEI,
+                    pension: {},
+                })),
             },
         }
-        const { getByText } = render(
+        const { container, getByText, queryByText } = render(
             <MemoryRouter>
                 <SummaryAboutDeceasedParent aboutTheParent={deceasedParent} pathPrefix="forelder" />
             </MemoryRouter>
         )
 
-        const personalia = getByText('aboutYou:subtitle.personalia').closest('.aksel-form-summary__answer')
-        const personaliaAnswers = personalia?.querySelector('.aksel-form-summary__value .aksel-form-summary__answers')
-        expect(personaliaAnswers?.contains(getByText('Kari'))).toBe(true)
-        expect(personaliaAnswers?.contains(getByText('Nordmann'))).toBe(true)
-        expect(personaliaAnswers?.contains(getByText('aboutTheDeceased:dateOfDeath'))).toBe(false)
-        const deathAndAbroad = getByText('aboutTheDeceased:deathAndStaysAbroad').closest('.aksel-form-summary__answer')
-        const deathAndAbroadAnswers = deathAndAbroad?.querySelector(
-            '.aksel-form-summary__value .aksel-form-summary__answers'
-        )
-        expect(deathAndAbroadAnswers?.contains(getByText('aboutTheDeceased:dateOfDeath'))).toBe(true)
-        expect(deathAndAbroadAnswers?.contains(getByText('aboutTheDeceased:occupationalInjury'))).toBe(true)
-        expect(deathAndAbroadAnswers?.contains(getByText('aboutTheDeceased:didTheDeceasedLiveAbroad'))).toBe(true)
-        expect(personalia?.parentElement).toBe(deathAndAbroad?.parentElement)
-        if (hasStaysAbroad) {
-            expect(personaliaAnswers?.contains(getByText('Opphold i Danmark'))).toBe(false)
-            expect(deathAndAbroadAnswers?.contains(getByText('Opphold i Danmark'))).toBe(false)
+        const answers = container.querySelector('dl')
+        expect(answers).not.toBeNull()
+        expect(queryByText('aboutYou:subtitle.personalia')).toBeNull()
+        expect(queryByText('aboutTheDeceased:deathAndStaysAbroad')).toBeNull()
+        expect(getByText('Kari').closest('dl')).toBe(answers)
+        expect(getByText('Nordmann').closest('dl')).toBe(answers)
+        expect(getByText('aboutTheDeceased:dateOfDeath').closest('dl')).toBe(answers)
+        expect(getByText('aboutTheDeceased:occupationalInjury').closest('dl')).toBe(answers)
+        expect(getByText('aboutTheDeceased:didTheDeceasedLiveAbroad').closest('dl')).toBe(answers)
+        expect(container.querySelectorAll('dl dl')).toHaveLength(numberOfStays)
+        for (const country of countries) {
+            const stay = getByText(`Opphold i ${country}`).closest('.aksel-form-summary__answer')
+            expect(stay?.parentElement).toBe(answers)
+            expect(stay?.querySelector('dl')?.contains(getByText(country))).toBe(true)
         }
     })
 
-    it('grupperer personalia, adresse og telefon om levende forelder', () => {
+    it('viser personalia, adresse og telefon om levende forelder uten gruppe eller undertittel', () => {
         const livingParent: ILivingParent = {
             ...parent,
             address: 'Storgata 1',
             phoneNumber: '12345678',
         }
-        const { getByText } = render(
+        const { container, getByText, queryByText } = render(
             <MemoryRouter>
                 <SummaryAboutLivingParent aboutTheParent={livingParent} pathPrefix="forelder" />
             </MemoryRouter>
         )
 
-        const personalia = getByText('aboutYou:subtitle.personalia').closest('.aksel-form-summary__answer')
-        const personaliaAnswers = personalia?.querySelector('.aksel-form-summary__value .aksel-form-summary__answers')
-        expect(personaliaAnswers?.contains(getByText('Kari'))).toBe(true)
-        expect(personaliaAnswers?.contains(getByText('Storgata 1'))).toBe(true)
-        expect(personaliaAnswers?.contains(getByText('12345678'))).toBe(true)
+        const answers = container.querySelector('dl')
+        expect(container.querySelectorAll('dl')).toHaveLength(1)
+        expect(queryByText('aboutYou:subtitle.personalia')).toBeNull()
+        expect(getByText('Kari').closest('dl')).toBe(answers)
+        expect(getByText('Storgata 1').closest('dl')).toBe(answers)
+        expect(getByText('12345678').closest('dl')).toBe(answers)
     })
 })

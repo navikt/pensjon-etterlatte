@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
-import { OppsummeringGruppe } from '../OppsummeringGruppe'
 import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
@@ -50,56 +49,49 @@ export const OppsummeringSituasjonenDin = memo(({ situasjonenDin, senderSoeknad 
                 </>
             )}
 
-            <OppsummeringGruppe tittel={t('situasjonenDin.omsorgForBarn.tittel')}>
-                <TekstGruppeJaNeiVetIkke
-                    tittel={t('situasjonenDin.omsorgMinstFemti')}
-                    innhold={situasjonenDin.omsorgMinstFemti}
-                />
-                <TekstGruppeJaNeiVetIkke
-                    tittel={t('situasjonenDin.gravidEllerNyligFoedt')}
-                    innhold={situasjonenDin.gravidEllerNyligFoedt}
-                />
-            </OppsummeringGruppe>
+            <TekstGruppeJaNeiVetIkke
+                tittel={t('situasjonenDin.omsorgMinstFemti')}
+                innhold={situasjonenDin.omsorgMinstFemti}
+            />
+            <TekstGruppeJaNeiVetIkke
+                tittel={t('situasjonenDin.gravidEllerNyligFoedt')}
+                innhold={situasjonenDin.gravidEllerNyligFoedt}
+            />
 
-            <OppsummeringGruppe tittel={t('situasjonenDin.oppholdUtenforNorge.tittel')}>
-                <TekstGruppeJaNeiVetIkke
-                    tittel={t('situasjonenDin.bosattINorge')}
-                    innhold={situasjonenDin.bosattINorge}
-                />
+            <TekstGruppeJaNeiVetIkke tittel={t('situasjonenDin.bosattINorge')} innhold={situasjonenDin.bosattINorge} />
 
-                {situasjonenDin.bosattINorge === IValg.JA && (
-                    <>
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('situasjonenDin.oppholderSegIUtlandet.svar')}
-                            innhold={situasjonenDin.oppholderSegIUtlandet?.svar}
-                        />
-                        {situasjonenDin.oppholderSegIUtlandet?.svar === IValg.JA && (
-                            <>
+            {situasjonenDin.bosattINorge === IValg.JA && (
+                <>
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('situasjonenDin.oppholderSegIUtlandet.svar')}
+                        innhold={situasjonenDin.oppholderSegIUtlandet?.svar}
+                    />
+                    {situasjonenDin.oppholderSegIUtlandet?.svar === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
+                                innhold={situasjonenDin.oppholderSegIUtlandet.oppholdsland}
+                            />
+                            {situasjonenDin.oppholderSegIUtlandet.oppholdFra && (
                                 <TekstGruppe
-                                    tittel={t('situasjonenDin.oppholderSegIUtlandet.oppholdsland')}
-                                    innhold={situasjonenDin.oppholderSegIUtlandet.oppholdsland}
+                                    tittel={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
+                                    innhold={situasjonenDin.oppholderSegIUtlandet.oppholdFra}
                                 />
-                                {situasjonenDin.oppholderSegIUtlandet.oppholdFra && (
-                                    <TekstGruppe
-                                        tittel={t('situasjonenDin.oppholderSegIUtlandet.oppholdFra')}
-                                        innhold={situasjonenDin.oppholderSegIUtlandet.oppholdFra}
-                                    />
-                                )}
-                                {situasjonenDin.oppholderSegIUtlandet.oppholdTil && (
-                                    <TekstGruppe
-                                        tittel={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
-                                        innhold={situasjonenDin.oppholderSegIUtlandet.oppholdTil}
-                                    />
-                                )}
-                            </>
-                        )}
-                    </>
-                )}
+                            )}
+                            {situasjonenDin.oppholderSegIUtlandet.oppholdTil && (
+                                <TekstGruppe
+                                    tittel={t('situasjonenDin.oppholderSegIUtlandet.oppholdTil')}
+                                    innhold={situasjonenDin.oppholderSegIUtlandet.oppholdTil}
+                                />
+                            )}
+                        </>
+                    )}
+                </>
+            )}
 
-                {situasjonenDin.bosattINorge === IValg.NEI && (
-                    <TekstGruppe tittel={t('situasjonenDin.bosattLand')} innhold={situasjonenDin.bosattLand} />
-                )}
-            </OppsummeringGruppe>
+            {situasjonenDin.bosattINorge === IValg.NEI && (
+                <TekstGruppe tittel={t('situasjonenDin.bosattLand')} innhold={situasjonenDin.bosattLand} />
+            )}
         </OppsummeringSeksjon>
     )
 })

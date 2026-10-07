@@ -128,7 +128,7 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                 ))}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.etablerer) && (
-                <OppsummeringGruppe tittel={t('merOmSituasjonenDin.etablererVirksomhet.tittel')}>
+                <>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten')}
                         innhold={merOmSituasjonenDin.etablererVirksomhet?.hvaHeterVirksomheten}
@@ -154,11 +154,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             innhold={merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV?.svar}
                         />
                     )}
-                </OppsummeringGruppe>
+                </>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.tilbud) && (
-                <OppsummeringGruppe tittel={t('merOmSituasjonenDin.tilbudOmJobb.tittel')}>
+                <>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted')}
                         innhold={merOmSituasjonenDin.tilbudOmJobb?.arbeidssted}
@@ -209,11 +209,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                         tittel={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
                         innhold={merOmSituasjonenDin.tilbudOmJobb?.aktivitetsplan.svar}
                     />
-                </OppsummeringGruppe>
+                </>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.arbeidssoeker) && (
-                <OppsummeringGruppe tittel={t('merOmSituasjonenDin.arbeidssoeker.tittel')}>
+                <>
                     <TekstGruppeJaNeiVetIkke
                         tittel={t('merOmSituasjonenDin.arbeidssoeker.svar')}
                         innhold={merOmSituasjonenDin.arbeidssoeker?.svar}
@@ -225,11 +225,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             innhold={merOmSituasjonenDin.arbeidssoeker?.aktivitetsplan.svar}
                         />
                     )}
-                </OppsummeringGruppe>
+                </>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.underUtdanning) && (
-                <OppsummeringGruppe tittel={t('merOmSituasjonenDin.utdanning.tittel')}>
+                <>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested')}
                         innhold={merOmSituasjonenDin.utdanning?.naavaerendeUtdanning?.studiested}
@@ -284,11 +284,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                         tittel={t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar')}
                         innhold={merOmSituasjonenDin.utdanning?.aktivitetsplan.svar}
                     />
-                </OppsummeringGruppe>
+                </>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.ingen) && (
-                <OppsummeringGruppe tittel={t('merOmSituasjonenDin.annenSituasjon.tittel')}>
+                <>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
                         innhold={merOmSituasjonenDin.annenSituasjon?.beskrivelse?.map((item) => ` ${t(item)}`)}
@@ -300,15 +300,13 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             innhold={merOmSituasjonenDin.annenSituasjon?.annet?.beskrivelse}
                         />
                     )}
-                </OppsummeringGruppe>
+                </>
             )}
 
-            <OppsummeringGruppe tittel={t('merOmSituasjonenDin.utdanning.tittelFullfoert')}>
-                <TekstGruppe
-                    tittel={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')}
-                    innhold={merOmSituasjonenDin.utdanning?.hoyesteFullfoerteUtdanning?.map((item) => ` ${t(item)}`)}
-                />
-            </OppsummeringGruppe>
+            <TekstGruppe
+                tittel={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')}
+                innhold={merOmSituasjonenDin.utdanning?.hoyesteFullfoerteUtdanning?.map((item) => ` ${t(item)}`)}
+            />
         </OppsummeringSeksjon>
     )
 })

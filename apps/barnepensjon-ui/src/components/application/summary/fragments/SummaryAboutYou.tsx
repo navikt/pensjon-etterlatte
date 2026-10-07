@@ -5,7 +5,6 @@ import useTranslation from '../../../../hooks/useTranslation'
 import { IAboutYou } from '../../../../types/person'
 import { fullAdresse } from '../../../../utils/personalia'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import { SummaryGroup } from '../SummaryGroup'
 import { SummarySection } from '../SummarySection'
 import { TextGroup, TextGroupJaNeiVetIkke } from '../TextGroup'
 import PaymentDetailsSummary from './PaymentDetailsSummary'
@@ -28,20 +27,18 @@ export const SummaryAboutYou = memo(({ aboutYou, user, pathPrefix }: Props) => {
             path={`/skjema/${pathPrefix}/${StepPath.AboutYou}`}
             pathText={t(StepLabelKey.AboutYou, { ns: 'summary' })}
         >
-            <SummaryGroup title={t('subtitle.personalia')}>
-                <PersonInfoSummary
-                    name={`${user.fornavn} ${user.etternavn}`}
-                    fnrDnr={user.foedselsnummer}
-                    citizenship={user.statsborgerskap}
-                    address={fullAdresse(user)}
+            <PersonInfoSummary
+                name={`${user.fornavn} ${user.etternavn}`}
+                fnrDnr={user.foedselsnummer}
+                citizenship={user.statsborgerskap}
+                address={fullAdresse(user)}
+            />
+            {(user.telefonnummer || aboutYou.phoneNumber) && (
+                <TextGroup
+                    title={t('phoneNumber', { ns: 'common' })}
+                    content={user.telefonnummer || aboutYou.phoneNumber}
                 />
-                {(user.telefonnummer || aboutYou.phoneNumber) && (
-                    <TextGroup
-                        title={t('phoneNumber', { ns: 'common' })}
-                        content={user.telefonnummer || aboutYou.phoneNumber}
-                    />
-                )}
-            </SummaryGroup>
+            )}
 
             {aboutYou.residesInNorway && (
                 <TextGroupJaNeiVetIkke title={t('residesInNorway')} content={aboutYou.residesInNorway} />

@@ -39,6 +39,20 @@ const renderChildren = (applicationRole: ApplicantRole, children = aboutChildren
     )
 
 describe('Oppsummering av barn', () => {
+    it.each([1, 2])('beholder én gruppe per barn når listen har %s barn', (numberOfChildren) => {
+        const { container, getByText } = renderChildren(ApplicantRole.GUARDIAN, {
+            children: aboutChildren.children?.slice(0, numberOfChildren),
+        })
+
+        const answers = container.querySelector('dl')
+        expect(container.querySelectorAll('dl dl')).toHaveLength(numberOfChildren)
+        for (const name of ['Kari Nordmann', 'Per Nordmann'].slice(0, numberOfChildren)) {
+            const child = getByText(name).closest('.aksel-form-summary__answer')
+            expect(child?.parentElement).toBe(answers)
+            expect(child?.querySelector('dl')).toBeInstanceOf(HTMLDListElement)
+        }
+    })
+
     it('viser ikke søkerens verge-svar selv om ja eller nei er oppgitt', () => {
         const { getByText, queryByText } = renderChildren(ApplicantRole.GUARDIAN)
 
