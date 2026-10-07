@@ -127,10 +127,11 @@ export const SummaryAboutChildren = memo(
                                 )}
                             </>
                         )}
-                        {applicationRole === ApplicantRole.GUARDIAN && child.loggedInUserIsGuardian && (
+
+                        {child.disabilityBenefitsIsGuardian && (
                             <TextGroupJaNeiVetIkke
-                                title={t('loggedInUserIsGuardian')}
-                                content={child.loggedInUserIsGuardian}
+                                title={t('disabilityBenefitsIsGuardian')}
+                                content={child.disabilityBenefitsIsGuardian}
                             />
                         )}
 

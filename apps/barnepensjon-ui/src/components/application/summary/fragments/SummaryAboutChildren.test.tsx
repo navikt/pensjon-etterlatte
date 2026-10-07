@@ -39,18 +39,12 @@ const renderChildren = (applicationRole: ApplicantRole, children = aboutChildren
     )
 
 describe('Oppsummering av barn', () => {
-    it('viser søkerens svar om verge under riktig barn for både ja og nei', () => {
-        const { getByText, getAllByText, queryByText } = renderChildren(ApplicantRole.GUARDIAN)
+    it('viser ikke søkerens verge-svar selv om ja eller nei er oppgitt', () => {
+        const { getByText, queryByText } = renderChildren(ApplicantRole.GUARDIAN)
 
-        const kari = getByText('Kari Nordmann').closest('.aksel-form-summary__answer')
-        const per = getByText('Per Nordmann').closest('.aksel-form-summary__answer')
-        const answers = getAllByText('aboutChildren:loggedInUserIsGuardian')
-
-        expect(answers).toHaveLength(2)
-        expect(kari?.contains(answers[0])).toBe(true)
-        expect(kari?.contains(getByText('radiobuttons:JA'))).toBe(true)
-        expect(per?.contains(answers[1])).toBe(true)
-        expect(per?.contains(getByText('radiobuttons:NEI'))).toBe(true)
+        expect(getByText('Kari Nordmann')).toBeDefined()
+        expect(getByText('Per Nordmann')).toBeDefined()
+        expect(queryByText('aboutChildren:loggedInUserIsGuardian')).toBeNull()
         expect(queryByText('aboutChildren:childHasGuardian')).toBeNull()
     })
 
