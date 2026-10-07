@@ -16,7 +16,8 @@ vi.mock('react-i18next', () => ({
 afterEach(cleanup)
 
 describe('Oppsummering om den avdøde', () => {
-    it.each([false, true])('viser personalia uten gruppe, med utenlandsopphold: %s', (harOpphold) => {
+    it.each([0, 1, 2])('viser direkte svar med %s grupperte utenlandsopphold', (antallOpphold) => {
+        const oppholdsland = ['Danmark', 'Sverige'].slice(0, antallOpphold)
         const omDenAvdoede: IAvdoed = {
             fornavn: 'Kari',
             etternavn: 'Nordmann',
@@ -24,8 +25,8 @@ describe('Oppsummering om den avdøde', () => {
             datoForDoedsfallet: new Date('2026-09-01'),
             doedsfallAarsak: IValg.NEI,
             boddEllerJobbetUtland: {
-                svar: harOpphold ? IValg.JA : IValg.NEI,
-                oppholdUtland: harOpphold ? [{ land: 'Danmark' }] : [],
+                svar: antallOpphold ? IValg.JA : IValg.NEI,
+                oppholdUtland: oppholdsland.map((land) => ({ land })),
             },
         }
         const { container, getByText, queryByText } = render(
@@ -35,25 +36,22 @@ describe('Oppsummering om den avdøde', () => {
         )
 
         const svar = container.querySelector('dl')
-        const doedsfall = getByText('omDenAvdoede.doedsfallOgUtenlandsopphold').closest('.aksel-form-summary__answer')
-        const doedsfallAnswers = doedsfall?.querySelector('.aksel-form-summary__value .aksel-form-summary__answers')
 
         expect(svar).not.toBeNull()
         expect(queryByText('omDeg.undertittel.personalia')).toBeNull()
+        expect(queryByText('omDenAvdoede.doedsfallOgUtenlandsopphold')).toBeNull()
         expect(getByText('Kari').closest('dl')).toBe(svar)
         expect(getByText('Nordmann').closest('dl')).toBe(svar)
         expect(getByText('Norge').closest('dl')).toBe(svar)
-        expect(doedsfallAnswers?.contains(getByText('omDenAvdoede.datoForDoedsfallet'))).toBe(true)
-        expect(doedsfallAnswers?.contains(getByText('omDenAvdoede.doedsfallAarsak'))).toBe(true)
-        expect(doedsfallAnswers?.contains(getByText('omDenAvdoede.boddEllerJobbetUtland.svar'))).toBe(true)
-        expect(doedsfall?.parentElement).toBe(svar)
+        expect(getByText('omDenAvdoede.datoForDoedsfallet').closest('dl')).toBe(svar)
+        expect(getByText('omDenAvdoede.doedsfallAarsak').closest('dl')).toBe(svar)
+        expect(getByText('omDenAvdoede.boddEllerJobbetUtland.svar').closest('dl')).toBe(svar)
+        expect(container.querySelectorAll('dl dl')).toHaveLength(antallOpphold)
 
-        if (harOpphold) {
-            const opphold = getByText('Opphold i Danmark').closest('.aksel-form-summary__answer')
-            expect(opphold?.parentElement).toBe(doedsfall?.parentElement)
-            expect(doedsfallAnswers?.contains(opphold)).toBe(false)
-        } else {
-            expect(queryByText('Opphold i Danmark')).toBeNull()
+        for (const land of oppholdsland) {
+            const opphold = getByText(`Opphold i ${land}`).closest('.aksel-form-summary__answer')
+            expect(opphold?.parentElement).toBe(svar)
+            expect(opphold?.querySelector('dl')?.contains(getByText(land))).toBe(true)
         }
     })
 })
