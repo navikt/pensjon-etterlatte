@@ -16,7 +16,7 @@ vi.mock('react-i18next', () => ({
 afterEach(cleanup)
 
 describe('Oppsummering om den avdøde', () => {
-    it.each([false, true])('grupperer dødsfall med utenlandsopphold: %s', (harOpphold) => {
+    it.each([false, true])('viser personalia uten gruppe, med utenlandsopphold: %s', (harOpphold) => {
         const omDenAvdoede: IAvdoed = {
             fornavn: 'Kari',
             etternavn: 'Nordmann',
@@ -28,24 +28,25 @@ describe('Oppsummering om den avdøde', () => {
                 oppholdUtland: harOpphold ? [{ land: 'Danmark' }] : [],
             },
         }
-        const { getByText, queryByText } = render(
+        const { container, getByText, queryByText } = render(
             <MemoryRouter>
                 <OppsummeringOmDenAvdoede omDenAvdoede={omDenAvdoede} senderSoeknad={false} />
             </MemoryRouter>
         )
 
-        const personalia = getByText('omDeg.undertittel.personalia').closest('.aksel-form-summary__answer')
-        const personaliaAnswers = personalia?.querySelector('.aksel-form-summary__value .aksel-form-summary__answers')
+        const svar = container.querySelector('dl')
         const doedsfall = getByText('omDenAvdoede.doedsfallOgUtenlandsopphold').closest('.aksel-form-summary__answer')
         const doedsfallAnswers = doedsfall?.querySelector('.aksel-form-summary__value .aksel-form-summary__answers')
 
-        expect(personaliaAnswers?.contains(getByText('Kari'))).toBe(true)
-        expect(personaliaAnswers?.contains(getByText('Nordmann'))).toBe(true)
-        expect(personaliaAnswers?.contains(getByText('omDenAvdoede.datoForDoedsfallet'))).toBe(false)
+        expect(svar).not.toBeNull()
+        expect(queryByText('omDeg.undertittel.personalia')).toBeNull()
+        expect(getByText('Kari').closest('dl')).toBe(svar)
+        expect(getByText('Nordmann').closest('dl')).toBe(svar)
+        expect(getByText('Norge').closest('dl')).toBe(svar)
         expect(doedsfallAnswers?.contains(getByText('omDenAvdoede.datoForDoedsfallet'))).toBe(true)
         expect(doedsfallAnswers?.contains(getByText('omDenAvdoede.doedsfallAarsak'))).toBe(true)
         expect(doedsfallAnswers?.contains(getByText('omDenAvdoede.boddEllerJobbetUtland.svar'))).toBe(true)
-        expect(personalia?.parentElement).toBe(doedsfall?.parentElement)
+        expect(doedsfall?.parentElement).toBe(svar)
 
         if (harOpphold) {
             const opphold = getByText('Opphold i Danmark').closest('.aksel-form-summary__answer')

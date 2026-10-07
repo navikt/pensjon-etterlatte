@@ -22,15 +22,13 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
             pathText={StegPath.OmAvdoed}
             senderSoeknad={senderSoeknad}
         >
-            <OppsummeringGruppe tittel={t('omDeg.undertittel.personalia')}>
-                <PersonInfoOppsummering
-                    fornavn={omDenAvdoede.fornavn}
-                    etternavn={omDenAvdoede.etternavn}
-                    fnrDnr={omDenAvdoede.foedselsnummer}
-                    foedselsdato={omDenAvdoede.foedselsdato}
-                    statsborgerskap={omDenAvdoede.statsborgerskap}
-                />
-            </OppsummeringGruppe>
+            <PersonInfoOppsummering
+                fornavn={omDenAvdoede.fornavn}
+                etternavn={omDenAvdoede.etternavn}
+                fnrDnr={omDenAvdoede.foedselsnummer}
+                foedselsdato={omDenAvdoede.foedselsdato}
+                statsborgerskap={omDenAvdoede.statsborgerskap}
+            />
             <OppsummeringGruppe tittel={t('omDenAvdoede.doedsfallOgUtenlandsopphold')}>
                 <TekstGruppe tittel={t('omDenAvdoede.datoForDoedsfallet')} innhold={omDenAvdoede.datoForDoedsfallet} />
                 <TekstGruppeJaNeiVetIkke
