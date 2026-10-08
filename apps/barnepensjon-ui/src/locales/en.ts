@@ -391,7 +391,7 @@ const summary = {
         'This must be sent by conventional mail.\n\n If you send any changes, you must contact us by phone ' +
         '<a href="tel:+47 55 55 33 34">55 55 33 34</a>, so that we can postpone processing the application.',
     errorWhenSending:
-        'An error occurred while submitting. Please wait a moment and try again. If the error persists, you can report it <a href="https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler">here.</a>',
+        'An error occurred while submitting. Please check the Norwegian national identity numbers entered and try again. If the error persists, you can report it <a href="https://www.nav.no/person/kontakt-oss/en/tilbakemeldinger/feil-og-mangler">here.</a>',
     sendApplicationTitle: 'Do you wish to submit the application now?',
     sendingApplicationTitle: 'Submitting the application',
     sendApplicationBody: 'You will not be able to change your information after submitting the application.',

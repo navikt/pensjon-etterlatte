@@ -381,7 +381,7 @@ const summary = {
         'Dette må sendast inn per post.\n\n Viss du sender inn endringar, må du gi oss beskjed ' +
         'ved å ringje oss på telefon <a href="tel:+47 55 55 33 34">55 55 33 34</a>, slik at vi ventar med å behandle søknaden.',
     errorWhenSending:
-        'Ein feil oppstod ved sending. Vent litt og prøv på nytt. Dersom feilen varer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nn/tilbakemeldinger/feil-og-mangler">her.</a>',
+        'Ein feil oppstod ved sending. Kontroller at fødselsnummer er skrive inn rett, og prøv på nytt. Dersom feilen varer kan du melde feil <a href="https://www.nav.no/person/kontakt-oss/nn/tilbakemeldinger/feil-og-mangler">her.</a>',
     sendApplicationTitle: 'Ønsker du å sende inn søknaden no?',
     sendingApplicationTitle: 'Sender inn søknad',
     sendApplicationBody: 'Når du har sendt inn søknaden kan du ikkje endre på opplysingane som du har lagt inn.',
