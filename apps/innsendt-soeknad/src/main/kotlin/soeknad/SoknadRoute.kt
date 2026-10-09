@@ -1,8 +1,6 @@
 package no.nav.etterlatte.soeknad
 
-import tools.jackson.databind.JsonNode
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
@@ -13,9 +11,10 @@ import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import soeknad.Status
+import tools.jackson.databind.JsonNode
 
 fun Route.soknadApi(service: SoeknadService) {
-    route("/api/soeknad") {
+    route("/api/soeknad") { // Lagrer og ferdigstiller søknad
         post {
             try {
                 call.application.environment.log
@@ -35,7 +34,7 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.respond(HttpStatusCode.Conflict)
             } catch (e: Exception) {
                 call.application.environment.log
-                    .error("Klarte ikke å lagre søknaden(e)", e)
+                    .error("Klarte ikke å ferdigstille søknaden(e)", e)
                 call.respond(HttpStatusCode.InternalServerError)
             }
         }

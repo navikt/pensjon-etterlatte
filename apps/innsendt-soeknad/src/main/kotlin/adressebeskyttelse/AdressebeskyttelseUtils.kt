@@ -4,6 +4,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.barnepensjon.Barnepensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Barn
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.UtvidetOmstillingsstoenad
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 
 internal fun SoeknadRequest.finnUnikeBarn() =
@@ -12,13 +13,14 @@ internal fun SoeknadRequest.finnUnikeBarn() =
             when (it) {
                 is Omstillingsstoenad -> it.barn
                 is Barnepensjon -> it.soesken + it.soeker
+                is UtvidetOmstillingsstoenad -> emptyList()
                 else -> throw Exception("Ukjent søknadstype")
             }
         }.mapNotNull { it.foedselsnummer?.svar }
         .distinct()
 
 /**
- * Funksjonen fjerner informasjon om utenlandsadresse for barn med adressesperre.
+ * Funksjonen fjerner informasjon om utenlandsadresse og utbetalingsinformasjon for barn med adressesperre.
  */
 internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsnummer>): SoeknadRequest =
     this.copy(
@@ -43,6 +45,8 @@ internal fun SoeknadRequest.fjernStedslokaliserendeInfo(fnrListe: List<Foedselsn
                                     soeknad.utbetalingsInformasjon
                                 },
                         )
+
+                    is UtvidetOmstillingsstoenad -> soeknad //TODO: Hvis barn innføres, oppdater her!
 
                     else -> throw Exception("Ukjent søknadstype")
                 }
