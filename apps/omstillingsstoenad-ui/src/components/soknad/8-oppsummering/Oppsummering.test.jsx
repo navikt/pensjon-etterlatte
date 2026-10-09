@@ -1,3 +1,4 @@
+import { FormSummary } from '@navikt/ds-react'
 import { render } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { TekstGruppe } from './fragmenter/TekstGruppe'
@@ -17,8 +18,25 @@ vi.mock('react-i18next', () => ({
 
 describe('Tekstgruppe', () => {
     it('Skal rendre testittel og testcontent', () => {
-        const { getByText } = render(<TekstGruppe tittel={'Testtittel'} innhold={'Testcontent'} />)
+        const { getByText } = render(
+            <FormSummary.Answers>
+                <TekstGruppe tittel={'Testtittel'} innhold={'Testcontent'} />
+            </FormSummary.Answers>
+        )
         expect(getByText('Testtittel')).toBeDefined()
         expect(getByText('Testcontent')).toBeDefined()
+    })
+
+    it('Skal rendre tittel som dt og innhold som dd', () => {
+        const { getByText } = render(
+            <FormSummary.Answers>
+                <TekstGruppe tittel={'Testtittel'} innhold={'Testcontent'} id={'test-id'} />
+            </FormSummary.Answers>
+        )
+        expect(getByText('Testtittel').tagName).toBe('DT')
+
+        const innhold = getByText('Testcontent')
+        expect(innhold.tagName).toBe('DD')
+        expect(innhold.id).toBe('test-id')
     })
 })

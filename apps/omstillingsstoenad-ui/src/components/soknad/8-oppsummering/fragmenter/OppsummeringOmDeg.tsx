@@ -1,15 +1,13 @@
-import { Heading } from '@navikt/ds-react'
 import { memo } from 'react'
-import { AccordionItem } from '../AccordionItem'
+import { useTranslation } from 'react-i18next'
 import { IBruker } from '../../../../context/bruker/bruker'
 import { ISoeker } from '../../../../typer/person'
-import { useTranslation } from 'react-i18next'
-import { StegPath, StegLabelKey } from '../../../../typer/steg'
-import { TekstGruppe } from './TekstGruppe'
-import PersonInfoOppsummering from './PersonInfoOppsummering'
+import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { fullAdresse } from '../../../../utils/adresse'
+import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import PersonInfoOppsummering from './PersonInfoOppsummering'
+import { TekstGruppe } from './TekstGruppe'
 import UtbetalingsInformasjonOppsummering from './UtbetalingsInformasjonOppsummering'
-import { Panel } from '../../../felles/Panel'
 
 interface Props {
     omDeg: ISoeker
@@ -21,38 +19,32 @@ export const OppsummeringOmDeg = memo(({ omDeg, bruker, senderSoeknad }: Props) 
     const { t } = useTranslation()
 
     return (
-        <AccordionItem
+        <OppsummeringSeksjon
             tittel={t(StegLabelKey.OmDeg)}
             path={`/skjema/steg/${StegPath.OmDeg}`}
             pathText={StegPath.OmDeg}
             senderSoeknad={senderSoeknad}
         >
-            <Panel>
-                <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>
-
-                <PersonInfoOppsummering
-                    navn={`${bruker.fornavn} ${bruker.etternavn}`}
-                    fnrDnr={bruker.foedselsnummer}
-                    statsborgerskap={bruker.statsborgerskap}
-                    sivilstatus={bruker.sivilstatus}
-                    adresse={fullAdresse(bruker)}
+            <PersonInfoOppsummering
+                navn={`${bruker.fornavn} ${bruker.etternavn}`}
+                fnrDnr={bruker.foedselsnummer}
+                statsborgerskap={bruker.statsborgerskap}
+                sivilstatus={bruker.sivilstatus}
+                adresse={fullAdresse(bruker)}
+            />
+            {(bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer) && (
+                <TekstGruppe
+                    tittel={t('felles.telefonnummer')}
+                    innhold={bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer}
                 />
-                {(bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer) && (
-                    <TekstGruppe
-                        tittel={t('felles.telefonnummer')}
-                        innhold={bruker.telefonnummer || omDeg.kontaktinfo?.telefonnummer}
-                    />
-                )}
-                {omDeg.alternativAdresse && (
-                    <TekstGruppe tittel={t('omDeg.alternativAdresse')} innhold={omDeg.alternativAdresse} />
-                )}
-            </Panel>
+            )}
+            {omDeg.alternativAdresse && (
+                <TekstGruppe tittel={t('omDeg.alternativAdresse')} innhold={omDeg.alternativAdresse} />
+            )}
 
-            <Panel>
-                {omDeg.utbetalingsInformasjon && (
-                    <UtbetalingsInformasjonOppsummering utbetalingsInformasjon={omDeg.utbetalingsInformasjon} />
-                )}
-            </Panel>
-        </AccordionItem>
+            {omDeg.utbetalingsInformasjon && (
+                <UtbetalingsInformasjonOppsummering utbetalingsInformasjon={omDeg.utbetalingsInformasjon} />
+            )}
+        </OppsummeringSeksjon>
     )
 })
