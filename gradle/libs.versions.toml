@@ -16,7 +16,7 @@ navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", 
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v3", version.ref = "token-version" }
 
-etterlatte-common = { module = "pensjon-etterlatte-felles:common", version = "2026.08.25-11.29.b3bf3d95082c" }
+etterlatte-common = { module = "pensjon-etterlatte-felles:common", version = "2026.10.09-12.12.efc9bddf6546" }
 
 ktor-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor-version" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor-version" }

@@ -35,6 +35,7 @@ import io.mockk.just
 import io.mockk.mockk
 import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.deserialize
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.InnsendtSoeknad
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
 import no.nav.etterlatte.soeknad.SoeknadService
@@ -42,10 +43,14 @@ import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v3.TokenValidationContextPrincipal
+import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
 import java.util.Arrays
 import java.util.stream.Collectors
+import java.util.stream.Stream
 
 internal class SoeknadRouteKtTest {
     private val service = mockk<SoeknadService>()
@@ -54,16 +59,20 @@ internal class SoeknadRouteKtTest {
 
     companion object {
         private const val STOR_SNERK = "11057523044"
+
+        @JvmStatic
+        fun soeknader() : Stream<Arguments> =
+            Stream.of(
+                Arguments.of(InnsendtSoeknadFixtures.omstillingsSoeknad()),
+                Arguments.of(InnsendtSoeknadFixtures.utvidetOmstillingsstoenad()),
+                Arguments.of(InnsendtSoeknadFixtures.barnepensjon()),
+            )
     }
 
-    @Test
-    fun `Skal lagre søknader`() {
-        val soeknad =
-            SoeknadRequest(
-                listOf(
-                    InnsendtSoeknadFixtures.omstillingsSoeknad(),
-                ),
-            )
+    @ParameterizedTest
+    @MethodSource("soeknader")
+    fun `Skal ferdigstille søknader`(soeknad: InnsendtSoeknad) {
+        val soeknadRequest = SoeknadRequest(listOf(soeknad))
 
         testApplication {
             application {
@@ -77,7 +86,7 @@ internal class SoeknadRouteKtTest {
                     parameter("kilde", kilde)
                     header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
                     addToken(STOR_SNERK)
-                    setBody(soeknad.toJson())
+                    setBody(soeknadRequest.toJson())
                 }
 
             assertEquals(HttpStatusCode.OK, response.status)
