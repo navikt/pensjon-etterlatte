@@ -3,6 +3,7 @@ package no.nav.etterlatte.soeknad
 import tools.jackson.databind.JsonNode
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.call
+import io.ktor.server.plugins.BadRequestException
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
@@ -12,6 +13,7 @@ import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
+import no.nav.etterlatte.sikkerLogg
 import soeknad.Status
 
 fun Route.soknadApi(service: SoeknadService) {
@@ -29,13 +31,19 @@ fun Route.soknadApi(service: SoeknadService) {
                 call.application.environment.log
                     .info("SoeknadRequest ferdigstilt ok: $ferdigstiltOK")
                 call.respond(HttpStatusCode.OK)
+            } catch (e: BadRequestException) {
+                call.application.environment.log
+                    .warn("Ugyldig søknadsinnhold. Se i team-logs for detaljer")
+                sikkerLogg.warn("Kunne ikke lese søknadsinnhold", e)
+                call.respond(HttpStatusCode.BadRequest)
             } catch (e: SoeknadConflictException) {
                 call.application.environment.log
                     .warn("Bruker har allerede en innsendt søknad under arbeid", e)
                 call.respond(HttpStatusCode.Conflict)
             } catch (e: Exception) {
                 call.application.environment.log
-                    .error("Klarte ikke å lagre søknaden(e)", e)
+                    .error("Klarte ikke å lagre søknaden(e). Se i team-logs for detaljer")
+                sikkerLogg.error("Klarte ikke å lagre søknaden(e)", e)
                 call.respond(HttpStatusCode.InternalServerError)
             }
         }

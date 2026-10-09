@@ -1,5 +1,8 @@
 package soeknad
 
+import ch.qos.logback.classic.Logger
+import ch.qos.logback.classic.spi.ILoggingEvent
+import ch.qos.logback.core.read.ListAppender
 import com.nimbusds.jwt.JWTClaimsSet
 import com.nimbusds.jwt.PlainJWT
 import io.ktor.client.request.HttpRequestBuilder
@@ -37,13 +40,18 @@ import no.nav.etterlatte.common.toJson
 import no.nav.etterlatte.deserialize
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.utils.test.InnsendtSoeknadFixtures
+import no.nav.etterlatte.sikkerLogg
 import no.nav.etterlatte.soeknad.SoeknadService
 import no.nav.etterlatte.soeknad.soknadApi
 import no.nav.security.token.support.core.context.TokenValidationContext
 import no.nav.security.token.support.core.jwt.JwtToken
 import no.nav.security.token.support.v3.TokenValidationContextPrincipal
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.slf4j.LoggerFactory
 import java.util.Arrays
 import java.util.stream.Collectors
 
@@ -82,6 +90,97 @@ internal class SoeknadRouteKtTest {
 
             assertEquals(HttpStatusCode.OK, response.status)
             coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
+        }
+    }
+
+    @Test
+    fun `Ugyldig fødselsnummer skal gi 400 og kun logges i sikkerlogg`() {
+        val soeknad = SoeknadRequest(listOf(InnsendtSoeknadFixtures.omstillingsSoeknad()))
+        val ugyldigFoedselsnummer = "00000000000"
+        val payload =
+            soeknad.toJson().replace(
+                soeknad.soeknader.first().innsender.foedselsnummer.svar.value,
+                ugyldigFoedselsnummer,
+            )
+
+        medLoggfangst { vanligLogger, vanligLogg, sikkerLoggHendelser ->
+            testApplication {
+                environment { log = vanligLogger }
+                application { testModule { soknadApi(service) } }
+
+                val response =
+                    client.post("/api/soeknad") {
+                        parameter("kilde", kilde)
+                        header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                        addToken(STOR_SNERK)
+                        setBody(payload)
+                    }
+
+                assertEquals(HttpStatusCode.BadRequest, response.status)
+                assertFalse(response.bodyAsText().contains(ugyldigFoedselsnummer))
+                coVerify(exactly = 0) { service.sendSoeknad(any(), any(), any()) }
+            }
+
+            val feil = vanligLogg.single { it.formattedMessage == "Ugyldig søknadsinnhold" }
+            assertNull(feil.throwableProxy)
+            assertTrue(vanligLogg.none { it.formattedMessage.contains(ugyldigFoedselsnummer) })
+            val sikkerFeil = sikkerLoggHendelser.single { it.formattedMessage == "Kunne ikke lese søknadsinnhold" }
+            assertTrue(
+                generateSequence(sikkerFeil.throwableProxy) { it.cause }
+                    .any { it.message?.contains(ugyldigFoedselsnummer) == true },
+            )
+        }
+    }
+
+    @Test
+    fun `Uventede feil skal gi 500 og kun logge unntaksdetaljer i sikkerlogg`() {
+        val soeknad = SoeknadRequest(listOf(InnsendtSoeknadFixtures.omstillingsSoeknad()))
+        val sensitivFeilmelding = "Sensitiv informasjon fra søknaden"
+        coEvery { service.sendSoeknad(any(), any(), kilde) } throws IllegalStateException(sensitivFeilmelding)
+
+        medLoggfangst { vanligLogger, vanligLogg, sikkerLoggHendelser ->
+            testApplication {
+                environment { log = vanligLogger }
+                application { testModule { soknadApi(service) } }
+
+                val response =
+                    client.post("/api/soeknad") {
+                        parameter("kilde", kilde)
+                        header(HttpHeaders.ContentType, ContentType.Application.Json.toString())
+                        addToken(STOR_SNERK)
+                        setBody(soeknad.toJson())
+                    }
+
+                assertEquals(HttpStatusCode.InternalServerError, response.status)
+                assertFalse(response.bodyAsText().contains(sensitivFeilmelding))
+                coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
+            }
+
+            val feil = vanligLogg.single { it.formattedMessage == "Klarte ikke å lagre søknaden(e)" }
+            assertNull(feil.throwableProxy)
+            assertTrue(vanligLogg.none { it.formattedMessage.contains(sensitivFeilmelding) })
+            val sikkerFeil =
+                sikkerLoggHendelser.single { it.formattedMessage == "Klarte ikke å lagre søknaden(e)" }
+            assertEquals(sensitivFeilmelding, sikkerFeil.throwableProxy.message)
+        }
+    }
+
+    private fun medLoggfangst(
+        test: (Logger, List<ILoggingEvent>, List<ILoggingEvent>) -> Unit,
+    ) {
+        val vanligLogger = LoggerFactory.getLogger("${javaClass.name}.loggfangst") as Logger
+        val sikkerLogger = sikkerLogg as Logger
+        val vanligAppender = ListAppender<ILoggingEvent>().apply { start() }
+        val sikkerAppender = ListAppender<ILoggingEvent>().apply { start() }
+        vanligLogger.addAppender(vanligAppender)
+        sikkerLogger.addAppender(sikkerAppender)
+        try {
+            test(vanligLogger, vanligAppender.list, sikkerAppender.list)
+        } finally {
+            vanligLogger.detachAppender(vanligAppender)
+            sikkerLogger.detachAppender(sikkerAppender)
+            vanligAppender.stop()
+            sikkerAppender.stop()
         }
     }
 
