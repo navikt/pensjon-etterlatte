@@ -42,7 +42,7 @@
         "@types/react": "^19.2.18",
         "@types/react-dom": "^19.2.4",
         "@types/uuid": "^11.0.0",
-        "concurrently": "^10.0.5",
+        "concurrently": "^10.0.6",
         "cypress": "^15.20.1",
         "globals": "^17.11.0",
         "husky": "~9.1.7",
