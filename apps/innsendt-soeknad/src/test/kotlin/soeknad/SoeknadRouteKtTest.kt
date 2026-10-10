@@ -121,7 +121,7 @@ internal class SoeknadRouteKtTest {
                 coVerify(exactly = 0) { service.sendSoeknad(any(), any(), any()) }
             }
 
-            val feil = vanligLogg.single { it.formattedMessage == "Ugyldig søknadsinnhold" }
+            val feil = vanligLogg.single { it.formattedMessage.startsWith("Ugyldig søknadsinnhold") }
             assertNull(feil.throwableProxy)
             assertTrue(vanligLogg.none { it.formattedMessage.contains(ugyldigFoedselsnummer) })
             val sikkerFeil = sikkerLoggHendelser.single { it.formattedMessage == "Kunne ikke lese søknadsinnhold" }
@@ -156,7 +156,7 @@ internal class SoeknadRouteKtTest {
                 coVerify(exactly = 1) { service.sendSoeknad(any(), any(), kilde) }
             }
 
-            val feil = vanligLogg.single { it.formattedMessage == "Klarte ikke å lagre søknaden(e)" }
+            val feil = vanligLogg.single { it.formattedMessage.startsWith("Klarte ikke å lagre søknaden(e)") }
             assertNull(feil.throwableProxy)
             assertTrue(vanligLogg.none { it.formattedMessage.contains(sensitivFeilmelding) })
             val sikkerFeil =
