@@ -9,7 +9,7 @@
         "@navikt/ds-css": "^8.16.1",
         "@navikt/ds-react": "^8.16.1",
         "@navikt/fnrvalidator": "^2.2.1",
-        "@navikt/nav-dekoratoren-moduler": "^4.3.0",
+        "@navikt/nav-dekoratoren-moduler": "^4.5.0",
         "@vitejs/plugin-react-swc": "^4.3.3",
         "@vitest/coverage-v8": "^4.1.10",
         "axios": "1.20.0",

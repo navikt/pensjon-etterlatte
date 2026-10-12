@@ -166,13 +166,13 @@
   resolved "https://npm.pkg.github.com/download/@navikt/analytics-types/0.0.9/5919241a6dbb782eb101fff3234ce5c36d16e942#5919241a6dbb782eb101fff3234ce5c36d16e942"
   integrity sha512-bopCvqEogyFcmrJiBxK/Mr25d6yPKF7GR36MGrJqiHCPJYf1rDu6lK4cpooTG4Q//D/1xTkHRom8ZH5BI6dTew==
 
-"@navikt/nav-dekoratoren-moduler@4.3.0":
-  version "4.3.0"
-  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/4.3.0/d2d64c4afd0201f3a1e8ec8fba9651c05fdfb736#d2d64c4afd0201f3a1e8ec8fba9651c05fdfb736"
-  integrity sha512-DpUW0J1pIAncsEh698x6mSt7UsILEIbrYFzKTDuXem0y2bYjG+ki78NV2lhN/nPYXcoVYizsC1eetH72VMEoEw==
+"@navikt/nav-dekoratoren-moduler@4.5.0":
+  version "4.5.0"
+  resolved "https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/4.5.0/e3c7d8e6e3f2efd2fb46952564e6c9c47ca200ad#e3c7d8e6e3f2efd2fb46952564e6c9c47ca200ad"
+  integrity sha512-0eTtpgk+kOGjxncAA5PT2+yLPIobPdvIMVJzWDVdlZmuKUGG1NMoom8DYtnCPkro3Mw+dZeoFJ0TVY+4F57J5Q==
   dependencies:
     "@navikt/analytics-types" "0.0.9"
-    csp-header "6.3.1"
+    csp-header "6.4.0"
     js-cookie "3.0.8"
 
 "@navikt/oasis@^4.1.4":
@@ -642,7 +642,12 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-csp-header@6.3.1, csp-header@^6.3.0:
+csp-header@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/csp-header/-/csp-header-6.4.0.tgz#0a096b2108e17935668056ea727204d73de9d47f"
+  integrity sha512-9YEpW20tPtKzVouyAxNtXqSE4EGaTd4ZiT1n/FbUQ5xhmFkPCjC3Db/gHDbesryQoO/TigBAUCqgKypOHviRgQ==
+
+csp-header@^6.3.0:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/csp-header/-/csp-header-6.3.1.tgz#eab336e6205082e82f5e54ba13d07e703d2a384b"
   integrity sha512-ykcqGMOGP/uU7RLXDD83k2Ge5Stgc/N3qgKgSN+dATDlNgLHnIoI1IdZBjOskD5Ev1RSKTabLdIETJ6VzXTmvA==
