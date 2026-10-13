@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { erMellomOktoberogDesember } from './dato'
+import { erMellomOktoberogDesember, finnInntektsaarForMeldFraEndring } from './dato'
 
 describe('Dato', () => {
     beforeEach(() => {
@@ -22,5 +22,13 @@ describe('Dato', () => {
         vi.setSystemTime(foersteDesember)
 
         expect(erMellomOktoberogDesember()).toEqual(true)
+    })
+
+    it('Skal sette inntektsår til neste år fra og med 1. oktober', () => {
+        vi.setSystemTime(new Date('2026-09-30T12:00:00'))
+        expect(finnInntektsaarForMeldFraEndring()).toEqual(2026)
+
+        vi.setSystemTime(new Date('2026-10-01T12:00:00'))
+        expect(finnInntektsaarForMeldFraEndring()).toEqual(2027)
     })
 })
