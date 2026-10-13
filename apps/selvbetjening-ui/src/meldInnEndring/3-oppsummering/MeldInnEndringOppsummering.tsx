@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { EventType, LogEvents, useAnalytics } from '../../common/analytics/useAnalytics.ts'
 import { apiURL, poster } from '../../common/api/api.ts'
+import { finnInntektsaarForMeldFraEndring } from '../../common/dato.ts'
 import { useInnloggetInnbygger } from '../../common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { logger } from '../../common/logger/logger.ts'
 import { NavigasjonMeny } from '../../common/navigasjonMeny/NavigasjonMeny.tsx'
@@ -63,7 +64,7 @@ export const MeldInnEndringOppsummering = () => {
                           ...forventetInntektTilNesteAarSkjemaValuesTilValues(
                               meldInnEndring.forventetInntektTilNesteAar!
                           ),
-                          inntektsaar: 2026,
+                          inntektsaar: finnInntektsaarForMeldFraEndring(),
                       }
                     : undefined,
         }

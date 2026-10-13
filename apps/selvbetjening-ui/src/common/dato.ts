@@ -9,3 +9,10 @@ export const erMellomOktoberogDesember = (): boolean => {
 
     return foersteDagIOktober <= idag && idag <= sisteDagIDesember
 }
+
+export const finnInntektsaarForMeldFraEndring = (): number => {
+    const idag = new Date()
+    const erOktoberEllerSenere = idag.getMonth() >= 9
+
+    return erOktoberEllerSenere ? idag.getFullYear() + 1 : idag.getFullYear()
+}
