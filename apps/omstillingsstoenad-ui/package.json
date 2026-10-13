@@ -74,9 +74,6 @@
             "last 1 safari version"
         ]
     },
-    "resolutions": {
-        "**/braces": "3.0.3"
-    },
     "lint-staged": {
         "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
             "biome check --write --no-errors-on-unmatched"
