@@ -1,16 +1,17 @@
-import { Person, Gjenlevende, Avdoed, Barn } from './Person'
-import {
-    Opplysning,
-    BetingetOpplysning,
-    BankkontoType,
-    UtbetalingsInformasjon,
-    EnumSvar,
-    Stoenader,
-} from './FellesOpplysninger'
 import { Language } from '../../i18n'
+import {
+    BankkontoType,
+    BetingetOpplysning,
+    EnumSvar,
+    Opplysning,
+    Stoenader,
+    UtbetalingsInformasjon,
+} from './FellesOpplysninger'
+import { Avdoed, Barn, Gjenlevende, Person } from './Person'
 
 export enum SoeknadType {
     OMSTILLINGSSTOENAD = 'OMSTILLINGSSTOENAD',
+    UTVIDET_OMSTILLINGSSTOENAD = 'UTVIDET_OMSTILLINGSSTOENAD',
     BARNEPENSJON = 'BARNEPENSJON',
 }
 
