@@ -16,7 +16,8 @@ export function HentBrukerProvider(props: PropsWithChildren) {
 
     useEffect(() => {
         hentInnloggetPerson(SoeknadType.UTVIDET_OMSTILLINGSSTOENAD).then((person: IBruker) => {
-            setBruker(person), setLasterBruker(false)
+            setBruker(person)
+            setLasterBruker(false)
         })
     }, [])
 
