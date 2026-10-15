@@ -11,9 +11,11 @@ import SoknadForside from '~components/soknad/SoknadForside'
 import SoknadKvittering from '~components/soknad/SoknadKvittering'
 import UgyldigSoeker from '~components/UgyldigSoeker'
 import { useSoknadContext } from '~context/soknad/SoknadContext'
+import useInnloggetBruker from '~hooks/useInnloggetBruker'
 import useSoeknad from '~hooks/useSoeknad'
 
 export const Soknad = () => {
+    useInnloggetBruker()
     const soknadContext = useSoknadContext()
     const lasterSoeknad = useSoeknad()
 

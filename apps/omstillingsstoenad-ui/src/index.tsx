@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 import './app.css'
 import '@navikt/ds-css'
 import { BrowserRouter as Router, useLocation } from 'react-router'
+import { ProvideFeatureToggleContext } from '~context/featureToggle/FeatureToggleContext'
 import ErrorBoundary from '~ErrorBoundary'
 import { setupWindowOnError } from '~utils/logger'
 import App from './App'
-import ContextProviders from './context/ContextProviders'
 
 setupWindowOnError()
 
@@ -25,11 +25,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <ScrollToTop />
 
         <div className={'app'}>
-            <ContextProviders>
+            <ProvideFeatureToggleContext>
                 <ErrorBoundary>
                     <App />
                 </ErrorBoundary>
-            </ContextProviders>
+            </ProvideFeatureToggleContext>
         </div>
     </Router>
 )
