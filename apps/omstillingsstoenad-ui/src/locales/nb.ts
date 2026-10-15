@@ -1164,4 +1164,7 @@ export default {
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
     'readmore.tittel.hvorfor.spoer.vi': 'Hvorfor spør vi om dette?',
+
+    // Utvidet
+    'utvidet.banner.tittel': 'Søknad om utvidet omstillingsstønad',
 }

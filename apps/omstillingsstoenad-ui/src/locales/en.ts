@@ -1213,4 +1213,7 @@ export default {
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
     'readmore.tittel.hvorfor.spoer.vi': 'Why do we ask about this?',
+
+    // Utvidet
+    'utvidet.banner.tittel': 'Application for extended adjustment allowance',
 }

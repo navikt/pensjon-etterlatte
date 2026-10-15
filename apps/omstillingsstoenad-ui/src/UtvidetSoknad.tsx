@@ -1,3 +1,9 @@
+import { SkjemaTittelUtvidet } from '~components/felles/SkjemaTittelUtvidet'
+
 export const UtvidetSoknad = () => {
-    return <>HEI</>
+    return (
+        <>
+            <SkjemaTittelUtvidet />
+        </>
+    )
 }
