@@ -1,6 +1,6 @@
 import { Box, GuidePanel, Heading } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
-import { Spraakvalg } from '~components/felles/Spraakvalg'
+import { SpraakvalgUtvidet } from '~components/utvidet/SpraakvalgUtvidet'
 import { useHentBrukerContext } from '~context/utvidet/HentBrukerContext'
 
 export const UtvidetForside = () => {
@@ -9,7 +9,7 @@ export const UtvidetForside = () => {
 
     return (
         <Box marginBlock="space-16">
-            <Spraakvalg />
+            <SpraakvalgUtvidet />
             <Box marginBlock="space-0 space-48">
                 <GuidePanel poster>
                     <Heading size="small">{t('utvidet.forside.ingress.tittel', { navn: bruker?.fornavn })}</Heading>

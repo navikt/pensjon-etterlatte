@@ -1,6 +1,6 @@
-import { Box, Select, VStack } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { SpraakvalgSelect } from '~components/felles/SpraakvalgSelect'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
@@ -12,7 +12,7 @@ export const Spraakvalg = () => {
     const { state: brukerState } = useBrukerContext()
 
     const personHarStoettetSpraakvalg = () => Object.values<string>(Language).includes(brukerState?.spraak || '')
-    const oppdaterSpraak = (spraak: string) =>
+    const oppdaterSpraak = (spraak: Language) =>
         soknadDispatch({
             type: ActionTypes.OPPDATER_SPRAAK,
             payload: spraak,
@@ -27,19 +27,5 @@ export const Spraakvalg = () => {
         }
     }, [soknadState.spraak, brukerState.spraak])
 
-    return (
-        <VStack marginBlock="space-0 space-48" align="center">
-            <Box width="12rem">
-                <Select
-                    onChange={(e) => oppdaterSpraak(e.target.value)}
-                    value={soknadState.spraak}
-                    label={t('felles.spraakValg')}
-                >
-                    <option value={Language.NORSK_BOKMAAL}>Bokmål</option>
-                    <option value={Language.NORSK_NYNORSK}>Nynorsk</option>
-                    <option value={Language.ENGELSK}>English</option>
-                </Select>
-            </Box>
-        </VStack>
-    )
+    return <SpraakvalgSelect value={soknadState.spraak} onChange={oppdaterSpraak} label={t('felles.spraakValg')} />
 }
