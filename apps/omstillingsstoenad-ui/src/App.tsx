@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router'
 import { BrukerProvider } from '~context/bruker/BrukerContext'
 import { SoknadProvider } from '~context/soknad/SoknadContext'
 import { HentBrukerProvider } from '~context/utvidet/HentBrukerContext'
+import { useAnalytics } from '~hooks/useAnalytics'
 import { Soknad } from '~Soknad'
 import { UtvidetSoknad } from '~UtvidetSoknad'
-import { useAnalytics } from './hooks/useAnalytics'
 
 const App = () => {
     useAnalytics()

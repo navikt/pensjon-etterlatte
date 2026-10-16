@@ -1216,4 +1216,10 @@ export default {
 
     // Utvidet
     'utvidet.banner.tittel': 'Application for extended adjustment allowance',
+    'utvidet.forside.ingress.tittel': 'Hello, {{navn}}',
+    'utvidet.forside.ingress':
+        'Adjustment allowance provides you with an income if your spouse, partner or cohabiting partner with whom you have children dies. You can receive the allowance for up to 3 years after the death. The allowance can be extended by up to 2 years if you undertake education that is necessary and appropriate, or need employment measures to help you find work. To qualify for an extension, the periods must be consecutive.',
+    'utvidet.forside.ingress2':
+        'For information about the allowance, you can read more about adjustment allowance (opens in a new tab).',
+    'utvidet.forside.omSoeknad.tittel': 'Here you can apply for',
 }

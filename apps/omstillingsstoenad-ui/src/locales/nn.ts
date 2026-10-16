@@ -1167,4 +1167,9 @@ export default {
 
     // Utvidet
     'utvidet.banner.tittel': 'Søknad om utvida omstillingsstønad',
+    'utvidet.forside.ingress.tittel': 'Hei, {{navn}}',
+    'utvidet.forside.ingress':
+        'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefellen, partnaren eller sambuaren du har felles barn med. Du kan få stønad i inntil 3 år etter dødsfallet. Stønaden kan forlengjast med inntil 2 år dersom du tek utdanning som er nødvendig og føremålstenleg, eller har behov for tiltak for å kome i jobb. For å få forlengt stønaden må periodane vere samanhengande.',
+    'utvidet.forside.ingress2': 'For informasjon om stønaden kan du lese meir om omstillingsstønad (opnar i ny fane).',
+    'utvidet.forside.omSoeknad.tittel': 'Her kan du søkje om',
 }
