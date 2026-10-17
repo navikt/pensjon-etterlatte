@@ -39,38 +39,38 @@ describe('Gruppering i oppsummeringen', () => {
         }
     })
 
-    it.each([IValg.JA, IValg.NEI])(
-        'viser situasjonen uten statiske grupper når bosatt i Norge er %s',
-        (bosattINorge) => {
-            const { container, getByText, queryByText } = renderOppsummering(
-                <OppsummeringSituasjonenDin
-                    situasjonenDin={{
-                        nySivilstatus: {
-                            sivilstatus: Sivilstatus.samboerskap,
-                            samboerskap: { samboer: { fornavn: 'Ola', etternavn: 'Nordmann' } },
-                        },
-                        omsorgMinstFemti: IValg.JA,
-                        gravidEllerNyligFoedt: IValg.NEI,
-                        bosattINorge,
-                        bosattLand: 'Danmark',
-                        oppholderSegIUtlandet: { svar: IValg.JA, oppholdsland: 'Sverige' },
-                    }}
-                    senderSoeknad={false}
-                />
-            )
+    it.each([IValg.JA, IValg.NEI])('deler situasjonen i undertitler når bosatt i Norge er %s', (bosattINorge) => {
+        const { container, getByText, queryByText, getAllByRole } = renderOppsummering(
+            <OppsummeringSituasjonenDin
+                situasjonenDin={{
+                    nySivilstatus: {
+                        sivilstatus: Sivilstatus.samboerskap,
+                        samboerskap: { samboer: { fornavn: 'Ola', etternavn: 'Nordmann' } },
+                    },
+                    omsorgMinstFemti: IValg.JA,
+                    gravidEllerNyligFoedt: IValg.NEI,
+                    bosattINorge,
+                    bosattLand: 'Danmark',
+                    oppholderSegIUtlandet: { svar: IValg.JA, oppholdsland: 'Sverige' },
+                }}
+                senderSoeknad={false}
+            />
+        )
 
-            const svar = container.querySelector('dl')
-            expect(container.querySelectorAll('dl')).toHaveLength(1)
-            expect(queryByText('situasjonenDin.omsorgForBarn.tittel')).toBeNull()
-            expect(queryByText('situasjonenDin.oppholdUtenforNorge.tittel')).toBeNull()
-            expect(getByText('Ola').closest('dl')).toBe(svar)
-            expect(getByText('situasjonenDin.omsorgMinstFemti').closest('dl')).toBe(svar)
-            expect(getByText('situasjonenDin.gravidEllerNyligFoedt').closest('dl')).toBe(svar)
-            expect(getByText('situasjonenDin.bosattINorge').closest('dl')).toBe(svar)
-            expect(getByText(bosattINorge === IValg.JA ? 'Sverige' : 'Danmark').closest('dl')).toBe(svar)
-            expect(queryByText(bosattINorge === IValg.JA ? 'Danmark' : 'Sverige')).toBeNull()
-        }
-    )
+        const svarlister = container.querySelectorAll('dl')
+        expect(svarlister).toHaveLength(3)
+        expect(container.querySelectorAll('dl dl')).toHaveLength(0)
+        expect(getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
+            'situasjonenDin.omsorgForBarn.tittel',
+            'situasjonenDin.oppholdUtenforNorge.tittel',
+        ])
+        expect(getByText('Ola').closest('dl')).toBe(svarlister[0])
+        expect(getByText('situasjonenDin.omsorgMinstFemti').closest('dl')).toBe(svarlister[1])
+        expect(getByText('situasjonenDin.gravidEllerNyligFoedt').closest('dl')).toBe(svarlister[1])
+        expect(getByText('situasjonenDin.bosattINorge').closest('dl')).toBe(svarlister[2])
+        expect(getByText(bosattINorge === IValg.JA ? 'Sverige' : 'Danmark').closest('dl')).toBe(svarlister[2])
+        expect(queryByText(bosattINorge === IValg.JA ? 'Danmark' : 'Sverige')).toBeNull()
+    })
 
     it.each([
         JobbStatus.etablerer,
@@ -78,7 +78,7 @@ describe('Gruppering i oppsummeringen', () => {
         JobbStatus.arbeidssoeker,
         JobbStatus.underUtdanning,
         JobbStatus.ingen,
-    ])('viser enkeltstående svar og flervalg uten grupper eller undertitler for %s', (jobbStatus) => {
+    ] as const)('viser svarene for %s under riktig undertittel', (jobbStatus) => {
         const merOmSituasjonenDin: IMerOmSituasjonenDin = {
             jobbStatus: [jobbStatus],
             etablererVirksomhet: { hvaHeterVirksomheten: 'Ny virksomhet' },
@@ -99,28 +99,67 @@ describe('Gruppering i oppsummeringen', () => {
                 annet: { beskrivelse: 'Annen situasjon' },
             },
         }
-        const { container, getByText, queryByText } = renderOppsummering(
+        const { container, getByText, getAllByRole } = renderOppsummering(
             <OppsummeringMerSituasjonenDin merOmSituasjonenDin={merOmSituasjonenDin} senderSoeknad={false} />
         )
 
-        const svar = container.querySelector('dl')
-        expect(container.querySelectorAll('dl')).toHaveLength(1)
-        for (const undertittel of [
-            'etablererVirksomhet.tittel',
-            'tilbudOmJobb.tittel',
-            'arbeidssoeker.tittel',
-            'utdanning.tittel',
-            'annenSituasjon.tittel',
-            'utdanning.tittelFullfoert',
-        ]) {
-            expect(queryByText(`merOmSituasjonenDin.${undertittel}`)).toBeNull()
-        }
-        expect(getByText(jobbStatus).closest('dl')).toBe(svar)
-        expect(getByText('GRUNNSKOLE, FAGBREV').closest('dl')).toBe(svar)
+        const undertittel = {
+            [JobbStatus.etablerer]: 'merOmSituasjonenDin.etablererVirksomhet.tittel',
+            [JobbStatus.tilbud]: 'merOmSituasjonenDin.tilbudOmJobb.tittel',
+            [JobbStatus.arbeidssoeker]: 'merOmSituasjonenDin.arbeidssoeker.tittel',
+            [JobbStatus.underUtdanning]: 'merOmSituasjonenDin.utdanning.tittel',
+            [JobbStatus.ingen]: 'merOmSituasjonenDin.annenSituasjon.tittel',
+        }[jobbStatus]
+
+        const svarlister = container.querySelectorAll('dl')
+        expect(svarlister).toHaveLength(3)
+        expect(container.querySelectorAll('dl dl')).toHaveLength(0)
+        expect(getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
+            undertittel,
+            'merOmSituasjonenDin.utdanning.tittelFullfoert',
+        ])
+        expect(getByText(jobbStatus).closest('dl')).toBe(svarlister[0])
+        expect(getByText(undertittel).closest('dl')).toBeNull()
+        expect(getByText('GRUNNSKOLE, FAGBREV').closest('dl')).toBe(svarlister[2])
         const sporsmaal = [...container.querySelectorAll('dt')].map((element) => element.textContent)
         expect(sporsmaal[0]).toBe('merOmSituasjonenDin.jobbStatus')
         expect(sporsmaal.at(-1)).toBe('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')
         expect(sporsmaal.length).toBeGreaterThan(2)
+    })
+
+    it('skiller jobbtilbud og pågående utdanning med egne undertitler', () => {
+        const { container, getByRole, getByText } = renderOppsummering(
+            <OppsummeringMerSituasjonenDin
+                merOmSituasjonenDin={{
+                    jobbStatus: [JobbStatus.tilbud, JobbStatus.underUtdanning],
+                    tilbudOmJobb: {
+                        arbeidssted: 'Nytt arbeidssted',
+                        ansettelsesforhold: StillingType.fast,
+                        arbeidsmengde: { svar: '100' },
+                        aktivitetsplan: { svar: IValg.NEI },
+                    },
+                    utdanning: {
+                        naavaerendeUtdanning: { studiested: 'Universitetet', studieform: Studieform.heltid },
+                        hoyesteFullfoerteUtdanning: [HoeyesteUtdanning.FAGBREV],
+                        aktivitetsplan: { svar: IValg.NEI },
+                    },
+                }}
+                senderSoeknad={false}
+            />
+        )
+
+        expect(container.querySelectorAll('dl')).toHaveLength(4)
+        expect(container.querySelectorAll('dl dl')).toHaveLength(0)
+        for (const [tittel, verdi] of [
+            ['merOmSituasjonenDin.tilbudOmJobb.tittel', 'Nytt arbeidssted'],
+            ['merOmSituasjonenDin.utdanning.tittel', 'Universitetet'],
+            ['merOmSituasjonenDin.utdanning.tittelFullfoert', 'FAGBREV'],
+        ]) {
+            const overskrift = getByRole('heading', { level: 3, name: tittel })
+            expect(overskrift.closest('dl')).toBeNull()
+            expect(overskrift.nextElementSibling?.tagName).toBe('DL')
+            expect(getByText(verdi).closest('dl')).toBe(overskrift.nextElementSibling)
+        }
     })
 
     it.each([0, 1, 2])('beholder grupper for %s arbeidsforhold og næringsvirksomheter', (antall) => {
@@ -136,23 +175,27 @@ describe('Gruppering i oppsummeringen', () => {
                 arbeidsmengde: { svar: '20', type: Arbeidsmengde.timer },
             })),
         }
-        const { container, getByText } = renderOppsummering(
+        const { container, getByText, queryAllByRole } = renderOppsummering(
             <OppsummeringMerSituasjonenDin merOmSituasjonenDin={merOmSituasjonenDin} senderSoeknad={false} />
         )
 
-        const svar = container.querySelector('dl')
         expect(container.querySelectorAll('dl dl')).toHaveLength(antall * 2)
         expect(container.querySelectorAll('dl dl dl')).toHaveLength(0)
+        expect(queryAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
+            ...(antall === 0
+                ? []
+                : ['merOmSituasjonenDin.arbeidsforhold.tittel', 'merOmSituasjonenDin.selvstendig.tittel']),
+            'merOmSituasjonenDin.utdanning.tittelFullfoert',
+        ])
         for (let index = 1; index <= antall; index++) {
-            for (const [type, navn] of [
-                ['arbeidsforhold', `Arbeidsgiver ${index}`],
-                ['selvstendig', `Virksomhet ${index}`],
+            for (const [tittel, navn] of [
+                ['merOmSituasjonenDin.arbeidsforhold.tittel', `Arbeidsgiver ${index}`],
+                ['merOmSituasjonenDin.selvstendig.tittel', `Virksomhet ${index}`],
             ]) {
-                const gruppe = getByText(`merOmSituasjonenDin.${type}.tittel: ${navn}`).closest(
-                    '.aksel-form-summary__answer'
-                )
-                expect(gruppe?.parentElement).toBe(svar)
-                expect(gruppe?.querySelector('dl')?.contains(getByText(navn))).toBe(true)
+                const gruppe = getByText(navn, { selector: 'dt' }).closest('.aksel-form-summary__answer')
+                const underseksjon = getByText(tittel).closest('section')
+                expect(underseksjon?.contains(gruppe)).toBe(true)
+                expect(gruppe?.querySelector('dl')?.contains(getByText(navn, { selector: 'dd' }))).toBe(true)
             }
         }
     })

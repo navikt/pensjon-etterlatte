@@ -1,3 +1,4 @@
+import { FormSummary } from '@navikt/ds-react'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { StillingType } from '../../../../typer/arbeidsforhold'
@@ -7,6 +8,7 @@ import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { Studieform } from '../../../../typer/utdanning'
 import { OppsummeringGruppe } from '../OppsummeringGruppe'
 import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import { OppsummeringUnderseksjon } from '../OppsummeringUnderseksjon'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
 interface Props {
@@ -23,112 +25,124 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
             path={`/skjema/steg/${StegPath.MerOmSituasjonenDin}`}
             pathText={StegPath.MerOmSituasjonenDin}
             senderSoeknad={senderSoeknad}
+            medSvarliste={false}
         >
-            <TekstGruppe
-                tittel={t('merOmSituasjonenDin.jobbStatus')}
-                innhold={merOmSituasjonenDin.jobbStatus?.map((item) => ` ${t(item)}`)}
-            />
+            <FormSummary.Answers>
+                <TekstGruppe
+                    tittel={t('merOmSituasjonenDin.jobbStatus')}
+                    innhold={merOmSituasjonenDin.jobbStatus?.map((item) => ` ${t(item)}`)}
+                />
+            </FormSummary.Answers>
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.arbeidstaker) &&
-                merOmSituasjonenDin.arbeidsforhold?.map((arbeid, index) => (
-                    <OppsummeringGruppe
-                        key={index}
-                        tittel={`${t('merOmSituasjonenDin.arbeidsforhold.tittel')}: ${arbeid.arbeidsgiver}`}
-                    >
-                        <TekstGruppe
-                            tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver')}
-                            innhold={arbeid.arbeidsgiver}
-                        />
-                        <TekstGruppe
-                            tittel={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
-                            innhold={t(arbeid.ansettelsesforhold!)}
-                        />
-                        {arbeid.ansettelsesforhold === StillingType.fast && (
-                            <TekstGruppe
-                                tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
-                                innhold={t(arbeid.arbeidsmengde!.svar)}
-                            />
-                        )}
-
-                        {(arbeid.ansettelsesforhold === StillingType.midlertidig ||
-                            arbeid.ansettelsesforhold === StillingType.tilkallingsvikar) && (
-                            <>
+                !!merOmSituasjonenDin.arbeidsforhold?.length && (
+                    <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.arbeidsforhold.tittel')}>
+                        {merOmSituasjonenDin.arbeidsforhold.map((arbeid, index) => (
+                            <OppsummeringGruppe key={index} tittel={arbeid.arbeidsgiver ?? ''}>
                                 <TekstGruppe
-                                    tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
+                                    tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver')}
+                                    innhold={arbeid.arbeidsgiver}
+                                />
+                                <TekstGruppe
+                                    tittel={t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold')}
+                                    innhold={t(arbeid.ansettelsesforhold!)}
+                                />
+                                {arbeid.ansettelsesforhold === StillingType.fast && (
+                                    <TekstGruppe
+                                        tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast')}
+                                        innhold={t(arbeid.arbeidsmengde!.svar)}
+                                    />
+                                )}
+
+                                {(arbeid.ansettelsesforhold === StillingType.midlertidig ||
+                                    arbeid.ansettelsesforhold === StillingType.tilkallingsvikar) && (
+                                    <>
+                                        <TekstGruppe
+                                            tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar')}
+                                            innhold={arbeid.arbeidsmengde!.svar}
+                                        />
+                                        <TekstGruppe
+                                            tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.type')}
+                                            innhold={t(arbeid.arbeidsmengde!.type!)}
+                                        />
+                                        <TekstGruppeJaNeiVetIkke
+                                            tittel={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
+                                            innhold={arbeid.midlertidig?.svar}
+                                        />
+                                        {arbeid.midlertidig?.svar === IValg.JA && (
+                                            <TekstGruppe
+                                                tittel={t(
+                                                    'merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger'
+                                                )}
+                                                innhold={arbeid.midlertidig.sluttdatoVelger}
+                                            />
+                                        )}
+                                    </>
+                                )}
+
+                                <TekstGruppeJaNeiVetIkke
+                                    tittel={t(
+                                        'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar'
+                                    )}
+                                    innhold={arbeid.forventerEndretArbeidssituasjon?.svar}
+                                />
+
+                                {arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA && (
+                                    <TekstGruppe
+                                        tittel={t(
+                                            'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse'
+                                        )}
+                                        innhold={arbeid.forventerEndretArbeidssituasjon.beskrivelse}
+                                    />
+                                )}
+                            </OppsummeringGruppe>
+                        ))}
+                    </OppsummeringUnderseksjon>
+                )}
+
+            {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.selvstendig) &&
+                !!merOmSituasjonenDin.selvstendig?.length && (
+                    <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.selvstendig.tittel')}>
+                        {merOmSituasjonenDin.selvstendig.map((arbeid, index) => (
+                            <OppsummeringGruppe key={index} tittel={arbeid.beskrivelse ?? ''}>
+                                <TekstGruppe
+                                    tittel={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen')}
+                                    innhold={arbeid.beskrivelse}
+                                />
+                                <TekstGruppe
+                                    tittel={t('merOmSituasjonenDin.selvstendig.orgnr')}
+                                    innhold={arbeid.orgnr}
+                                />
+
+                                <TekstGruppe
+                                    tittel={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
                                     innhold={arbeid.arbeidsmengde!.svar}
                                 />
                                 <TekstGruppe
-                                    tittel={t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.type')}
+                                    tittel={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.type')}
                                     innhold={t(arbeid.arbeidsmengde!.type!)}
                                 />
+
                                 <TekstGruppeJaNeiVetIkke
-                                    tittel={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar')}
-                                    innhold={arbeid.midlertidig?.svar}
+                                    tittel={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar')}
+                                    innhold={arbeid.forventerEndretArbeidssituasjon?.svar}
                                 />
-                                {arbeid.midlertidig?.svar === IValg.JA && (
+
+                                {arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA && (
                                     <TekstGruppe
-                                        tittel={t('merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger')}
-                                        innhold={arbeid.midlertidig.sluttdatoVelger}
+                                        tittel={t(
+                                            'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse'
+                                        )}
+                                        innhold={arbeid.forventerEndretArbeidssituasjon.beskrivelse}
                                     />
                                 )}
-                            </>
-                        )}
-
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar')}
-                            innhold={arbeid.forventerEndretArbeidssituasjon?.svar}
-                        />
-
-                        {arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA && (
-                            <TekstGruppe
-                                tittel={t(
-                                    'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse'
-                                )}
-                                innhold={arbeid.forventerEndretArbeidssituasjon.beskrivelse}
-                            />
-                        )}
-                    </OppsummeringGruppe>
-                ))}
-
-            {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.selvstendig) &&
-                merOmSituasjonenDin.selvstendig?.map((arbeid, index) => (
-                    <OppsummeringGruppe
-                        key={index}
-                        tittel={`${t('merOmSituasjonenDin.selvstendig.tittel')}: ${arbeid.beskrivelse}`}
-                    >
-                        <TekstGruppe
-                            tittel={t('merOmSituasjonenDin.selvstendig.hvaHeterNaeringen')}
-                            innhold={arbeid.beskrivelse}
-                        />
-                        <TekstGruppe tittel={t('merOmSituasjonenDin.selvstendig.orgnr')} innhold={arbeid.orgnr} />
-
-                        <TekstGruppe
-                            tittel={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.svar')}
-                            innhold={arbeid.arbeidsmengde!.svar}
-                        />
-                        <TekstGruppe
-                            tittel={t('merOmSituasjonenDin.selvstendig.arbeidsmengde.type')}
-                            innhold={t(arbeid.arbeidsmengde!.type!)}
-                        />
-
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar')}
-                            innhold={arbeid.forventerEndretArbeidssituasjon?.svar}
-                        />
-
-                        {arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA && (
-                            <TekstGruppe
-                                tittel={t(
-                                    'merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse'
-                                )}
-                                innhold={arbeid.forventerEndretArbeidssituasjon.beskrivelse}
-                            />
-                        )}
-                    </OppsummeringGruppe>
-                ))}
+                            </OppsummeringGruppe>
+                        ))}
+                    </OppsummeringUnderseksjon>
+                )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.etablerer) && (
-                <>
+                <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.etablererVirksomhet.tittel')}>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten')}
                         innhold={merOmSituasjonenDin.etablererVirksomhet?.hvaHeterVirksomheten}
@@ -154,11 +168,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             innhold={merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV?.svar}
                         />
                     )}
-                </>
+                </OppsummeringUnderseksjon>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.tilbud) && (
-                <>
+                <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.tilbudOmJobb.tittel')}>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted')}
                         innhold={merOmSituasjonenDin.tilbudOmJobb?.arbeidssted}
@@ -209,11 +223,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                         tittel={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
                         innhold={merOmSituasjonenDin.tilbudOmJobb?.aktivitetsplan.svar}
                     />
-                </>
+                </OppsummeringUnderseksjon>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.arbeidssoeker) && (
-                <>
+                <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.arbeidssoeker.tittel')}>
                     <TekstGruppeJaNeiVetIkke
                         tittel={t('merOmSituasjonenDin.arbeidssoeker.svar')}
                         innhold={merOmSituasjonenDin.arbeidssoeker?.svar}
@@ -225,11 +239,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             innhold={merOmSituasjonenDin.arbeidssoeker?.aktivitetsplan.svar}
                         />
                     )}
-                </>
+                </OppsummeringUnderseksjon>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.underUtdanning) && (
-                <>
+                <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.utdanning.tittel')}>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested')}
                         innhold={merOmSituasjonenDin.utdanning?.naavaerendeUtdanning?.studiested}
@@ -284,11 +298,11 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                         tittel={t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar')}
                         innhold={merOmSituasjonenDin.utdanning?.aktivitetsplan.svar}
                     />
-                </>
+                </OppsummeringUnderseksjon>
             )}
 
             {merOmSituasjonenDin.jobbStatus?.includes(JobbStatus.ingen) && (
-                <>
+                <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.annenSituasjon.tittel')}>
                     <TekstGruppe
                         tittel={t('merOmSituasjonenDin.annenSituasjon.beskrivelse')}
                         innhold={merOmSituasjonenDin.annenSituasjon?.beskrivelse?.map((item) => ` ${t(item)}`)}
@@ -300,13 +314,15 @@ export const OppsummeringMerSituasjonenDin = memo(({ merOmSituasjonenDin, sender
                             innhold={merOmSituasjonenDin.annenSituasjon?.annet?.beskrivelse}
                         />
                     )}
-                </>
+                </OppsummeringUnderseksjon>
             )}
 
-            <TekstGruppe
-                tittel={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')}
-                innhold={merOmSituasjonenDin.utdanning?.hoyesteFullfoerteUtdanning?.map((item) => ` ${t(item)}`)}
-            />
+            <OppsummeringUnderseksjon tittel={t('merOmSituasjonenDin.utdanning.tittelFullfoert')}>
+                <TekstGruppe
+                    tittel={t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning')}
+                    innhold={merOmSituasjonenDin.utdanning?.hoyesteFullfoerteUtdanning?.map((item) => ` ${t(item)}`)}
+                />
+            </OppsummeringUnderseksjon>
         </OppsummeringSeksjon>
     )
 })

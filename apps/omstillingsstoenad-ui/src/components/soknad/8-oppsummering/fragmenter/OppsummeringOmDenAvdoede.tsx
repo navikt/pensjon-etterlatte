@@ -1,9 +1,11 @@
+import { FormSummary } from '@navikt/ds-react'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { IAvdoed } from '../../../../typer/person'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { OppsummeringGruppe } from '../OppsummeringGruppe'
 import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import { OppsummeringUnderseksjon } from '../OppsummeringUnderseksjon'
 import PersonInfoOppsummering from './PersonInfoOppsummering'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
@@ -21,59 +23,64 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
             path={`/skjema/steg/${StegPath.OmAvdoed}`}
             pathText={StegPath.OmAvdoed}
             senderSoeknad={senderSoeknad}
+            medSvarliste={false}
         >
-            <PersonInfoOppsummering
-                fornavn={omDenAvdoede.fornavn}
-                etternavn={omDenAvdoede.etternavn}
-                fnrDnr={omDenAvdoede.foedselsnummer}
-                foedselsdato={omDenAvdoede.foedselsdato}
-                statsborgerskap={omDenAvdoede.statsborgerskap}
-            />
-            <TekstGruppe tittel={t('omDenAvdoede.datoForDoedsfallet')} innhold={omDenAvdoede.datoForDoedsfallet} />
-            <TekstGruppeJaNeiVetIkke
-                tittel={t('omDenAvdoede.doedsfallAarsak')}
-                innhold={omDenAvdoede.doedsfallAarsak}
-            />
-            <TekstGruppeJaNeiVetIkke
-                tittel={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
-                innhold={omDenAvdoede.boddEllerJobbetUtland?.svar}
-            />
-            {omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold, index) => (
-                <OppsummeringGruppe key={index} tittel={`Opphold i ${opphold.land}`}>
-                    <TekstGruppe
-                        tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
-                        innhold={opphold.land}
-                    />
-                    <TekstGruppe
-                        tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse')}
-                        innhold={opphold.beskrivelse?.map((item) => ` ${t(item)}`)}
-                    />
-                    {opphold.fraDato && (
+            <FormSummary.Answers>
+                <PersonInfoOppsummering
+                    fornavn={omDenAvdoede.fornavn}
+                    etternavn={omDenAvdoede.etternavn}
+                    fnrDnr={omDenAvdoede.foedselsnummer}
+                    foedselsdato={omDenAvdoede.foedselsdato}
+                    statsborgerskap={omDenAvdoede.statsborgerskap}
+                />
+                <TekstGruppe tittel={t('omDenAvdoede.datoForDoedsfallet')} innhold={omDenAvdoede.datoForDoedsfallet} />
+                <TekstGruppeJaNeiVetIkke
+                    tittel={t('omDenAvdoede.doedsfallAarsak')}
+                    innhold={omDenAvdoede.doedsfallAarsak}
+                />
+            </FormSummary.Answers>
+            <OppsummeringUnderseksjon tittel={t('omDenAvdoede.boddEllerJobbetUtland.tittel')}>
+                <TekstGruppeJaNeiVetIkke
+                    tittel={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
+                    innhold={omDenAvdoede.boddEllerJobbetUtland?.svar}
+                />
+                {omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold, index) => (
+                    <OppsummeringGruppe key={index} tittel={`Opphold i ${opphold.land}`}>
                         <TekstGruppe
-                            tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
-                            innhold={opphold.fraDato}
+                            tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
+                            innhold={opphold.land}
                         />
-                    )}
-                    {opphold.tilDato && (
                         <TekstGruppe
-                            tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
-                            innhold={opphold.tilDato}
+                            tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.beskrivelse')}
+                            innhold={opphold.beskrivelse?.map((item) => ` ${t(item)}`)}
                         />
-                    )}
-                    <TekstGruppeJaNeiVetIkke
-                        tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd')}
-                        innhold={opphold.medlemFolketrygd}
-                    />
+                        {opphold.fraDato && (
+                            <TekstGruppe
+                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.fraDato')}
+                                innhold={opphold.fraDato}
+                            />
+                        )}
+                        {opphold.tilDato && (
+                            <TekstGruppe
+                                tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.tilDato')}
+                                innhold={opphold.tilDato}
+                            />
+                        )}
+                        <TekstGruppeJaNeiVetIkke
+                            tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.medlemFolketrygd')}
+                            innhold={opphold.medlemFolketrygd}
+                        />
 
-                    {opphold.mottokPensjon?.beloep && (
-                        <TekstGruppe tittel={t('felles.aarligBeloep')} innhold={opphold.mottokPensjon.beloep} />
-                    )}
+                        {opphold.mottokPensjon?.beloep && (
+                            <TekstGruppe tittel={t('felles.aarligBeloep')} innhold={opphold.mottokPensjon.beloep} />
+                        )}
 
-                    {opphold.mottokPensjon?.valuta && (
-                        <TekstGruppe tittel={t('felles.velgValuta')} innhold={opphold.mottokPensjon.valuta} />
-                    )}
-                </OppsummeringGruppe>
-            ))}
+                        {opphold.mottokPensjon?.valuta && (
+                            <TekstGruppe tittel={t('felles.velgValuta')} innhold={opphold.mottokPensjon.valuta} />
+                        )}
+                    </OppsummeringGruppe>
+                ))}
+            </OppsummeringUnderseksjon>
         </OppsummeringSeksjon>
     )
 })

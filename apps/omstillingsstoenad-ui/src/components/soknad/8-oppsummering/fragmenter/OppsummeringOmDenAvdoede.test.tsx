@@ -36,6 +36,7 @@ describe('Oppsummering om den avdøde', () => {
         )
 
         const svar = container.querySelector('dl')
+        const utland = container.querySelectorAll('dl')[1]
 
         expect(svar).not.toBeNull()
         expect(queryByText('omDeg.undertittel.personalia')).toBeNull()
@@ -45,12 +46,13 @@ describe('Oppsummering om den avdøde', () => {
         expect(getByText('Norge').closest('dl')).toBe(svar)
         expect(getByText('omDenAvdoede.datoForDoedsfallet').closest('dl')).toBe(svar)
         expect(getByText('omDenAvdoede.doedsfallAarsak').closest('dl')).toBe(svar)
-        expect(getByText('omDenAvdoede.boddEllerJobbetUtland.svar').closest('dl')).toBe(svar)
+        expect(getByText('omDenAvdoede.boddEllerJobbetUtland.svar').closest('dl')).toBe(utland)
+        expect(getByText('omDenAvdoede.boddEllerJobbetUtland.tittel').closest('dl')).toBeNull()
         expect(container.querySelectorAll('dl dl')).toHaveLength(antallOpphold)
 
         for (const land of oppholdsland) {
             const opphold = getByText(`Opphold i ${land}`).closest('.aksel-form-summary__answer')
-            expect(opphold?.parentElement).toBe(svar)
+            expect(opphold?.parentElement).toBe(utland)
             expect(opphold?.querySelector('dl')?.contains(getByText(land))).toBe(true)
         }
     })

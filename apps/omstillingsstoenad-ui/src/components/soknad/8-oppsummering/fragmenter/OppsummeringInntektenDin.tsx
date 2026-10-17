@@ -1,10 +1,11 @@
-import { Box, FormSummary, Heading } from '@navikt/ds-react'
+import { FormSummary } from '@navikt/ds-react'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { GrunnTilPaavirkelseAvInntekt, IInntekt, SkalGaaAvMedAlderspensjonValg } from '../../../../typer/inntekt'
 import { IValg } from '../../../../typer/Spoersmaal'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
 import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import { OppsummeringUnderseksjon } from '../OppsummeringUnderseksjon'
 import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
 interface Props {
@@ -50,323 +51,288 @@ export const OppsummeringInntektenDin = memo(({ inntektenDin, senderSoeknad }: P
             )}
 
             {inntektenDin.inntektFremTilDoedsfallet && (
-                <section>
-                    <Box
-                        asChild
-                        paddingInline={{ xs: 'space-16', sm: 'space-20' }}
-                        paddingBlock={{ xs: 'space-12 space-0', sm: 'space-16 space-0' }}
-                    >
-                        <Heading level="3" size="small">
-                            {t('inntektenDin.inntektFremTilDoedsfallet.tittel')}
-                        </Heading>
-                    </Box>
-                    <FormSummary.Answers>
-                        <TekstGruppe
-                            tittel={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt')}
-                            innhold={inntektenDin.inntektFremTilDoedsfallet?.arbeidsinntekt}
-                        />
+                <OppsummeringUnderseksjon tittel={t('inntektenDin.inntektFremTilDoedsfallet.tittel')}>
+                    <TekstGruppe
+                        tittel={t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt')}
+                        innhold={inntektenDin.inntektFremTilDoedsfallet?.arbeidsinntekt}
+                    />
 
-                        <TekstGruppe
-                            tittel={t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt')}
-                            innhold={inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt}
-                        />
-                        {!!inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
-                            inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0' && (
-                                <>
-                                    <TekstGruppeJaNeiVetIkke
+                    <TekstGruppe
+                        tittel={t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt')}
+                        innhold={inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt}
+                    />
+                    {!!inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
+                        inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0' && (
+                            <>
+                                <TekstGruppeJaNeiVetIkke
+                                    tittel={t(
+                                        'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                    )}
+                                    innhold={
+                                        inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt
+                                            ?.erNaeringsinntektOpptjentJevnt?.valg
+                                    }
+                                />
+
+                                {inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt
+                                    ?.valg === IValg.NEI && (
+                                    <TekstGruppe
                                         tittel={t(
-                                            'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                            'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
                                         )}
                                         innhold={
                                             inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt
-                                                ?.erNaeringsinntektOpptjentJevnt?.valg
+                                                ?.erNaeringsinntektOpptjentJevnt?.beskrivelse
                                         }
                                     />
-
-                                    {inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt
-                                        ?.erNaeringsinntektOpptjentJevnt?.valg === IValg.NEI && (
-                                        <TekstGruppe
-                                            tittel={t(
-                                                'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
-                                            )}
-                                            innhold={
-                                                inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt
-                                                    ?.erNaeringsinntektOpptjentJevnt?.beskrivelse
-                                            }
-                                        />
-                                    )}
-                                </>
-                            )}
-
-                        {inntektenDin.inntektFremTilDoedsfallet?.afpInntekt && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt')}
-                                    innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt}
-                                />
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning')}
-                                    innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.tjenesteordning}
-                                />
+                                )}
                             </>
                         )}
 
-                        <TekstGruppe
-                            tittel={t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland')}
-                            innhold={inntektenDin.inntektFremTilDoedsfallet?.inntektFraUtland}
-                        />
+                    {inntektenDin.inntektFremTilDoedsfallet?.afpInntekt && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt')}
+                                innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning')}
+                                innhold={inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.tjenesteordning}
+                            />
+                        </>
+                    )}
 
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg')}
-                            innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.valg}
-                        />
-                        {inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.valg === IValg.JA && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt')}
-                                    innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.inntekt}
-                                />
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse')}
-                                    innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.beskrivelse}
-                                />
-                            </>
-                        )}
-                    </FormSummary.Answers>
-                </section>
+                    <TekstGruppe
+                        tittel={t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland')}
+                        innhold={inntektenDin.inntektFremTilDoedsfallet?.inntektFraUtland}
+                    />
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg')}
+                        innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.valg}
+                    />
+                    {inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.valg === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt')}
+                                innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.inntekt}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse')}
+                                innhold={inntektenDin.inntektFremTilDoedsfallet?.andreInntekter?.beskrivelse}
+                            />
+                        </>
+                    )}
+                </OppsummeringUnderseksjon>
             )}
 
             {inntektenDin.forventetInntektIAar && (
-                <section>
-                    <Box
-                        asChild
-                        paddingInline={{ xs: 'space-16', sm: 'space-20' }}
-                        paddingBlock={{ xs: 'space-12 space-0', sm: 'space-16 space-0' }}
-                    >
-                        <Heading level="3" size="small">
-                            {t('inntektenDin.forventetInntektIAar.tittel')}
-                        </Heading>
-                    </Box>
-                    <FormSummary.Answers>
-                        <TekstGruppe
-                            tittel={t('inntektenDin.forventetInntektIAar.arbeidsinntekt')}
-                            innhold={inntektenDin.forventetInntektIAar?.arbeidsinntekt}
-                        />
+                <OppsummeringUnderseksjon tittel={t('inntektenDin.forventetInntektIAar.tittel')}>
+                    <TekstGruppe
+                        tittel={t('inntektenDin.forventetInntektIAar.arbeidsinntekt')}
+                        innhold={inntektenDin.forventetInntektIAar?.arbeidsinntekt}
+                    />
 
-                        <TekstGruppe
-                            tittel={t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt')}
-                            innhold={inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt}
-                        />
-                        {!!inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt &&
-                            inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (
-                                <>
-                                    <TekstGruppeJaNeiVetIkke
+                    <TekstGruppe
+                        tittel={t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt')}
+                        innhold={inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt}
+                    />
+                    {!!inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt &&
+                        inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt !== '0' && (
+                            <>
+                                <TekstGruppeJaNeiVetIkke
+                                    tittel={t(
+                                        'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                    )}
+                                    innhold={
+                                        inntektenDin.forventetInntektIAar?.naeringsinntekt
+                                            ?.erNaeringsinntektOpptjentJevnt?.valg
+                                    }
+                                />
+
+                                {inntektenDin.forventetInntektIAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt
+                                    ?.valg === IValg.NEI && (
+                                    <TekstGruppe
                                         tittel={t(
-                                            'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                            'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
                                         )}
                                         innhold={
                                             inntektenDin.forventetInntektIAar?.naeringsinntekt
-                                                ?.erNaeringsinntektOpptjentJevnt?.valg
-                                        }
-                                    />
-
-                                    {inntektenDin.forventetInntektIAar?.naeringsinntekt?.erNaeringsinntektOpptjentJevnt
-                                        ?.valg === IValg.NEI && (
-                                        <TekstGruppe
-                                            tittel={t(
-                                                'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
-                                            )}
-                                            innhold={
-                                                inntektenDin.forventetInntektIAar?.naeringsinntekt
-                                                    ?.erNaeringsinntektOpptjentJevnt?.beskrivelse
-                                            }
-                                        />
-                                    )}
-                                </>
-                            )}
-
-                        {inntektenDin.forventetInntektIAar?.afpInntekt && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.inntekt')}
-                                    innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt}
-                                />
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning')}
-                                    innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.tjenesteordning}
-                                />
-                            </>
-                        )}
-
-                        <TekstGruppe
-                            tittel={t('inntektenDin.forventetInntektIAar.inntektFraUtland')}
-                            innhold={inntektenDin.forventetInntektIAar?.inntektFraUtland}
-                        />
-
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.valg')}
-                            innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.valg}
-                        />
-                        {inntektenDin.forventetInntektIAar?.andreInntekter?.valg === IValg.JA && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.inntekt')}
-                                    innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.inntekt}
-                                />
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse')}
-                                    innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.beskrivelse}
-                                />
-                            </>
-                        )}
-
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg')}
-                            innhold={inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg}
-                        />
-                        {inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t(
-                                        'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
-                                    )}
-                                    innhold={t(
-                                        inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten
-                                            ?.grunnTilPaavirkelseAvInntekt
-                                    )}
-                                />
-                                {inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten
-                                    ?.grunnTilPaavirkelseAvInntekt === GrunnTilPaavirkelseAvInntekt.annenGrunn && (
-                                    <TekstGruppe
-                                        tittel={t(
-                                            'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse'
-                                        )}
-                                        innhold={
-                                            inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.beskrivelse
+                                                ?.erNaeringsinntektOpptjentJevnt?.beskrivelse
                                         }
                                     />
                                 )}
                             </>
                         )}
-                    </FormSummary.Answers>
-                </section>
+
+                    {inntektenDin.forventetInntektIAar?.afpInntekt && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.inntekt')}
+                                innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning')}
+                                innhold={inntektenDin.forventetInntektIAar?.afpInntekt?.tjenesteordning}
+                            />
+                        </>
+                    )}
+
+                    <TekstGruppe
+                        tittel={t('inntektenDin.forventetInntektIAar.inntektFraUtland')}
+                        innhold={inntektenDin.forventetInntektIAar?.inntektFraUtland}
+                    />
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.valg')}
+                        innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.valg}
+                    />
+                    {inntektenDin.forventetInntektIAar?.andreInntekter?.valg === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.inntekt')}
+                                innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.inntekt}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse')}
+                                innhold={inntektenDin.forventetInntektIAar?.andreInntekter?.beskrivelse}
+                            />
+                        </>
+                    )}
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg')}
+                        innhold={inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg}
+                    />
+                    {inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t(
+                                    'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
+                                )}
+                                innhold={t(
+                                    inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten
+                                        ?.grunnTilPaavirkelseAvInntekt
+                                )}
+                            />
+                            {inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten
+                                ?.grunnTilPaavirkelseAvInntekt === GrunnTilPaavirkelseAvInntekt.annenGrunn && (
+                                <TekstGruppe
+                                    tittel={t(
+                                        'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse'
+                                    )}
+                                    innhold={inntektenDin.forventetInntektIAar?.noeSomKanPaavirkeInntekten?.beskrivelse}
+                                />
+                            )}
+                        </>
+                    )}
+                </OppsummeringUnderseksjon>
             )}
 
             {inntektenDin.forventetInntektTilNesteAar && (
-                <section>
-                    <Box
-                        asChild
-                        paddingInline={{ xs: 'space-16', sm: 'space-20' }}
-                        paddingBlock={{ xs: 'space-12 space-0', sm: 'space-16 space-0' }}
-                    >
-                        <Heading level="3" size="small">
-                            {t('inntektenDin.forventetInntektTilNesteAar.tittel')}
-                        </Heading>
-                    </Box>
-                    <FormSummary.Answers>
-                        <TekstGruppe
-                            tittel={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt')}
-                            innhold={inntektenDin.forventetInntektTilNesteAar?.arbeidsinntekt}
-                        />
+                <OppsummeringUnderseksjon tittel={t('inntektenDin.forventetInntektTilNesteAar.tittel')}>
+                    <TekstGruppe
+                        tittel={t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt')}
+                        innhold={inntektenDin.forventetInntektTilNesteAar?.arbeidsinntekt}
+                    />
 
-                        <TekstGruppe
-                            tittel={t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt')}
-                            innhold={inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt}
-                        />
-                        {!!inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
-                            inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0' && (
-                                <>
-                                    <TekstGruppeJaNeiVetIkke
+                    <TekstGruppe
+                        tittel={t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt')}
+                        innhold={inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt}
+                    />
+                    {!!inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
+                        inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0' && (
+                            <>
+                                <TekstGruppeJaNeiVetIkke
+                                    tittel={t(
+                                        'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                    )}
+                                    innhold={
+                                        inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt
+                                            ?.erNaeringsinntektOpptjentJevnt?.valg
+                                    }
+                                />
+
+                                {inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt
+                                    ?.erNaeringsinntektOpptjentJevnt?.valg === IValg.NEI && (
+                                    <TekstGruppe
                                         tittel={t(
-                                            'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                            'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
                                         )}
                                         innhold={
                                             inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt
-                                                ?.erNaeringsinntektOpptjentJevnt?.valg
-                                        }
-                                    />
-
-                                    {inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt
-                                        ?.erNaeringsinntektOpptjentJevnt?.valg === IValg.NEI && (
-                                        <TekstGruppe
-                                            tittel={t(
-                                                'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
-                                            )}
-                                            innhold={
-                                                inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt
-                                                    ?.erNaeringsinntektOpptjentJevnt?.beskrivelse
-                                            }
-                                        />
-                                    )}
-                                </>
-                            )}
-
-                        {inntektenDin.forventetInntektTilNesteAar?.afpInntekt && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt')}
-                                    innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.inntekt}
-                                />
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning')}
-                                    innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.tjenesteordning}
-                                />
-                            </>
-                        )}
-
-                        <TekstGruppe
-                            tittel={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland')}
-                            innhold={inntektenDin.forventetInntektTilNesteAar?.inntektFraUtland}
-                        />
-
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg')}
-                            innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.valg}
-                        />
-                        {inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.valg === IValg.JA && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt')}
-                                    innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.inntekt}
-                                />
-                                <TekstGruppe
-                                    tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse')}
-                                    innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.beskrivelse}
-                                />
-                            </>
-                        )}
-
-                        <TekstGruppeJaNeiVetIkke
-                            tittel={t('inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg')}
-                            innhold={inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg}
-                        />
-                        {inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
-                            <>
-                                <TekstGruppe
-                                    tittel={t(
-                                        'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
-                                    )}
-                                    innhold={t(
-                                        inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten
-                                            ?.grunnTilPaavirkelseAvInntekt
-                                    )}
-                                />
-                                {inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten
-                                    ?.grunnTilPaavirkelseAvInntekt === GrunnTilPaavirkelseAvInntekt.annenGrunn && (
-                                    <TekstGruppe
-                                        tittel={t(
-                                            'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'
-                                        )}
-                                        innhold={
-                                            inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten
-                                                ?.beskrivelse
+                                                ?.erNaeringsinntektOpptjentJevnt?.beskrivelse
                                         }
                                     />
                                 )}
                             </>
                         )}
-                    </FormSummary.Answers>
-                </section>
+
+                    {inntektenDin.forventetInntektTilNesteAar?.afpInntekt && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt')}
+                                innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.inntekt}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning')}
+                                innhold={inntektenDin.forventetInntektTilNesteAar?.afpInntekt?.tjenesteordning}
+                            />
+                        </>
+                    )}
+
+                    <TekstGruppe
+                        tittel={t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland')}
+                        innhold={inntektenDin.forventetInntektTilNesteAar?.inntektFraUtland}
+                    />
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg')}
+                        innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.valg}
+                    />
+                    {inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.valg === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt')}
+                                innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.inntekt}
+                            />
+                            <TekstGruppe
+                                tittel={t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse')}
+                                innhold={inntektenDin.forventetInntektTilNesteAar?.andreInntekter?.beskrivelse}
+                            />
+                        </>
+                    )}
+
+                    <TekstGruppeJaNeiVetIkke
+                        tittel={t('inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg')}
+                        innhold={inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg}
+                    />
+                    {inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten?.valg === IValg.JA && (
+                        <>
+                            <TekstGruppe
+                                tittel={t(
+                                    'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
+                                )}
+                                innhold={t(
+                                    inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten
+                                        ?.grunnTilPaavirkelseAvInntekt
+                                )}
+                            />
+                            {inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten
+                                ?.grunnTilPaavirkelseAvInntekt === GrunnTilPaavirkelseAvInntekt.annenGrunn && (
+                                <TekstGruppe
+                                    tittel={t(
+                                        'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'
+                                    )}
+                                    innhold={
+                                        inntektenDin.forventetInntektTilNesteAar?.noeSomKanPaavirkeInntekten
+                                            ?.beskrivelse
+                                    }
+                                />
+                            )}
+                        </>
+                    )}
+                </OppsummeringUnderseksjon>
             )}
 
             <FormSummary.Answers>
