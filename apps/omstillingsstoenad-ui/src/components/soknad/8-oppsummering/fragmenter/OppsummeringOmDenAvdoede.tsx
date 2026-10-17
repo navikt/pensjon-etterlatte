@@ -1,12 +1,13 @@
-import { Heading, Tag } from '@navikt/ds-react'
+import { FormSummary } from '@navikt/ds-react'
 import { memo } from 'react'
-import { AccordionItem } from '../AccordionItem'
-import { IAvdoed } from '../../../../typer/person'
 import { useTranslation } from 'react-i18next'
+import { IAvdoed } from '../../../../typer/person'
 import { StegLabelKey, StegPath } from '../../../../typer/steg'
-import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
+import { OppsummeringGruppe } from '../OppsummeringGruppe'
+import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import { OppsummeringUnderseksjon } from '../OppsummeringUnderseksjon'
 import PersonInfoOppsummering from './PersonInfoOppsummering'
-import { Panel } from '../../../felles/Panel'
+import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
 interface Props {
     omDenAvdoede: IAvdoed
@@ -17,14 +18,14 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
     const { t } = useTranslation()
 
     return (
-        <AccordionItem
+        <OppsummeringSeksjon
             tittel={t(StegLabelKey.OmAvdoed)}
             path={`/skjema/steg/${StegPath.OmAvdoed}`}
             pathText={StegPath.OmAvdoed}
             senderSoeknad={senderSoeknad}
+            medSvarliste={false}
         >
-            <Panel>
-                <Heading size={'small'}>{t('omDeg.undertittel.personalia')}</Heading>
+            <FormSummary.Answers>
                 <PersonInfoOppsummering
                     fornavn={omDenAvdoede.fornavn}
                     etternavn={omDenAvdoede.etternavn}
@@ -33,22 +34,18 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                     statsborgerskap={omDenAvdoede.statsborgerskap}
                 />
                 <TekstGruppe tittel={t('omDenAvdoede.datoForDoedsfallet')} innhold={omDenAvdoede.datoForDoedsfallet} />
-
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('omDenAvdoede.doedsfallAarsak')}
                     innhold={omDenAvdoede.doedsfallAarsak}
                 />
-            </Panel>
-
-            <Panel>
-                <Heading size={'small'}>{t('omDenAvdoede.boddEllerJobbetUtland.tittel')}</Heading>
+            </FormSummary.Answers>
+            <OppsummeringUnderseksjon tittel={t('omDenAvdoede.boddEllerJobbetUtland.tittel')}>
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('omDenAvdoede.boddEllerJobbetUtland.svar')}
                     innhold={omDenAvdoede.boddEllerJobbetUtland?.svar}
                 />
                 {omDenAvdoede.boddEllerJobbetUtland?.oppholdUtland?.map((opphold, index) => (
-                    <Panel key={index}>
-                        <Tag variant={'neutral-moderate'}>{`Opphold i ${opphold.land}`}</Tag>
+                    <OppsummeringGruppe key={index} tittel={`Opphold i ${opphold.land}`}>
                         <TekstGruppe
                             tittel={t('omDenAvdoede.boddEllerJobbetUtland.oppholdUtland.land')}
                             innhold={opphold.land}
@@ -81,9 +78,9 @@ export const OppsummeringOmDenAvdoede = memo(({ omDenAvdoede, senderSoeknad }: P
                         {opphold.mottokPensjon?.valuta && (
                             <TekstGruppe tittel={t('felles.velgValuta')} innhold={opphold.mottokPensjon.valuta} />
                         )}
-                    </Panel>
+                    </OppsummeringGruppe>
                 ))}
-            </Panel>
-        </AccordionItem>
+            </OppsummeringUnderseksjon>
+        </OppsummeringSeksjon>
     )
 })

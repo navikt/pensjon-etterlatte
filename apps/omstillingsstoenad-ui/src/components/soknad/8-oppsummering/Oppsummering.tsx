@@ -1,4 +1,4 @@
-import { Accordion, Alert, BodyLong, Box, Button, Heading, Link, Loader, Modal } from '@navikt/ds-react'
+import { Alert, BodyLong, Box, Button, Heading, Link, Loader, Modal, VStack } from '@navikt/ds-react'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
@@ -71,7 +71,7 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
             <Box marginBlock="space-16">
                 <BodyLong>{t('oppsummering.beskrivelse')}</BodyLong>
             </Box>
-            <Accordion>
+            <VStack gap="space-16">
                 <OppsummeringOmDeg omDeg={soeknad.omDeg} bruker={bruker} senderSoeknad={senderSoeknad} />
                 <OppsummeringOmDenAvdoede omDenAvdoede={soeknad.omDenAvdoede} senderSoeknad={senderSoeknad} />
                 <OppsummeringOmDegOgAvdoed omDegOgAvdoed={soeknad.omDegOgAvdoed} senderSoeknad={senderSoeknad} />
@@ -85,7 +85,7 @@ const Oppsummering = ({ forrige }: SoknadSteg) => {
                     opplysningerOmBarn={soeknad.opplysningerOmBarn}
                     senderSoeknad={senderSoeknad}
                 />
-            </Accordion>
+            </VStack>
             <br />
             {error && (
                 <Box marginBlock="space-0 space-48">
