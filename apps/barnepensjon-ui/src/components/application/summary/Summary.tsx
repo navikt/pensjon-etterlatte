@@ -1,4 +1,4 @@
-import { Accordion, Alert, BodyLong, BodyShort, Button, Heading, HStack, Loader, Modal, VStack } from '@navikt/ds-react'
+import { Alert, BodyLong, BodyShort, Button, Heading, HStack, Loader, Modal, VStack } from '@navikt/ds-react'
 import { isEmpty } from 'lodash'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
@@ -74,7 +74,7 @@ export default function Summary({ prev }: StepProps) {
                 <Heading size="medium">{t('summaryTitle')}</Heading>
             </VStack>
             <BodyLong>{t('readTheSummaryBeforeSending')}</BodyLong>
-            <Accordion>
+            <VStack gap="space-16">
                 <SummaryAboutYou
                     aboutYou={application.aboutYou}
                     user={user}
@@ -114,7 +114,7 @@ export default function Summary({ prev }: StepProps) {
                     }}
                     unknownParent={!!application.unknownParent}
                 />
-            </Accordion>
+            </VStack>
             {error && (
                 <Alert variant={'error'}>
                     <Trans value={error} />

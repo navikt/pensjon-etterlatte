@@ -1,12 +1,12 @@
-import { Heading } from '@navikt/ds-react'
+import { FormSummary } from '@navikt/ds-react'
 import { memo } from 'react'
-import { AccordionItem } from '../AccordionItem'
-import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
 import { useTranslation } from 'react-i18next'
-import { StegLabelKey, StegPath } from '../../../../typer/steg'
-import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
+import { ISituasjonenDin, Sivilstatus } from '../../../../typer/person'
 import { IValg } from '../../../../typer/Spoersmaal'
-import { Panel } from '../../../felles/Panel'
+import { StegLabelKey, StegPath } from '../../../../typer/steg'
+import { OppsummeringSeksjon } from '../OppsummeringSeksjon'
+import { OppsummeringUnderseksjon } from '../OppsummeringUnderseksjon'
+import { TekstGruppe, TekstGruppeJaNeiVetIkke } from './TekstGruppe'
 
 interface Props {
     situasjonenDin: ISituasjonenDin
@@ -17,13 +17,14 @@ export const OppsummeringSituasjonenDin = memo(({ situasjonenDin, senderSoeknad 
     const { t } = useTranslation()
 
     return (
-        <AccordionItem
+        <OppsummeringSeksjon
             tittel={t(StegLabelKey.SituasjonenDin)}
             path={`/skjema/steg/${StegPath.SituasjonenDin}`}
             pathText={StegPath.SituasjonenDin}
             senderSoeknad={senderSoeknad}
+            medSvarliste={false}
         >
-            <Panel>
+            <FormSummary.Answers>
                 {situasjonenDin.nySivilstatus?.sivilstatus && (
                     <TekstGruppe
                         tittel={t('situasjonenDin.nySivilstatus.sivilstatus')}
@@ -51,10 +52,9 @@ export const OppsummeringSituasjonenDin = memo(({ situasjonenDin, senderSoeknad 
                         />
                     </>
                 )}
-            </Panel>
+            </FormSummary.Answers>
 
-            <Panel>
-                <Heading size={'small'}>{t('situasjonenDin.omsorgForBarn.tittel')}</Heading>
+            <OppsummeringUnderseksjon tittel={t('situasjonenDin.omsorgForBarn.tittel')}>
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('situasjonenDin.omsorgMinstFemti')}
                     innhold={situasjonenDin.omsorgMinstFemti}
@@ -63,10 +63,9 @@ export const OppsummeringSituasjonenDin = memo(({ situasjonenDin, senderSoeknad 
                     tittel={t('situasjonenDin.gravidEllerNyligFoedt')}
                     innhold={situasjonenDin.gravidEllerNyligFoedt}
                 />
-            </Panel>
+            </OppsummeringUnderseksjon>
 
-            <Panel>
-                <Heading size={'small'}>{t('situasjonenDin.oppholdUtenforNorge.tittel')}</Heading>
+            <OppsummeringUnderseksjon tittel={t('situasjonenDin.oppholdUtenforNorge.tittel')}>
                 <TekstGruppeJaNeiVetIkke
                     tittel={t('situasjonenDin.bosattINorge')}
                     innhold={situasjonenDin.bosattINorge}
@@ -104,7 +103,7 @@ export const OppsummeringSituasjonenDin = memo(({ situasjonenDin, senderSoeknad 
                 {situasjonenDin.bosattINorge === IValg.NEI && (
                     <TekstGruppe tittel={t('situasjonenDin.bosattLand')} innhold={situasjonenDin.bosattLand} />
                 )}
-            </Panel>
-        </AccordionItem>
+            </OppsummeringUnderseksjon>
+        </OppsummeringSeksjon>
     )
 })

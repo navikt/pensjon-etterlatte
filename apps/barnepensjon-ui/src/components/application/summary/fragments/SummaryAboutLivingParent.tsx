@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { ILivingParent } from '../../../../context/application/application'
 import useTranslation from '../../../../hooks/useTranslation'
 import { StepLabelKey, StepPath } from '../../../../utils/steps'
-import { AccordionItem } from '../AccordionItem'
+import { SummarySection } from '../SummarySection'
 import { TextGroup } from '../TextGroup'
 import PersonInfoSummary from './PersonInfoSummary'
 
@@ -18,27 +18,22 @@ export const SummaryAboutLivingParent = memo(({ aboutTheParent, pathPrefix }: Pr
     if (!aboutTheParent || isEmpty(aboutTheParent)) return null
 
     return (
-        <AccordionItem
+        <SummarySection
             title={t('title')}
             path={`/skjema/${pathPrefix}/${StepPath.AboutTheParents}`}
             pathText={t(StepLabelKey.AboutTheParents, { ns: 'summary' })}
         >
-            <>
-                <PersonInfoSummary
-                    firstName={aboutTheParent.firstName}
-                    lastName={aboutTheParent.lastName}
-                    fnrDnr={aboutTheParent.fnrDnr}
-                    dateOfBirth={aboutTheParent.dateOfBirth}
-                    citizenship={aboutTheParent.citizenship}
-                />
-                <TextGroup title={t('address')} content={aboutTheParent?.address} />
-                {aboutTheParent.phoneNumber && (
-                    <TextGroup
-                        title={t('phoneNumberOptional', { ns: 'common' })}
-                        content={aboutTheParent.phoneNumber}
-                    />
-                )}
-            </>
-        </AccordionItem>
+            <PersonInfoSummary
+                firstName={aboutTheParent.firstName}
+                lastName={aboutTheParent.lastName}
+                fnrDnr={aboutTheParent.fnrDnr}
+                dateOfBirth={aboutTheParent.dateOfBirth}
+                citizenship={aboutTheParent.citizenship}
+            />
+            <TextGroup title={t('address')} content={aboutTheParent?.address} />
+            {aboutTheParent.phoneNumber && (
+                <TextGroup title={t('phoneNumberOptional', { ns: 'common' })} content={aboutTheParent.phoneNumber} />
+            )}
+        </SummarySection>
     )
 })
