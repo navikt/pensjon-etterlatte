@@ -1,0 +1,35 @@
+name: utvidet-omstillingsstoenad-ui
+
+on:
+  workflow_dispatch: # Allow manually triggered workflow run
+  push:
+    branches:
+      - main
+    paths:
+      - apps/etterlatte-node-server/**
+      - apps/utvidet-omstillingsstoenad-ui/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - apps/etterlatte-node-server/**
+      - apps/utvidet-omstillingsstoenad-ui/**
+      - '!apps/etterlatte-node-server/src/mock/**'
+      - '!apps/etterlatte-node-server/README.md'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  test:
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/.test-frontend.yaml
+    secrets: inherit
+
+  build_and_deploy:
+    if: github.event_name != 'pull_request'
+    uses: ./.github/workflows/.build-and-deploy-frontend.yaml
+    secrets: inherit

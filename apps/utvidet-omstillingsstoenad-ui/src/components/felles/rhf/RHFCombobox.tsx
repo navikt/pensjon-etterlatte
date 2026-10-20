@@ -1,0 +1,52 @@
+import { ComboboxProps, UNSAFE_Combobox } from '@navikt/ds-react'
+import { get } from 'lodash'
+import React from 'react'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form/'
+import { useTranslation } from 'react-i18next'
+import { getTransKey } from '~utils/translation'
+
+interface RHFProps extends Omit<ComboboxProps, 'name'> {
+    name: FieldPath<FieldValues>
+    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
+}
+
+export const RHFCombobox = ({ name, label, options, rules, required = true, ...rest }: RHFProps) => {
+    const { t } = useTranslation()
+
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const errorMsg = !!error ? t(getTransKey(error)) : undefined
+    const labelWithOptional = required ? label : `${label} (${t('felles.valgfri')})`
+
+    return (
+        <div id={name}>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required, ...rules }}
+                render={({ field: { value, onChange, onBlur } }) => (
+                    <UNSAFE_Combobox
+                        {...rest}
+                        label={labelWithOptional}
+                        options={options}
+                        selectedOptions={value ? [value] : []}
+                        onToggleSelected={(option, isSelected) => {
+                            if (isSelected) {
+                                onChange(option)
+                            } else {
+                                onChange('')
+                            }
+                        }}
+                        onBlur={onBlur}
+                        error={errorMsg}
+                    />
+                )}
+            />
+        </div>
+    )
+}

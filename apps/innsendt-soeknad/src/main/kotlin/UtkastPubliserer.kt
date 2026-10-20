@@ -23,23 +23,36 @@ class UtkastPubliserer(
 
         val soeknadData: SoeknadData =
             when (kilde) {
-                "barnepensjon-ui" ->
+                "barnepensjon-ui" -> {
                     SoeknadData(
                         "$url/barnepensjon/soknad",
                         "Søknad om barnepensjon",
                         "Søknad om barnepensjon",
                         "Application for children’s pension",
                     )
+                }
 
-                "omstillingsstoenad-ui" ->
+                "omstillingsstoenad-ui" -> {
                     SoeknadData(
                         "$url/omstillingsstonad/soknad",
                         "Søknad om omstillingsstønad",
                         "Søknad om omstillingsstønad",
                         "Application for adjustment allowance",
                     )
+                }
 
-                else -> throw Exception("Søknad mangler kilde")
+                "utvidet-omstillingsstoenad-ui" -> {
+                    SoeknadData(
+                        "$url/utvidet-omstillingsstonad/soknad",
+                        "Søknad om utvidet omstillingsstønad",
+                        "Søknad om utvida omstillingsstønad",
+                        "Application for extended adjustment allowance",
+                    )
+                }
+
+                else -> {
+                    throw Exception("Søknad mangler kilde")
+                }
             }
 
         val message =

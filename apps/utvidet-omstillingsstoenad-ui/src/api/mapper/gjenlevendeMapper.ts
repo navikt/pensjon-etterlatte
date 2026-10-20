@@ -1,0 +1,1211 @@
+import { differenceInYears } from 'date-fns'
+import { TFunction } from 'i18next'
+import { skalViseAFPFelter } from '~components/soknad/6-inntekten-din/fragmenter/afp'
+import { IBruker } from '../../context/bruker/bruker'
+import { ISoeknad } from '../../context/soknad/soknad'
+import { ISelvstendigNaeringsdrivende, StillingType } from '../../typer/arbeidsforhold'
+import {
+    GrunnTilPaavirkelseAvInntekt,
+    IInntekt,
+    ISkalGaaAvMedAlderspensjon,
+    SkalGaaAvMedAlderspensjonValg,
+} from '../../typer/inntekt'
+import { IForholdAvdoede, INySivilstatus, ISituasjonenDin, Sivilstatus } from '../../typer/person'
+import { IValg } from '../../typer/Spoersmaal'
+import { IMerOmSituasjonenDin, JobbStatus } from '../../typer/situasjon'
+import { Studieform } from '../../typer/utdanning'
+import { fullAdresse } from '../../utils/adresse'
+import {
+    AnnenSituasjon,
+    ArbeidOgUtdanning,
+    Arbeidssoeker,
+    Arbeidstaker,
+    BetingetOpplysning,
+    DatoSvar,
+    EnumSvar,
+    EtablererVirksomhet,
+    ForholdTilAvdoede,
+    ForholdTilAvdoedeType,
+    ForventetInntektIAar,
+    ForventetInntektTilNesteAar,
+    FritekstSvar,
+    HoeyesteUtdanning,
+    InntektFremTilDoedsfallet,
+    InntektOgPensjon,
+    JaNeiVetIkke,
+    Kontaktinfo,
+    OppholdUtland,
+    Opplysning,
+    SelvstendigNaeringsdrivende,
+    SivilstatusType,
+    SkalGaaAvMedAlderspensjon,
+    Stoenader,
+    TilbudOmJobb,
+    Utdanning,
+    YtelserAndre,
+    YtelserNav,
+} from '../dto/FellesOpplysninger'
+import { Gjenlevende, PersonType, Samboer } from '../dto/Person'
+import { skalGaaAvMedAlderspensjonValgTilSvar, valgTilSvar } from './fellesMapper'
+import {
+    konverterGrunnTilPaavirkelseAvInntekt,
+    konverterIngenJobb,
+    konverterJobbStatus,
+    konverterRelasjonAvdoed,
+    konverterSivilstatus,
+    konverterSoekteYtelserAndre,
+    konverterSoekteYtelserNAV,
+    konverterStillingType,
+    konverterStudieform,
+    konverterTilHoyesteUtdanning,
+} from './typeMapper'
+
+export const mapGjenlevende = (t: TFunction, soeknad: ISoeknad, bruker: IBruker): Gjenlevende => {
+    const kontaktinfo: Kontaktinfo = {
+        telefonnummer: {
+            spoersmaal: bruker.telefonnummer ? t('felles.telefonnummer') : t('omDeg.kontaktinfo.telefonnummer'),
+            svar: {
+                innhold: bruker.telefonnummer || soeknad.omDeg.kontaktinfo!.telefonnummer || '-',
+            },
+        },
+    }
+
+    const flyktning = !!soeknad.omDeg.flyktning
+        ? {
+              spoersmaal: t('omDeg.flyktning'),
+              svar: valgTilSvar(t, soeknad.omDeg.flyktning),
+          }
+        : undefined
+
+    // TODO: Slå sammen med ArbeidOgUtdanning ... ?
+    const fullfoertUtdanning: Opplysning<EnumSvar<HoeyesteUtdanning>[]> | undefined = !bruker.adressebeskyttelse
+        ? {
+              spoersmaal: t('merOmSituasjonenDin.utdanning.hoyesteFullfoerteUtdanning'),
+              svar:
+                  soeknad.merOmSituasjonenDin.utdanning!.hoyesteFullfoerteUtdanning!.map((type) => ({
+                      verdi: konverterTilHoyesteUtdanning(type),
+                      innhold: t(type),
+                  })) || [],
+          }
+        : undefined
+
+    return {
+        type: PersonType.GJENLEVENDE_OMS,
+
+        fornavn: {
+            spoersmaal: t('felles.fornavn'),
+            svar: bruker.fornavn!,
+        },
+        etternavn: {
+            spoersmaal: t('felles.etternavn'),
+            svar: bruker.etternavn!,
+        },
+        foedselsnummer: {
+            spoersmaal: t('felles.foedselsnummer'),
+            svar: bruker.foedselsnummer!,
+        },
+
+        statsborgerskap: {
+            spoersmaal: t('felles.statsborgerskap'),
+            svar: `${bruker.statsborgerskap}`,
+        },
+        sivilstatus: {
+            spoersmaal: t('felles.sivilstatus'),
+            svar: t(`pdl.sivilstatus.${bruker.sivilstatus}`) || `${bruker.sivilstatus}`,
+        },
+
+        adresse: !bruker.adressebeskyttelse
+            ? {
+                  spoersmaal: t('felles.adresse'),
+                  svar: fullAdresse(bruker),
+              }
+            : undefined,
+        bostedsAdresse:
+            !bruker.adressebeskyttelse && soeknad.omDeg.alternativAdresse
+                ? {
+                      spoersmaal: t('omDeg.alternativAdresse'),
+                      svar: {
+                          innhold: soeknad.omDeg.alternativAdresse!,
+                      },
+                  }
+                : undefined,
+        kontaktinfo,
+        flyktning,
+        oppholdUtland: !bruker.adressebeskyttelse ? hentOppholdUtland(t, soeknad.situasjonenDin) : undefined,
+        nySivilstatus: hentSivilstatus(t, soeknad.situasjonenDin.nySivilstatus!),
+        arbeidOgUtdanning: !bruker.adressebeskyttelse
+            ? hentArbeidOgUtdanning(t, soeknad.merOmSituasjonenDin)
+            : undefined,
+        fullfoertUtdanning,
+        inntektOgPensjon: hentInntektOgPensjon(t, soeknad.inntektenDin, bruker),
+        uregistrertEllerVenterBarn: {
+            spoersmaal: t('situasjonenDin.gravidEllerNyligFoedt'),
+            svar: valgTilSvar(t, soeknad.situasjonenDin.gravidEllerNyligFoedt!),
+        },
+        forholdTilAvdoede: mapForholdTilAvdoede(t, soeknad.omDegOgAvdoed.forholdTilAvdoede!),
+        omsorgForBarn: {
+            spoersmaal: t('situasjonenDin.omsorgMinstFemti'),
+            svar: valgTilSvar(t, soeknad.situasjonenDin.omsorgMinstFemti!),
+        },
+    }
+}
+
+export const mapStoenader = (t: TFunction, soeknad: ISoeknad): Opplysning<EnumSvar<Stoenader>>[] => {
+    const stoenader: Opplysning<EnumSvar<Stoenader>>[] = []
+
+    if (soeknad.merOmSituasjonenDin.utdanning?.soeknadOmSkolepenger) {
+        stoenader.push({
+            spoersmaal: t('merOmSituasjonenDin.utdanning.soeknadOmSkolepenger'),
+            svar: {
+                innhold: t('merOmSituasjonenDin.utdanning.soeknadOmSkolepenger.bekreftelse'),
+                verdi: Stoenader.SKOLEPENGER,
+            },
+        })
+    }
+
+    if (soeknad.merOmSituasjonenDin.utdanning?.soeknadOmTilleggsstoenadUtdanning) {
+        stoenader.push({
+            spoersmaal: t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning'),
+            svar: {
+                innhold: t('merOmSituasjonenDin.utdanning.soeknadOmTilleggsstoenadUtdanning.bekreftelse'),
+                verdi: Stoenader.TILLEGGSSTOENAD_UTDANNING,
+            },
+        })
+    }
+
+    if (soeknad.opplysningerOmBarn.soeknadOmBarnetilsyn) {
+        stoenader.push({
+            spoersmaal: t('omBarn.soeknadOmBarnetilsyn'),
+            svar: {
+                innhold: t('omBarn.soeknadOmBarnetilsyn.bekreftelse'),
+                verdi: Stoenader.BARNETILSYN,
+            },
+        })
+    }
+
+    if (soeknad.opplysningerOmBarn.soeknadOmTilleggsstoenadBarnepass) {
+        stoenader.push({
+            spoersmaal: t('omBarn.soeknadOmTilleggsstoenadBarnepass'),
+            svar: {
+                innhold: t('omBarn.soeknadOmTilleggsstoenadBarnepass.bekreftelse'),
+                verdi: Stoenader.TILLEGGSSTOENAD_BARNEPASS,
+            },
+        })
+    }
+
+    return stoenader
+}
+
+const hentOppholdUtland = (
+    t: TFunction,
+    situasjonenDin: ISituasjonenDin
+): BetingetOpplysning<EnumSvar<JaNeiVetIkke>, OppholdUtland> => {
+    let opplysning: OppholdUtland | undefined
+
+    if (situasjonenDin.bosattINorge === IValg.JA) {
+        opplysning = {
+            oppholderSegIUtlandet: {
+                spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.svar'),
+                svar: valgTilSvar(t, situasjonenDin.oppholderSegIUtlandet!.svar!),
+            },
+            oppholdsland:
+                situasjonenDin.oppholderSegIUtlandet!.svar! === IValg.JA
+                    ? {
+                          spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdsland'),
+                          svar: {
+                              innhold: situasjonenDin.oppholderSegIUtlandet!.oppholdsland!,
+                          },
+                      }
+                    : undefined,
+            oppholdFra:
+                situasjonenDin.oppholderSegIUtlandet!.svar! === IValg.JA &&
+                situasjonenDin.oppholderSegIUtlandet!.oppholdFra
+                    ? {
+                          spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdFra'),
+                          svar: {
+                              innhold: situasjonenDin.oppholderSegIUtlandet!.oppholdFra!,
+                          },
+                      }
+                    : undefined,
+            oppholdTil:
+                situasjonenDin.oppholderSegIUtlandet!.svar! === IValg.JA &&
+                situasjonenDin.oppholderSegIUtlandet!.oppholdTil
+                    ? {
+                          spoersmaal: t('situasjonenDin.oppholderSegIUtlandet.oppholdTil'),
+                          svar: {
+                              innhold: situasjonenDin.oppholderSegIUtlandet!.oppholdTil!,
+                          },
+                      }
+                    : undefined,
+        }
+    }
+
+    if (situasjonenDin.bosattINorge === IValg.NEI) {
+        opplysning = {
+            bosattLand: {
+                spoersmaal: t('situasjonenDin.bosattLand'),
+                svar: {
+                    innhold: situasjonenDin.bosattLand!,
+                },
+            },
+        }
+    }
+
+    return {
+        spoersmaal: t('situasjonenDin.bosattINorge'),
+        svar: valgTilSvar(t, situasjonenDin.bosattINorge!),
+        opplysning,
+    }
+}
+
+const hentSivilstatus = (
+    t: TFunction,
+    nySivilstatus: INySivilstatus
+): BetingetOpplysning<EnumSvar<SivilstatusType>, Samboer> => {
+    let opplysning: Samboer | undefined
+
+    if (nySivilstatus?.sivilstatus == Sivilstatus.samboerskap) {
+        const samboer = nySivilstatus.samboerskap!.samboer!
+
+        opplysning = {
+            type: PersonType.SAMBOER,
+            fornavn: {
+                spoersmaal: t('felles.fornavn'),
+                svar: samboer.fornavn!,
+            },
+            etternavn: {
+                spoersmaal: t('felles.etternavn'),
+                svar: samboer.etternavn!,
+            },
+            foedselsnummer: {
+                spoersmaal: t('felles.foedselsnummer'),
+                svar: samboer.foedselsnummer!,
+            },
+            fellesBarnEllertidligereGift: {
+                spoersmaal: t('situasjonenDin.nySivilstatus.samboerskap.hattBarnEllerVaertGift'),
+                svar: valgTilSvar(t, nySivilstatus.samboerskap!.hattBarnEllerVaertGift!),
+            },
+        }
+    }
+
+    return {
+        spoersmaal: t('situasjonenDin.nySivilstatus.sivilstatus'),
+        svar: {
+            verdi: konverterSivilstatus(nySivilstatus!.sivilstatus!),
+            innhold: t(nySivilstatus!.sivilstatus!),
+        },
+        opplysning,
+    }
+}
+
+const hentArbeidOgUtdanning = (t: TFunction, dinSituasjon: IMerOmSituasjonenDin): ArbeidOgUtdanning => {
+    let arbeidsforhold: Opplysning<Arbeidstaker[]> | undefined
+
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.arbeidstaker)) {
+        arbeidsforhold = {
+            spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.tittel'),
+            svar:
+                dinSituasjon.arbeidsforhold?.map((arbeid) => {
+                    const arbeidstaker: Arbeidstaker = {
+                        arbeidsgiver: {
+                            spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsgiver'),
+                            svar: {
+                                innhold: arbeid.arbeidsgiver!,
+                            },
+                        },
+                        arbeidsmengde:
+                            arbeid.ansettelsesforhold === StillingType.fast
+                                ? {
+                                      spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar.fast'),
+                                      svar: {
+                                          innhold: `${arbeid.arbeidsmengde!.svar!} ${t('felles.prosent')}`,
+                                      },
+                                  }
+                                : {
+                                      spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar'),
+                                      svar: {
+                                          innhold: `${arbeid.arbeidsmengde!.svar!} ${t(arbeid.arbeidsmengde!.type!)}`,
+                                      },
+                                  },
+                        ansettelsesforhold: {
+                            spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.ansettelsesforhold'),
+                            svar: {
+                                verdi: konverterStillingType(arbeid.ansettelsesforhold!),
+                                innhold: t(arbeid.ansettelsesforhold!),
+                            },
+                        },
+                        harSluttdato:
+                            arbeid?.ansettelsesforhold === StillingType.midlertidig ||
+                            arbeid?.ansettelsesforhold === StillingType.tilkallingsvikar
+                                ? {
+                                      spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.midlertidig.svar'),
+                                      svar: valgTilSvar(t, arbeid!.midlertidig!.svar!),
+                                  }
+                                : undefined,
+                        sluttdato:
+                            arbeid?.midlertidig?.svar === IValg.JA
+                                ? {
+                                      spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.midlertidig.sluttdatoVelger'),
+                                      svar: {
+                                          innhold: arbeid!.midlertidig!.sluttdatoVelger!,
+                                      },
+                                  }
+                                : undefined,
+                        endretArbeidssituasjon: {
+                            spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.svar'),
+                            svar: valgTilSvar(t, arbeid.forventerEndretArbeidssituasjon!.svar!),
+                            opplysning:
+                                arbeid.forventerEndretArbeidssituasjon?.svar === IValg.JA
+                                    ? {
+                                          spoersmaal: t(
+                                              'merOmSituasjonenDin.arbeidsforhold.forventerEndretArbeidssituasjon.beskrivelse'
+                                          ),
+                                          svar: {
+                                              innhold: t(arbeid.forventerEndretArbeidssituasjon.beskrivelse!),
+                                          },
+                                      }
+                                    : undefined,
+                        },
+                        /*sagtOppEllerRedusert: {
+                            spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.sagtOppEllerRedusert.svar'),
+                            svar: {
+                                verdi: konverterSagtOppEllerRedusert(arbeid.sagtOppEllerRedusert!.svar!),
+                                innhold: t(arbeid.sagtOppEllerRedusert!.svar!),
+                            },
+                        },*/
+                    }
+
+                    return arbeidstaker
+                }) || [],
+        }
+    }
+
+    let selvstendig: Opplysning<SelvstendigNaeringsdrivende[]> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.selvstendig)) {
+        const selvstendigListe: SelvstendigNaeringsdrivende[] =
+            dinSituasjon.selvstendig?.map((naering) => {
+                return mapSelvstendigNæringsdrivende(t, naering)
+            }) || []
+
+        selvstendig = {
+            spoersmaal: t('merOmSituasjonenDin.selvstendig.tittel'),
+            svar: selvstendigListe,
+        }
+    }
+
+    let etablererVirksomhet: Opplysning<EtablererVirksomhet> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.etablerer)) {
+        etablererVirksomhet = {
+            spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.tittel'),
+            svar: {
+                virksomheten: {
+                    spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.hvaHeterVirksomheten'),
+                    svar: {
+                        innhold: dinSituasjon.etablererVirksomhet!.hvaHeterVirksomheten!,
+                    },
+                },
+                orgnr: {
+                    spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.orgnr'),
+                    svar: {
+                        innhold: dinSituasjon.etablererVirksomhet?.manglerOrgnr?.length
+                            ? dinSituasjon.etablererVirksomhet.manglerOrgnr[0]
+                            : dinSituasjon.etablererVirksomhet!.orgnr!,
+                    },
+                },
+                forretningsplan: {
+                    spoersmaal: t('merOmSituasjonenDin.etablererVirksomhet.forretningsplan.svar'),
+                    svar: valgTilSvar(t, dinSituasjon.etablererVirksomhet!.forretningsplan!.svar!),
+                },
+                samarbeidMedNav:
+                    dinSituasjon.etablererVirksomhet?.forretningsplan?.svar === IValg.JA
+                        ? {
+                              spoersmaal: t(
+                                  'merOmSituasjonenDin.etablererVirksomhet.forretningsplan.samarbeidMedNAV.svar'
+                              ),
+                              svar: valgTilSvar(
+                                  t,
+                                  dinSituasjon!.etablererVirksomhet!.forretningsplan!.samarbeidMedNAV!.svar!
+                              ),
+                          }
+                        : undefined,
+            },
+        }
+    }
+
+    let tilbud: Opplysning<TilbudOmJobb> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.tilbud)) {
+        const fastAnsettelse = dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.fast
+
+        tilbud = {
+            spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.tittel'),
+            svar: {
+                nyttArbeidssted: {
+                    spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted'),
+                    svar: {
+                        innhold: dinSituasjon.tilbudOmJobb!.arbeidssted!,
+                    },
+                },
+                ansettelsesdato: {
+                    spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato'),
+                    svar: {
+                        innhold: dinSituasjon!.tilbudOmJobb!.ansettelsesdato!,
+                    },
+                },
+                ansettelsesforhold: {
+                    spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold'),
+                    svar: {
+                        verdi: konverterStillingType(dinSituasjon.tilbudOmJobb!.ansettelsesforhold!),
+                        innhold: t(dinSituasjon.tilbudOmJobb!.ansettelsesforhold!),
+                    },
+                },
+                arbeidsmengde: fastAnsettelse
+                    ? {
+                          spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast'),
+                          svar: {
+                              innhold: `${dinSituasjon.tilbudOmJobb!.arbeidsmengde!.svar!} ${t('felles.prosent')}`,
+                          },
+                      }
+                    : {
+                          spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar'),
+                          svar: {
+                              innhold: `${dinSituasjon.tilbudOmJobb!.arbeidsmengde!.svar!} ${t(
+                                  dinSituasjon.tilbudOmJobb!.arbeidsmengde!.type!
+                              )}`,
+                          },
+                      },
+                harSluttdato:
+                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.midlertidig ||
+                    dinSituasjon.tilbudOmJobb?.ansettelsesforhold === StillingType.tilkallingsvikar
+                        ? {
+                              spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar'),
+                              svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!.midlertidig!.svar!),
+                          }
+                        : undefined,
+                sluttdato:
+                    dinSituasjon.tilbudOmJobb?.midlertidig?.svar === IValg.JA
+                        ? {
+                              spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger'),
+                              svar: {
+                                  innhold: dinSituasjon!.tilbudOmJobb!.midlertidig!.sluttdatoVelger!,
+                              },
+                          }
+                        : undefined,
+                aktivitetsplan: {
+                    spoersmaal: t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar'),
+                    svar: valgTilSvar(t, dinSituasjon.tilbudOmJobb!.aktivitetsplan.svar!),
+                },
+            },
+        }
+    }
+
+    let arbeidssoeker: Opplysning<Arbeidssoeker> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.arbeidssoeker)) {
+        arbeidssoeker = {
+            spoersmaal: t('merOmSituasjonenDin.arbeidssoeker.tittel'),
+            svar: {
+                registrertArbeidssoeker: {
+                    spoersmaal: t('merOmSituasjonenDin.arbeidssoeker.svar'),
+                    svar: valgTilSvar(t, dinSituasjon.arbeidssoeker!.svar!),
+                },
+                aktivitetsplan:
+                    dinSituasjon.arbeidssoeker!.svar === IValg.JA
+                        ? {
+                              spoersmaal: t('merOmSituasjonenDin.arbeidssoeker.aktivitetsplan.svar'),
+                              svar: valgTilSvar(t, dinSituasjon.arbeidssoeker!.aktivitetsplan.svar!),
+                          }
+                        : undefined,
+            },
+        }
+    }
+
+    let utdanning: Opplysning<Utdanning> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.underUtdanning)) {
+        utdanning = {
+            spoersmaal: t('merOmSituasjonenDin.utdanning.tittel'),
+            svar: {
+                studiested: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studiested'),
+                    svar: {
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.studiested!,
+                    },
+                },
+                studie: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studie'),
+                    svar: {
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.studie!,
+                    },
+                },
+                studieform: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieform'),
+                    svar: {
+                        innhold: t(dinSituasjon.utdanning!.naavaerendeUtdanning!.studieform!),
+                        verdi: konverterStudieform(dinSituasjon.utdanning!.naavaerendeUtdanning!.studieform!),
+                    },
+                },
+                studieprosent:
+                    dinSituasjon.utdanning!.naavaerendeUtdanning!.studieform === Studieform.deltid
+                        ? {
+                              spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.studieprosent'),
+                              svar: {
+                                  innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.studieprosent!,
+                              },
+                          }
+                        : undefined,
+                startDato: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.startDato'),
+                    svar: {
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.startDato!,
+                    },
+                },
+                sluttDato: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.sluttDato'),
+                    svar: {
+                        innhold: dinSituasjon.utdanning!.naavaerendeUtdanning!.sluttDato!,
+                    },
+                },
+                godkjentUtdanning: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.naavaerendeUtdanning.godkjentUtdanning'),
+                    svar: valgTilSvar(t, dinSituasjon.utdanning!.naavaerendeUtdanning!.godkjentUtdanning!),
+                },
+                aktivitetsplan: {
+                    spoersmaal: t('merOmSituasjonenDin.utdanning.aktivitetsplan.svar'),
+                    svar: valgTilSvar(t, dinSituasjon.utdanning!.aktivitetsplan!.svar!),
+                },
+            },
+        }
+    }
+
+    let annenSituasjon: Opplysning<AnnenSituasjon> | undefined
+    if (dinSituasjon.jobbStatus?.includes(JobbStatus.ingen)) {
+        annenSituasjon = {
+            spoersmaal: t('merOmSituasjonenDin.annenSituasjon.tittel'),
+            svar: {
+                beskrivelse: {
+                    spoersmaal: t('merOmSituasjonenDin.annenSituasjon.beskrivelse'),
+                    svar:
+                        dinSituasjon.annenSituasjon!.beskrivelse!.map((type) => ({
+                            verdi: konverterIngenJobb(type),
+                            innhold: t(type),
+                        })) || [],
+                },
+                annet: dinSituasjon.annenSituasjon!.annet?.beskrivelse
+                    ? {
+                          spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretInntekt.beskrivelse'),
+                          svar: {
+                              innhold: `${dinSituasjon.annenSituasjon!.annet!.beskrivelse}`,
+                          },
+                      }
+                    : undefined,
+            },
+        }
+    }
+
+    return {
+        dinSituasjon: {
+            spoersmaal: t('merOmSituasjonenDin.jobbStatus'),
+            svar:
+                dinSituasjon.jobbStatus?.map((type) => ({
+                    verdi: konverterJobbStatus(type),
+                    innhold: t(type),
+                })) || [],
+        },
+        arbeidsforhold,
+        selvstendig,
+        etablererVirksomhet,
+        tilbud,
+        arbeidssoeker,
+        utdanning,
+        annenSituasjon,
+    }
+}
+
+const mapDatoForAaGaaAvMedAlderspensjon = (
+    t: TFunction,
+    skalGaaAvMedAlderspensjon: ISkalGaaAvMedAlderspensjon
+): Opplysning<DatoSvar> | undefined => {
+    if (skalGaaAvMedAlderspensjon.valg === SkalGaaAvMedAlderspensjonValg.JA) {
+        return {
+            spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon'),
+            svar: { innhold: skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon! },
+        }
+    } else if (skalGaaAvMedAlderspensjon.valg === SkalGaaAvMedAlderspensjonValg.TAR_ALLEREDE_UT_ALDERSPENSJON) {
+        return {
+            spoersmaal: t(
+                'inntektenDin.skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon.tarAlleredeUtAlderspensjon'
+            ),
+            svar: { innhold: skalGaaAvMedAlderspensjon.datoForAaGaaAvMedAlderspensjon! },
+        }
+    } else {
+        return undefined
+    }
+}
+
+const hentInntektOgPensjon = (t: TFunction, inntektenDin: IInntekt, bruker: IBruker): InntektOgPensjon => {
+    const harMulighetTilAaGaaAvMedAlderspensjon = differenceInYears(new Date(), bruker.foedselsdato!) >= 62
+
+    let skalGaaAvMedAlderspensjon: SkalGaaAvMedAlderspensjon | undefined
+    let inntektFremTilDoedsfallet: Opplysning<InntektFremTilDoedsfallet> | undefined
+    let forventetInntektIAar: Opplysning<ForventetInntektIAar> | undefined
+    let forventetInntektTilNesteAar: Opplysning<ForventetInntektTilNesteAar> | undefined
+
+    if (harMulighetTilAaGaaAvMedAlderspensjon && !!inntektenDin.skalGaaAvMedAlderspensjon) {
+        skalGaaAvMedAlderspensjon = {
+            valg: {
+                spoersmaal: t('inntektenDin.skalGaaAvMedAlderspensjon.valg.forventetInntektIAar'),
+                svar: skalGaaAvMedAlderspensjonValgTilSvar(t, inntektenDin.skalGaaAvMedAlderspensjon!.valg!),
+            },
+            datoForAaGaaAvMedAlderspensjon: mapDatoForAaGaaAvMedAlderspensjon(
+                t,
+                inntektenDin.skalGaaAvMedAlderspensjon!
+            ),
+        }
+    }
+
+    if (!!inntektenDin.inntektFremTilDoedsfallet) {
+        inntektFremTilDoedsfallet = {
+            spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.tittel'),
+            svar: {
+                arbeidsinntekt: {
+                    spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.arbeidsinntekt'),
+                    svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.arbeidsinntekt! },
+                },
+                naeringsinntekt: {
+                    inntekt: {
+                        spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.inntekt'),
+                        svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!.inntekt! },
+                    },
+                    erNaeringsinntektOpptjentJevnt:
+                        !!inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt &&
+                        inntektenDin.inntektFremTilDoedsfallet?.naeringsinntekt?.inntekt !== '0'
+                            ? {
+                                  valg: {
+                                      spoersmaal: t(
+                                          'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                      ),
+                                      svar: valgTilSvar(
+                                          t,
+                                          inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!
+                                              .erNaeringsinntektOpptjentJevnt!.valg!
+                                      ),
+                                  },
+                                  beskrivelse:
+                                      inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!
+                                          .erNaeringsinntektOpptjentJevnt!.valg! === IValg.NEI
+                                          ? {
+                                                spoersmaal: t(
+                                                    'inntektenDin.inntektFremTilDoedsfallet.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                                ),
+                                                svar: {
+                                                    innhold:
+                                                        inntektenDin.inntektFremTilDoedsfallet!.naeringsinntekt!
+                                                            .erNaeringsinntektOpptjentJevnt!.beskrivelse!,
+                                                },
+                                            }
+                                          : undefined,
+                              }
+                            : undefined,
+                },
+                afpInntekt: skalViseAFPFelter(bruker)
+                    ? {
+                          inntekt: {
+                              spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.afpInntekt.inntekt'),
+                              svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.afpInntekt!.inntekt! },
+                          },
+                          tjenesteordning:
+                              !!inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt &&
+                              inntektenDin.inntektFremTilDoedsfallet?.afpInntekt?.inntekt !== '0'
+                                  ? {
+                                        spoersmaal: t(
+                                            'inntektenDin.inntektFremTilDoedsfallet.afpInntekt.tjenesteordning'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.inntektFremTilDoedsfallet!.afpInntekt!.tjenesteordning!,
+                                        },
+                                    }
+                                  : undefined,
+                      }
+                    : undefined,
+                inntektFraUtland: {
+                    spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.inntektFraUtland'),
+                    svar: { innhold: inntektenDin.inntektFremTilDoedsfallet!.inntektFraUtland! },
+                },
+                andreInntekter: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.valg'),
+                        svar: valgTilSvar(t, inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.valg!),
+                    },
+                    inntekt:
+                        inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.inntekt'),
+                                  svar: {
+                                      innhold: inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.inntekt!,
+                                  },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.inntektFremTilDoedsfallet.andreInntekter.beskrivelse'),
+                                  svar: {
+                                      innhold: inntektenDin.inntektFremTilDoedsfallet!.andreInntekter!.beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+            },
+        }
+    }
+
+    if (!!inntektenDin.forventetInntektIAar) {
+        forventetInntektIAar = {
+            spoersmaal: t('inntektenDin.forventetInntektIAar.tittel'),
+            svar: {
+                arbeidsinntekt: {
+                    spoersmaal: t('inntektenDin.forventetInntektIAar.arbeidsinntekt'),
+                    svar: { innhold: inntektenDin.forventetInntektIAar!.arbeidsinntekt! },
+                },
+                naeringsinntekt: {
+                    inntekt: {
+                        spoersmaal: t('inntektenDin.forventetInntektIAar.naeringsinntekt.inntekt'),
+                        svar: { innhold: inntektenDin.forventetInntektIAar!.naeringsinntekt!.inntekt! },
+                    },
+                    erNaeringsinntektOpptjentJevnt:
+                        !!inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt &&
+                        inntektenDin.forventetInntektIAar?.naeringsinntekt?.inntekt !== '0'
+                            ? {
+                                  valg: {
+                                      spoersmaal: t(
+                                          'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                      ),
+                                      svar: valgTilSvar(
+                                          t,
+                                          inntektenDin.forventetInntektIAar!.naeringsinntekt!
+                                              .erNaeringsinntektOpptjentJevnt!.valg!
+                                      ),
+                                  },
+                                  beskrivelse:
+                                      inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt
+                                          ?.valg === IValg.NEI
+                                          ? {
+                                                spoersmaal: t(
+                                                    'inntektenDin.forventetInntektIAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                                ),
+                                                svar: {
+                                                    innhold:
+                                                        inntektenDin.forventetInntektIAar!.naeringsinntekt!
+                                                            .erNaeringsinntektOpptjentJevnt!.beskrivelse!,
+                                                },
+                                            }
+                                          : undefined,
+                              }
+                            : undefined,
+                },
+                afpInntekt: skalViseAFPFelter(bruker)
+                    ? {
+                          inntekt: {
+                              spoersmaal: t('inntektenDin.forventetInntektIAar.afpInntekt.inntekt'),
+                              svar: { innhold: inntektenDin.forventetInntektIAar!.afpInntekt!.inntekt! },
+                          },
+                          tjenesteordning:
+                              !!inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt &&
+                              inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt !== '0'
+                                  ? {
+                                        spoersmaal: t('inntektenDin.forventetInntektIAar.afpInntekt.tjenesteordning'),
+                                        svar: {
+                                            innhold: inntektenDin.forventetInntektIAar!.afpInntekt!.tjenesteordning!,
+                                        },
+                                    }
+                                  : undefined,
+                      }
+                    : undefined,
+                inntektFraUtland: {
+                    spoersmaal: t('inntektenDin.forventetInntektIAar.inntektFraUtland'),
+                    svar: { innhold: inntektenDin.forventetInntektIAar!.inntektFraUtland! },
+                },
+                andreInntekter: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.forventetInntektIAar.andreInntekter.valg'),
+                        svar: valgTilSvar(t, inntektenDin.forventetInntektIAar!.andreInntekter!.valg!),
+                    },
+                    inntekt:
+                        inntektenDin.forventetInntektIAar!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.forventetInntektIAar.andreInntekter.inntekt'),
+                                  svar: { innhold: inntektenDin.forventetInntektIAar!.andreInntekter!.inntekt! },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.forventetInntektIAar!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.forventetInntektIAar.andreInntekter.beskrivelse'),
+                                  svar: {
+                                      innhold: inntektenDin.forventetInntektIAar!.andreInntekter!.beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+                noeSomKanPaavirkeInntekten: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.valg'),
+                        svar: valgTilSvar(t, inntektenDin.forventetInntektIAar!.noeSomKanPaavirkeInntekten!.valg!),
+                    },
+                    grunnTilPaavirkelseAvInntekt:
+                        inntektenDin.forventetInntektIAar!.noeSomKanPaavirkeInntekten!.valg! === IValg.JA
+                            ? {
+                                  spoersmaal: t(
+                                      'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
+                                  ),
+                                  svar: {
+                                      verdi: konverterGrunnTilPaavirkelseAvInntekt(
+                                          inntektenDin.forventetInntektIAar!.noeSomKanPaavirkeInntekten!
+                                              .grunnTilPaavirkelseAvInntekt!
+                                      ),
+                                      innhold: t(
+                                          inntektenDin.forventetInntektIAar!.noeSomKanPaavirkeInntekten!
+                                              .grunnTilPaavirkelseAvInntekt!
+                                      ),
+                                  },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.forventetInntektIAar!.noeSomKanPaavirkeInntekten!.grunnTilPaavirkelseAvInntekt ===
+                        GrunnTilPaavirkelseAvInntekt.annenGrunn
+                            ? {
+                                  spoersmaal: t(
+                                      'inntektenDin.forventetInntektIAar.noeSomKanPaavirkeInntekten.beskrivelse'
+                                  ),
+                                  svar: {
+                                      innhold:
+                                          inntektenDin.forventetInntektIAar!.noeSomKanPaavirkeInntekten!.beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+            },
+        }
+    }
+
+    if (!!inntektenDin.forventetInntektTilNesteAar) {
+        forventetInntektTilNesteAar = {
+            spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.tittel'),
+            svar: {
+                arbeidsinntekt: {
+                    spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.arbeidsinntekt'),
+                    svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.arbeidsinntekt! },
+                },
+                naeringsinntekt: {
+                    inntekt: {
+                        spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.inntekt'),
+                        svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.naeringsinntekt!.inntekt! },
+                    },
+                    erNaeringsinntektOpptjentJevnt:
+                        !!inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt &&
+                        inntektenDin.forventetInntektTilNesteAar?.naeringsinntekt?.inntekt !== '0'
+                            ? {
+                                  valg: {
+                                      spoersmaal: t(
+                                          'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.valg'
+                                      ),
+                                      svar: valgTilSvar(
+                                          t,
+                                          inntektenDin.forventetInntektTilNesteAar!.naeringsinntekt!
+                                              .erNaeringsinntektOpptjentJevnt!.valg!
+                                      ),
+                                  },
+                                  beskrivelse: {
+                                      spoersmaal: t(
+                                          'inntektenDin.forventetInntektTilNesteAar.naeringsinntekt.erNaeringsinntektOpptjentJevnt.beskrivelse'
+                                      ),
+                                      svar: {
+                                          innhold:
+                                              inntektenDin.forventetInntektTilNesteAar!.naeringsinntekt!
+                                                  .erNaeringsinntektOpptjentJevnt!.beskrivelse!,
+                                      },
+                                  },
+                              }
+                            : undefined,
+                },
+                afpInntekt: skalViseAFPFelter(bruker)
+                    ? {
+                          inntekt: {
+                              spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.afpInntekt.inntekt'),
+                              svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.afpInntekt!.inntekt! },
+                          },
+                          tjenesteordning:
+                              !!inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt &&
+                              inntektenDin.forventetInntektIAar?.afpInntekt?.inntekt !== '0'
+                                  ? {
+                                        spoersmaal: t(
+                                            'inntektenDin.forventetInntektTilNesteAar.afpInntekt.tjenesteordning'
+                                        ),
+                                        svar: {
+                                            innhold:
+                                                inntektenDin.forventetInntektTilNesteAar!.afpInntekt!.tjenesteordning!,
+                                        },
+                                    }
+                                  : undefined,
+                      }
+                    : undefined,
+                inntektFraUtland: {
+                    spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.inntektFraUtland'),
+                    svar: { innhold: inntektenDin.forventetInntektTilNesteAar!.inntektFraUtland! },
+                },
+                andreInntekter: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.valg'),
+                        svar: valgTilSvar(t, inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.valg!),
+                    },
+                    inntekt:
+                        inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.inntekt'),
+                                  svar: {
+                                      innhold: inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.inntekt!,
+                                  },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.valg === IValg.JA
+                            ? {
+                                  spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.andreInntekter.beskrivelse'),
+                                  svar: {
+                                      innhold: inntektenDin.forventetInntektTilNesteAar!.andreInntekter!.beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+                noeSomKanPaavirkeInntekten: {
+                    valg: {
+                        spoersmaal: t('inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.valg'),
+                        svar: valgTilSvar(
+                            t,
+                            inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!.valg!
+                        ),
+                    },
+                    grunnTilPaavirkelseAvInntekt:
+                        inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!.valg! === IValg.JA
+                            ? {
+                                  spoersmaal: t(
+                                      'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt'
+                                  ),
+                                  svar: {
+                                      verdi: konverterGrunnTilPaavirkelseAvInntekt(
+                                          inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                                              .grunnTilPaavirkelseAvInntekt!
+                                      ),
+                                      innhold: t(
+                                          inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                                              .grunnTilPaavirkelseAvInntekt!
+                                      ),
+                                  },
+                              }
+                            : undefined,
+                    beskrivelse:
+                        inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                            .grunnTilPaavirkelseAvInntekt === GrunnTilPaavirkelseAvInntekt.annenGrunn
+                            ? {
+                                  spoersmaal: t(
+                                      'inntektenDin.forventetInntektTilNesteAar.noeSomKanPaavirkeInntekten.beskrivelse'
+                                  ),
+                                  svar: {
+                                      innhold:
+                                          inntektenDin.forventetInntektTilNesteAar!.noeSomKanPaavirkeInntekten!
+                                              .beskrivelse!,
+                                  },
+                              }
+                            : undefined,
+                },
+            },
+        }
+    }
+
+    const ytelserNAV: YtelserNav = {
+        soektOmYtelse: {
+            spoersmaal: t('inntektenDin.ytelserNAV.svar'),
+            svar: valgTilSvar(t, inntektenDin.ytelserNAV!.svar!),
+        },
+        soektYtelse:
+            inntektenDin.ytelserNAV!.svar! === IValg.JA
+                ? {
+                      spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
+                      svar: inntektenDin.ytelserNAV!.soekteYtelser!.map((ytelse) => ({
+                          verdi: konverterSoekteYtelserNAV(ytelse),
+                          innhold: t(ytelse),
+                      })),
+                  }
+                : undefined,
+    }
+
+    const ytelserAndre: YtelserAndre = {
+        soektOmYtelse: {
+            spoersmaal: t('inntektenDin.ytelserAndre.svar'),
+            svar: valgTilSvar(t, inntektenDin.ytelserAndre!.svar!),
+        },
+        soektYtelse:
+            inntektenDin.ytelserAndre!.svar! === IValg.JA
+                ? {
+                      spoersmaal: t('inntektenDin.ytelserAndre.soekteYtelser'),
+                      svar: inntektenDin.ytelserAndre!.soekteYtelser!.map((ytelse) => ({
+                          verdi: konverterSoekteYtelserAndre(ytelse),
+                          innhold: t(ytelse),
+                      })),
+                  }
+                : undefined,
+        pensjonsordning:
+            inntektenDin.ytelserAndre!.svar! === IValg.JA
+                ? {
+                      spoersmaal: t('inntektenDin.ytelserAndre.pensjonsordning'),
+                      svar: {
+                          innhold: inntektenDin.ytelserAndre!.pensjonsordning!,
+                      },
+                  }
+                : undefined,
+    }
+
+    return {
+        skalGaaAvMedAlderspensjon,
+        inntektFremTilDoedsfallet,
+        forventetInntektIAar,
+        forventetInntektTilNesteAar,
+        ytelserNAV,
+        ytelserAndre,
+    }
+}
+
+const mapForholdTilAvdoede = (t: TFunction, forholdTilAvdoede: IForholdAvdoede): ForholdTilAvdoede => {
+    const relasjon: Opplysning<EnumSvar<ForholdTilAvdoedeType>> = {
+        spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.relasjon'),
+        svar: {
+            verdi: konverterRelasjonAvdoed(forholdTilAvdoede.relasjon!),
+            innhold: t(forholdTilAvdoede.relasjon!),
+        },
+    }
+
+    const datoForInngaattPartnerskap: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForInngaattPartnerskap
+        ? {
+              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattPartnerskap'),
+              svar: {
+                  innhold: forholdTilAvdoede.datoForInngaattPartnerskap,
+              },
+          }
+        : undefined
+
+    const datoForSkilsmisse: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForSkilsmisse
+        ? {
+              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.datoForSkilsmisse'),
+              svar: {
+                  innhold: forholdTilAvdoede.datoForSkilsmisse,
+              },
+          }
+        : undefined
+
+    const samboereMedFellesBarnFoerGiftemaal: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined =
+        !!forholdTilAvdoede.samboereMedFellesBarn
+            ? {
+                  spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.samboereMedFellesBarn'),
+                  svar: valgTilSvar(t, forholdTilAvdoede.samboereMedFellesBarn),
+              }
+            : undefined
+
+    const datoForInngaattSamboerskap: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForInngaattSamboerskap
+        ? {
+              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.datoForInngaattSamboerskap'),
+              svar: {
+                  innhold: forholdTilAvdoede.datoForInngaattSamboerskap,
+              },
+          }
+        : undefined
+
+    const datoForSamlivsbrudd: Opplysning<DatoSvar> | undefined = !!forholdTilAvdoede.datoForSamlivsbrudd
+        ? {
+              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.datoForSamlivsbrudd'),
+              svar: {
+                  innhold: forholdTilAvdoede.datoForSamlivsbrudd,
+              },
+          }
+        : undefined
+
+    const fellesBarn: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!forholdTilAvdoede.fellesBarn
+        ? {
+              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.fellesBarn'),
+              svar: valgTilSvar(t, forholdTilAvdoede.fellesBarn),
+          }
+        : undefined
+
+    const tidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>> | undefined = !!forholdTilAvdoede.tidligereGift
+        ? {
+              spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.tidligereGift'),
+              svar: valgTilSvar(t, forholdTilAvdoede.tidligereGift),
+          }
+        : undefined
+
+    const mottokBidrag: BetingetOpplysning<EnumSvar<JaNeiVetIkke>, Opplysning<FritekstSvar> | undefined> | undefined =
+        !!forholdTilAvdoede.mottokBidrag
+            ? {
+                  spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag'),
+                  svar: valgTilSvar(t, forholdTilAvdoede.mottokBidrag.svar),
+                  opplysning:
+                      forholdTilAvdoede.mottokBidrag?.svar === IValg.JA
+                          ? {
+                                spoersmaal: t('omDegOgAvdoed.forholdTilAvdoede.mottokBidrag.sum'),
+                                svar: {
+                                    innhold: `${forholdTilAvdoede.mottokBidrag?.sum}`,
+                                },
+                            }
+                          : undefined,
+              }
+            : undefined
+
+    return {
+        relasjon,
+        datoForInngaattSamboerskap,
+        datoForInngaattPartnerskap,
+        datoForSkilsmisse,
+        datoForSamlivsbrudd,
+        fellesBarn,
+        samboereMedFellesBarnFoerGiftemaal,
+        tidligereGift,
+        mottokBidrag,
+    }
+}
+
+const mapSelvstendigNæringsdrivende = (
+    t: TFunction,
+    selvstendig: ISelvstendigNaeringsdrivende
+): SelvstendigNaeringsdrivende => {
+    return {
+        firmanavn: {
+            spoersmaal: t('merOmSituasjonenDin.selvstendig.tittel'),
+            svar: {
+                innhold: selvstendig.beskrivelse!,
+            },
+        },
+        orgnr: {
+            spoersmaal: t('merOmSituasjonenDin.selvstendig.orgnr'),
+            svar: {
+                innhold: selvstendig.orgnr!,
+            },
+        },
+        arbeidsmengde: {
+            spoersmaal: t('merOmSituasjonenDin.arbeidsforhold.arbeidsmengde.svar'),
+            svar: {
+                innhold: `${selvstendig!.arbeidsmengde!.svar!} ${t(selvstendig!.arbeidsmengde!.type!)}`,
+            },
+        },
+        endretArbeidssituasjon: {
+            spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.svar'),
+            svar: valgTilSvar(t, selvstendig.forventerEndretArbeidssituasjon!.svar!),
+            opplysning:
+                selvstendig.forventerEndretArbeidssituasjon?.svar === IValg.JA
+                    ? {
+                          spoersmaal: t('merOmSituasjonenDin.selvstendig.forventerEndretArbeidssituasjon.beskrivelse'),
+                          svar: {
+                              innhold: `${selvstendig.forventerEndretArbeidssituasjon?.beskrivelse}`,
+                          },
+                      }
+                    : undefined,
+        },
+    }
+}

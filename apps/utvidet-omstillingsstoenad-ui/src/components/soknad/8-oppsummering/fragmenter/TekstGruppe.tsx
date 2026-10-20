@@ -1,0 +1,49 @@
+import { FormSummary } from '@navikt/ds-react'
+import { useTranslation } from 'react-i18next'
+import { IValg } from '../../../../typer/Spoersmaal'
+
+const dtf = Intl.DateTimeFormat('no-NO', {
+    timeZone: 'Europe/Oslo',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+})
+
+// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
+const stringify = (content?: any) => {
+    if (!content) return ''
+    else if (typeof content !== 'string') return content.toString()
+    else {
+        if (!!content.match(/\d{4}-\d{2}-\d{2}.*/)?.length) {
+            return dtf.format(new Date(content))
+        } else {
+            return content
+        }
+    }
+}
+
+interface TekstGruppeProps {
+    tittel: string
+    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
+    innhold?: any
+    id?: string
+}
+
+export const TekstGruppe = ({ tittel, innhold, id }: TekstGruppeProps) => {
+    return (
+        <FormSummary.Answer>
+            <FormSummary.Label>{tittel}</FormSummary.Label>
+            <FormSummary.Value id={id}>{stringify(innhold)}</FormSummary.Value>
+        </FormSummary.Answer>
+    )
+}
+
+interface TekstGruppeStandardSpoersmaalProps extends Omit<TekstGruppeProps, 'innhold'> {
+    innhold?: IValg
+}
+
+export const TekstGruppeJaNeiVetIkke = ({ id, tittel, innhold }: TekstGruppeStandardSpoersmaalProps) => {
+    const { t } = useTranslation('')
+
+    return <TekstGruppe id={id} tittel={tittel} innhold={t(innhold || '')} />
+}

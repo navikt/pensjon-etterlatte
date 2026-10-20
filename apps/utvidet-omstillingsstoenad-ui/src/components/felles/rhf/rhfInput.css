@@ -1,0 +1,11 @@
+.rhf-valuta-input {
+    input {
+        max-width: 9rem;
+    }
+}
+
+.rhf-inntekt-input {
+    input {
+        max-width: 20rem;
+    }
+}

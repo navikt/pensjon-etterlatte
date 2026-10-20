@@ -1,0 +1,77 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: utvidet-omstillingsstoenad-ui
+  namespace: etterlatte
+  labels:
+    team: etterlatte
+spec:
+  image: {{ image }}
+  port: 8080
+  replicas:
+    min: 1
+    max: 2
+    cpuThresholdPercentage: 90
+  ingresses:
+    - https://etterlatte.intern.dev.nav.no/utvidet-omstillingsstonad/soknad
+    - https://etterlatte.ekstern.dev.nav.no/utvidet-omstillingsstonad/soknad
+  liveness:
+    path: /utvidet-omstillingsstonad/soknad/isAlive
+    initialDelay: 10
+    timeout: 5
+    periodSeconds: 5
+    failureThreshold: 30
+  readiness:
+    path: /utvidet-omstillingsstonad/soknad/isReady
+    initialDelay: 30
+    periodSeconds: 5
+    timeout: 5
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 50m
+      memory: 192Mi
+  prometheus:
+    enabled: true
+    path: /utvidet-omstillingsstonad/soknad/metrics
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
+    logging:
+      destinations:
+        - id: elastic
+        - id: loki
+  tokenx:
+    enabled: true
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      level: idporten-loa-high
+      locale: nb
+      autoLogin: true
+      autoLoginIgnorePaths:
+        - /utvidet-omstillingsstonad/soknad/internal/**
+  envFrom:
+    - secret: my-application-unleash-api-token
+  env:
+    - name: BASE_PATH
+      value: /utvidet-omstillingsstonad/soknad
+    - name: API_URL
+      value: http://innsendt-soeknad
+    - name: AUDIENCE
+      value: dev-gcp:etterlatte:innsendt-soeknad
+  accessPolicy:
+    outbound:
+      external:
+        - host: dekoratoren.dev.nav.no
+        - host: tokendings.dev-gcp.nais.io
+        - host: etterlatte-unleash-api.nav.cloud.nais.io
+      rules:
+        - application: etterlatte-api
+        - application: innsendt-soeknad
+        - application: nav-dekoratoren
+          namespace: personbruker

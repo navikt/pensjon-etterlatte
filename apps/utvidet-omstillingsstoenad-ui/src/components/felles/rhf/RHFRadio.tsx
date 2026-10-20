@@ -1,0 +1,82 @@
+import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@navikt/ds-react'
+import { get } from 'lodash'
+import React, { ReactNode } from 'react'
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form'
+import { Controller, FieldError, useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { IValg } from '../../../typer/Spoersmaal'
+import { getTransKey } from '../../../utils/translation'
+
+export const RHFSpoersmaalRadio = ({
+    name,
+    description,
+    legend,
+    vetIkke,
+    valgfri = false,
+}: {
+    name: FieldPath<FieldValues>
+    legend?: ReactNode
+    description?: ReactNode
+    vetIkke?: boolean
+    valgfri?: boolean
+}) => {
+    const { t } = useTranslation()
+    const defaultRadios = [
+        { children: t(IValg.JA), value: IValg.JA, required: true },
+        { children: t(IValg.NEI), value: IValg.NEI, required: true },
+    ]
+
+    if (vetIkke) defaultRadios.push({ children: t(IValg.VET_IKKE), value: IValg.VET_IKKE, required: true })
+
+    return (
+        <RHFRadio name={name} legend={legend} description={description} valgfri={valgfri}>
+            {defaultRadios}
+        </RHFRadio>
+    )
+}
+
+interface RHFRadioProps extends Omit<RadioGroupProps, 'onChange' | 'children'> {
+    name: FieldPath<FieldValues>
+    description?: ReactNode
+    children: RadioProps[]
+    rules?: Omit<RegisterOptions<FieldValues, FieldPath<FieldValues>>, 'required'>
+    valgfri?: boolean
+}
+
+export const RHFRadio = ({ name, legend, description, children, rules, valgfri = false, ...rest }: RHFRadioProps) => {
+    const { t } = useTranslation()
+    const {
+        control,
+        formState: { errors },
+    } = useFormContext()
+
+    const error: FieldError = get(errors, name) as FieldError
+    const feilmelding = !!error ? t(getTransKey(error)) : undefined
+
+    return (
+        <div id={name}>
+            <Controller
+                name={name}
+                control={control}
+                rules={{ required: !valgfri, ...rules }}
+                render={({ field: { value, onChange, name } }) => (
+                    <RadioGroup
+                        {...rest}
+                        name={name}
+                        error={feilmelding}
+                        description={description}
+                        legend={legend}
+                        value={value ?? ''}
+                        onChange={(val) => onChange(val as IValg)}
+                    >
+                        {children.map((child, index) => (
+                            <Radio key={index} value={child.value} className={'radioBorder'}>
+                                {child.children}
+                            </Radio>
+                        ))}
+                    </RadioGroup>
+                )}
+            />
+        </div>
+    )
+}

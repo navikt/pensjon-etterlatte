@@ -1,0 +1,130 @@
+import { BodyShort, Box, Heading, HGrid, RadioProps } from '@navikt/ds-react'
+import React from 'react'
+import { useFormContext } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { Arbeidsmengde, StillingType } from '../../../../typer/arbeidsforhold'
+import Bredde from '../../../../typer/bredde'
+import { IValg } from '../../../../typer/Spoersmaal'
+import { IMerOmSituasjonenDin } from '../../../../typer/situasjon'
+import Datovelger from '../../../felles/Datovelger'
+import { RHFInput, RHFNumberInput, RHFProsentInput } from '../../../felles/rhf/RHFInput'
+import { RHFRadio, RHFSpoersmaalRadio } from '../../../felles/rhf/RHFRadio'
+import { RHFSelect } from '../../../felles/rhf/RHFSelect'
+
+const TilbudOmJobb = () => {
+    const { t } = useTranslation()
+
+    const { watch } = useFormContext<IMerOmSituasjonenDin>()
+
+    const ansettelsesforhold = watch('tilbudOmJobb.ansettelsesforhold')
+    const sluttdato = watch('tilbudOmJobb.midlertidig.svar')
+
+    const arbeidsmengdeValg = Object.values(Arbeidsmengde).map((value) => {
+        return { label: t(value), value }
+    })
+
+    return (
+        <Box marginBlock="space-0 space-48">
+            <Box marginBlock="space-16">
+                <Heading size={'small'}>{t('merOmSituasjonenDin.tilbudOmJobb.tittel')}</Heading>
+            </Box>
+            <Box marginBlock="space-16">
+                <RHFInput
+                    name={'tilbudOmJobb.arbeidssted'}
+                    label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidssted')}
+                    htmlSize={Bredde.M}
+                />
+            </Box>
+            <Box marginBlock="space-0 space-48">
+                <Datovelger
+                    name={`tilbudOmJobb.ansettelsesdato`}
+                    label={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesdato')}
+                    minDate={new Date()}
+                />
+            </Box>
+            <Box marginBlock="space-16">
+                <RHFRadio
+                    name={`tilbudOmJobb.ansettelsesforhold` as const}
+                    legend={t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold')}
+                >
+                    {Object.values(StillingType).map((value) => {
+                        return { children: t(value), value } as RadioProps
+                    })}
+                </RHFRadio>
+            </Box>
+            {ansettelsesforhold === StillingType.fast && (
+                <Box marginBlock="space-16">
+                    <Box marginBlock="space-16">
+                        <Heading size={'small'}>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
+                        </Heading>
+                        <BodyShort>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.fast')}
+                        </BodyShort>
+                    </Box>
+                    <RHFProsentInput
+                        name={`tilbudOmJobb.arbeidsmengde.svar` as const}
+                        label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar.fast')}
+                        htmlSize={Bredde.XS}
+                    />
+                </Box>
+            )}
+            {(ansettelsesforhold === StillingType.midlertidig ||
+                ansettelsesforhold === StillingType.tilkallingsvikar) && (
+                <Box marginBlock="space-16">
+                    <Box marginBlock="space-16">
+                        <Heading size={'small'}>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.tittel')}
+                        </Heading>
+                        <BodyShort>
+                            {t('merOmSituasjonenDin.tilbudOmJobb.ansettelsesforhold.beskrivelse.midlertidig')}
+                        </BodyShort>
+                    </Box>
+                    <Box marginBlock="space-16">
+                        <HGrid
+                            columns={{ xs: 1, sm: 'repeat(auto-fit, minmax(8rem, 10rem))' }}
+                            gap={'space-16'}
+                            align={'start'}
+                        >
+                            <RHFNumberInput
+                                name={`tilbudOmJobb.arbeidsmengde.svar` as const}
+                                label={t('merOmSituasjonenDin.tilbudOmJobb.arbeidsmengde.svar')}
+                            />
+                            <RHFSelect
+                                name={`tilbudOmJobb.arbeidsmengde.type` as const}
+                                selectOptions={[
+                                    {
+                                        label: t('felles.velg'),
+                                        value: '',
+                                    },
+                                ].concat(arbeidsmengdeValg)}
+                                label={t('felles.velg.tittel')}
+                            />
+                        </HGrid>
+                    </Box>
+                    <Box marginBlock="space-16">
+                        <RHFSpoersmaalRadio
+                            name={`tilbudOmJobb.midlertidig.svar` as const}
+                            legend={t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.svar')}
+                        />
+                    </Box>
+                    {sluttdato === IValg.JA && (
+                        <Datovelger
+                            name={`tilbudOmJobb.midlertidig.sluttdatoVelger`}
+                            label={t('merOmSituasjonenDin.tilbudOmJobb.midlertidig.sluttdatoVelger')}
+                            minDate={new Date()}
+                        />
+                    )}
+                </Box>
+            )}
+            <Box marginBlock="space-16">
+                <RHFSpoersmaalRadio
+                    name={'tilbudOmJobb.aktivitetsplan.svar'}
+                    legend={t('merOmSituasjonenDin.tilbudOmJobb.aktivitetsplan.svar')}
+                />
+            </Box>
+        </Box>
+    )
+}
+
+export default TilbudOmJobb

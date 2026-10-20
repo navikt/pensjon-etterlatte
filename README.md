@@ -19,6 +19,9 @@ Baksystemapplikasjon for håndtering av søknader (lagring, uthenting, sending, 
 [omstillingsstoenad-ui](apps/omstillingsstoenad-ui) \
 Brukergrensesnittet for "Søknad om omstillingsstønad".
 
+[utvidet-omstillingsstoenad-ui](apps/utvidet-omstillingsstoenad-ui) \
+Brukergrensesnittet for "Søknad om utvidet omstillingsstønad".
+
 [selvbetjening-ui](apps/selvbetjening-ui) \
 Brukergrenesnitt for selvbetjeningsløsningene til etterlatteytelsen
 
@@ -36,6 +39,7 @@ classDef text fill:none,color:#ddd
 
 barnepensjon-ui --> innsendt-soeknad
 omstillingsstonad-ui --> innsendt-soeknad
+utvidet-omstillingsstonad-ui --> innsendt-soeknad
 selvbetjening-ui --> selvbetjening-backend
 
 selvbetjening-backend --> pdl
