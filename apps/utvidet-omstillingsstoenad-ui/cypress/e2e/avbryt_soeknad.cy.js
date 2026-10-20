@@ -34,12 +34,15 @@ describe('Skal avbryte en soeknad', () => {
     })
 
     it('Avbryt og fortsett senere', () => {
+        startSoeknad()
+        cy.intercept('POST', `${basePath}/api/api/kladd`, {}).as('lagreSoeknad')
         cy.intercept('https://www.nav.no/omstillingsstonad', {
             statusCode: 200,
         })
         getById('avbryt-btn').click()
 
         getById('avbryt-ja-btn').click()
+        cy.wait('@lagreSoeknad').its('request.body.aktivtSteg').should('eq', 'personopplysninger')
         cy.url().should('include', 'https://www.nav.no/omstillingsstonad')
     })
 

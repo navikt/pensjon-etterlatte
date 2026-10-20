@@ -18,12 +18,14 @@ describe('Utvidet omstillingsstønad', () => {
 
         cy.wait(['@hentFeatureToggles', '@hentInnloggetPerson', '@hentSoeknad', '@hentLoependeSak'])
         cy.get('[type="checkbox"]').check({ force: true })
-        cy.wait('@lagreSoeknad')
         getById('start-soeknad').click()
+        cy.wait('@lagreSoeknad').its('request.body.harSamtykket').should('eq', true)
 
-        cy.url().should('include', '/skjema/steg')
+        cy.url().should('include', '/skjema/steg/personopplysninger')
         getById('avbryt-btn').should('be.visible')
-        cy.contains('Personopplysninger').should('not.exist')
-        cy.contains('Neste steg').should('not.exist')
+        cy.get('h2').contains('Personopplysninger').should('be.visible')
+        getById('navigasjon-neste').should('be.visible').click()
+        cy.wait('@lagreSoeknad').its('request.body.aktivtSteg').should('eq', 'situasjonen-din')
+        cy.url().should('include', '/skjema/steg/situasjonen-din')
     })
 })

@@ -68,7 +68,10 @@ class UtkastPublisererTest {
         val message = jacksonMapperBuilder().build().readTree(slot.captured)
 
         Assertions.assertEquals("created", message["@event_name"].textValue())
-        Assertions.assertEquals("Søknad om omstillingsstønad", message["tittel"].textValue())
+        Assertions.assertEquals("Søknad om utvidet omstillingsstønad", message["tittel"].textValue())
+        Assertions.assertEquals("Søknad om utvidet omstillingsstønad", message["tittel_i18n"]["nb"].textValue())
+        Assertions.assertEquals("Søknad om utvida omstillingsstønad", message["tittel_i18n"]["nn"].textValue())
+        Assertions.assertEquals("Application for extended adjustment allowance", message["tittel_i18n"]["en"].textValue())
         Assertions.assertEquals("test/utvidet-omstillingsstonad/soknad", message["link"].textValue())
     }
 
