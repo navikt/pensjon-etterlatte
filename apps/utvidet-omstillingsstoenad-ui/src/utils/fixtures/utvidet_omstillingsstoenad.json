@@ -1,0 +1,61 @@
+{
+    "type": "UTVIDET_OMSTILLINGSSTOENAD",
+    "imageTag": "abc123",
+    "spraak": "nb",
+    "mottattDato": "2026-10-08T12:00:00",
+    "harSamtykket": { "spoersmaal": "Jeg vil svare så godt jeg kan på spørsmålene i søknaden.", "svar": true },
+    "innsender": {
+        "type": "INNSENDER",
+        "fornavn": { "spoersmaal": "Fornavn", "svar": "KALD" },
+        "etternavn": { "spoersmaal": "Etternavn", "svar": "FOLK" },
+        "foedselsnummer": { "spoersmaal": "Fødselsnummer", "svar": "24876696580" }
+    },
+    "soeker": {
+        "type": "GJENLEVENDE_UTVIDET_OMS",
+        "fornavn": { "spoersmaal": "Fornavn", "svar": "KALD" },
+        "etternavn": { "spoersmaal": "Etternavn", "svar": "FOLK" },
+        "foedselsnummer": { "spoersmaal": "Fødselsnummer", "svar": "24876696580" }
+    },
+    "situasjonenDinIDag": {
+        "nySivilstand": {
+            "spoersmaal": "Har du ny samboer eller giftet deg på nytt?",
+            "svar": { "verdi": "INGEN_AV_DELENE", "innhold": "Ingen av delene" },
+            "opplysning": null
+        }
+    },
+    "utdanningOgTiltak": {
+        "aktivitet": {
+            "spoersmaal": "Hva gjelder for deg?",
+            "svar": { "verdi": "UTDANNING", "innhold": "Jeg tar eller skal ta utdanning" }
+        },
+        "utdanning": {
+            "studiested": { "spoersmaal": "Hvilken skole studerer du ved?", "svar": { "innhold": "OsloMet" } },
+            "studie": { "spoersmaal": "Hva studerer du?", "svar": { "innhold": "Sykepleie" } },
+            "startDato": { "spoersmaal": "Fra dato", "svar": { "innhold": "2026-08-15" } },
+            "sluttDato": { "spoersmaal": "Til dato", "svar": { "innhold": "2029-06-15" } },
+            "studieform": {
+                "spoersmaal": "Studerer du på heltid eller deltid?",
+                "svar": { "verdi": "DELTID", "innhold": "Deltid" }
+            },
+            "studieprosent": { "spoersmaal": "Hva er studieprosenten din?", "svar": { "innhold": "60" } }
+        },
+        "aktivitetsplan": {
+            "spoersmaal": "Har du en aktivitetsplan i samarbeid med Nav?",
+            "svar": { "verdi": "JA", "innhold": "Ja" }
+        }
+    },
+    "inntekt": {
+        "arbeidsinntekt": { "spoersmaal": "Arbeidsinntekt og andre utbetalinger", "svar": { "innhold": "250000" } },
+        "naeringsinntekt": { "inntekt": { "spoersmaal": "Næringsinntekt", "svar": { "innhold": "0" } } },
+        "inntektFraUtland": { "spoersmaal": "Inntekter fra utland", "svar": { "innhold": "0" } },
+        "andreInntekter": {
+            "valg": { "spoersmaal": "Har du andre inntekter?", "svar": { "verdi": "NEI", "innhold": "Nei" } }
+        },
+        "noeSomKanPaavirkeInntekten": {
+            "valg": {
+                "spoersmaal": "Er det noe du vet om i dag som kan påvirke inntekten din fremover?",
+                "svar": { "verdi": "NEI", "innhold": "Nei" }
+            }
+        }
+    }
+}

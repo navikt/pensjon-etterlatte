@@ -1,0 +1,144 @@
+import { ISoeknad } from '../context/soknad/soknad'
+import { Language } from '../i18n'
+import { Inntekt, Person, SituasjonenDin, UtdanningOgTiltak } from '../typer/skjema'
+
+const paakrevd = <T>(verdi: T | undefined, felt: string): T => {
+    if (verdi === undefined || verdi === '') throw new Error(`Mangler påkrevd felt: ${felt}`)
+    return verdi
+}
+
+const beloep = (verdi: string) => {
+    const normalisert = verdi.replace(/\s/g, '')
+    if (!/^\d+$/.test(normalisert)) throw new Error('Beløp må være et heltall større enn eller lik null')
+    return normalisert
+}
+
+export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, tekst: (key: string) => string) => {
+    if (!soeknad.harSamtykket) throw new Error('Søknaden mangler samtykke')
+    const situasjon: SituasjonenDin = paakrevd(soeknad.skjema.situasjonenDinIDag, 'situasjonenDinIDag')
+    const aktivitet: UtdanningOgTiltak = paakrevd(soeknad.skjema.utdanningOgTiltak, 'utdanningOgTiltak')
+    const inntekt: Inntekt = paakrevd(soeknad.skjema.inntekt, 'inntekt')
+
+    const opplysning = <T>(key: string, svar: T) => ({ spoersmaal: tekst(`kontrakt.${key}`), svar })
+    const fritekst = (key: string, innhold: string) => opplysning(key, { innhold: paakrevd(innhold, key) })
+    const valg = <T extends string>(key: string, verdi: T) =>
+        opplysning(key, { verdi, innhold: tekst(`kontrakt.${verdi}`) })
+    const person = (data: Person, samboer = false) => ({
+        fornavn: opplysning(samboer ? 'samboerFornavn' : 'fornavn', paakrevd(data.fornavn, 'fornavn')),
+        etternavn: opplysning(samboer ? 'samboerEtternavn' : 'etternavn', paakrevd(data.etternavn, 'etternavn')),
+        foedselsnummer: opplysning(
+            samboer ? 'samboerFoedselsnummer' : 'foedselsnummer',
+            paakrevd(data.foedselsnummer, 'foedselsnummer')
+        ),
+    })
+    const samboer = situasjon.nySivilstand === 'NY_SAMBOER' ? paakrevd(situasjon.samboer, 'samboer') : undefined
+    const utdanning = aktivitet.aktivitet === 'UTDANNING' ? paakrevd(aktivitet.utdanning, 'utdanning') : undefined
+    const tiltak =
+        aktivitet.aktivitet === 'ARBEIDSRETTET_TILTAK'
+            ? paakrevd(aktivitet.arbeidsrettetTiltak, 'arbeidsrettetTiltak')
+            : undefined
+    const andre = inntekt.andreInntekter
+    const endring = inntekt.noeSomKanPaavirkeInntekten
+
+    return {
+        type: 'UTVIDET_OMSTILLINGSSTOENAD' as const,
+        imageTag,
+        spraak: soeknad.spraak ?? Language.NORSK_BOKMAAL,
+        harSamtykket: opplysning('samtykke', true),
+        innsender: { type: 'INNSENDER' as const, ...person(soeker) },
+        soeker: { type: 'GJENLEVENDE_UTVIDET_OMS' as const, ...person(soeker) },
+        situasjonenDinIDag: {
+            nySivilstand: {
+                ...valg('nySivilstand', situasjon.nySivilstand),
+                opplysning: samboer
+                    ? {
+                          type: 'SAMBOER' as const,
+                          ...person(samboer, true),
+                          fellesBarnEllertidligereGift: valg(
+                              'fellesBarnEllertidligereGift',
+                              samboer.fellesBarnEllertidligereGift
+                          ),
+                          inntekt: null,
+                      }
+                    : null,
+            },
+        },
+        utdanningOgTiltak: {
+            aktivitet: valg('aktivitet', aktivitet.aktivitet),
+            ...(utdanning
+                ? {
+                      utdanning: {
+                          studiested: fritekst('studiested', utdanning.studiested),
+                          studie: fritekst('studie', utdanning.studie),
+                          startDato: fritekst('startDato', utdanning.startDato),
+                          sluttDato: fritekst('sluttDato', utdanning.sluttDato),
+                          studieform: valg('studieform', utdanning.studieform),
+                          ...(utdanning.studieform === 'DELTID'
+                              ? {
+                                    studieprosent: fritekst(
+                                        'studieprosent',
+                                        paakrevd(utdanning.studieprosent, 'studieprosent')
+                                    ),
+                                }
+                              : {}),
+                      },
+                  }
+                : {}),
+            ...(tiltak
+                ? {
+                      arbeidsrettetTiltak: {
+                          tiltak: fritekst('tiltak', tiltak.tiltak),
+                          omfang: valg('omfang', tiltak.omfang),
+                      },
+                  }
+                : {}),
+            // Følger spesifikasjonen: aktivitetsplan hører bare til tiltak (Å1).
+            ...(tiltak
+                ? {
+                      aktivitetsplan: valg('aktivitetsplan', paakrevd(aktivitet.aktivitetsplan, 'aktivitetsplan')),
+                  }
+                : {}),
+        },
+        inntekt: {
+            arbeidsinntekt: fritekst('arbeidsinntekt', beloep(inntekt.arbeidsinntekt)),
+            naeringsinntekt: { inntekt: fritekst('naeringsinntekt', beloep(inntekt.naeringsinntekt)) },
+            afpInntekt: null,
+            inntektFraUtland: fritekst('inntektFraUtland', beloep(inntekt.inntektFraUtland)),
+            andreInntekter: {
+                valg: valg('andreInntekter', andre.valg),
+                ...(andre.valg === 'JA'
+                    ? {
+                          inntekt: fritekst(
+                              'sumAndreInntekter',
+                              beloep(paakrevd(andre.inntekt, 'andreInntekter.inntekt'))
+                          ),
+                          beskrivelse: fritekst(
+                              'andreInntekterBeskrivelse',
+                              paakrevd(andre.beskrivelse, 'andreInntekter.beskrivelse')
+                          ),
+                      }
+                    : {}),
+            },
+            noeSomKanPaavirkeInntekten: {
+                valg: valg('paavirkeInntekt', endring.valg),
+                ...(endring.valg === 'JA'
+                    ? {
+                          grunnTilPaavirkelseAvInntekt: valg(
+                              'grunnTilPaavirkelseAvInntekt',
+                              paakrevd(endring.grunnTilPaavirkelseAvInntekt, 'grunnTilPaavirkelseAvInntekt')
+                          ),
+                          ...(endring.grunnTilPaavirkelseAvInntekt === 'ANNEN_GRUNN'
+                              ? {
+                                    beskrivelse: fritekst(
+                                        'endringBeskrivelse',
+                                        paakrevd(endring.beskrivelse, 'endringBeskrivelse')
+                                    ),
+                                }
+                              : {}),
+                      }
+                    : {}),
+            },
+        },
+        utbetalingsInformasjon: null,
+    }
+}

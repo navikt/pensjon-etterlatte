@@ -55,4 +55,29 @@ describe('Reducer fungerer som forventet', () => {
             visFortsettSoeknadModal: true,
         })
     })
+
+    test('Gjenoppretter skjemadata og aktivt steg fra kladden', () => {
+        const { result } = setup()
+        const soeknad = {
+            ...tomSoeknad,
+            harSamtykket: true,
+            aktivtSteg: 'inntekt',
+            skjema: { situasjonenDinIDag: { nySivilstand: 'INGEN_AV_DELENE' } },
+        }
+        act(() => result.current.dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad }))
+        expect(result.current.state.aktivtSteg).toBe('inntekt')
+        expect(result.current.state.skjema).toEqual(soeknad.skjema)
+    })
+
+    test('Gamle kladder uten steg og skjemadata starter på personopplysninger', () => {
+        const { result } = setup()
+        act(() =>
+            result.current.dispatch({
+                type: ActionTypes.HENT_SOEKNAD,
+                payload: { harSamtykket: true, aktivtSteg: 'utgaatt-steg' },
+            })
+        )
+        expect(result.current.state.aktivtSteg).toBe('personopplysninger')
+        expect(result.current.state.skjema).toEqual({})
+    })
 })

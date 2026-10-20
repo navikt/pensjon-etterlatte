@@ -1,0 +1,55 @@
+{
+    "type": "UTVIDET_OMSTILLINGSSTOENAD",
+    "imageTag": "abc123",
+    "spraak": "nb",
+    "mottattDato": "2026-10-08T12:00:00",
+    "harSamtykket": { "spoersmaal": "Jeg vil svare så godt jeg kan på spørsmålene i søknaden.", "svar": true },
+    "innsender": {
+        "type": "INNSENDER",
+        "fornavn": { "spoersmaal": "Fornavn", "svar": "KALD" },
+        "etternavn": { "spoersmaal": "Etternavn", "svar": "FOLK" },
+        "foedselsnummer": { "spoersmaal": "Fødselsnummer", "svar": "24876696580" }
+    },
+    "soeker": {
+        "type": "GJENLEVENDE_UTVIDET_OMS",
+        "fornavn": { "spoersmaal": "Fornavn", "svar": "KALD" },
+        "etternavn": { "spoersmaal": "Etternavn", "svar": "FOLK" },
+        "foedselsnummer": { "spoersmaal": "Fødselsnummer", "svar": "24876696580" }
+    },
+    "situasjonenDinIDag": {
+        "nySivilstand": {
+            "spoersmaal": "Har du ny samboer eller giftet deg på nytt?",
+            "svar": { "verdi": "NY_SAMBOER", "innhold": "Jeg har ny samboer" },
+            "opplysning": {
+                "type": "SAMBOER",
+                "fornavn": { "spoersmaal": "Samboers fornavn", "svar": "TRADISJONSBUNDEN" },
+                "etternavn": { "spoersmaal": "Samboers etternavn", "svar": "KØYESENG" },
+                "foedselsnummer": { "spoersmaal": "Samboers fødselsnummer", "svar": "13848599411" },
+                "fellesBarnEllertidligereGift": {
+                    "spoersmaal": "Har eller har dere hatt felles barn, eller har dere tidligere vært gift?",
+                    "svar": { "verdi": "NEI", "innhold": "Nei" }
+                }
+            }
+        }
+    },
+    "utdanningOgTiltak": {
+        "aktivitet": {
+            "spoersmaal": "Hva gjelder for deg?",
+            "svar": { "verdi": "INGEN", "innhold": "Ingen av disse" }
+        }
+    },
+    "inntekt": {
+        "arbeidsinntekt": { "spoersmaal": "Arbeidsinntekt og andre utbetalinger", "svar": { "innhold": "400000" } },
+        "naeringsinntekt": { "inntekt": { "spoersmaal": "Næringsinntekt", "svar": { "innhold": "0" } } },
+        "inntektFraUtland": { "spoersmaal": "Inntekter fra utland", "svar": { "innhold": "0" } },
+        "andreInntekter": {
+            "valg": { "spoersmaal": "Har du andre inntekter?", "svar": { "verdi": "NEI", "innhold": "Nei" } }
+        },
+        "noeSomKanPaavirkeInntekten": {
+            "valg": {
+                "spoersmaal": "Er det noe du vet om i dag som kan påvirke inntekten din fremover?",
+                "svar": { "verdi": "NEI", "innhold": "Nei" }
+            }
+        }
+    }
+}

@@ -1,5 +1,17 @@
 # utvidet-omstillingsstoenad-ui
 
+## Status for søknaden
+
+Skjemagrunnmuren har seks steg med egne ruter, fremdrift, Forrige/Neste/Avbryt og kladdlagring før navigasjon. Introsiden og kvitteringen telles ikke med. Stegene viser foreløpig at de er under arbeid, og det finnes ingen knapp for innsending. Feltene og innholdet kommer i egne arbeidspakker.
+
+`SoeknadSteg` gir hvert steg en egen react-hook-form-instans, `FormProvider` og en feilliste med fokus og lenker til feltene. Bruk feltets navn som `id`, også for nøstede felt. Betingede felt styres med `watch`/`useWatch` og fjernes med `shouldUnregister`. Steget oppdaterer sin del av søknaden gjennom `oppdaterSoeknad`. Neste steg validerer før lagring. Forrige steg og Fortsett senere lagrer også ufullstendige svar.
+
+Frontendmodellen ligger i `src/typer/skjema.ts`. `src/utils/mapSoeknad.ts` mapper svarene til kontrakten og tar inn oversettelsesfunksjonen for valgt språk. Mappingen kobles til innsending når oppsummeringen bygges. Testene bruker kopier av de tre `utvidet_omstillingsstoenad*.json`-eksemplene fra `pensjon-etterlatte-felles/common/src/test/resources/soeknad/`, hentet 20. oktober 2026. Innholdet er uendret, men filene er formatert med Biome.
+
+Mappingen følger spesifikasjonen der eksempeltekstene avviker. Aktivitetsplan sendes bare ved tiltak (Å1), samboers inntekt er `null` (Å2), og utbetalingsinformasjon er `null` (Å5). Disse spørsmålene må fortsatt avklares før innsendingen ferdigstilles.
+
+Felles [roadmap og arbeidspakker](https://github.com/navikt/pensjon-etterlatte-saksbehandling/blob/main/.github/utvidet-oms/veikart.md) ligger i søsterrepoet `pensjon-etterlatte-saksbehandling`.
+
 ## Kom i gang
 
 For å kjøre prosjektet må du installere Node/NPM. Dette kan forenkles ved å [installere nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).\

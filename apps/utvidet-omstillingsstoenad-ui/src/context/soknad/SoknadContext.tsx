@@ -1,5 +1,6 @@
 import { createContext, FC, useContext, useReducer } from 'react'
 import { FCProps } from '../../typer/FCProps'
+import { erStegPath } from '../../typer/steg'
 import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps, tomSoeknad } from './soknad'
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
@@ -12,6 +13,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 harSamtykket: action.payload.harSamtykket,
                 spraak: action.payload.spraak,
                 sistLagretDato: action.payload.sistLagretDato,
+                skjema: action.payload.skjema ?? {},
+                aktivtSteg: erStegPath(action.payload.aktivtSteg) ? action.payload.aktivtSteg : tomSoeknad.aktivtSteg,
                 klarForLagring: false,
                 visFortsettSoeknadModal: true,
             }
@@ -26,6 +29,8 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 sistLagretDato: action.payload,
                 klarForLagring: false,
             }
+        case ActionTypes.OPPDATER_KLADD:
+            return { ...action.payload, klarForLagring: false, error: null }
         case ActionTypes.OPPDATER_SAMTYKKE:
             return {
                 ...state,

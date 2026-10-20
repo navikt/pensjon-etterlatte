@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { hentHarSoektOms } from '~api/api'
+import { hentHarSoektOms, lagreKladd } from '~api/api'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
@@ -30,9 +30,20 @@ const SoknadForside = () => {
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext()
     const { state: brukerState } = useBrukerContext()
     const [harSoektOms, setHarSoektOms] = useState<boolean>(false)
+    const [lagrer, settLagrer] = useState(false)
     useLanguage()
 
-    const startSoeknad = () => {
+    const startSoeknad = async () => {
+        if (lagrer) return
+        settLagrer(true)
+        try {
+            const kladd = await lagreKladd(soknadState)
+            soknadDispatch({ type: ActionTypes.OPPDATER_KLADD, payload: kladd })
+        } catch {
+            soknadDispatch({ type: ActionTypes.SET_ERROR, payload: t('skjema.lagringFeilet') })
+            settLagrer(false)
+            return
+        }
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
             skjemanavn: 'Søknad om omstillingsstønad - Innlogget',
@@ -292,8 +303,14 @@ const SoknadForside = () => {
                     }
                 />
             </Box>
-            {soknadState.harSamtykket && !soknadState?.error && (
-                <Button variant={'primary'} type={'button'} id={'start-soeknad'} onClick={startSoeknad}>
+            {soknadState.harSamtykket && (
+                <Button
+                    variant={'primary'}
+                    type={'button'}
+                    id={'start-soeknad'}
+                    onClick={startSoeknad}
+                    loading={lagrer}
+                >
                     {t('forside.startSoeknad')}
                 </Button>
             )}

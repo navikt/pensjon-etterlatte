@@ -1,4 +1,6 @@
 import { Language } from '../../i18n'
+import { Skjema } from '../../typer/skjema'
+import { StegPath } from '../../typer/steg'
 
 export const tomSoeknad: ISoeknad = {
     harSamtykket: false,
@@ -7,6 +9,8 @@ export const tomSoeknad: ISoeknad = {
     klarForLagring: false,
     visFortsettSoeknadModal: false,
     error: null,
+    aktivtSteg: 'personopplysninger',
+    skjema: {},
 }
 
 export interface ISoeknad {
@@ -16,6 +20,8 @@ export interface ISoeknad {
     sistLagretDato?: Date
     visFortsettSoeknadModal: boolean
     error: null | string
+    aktivtSteg: StegPath
+    skjema: Skjema
 }
 
 export enum ActionTypes {
@@ -26,13 +32,16 @@ export enum ActionTypes {
     OPPDATER_SAMTYKKE = 'OPPDATER_SAMTYKKE',
     OPPDATER_SPRAAK = 'OPPDATER_SPRAAK',
     SET_ERROR = 'SET_ERROR',
+    OPPDATER_KLADD = 'OPPDATER_KLADD',
 }
 
-export interface ISoeknadAction {
-    type: ActionTypes
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    payload?: any
-}
+export type ISoeknadAction =
+    | { type: ActionTypes.TILBAKESTILL }
+    | { type: ActionTypes.HENT_SOEKNAD | ActionTypes.OPPDATER_KLADD; payload: ISoeknad }
+    | { type: ActionTypes.LAGRE_SOEKNAD; payload: Date }
+    | { type: ActionTypes.VIS_FORTSETT_SOEKNAD_MODAL | ActionTypes.OPPDATER_SAMTYKKE; payload: boolean }
+    | { type: ActionTypes.OPPDATER_SPRAAK; payload: Language }
+    | { type: ActionTypes.SET_ERROR; payload: string | null }
 
 export interface SoeknadProps {
     state: ISoeknad

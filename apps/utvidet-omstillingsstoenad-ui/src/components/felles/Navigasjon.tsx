@@ -20,11 +20,13 @@ const Navigasjon = ({
     forrige,
     send,
     disabled,
+    fortsettSenere,
 }: {
     neste?: KnappProps
     forrige?: KnappProps
     send?: KnappProps
     disabled?: boolean
+    fortsettSenere: () => Promise<boolean>
 }) => {
     const { t, i18n } = useTranslation()
     const { logEvent } = useAnalytics()
@@ -46,8 +48,27 @@ const Navigasjon = ({
     const sistLagret = erDato(sistLagretDato) ? dtf.format(new Date(sistLagretDato!)) : undefined
 
     const [isOpen, setIsOpen] = useState(false)
+    const [avslutter, settAvslutter] = useState(false)
+    const [feil, settFeil] = useState(false)
 
-    const avbrytOgSlettSoeknad = () => slettSoeknad().then(avbrytSoeknad)
+    const avslutt = async (slett: boolean) => {
+        if (avslutter) return
+        settAvslutter(true)
+        settFeil(false)
+        try {
+            if (slett) {
+                await slettSoeknad()
+            } else if (!(await fortsettSenere())) {
+                settFeil(true)
+                return
+            }
+            avbrytSoeknad()
+        } catch {
+            settFeil(true)
+        } finally {
+            settAvslutter(false)
+        }
+    }
 
     const avbrytSoeknad = () => {
         soknadDispatch({ type: SoknadAction.TILBAKESTILL })
@@ -71,7 +92,8 @@ const Navigasjon = ({
                             variant={'secondary'}
                             type={'button'}
                             onClick={forrige.onClick}
-                            icon={<ArrowLeftIcon fontSize="1.5rem" />}
+                            disabled={disabled}
+                            icon={<ArrowLeftIcon aria-hidden fontSize="1.5rem" />}
                         >
                             {forrige.label || t('knapp.tilbake')}
                         </Button>
@@ -82,8 +104,10 @@ const Navigasjon = ({
                             variant={'primary'}
                             type={'button'}
                             onClick={neste.onClick}
+                            id="navigasjon-neste"
+                            loading={disabled}
                             iconPosition="right"
-                            icon={<ArrowRightIcon fontSize="1.5rem" />}
+                            icon={<ArrowRightIcon aria-hidden fontSize="1.5rem" />}
                         >
                             {neste.label || t('knapp.neste')}
                         </Button>
@@ -115,7 +139,13 @@ const Navigasjon = ({
                     {t('knapp.avbryt')}
                 </Button>
             </HStack>
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} aria-label={t('avbrytModal.spoersmaal')}>
+            <Modal
+                open={isOpen}
+                onClose={() => {
+                    if (!avslutter) setIsOpen(false)
+                }}
+                aria-label={t('avbrytModal.spoersmaal')}
+            >
                 <Modal.Header>
                     <Heading size={'medium'}>{t('avbrytModal.spoersmaal')}</Heading>
                 </Modal.Header>
@@ -123,17 +153,25 @@ const Navigasjon = ({
                 <Modal.Body>
                     <VStack gap="space-48" marginInline="space-32">
                         <BodyShort className="mute avbryt-text">{t('avbrytModal.informasjon')}</BodyShort>
+                        {feil && <BodyShort role="alert">{t('skjema.avslutningFeilet')}</BodyShort>}
                         <HStack gap="space-16" justify="center">
                             <Button
                                 id={'avbryt-nei-btn'}
                                 variant={'secondary'}
                                 onClick={fortsettSoknad}
                                 type={'button'}
+                                disabled={avslutter}
                             >
                                 {t('avbrytModal.svarNei')}
                             </Button>
 
-                            <Button id={'avbryt-ja-btn'} variant={'primary'} onClick={avbrytSoeknad} type={'button'}>
+                            <Button
+                                id={'avbryt-ja-btn'}
+                                variant={'primary'}
+                                onClick={() => void avslutt(false)}
+                                type={'button'}
+                                loading={avslutter}
+                            >
                                 {t('avbrytModal.svarJa')}
                             </Button>
                         </HStack>
@@ -143,7 +181,8 @@ const Navigasjon = ({
                                 variant={'tertiary'}
                                 style={{ color: 'var(--ax-bg-danger-strong)' }}
                                 type={'button'}
-                                onClick={avbrytOgSlettSoeknad}
+                                onClick={() => void avslutt(true)}
+                                disabled={avslutter}
                             >
                                 {t('avbrytModal.svarSlett')}
                             </Button>

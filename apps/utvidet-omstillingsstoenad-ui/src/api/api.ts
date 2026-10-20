@@ -1,3 +1,4 @@
+import { isAxiosError } from 'axios'
 import { FeatureToggleNavn } from '~context/featureToggle/FeatureToggleContext'
 import { ISoeknad } from '~context/soknad/soknad'
 import { axiosInstance as api, isDev } from './axios'
@@ -38,10 +39,9 @@ export const hentSoeknad = async () => {
         const response = await api.get('/api/api/kladd')
         const soeknad = response.data?.payload
         return soeknad ? JSON.parse(soeknad) : undefined
-        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    } catch (e: any) {
-        if (e.response.status === 404) return undefined
-        if (e.response.status === 409) throw new Error('FERDIGSTILT')
+    } catch (e) {
+        if (isAxiosError(e) && e.response?.status === 404) return undefined
+        if (isAxiosError(e) && e.response?.status === 409) throw new Error('FERDIGSTILT')
         throw new Error(GENERELL_FEIL)
     }
 }
@@ -67,6 +67,12 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
     } catch {
         throw new Error(GENERELL_FEIL)
     }
+}
+
+export const lagreKladd = async (soeknad: ISoeknad): Promise<ISoeknad> => {
+    const kladd = { ...soeknad, sistLagretDato: new Date(), error: null, visFortsettSoeknadModal: false }
+    await lagreSoeknad(kladd)
+    return { ...kladd, klarForLagring: false }
 }
 
 /**

@@ -1,5 +1,6 @@
+import { tomSoeknad } from '../context/soknad/soknad'
+import { lagreKladd, lagreSoeknad, sendSoeknad } from './api'
 import { axiosInstance } from './axios'
-import { lagreSoeknad, sendSoeknad } from './api'
 
 vi.mock('./axios')
 
@@ -37,5 +38,19 @@ describe('Test lagring av søknad kladd', () => {
         })
 
         expect(result).toBe(expectedResult.data)
+    })
+
+    it('Returnerer lagret kladd med tidspunkt uten å endre originalen', async () => {
+        axiosInstance.post.mockResolvedValueOnce({ data: { id: 1 } })
+        const resultat = await lagreKladd({ ...tomSoeknad, error: 'Gammel feil', visFortsettSoeknadModal: true })
+        expect(resultat.sistLagretDato).toBeInstanceOf(Date)
+        expect(resultat.error).toBeNull()
+        expect(resultat.visFortsettSoeknadModal).toBe(false)
+        expect(tomSoeknad.sistLagretDato).toBeUndefined()
+    })
+
+    it('Kaster feil hvis kladden ikke blir lagret', async () => {
+        axiosInstance.post.mockRejectedValueOnce(new Error('nettverksfeil'))
+        await expect(lagreKladd(tomSoeknad)).rejects.toThrow('Det skjedde en feil')
     })
 })

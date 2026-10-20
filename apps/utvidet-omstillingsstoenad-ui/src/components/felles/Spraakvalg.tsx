@@ -12,11 +12,14 @@ export const Spraakvalg = () => {
     const { state: brukerState } = useBrukerContext()
 
     const personHarStoettetSpraakvalg = () => Object.values<string>(Language).includes(brukerState?.spraak || '')
-    const oppdaterSpraak = (spraak: string) =>
+    const oppdaterSpraak = (verdi: string) => {
+        const spraak = Object.values(Language).find((spraak) => spraak === verdi)
+        if (!spraak) throw new Error(`Ugyldig språkvalg: ${verdi}`)
         soknadDispatch({
             type: ActionTypes.OPPDATER_SPRAAK,
             payload: spraak,
         })
+    }
 
     useEffect(() => {
         // Benytt språk fra KRR dersom det finnes, hvis ikke sett norsk bokmål som default.
