@@ -96,7 +96,7 @@ describe('Skjemasteg', () => {
         fireEvent.click(screen.getByText('knapp.neste'))
         const feil = await screen.findByRole('link', { name: 'Du må fylle ut navn' })
         expect(feil.getAttribute('href')).toBe('#person.navn')
-        expect(document.activeElement).toBe(screen.getByRole('heading', { name: 'skjema.feil' }))
+        await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: 'skjema.feil' })))
         expect(lagreKladd).not.toHaveBeenCalled()
         expect(status().path).toBe('/skjema/steg/personopplysninger')
     })

@@ -1,8 +1,8 @@
 import i18n, { Resource } from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import nnLocale from './locales/nn'
 import enLocale from './locales/en'
 import nbLocale from './locales/nb'
+import nnLocale from './locales/nn'
 
 export enum Language {
     NORSK_BOKMAAL = 'nb',

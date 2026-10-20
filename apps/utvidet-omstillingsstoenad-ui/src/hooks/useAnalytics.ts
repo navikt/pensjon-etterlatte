@@ -1,5 +1,5 @@
 import { getAnalyticsInstance } from '@navikt/nav-dekoratoren-moduler'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router'
 
 // Felles taksonomi for analytics https://github.com/navikt/analytics-taxonomy
@@ -14,26 +14,27 @@ export enum LogEvents {
 }
 
 export const useAnalytics = () => {
-    const location = useLocation()
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    const [prevLocation, setPrevLocation] = useState<any>(location)
+    const { pathname } = useLocation()
+    const forrigePathname = useRef(pathname)
 
     const track = getAnalyticsInstance('dekoratoren')
 
-    useEffect(() => {
-        if (prevLocation?.pathname !== location?.pathname) {
-            logEvent(LogEvents.SIDEVISNING, {
-                prevLocation: prevLocation?.pathname,
-                newLocation: location?.pathname,
-            })
-        }
-        setPrevLocation(location)
-    }, [location])
     const logEvent = useCallback(
         <T extends Record<string, unknown>>(eventName: string, eventData: T = {} as T) => {
             track.custom(eventName, eventData).catch((error) => console.error(error))
         },
         [track]
     )
+
+    useEffect(() => {
+        if (forrigePathname.current !== pathname) {
+            logEvent(LogEvents.SIDEVISNING, {
+                prevLocation: forrigePathname.current,
+                newLocation: pathname,
+            })
+        }
+        forrigePathname.current = pathname
+    }, [pathname])
+
     return { logEvent }
 }

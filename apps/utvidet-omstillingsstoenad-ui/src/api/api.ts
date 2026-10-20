@@ -40,8 +40,9 @@ export const hentSoeknad = async () => {
         const soeknad = response.data?.payload
         return soeknad ? JSON.parse(soeknad) : undefined
     } catch (e) {
-        if (isAxiosError(e) && e.response?.status === 404) return undefined
-        if (isAxiosError(e) && e.response?.status === 409) throw new Error('FERDIGSTILT')
+        const status = isAxiosError(e) ? e.response?.status : undefined
+        if (status === 404) return undefined
+        if (status === 409) throw new Error('FERDIGSTILT')
         throw new Error(GENERELL_FEIL)
     }
 }
@@ -96,8 +97,7 @@ export const hentFeatureToggles = async () => {
     }
 }
 
-// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-export const loggFunc = async (data: any) => {
+export const loggFunc = async (data: object) => {
     if (isDev) {
         console.log(
             `Logging til pod er deaktivert for lokal kjøring, returnerer uten å logge dit. Meldinga var: ${JSON.stringify(data)}`

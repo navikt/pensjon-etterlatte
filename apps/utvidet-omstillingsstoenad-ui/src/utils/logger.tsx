@@ -1,65 +1,44 @@
-import { loggFunc } from '../api/api'
 import Bowser from 'bowser'
-// biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-const browser: any = Bowser.getParser(window.navigator.userAgent)
+import { loggFunc } from '../api/api'
 
 const GYLDIG_FNR = (input: string | undefined) => /^\d{11}$/.test(input ?? '')
 
 function sanitizeUrlPossibleFnr(url?: string): string {
-    if (url) {
-        const splittedUrl = url.split('/')
-        return splittedUrl
-            .map((urlpart) => {
-                if (GYLDIG_FNR(urlpart)) {
-                    return urlpart.substring(0, 5).concat('******')
-                }
-                return urlpart
-            })
-            .join('/')
-    }
-    return ''
+    if (!url) return ''
+
+    return url
+        .split('/')
+        .map((urlpart) => (GYLDIG_FNR(urlpart) ? `${urlpart.substring(0, 5)}******` : urlpart))
+        .join('/')
 }
 
 const defaultContext = {
     url: sanitizeUrlPossibleFnr(window.location.href),
     userAgent: window.navigator.userAgent,
-    userDeviceInfo: browser.parsedResult,
+    userDeviceInfo: Bowser.getParser(window.navigator.userAgent).getResult(),
 }
 
 export interface IStackLineNoColumnNo {
     readonly lineno: number
     readonly columnno: number
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    readonly message: any
-    // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-    readonly error: any
+    readonly message: string
+    readonly error: string
+}
+
+type LoggType = 'info' | 'error'
+
+const logg = (type: LoggType, innhold: { stackInfo: IStackLineNoColumnNo } | { data: object }) => {
+    const data = { type, ...innhold, jsonContent: { ...defaultContext } }
+    loggFunc(data).catch((err) => {
+        console.error(`Unable to log ${type} message: `, data, ' err: ', err)
+    })
 }
 
 export const logger = {
-    info: (stackLineNoColumnNo: IStackLineNoColumnNo) => {
-        const data = { type: 'info', stackInfo: stackLineNoColumnNo, jsonContent: { ...defaultContext } }
-        loggFunc(data).catch((err) => {
-            console.error('Unable to log info message: ', data, ' err: ', err)
-        })
-    },
-    error: (stackLineNoColumnNo: IStackLineNoColumnNo) => {
-        const data = { type: 'error', stackInfo: stackLineNoColumnNo, jsonContent: { ...defaultContext } }
-        loggFunc(data).catch((err) => {
-            console.error('Unable to log error message: ', data, ' err: ', err)
-        })
-    },
-    generalInfo: (info: object) => {
-        const data = { type: 'info', data: info, jsonContent: { ...defaultContext } }
-        loggFunc(data).catch((err) => {
-            console.error('Unable to log info message: ', data, ' err: ', err)
-        })
-    },
-    generalError: (info: object) => {
-        const data = { type: 'error', data: info, jsonContent: { ...defaultContext } }
-        loggFunc(data).catch((err) => {
-            console.error('Unable to log error message: ', data, ' err: ', err)
-        })
-    },
+    info: (stackInfo: IStackLineNoColumnNo) => logg('info', { stackInfo }),
+    error: (stackInfo: IStackLineNoColumnNo) => logg('error', { stackInfo }),
+    generalInfo: (info: object) => logg('info', { data: info }),
+    generalError: (info: object) => logg('error', { data: info }),
 }
 
 export const setupWindowOnError = () => {

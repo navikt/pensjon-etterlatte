@@ -8,10 +8,11 @@ const SoknadKvittering = () => {
     useLanguage()
 
     useEffect(() => {
-        window.history.pushState(null, document.title, window.location.href)
-        window.addEventListener('popstate', () => {
-            window.history.pushState(null, document.title, window.location.href)
-        })
+        const blokkerTilbakeknapp = () => window.history.pushState(null, document.title, window.location.href)
+
+        blokkerTilbakeknapp()
+        window.addEventListener('popstate', blokkerTilbakeknapp)
+        return () => window.removeEventListener('popstate', blokkerTilbakeknapp)
     }, [])
 
     return (

@@ -23,10 +23,9 @@ export enum ActionTypes {
     TILBAKESTILL = 'TILBAKESTILL',
 }
 
-export interface IBrukerAction {
-    type: ActionTypes
-    payload?: IBruker
-}
+export type IBrukerAction =
+    | { type: ActionTypes.TILBAKESTILL }
+    | { type: ActionTypes.HENT_INNLOGGET_BRUKER; payload: IBruker }
 
 export interface BrukerProps {
     state: IBruker

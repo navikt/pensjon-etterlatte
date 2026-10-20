@@ -66,94 +66,94 @@ export default {
     'knapp.sendSoeknad': 'Send inn',
     'forside.tittel': 'Søk om omstillingsstønad',
     'forside.ingress':
-            'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
+        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
     'forside.startSoeknad': 'Start utfyllinga',
     'forside.omYtelsene.innhold':
-            'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. I enkelte tilfelle kan du få støtte dersom de tidlegare var gifte.',
+        'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. I enkelte tilfelle kan du få støtte dersom de tidlegare var gifte.',
     'forside.omYtelsene.innhold.li1':
-            'Støtta skal sikre inntekt og gi hjelp til sjølvhjelp i ein omstillingsperiode etter dødsfallet.',
+        'Støtta skal sikre inntekt og gi hjelp til sjølvhjelp i ein omstillingsperiode etter dødsfallet.',
     'forside.omYtelsene.innhold.li2':
-            'Etter 6 månader må du som hovudregel vere i arbeid eller annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
+        'Etter 6 månader må du som hovudregel vere i arbeid eller annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
     'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-            'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
+        'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad.',
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
-            'I denne søknaden kan du også søkje om barnepensjon. Dersom du har felles barn under 18 år med avdøde, kan barnet eller barna ha rett på barnepensjon.',
+        'I denne søknaden kan du også søkje om barnepensjon. Dersom du har felles barn under 18 år med avdøde, kan barnet eller barna ha rett på barnepensjon.',
     'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden',
     'forside.utfyllingAvSoeknad.innhold':
-            'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     'forside.klartFoerSoeknad.tittel': 'Ha klar følgjande opplysningar før du søkjer',
     'forside.klartFoerSoeknad.fnr.tittel': 'Fødselsnummer',
     'forside.klartFoerSoeknad.fnr.innhold':
-            'Vi må ha namn og fødselsnummer for alle personane i søknaden. Dersom du ikkje har fødselsnummeret til éin eller fleire av personane i søknaden, må du oppgi fødselsdatoen. Med berre fødselsdatoen vil det ta lenger tid å behandle søknaden.',
+        'Vi må ha namn og fødselsnummer for alle personane i søknaden. Dersom du ikkje har fødselsnummeret til éin eller fleire av personane i søknaden, må du oppgi fødselsdatoen. Med berre fødselsdatoen vil det ta lenger tid å behandle søknaden.',
     'forside.klartFoerSoeknad.oppholdUtland.tittel': 'Opphald som avdøde hadde i utlandet',
     'forside.klartFoerSoeknad.oppholdUtland.innhold.del1':
-            'Vi må vite om avdøde har opphalde seg i andre land enn Noreg. Du må svare på kva land avdøde har budd og/eller jobba i, og om avdøde var medlem av folketrygda under opphaldet.',
+        'Vi må vite om avdøde har opphalde seg i andre land enn Noreg. Du må svare på kva land avdøde har budd og/eller jobba i, og om avdøde var medlem av folketrygda under opphaldet.',
     'forside.klartFoerSoeknad.oppholdUtland.innhold.del2':
-            'I tillegg må vi vite i kva periodar avdøde har budd og/eller arbeidd i utlandet, og om avdøde har hatt pensjonsutbetaling frå dette landet. Viss du er usikker på datoar eller beløp, fyller du ut så godt du kan.',
+        'I tillegg må vi vite i kva periodar avdøde har budd og/eller arbeidd i utlandet, og om avdøde har hatt pensjonsutbetaling frå dette landet. Viss du er usikker på datoar eller beløp, fyller du ut så godt du kan.',
     'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Di arbeidsinntekt',
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
-            'For at vi skal kunne rekne ut rett omstillingsstønad, treng vi informasjon om arbeidsinntekta di. Viss du er fødd før 1964, treng vi informasjon om inntekta du hadde året før den avdøde gjekk bort. Oppgi brutto inntekt, det vil seie inntekt før skatt. Du finn brutto inntekt på lønsslippen din.\n',
+        'For at vi skal kunne rekne ut rett omstillingsstønad, treng vi informasjon om arbeidsinntekta di. Viss du er fødd før 1964, treng vi informasjon om inntekta du hadde året før den avdøde gjekk bort. Oppgi brutto inntekt, det vil seie inntekt før skatt. Du finn brutto inntekt på lønsslippen din.\n',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
     'forside.slikBehandlerVi.tittel': 'Korleis vi behandlar personopplysningar',
     'forside.slikBehandlerVi.innhold':
-            'Når du sender inn ein søknad om yting, vil Nav hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at Nav skal kunne innfri plikta etter folketrygdlova kapittel 17 til å bidra til økonomisk tryggleik ved dødsfall.',
+        'Når du sender inn ein søknad om yting, vil Nav hente inn og behandle personopplysningar om deg. Dette er nødvendig både for at du skal få gode tenester og ytingane du har rett på, og for at Nav skal kunne innfri plikta etter folketrygdlova kapittel 17 til å bidra til økonomisk tryggleik ved dødsfall.',
     'forside.innsamlingAvInfo.tittel': 'Vi samlar inn og behandlar personopplysningar for å',
     'forside.innsamlingAvInfo.innholdListe.li1':
-            'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
+        'identifisere og kommunisere med deg som er søkjar eller representant for søkjar',
     'forside.innsamlingAvInfo.innholdListe.li2': 'behandle søknaden din',
     'forside.innsamlingAvInfo.innholdListe.li3': 'betale ut ytinga',
     'forside.uthentingAvInfo.tittel': 'Vi henter informasjonen vi trenger',
     'forside.uthentingAvInfo.innhold':
-            'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor Nav. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n',
+        'For å behandle søknaden din hentar vi inn opplysningar om deg som søkjer, og tredjepersonar som er relevante for søknaden din. Relevante tredjepersonar kan vere barn du har omsorg for, ny ektefelle eller sambuar, eller ein verje som har rett til å representere deg overfor Nav. \n\n I tillegg til informasjonen du gir oss gjennom søknadsdialogen, kan vi hente inn følgjande:\n',
     'forside.uthentingAvInfo.innholdListe.li1':
-            'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
+        'personopplysningar frå Folkeregisteret (personnummer, adresse, statsborgarskap, sivilstand)',
     'forside.uthentingAvInfo.innholdListe.li2':
-            'opplysningar frå Arbeidsgivar- og arbeidstakarregisteret om arbeidsforhold',
+        'opplysningar frå Arbeidsgivar- og arbeidstakarregisteret om arbeidsforhold',
     'forside.uthentingAvInfo.innholdListe.li3':
-            'inntektsinformasjon frå Skatteetaten (informasjon om skattepliktig inntekt inneverande år)',
+        'inntektsinformasjon frå Skatteetaten (informasjon om skattepliktig inntekt inneverande år)',
     'forside.uthentingAvInfo.innholdListe.li4':
-            'opplysningar om anna fortløpande støtte frå Nav (t.d. alderspensjon eller uføretrygd)',
+        'opplysningar om anna fortløpande støtte frå Nav (t.d. alderspensjon eller uføretrygd)',
     'forside.uthentingAvInfo.innholdListe.li5': 'informasjon frå utanlandske trygdemakter (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li6':
-            'informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
+        'informasjon frå Lånekassen for å verifisere utdanning (der dette er aktuelt)',
     'forside.uthentingAvInfo.innholdListe.li7': 'opplysningar om straffegjennomføring og opphald på institusjon',
     'forside.personvern.aktivitetsplikt':
-            'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som m.a. Arbeidssøkjarregisteret.',
+        'Dersom det er relevant i samband med aktivitetsplikta, kan vi også samle inn opplysningar frå interne system som m.a. Arbeidssøkjarregisteret.',
     'forside.personvern.tredjeperson':
-            'Om tredjepersonar som er knytte til søkjaren, kan vi ha behov for å hente inn følgjande opplysningar:',
+        'Om tredjepersonar som er knytte til søkjaren, kan vi ha behov for å hente inn følgjande opplysningar:',
     'forside.personvern.tredjeperson.li1': 'namn',
     'forside.personvern.tredjeperson.li2': 'fødselsnummer',
     'forside.personvern.tredjeperson.li3': 'om vedkomande har hatt eller har felles barn med søkjar',
     'forside.personvern.tredjeperson.li4': 'sivilstand',
     'forside.utleveringAvOpplysninger.tittel': 'Utlevering av opplysningane dine',
     'forside.utleveringAvOpplysninger.innhold':
-            'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at Nav har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
+        'I samband med behandlinga av søknaden om omstillingsstønad utleverer vi enkelte personopplysningar til andre mottakarar. Utleveringa skjer som oftast i tilknyting til innhenting av opplysningar for å dokumentere at Nav har lov til å samle inn informasjon om identifiserte enkeltpersonar. For søkjarar med utanlandsk tilknyting kan det i tillegg bli utlevert informasjon til trygdemakter i andre land.',
     'forside.lagringstid.tittel': 'Kor lenge opplysningane dine blir lagra',
     'forside.lagringstid.innhold':
-            'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
+        'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
     'forside.automatiskbehandling.tittel': 'Automatisk behandling',
     'forside.automatiskbehandling.innhold1':
-            'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
+        'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
     'forside.automatiskbehandling.innhold2.del1':
-            'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der ',
+        'I visse tilfelle vil saka bli behandla automatisk. Ved ei fortløpande yting der ',
     'forside.automatiskbehandling.innhold2.del2':
-            ' blir nytta som utrekningsgrunnlag (t.d. omstillingsstønad), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
+        ' blir nytta som utrekningsgrunnlag (t.d. omstillingsstønad), vil systemet automatisk endre utbetalinga di ut frå endringar i grunnbeløpet. Dette for å sikre at utbetalinga av ytingar går effektivt.',
     'forside.automatiskbehandling.innhold2.lenke.tekst': 'grunnbeløpet i folketrygda',
     'forside.automatiskbehandling.innhold2.lenke.href': 'https://www.nav.no/grunnbelopet',
     'forside.automatiskbehandling.innhold3':
-            'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
+        'For deg inneber dette at stønaden din blir endra automatisk i tråd med den årlege justeringa av grunnbeløpet. Når stønaden din blir justert automatisk, er det ikkje ein saksbehandlar som har behandla endringa.',
     'forside.automatiskbehandling.innhold4':
-            'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar:',
+        'For å gjennomføre grunnbeløpsregulering blir det nytta følgjande opplysningar:',
     'forside.automatiskbehandling.innholdListe.li1': 'personnummer',
     'forside.automatiskbehandling.innholdListe.li2': 'saks-ID',
     'forside.automatiskbehandling.innholdListe.li3': 'type yting',
     'forside.automatiskbehandling.innholdListe.li4': 'gjeldande vedtak',
     'forside.automatiskbehandling.innhold5':
-            'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
+        'Endringane blir gjort i saksbehandlingssystemet og inneber ikkje flytting av opplysningar.',
     'forside.personvern.tittel': 'Personvernerklæringa i Nav',
     'forside.personvern.innhold1': 'Du kan lese meir om korleis Nav behandlar personopplysningar i',
     'forside.personvern.lenke.href': 'https://www.nav.no/personvern',
@@ -164,7 +164,7 @@ export default {
     'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
     'forside.over67.tittel': 'Rett for deg som har fylt 67 år',
     'forside.over67.avsnitt1':
-            'For å få omstillingsstønad må du vere mellom 18 og 67 år. Dersom dødsfallet skjedde før du fylte 67 år, kan du ha rett på omstillingsstønad.',
+        'For å få omstillingsstønad må du vere mellom 18 og 67 år. Dersom dødsfallet skjedde før du fylte 67 år, kan du ha rett på omstillingsstønad.',
     'forside.over67.avsnitt2': 'Ettersom du har fylt 67 år, kan du ha ',
     'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
     'forside.over67.avsnitt2.lenke.tekst': 'rett på høgare alderspensjon.',
@@ -174,7 +174,7 @@ export default {
     'forside.over67.avsnitt3.del2': ' for å få rettleiing.',
     'forside.harSoektOms.tittel': 'Du har allereie ein aktiv søknad hos oss',
     'forside.harSoektOms.avsnitt':
-            'Vi ser at du nyleg har sendt inn denne søknaden. Dersom du sender inn søknaden på nytt, vil behandlinga ta lenger tid. Ønskjer du å opplyse om endringar eller noko nytt, kan du gjere følgjande:',
+        'Vi ser at du nyleg har sendt inn denne søknaden. Dersom du sender inn søknaden på nytt, vil behandlinga ta lenger tid. Ønskjer du å opplyse om endringar eller noko nytt, kan du gjere følgjande:',
     'forside.harSoektOms.innhold.li1.lenke.href': 'https://www.nav.no/kontonummer/nn',
     'forside.harSoektOms.innhold.li1.lenke.tekst': 'endre kontonummeret',
     'forside.harSoektOms.innhold.li2.lenke.href': 'https://www.nav.no/start/ettersend-soknad-omstillingstonad/nn',
@@ -183,33 +183,33 @@ export default {
     'forside.harSoektOms.innhold.li3.lenke.tekst': 'melde frå om endringar',
     'soeknadKvittering.tittel': 'Søknaden din er sendt til oss',
     'soeknadKvittering.mottatt':
-            'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos Nav. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
+        'Vi har fått søknaden din om omstillingsstønad. Saka di er no til behandling hos Nav. Vi vil kontakte deg dersom vi treng meir informasjon eller dokumentasjon frå deg.',
     'soeknadKvittering.endring.tittel': 'Du må melde frå om endringar',
     'soeknadKvittering.endring.informasjon':
-            'Du må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan til dømes vere viss:',
+        'Du må melde frå med ein gong det skjer viktige endringar i livet ditt. Det kan til dømes vere viss:',
     'soeknadKvittering.endring.endringsListe.sivilstatus': 'Du gifter deg, får sambuar eller får barn med sambuar',
     'soeknadKvittering.endring.endringsListe.inntekt': 'Inntekta di endrar seg',
     'soeknadKvittering.endring.endringsListe.bosted':
-            'Du skal flytte eller opphalde deg i eit anna land over lenger tid',
+        'Du skal flytte eller opphalde deg i eit anna land over lenger tid',
     'soeknadKvittering.endring.rettigheter.informasjon': 'Du kan lese meir om å ',
     'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'melde frå om endringar.',
     'soeknadKvittering.seSaken.tittel': 'Sjekk status i saka di',
     'soeknadKvittering.seSaken.informasjon.innhold1':
-            'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
+        'Du får varsel på SMS eller e-post når saka er ferdigbehandla. I mellomtida kan du sjå søknaden din på',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'mitt Nav.',
     'soeknadKvittering.seSaken.informasjon.innhold2': 'Lurer du på kor lang tid behandlinga vil ta? Her kan du sjå',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
-            'https://www.nav.no/saksbehandlingstider/nn#omstillingsstonad',
+        'https://www.nav.no/saksbehandlingstider/nn#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'forventa saksbehandlingstid.',
     'soeknadKvittering.andreStoenader.tittel': 'Du kan også ha rett til andre stønader',
     'soeknadKvittering.andreStoenader.informasjon':
-            'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk.',
+        'Er du under utdanning, søkjer du jobb eller har de barn? Då kan du også ha rett på andre støtteordningar som til dømes barnepass eller dekking av utgifter du har i samband med utdanning eller jobbsøk.',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
-            'Stønad til skolepenger for attlevande ektefelle',
+        'Stønad til skolepenger for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst':
-            'Stønad til barnetilsyn for attlevande ektefelle',
+        'Stønad til barnetilsyn for attlevande ektefelle',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Utvida barnetrygd',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'andre stønader for attlevande.',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
@@ -226,18 +226,18 @@ export default {
     'sideIkkeFunnet.feilILenke': 'Meld gjerne i fra om at lenken ikke virker',
     'sideIkkeFunnet.feilILenke.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':
-            'Hei, du kan ikkje søke om attlevande- eller barnepensjon fordi du er under 18 år.',
+        'Hei, du kan ikkje søke om attlevande- eller barnepensjon fordi du er under 18 år.',
     'ugyldigSoeker.info.gjenlevendeEllerBarnepensjon':
-            'For å søke om omstillingsstønad, eller søke barnepensjon på vegne av eit barn, må du vere over 18 år.',
+        'For å søke om omstillingsstønad, eller søke barnepensjon på vegne av eit barn, må du vere over 18 år.',
     'ugyldigSoeker.infolenker.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'ugyldigSoeker.infolenker.barnepensjon.tekst':
-            'Her kan du lese meir om kven som kan få barnepensjon og korleis du søker.',
+        'Her kan du lese meir om kven som kan få barnepensjon og korleis du søker.',
     'avbrytModal.spoersmaal': 'Vil du fortsetje seinare?',
     'avbrytModal.svarNei': 'Nei, eg vil halde fram no',
     'avbrytModal.svarJa': 'Ja, fortset seinare',
     'avbrytModal.svarSlett': 'Ja, avbryt og slett søknaden',
     'avbrytModal.informasjon':
-            'Du kan ta ein pause. Søknaden (utfyllinga di) din blir lagra i 72 timar, så du kan halde fram seinare utan å miste noko.',
+        'Du kan ta ein pause. Søknaden (utfyllinga di) din blir lagra i 72 timar, så du kan halde fram seinare utan å miste noko.',
     'felles.sistLagret': 'Sist lagra',
     'felles.spraakValg': 'Vel språk',
     'fortsettSoeknad.beskrivelse': 'Ønsker du å halde fram med utfyllinga av påbegynt søknad?',
@@ -245,18 +245,18 @@ export default {
     'fortsettSoeknad.startPaaNytt': 'Nei, start på nytt',
     'systemUtilgjengelig.veileder.tittel': 'Å nei, søknaden fungerer ikke...',
     'systemUtilgjengelig.veileder.beskrivelse':
-            'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
     'systemUtilgjengelig.tilbakemelding.tittel': 'Opplever du fortsatt feil?',
     'systemUtilgjengelig.tilbakemelding.meldFra': 'Meld fra om feil og mangler',
     'systemUtilgjengelig.tilbakemelding.href':
-            'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+        'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'systemUtilgjengelig.merOmYtelsene': 'Les mer om rettighetene dine',
     'systemUtilgjengelig.merOmYtelseneLenke': 'Har mistet noen i nær familie',
     'systemUtilgjengelig.merOmYtelseneHref': 'https://www.nav.no/mistet-noen',
     'systemUtilgjengelig.knappProevIgjen': 'Prøv igjen',
     'systemUtilgjengelig.tittel.engelsk': 'The application form is not currently working',
     'systemUtilgjengelig.beskrivelse.engelsk.del1':
-            'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
 }

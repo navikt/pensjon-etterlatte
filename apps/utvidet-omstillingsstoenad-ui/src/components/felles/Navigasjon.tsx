@@ -51,6 +51,14 @@ const Navigasjon = ({
     const [avslutter, settAvslutter] = useState(false)
     const [feil, settFeil] = useState(false)
 
+    const avbrytSoeknad = () => {
+        soknadDispatch({ type: SoknadAction.TILBAKESTILL })
+        brukerDispatch({ type: BrukerAction.TILBAKESTILL })
+
+        logEvent(LogEvents.KLIKK, { type: 'avbryt soknad', svar: 'ja' })
+        window.location.href = 'https://www.nav.no/omstillingsstonad'
+    }
+
     const avslutt = async (slett: boolean) => {
         if (avslutter) return
         settAvslutter(true)
@@ -68,14 +76,6 @@ const Navigasjon = ({
         } finally {
             settAvslutter(false)
         }
-    }
-
-    const avbrytSoeknad = () => {
-        soknadDispatch({ type: SoknadAction.TILBAKESTILL })
-        brukerDispatch({ type: BrukerAction.TILBAKESTILL })
-
-        logEvent(LogEvents.KLIKK, { type: 'avbryt soknad', svar: 'ja' })
-        window.location.href = 'https://www.nav.no/omstillingsstonad'
     }
 
     const fortsettSoknad = () => {

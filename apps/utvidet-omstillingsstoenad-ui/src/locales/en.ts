@@ -7,7 +7,8 @@ export default {
     'kontrakt.samboerEtternavn': "Your cohabitant's last name",
     'kontrakt.samboerFoedselsnummer': "Your cohabitant's national identity number",
     'kontrakt.nySivilstand': 'Do you have a new cohabitant or have you remarried?',
-    'kontrakt.fellesBarnEllertidligereGift': 'Do you have or have you had children together, or have you previously been married?',
+    'kontrakt.fellesBarnEllertidligereGift':
+        'Do you have or have you had children together, or have you previously been married?',
     'kontrakt.NY_SAMBOER': 'I have a new cohabitant',
     'kontrakt.GIFTET_PAA_NYTT': 'I have remarried',
     'kontrakt.INGEN_AV_DELENE': 'Neither',
@@ -66,96 +67,96 @@ export default {
     'knapp.sendSoeknad': 'Submit',
     'forside.tittel': 'Apply for adjustment allowance',
     'forside.ingress':
-            'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how to answer some questions about the coming months. Answer as good as you can based on your current situation. You can always notify us about any changes that occur later.',
+        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how to answer some questions about the coming months. Answer as good as you can based on your current situation. You can always notify us about any changes that occur later.',
     'forside.startSoeknad': 'Start filling in the form',
     'forside.omYtelsene.innhold':
-            'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',
+        'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',
     'forside.omYtelsene.innhold.li1':
-            'The objective of this support scheme is to ensure income and assist you in being self-reliant during a transitional period after the death',
+        'The objective of this support scheme is to ensure income and assist you in being self-reliant during a transitional period after the death',
     'forside.omYtelsene.innhold.li2':
-            'Once 6 months have passed, the main rule is that you have begun work or have another activity that will allow you to provide for yourself.',
+        'Once 6 months have passed, the main rule is that you have begun work or have another activity that will allow you to provide for yourself.',
     'forside.omYtelsene.innhold.li3': 'Your income will determine how much money you are entitled to.',
     'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-            'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
+        'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
     'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
     'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about adjustment allowance.',
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
-            "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
+        "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
     'forside.utfyllingAvSoeknad.tittel': 'Filling in the application',
     'forside.utfyllingAvSoeknad.innhold':
-            'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
+        'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
     'forside.klartFoerSoeknad.tittel': 'Please have this information available before you apply',
     'forside.klartFoerSoeknad.fnr.tittel': 'National identity number',
     'forside.klartFoerSoeknad.fnr.innhold':
-            'We need the names and national identity numbers for everyone listed on the application. If you do not know the national identity number for one or more persons on the application, you can state their date of birth. The application process will take more time if you only provide the date of birth.',
+        'We need the names and national identity numbers for everyone listed on the application. If you do not know the national identity number for one or more persons on the application, you can state their date of birth. The application process will take more time if you only provide the date of birth.',
     'forside.klartFoerSoeknad.oppholdUtland.tittel': 'If the deceased was living abroad',
     'forside.klartFoerSoeknad.oppholdUtland.innhold.del1':
-            ' We need to know whether the deceased has lived or worked outside of Norway. We need to know which countries the deceased was living and/or working in, and whether the deceased was a member of the Norwegian National Insurance Scheme during his or her stay abroad.',
+        ' We need to know whether the deceased has lived or worked outside of Norway. We need to know which countries the deceased was living and/or working in, and whether the deceased was a member of the Norwegian National Insurance Scheme during his or her stay abroad.',
     'forside.klartFoerSoeknad.oppholdUtland.innhold.del2':
-            ' We also need to know the dates/periods in which the deceased has lived and/or worked abroad, and whether the deceased has received any pension/retirement payments from those countries. If you are uncertain about any dates or amounts, please provide as much information as you can.',
+        ' We also need to know the dates/periods in which the deceased has lived and/or worked abroad, and whether the deceased has received any pension/retirement payments from those countries. If you are uncertain about any dates or amounts, please provide as much information as you can.',
     'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Your income from work',
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
-            ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
+        ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
     'forside.slikBehandlerVi.tittel': 'How we process personal data',
     'forside.slikBehandlerVi.innhold':
-            'Nav needs some personal information about you in order to process your benefits application. We cannot offer the correct services or benefits without this information. Nav is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian – pursuant to Chapter 17 of the National Insurance Act.',
+        'Nav needs some personal information about you in order to process your benefits application. We cannot offer the correct services or benefits without this information. Nav is obligated to help find the best solution to ensure the economic security of anyone following the death of a parent, spouse or guardian – pursuant to Chapter 17 of the National Insurance Act.',
     'forside.innsamlingAvInfo.tittel': 'We collect and process personal data to:',
     'forside.innsamlingAvInfo.innholdListe.li1':
-            'identify and communicate with you as an applicant or representative of an applicant',
+        'identify and communicate with you as an applicant or representative of an applicant',
     'forside.innsamlingAvInfo.innholdListe.li2': 'process your application',
     'forside.innsamlingAvInfo.innholdListe.li3': 'pay your benefits',
     'forside.uthentingAvInfo.tittel': 'We collect all the information we need',
     'forside.uthentingAvInfo.innhold':
-            'In order to process your application, we need to gather information about you as the applicant and information about third others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with Nav. \n\n In addition to the information you provide during the application process, Nav is also authorised to collect:',
+        'In order to process your application, we need to gather information about you as the applicant and information about third others that is relevant to your application. Relevant others can be children you care for, a new spouse or a cohabiting partner, or a guardian authorised to represent you in dealings with Nav. \n\n In addition to the information you provide during the application process, Nav is also authorised to collect:',
     'forside.uthentingAvInfo.innholdListe.li1':
-            'personal data from the National Population Register (national identification number, address, nationality, marital status)',
+        'personal data from the National Population Register (national identification number, address, nationality, marital status)',
     'forside.uthentingAvInfo.innholdListe.li2':
-            'information about employment from employers and the National Register of Employees',
+        'information about employment from employers and the National Register of Employees',
     'forside.uthentingAvInfo.innholdListe.li3':
-            'income information from the Norwegian Tax Administration (information on taxable income for the current year)',
+        'income information from the Norwegian Tax Administration (information on taxable income for the current year)',
     'forside.uthentingAvInfo.innholdListe.li4':
-            'information about other benefits you may be receiving from Nav (such as retirement pension or disability pension)',
+        'information about other benefits you may be receiving from Nav (such as retirement pension or disability pension)',
     'forside.uthentingAvInfo.innholdListe.li5':
-            'information from foreign national insurance/social security authorities (if applicable)',
+        'information from foreign national insurance/social security authorities (if applicable)',
     'forside.uthentingAvInfo.innholdListe.li6':
-            'information from the Norwegian State Educational Loan Fund to verify education/training (if applicable)',
+        'information from the Norwegian State Educational Loan Fund to verify education/training (if applicable)',
     'forside.uthentingAvInfo.innholdListe.li7': 'information about imprisonment and stays at institutions',
     'forside.personvern.aktivitetsplikt':
-            'If relevant in connection with the activity obligation, we may also collect information from internal systems such as the Register of Jobseekers.',
+        'If relevant in connection with the activity obligation, we may also collect information from internal systems such as the Register of Jobseekers.',
     'forside.personvern.tredjeperson':
-            'With regard to third persons connected with the applicant we may need to collect:',
+        'With regard to third persons connected with the applicant we may need to collect:',
     'forside.personvern.tredjeperson.li1': 'name',
     'forside.personvern.tredjeperson.li2': 'national identity number',
     'forside.personvern.tredjeperson.li3':
-            'if, or the extent of, this person had/has common children with the applicant',
+        'if, or the extent of, this person had/has common children with the applicant',
     'forside.personvern.tredjeperson.li4': 'marital status',
     'forside.utleveringAvOpplysninger.tittel': 'Disclosure of your information',
     'forside.utleveringAvOpplysninger.innhold':
-            'In connection with processing applications for transitional benefits, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that Nav is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.',
+        'In connection with processing applications for transitional benefits, we disclose certain personal data to other recipients. Disclosure usually takes place in connection with the collection of information to prove that Nav is authorised to collect information about the identified individuals. For applicants with a connection abroad, information may also be provided to the national insurance/social security authorities of other countries.',
     'forside.lagringstid.tittel': 'How long is your data stored?',
     'forside.lagringstid.innhold':
-            'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
+        'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
     'forside.automatiskbehandling.tittel': 'Automatic processing',
     'forside.automatiskbehandling.innhold1':
-            'Virtually all processing of personal data in connection with transitional benefit is done manually. This means that there is a case handler who looks at and processes your case.',
+        'Virtually all processing of personal data in connection with transitional benefit is done manually. This means that there is a case handler who looks at and processes your case.',
     'forside.automatiskbehandling.innhold2.del1':
-            'Automatic processing of cases is done in certain situations. In the case of an ongoing benefits that use ',
+        'Automatic processing of cases is done in certain situations. In the case of an ongoing benefits that use ',
     'forside.automatiskbehandling.innhold2.del2':
-            ' as a basis for calculation (such as transitional benefits), the system will automatically change your payment based on changes in the national basic amount. This is done to ensure that the payment of benefits takes place efficiently.',
+        ' as a basis for calculation (such as transitional benefits), the system will automatically change your payment based on changes in the national basic amount. This is done to ensure that the payment of benefits takes place efficiently.',
     'forside.automatiskbehandling.innhold2.lenke.tekst': 'the basic amount in the National Insurance Scheme (G)',
     'forside.automatiskbehandling.innhold2.lenke.href': 'https://www.nav.no/grunnbelopet',
     'forside.automatiskbehandling.innhold3':
-            'For you, this means that your benefits will automatically change in line with the annual adjustment of the basic amount. When your benefits are adjusted automatically, there is no case handler who processed the change.',
+        'For you, this means that your benefits will automatically change in line with the annual adjustment of the basic amount. When your benefits are adjusted automatically, there is no case handler who processed the change.',
     'forside.automatiskbehandling.innhold4':
-            'The following information is used to implement the basic amount adjustment:',
+        'The following information is used to implement the basic amount adjustment:',
     'forside.automatiskbehandling.innholdListe.li1': 'national identification number',
     'forside.automatiskbehandling.innholdListe.li2': 'case ID',
     'forside.automatiskbehandling.innholdListe.li3': 'type of benefits',
     'forside.automatiskbehandling.innholdListe.li4': 'current applicable decision',
     'forside.automatiskbehandling.innhold5':
-            'The changes are made in the case processing system itself, and do not involve the transfer of information.',
+        'The changes are made in the case processing system itself, and do not involve the transfer of information.',
     'forside.personvern.tittel': "Nav's Privacy Policy",
     'forside.personvern.innhold1': 'You can read more about how Nav processes personal data in',
     'forside.personvern.lenke.href': 'https://www.nav.no/personvern/en',
@@ -163,11 +164,11 @@ export default {
     'forside.personvern.innhold2': '(will open in a new tab).',
     'forside.samtykke.tittel': 'We trust you',
     'forside.samtykke.innhold':
-            'You must provide us with the correct information so that we can process your application.',
+        'You must provide us with the correct information so that we can process your application.',
     'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
     'forside.over67.tittel': 'Legal rights after turning 67',
     'forside.over67.avsnitt1':
-            'The right to receive the adjustment allowance is reserved for persons aged 18 to 67. If the death occurred before you turned 67, you may be eligible for the adjustment allowance.',
+        'The right to receive the adjustment allowance is reserved for persons aged 18 to 67. If the death occurred before you turned 67, you may be eligible for the adjustment allowance.',
     'forside.over67.avsnitt2': 'Once you turn 67, you may be ',
     'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
     'forside.over67.avsnitt2.lenke.tekst': 'entitled to a higher old-age pension.',
@@ -177,7 +178,7 @@ export default {
     'forside.over67.avsnitt3.del2': ' for further guidance on this matter.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':
-            'We can see that you recently submitted this application. If you submit the same application again, it could take longer to process. If you want to change or add something to your first one, this is what you can do:',
+        'We can see that you recently submitted this application. If you submit the same application again, it could take longer to process. If you want to change or add something to your first one, this is what you can do:',
     'forside.harSoektOms.innhold.li1.lenke.href': 'https://www.nav.no/kontonummer/en',
     'forside.harSoektOms.innhold.li1.lenke.tekst': 'change your bank account number',
     'forside.harSoektOms.innhold.li2.lenke.href': 'https://www.nav.no/start/ettersend-soknad-omstillingstonad/en',
@@ -186,39 +187,39 @@ export default {
     'forside.harSoektOms.innhold.li3.lenke.tekst': 'notify us of changes',
     'soeknadKvittering.tittel': 'Your application has been submitted',
     'soeknadKvittering.mottatt':
-            'We have received your application for transitional benefits. Nav will now process and review your case. We will contact you if we need more information or documentation from you.',
+        'We have received your application for transitional benefits. Nav will now process and review your case. We will contact you if we need more information or documentation from you.',
     'soeknadKvittering.endring.tittel': 'You must notify us of any changes',
     'soeknadKvittering.endring.informasjon':
-            'You must notify us promptly if any important changes occur in your life. Examples include:',
+        'You must notify us promptly if any important changes occur in your life. Examples include:',
     'soeknadKvittering.endring.endringsListe.sivilstatus':
-            'If you get married, get a cohabiting partner, or have children with your cohabiting partner',
+        'If you get married, get a cohabiting partner, or have children with your cohabiting partner',
     'soeknadKvittering.endring.endringsListe.inntekt': 'If there is a change in your income',
     'soeknadKvittering.endring.endringsListe.bosted':
-            'If you are going to move to or spend a prolonged period of time in another country',
+        'If you are going to move to or spend a prolonged period of time in another country',
     'soeknadKvittering.endring.rettigheter.informasjon': 'You can read more about ',
     'soeknadKvittering.endring.rettigheter.lenke.href': 'https://www.nav.no/omstillingsstonad#melde',
     'soeknadKvittering.endring.rettigheter.lenke.tekst': 'notifying us of any changes.',
     'soeknadKvittering.seSaken.tittel': 'Check the satus of your application',
     'soeknadKvittering.seSaken.informasjon.innhold1':
-            'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on',
+        'You will receive an SMS or e-mail once your case has been processed. In the meantime, you will find your application on',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.href': 'https://www.nav.no/min-side',
     'soeknadKvittering.seSaken.informasjon.lenkeMittNAV.tekst': 'your personal Nav page.',
     'soeknadKvittering.seSaken.informasjon.innhold2':
-            'Curious about how long this will take? That information is available here: ',
+        'Curious about how long this will take? That information is available here: ',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.href':
-            'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
+        'https://www.nav.no/saksbehandlingstider/en#omstillingsstonad',
     'soeknadKvittering.seSaken.informasjon.lenkeSaksbehandlingstid.tekst': 'Expected case processing time.',
     'soeknadKvittering.andreStoenader.tittel': 'You may also be entitled to other benefits',
     'soeknadKvittering.andreStoenader.informasjon':
-            'Are you studying, looking for employment or have children? You may also have the right to other financial support such as childcare benefits, educational grants or job seeker benefits',
+        'Are you studying, looking for employment or have children? You may also have the right to other financial support such as childcare benefits, educational grants or job seeker benefits',
     'soeknadKvittering.andreStoenader.stoenadListe.skolepenger.tekst':
-            'Allowance to cover tuition fees for a surviving spouse',
+        'Allowance to cover tuition fees for a surviving spouse',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetilsyn.tekst': 'Child care benefit for a surviving spouse',
     'soeknadKvittering.andreStoenader.stoenadListe.barnetrygd.tekst': 'Extended child benefit',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.tekst': 'other benefits for a surviving spouse.',
     'soeknadKvittering.andreStoenader.stoenadListe.tillegg.href': 'https://www.nav.no/omstillingsstonad#andre-stonader',
     'soeknadKvittering.andreStoenader.andreInformasjon':
-            'You will find more information about supplemental benefits on ',
+        'You will find more information about supplemental benefits on ',
     'soeknadKvittering.spoersmaal.knapp': 'Read more about transitional benefits here',
     'sideIkkeFunnet.tittel': 'Beklager, vi fant ikke siden',
     'sideIkkeFunnet.beskrivelse': 'Denne siden kan være slettet eller flyttet, eller det er en feil i lenken.',
@@ -231,18 +232,18 @@ export default {
     'sideIkkeFunnet.feilILenke': 'Meld gjerne i fra om at lenken ikke virker',
     'sideIkkeFunnet.feilILenke.href': 'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'ugyldigSoeker.kanIkkeSoeke.gjenlevendeEllerBarnepensjon':
-            'Sorry, you cannot apply for a survivor’s pension or children’s pension because you are under the age of 18.',
+        'Sorry, you cannot apply for a survivor’s pension or children’s pension because you are under the age of 18.',
     'ugyldigSoeker.info.gjenlevendeEllerBarnepensjon':
-            'To apply for a survivor’s pension, or apply for a children’s pension on behalf of a child, you must be over 18 years of age.',
+        'To apply for a survivor’s pension, or apply for a children’s pension on behalf of a child, you must be over 18 years of age.',
     'ugyldigSoeker.infolenker.barnepensjon.href': 'https://www.nav.no/barnepensjon',
     'ugyldigSoeker.infolenker.barnepensjon.tekst':
-            'Here you can read more about who can get a children’s pension and how to apply.',
+        'Here you can read more about who can get a children’s pension and how to apply.',
     'avbrytModal.spoersmaal': 'Would you like to continue later?',
     'avbrytModal.svarNei': 'No, I want to continue now',
     'avbrytModal.svarJa': 'Yes, continue later',
     'avbrytModal.svarSlett': 'Yes, I want to quit now and clear the application form',
     'avbrytModal.informasjon':
-            'You can take a break. Your application (submission) will be saved for 72 hours, so you can continue later without losing any information.',
+        'You can take a break. Your application (submission) will be saved for 72 hours, so you can continue later without losing any information.',
     'felles.sistLagret': 'Last saved',
     'felles.spraakValg': 'Select language',
     'fortsettSoeknad.beskrivelse': 'Do you want to continue filling in the application you started earlier?',
@@ -250,18 +251,18 @@ export default {
     'fortsettSoeknad.startPaaNytt': 'No, I want to start a new application',
     'systemUtilgjengelig.veileder.tittel': 'Å nei, søknaden fungerer ikke...',
     'systemUtilgjengelig.veileder.beskrivelse':
-            'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
+        'Vi beklager dette og jobber med å finne ut av feilen så fort som mulig. Ta en liten pause og prøv igjen senere.',
     'systemUtilgjengelig.tilbakemelding.tittel': 'Opplever du fortsatt feil?',
     'systemUtilgjengelig.tilbakemelding.meldFra': 'Meld fra om feil og mangler',
     'systemUtilgjengelig.tilbakemelding.href':
-            'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
+        'https://www.nav.no/person/kontakt-oss/nb/tilbakemeldinger/feil-og-mangler',
     'systemUtilgjengelig.merOmYtelsene': 'Les mer om rettighetene dine',
     'systemUtilgjengelig.merOmYtelseneLenke': 'Har mistet noen i nær familie',
     'systemUtilgjengelig.merOmYtelseneHref': 'https://www.nav.no/mistet-noen',
     'systemUtilgjengelig.knappProevIgjen': 'Prøv igjen',
     'systemUtilgjengelig.tittel.engelsk': 'The application form is not currently working',
     'systemUtilgjengelig.beskrivelse.engelsk.del1':
-            'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
+        'We are investigating and hope to resolve the issue as quickly as possible. We kindly ask you to take a short break and ',
     'systemUtilgjengelig.beskrivelse.engelsk.tryAgain': 'try again',
     'systemUtilgjengelig.beskrivelse.engelsk.del2': ' later.',
 }

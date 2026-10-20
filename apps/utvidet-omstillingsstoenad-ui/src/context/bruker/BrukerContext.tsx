@@ -4,12 +4,12 @@ import { ActionTypes, BrukerProps, IBruker, IBrukerAction } from './bruker'
 
 const initialState: IBruker = {}
 
-const reducer = (state: IBruker, action: IBrukerAction) => {
+const reducer = (state: IBruker, action: IBrukerAction): IBruker => {
     switch (action.type) {
         case ActionTypes.TILBAKESTILL:
             return {}
         case ActionTypes.HENT_INNLOGGET_BRUKER:
-            return action.payload as IBruker
+            return action.payload
         default:
             return state
     }

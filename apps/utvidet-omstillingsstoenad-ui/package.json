@@ -59,7 +59,6 @@
         "test:coverage": "vitest run --coverage",
         "cy:test": "TZ=Europe/Oslo cypress run",
         "cy:open": "TZ=Europe/Oslo cypress open",
-        "eject": "react-scripts eject",
         "lint": "yarn biome check --no-errors-on-unmatched"
     },
     "browserslist": {

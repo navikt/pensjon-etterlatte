@@ -55,15 +55,18 @@ const SoknadForside = () => {
 
     useEffect(() => {
         if (brukerState.foedselsnummer) {
-            hentHarSoektOms().then((result: { harOMSSak: boolean }) => {
-                setHarSoektOms(result.harOMSSak)
-                if (result.harOMSSak) {
-                    logEvent(LogEvents.ALERT_VIST, {
-                        variant: 'info',
-                        tekst: 'Bruker har allerede søkt om omstillingsstønad',
-                    })
-                }
-            })
+            hentHarSoektOms()
+                .then((result: { harOMSSak: boolean }) => {
+                    setHarSoektOms(result.harOMSSak)
+                    if (result.harOMSSak) {
+                        logEvent(LogEvents.ALERT_VIST, {
+                            variant: 'info',
+                            tekst: 'Bruker har allerede søkt om omstillingsstønad',
+                        })
+                    }
+                })
+                // Infoboksen er ikke kritisk, så vi lar bare være å vise den hvis kallet feiler
+                .catch(() => setHarSoektOms(false))
         }
     }, [brukerState])
 

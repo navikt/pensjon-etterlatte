@@ -1,5 +1,5 @@
-import { capitalize, capitalizeName } from './capitalize'
 import { describe, expect, it } from 'vitest'
+import { capitalize, capitalizeName } from './capitalize'
 
 describe('Test av capitalize', () => {
     it('Tester at enkelt navn i uppercase får stor forbokstav', () => {
