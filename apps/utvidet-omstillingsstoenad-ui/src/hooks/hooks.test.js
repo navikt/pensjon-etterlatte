@@ -1,6 +1,5 @@
 import { renderHook } from '@testing-library/react'
 import { act } from 'react'
-import useEffectOnce from './useEffectOnce'
 import { useError } from './useError'
 
 describe('useError', () => {
@@ -10,25 +9,5 @@ describe('useError', () => {
             result.current.setError('Dette er en testerror')
         })
         expect(result.current.message).toBe('Dette er en testerror')
-    })
-})
-
-describe('useEffectOnce', () => {
-    it('skal kjøre en gang', () => {
-        const fakeCallback = vi.fn()
-        renderHook(() => {
-            useEffectOnce(fakeCallback, true)
-            useEffectOnce(fakeCallback, false)
-        })
-        expect(fakeCallback).toBeCalledTimes(1)
-    })
-
-    it('skal kjøre to ganger', () => {
-        const fakeCallback = vi.fn()
-        renderHook(() => {
-            useEffectOnce(fakeCallback, true)
-            useEffectOnce(fakeCallback, true)
-        })
-        expect(fakeCallback).toBeCalledTimes(2)
     })
 })

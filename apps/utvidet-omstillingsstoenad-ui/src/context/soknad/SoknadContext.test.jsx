@@ -40,7 +40,7 @@ describe('Reducer fungerer som forventet', () => {
             ...tomSoeknad,
             harSamtykket: true,
             sistLagretDato: new Date(),
-            visFortsettSoeknadModal: true,
+            omDeg: { erValidert: true },
         }
 
         act(() => {
@@ -48,6 +48,11 @@ describe('Reducer fungerer som forventet', () => {
         })
 
         expect(result.current.state.klarForLagring).toBeFalsy()
-        expect(result.current.state).toStrictEqual(soeknad)
+        expect(result.current.state).toStrictEqual({
+            ...tomSoeknad,
+            harSamtykket: soeknad.harSamtykket,
+            sistLagretDato: soeknad.sistLagretDato,
+            visFortsettSoeknadModal: true,
+        })
     })
 })

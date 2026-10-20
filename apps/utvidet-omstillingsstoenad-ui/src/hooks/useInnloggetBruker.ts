@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { hentInnloggetPerson } from '../api/api'
-import { SoeknadType } from '../api/dto/InnsendtSoeknad'
+import { hentInnloggetPerson, SoeknadType } from '../api/api'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { ActionTypes as BrukerActionTypes, IBruker } from '../context/bruker/bruker'
 import { gyldigAlder } from '../utils/alder'

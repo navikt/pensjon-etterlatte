@@ -20,7 +20,6 @@ import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { useLanguage } from '../../hooks/useLanguage'
-import { MuligeSteg } from '../../typer/steg'
 import { erForGammel } from '../../utils/alder'
 import { Spraakvalg } from '../felles/Spraakvalg'
 
@@ -34,15 +33,13 @@ const SoknadForside = () => {
     useLanguage()
 
     const startSoeknad = () => {
-        const foersteSteg = MuligeSteg[0]
-
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
             skjemanavn: 'Søknad om omstillingsstønad - Innlogget',
             skjemaId: 'NAV 17-01.06',
         })
 
-        navigate(`/skjema/steg/${foersteSteg.path}`)
+        navigate('/skjema/steg')
     }
 
     useEffect(() => {

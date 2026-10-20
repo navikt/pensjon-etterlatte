@@ -5,7 +5,7 @@ vi.mock('./axios')
 
 describe('Test sending av søknad', () => {
     it('Søknadsobjekt fylles ut korrekt', async () => {
-        const soeknad = { soeknader: [] }
+        const soeknad = { soeknad: { svar: [] } }
 
         const expectedResult = { status: 200 }
         axiosInstance.post.mockResolvedValue(expectedResult)

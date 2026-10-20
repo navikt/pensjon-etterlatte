@@ -1,7 +1,11 @@
 import { axiosInstance as api, isDev } from './axios'
 import { ISoeknad } from '../context/soknad/soknad'
-import { SoeknadRequest, SoeknadType } from './dto/InnsendtSoeknad'
 import { FeatureToggleNavn } from '~context/featureToggle/FeatureToggleContext'
+
+export enum SoeknadType {
+    OMSTILLINGSSTOENAD = 'OMSTILLINGSSTOENAD',
+    BARNEPENSJON = 'BARNEPENSJON',
+}
 
 /**
  * Henter personalia for innlogget person
@@ -32,8 +36,7 @@ export const hentHarSoektOms = async () => {
  */
 export const hentSoeknad = async () => {
     try {
-        // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
-        const response: any = await api.get('/api/api/kladd')
+        const response = await api.get('/api/api/kladd')
         const soeknad = response.data?.payload
         if (soeknad) return JSON.parse(soeknad)
         else return undefined
@@ -79,8 +82,8 @@ export const lagreSoeknad = async (soeknad: ISoeknad) => {
 /**
  * Sender inn ferdigstilt søknad
  */
-export const sendSoeknad = async (request: SoeknadRequest) => {
-    const body = { ...request }
+export const sendSoeknad = async <T,>(request: T) => {
+    const body = request
 
     try {
         const response = await api.post('/api/api/soeknad', body)
@@ -99,26 +102,6 @@ export const hentFeatureToggles = async () => {
     }
 }
 
-/**
- * Henter liste over land
- */
-export const hentLand = async () => {
-    try {
-        const response = await api.get('/api/kodeverk/alleland')
-        return response.data
-    } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
-    }
-}
-
-export const hentValutaer = async () => {
-    try {
-        const response = await api.get('/api/kodeverk/valutaer')
-        return response.data
-    } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
-    }
-}
 // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
 export const loggFunc = async (data: any) => {
     if (isDev) {

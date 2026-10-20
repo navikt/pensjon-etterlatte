@@ -38,7 +38,7 @@ const App = () => {
                                 <Route index path={'/'} element={<SoknadForside />} />
 
                                 <Route path={'skjema'} element={<Outlet />}>
-                                    <Route path={'steg/*'} element={<SoknadDialog />} />
+                                    <Route path={'steg'} element={<SoknadDialog />} />
                                 </Route>
 
                                 <Route path={'/skjema/sendt'} element={<SoknadKvittering />} />

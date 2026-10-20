@@ -1,6 +1,6 @@
 import { basePath, getById } from '../util/cy-functions'
 
-describe('Skal fortsette og slette tidligere søknad', () => {
+describe('Fortsetter og sletter kladd', () => {
     it('Gå til søknad med eksisterende kladd', () => {
         cy.intercept('POST', `${basePath}/api/feature`, { fixture: 'featureToggles' }).as('hentFeatureToggles')
         cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {
@@ -20,9 +20,9 @@ describe('Skal fortsette og slette tidligere søknad', () => {
         cy.get('h1').contains('påbegynt søknad?')
     })
 
-    it('Fortsett søknad skal sende deg til neste side som er klar for utfylling', () => {
+    it('Fortsett søknad skal åpne det tomme søknadsskjemaet', () => {
         getById('fortsett_soeknad').click()
-        cy.url().should('include', 'steg/om-den-avdoede')
+        cy.url().should('include', 'skjema/steg')
     })
 
     it('Start på nytt skal sende deg til startsiden og slette state', () => {

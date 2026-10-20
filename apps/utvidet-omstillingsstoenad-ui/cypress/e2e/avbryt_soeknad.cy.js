@@ -8,7 +8,7 @@ describe('Skal avbryte en soeknad', () => {
             fixture: 'testbruker',
         }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, { fixture: 'kladd' }).as('hentSoeknad')
-        cy.intercept('GET', `${basePath}/api/api/sak/oms/har-loepende-sak`, { harOMSSak: false }).as('hentSoeknad')
+        cy.intercept('GET', `${basePath}/api/api/sak/oms/har-loepende-sak`, { harOMSSak: false }).as('hentLoependeSak')
 
         cy.visit('localhost:5173/utvidet-omstillingsstonad/soknad', {
             onBeforeLoad: (obj) => {
@@ -18,10 +18,10 @@ describe('Skal avbryte en soeknad', () => {
         cy.injectAxe()
         cy.wait(['@hentFeatureToggles'])
         cy.wait(['@hentInnloggetPerson'])
-        cy.wait(['@hentSoeknad'])
+        cy.wait(['@hentSoeknad', '@hentLoependeSak'])
 
         getById('fortsett_soeknad').click()
-        cy.url().should('include', 'steg/om-den-avdoede')
+        cy.url().should('include', 'skjema/steg')
     }
 
     it('Fortsett søknad etter å ha trykket avbryt', () => {
@@ -30,7 +30,7 @@ describe('Skal avbryte en soeknad', () => {
         getById('avbryt-btn').click()
 
         getById('avbryt-nei-btn').click()
-        cy.url().should('include', 'steg/om-den-avdoede')
+        cy.url().should('include', 'skjema/steg')
     })
 
     it('Avbryt og fortsett senere', () => {
