@@ -53,7 +53,7 @@
     "scripts": {
         "dev": "concurrently \"yarn start\" \"yarn start:node\"",
         "start": "vite --base /utvidet-omstillingsstonad/soknad",
-        "start:node": "cd ../etterlatte-node-server && yarn start:oms",
+        "start:node": "cd ../etterlatte-node-server && yarn start:utvidet-oms",
         "build": "tsc && yarn biome lint --no-errors-on-unmatched && vite build --outDir build --base /utvidet-omstillingsstonad/soknad",
         "test": "vitest",
         "test:coverage": "vitest run --coverage",

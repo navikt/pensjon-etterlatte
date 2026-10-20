@@ -40,6 +40,7 @@
         "start": "ts-node-dev --project ./tsconfig.json src/server.ts",
         "start:bp": "BASE_PATH=/barnepensjon/soknad yarn start:mock",
         "start:oms": "BASE_PATH=/omstillingsstonad/soknad yarn start:mock",
+        "start:utvidet-oms": "BASE_PATH=/utvidet-omstillingsstonad/soknad yarn start:mock",
         "start:mock": "ts-node-dev --project ./tsconfig.json src/mock/mock-server.ts",
         "start:selvbetjening": "BASE_PATH=/omstillingsstonad/skjema yarn start:mock-selvbetjening",
         "start:mock-selvbetjening": "ts-node-dev --project ./tsconfig.json src/mock/mock-server-selvbetjening.ts",
