@@ -18,12 +18,12 @@ axiosRetry(axiosInstance, {
 })
 
 axiosInstance.interceptors.response.use(
-        response => response,
-        error => {
-            if (error.response.status === 401){
-                window.location.reload()
-            }
-
-            return Promise.reject(error)
+    (response) => response,
+    (error) => {
+        if (error.response.status === 401) {
+            window.location.reload()
         }
-);
+
+        return Promise.reject(error)
+    }
+)

@@ -1,5 +1,5 @@
 import { Alert, BodyLong, BodyShort, Box, Button, Heading, HStack, Link } from '@navikt/ds-react'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../hooks/useLanguage'
 

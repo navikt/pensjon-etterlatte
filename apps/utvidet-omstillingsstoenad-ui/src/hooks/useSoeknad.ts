@@ -18,34 +18,28 @@ const useSoeknad = () => {
     const [lasterSoeknad, settLasterSoeknad] = useState(true)
 
     useEffect(() => {
-        if (!bruker.kanSoeke) {
+        if (!bruker.kanSoeke || location.pathname === '/skjema/admin') {
             settLasterSoeknad(false)
             return
         }
 
-        if (location.pathname === '/skjema/admin') {
-            settLasterSoeknad(false)
-        } else {
-            hentSoeknad()
-                .then((soeknad: ISoeknad | undefined) => {
-                    if (!soeknad?.harSamtykket) {
-                        navigate('/')
-                    } else {
-                        dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad })
-                    }
-                })
-                .catch((err: Error) => {
-                    settLasterSoeknad(false)
-
-                    if (err.message === 'FERDIGSTILT') {
-                        navigate('/skjema/sendt')
-                    } else {
-                        setError('Det skjedde en feil. Prøv igjen senere.')
-                        navigate('/')
-                    }
-                })
-                .finally(() => settLasterSoeknad(false))
-        }
+        hentSoeknad()
+            .then((soeknad: ISoeknad | undefined) => {
+                if (soeknad?.harSamtykket) {
+                    dispatch({ type: ActionTypes.HENT_SOEKNAD, payload: soeknad })
+                } else {
+                    navigate('/')
+                }
+            })
+            .catch((err: Error) => {
+                if (err.message === 'FERDIGSTILT') {
+                    navigate('/skjema/sendt')
+                } else {
+                    setError('Det skjedde en feil. Prøv igjen senere.')
+                    navigate('/')
+                }
+            })
+            .finally(() => settLasterSoeknad(false))
     }, [bruker])
 
     useEffect(() => {

@@ -1,8 +1,6 @@
 import { createContext, FC, useContext, useReducer } from 'react'
-import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps, tomSoeknad } from './soknad'
 import { FCProps } from '../../typer/FCProps'
-
-const initialState: ISoeknad = tomSoeknad
+import { ActionTypes, ISoeknad, ISoeknadAction, SoeknadProps, tomSoeknad } from './soknad'
 
 const reducer = (state: ISoeknad, action: ISoeknadAction) => {
     switch (action.type) {
@@ -39,28 +37,27 @@ const reducer = (state: ISoeknad, action: ISoeknadAction) => {
                 ...state,
                 spraak: action.payload,
             }
-        case ActionTypes.SET_ERROR: {
+        case ActionTypes.SET_ERROR:
             return {
                 ...state,
                 error: action.payload,
             }
-        }
         default:
             return state
     }
 }
 
 const SoknadContext = createContext<SoeknadProps>({
-    state: initialState,
+    state: tomSoeknad,
     dispatch: () => {},
 })
 
 const useSoknadContext = () => useContext(SoknadContext)
 
 const SoknadProvider: FC<FCProps> = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, tomSoeknad)
 
     return <SoknadContext.Provider value={{ state, dispatch }}>{children}</SoknadContext.Provider>
 }
 
-export { useSoknadContext, SoknadProvider }
+export { SoknadProvider, useSoknadContext }

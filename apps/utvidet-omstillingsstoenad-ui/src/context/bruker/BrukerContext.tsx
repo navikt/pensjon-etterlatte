@@ -1,33 +1,31 @@
 import { createContext, FC, useContext, useReducer } from 'react'
-import { ActionTypes, IBruker, IBrukerAction, StegProps } from './bruker'
 import { FCProps } from '../../typer/FCProps'
+import { ActionTypes, BrukerProps, IBruker, IBrukerAction } from './bruker'
 
 const initialState: IBruker = {}
 
 const reducer = (state: IBruker, action: IBrukerAction) => {
     switch (action.type) {
-        case ActionTypes.TILBAKESTILL: {
+        case ActionTypes.TILBAKESTILL:
             return {}
-        }
-        case ActionTypes.HENT_INNLOGGET_BRUKER: {
+        case ActionTypes.HENT_INNLOGGET_BRUKER:
             return action.payload as IBruker
-        }
         default:
-            return { ...state }
+            return state
     }
 }
 
-const StegContext = createContext<StegProps>({
+const BrukerContext = createContext<BrukerProps>({
     state: initialState,
     dispatch: () => {},
 })
 
-const useBrukerContext = () => useContext(StegContext)
+const useBrukerContext = () => useContext(BrukerContext)
 
 const BrukerProvider: FC<FCProps> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    return <StegContext.Provider value={{ state, dispatch }}>{children}</StegContext.Provider>
+    return <BrukerContext.Provider value={{ state, dispatch }}>{children}</BrukerContext.Provider>
 }
 
-export { useBrukerContext, BrukerProvider }
+export { BrukerProvider, useBrukerContext }

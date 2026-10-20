@@ -17,9 +17,8 @@ import useSoeknad from './hooks/useSoeknad'
 
 const App = () => {
     useInnloggetBruker()
-    const soknadContext = useSoknadContext()
     useAnalytics()
-
+    const { state } = useSoknadContext()
     const lasterSoeknad = useSoeknad()
 
     return (
@@ -51,7 +50,7 @@ const App = () => {
 
                                 <Route path={'*'} element={<SideIkkeFunnet />} />
                             </Routes>
-                            {soknadContext?.state?.error && <GlobalErrorAlert message={soknadContext.state.error} />}
+                            {state.error && <GlobalErrorAlert message={state.error} />}
                         </Page.Block>
                     </Page>
                 </>

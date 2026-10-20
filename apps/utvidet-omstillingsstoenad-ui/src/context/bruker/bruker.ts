@@ -28,7 +28,7 @@ export interface IBrukerAction {
     payload?: IBruker
 }
 
-export interface StegProps {
+export interface BrukerProps {
     state: IBruker
     dispatch: (action: IBrukerAction) => void
 }

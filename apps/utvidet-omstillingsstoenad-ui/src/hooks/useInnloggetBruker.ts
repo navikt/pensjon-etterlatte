@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { hentInnloggetPerson, SoeknadType } from '../api/api'
+import { hentInnloggetPerson } from '../api/api'
 import { useBrukerContext } from '../context/bruker/BrukerContext'
 import { ActionTypes as BrukerActionTypes, IBruker } from '../context/bruker/bruker'
 import { gyldigAlder } from '../utils/alder'
@@ -16,7 +16,7 @@ const useInnloggetBruker = () => {
     useEffect(() => {
         setLoading(true)
 
-        hentInnloggetPerson(SoeknadType.OMSTILLINGSSTOENAD)
+        hentInnloggetPerson()
             .then((person: IBruker) => {
                 const alder = hentAlder(person.foedselsdato!)
                 const kanSoeke = gyldigAlder(alder)
@@ -33,10 +33,7 @@ const useInnloggetBruker = () => {
                     navigate('/ugyldig-alder')
                 }
             })
-            .catch(() => {
-                setLoading(false)
-                navigate('/system-utilgjengelig')
-            })
+            .catch(() => navigate('/system-utilgjengelig'))
             .finally(() => setLoading(false))
     }, [])
 

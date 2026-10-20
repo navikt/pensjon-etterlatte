@@ -1,21 +1,20 @@
-import { axiosInstance as api, isDev } from './axios'
-import { ISoeknad } from '../context/soknad/soknad'
 import { FeatureToggleNavn } from '~context/featureToggle/FeatureToggleContext'
+import { ISoeknad } from '~context/soknad/soknad'
+import { axiosInstance as api, isDev } from './axios'
 
-export enum SoeknadType {
-    OMSTILLINGSSTOENAD = 'OMSTILLINGSSTOENAD',
-    BARNEPENSJON = 'BARNEPENSJON',
-}
+const GENERELL_FEIL = 'Det skjedde en feil'
+
+const getErrorMessage = (error: unknown) => (error instanceof Error ? error.message : String(error))
 
 /**
  * Henter personalia for innlogget person
  */
-export const hentInnloggetPerson = async (type: SoeknadType) => {
+export const hentInnloggetPerson = async () => {
     try {
-        const response = await api.get(`/api/person/innlogget?soeknadType=${type}`)
+        const response = await api.get('/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD')
         return response.data
     } catch {
-        throw new Error('Det skjedde en feil')
+        throw new Error(GENERELL_FEIL)
     }
 }
 
@@ -27,7 +26,7 @@ export const hentHarSoektOms = async () => {
         const response = await api.get('/api/api/sak/oms/har-loepende-sak')
         return response.data
     } catch {
-        throw new Error('Det skjedde en feil')
+        throw new Error(GENERELL_FEIL)
     }
 }
 
@@ -38,16 +37,12 @@ export const hentSoeknad = async () => {
     try {
         const response = await api.get('/api/api/kladd')
         const soeknad = response.data?.payload
-        if (soeknad) return JSON.parse(soeknad)
-        else return undefined
+        return soeknad ? JSON.parse(soeknad) : undefined
         // biome-ignore lint/suspicious/noExplicitAny: gammel kode, venter med å fikse
     } catch (e: any) {
-        if (e.response.status === 404) {
-            return undefined
-        } else if (e.response.status === 409) {
-            throw new Error('FERDIGSTILT')
-        }
-        throw new Error('Det skjedde en feil')
+        if (e.response.status === 404) return undefined
+        if (e.response.status === 409) throw new Error('FERDIGSTILT')
+        throw new Error(GENERELL_FEIL)
     }
 }
 
@@ -56,7 +51,7 @@ export const slettSoeknad = async () => {
         const response = await api.delete('/api/api/kladd')
         return response.data
     } catch {
-        throw new Error('Det skjedde en feil')
+        throw new Error(GENERELL_FEIL)
     }
 }
 
@@ -66,30 +61,23 @@ export const slettSoeknad = async () => {
  * Skal gi Søknad ID i retur ved lagring ok
  */
 export const lagreSoeknad = async (soeknad: ISoeknad) => {
-    const body: ISoeknad = {
-        ...soeknad,
-        klarForLagring: undefined,
-    }
-
     try {
-        const response = await api.post('/api/api/kladd', body)
+        const response = await api.post('/api/api/kladd', { ...soeknad, klarForLagring: undefined })
         return response.data
     } catch {
-        throw new Error('Det skjedde en feil')
+        throw new Error(GENERELL_FEIL)
     }
 }
 
 /**
  * Sender inn ferdigstilt søknad
  */
-export const sendSoeknad = async <T,>(request: T) => {
-    const body = request
-
+export const sendSoeknad = async <T>(request: T) => {
     try {
-        const response = await api.post('/api/api/soeknad', body)
+        const response = await api.post('/api/api/soeknad', request)
         return response.status
     } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
+        throw new Error(`${GENERELL_FEIL}: ${getErrorMessage(e)}`)
     }
 }
 
@@ -98,7 +86,7 @@ export const hentFeatureToggles = async () => {
         const response = await api.post('/api/feature', Object.values(FeatureToggleNavn))
         return response.data
     } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
+        throw new Error(`${GENERELL_FEIL}: ${getErrorMessage(e)}`)
     }
 }
 
@@ -115,11 +103,6 @@ export const loggFunc = async (data: any) => {
         const response = await api.post('/api/logg', data)
         return response.status
     } catch (e) {
-        throw new Error(`Det skjedde en feil: ${getErrorMessage(e)}`)
+        throw new Error(`${GENERELL_FEIL}: ${getErrorMessage(e)}`)
     }
-}
-
-const getErrorMessage = (error: unknown) => {
-    if (error instanceof Error) return error.message
-    else return String(error)
 }

@@ -9,7 +9,7 @@ export enum FeatureToggleStatus {
 }
 
 export enum FeatureToggleNavn {
-    OMS_SOEKNAD_NYTT_INNTEKT_STEG = 'oms-soeknad-nytt-inntekt-steg'
+    OMS_SOEKNAD_NYTT_INNTEKT_STEG = 'oms-soeknad-nytt-inntekt-steg',
 }
 
 export interface FeatureToggle {
@@ -21,7 +21,7 @@ const initialFeatureTogglesState: Array<FeatureToggle> = []
 
 const featureTogglesContext = createContext<Array<FeatureToggle>>(initialFeatureTogglesState)
 
-export const ProvideFeatureToggleContext = ({ children }: { children: ReactNode | Array<ReactNode>}) => {
+export const ProvideFeatureToggleContext = ({ children }: { children: ReactNode | Array<ReactNode> }) => {
     const [featureToggles, setFeatureToggles] = useState<Array<FeatureToggle>>(initialFeatureTogglesState)
 
     useEffect(() => {
@@ -34,12 +34,5 @@ export const ProvideFeatureToggleContext = ({ children }: { children: ReactNode 
 export const useFeatureToggle = (featureToggleNavn: FeatureToggleNavn): FeatureToggle => {
     const funnetFeatureToggle = useContext(featureTogglesContext).find((toggle) => toggle.name === featureToggleNavn)
 
-    if (!!funnetFeatureToggle) {
-        return funnetFeatureToggle
-    } else {
-        return {
-            name: featureToggleNavn,
-            status: FeatureToggleStatus.UDEFINERT,
-        }
-    }
+    return funnetFeatureToggle ?? { name: featureToggleNavn, status: FeatureToggleStatus.UDEFINERT }
 }

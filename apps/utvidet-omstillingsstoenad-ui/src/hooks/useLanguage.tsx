@@ -7,10 +7,9 @@ export const useLanguage = () => {
     const { state: soeknadState } = useSoknadContext()
 
     useEffect(() => {
-        i18next.changeLanguage(soeknadState.spraak, (err, t) => {
-            if (err) return console.log('something went wrong loading', err)
-            t('key')
+        i18next.changeLanguage(soeknadState.spraak, (err) => {
+            if (err) console.log('something went wrong loading', err)
         })
-        setParams({ language: soeknadState.spraak }).then()
+        setParams({ language: soeknadState.spraak })
     }, [soeknadState.spraak])
 }

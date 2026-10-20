@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { slettSoeknad } from '../../api/api'
 import { useBrukerContext } from '../../context/bruker/BrukerContext'
@@ -43,14 +43,11 @@ const Navigasjon = ({
         minute: '2-digit',
     })
 
-    let sistLagret
-    if (!!sistLagretDato && erDato(sistLagretDato)) {
-        sistLagret = dtf.format(new Date(sistLagretDato))
-    }
+    const sistLagret = erDato(sistLagretDato) ? dtf.format(new Date(sistLagretDato!)) : undefined
 
     const [isOpen, setIsOpen] = useState(false)
 
-    const avbrytOgslettSoeknad = () => slettSoeknad().then(() => avbrytSoeknad())
+    const avbrytOgSlettSoeknad = () => slettSoeknad().then(avbrytSoeknad)
 
     const avbrytSoeknad = () => {
         soknadDispatch({ type: SoknadAction.TILBAKESTILL })
@@ -146,7 +143,7 @@ const Navigasjon = ({
                                 variant={'tertiary'}
                                 style={{ color: 'var(--ax-bg-danger-strong)' }}
                                 type={'button'}
-                                onClick={avbrytOgslettSoeknad}
+                                onClick={avbrytOgSlettSoeknad}
                             >
                                 {t('avbrytModal.svarSlett')}
                             </Button>
