@@ -2,6 +2,11 @@ name: .build-and-deploy-frontend.yaml
 
 on:
   workflow_call:
+    inputs:
+      deploy-prod:
+        description: "Allow deployment to production"
+        type: boolean
+        default: true
     outputs:
       image:
         description: "Docker image url"
@@ -115,7 +120,7 @@ jobs:
 
   deploy-to-prod-gcp:
     name: prod-gcp
-    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true' }}
+    if: ${{ inputs.deploy-prod && (github.ref == 'refs/heads/main' || github.event.inputs.deploy-prod == 'true') }}
     needs: [build-and-publish, deploy-to-dev-gcp]
     runs-on: ubuntu-latest
     steps:

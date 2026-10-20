@@ -74,6 +74,8 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 
 ## Testmiljøet
 
+Appen har bare ett deployment-oppsett: `.nais/dev.yaml` for `dev-gcp`. Intern og ekstern dev-adresse peker til samme Nais-app, `utvidet-omstillingsstoenad-ui`. Workflowen har produksjonsdeploy deaktivert. Appen er ikke klar for produksjon.
+
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:
 [https://etterlatte.intern.dev.nav.no/utvidet-omstillingsstonad/soknad](https://etterlatte.intern.dev.nav.no/utvidet-omstillingsstonad/soknad)
 
