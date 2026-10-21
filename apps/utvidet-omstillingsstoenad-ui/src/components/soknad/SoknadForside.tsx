@@ -20,7 +20,6 @@ import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { useLanguage } from '../../hooks/useLanguage'
-import { erForGammel } from '../../utils/alder'
 import { Spraakvalg } from '../felles/Spraakvalg'
 
 const SoknadForside = () => {
@@ -57,6 +56,7 @@ const SoknadForside = () => {
         if (brukerState.foedselsnummer) {
             hentHarSoektOms()
                 .then((result: { harOMSSak: boolean }) => {
+                    // TODO: denne skal ikke sjekke om man har søkt oms, men om man alt har søkt utvidet-oms
                     setHarSoektOms(result.harOMSSak)
                     if (result.harOMSSak) {
                         logEvent(LogEvents.ALERT_VIST, {
@@ -72,29 +72,6 @@ const SoknadForside = () => {
 
     return (
         <>
-            {erForGammel(brukerState.alder!) && (
-                <Box marginBlock="space-16">
-                    <Alert variant={'info'}>
-                        <Heading size={'small'} spacing>
-                            {t('forside.over67.tittel')}
-                        </Heading>
-                        <BodyShort spacing>{t('forside.over67.avsnitt1')}</BodyShort>
-                        <BodyShort spacing>
-                            {t('forside.over67.avsnitt2')}
-                            <Link href={t('forside.over67.avsnitt2.lenke.href')} inlineText>
-                                {t('forside.over67.avsnitt2.lenke.tekst')}
-                            </Link>
-                        </BodyShort>
-                        <BodyShort>
-                            {t('forside.over67.avsnitt3.del1')}
-                            <Link href={t('forside.over67.avsnitt3.lenke.href')} inlineText>
-                                {t('forside.over67.avsnitt3.lenke.tekst')}
-                            </Link>
-                            {t('forside.over67.avsnitt3.del2')}
-                        </BodyShort>
-                    </Alert>
-                </Box>
-            )}
             <Box marginBlock="space-0 space-48">
                 <GuidePanel poster>
                     <Heading level="2" size={'small'} spacing>

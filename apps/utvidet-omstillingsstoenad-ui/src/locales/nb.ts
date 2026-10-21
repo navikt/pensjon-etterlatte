@@ -167,16 +167,6 @@ export default {
     'forside.personvern.innhold2': '(åpnes i ny fane).',
     'forside.samtykke.tittel': 'Vi stoler på deg',
     'forside.samtykke.innhold': 'Du må gi oss riktige opplysninger for at vi skal kunne behandle søknaden din.',
-    'forside.over67.tittel': 'Rettighet for deg som har fylt 67 år',
-    'forside.over67.avsnitt1':
-        'For å få omstillingsstønad må du være mellom 18 og 67 år. Hvis dødsfallet skjedde før du fylte 67 år, kan du ha rett til omstillingsstønad.',
-    'forside.over67.avsnitt2': 'Siden du har fylt 67 år, kan du ha ',
-    'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
-    'forside.over67.avsnitt2.lenke.tekst': 'rett til høyere alderspensjon.',
-    'forside.over67.avsnitt3.del1': 'Du kan ',
-    'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss',
-    'forside.over67.avsnitt3.lenke.tekst': 'ta kontakt',
-    'forside.over67.avsnitt3.del2': ' med oss for å få veiledning.',
     'forside.harSoektOms.tittel': 'Du har allerede en aktiv søknad hos oss',
     'forside.harSoektOms.avsnitt':
         'Vi ser at du nylig har sendt inn denne søknaden. Dersom du sender inn søknaden på nytt, vil behandlingen ta lenger tid. Ønsker du å opplyse om endringer eller noe nytt kan du gjøre følgende:',

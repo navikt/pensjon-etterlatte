@@ -175,16 +175,6 @@ export default {
     'forside.samtykke.innhold':
         'You must provide us with the correct information so that we can process your application.',
     'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
-    'forside.over67.tittel': 'Legal rights after turning 67',
-    'forside.over67.avsnitt1':
-        'The right to receive the adjustment allowance is reserved for persons aged 18 to 67. If the death occurred before you turned 67, you may be eligible for the adjustment allowance.',
-    'forside.over67.avsnitt2': 'Once you turn 67, you may be ',
-    'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
-    'forside.over67.avsnitt2.lenke.tekst': 'entitled to a higher old-age pension.',
-    'forside.over67.avsnitt3.del1': 'Please ',
-    'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss/en',
-    'forside.over67.avsnitt3.lenke.tekst': 'contact Nav',
-    'forside.over67.avsnitt3.del2': ' for further guidance on this matter.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':
         'We can see that you recently submitted this application. If you submit the same application again, it could take longer to process. If you want to change or add something to your first one, this is what you can do:',
