@@ -1,0 +1,28 @@
+.mute {
+    color: #666;
+}
+
+.center {
+    text-align: center;
+}
+
+.avbryt-text {
+    text-align: center;
+    white-space: pre-line;
+}
+
+.soeknad-page-block {
+    @media screen and (max-width: 650px) {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 100%;
+        white-space: pre-line;
+    }
+
+    @media screen and (min-width: 650px) {
+        padding: 2rem;
+        margin: 0 auto;
+        max-width: 650px !important;
+        white-space: pre-line;
+    }
+}

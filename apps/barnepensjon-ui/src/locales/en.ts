@@ -1,4 +1,4 @@
-import { TKey, TNamespace, Translation } from '../context/language/translations'
+import { TKey, TNamespace, Translation } from '~context/language/translations'
 
 const app = {
     applicationTitle: 'Application for children’s pension',

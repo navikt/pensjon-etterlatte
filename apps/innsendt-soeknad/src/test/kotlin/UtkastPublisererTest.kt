@@ -1,4 +1,3 @@
-import tools.jackson.module.kotlin.jacksonMapperBuilder
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
@@ -9,6 +8,7 @@ import no.nav.etterlatte.toJson
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import soeknad.LagretSoeknad
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 import java.util.UUID
 
 class UtkastPublisererTest {
@@ -51,6 +51,28 @@ class UtkastPublisererTest {
 
         Assertions.assertEquals("created", message["@event_name"].textValue())
         Assertions.assertEquals("Søknad om omstillingsstønad", message["tittel"].textValue())
+    }
+
+    @Test
+    fun `Created utkast for utvidet omstillingsstønad skal publisere på kafka`() {
+        val slot = slot<String>()
+
+        every { kafkaProduser.publiser(testNoekkel, capture(slot)) } returns mockk(relaxed = true)
+
+        publiserer.publiserOpprettUtkastTilMinSide(soeknadSomSkalPubliseres, "utvidet-omstillingsstoenad-ui")
+
+        verify {
+            kafkaProduser.publiser(testNoekkel, capture(slot))
+        }
+
+        val message = jacksonMapperBuilder().build().readTree(slot.captured)
+
+        Assertions.assertEquals("created", message["@event_name"].textValue())
+        Assertions.assertEquals("Søknad om utvidet omstillingsstønad", message["tittel"].textValue())
+        Assertions.assertEquals("Søknad om utvidet omstillingsstønad", message["tittel_i18n"]["nb"].textValue())
+        Assertions.assertEquals("Søknad om utvida omstillingsstønad", message["tittel_i18n"]["nn"].textValue())
+        Assertions.assertEquals("Application for extended adjustment allowance", message["tittel_i18n"]["en"].textValue())
+        Assertions.assertEquals("test/utvidet-omstillingsstonad/soknad", message["link"].textValue())
     }
 
     @Test

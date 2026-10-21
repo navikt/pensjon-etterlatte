@@ -1,0 +1,69 @@
+{
+    "type": "UTVIDET_OMSTILLINGSSTOENAD",
+    "imageTag": "abc123",
+    "spraak": "nb",
+    "mottattDato": "2026-10-08T12:00:00",
+    "harSamtykket": { "spoersmaal": "Jeg vil svare så godt jeg kan på spørsmålene i søknaden.", "svar": true },
+    "innsender": {
+        "type": "INNSENDER",
+        "fornavn": { "spoersmaal": "Fornavn", "svar": "KALD" },
+        "etternavn": { "spoersmaal": "Etternavn", "svar": "FOLK" },
+        "foedselsnummer": { "spoersmaal": "Fødselsnummer", "svar": "24876696580" }
+    },
+    "soeker": {
+        "type": "GJENLEVENDE_UTVIDET_OMS",
+        "fornavn": { "spoersmaal": "Fornavn", "svar": "KALD" },
+        "etternavn": { "spoersmaal": "Etternavn", "svar": "FOLK" },
+        "foedselsnummer": { "spoersmaal": "Fødselsnummer", "svar": "24876696580" }
+    },
+    "situasjonenDinIDag": {
+        "nySivilstand": {
+            "spoersmaal": "Har du ny samboer eller giftet deg på nytt?",
+            "svar": { "verdi": "INGEN_AV_DELENE", "innhold": "Ingen av delene" }
+        }
+    },
+    "utdanningOgTiltak": {
+        "aktivitet": {
+            "spoersmaal": "Hva gjelder for deg?",
+            "svar": { "verdi": "ARBEIDSRETTET_TILTAK", "innhold": "Jeg deltar i arbeidsrettet tiltak" }
+        },
+        "arbeidsrettetTiltak": {
+            "tiltak": {
+                "spoersmaal": "Hvilket arbeidsrettet tiltak deltar du i?",
+                "svar": { "innhold": "Arbeidstrening" }
+            },
+            "omfang": {
+                "spoersmaal": "Gjennomfører du tiltakene på heltid eller deltid?",
+                "svar": { "verdi": "HELTID", "innhold": "Heltid" }
+            }
+        },
+        "aktivitetsplan": {
+            "spoersmaal": "Har du en aktivitetsplan i samarbeid med Nav?",
+            "svar": { "verdi": "NEI", "innhold": "Nei" }
+        }
+    },
+    "inntekt": {
+        "arbeidsinntekt": { "spoersmaal": "Arbeidsinntekt og andre utbetalinger", "svar": { "innhold": "120000" } },
+        "naeringsinntekt": { "inntekt": { "spoersmaal": "Næringsinntekt", "svar": { "innhold": "0" } } },
+        "inntektFraUtland": { "spoersmaal": "Inntekter fra utland", "svar": { "innhold": "0" } },
+        "andreInntekter": {
+            "valg": { "spoersmaal": "Har du andre inntekter?", "svar": { "verdi": "JA", "innhold": "Ja" } },
+            "inntekt": { "spoersmaal": "Sum andre inntekter", "svar": { "innhold": "30000" } },
+            "beskrivelse": { "spoersmaal": "Hva slags inntekter?", "svar": { "innhold": "Utleie av hybel" } }
+        },
+        "noeSomKanPaavirkeInntekten": {
+            "valg": {
+                "spoersmaal": "Er det noe du vet om i dag som kan påvirke inntekten din fremover?",
+                "svar": { "verdi": "JA", "innhold": "Ja" }
+            },
+            "grunnTilPaavirkelseAvInntekt": {
+                "spoersmaal": "Hva er grunnen til at inntekten endrer seg?",
+                "svar": { "verdi": "ANNEN_GRUNN", "innhold": "Annen grunn" }
+            },
+            "beskrivelse": {
+                "spoersmaal": "Beskriv endringen",
+                "svar": { "innhold": "Tiltaket er ferdig til sommeren" }
+            }
+        }
+    }
+}

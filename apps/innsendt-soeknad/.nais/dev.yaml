@@ -97,3 +97,4 @@ spec:
       rules:
         - application: barnepensjon-ui
         - application: omstillingsstoenad-ui
+        - application: utvidet-omstillingsstoenad-ui

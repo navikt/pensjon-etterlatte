@@ -33,6 +33,7 @@ updates:
     directories:
       - "/apps/barnepensjon-ui"
       - "/apps/omstillingsstoenad-ui"
+      - "/apps/utvidet-omstillingsstoenad-ui"
       - "/apps/selvbetjening-ui"
       - "/apps/etterlatte-node-server"
       - "/apps/brukerdialog-sanity"

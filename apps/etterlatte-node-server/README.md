@@ -39,6 +39,9 @@ Kjøre prosjektet (BASE_PATH=/barnepensjon/soknad):\
 Kjøre prosjektet (BASE_PATH=/omstillingsstonad/soknad):\
 `yarn start:oms`
 
+Kjøre prosjektet (BASE_PATH=/utvidet-omstillingsstonad/soknad):\
+`yarn start:utvidet-oms`
+
 ### Kjøre selvbetjening lokalt
 
 For å kunne koble selvbetjening mot Sanity trenger du følgende miljøvariabler i en `.env` fil, verdiene til disse miljøvariablene kan du få utlevert av en i team etterlatte.
