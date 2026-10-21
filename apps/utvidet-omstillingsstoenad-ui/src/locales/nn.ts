@@ -59,14 +59,19 @@ export default {
     'skjema.lagringFeilet': 'Vi kunne ikkje lagre søknaden. Prøv igjen.',
     'skjema.avslutningFeilet': 'Vi kunne ikkje avslutte søknaden. Prøv igjen.',
     'skjema.underArbeid': 'Dette steget er under arbeid. Du kan ikkje sende inn søknaden enno.',
-    'banner.tittel': 'Søknad om omstillingsstønad',
+    'banner.tittel': 'Søknad om utvida omstillingsstønad',
     'knapp.tilbake': 'Førre steg',
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',
     'knapp.sendSoeknad': 'Send inn',
-    'forside.tittel': 'Søk om omstillingsstønad',
-    'forside.ingress':
-        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
+    'forside.tittel': 'Søk om utvida omstillingsstønad',
+    'forside.ingress.tittel': 'Hei, {{navn}}!',
+    'forside.ingress.del1':
+        'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. Du kan få stønad i inntil 3 år etter dødsfallet. Stønaden kan forlengjast med inntil 2 år dersom du tek utdanning som er nødvendig og føremålstenleg, eller har behov for tiltak for å kome i jobb. For å få forlenga stønaden, må periodane vere samanhengande.',
+    'forside.ingress.del2.del1': 'For informasjon om stønaden, kan du ',
+    'forside.ingress.del2.lenke.tekst': 'lese meir om omstillingsstønad',
+    'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.ingress.del2.del2': ' (opnast i ny fane).',
     'forside.startSoeknad': 'Start utfyllinga',
     'forside.omYtelsene.innhold':
         'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. I enkelte tilfelle kan du få støtte dersom de tidlegare var gifte.',

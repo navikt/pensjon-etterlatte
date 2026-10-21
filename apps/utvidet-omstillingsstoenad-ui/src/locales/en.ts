@@ -60,14 +60,19 @@ export default {
     'skjema.lagringFeilet': 'We could not save your application. Please try again.',
     'skjema.avslutningFeilet': 'We could not close your application. Please try again.',
     'skjema.underArbeid': 'This step is under development. You cannot submit your application yet.',
-    'banner.tittel': 'Application for adjustment allowance',
+    'banner.tittel': 'Application for extended adjustment allowance',
     'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next step',
     'knapp.avbryt': 'Cancel',
     'knapp.sendSoeknad': 'Submit',
-    'forside.tittel': 'Apply for adjustment allowance',
-    'forside.ingress':
-        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how to answer some questions about the coming months. Answer as good as you can based on your current situation. You can always notify us about any changes that occur later.',
+    'forside.tittel': 'Apply for extended adjustment allowance',
+    'forside.ingress.tittel': 'Hi, {{navn}}!',
+    'forside.ingress.del1':
+        'Adjustment allowance secures your income if you lose a spouse, partner, or cohabitant with whom you have children. You may receive the allowance for up to 3 years after the death. The allowance can be extended by up to 2 years if you take education that is necessary and appropriate, or need labour market measures to get into work. To receive an extension, the periods must be consecutive.',
+    'forside.ingress.del2.del1': 'For information about the allowance, you can ',
+    'forside.ingress.del2.lenke.tekst': 'read more about adjustment allowance',
+    'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.ingress.del2.del2': ' (opens in a new tab).',
     'forside.startSoeknad': 'Start filling in the form',
     'forside.omYtelsene.innhold':
         'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',

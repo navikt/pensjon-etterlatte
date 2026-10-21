@@ -96,7 +96,24 @@ const SoknadForside = () => {
                 </Box>
             )}
             <Box marginBlock="space-0 space-48">
-                <GuidePanel poster>{t('forside.ingress')}</GuidePanel>
+                <GuidePanel poster>
+                    <Heading size={'small'} spacing>
+                        {t('forside.ingress.tittel', { navn: brukerState.fornavn })}
+                    </Heading>
+                    <BodyShort spacing>{t('forside.ingress.del1')}</BodyShort>
+                    <BodyShort>
+                        {t('forside.ingress.del2.del1')}
+                        <Link
+                            href={t('forside.ingress.del2.lenke.href')}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            inlineText
+                        >
+                            {t('forside.ingress.del2.lenke.tekst')}
+                        </Link>
+                        {t('forside.ingress.del2.del2')}
+                    </BodyShort>
+                </GuidePanel>
             </Box>
             <Spraakvalg />
             {harSoektOms && (
