@@ -22,6 +22,8 @@ Brukergrensesnittet for "Søknad om omstillingsstønad".
 [utvidet-omstillingsstoenad-ui](apps/utvidet-omstillingsstoenad-ui) \
 Brukergrensesnittet for "Søknad om utvidet omstillingsstønad".
 
+Agenten `utvidet-oms` og [veikartet for utvidet omstillingsstønad](.github/utvidet-oms/veikart.md) ligger i dette repoet mens søknaden bygges. Start `copilot` fra reporoten, og velg agenten med `/agent`.
+
 [selvbetjening-ui](apps/selvbetjening-ui) \
 Brukergrenesnitt for selvbetjeningsløsningene til etterlatteytelsen
 
