@@ -5,7 +5,7 @@ import {
     BodyShort,
     Box,
     Button,
-    ConfirmationPanel,
+    Checkbox,
     GuidePanel,
     Heading,
     Link,
@@ -251,14 +251,15 @@ const SoknadForside = () => {
                 </Box>
             </Box>
             <Box marginBlock="space-0 space-48">
-                <Heading size={'small'} spacing>
-                    {t('forside.samtykke.tittel')}
-                </Heading>
+                <BodyShort spacing>
+                    {t('forside.samtykke.innhold.del1')}
+                    <Link href={t('forside.samtykke.lenke.href')} inlineText>
+                        {t('forside.samtykke.lenke.tekst')}
+                    </Link>
+                    {t('forside.samtykke.innhold.del2')}
+                </BodyShort>
 
-                <BodyShort spacing>{t('forside.samtykke.innhold')}</BodyShort>
-
-                <ConfirmationPanel
-                    label={t('forside.samtykke.bekreftelse')}
+                <Checkbox
                     checked={soknadState.harSamtykket}
                     onChange={(e) =>
                         soknadDispatch({
@@ -266,7 +267,9 @@ const SoknadForside = () => {
                             payload: (e.target as HTMLInputElement).checked,
                         })
                     }
-                />
+                >
+                    {t('forside.samtykke.bekreftelse')}
+                </Checkbox>
             </Box>
             {soknadState.harSamtykket && (
                 <Button

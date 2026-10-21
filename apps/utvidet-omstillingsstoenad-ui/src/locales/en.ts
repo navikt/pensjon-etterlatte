@@ -171,10 +171,12 @@ export default {
     'forside.personvern.lenke.href': 'https://www.nav.no/personvern/en',
     'forside.personvern.lenke.tekst': "Nav's privacy statement",
     'forside.personvern.innhold2': '(will open in a new tab).',
-    'forside.samtykke.tittel': 'We trust you',
-    'forside.samtykke.innhold':
-        'You must provide us with the correct information so that we can process your application.',
-    'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
+    'forside.samtykke.innhold.del1':
+        'It is important that you provide correct information so that we can process your case. ',
+    'forside.samtykke.lenke.tekst': 'Read more about why it is important to provide correct information',
+    'forside.samtykke.lenke.href': 'https://www.nav.no/endringer/en',
+    'forside.samtykke.innhold.del2': '',
+    'forside.samtykke.bekreftelse': 'I will answer the questions in the application as best I can.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':
         'We can see that you recently submitted this application. If you submit the same application again, it could take longer to process. If you want to change or add something to your first one, this is what you can do:',

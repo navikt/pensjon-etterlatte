@@ -168,9 +168,12 @@ export default {
     'forside.personvern.lenke.href': 'https://www.nav.no/personvern',
     'forside.personvern.lenke.tekst': 'Arbeids- og velferdsetatens personvernerklæring',
     'forside.personvern.innhold2': '(blir opna i ny fane).',
-    'forside.samtykke.tittel': 'Vi stoler på deg',
-    'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
-    'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
+    'forside.samtykke.innhold.del1':
+        'Det er viktig at du gir oss riktige opplysingar slik at vi kan behandle saka di. ',
+    'forside.samtykke.lenke.tekst': 'Les meir om kvifor det er viktig å gi riktige opplysingar',
+    'forside.samtykke.lenke.href': 'https://www.nav.no/endringer',
+    'forside.samtykke.innhold.del2': '',
+    'forside.samtykke.bekreftelse': 'Eg vil svare så godt eg kan på spørsmåla i søknaden.',
     'forside.harSoektOms.tittel': 'Du har allereie ein aktiv søknad hos oss',
     'forside.harSoektOms.avsnitt':
         'Vi ser at du nyleg har sendt inn denne søknaden. Dersom du sender inn søknaden på nytt, vil behandlinga ta lenger tid. Ønskjer du å opplyse om endringar eller noko nytt, kan du gjere følgjande:',
