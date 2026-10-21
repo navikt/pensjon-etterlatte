@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@navikt/aksel-icons'
 import {
     Accordion,
     Alert,
@@ -15,11 +16,11 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { hentHarSoektOms, lagreKladd } from '~api/api'
-import { useBrukerContext } from '../../context/bruker/BrukerContext'
-import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { ActionTypes } from '../../context/soknad/soknad'
-import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
-import { useLanguage } from '../../hooks/useLanguage'
+import { useBrukerContext } from '~context/bruker/BrukerContext'
+import { useSoknadContext } from '~context/soknad/SoknadContext'
+import { ActionTypes } from '~context/soknad/soknad'
+import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
+import { useLanguage } from '~hooks/useLanguage'
 import { Spraakvalg } from '../felles/Spraakvalg'
 
 const SoknadForside = () => {
@@ -45,8 +46,8 @@ const SoknadForside = () => {
         }
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
-            skjemanavn: 'Søknad om omstillingsstønad - Innlogget',
-            skjemaId: 'NAV 17-01.06',
+            skjemanavn: 'Søknad om utvidet omstillingsstønad - Innlogget',
+            skjemaId: 'NAV 17-01.06', // TODO: bytt skjemaId
         })
 
         navigate('/skjema/steg')
@@ -160,7 +161,7 @@ const SoknadForside = () => {
                                 <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
                                 <Box marginInline="space-16 space-0">
-                                    <List as={'ul'}>
+                                    <List>
                                         <List.Item>{t('forside.uthentingAvInfo.innholdListe.li1')}</List.Item>
                                         <List.Item>{t('forside.uthentingAvInfo.innholdListe.li2')}</List.Item>
                                         <List.Item>{t('forside.uthentingAvInfo.innholdListe.li3')}</List.Item>
@@ -180,7 +181,7 @@ const SoknadForside = () => {
                                 <Box marginBlock="space-16">
                                     <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
                                     <Box marginInline="space-16 space-0">
-                                        <List as={'ul'}>
+                                        <List>
                                             <List.Item>{t('forside.personvern.tredjeperson.li1')}</List.Item>
                                             <List.Item>{t('forside.personvern.tredjeperson.li2')}</List.Item>
                                             <List.Item>{t('forside.personvern.tredjeperson.li3')}</List.Item>
@@ -229,7 +230,7 @@ const SoknadForside = () => {
                                 </Box>
 
                                 <Box marginInline="space-16 space-0">
-                                    <List as={'ul'}>
+                                    <List>
                                         <List.Item>{t('forside.automatiskbehandling.innholdListe.li1')}</List.Item>
                                         <List.Item>{t('forside.automatiskbehandling.innholdListe.li2')}</List.Item>
                                         <List.Item>{t('forside.automatiskbehandling.innholdListe.li3')}</List.Item>
@@ -278,6 +279,8 @@ const SoknadForside = () => {
                     id={'start-soeknad'}
                     onClick={startSoeknad}
                     loading={lagrer}
+                    iconPosition="right"
+                    icon={<ArrowRightIcon aria-hidden fontSize="1.5rem" />}
                 >
                     {t('forside.startSoeknad')}
                 </Button>

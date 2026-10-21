@@ -73,7 +73,7 @@ export default {
     'forside.ingress.del2.lenke.tekst': 'read more about adjustment allowance',
     'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
     'forside.ingress.del2.del2': ' (opens in a new tab).',
-    'forside.startSoeknad': 'Start filling in the form',
+    'forside.startSoeknad': 'Start application',
     'forside.omYtelsene.innhold.del1':
         'This application is for an extension of adjustment allowance for you if you are taking or planning education, or taking part in or planning labour market measures. You must already receive adjustment allowance to apply.',
     'forside.omYtelsene.innhold.del2.del1': 'If you do not already receive adjustment allowance, you can ',

@@ -72,7 +72,7 @@ export default {
     'forside.ingress.del2.lenke.tekst': 'lese meir om omstillingsstønad',
     'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
     'forside.ingress.del2.del2': ' (opnast i ny fane).',
-    'forside.startSoeknad': 'Start utfyllinga',
+    'forside.startSoeknad': 'Start søknad',
     'forside.omYtelsene.innhold.del1':
         'Søknaden gjeld forlenging av omstillingsstønad for deg som tek eller skal ta utdanning, eller deltek i eller skal delta i arbeidsretta tiltak. Du må allereie ha omstillingsstønad for å kunne søkje.',
     'forside.omYtelsene.innhold.del2.del1': 'Dersom du ikkje har omstillingsstønad frå før, kan du ',
