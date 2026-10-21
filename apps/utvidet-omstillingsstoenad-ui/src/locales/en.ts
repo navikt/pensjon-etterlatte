@@ -91,9 +91,9 @@ export default {
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
         "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
-    'forside.utfyllingAvSoeknad.tittel': 'Filling in the application',
+    'forside.utfyllingAvSoeknad.tittel': 'We save your answers as you go',
     'forside.utfyllingAvSoeknad.innhold':
-        'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
+        'We save your answers as you go, so you can take breaks and continue later. Please note that we only store your answers for 72 hours.',
     'forside.klartFoerSoeknad.tittel': 'Please have this information available before you apply',
     'forside.klartFoerSoeknad.fnr.tittel': 'National identity number',
     'forside.klartFoerSoeknad.fnr.innhold':
@@ -106,6 +106,7 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Your income from work',
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
+    'forside.informasjonViHenterOmDeg.tittel': 'Information we collect about you',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
     'forside.slikBehandlerVi.tittel': 'How we process personal data',
     'forside.slikBehandlerVi.innhold':
@@ -146,7 +147,7 @@ export default {
     'forside.lagringstid.tittel': 'How long is your data stored?',
     'forside.lagringstid.innhold':
         'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
-    'forside.automatiskbehandling.tittel': 'Automatic processing',
+    'forside.automatiskbehandling.tittel': 'Automatic case processing',
     'forside.automatiskbehandling.innhold1':
         'Virtually all processing of personal data in connection with transitional benefit is done manually. This means that there is a case handler who looks at and processes your case.',
     'forside.automatiskbehandling.innhold2.del1':

@@ -89,9 +89,9 @@ export default {
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'I denne søknaden kan du også søke om barnepensjon. Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
-    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden',
+    'forside.utfyllingAvSoeknad.tittel': 'Vi lagrer svar underveis',
     'forside.utfyllingAvSoeknad.innhold':
-        'Vi lagrer svarene i søknaden underveis, så du kan trygt ta pauser og gå tilbake for å endre dem. Vær oppmerksom på at vi kun lagrer svarene dine i 72 timer.',
+        'Søknaden din lagres underveis i utfyllingen, så du kan ta pauser hvis du trenger det. Hvis du ikke gjør noe med søknaden innen 72 timer, sletter vi den.',
     'forside.klartFoerSoeknad.tittel': 'Dette bør du ha klart før du søker',
     'forside.klartFoerSoeknad.fnr.tittel': 'Fødselsnummer',
     'forside.klartFoerSoeknad.fnr.innhold':
@@ -104,6 +104,7 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Din arbeidsinntekt',
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         'For å kunne beregne riktig omstillingsstønad trenger vi informasjon om din arbeidsinntekt. Er du født før 1964 trenger vi informasjon om inntekten din i året før den avdødes dødsfall. Du må oppgi brutto inntekt, det vil si inntekt før skatt. Du finner brutto inntekt på lønnsslippen din.',
+    'forside.informasjonViHenterOmDeg.tittel': 'Informasjonen vi henter om deg',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysninger i søknaden',
     'forside.slikBehandlerVi.tittel': 'Hvordan vi behandler personopplysninger',
     'forside.slikBehandlerVi.innhold':
@@ -141,7 +142,7 @@ export default {
     'forside.lagringstid.tittel': 'Hvor lenge lagres dine opplysninger',
     'forside.lagringstid.innhold':
         'Personopplysningene lagres i 10 år etter siste utbetaling etter økonomiregelverkets bestemmelser.',
-    'forside.automatiskbehandling.tittel': 'Automatisk behandling',
+    'forside.automatiskbehandling.tittel': 'Automatisk saksbehandling',
     'forside.automatiskbehandling.innhold1':
         'Stort sett all behandling av personopplysninger i forbindelse med omstillingsstønad blir gjort manuelt. Det vil si at det er en saksbehandler som ser på og behandler saken din.',
     'forside.automatiskbehandling.innhold2.del1':

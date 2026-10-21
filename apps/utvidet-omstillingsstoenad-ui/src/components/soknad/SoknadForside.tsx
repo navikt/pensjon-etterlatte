@@ -1,11 +1,11 @@
 import {
+    Accordion,
     Alert,
     BodyLong,
     BodyShort,
     Box,
     Button,
     ConfirmationPanel,
-    ExpansionCard,
     GuidePanel,
     Heading,
     Link,
@@ -175,100 +175,65 @@ const SoknadForside = () => {
                 <BodyLong spacing>{t('forside.foerDuSoeker.innhold.del2')}</BodyLong>
             </Box>
             <Box marginBlock="space-0 space-48">
-                <Heading size={'small'}>{t('forside.barnepensjon.tittel')}</Heading>
-                <BodyLong spacing>{t('forside.barnepensjon.innhold')}</BodyLong>
-                <Heading size={'small'}>{t('forside.utfyllingAvSoeknad.tittel')}</Heading>
-                <BodyLong spacing>{t('forside.utfyllingAvSoeknad.innhold')}</BodyLong>
-
                 <Box marginBlock="space-16">
-                    <ExpansionCard aria-label={t('forside.klartFoerSoeknad.tittel')} size="small">
-                        <ExpansionCard.Header>
-                            <ExpansionCard.Title as={'h2'} size={'small'}>
-                                {t('forside.klartFoerSoeknad.tittel')}
-                            </ExpansionCard.Title>
-                        </ExpansionCard.Header>
-                        <ExpansionCard.Content>
-                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.fnr.tittel')}</Heading>
-                            <BodyLong spacing>{t('forside.klartFoerSoeknad.fnr.innhold')}</BodyLong>
-
-                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.oppholdUtland.tittel')}</Heading>
-                            <BodyLong spacing>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del1')}</BodyLong>
-                            <BodyLong spacing>{t('forside.klartFoerSoeknad.oppholdUtland.innhold.del2')}</BodyLong>
-
-                            <Heading size={'xsmall'}>{t('forside.klartFoerSoeknad.arbeidsinntekt.tittel')}</Heading>
-                            <BodyLong>{t('forside.klartFoerSoeknad.arbeidsinntekt.innhold')}</BodyLong>
-                        </ExpansionCard.Content>
-                    </ExpansionCard>
-                </Box>
-
-                <Box marginBlock="space-16">
-                    <ExpansionCard aria-label={t('forside.omSoeknaden.personvern')} size="small">
-                        <ExpansionCard.Header>
-                            <ExpansionCard.Title as={'h2'} size={'small'}>
-                                {t('forside.omSoeknaden.personvern')}
-                            </ExpansionCard.Title>
-                        </ExpansionCard.Header>
-                        <ExpansionCard.Content>
-                            <Heading size={'small'}>{t('forside.slikBehandlerVi.tittel')}</Heading>
-                            <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
-
-                            <Box marginBlock="space-16">
-                                <Heading size={'small'}>{t('forside.innsamlingAvInfo.tittel')}</Heading>
-                                <Box marginInline="space-16 space-0">
-                                    <List as={'ul'}>
-                                        <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li1')}</List.Item>
-                                        <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li2')}</List.Item>
-                                        <List.Item>{t('forside.innsamlingAvInfo.innholdListe.li3')}</List.Item>
-                                    </List>
-                                </Box>
-                            </Box>
-
-                            <Heading size={'small'}>{t('forside.uthentingAvInfo.tittel')}</Heading>
-                            <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
-
-                            <Box marginInline="space-16 space-0">
-                                <List as={'ul'}>
-                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li1')}</List.Item>
-                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li2')}</List.Item>
-                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li3')}</List.Item>
-                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li4')}</List.Item>
-                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li5')}</List.Item>
-                                    <List.Item>{t('forside.uthentingAvInfo.innholdListe.li6')}</List.Item>
-                                    <List.Item>
-                                        <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
-                                    </List.Item>
-                                </List>
-                            </Box>
-
-                            <Box marginBlock="space-16">
-                                <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
-                            </Box>
-
-                            <Box marginBlock="space-16">
-                                <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
+                    <Accordion size="small">
+                        <Accordion.Item>
+                            <Accordion.Header>{t('forside.informasjonViHenterOmDeg.tittel')}</Accordion.Header>
+                            <Accordion.Content>
+                                <BodyLong>{t('forside.uthentingAvInfo.innhold')}</BodyLong>
 
                                 <Box marginInline="space-16 space-0">
                                     <List as={'ul'}>
-                                        <List.Item>{t('forside.personvern.tredjeperson.li1')}</List.Item>
-                                        <List.Item>{t('forside.personvern.tredjeperson.li2')}</List.Item>
-                                        <List.Item>{t('forside.personvern.tredjeperson.li3')}</List.Item>
-                                        <List.Item>{t('forside.personvern.tredjeperson.li4')}</List.Item>
+                                        <List.Item>{t('forside.uthentingAvInfo.innholdListe.li1')}</List.Item>
+                                        <List.Item>{t('forside.uthentingAvInfo.innholdListe.li2')}</List.Item>
+                                        <List.Item>{t('forside.uthentingAvInfo.innholdListe.li3')}</List.Item>
+                                        <List.Item>{t('forside.uthentingAvInfo.innholdListe.li4')}</List.Item>
+                                        <List.Item>{t('forside.uthentingAvInfo.innholdListe.li5')}</List.Item>
+                                        <List.Item>{t('forside.uthentingAvInfo.innholdListe.li6')}</List.Item>
+                                        <List.Item>
+                                            <BodyLong>{t('forside.uthentingAvInfo.innholdListe.li7')}</BodyLong>
+                                        </List.Item>
                                     </List>
                                 </Box>
-                            </Box>
 
-                            <Box marginBlock="space-16">
-                                <Heading size={'small'}>{t('forside.utleveringAvOpplysninger.tittel')}</Heading>
-                                <BodyLong>{t('forside.utleveringAvOpplysninger.innhold')}</BodyLong>
-                            </Box>
+                                <Box marginBlock="space-16">
+                                    <BodyLong>{t('forside.personvern.aktivitetsplikt')}</BodyLong>
+                                </Box>
 
-                            <Box marginBlock="space-16">
-                                <Heading size={'small'}>{t('forside.lagringstid.tittel')}</Heading>
-                                <BodyLong>{t('forside.lagringstid.innhold')}</BodyLong>
-                            </Box>
+                                <Box marginBlock="space-16">
+                                    <BodyShort>{t('forside.personvern.tredjeperson')}</BodyShort>
+                                    <Box marginInline="space-16 space-0">
+                                        <List as={'ul'}>
+                                            <List.Item>{t('forside.personvern.tredjeperson.li1')}</List.Item>
+                                            <List.Item>{t('forside.personvern.tredjeperson.li2')}</List.Item>
+                                            <List.Item>{t('forside.personvern.tredjeperson.li3')}</List.Item>
+                                            <List.Item>{t('forside.personvern.tredjeperson.li4')}</List.Item>
+                                        </List>
+                                    </Box>
+                                </Box>
+                            </Accordion.Content>
+                        </Accordion.Item>
 
-                            <Box marginBlock="space-16">
-                                <Heading size={'small'}>{t('forside.automatiskbehandling.tittel')}</Heading>
+                        <Accordion.Item>
+                            <Accordion.Header>{t('forside.slikBehandlerVi.tittel')}</Accordion.Header>
+                            <Accordion.Content>
+                                <BodyLong>{t('forside.slikBehandlerVi.innhold')}</BodyLong>
+
+                                <Box marginBlock="space-16">
+                                    <BodyLong>
+                                        {`${t('forside.personvern.innhold1')} `}
+                                        <Link href={t('forside.personvern.lenke.href')} target="_blank">
+                                            {t('forside.personvern.lenke.tekst')}
+                                        </Link>
+                                        {` ${t('forside.personvern.innhold2')}`}
+                                    </BodyLong>
+                                </Box>
+                            </Accordion.Content>
+                        </Accordion.Item>
+
+                        <Accordion.Item>
+                            <Accordion.Header>{t('forside.automatiskbehandling.tittel')}</Accordion.Header>
+                            <Accordion.Content>
                                 <BodyLong>{t('forside.automatiskbehandling.innhold1')}</BodyLong>
                                 <Box marginBlock="space-16">
                                     <BodyLong>
@@ -296,21 +261,16 @@ const SoknadForside = () => {
                                 </Box>
 
                                 <BodyLong spacing>{t('forside.automatiskbehandling.innhold5')}</BodyLong>
-                            </Box>
+                            </Accordion.Content>
+                        </Accordion.Item>
 
-                            <Box marginBlock="space-16">
-                                <Heading size={'small'}>{t('forside.personvern.tittel')}</Heading>
-
-                                <BodyLong>
-                                    {`${t('forside.personvern.innhold1')} `}
-                                    <Link href={t('forside.personvern.lenke.href')} target="_blank">
-                                        {t('forside.personvern.lenke.tekst')}
-                                    </Link>
-                                    {` ${t('forside.personvern.innhold2')}`}
-                                </BodyLong>
-                            </Box>
-                        </ExpansionCard.Content>
-                    </ExpansionCard>
+                        <Accordion.Item>
+                            <Accordion.Header>{t('forside.utfyllingAvSoeknad.tittel')}</Accordion.Header>
+                            <Accordion.Content>
+                                <BodyLong>{t('forside.utfyllingAvSoeknad.innhold')}</BodyLong>
+                            </Accordion.Content>
+                        </Accordion.Item>
+                    </Accordion>
                 </Box>
             </Box>
             <Box marginBlock="space-0 space-48">
