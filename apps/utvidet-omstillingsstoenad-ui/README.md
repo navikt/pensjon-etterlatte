@@ -10,7 +10,7 @@ Frontendmodellen ligger i `src/typer/skjema.ts`. `src/utils/mapSoeknad.ts` mappe
 
 Mappingen følger spesifikasjonen der eksempeltekstene avviker. Aktivitetsplan sendes bare ved tiltak (Å1), samboers inntekt er `null` (Å2), og utbetalingsinformasjon er `null` (Å5). Disse spørsmålene må fortsatt avklares før innsendingen ferdigstilles.
 
-Felles [roadmap og arbeidspakker](https://github.com/navikt/pensjon-etterlatte-saksbehandling/blob/main/.github/utvidet-oms/veikart.md) ligger i søsterrepoet `pensjon-etterlatte-saksbehandling`.
+Felles [veikart og arbeidspakker](../../.github/utvidet-oms/veikart.md), [beslutninger](../../.github/utvidet-oms/beslutninger.md) og [spesifikasjon](../../.github/utvidet-oms/spesifikasjon.md) ligger i dette repoet. Start `copilot` fra reporoten, og velg `utvidet-oms` med `/agent`. Agenten, dokumentasjonen og statusskriptet flyttes tilbake til Gjenny når arbeidet går over til behandlingsløpet der (B7).
 
 ## Kom i gang
 
