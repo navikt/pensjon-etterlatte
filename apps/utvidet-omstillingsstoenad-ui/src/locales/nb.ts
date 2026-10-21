@@ -79,6 +79,13 @@ export default {
     'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
     'forside.omYtelsene.innhold.del2.lenke.tekst': 'søke om omstillingsstønad',
     'forside.omYtelsene.innhold.del2.del2': '.',
+    'forside.foerDuSoeker.tittel': 'Før du søker',
+    'forside.foerDuSoeker.innhold.del1': 'Hvis du tar eller skal ta utdanning, må du dokumentere følgende i søknaden:',
+    'forside.foerDuSoeker.innhold.li1': 'navn på studiested',
+    'forside.foerDuSoeker.innhold.li2': 'navn på studie',
+    'forside.foerDuSoeker.innhold.li3': 'hvor mye du skal studere',
+    'forside.foerDuSoeker.innhold.li4': 'perioden du skal studere',
+    'forside.foerDuSoeker.innhold.del2': 'Dokumentasjonen må tydelig vise hvem den gjelder.',
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'I denne søknaden kan du også søke om barnepensjon. Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',

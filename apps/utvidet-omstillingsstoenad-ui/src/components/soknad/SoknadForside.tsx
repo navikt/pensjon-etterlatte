@@ -160,6 +160,21 @@ const SoknadForside = () => {
                 </BodyLong>
             </Box>
             <Box marginBlock="space-0 space-48">
+                <Heading size={'small'} spacing>
+                    {t('forside.foerDuSoeker.tittel')}
+                </Heading>
+                <BodyLong spacing>{t('forside.foerDuSoeker.innhold.del1')}</BodyLong>
+                <Box marginInline="space-16 space-0">
+                    <List>
+                        <List.Item>{t('forside.foerDuSoeker.innhold.li1')}</List.Item>
+                        <List.Item>{t('forside.foerDuSoeker.innhold.li2')}</List.Item>
+                        <List.Item>{t('forside.foerDuSoeker.innhold.li3')}</List.Item>
+                        <List.Item>{t('forside.foerDuSoeker.innhold.li4')}</List.Item>
+                    </List>
+                </Box>
+                <BodyLong spacing>{t('forside.foerDuSoeker.innhold.del2')}</BodyLong>
+            </Box>
+            <Box marginBlock="space-0 space-48">
                 <Heading size={'small'}>{t('forside.barnepensjon.tittel')}</Heading>
                 <BodyLong spacing>{t('forside.barnepensjon.innhold')}</BodyLong>
                 <Heading size={'small'}>{t('forside.utfyllingAvSoeknad.tittel')}</Heading>

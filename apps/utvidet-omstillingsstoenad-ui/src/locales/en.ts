@@ -80,6 +80,14 @@ export default {
     'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
     'forside.omYtelsene.innhold.del2.lenke.tekst': 'apply for adjustment allowance',
     'forside.omYtelsene.innhold.del2.del2': '.',
+    'forside.foerDuSoeker.tittel': 'Before you apply',
+    'forside.foerDuSoeker.innhold.del1':
+        'If you are taking or planning education, you must document the following in the application:',
+    'forside.foerDuSoeker.innhold.li1': 'name of the educational institution',
+    'forside.foerDuSoeker.innhold.li2': 'name of the programme',
+    'forside.foerDuSoeker.innhold.li3': 'how much you will study',
+    'forside.foerDuSoeker.innhold.li4': 'the study period',
+    'forside.foerDuSoeker.innhold.del2': 'The documentation must clearly show who it applies to.',
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
         "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
