@@ -65,7 +65,7 @@ export default {
     'knapp.neste': 'Next step',
     'knapp.avbryt': 'Cancel',
     'knapp.sendSoeknad': 'Submit',
-    'forside.tittel': 'Apply for extended adjustment allowance',
+    'forside.tittel': 'Here you can apply for',
     'forside.ingress.tittel': 'Hi, {{navn}}!',
     'forside.ingress.del1':
         'Adjustment allowance secures your income if you lose a spouse, partner, or cohabitant with whom you have children. You may receive the allowance for up to 3 years after the death. The allowance can be extended by up to 2 years if you take education that is necessary and appropriate, or need labour market measures to get into work. To receive an extension, the periods must be consecutive.',
@@ -74,17 +74,12 @@ export default {
     'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
     'forside.ingress.del2.del2': ' (opens in a new tab).',
     'forside.startSoeknad': 'Start filling in the form',
-    'forside.omYtelsene.innhold':
-        'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',
-    'forside.omYtelsene.innhold.li1':
-        'The objective of this support scheme is to ensure income and assist you in being self-reliant during a transitional period after the death',
-    'forside.omYtelsene.innhold.li2':
-        'Once 6 months have passed, the main rule is that you have begun work or have another activity that will allow you to provide for yourself.',
-    'forside.omYtelsene.innhold.li3': 'Your income will determine how much money you are entitled to.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-        'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about adjustment allowance.',
+    'forside.omYtelsene.innhold.del1':
+        'This application is for an extension of adjustment allowance for you if you are taking or planning education, or taking part in or planning labour market measures. You must already receive adjustment allowance to apply.',
+    'forside.omYtelsene.innhold.del2.del1': 'If you do not already receive adjustment allowance, you can ',
+    'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
+    'forside.omYtelsene.innhold.del2.lenke.tekst': 'apply for adjustment allowance',
+    'forside.omYtelsene.innhold.del2.del2': '.',
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
         "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",

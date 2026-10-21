@@ -150,20 +150,13 @@ const SoknadForside = () => {
                     {t('forside.tittel')}
                 </Heading>
 
-                <BodyLong>{t('forside.omYtelsene.innhold')}</BodyLong>
-                <Box marginInline="space-16 space-0">
-                    <List>
-                        <List.Item>{t('forside.omYtelsene.innhold.li1')}</List.Item>
-                        <List.Item>{t('forside.omYtelsene.innhold.li2')}</List.Item>
-                        <List.Item>{t('forside.omYtelsene.innhold.li3')}</List.Item>
-                    </List>
-                </Box>
-
+                <BodyLong spacing>{t('forside.omYtelsene.innhold.del1')}</BodyLong>
                 <BodyLong>
-                    {t('forside.omYtelsene.innhold.merOmOmstillingsstoenad')}
-                    <Link href={t('forside.omYtelsene.lenkeGjenlevende.href')}>
-                        {t('forside.omYtelsene.lenkeGjenlevende.tekst')}
+                    {t('forside.omYtelsene.innhold.del2.del1')}
+                    <Link href={t('forside.omYtelsene.innhold.del2.lenke.href')}>
+                        {t('forside.omYtelsene.innhold.del2.lenke.tekst')}
                     </Link>
+                    {t('forside.omYtelsene.innhold.del2.del2')}
                 </BodyLong>
             </Box>
             <Box marginBlock="space-0 space-48">

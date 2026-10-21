@@ -64,7 +64,7 @@ export default {
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',
     'knapp.sendSoeknad': 'Send inn',
-    'forside.tittel': 'Søk om utvidet omstillingsstønad',
+    'forside.tittel': 'Her kan du søke om',
     'forside.ingress.tittel': 'Hei, {{navn}}!',
     'forside.ingress.del1':
         'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. Du kan få stønad i inntil 3 år etter dødsfallet. Stønaden kan forlenges med inntil 2 år hvis du tar utdanning som er nødvendig og hensiktsmessig, eller har behov for tiltak for å komme i jobb. For å få forlenget stønaden, må periodene være sammenhengende.',
@@ -73,17 +73,12 @@ export default {
     'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
     'forside.ingress.del2.del2': ' (åpnes i ny fane).',
     'forside.startSoeknad': 'Start utfyllingen',
-    'forside.omYtelsene.innhold':
-        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer du har felles barn med. I noen tilfeller kan du få støtte hvis dere tidligere var gift.\n ',
-    'forside.omYtelsene.innhold.li1':
-        'Støtten skal sikre inntekt og gi hjelp til selvhjelp i en omstillingsperiode etter dødsfallet.',
-    'forside.omYtelsene.innhold.li2':
-        'Etter 6 måneder må du som hovedregel være i arbeid eller en annen aktivitet slik at du etter hvert kan forsørge deg selv.',
-    'forside.omYtelsene.innhold.li3': 'Inntekten din avgjør hvor mye penger du kan få.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-        'Lurer du på hvem som kan få, hvor mye eller annet om stønaden kan du ',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese mer om omstillingsstønad.',
+    'forside.omYtelsene.innhold.del1':
+        'Søknaden gjelder forlengelse av omstillingsstønad for deg som tar eller skal ta utdanning, eller deltar i eller skal delta i arbeidsrettet tiltak. Du må allerede ha omstillingsstønad for å kunne søke.',
+    'forside.omYtelsene.innhold.del2.del1': 'Hvis du ikke har omstillingsstønad fra før, kan du ',
+    'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
+    'forside.omYtelsene.innhold.del2.lenke.tekst': 'søke om omstillingsstønad',
+    'forside.omYtelsene.innhold.del2.del2': '.',
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'I denne søknaden kan du også søke om barnepensjon. Har du felles barn under 18 år med avdøde, kan barnet eller barna ha rett til barnepensjon.',
