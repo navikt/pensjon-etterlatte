@@ -97,7 +97,7 @@ const SoknadForside = () => {
             )}
             <Box marginBlock="space-0 space-48">
                 <GuidePanel poster>
-                    <Heading size={'small'} spacing>
+                    <Heading level="2" size={'small'} spacing>
                         {t('forside.ingress.tittel', { navn: brukerState.fornavn })}
                     </Heading>
                     <BodyShort spacing>{t('forside.ingress.del1')}</BodyShort>
@@ -146,7 +146,7 @@ const SoknadForside = () => {
                 </Box>
             )}
             <Box marginBlock="space-0 space-48">
-                <Heading spacing size={'large'}>
+                <Heading level="2" spacing size={'medium'}>
                     {t('forside.tittel')}
                 </Heading>
 
@@ -160,7 +160,7 @@ const SoknadForside = () => {
                 </BodyLong>
             </Box>
             <Box marginBlock="space-0 space-48">
-                <Heading size={'small'} spacing>
+                <Heading level="2" size={'medium'} spacing>
                     {t('forside.foerDuSoeker.tittel')}
                 </Heading>
                 <BodyLong spacing>{t('forside.foerDuSoeker.innhold.del1')}</BodyLong>
