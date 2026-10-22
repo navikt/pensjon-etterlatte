@@ -31,6 +31,7 @@ interface Props<T extends FieldValues> {
     oppdaterSoeknad: (state: ISoeknad, data: T) => ISoeknad
     neste?: StegPath
     forrige?: StegPath | '/'
+    sentrertTittel?: boolean
     children: ReactNode
 }
 
@@ -40,6 +41,7 @@ export const SoeknadSteg = <T extends FieldValues>({
     oppdaterSoeknad,
     neste,
     forrige,
+    sentrertTittel = false,
     children,
 }: Props<T>) => {
     const { state, dispatch } = useSoknadContext()
@@ -116,7 +118,13 @@ export const SoeknadSteg = <T extends FieldValues>({
                             )}
                         </ErrorSummary>
                     )}
-                    <Heading ref={headingRef} size="medium" level="2" tabIndex={-1}>
+                    <Heading
+                        ref={headingRef}
+                        className={sentrertTittel ? 'center' : undefined}
+                        size="medium"
+                        level="2"
+                        tabIndex={-1}
+                    >
                         {tittel}
                     </Heading>
                     {children}

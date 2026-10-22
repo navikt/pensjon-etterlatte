@@ -5,6 +5,7 @@ import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { useLanguage } from '../../hooks/useLanguage'
 import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
+import Personopplysninger from './Personopplysninger'
 import { SoeknadSteg } from './SoeknadSteg'
 
 const SoknadDialog = () => {
@@ -42,8 +43,13 @@ const SoknadDialog = () => {
                 oppdaterSoeknad={(soeknad) => ({ ...soeknad, aktivtSteg: path })}
                 neste={steg[index + 1]?.path}
                 forrige={steg[index - 1]?.path ?? '/'}
+                sentrertTittel={path === 'personopplysninger'}
             >
-                <BodyLong>{t('skjema.underArbeid')}</BodyLong>
+                {path === 'personopplysninger' ? (
+                    <Personopplysninger />
+                ) : (
+                    <BodyLong>{t('skjema.underArbeid')}</BodyLong>
+                )}
             </SoeknadSteg>
         </VStack>
     )

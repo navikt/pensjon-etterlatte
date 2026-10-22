@@ -46,6 +46,12 @@ describe('Stegruter', () => {
         expect(screen.queryByText('knapp.sendSoeknad')).toBeNull()
     })
 
+    it('viser personopplysninger på steg 2 i stedet for plassholderen', () => {
+        setup('/skjema/steg/personopplysninger')
+        expect(screen.getByText('personopplysninger.opplysningerFeil.tittel')).toBeDefined()
+        expect(screen.queryByText('skjema.underArbeid')).toBeNull()
+    })
+
     it('Gammel stegrute sender brukeren til lagret steg', async () => {
         state = { ...state, aktivtSteg: 'utdanning-og-tiltak' }
         setup('/skjema/steg')
