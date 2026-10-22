@@ -257,7 +257,6 @@ const SoknadForside = () => {
                     <Link href={t('forside.samtykke.lenke.href')} inlineText>
                         {t('forside.samtykke.lenke.tekst')}
                     </Link>
-                    {t('forside.samtykke.innhold.del2')}
                 </BodyShort>
 
                 <Checkbox

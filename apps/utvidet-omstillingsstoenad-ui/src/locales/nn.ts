@@ -172,7 +172,6 @@ export default {
         'Det er viktig at du gir oss riktige opplysingar slik at vi kan behandle saka di. ',
     'forside.samtykke.lenke.tekst': 'Les meir om kvifor det er viktig å gi riktige opplysingar',
     'forside.samtykke.lenke.href': 'https://www.nav.no/endringer',
-    'forside.samtykke.innhold.del2': '',
     'forside.samtykke.bekreftelse': 'Eg vil svare så godt eg kan på spørsmåla i søknaden.',
     'forside.harSoektOms.tittel': 'Du har allereie ein aktiv søknad hos oss',
     'forside.harSoektOms.avsnitt':

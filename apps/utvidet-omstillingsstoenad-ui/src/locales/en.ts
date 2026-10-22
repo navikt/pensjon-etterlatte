@@ -175,7 +175,6 @@ export default {
         'It is important that you provide correct information so that we can process your case. ',
     'forside.samtykke.lenke.tekst': 'Read more about why it is important to provide correct information',
     'forside.samtykke.lenke.href': 'https://www.nav.no/endringer/en',
-    'forside.samtykke.innhold.del2': '',
     'forside.samtykke.bekreftelse': 'I will answer the questions in the application as best I can.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':

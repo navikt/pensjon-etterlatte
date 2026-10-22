@@ -169,7 +169,6 @@ export default {
         'Det er viktig at du gir oss riktige opplysninger slik at vi kan behandle saken din. ',
     'forside.samtykke.lenke.tekst': 'Les mer om viktigheten av å gi riktige opplysninger',
     'forside.samtykke.lenke.href': 'https://www.nav.no/endringer',
-    'forside.samtykke.innhold.del2': '',
     'forside.harSoektOms.tittel': 'Du har allerede en aktiv søknad hos oss',
     'forside.harSoektOms.avsnitt':
         'Vi ser at du nylig har sendt inn denne søknaden. Dersom du sender inn søknaden på nytt, vil behandlingen ta lenger tid. Ønsker du å opplyse om endringer eller noe nytt kan du gjøre følgende:',
