@@ -65,7 +65,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
         with:
           install: false
-          start: yarn start --host 127.0.0.1 --port 5173
-          wait-on: 'http://127.0.0.1:5173'
+          start: yarn start
+          wait-on: 'http://localhost:5173'
           wait-on-timeout: 180
           working-directory: apps/${{ github.workflow }}
