@@ -59,32 +59,40 @@ export default {
     'skjema.lagringFeilet': 'Vi kunne ikkje lagre søknaden. Prøv igjen.',
     'skjema.avslutningFeilet': 'Vi kunne ikkje avslutte søknaden. Prøv igjen.',
     'skjema.underArbeid': 'Dette steget er under arbeid. Du kan ikkje sende inn søknaden enno.',
-    'banner.tittel': 'Søknad om omstillingsstønad',
+    'banner.tittel': 'Søknad om utvida omstillingsstønad',
     'knapp.tilbake': 'Førre steg',
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',
     'knapp.sendSoeknad': 'Send inn',
-    'forside.tittel': 'Søk om omstillingsstønad',
-    'forside.ingress':
-        'Hei, eg er her for å rettleie deg gjennom søknaden. Eg forstår at du kan bli usikker på kva du skal svare på enkelte spørsmål som handlar om tida framover. Berre svar så godt du kan ut frå slik situasjonen ser ut per i dag, så kan du melde frå om eventuelle endringar seinare.',
-    'forside.startSoeknad': 'Start utfyllinga',
-    'forside.omYtelsene.innhold':
-        'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. I enkelte tilfelle kan du få støtte dersom de tidlegare var gifte.',
-    'forside.omYtelsene.innhold.li1':
-        'Støtta skal sikre inntekt og gi hjelp til sjølvhjelp i ein omstillingsperiode etter dødsfallet.',
-    'forside.omYtelsene.innhold.li2':
-        'Etter 6 månader må du som hovudregel vere i arbeid eller annan aktivitet, slik at du etter kvart kan forsørgje deg sjølv.',
-    'forside.omYtelsene.innhold.li3': 'Inntekta di avgjer kor mykje pengar du kan få.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-        'Dersom du har spørsmål om stønaden – til dømes beløp og kven som kan få stønad – kan du ',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'lese meir om omstillingsstønad.',
+    'forside.tittel': 'Her kan du søkje om',
+    'forside.ingress.tittel': 'Hei, {{navn}}!',
+    'forside.ingress.del1':
+        'Omstillingsstønad sikrar deg inntekt dersom du mistar ektefelle, partnar eller sambuar du har felles barn med. Du kan få stønad i inntil 3 år etter dødsfallet. Stønaden kan forlengjast med inntil 2 år dersom du tek utdanning som er nødvendig og føremålstenleg, eller har behov for tiltak for å kome i jobb. For å få forlenga stønaden, må periodane vere samanhengande.',
+    'forside.ingress.del2.del1': 'For informasjon om stønaden, kan du ',
+    'forside.ingress.del2.lenke.tekst': 'lese meir om omstillingsstønad',
+    'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.ingress.del2.del2': ' (opnast i ny fane).',
+    'forside.startSoeknad': 'Start søknad',
+    'forside.omYtelsene.innhold.del1':
+        'Søknaden gjeld forlenging av omstillingsstønad for deg som tek eller skal ta utdanning, eller deltek i eller skal delta i arbeidsretta tiltak. Du må allereie ha omstillingsstønad for å kunne søkje.',
+    'forside.omYtelsene.innhold.del2.del1': 'Dersom du ikkje har omstillingsstønad frå før, kan du ',
+    'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
+    'forside.omYtelsene.innhold.del2.lenke.tekst': 'søkje om omstillingsstønad',
+    'forside.omYtelsene.innhold.del2.del2': '.',
+    'forside.foerDuSoeker.tittel': 'Før du søkjer',
+    'forside.foerDuSoeker.innhold.del1':
+        'Dersom du tek eller skal ta utdanning, må du dokumentere følgjande i søknaden:',
+    'forside.foerDuSoeker.innhold.li1': 'namn på studiestad',
+    'forside.foerDuSoeker.innhold.li2': 'namn på studie',
+    'forside.foerDuSoeker.innhold.li3': 'kor mykje du skal studere',
+    'forside.foerDuSoeker.innhold.li4': 'perioden du skal studere',
+    'forside.foerDuSoeker.innhold.del2': 'Dokumentasjonen må tydeleg vise kven han gjeld.',
     'forside.barnepensjon.tittel': 'Barnepensjon',
     'forside.barnepensjon.innhold':
         'I denne søknaden kan du også søkje om barnepensjon. Dersom du har felles barn under 18 år med avdøde, kan barnet eller barna ha rett på barnepensjon.',
-    'forside.utfyllingAvSoeknad.tittel': 'Utfylling av søknaden',
+    'forside.utfyllingAvSoeknad.tittel': 'Vi lagrar svar undervegs',
     'forside.utfyllingAvSoeknad.innhold':
-        'Vi lagrar svara i søknaden undervegs, så du kan trygt ta pausar og kome tilbake for å endre dei. Ver merksam på at svara dine berre blir lagra i 72 timar.',
+        'Vi lagrar svara dine undervegs, slik at du kan ta pausar og halde fram seinare. Ver merksam på at svara dine berre blir lagra i 72 timar.',
     'forside.klartFoerSoeknad.tittel': 'Ha klar følgjande opplysningar før du søkjer',
     'forside.klartFoerSoeknad.fnr.tittel': 'Fødselsnummer',
     'forside.klartFoerSoeknad.fnr.innhold':
@@ -97,6 +105,7 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Di arbeidsinntekt',
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         'For at vi skal kunne rekne ut rett omstillingsstønad, treng vi informasjon om arbeidsinntekta di. Viss du er fødd før 1964, treng vi informasjon om inntekta du hadde året før den avdøde gjekk bort. Oppgi brutto inntekt, det vil seie inntekt før skatt. Du finn brutto inntekt på lønsslippen din.\n',
+    'forside.informasjonViHenterOmDeg.tittel': 'Informasjonen vi hentar om deg',
     'forside.omSoeknaden.personvern': 'Behandling av personopplysningar i søknaden',
     'forside.slikBehandlerVi.tittel': 'Korleis vi behandlar personopplysningar',
     'forside.slikBehandlerVi.innhold':
@@ -135,7 +144,7 @@ export default {
     'forside.lagringstid.tittel': 'Kor lenge opplysningane dine blir lagra',
     'forside.lagringstid.innhold':
         'Personopplysningane blir i tråd med føresegnene i økonomiregelverket lagra i 10 år etter siste utbetaling.',
-    'forside.automatiskbehandling.tittel': 'Automatisk behandling',
+    'forside.automatiskbehandling.tittel': 'Automatisk saksbehandling',
     'forside.automatiskbehandling.innhold1':
         'Stort sett all behandling av personopplysningar i samband med omstillingsstønad blir gjort manuelt. Det vil seie at det er ein saksbehandlar som ser på og behandlar saka di.',
     'forside.automatiskbehandling.innhold2.del1':
@@ -159,19 +168,11 @@ export default {
     'forside.personvern.lenke.href': 'https://www.nav.no/personvern',
     'forside.personvern.lenke.tekst': 'Arbeids- og velferdsetatens personvernerklæring',
     'forside.personvern.innhold2': '(blir opna i ny fane).',
-    'forside.samtykke.tittel': 'Vi stoler på deg',
-    'forside.samtykke.innhold': 'Du må gi oss riktige opplysingar for at vi skal kunne behandle søknaden din.',
-    'forside.samtykke.bekreftelse': 'Eg bekreftar at eg vil gi riktige og fullstendige opplysingar.',
-    'forside.over67.tittel': 'Rett for deg som har fylt 67 år',
-    'forside.over67.avsnitt1':
-        'For å få omstillingsstønad må du vere mellom 18 og 67 år. Dersom dødsfallet skjedde før du fylte 67 år, kan du ha rett på omstillingsstønad.',
-    'forside.over67.avsnitt2': 'Ettersom du har fylt 67 år, kan du ha ',
-    'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
-    'forside.over67.avsnitt2.lenke.tekst': 'rett på høgare alderspensjon.',
-    'forside.over67.avsnitt3.del1': 'Du kan ',
-    'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss',
-    'forside.over67.avsnitt3.lenke.tekst': 'kontakte oss',
-    'forside.over67.avsnitt3.del2': ' for å få rettleiing.',
+    'forside.samtykke.innhold.del1':
+        'Det er viktig at du gir oss riktige opplysingar slik at vi kan behandle saka di. ',
+    'forside.samtykke.lenke.tekst': 'Les meir om kvifor det er viktig å gi riktige opplysingar',
+    'forside.samtykke.lenke.href': 'https://www.nav.no/endringer',
+    'forside.samtykke.bekreftelse': 'Eg vil svare så godt eg kan på spørsmåla i søknaden.',
     'forside.harSoektOms.tittel': 'Du har allereie ein aktiv søknad hos oss',
     'forside.harSoektOms.avsnitt':
         'Vi ser at du nyleg har sendt inn denne søknaden. Dersom du sender inn søknaden på nytt, vil behandlinga ta lenger tid. Ønskjer du å opplyse om endringar eller noko nytt, kan du gjere følgjande:',

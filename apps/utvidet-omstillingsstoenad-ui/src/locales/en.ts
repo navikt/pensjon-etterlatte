@@ -60,32 +60,40 @@ export default {
     'skjema.lagringFeilet': 'We could not save your application. Please try again.',
     'skjema.avslutningFeilet': 'We could not close your application. Please try again.',
     'skjema.underArbeid': 'This step is under development. You cannot submit your application yet.',
-    'banner.tittel': 'Application for adjustment allowance',
+    'banner.tittel': 'Application for extended adjustment allowance',
     'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next step',
     'knapp.avbryt': 'Cancel',
     'knapp.sendSoeknad': 'Submit',
-    'forside.tittel': 'Apply for adjustment allowance',
-    'forside.ingress':
-        'Hello. I am here to guide you through the application process. I understand that you may be uncertain about how to answer some questions about the coming months. Answer as good as you can based on your current situation. You can always notify us about any changes that occur later.',
-    'forside.startSoeknad': 'Start filling in the form',
-    'forside.omYtelsene.innhold':
-        'The adjustment allowance ensures you income if you lose your spouse, partner or cohabitant with joint children. In some cases, you may be eligible for support if you have previously been married.',
-    'forside.omYtelsene.innhold.li1':
-        'The objective of this support scheme is to ensure income and assist you in being self-reliant during a transitional period after the death',
-    'forside.omYtelsene.innhold.li2':
-        'Once 6 months have passed, the main rule is that you have begun work or have another activity that will allow you to provide for yourself.',
-    'forside.omYtelsene.innhold.li3': 'Your income will determine how much money you are entitled to.',
-    'forside.omYtelsene.innhold.merOmOmstillingsstoenad':
-        'Curious about who is eligible, how much you can receive, or other questions about benefits, you can ',
-    'forside.omYtelsene.lenkeGjenlevende.href': 'https://www.nav.no/omstillingsstonad',
-    'forside.omYtelsene.lenkeGjenlevende.tekst': 'read more about adjustment allowance.',
+    'forside.tittel': 'Here you can apply for',
+    'forside.ingress.tittel': 'Hi, {{navn}}!',
+    'forside.ingress.del1':
+        'Adjustment allowance secures your income if you lose a spouse, partner, or cohabitant with whom you have children. You may receive the allowance for up to 3 years after the death. The allowance can be extended by up to 2 years if you take education that is necessary and appropriate, or need labour market measures to get into work. To receive an extension, the periods must be consecutive.',
+    'forside.ingress.del2.del1': 'For information about the allowance, you can ',
+    'forside.ingress.del2.lenke.tekst': 'read more about adjustment allowance',
+    'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.ingress.del2.del2': ' (opens in a new tab).',
+    'forside.startSoeknad': 'Start application',
+    'forside.omYtelsene.innhold.del1':
+        'This application is for an extension of adjustment allowance for you if you are taking or planning education, or taking part in or planning labour market measures. You must already receive adjustment allowance to apply.',
+    'forside.omYtelsene.innhold.del2.del1': 'If you do not already receive adjustment allowance, you can ',
+    'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
+    'forside.omYtelsene.innhold.del2.lenke.tekst': 'apply for adjustment allowance',
+    'forside.omYtelsene.innhold.del2.del2': '.',
+    'forside.foerDuSoeker.tittel': 'Before you apply',
+    'forside.foerDuSoeker.innhold.del1':
+        'If you are taking or planning education, you must document the following in the application:',
+    'forside.foerDuSoeker.innhold.li1': 'name of the educational institution',
+    'forside.foerDuSoeker.innhold.li2': 'name of the programme',
+    'forside.foerDuSoeker.innhold.li3': 'how much you will study',
+    'forside.foerDuSoeker.innhold.li4': 'the study period',
+    'forside.foerDuSoeker.innhold.del2': 'The documentation must clearly show who it applies to.',
     'forside.barnepensjon.tittel': 'Children’s pension',
     'forside.barnepensjon.innhold':
         "In this application, you can also apply for a children's pension. If you have joint children under the age of 18 with the deceased, the child or children may be entitled to a children's pension.",
-    'forside.utfyllingAvSoeknad.tittel': 'Filling in the application',
+    'forside.utfyllingAvSoeknad.tittel': 'We save your answers as you go',
     'forside.utfyllingAvSoeknad.innhold':
-        'We save the changes you make to your application as things progress, so you can return and change them later. Please be aware that we only store your answers for 72 hours.',
+        'We save your answers as you go, so you can take breaks and continue later. Please note that we only store your answers for 72 hours.',
     'forside.klartFoerSoeknad.tittel': 'Please have this information available before you apply',
     'forside.klartFoerSoeknad.fnr.tittel': 'National identity number',
     'forside.klartFoerSoeknad.fnr.innhold':
@@ -98,6 +106,7 @@ export default {
     'forside.klartFoerSoeknad.arbeidsinntekt.tittel': 'Your income from work',
     'forside.klartFoerSoeknad.arbeidsinntekt.innhold':
         ' To be able to calculate the correct adjustment allowance, we need some information about your employment income. If you were born before 1964, we need information about your income for the year before the death of the deceased. Please state gross income, meaning income before tax. You can find information on gross income from employment on your pay slip.',
+    'forside.informasjonViHenterOmDeg.tittel': 'Information we collect about you',
     'forside.omSoeknaden.personvern': 'Processing of personal data in the application',
     'forside.slikBehandlerVi.tittel': 'How we process personal data',
     'forside.slikBehandlerVi.innhold':
@@ -138,7 +147,7 @@ export default {
     'forside.lagringstid.tittel': 'How long is your data stored?',
     'forside.lagringstid.innhold':
         'Personal data is stored for 10 years after the last payment in accordance with the provisions of the financial regulations.',
-    'forside.automatiskbehandling.tittel': 'Automatic processing',
+    'forside.automatiskbehandling.tittel': 'Automatic case processing',
     'forside.automatiskbehandling.innhold1':
         'Virtually all processing of personal data in connection with transitional benefit is done manually. This means that there is a case handler who looks at and processes your case.',
     'forside.automatiskbehandling.innhold2.del1':
@@ -162,20 +171,11 @@ export default {
     'forside.personvern.lenke.href': 'https://www.nav.no/personvern/en',
     'forside.personvern.lenke.tekst': "Nav's privacy statement",
     'forside.personvern.innhold2': '(will open in a new tab).',
-    'forside.samtykke.tittel': 'We trust you',
-    'forside.samtykke.innhold':
-        'You must provide us with the correct information so that we can process your application.',
-    'forside.samtykke.bekreftelse': 'I confirm that the information I provide is correct and complete.',
-    'forside.over67.tittel': 'Legal rights after turning 67',
-    'forside.over67.avsnitt1':
-        'The right to receive the adjustment allowance is reserved for persons aged 18 to 67. If the death occurred before you turned 67, you may be eligible for the adjustment allowance.',
-    'forside.over67.avsnitt2': 'Once you turn 67, you may be ',
-    'forside.over67.avsnitt2.lenke.href': 'https://www.nav.no/alderspensjon#gjenlevende',
-    'forside.over67.avsnitt2.lenke.tekst': 'entitled to a higher old-age pension.',
-    'forside.over67.avsnitt3.del1': 'Please ',
-    'forside.over67.avsnitt3.lenke.href': 'https://www.nav.no/kontaktoss/en',
-    'forside.over67.avsnitt3.lenke.tekst': 'contact Nav',
-    'forside.over67.avsnitt3.del2': ' for further guidance on this matter.',
+    'forside.samtykke.innhold.del1':
+        'It is important that you provide correct information so that we can process your case. ',
+    'forside.samtykke.lenke.tekst': 'Read more about why it is important to provide correct information',
+    'forside.samtykke.lenke.href': 'https://www.nav.no/endringer/en',
+    'forside.samtykke.bekreftelse': 'I will answer the questions in the application as best I can.',
     'forside.harSoektOms.tittel': 'You already have an active application with us',
     'forside.harSoektOms.avsnitt':
         'We can see that you recently submitted this application. If you submit the same application again, it could take longer to process. If you want to change or add something to your first one, this is what you can do:',

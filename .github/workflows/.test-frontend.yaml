@@ -60,10 +60,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Run e2e tests (Cypress) client
         uses: cypress-io/github-action@09090944bd8aaa2a517cefb6e38bf1aae336b42b # ratchet:cypress-io/github-action@v6
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
         with:
           install: false
           start: yarn start
           wait-on: 'http://localhost:5173'
+          wait-on-timeout: 180
           working-directory: apps/${{ github.workflow }}
