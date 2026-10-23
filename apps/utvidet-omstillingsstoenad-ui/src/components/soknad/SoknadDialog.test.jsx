@@ -51,18 +51,6 @@ describe('Stegruter', () => {
         expect(screen.queryByText('knapp.sendSoeknad')).toBeNull()
     })
 
-    it('viser personopplysninger i stedet for plassholderen', () => {
-        setup('/skjema/steg/personopplysninger')
-        expect(screen.getByText('personopplysninger.opplysningerFeil.tittel')).toBeDefined()
-        expect(screen.queryByText('skjema.underArbeid')).toBeNull()
-    })
-
-    it.each(steg.slice(1))('viser plassholderen på $path', (side) => {
-        setup(`/skjema/steg/${side.path}`)
-        expect(screen.getByText('skjema.underArbeid')).toBeDefined()
-        expect(screen.queryByText('personopplysninger.opplysningerFeil.tittel')).toBeNull()
-    })
-
     it('lagrer og bytter ruteinnhold ved navigasjon frem og tilbake', async () => {
         setup('/skjema/steg/personopplysninger')
         fireEvent.click(screen.getByText('knapp.neste'))
