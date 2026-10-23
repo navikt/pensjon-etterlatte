@@ -7,6 +7,7 @@ import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
 import Personopplysninger from './Personopplysninger'
 import { SoeknadSteg } from './SoeknadSteg'
+import { SituasjonenDin } from './situasjonenDin/SituasjonenDin'
 
 const SoknadDialog = () => {
     useLanguage()
@@ -48,7 +49,7 @@ const SoknadDialog = () => {
             >
                 <Routes>
                     <Route path="personopplysninger" element={<Personopplysninger />} />
-                    <Route path="situasjonen-din" element={underArbeid} />
+                    <Route path="situasjonen-din" element={<SituasjonenDin />} />
                     <Route path="utdanning-og-tiltak" element={underArbeid} />
                     <Route path="inntekt" element={underArbeid} />
                     <Route path="dokumentasjon" element={underArbeid} />

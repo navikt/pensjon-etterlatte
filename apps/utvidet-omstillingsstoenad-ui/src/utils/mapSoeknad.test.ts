@@ -4,7 +4,7 @@ import { Language } from '../i18n'
 import en from '../locales/en'
 import nb from '../locales/nb'
 import nn from '../locales/nn'
-import { Skjema } from '../typer/skjema'
+import { SituasjonenDinKladd, Skjema } from '../typer/skjema'
 import utdanning from './fixtures/utvidet_omstillingsstoenad.json'
 import samboer from './fixtures/utvidet_omstillingsstoenad_ny_samboer.json'
 import tiltak from './fixtures/utvidet_omstillingsstoenad_tiltak.json'
@@ -200,6 +200,17 @@ describe('Mapping til kontrakten i felles', () => {
                 tekst
             )
         ).toThrow('utdanning')
+    })
+
+    it.each<[SituasjonenDinKladd, string]>([
+        [{}, 'nySivilstand'],
+        [{ nySivilstand: 'NY_SAMBOER' }, 'samboer'],
+        [{ nySivilstand: 'NY_SAMBOER', samboer: { fornavn: 'Test' } }, 'etternavn'],
+        [{ nySivilstand: 'NY_SAMBOER', samboer: { ...person } }, 'fellesBarnEllertidligereGift'],
+    ])('Avviser ufullstendig situasjonskladd ved kontraktmapping', (situasjon, felt) => {
+        expect(() =>
+            mapSoeknad(kladd({ ...grunnlag, situasjonenDinIDag: situasjon }), person, 'abc123', tekst)
+        ).toThrow(felt)
     })
 
     it.each([

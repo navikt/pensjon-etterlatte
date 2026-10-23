@@ -13,6 +13,11 @@ export interface SituasjonenDin {
     samboer?: Person & { fellesBarnEllertidligereGift: JaNei }
 }
 
+export interface SituasjonenDinKladd {
+    nySivilstand?: SituasjonenDin['nySivilstand']
+    samboer?: Partial<NonNullable<SituasjonenDin['samboer']>>
+}
+
 export interface UtdanningOgTiltak {
     aktivitet: 'UTDANNING' | 'ARBEIDSRETTET_TILTAK' | 'INGEN'
     utdanning?: {
@@ -54,7 +59,7 @@ export interface Inntekt {
 }
 
 export interface Skjema {
-    situasjonenDinIDag?: SituasjonenDin
+    situasjonenDinIDag?: SituasjonenDinKladd
     utdanningOgTiltak?: UtdanningOgTiltak
     inntekt?: Inntekt
 }
