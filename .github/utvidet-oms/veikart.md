@@ -47,6 +47,7 @@ Kontrakt: UtvidetOmstillingsstoenad i pensjon-etterlatte-felles/common
 | Repo | Branch | PR | Innhold |
 |------|--------|----|---------|
 | pe | `utvidet-soknad-struktur-ny-app` | – | Skjelett og grunnmur (3.1) for `apps/utvidet-omstillingsstoenad-ui`. Grunnmuren ligger som lokale endringer, ikke committet. |
+| pe | `utvidet-oms-personopplysninger` | – | Steg 2 Personopplysninger (3.3), implementert lokalt. |
 | pe | `NAV-31200-sende-inn-utvidet-oms-soeknad` | [#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531) | innsendt-soeknad tar imot den nye søknadstypen |
 | sb | `nav-31200-ta-imot-soknad-utvidet-oms` | [#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971) | Mottak i `NySoeknadRiver` og journalføring |
 
@@ -94,7 +95,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | 3.0 | Skjelett for appen: forside, kvittering, kladd, i18n, nais dev og workflow | | ✅ på branch |
 | 3.1 | Grunnmur: stegdefinisjon og ruter, fremdrift, Forrige/Neste/Avbryt, react-hook-form per steg, lagring ved stegbytte, frontendmodell og mapping til kontrakten (testet mot eksempel-JSON fra felles) | | 🚧 implementert lokalt på eksisterende frontendbranch, klart for review. Favro-kort og PR mangler. |
 | 3.2 | Steg 1 Introside: sjekk av sak, to varianter, samtykke | | ✅ på branch (oppdatert mot Figma). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket. |
-| 3.3 | Steg 2 Personopplysninger | | ⏳ |
+| 3.3 | Steg 2 Personopplysninger | | 🚧 implementert lokalt på `utvidet-oms-personopplysninger`; PR mangler. |
 | 3.4 | Steg 3 Situasjonen din i dag | | ⏳ |
 | 3.5 | Steg 4 Utdanning og tiltak | | ⏳ |
 | 3.6 | Steg 5 Inntekt | | ⏳ |
@@ -127,6 +128,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 
 Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til PR der det finnes.
 
+- **2026-10-22**: Steg 2 Personopplysninger (3.3) implementert lokalt på `utvidet-oms-personopplysninger`, med responsiv visning av brukeropplysninger og lenke til Folkeregisteret. PR mangler.
 - **2026-10-22**: Førstesiden (3.2) er på plass på branch og oppdatert mot Figma (ingress, informasjonsseksjoner, samtykke og startknapp). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket.
 - **2026-10-21**: Flytter agent, veikart, beslutninger, spesifikasjon og statusskript fra saksbehandling til `pensjon-etterlatte` mens vi bygger søknaden (B7). Oppdaterer lenker og legger igjen en peker i Gjenny. PR-er klargjøres.
 - **2026-10-20** – Grunnmur (3.1) implementert lokalt på `utvidet-soknad-struktur-ny-app`: seks stegruter, RHF, fremdrift, navigasjon, kladd og kontraktmapping. Stegene er foreløpig plassholdere uten innsending. Testet mot alle tre eksempel-JSON-ene fra felles. Ingen commit eller PR ennå. Å1, Å2 og Å5 er ikke lukket.

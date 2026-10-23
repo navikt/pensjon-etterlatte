@@ -1,11 +1,15 @@
-import { cleanup, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { lagreKladd } from '../../api/api'
 import { tomSoeknad } from '../../context/soknad/soknad'
 import { steg } from '../../typer/steg'
 import SoknadDialog from './SoknadDialog'
 
 let state = { ...tomSoeknad, harSamtykket: true }
+vi.mock('../../api/api', () => ({
+    lagreKladd: vi.fn(async (soeknad) => soeknad),
+}))
 vi.mock('../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({ state, dispatch: vi.fn() }),
 }))
@@ -35,6 +39,7 @@ const setup = (path) =>
 
 afterEach(() => {
     cleanup()
+    vi.clearAllMocks()
     state = { ...tomSoeknad, harSamtykket: true }
 })
 
@@ -44,6 +49,26 @@ describe('Stegruter', () => {
         expect(screen.getByRole('heading', { name: side.label })).toBeDefined()
         expect(screen.getByText(`Steg ${steg.indexOf(side) + 1} av 6`)).toBeDefined()
         expect(screen.queryByText('knapp.sendSoeknad')).toBeNull()
+    })
+
+    it('lagrer og bytter ruteinnhold ved navigasjon frem og tilbake', async () => {
+        setup('/skjema/steg/personopplysninger')
+        fireEvent.click(screen.getByText('knapp.neste'))
+
+        await screen.findByRole('heading', { name: 'skjema.situasjonenDin' })
+        expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/situasjonen-din')
+        expect(screen.getByText('skjema.underArbeid')).toBeDefined()
+        expect(screen.queryByText('personopplysninger.opplysningerFeil.tittel')).toBeNull()
+        expect(lagreKladd).toHaveBeenLastCalledWith(expect.objectContaining({ aktivtSteg: 'situasjonen-din' }))
+
+        fireEvent.click(screen.getByText('knapp.tilbake'))
+
+        const heading = await screen.findByRole('heading', { name: 'skjema.personopplysninger' })
+        expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/personopplysninger')
+        expect(screen.getByText('personopplysninger.opplysningerFeil.tittel')).toBeDefined()
+        expect(screen.queryByText('skjema.underArbeid')).toBeNull()
+        expect(lagreKladd).toHaveBeenLastCalledWith(expect.objectContaining({ aktivtSteg: 'personopplysninger' }))
+        await waitFor(() => expect(document.activeElement).toBe(heading))
     })
 
     it('Gammel stegrute sender brukeren til lagret steg', async () => {
