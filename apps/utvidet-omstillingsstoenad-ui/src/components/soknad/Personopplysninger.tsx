@@ -29,7 +29,7 @@ const Personopplysninger = () => {
                 {opplysninger
                     .filter(({ value }) => !!value)
                     .map(({ label, value }) => (
-                        <VStack key={label} gap="space-4">
+                        <VStack key={label}>
                             <Label as="span">{label}</Label>
                             <BodyShort>{value}</BodyShort>
                         </VStack>
