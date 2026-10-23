@@ -13,7 +13,6 @@ import en from '../../../locales/en'
 import nb from '../../../locales/nb'
 import nn from '../../../locales/nn'
 import SoknadDialog from '../SoknadDialog'
-import { rensSituasjonenDin } from './SituasjonenDin'
 
 vi.mock('../../../api/api', () => ({ lagreKladd: vi.fn(), slettSoeknad: vi.fn() }))
 vi.mock('../../../hooks/useLanguage', () => ({ useLanguage: vi.fn() }))
@@ -286,14 +285,5 @@ describe('Situasjonen din i dag', () => {
             rules: { region: { enabled: false }, 'color-contrast': { enabled: false } },
         })
         expect(resultat.violations).toEqual([])
-    })
-})
-
-describe('Rensing av kladd', () => {
-    it('Tar ikke med skjulte samboersvar fra en tidligere kladd', () => {
-        expect(rensSituasjonenDin({ nySivilstand: 'INGEN_AV_DELENE', samboer })).toEqual({
-            nySivilstand: 'INGEN_AV_DELENE',
-        })
-        expect(rensSituasjonenDin({ samboer })).toEqual({})
     })
 })

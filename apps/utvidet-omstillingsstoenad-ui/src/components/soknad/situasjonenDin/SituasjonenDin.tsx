@@ -3,30 +3,18 @@ import { fnr } from '@navikt/fnrvalidator'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
-import { useSoknadContext } from '~context/soknad/SoknadContext'
-import { SituasjonenDinKladd } from '~typer/skjema'
-import { SoeknadSteg } from '../SoeknadSteg'
+import { JaNei, SituasjonenDinKladd } from '~typer/skjema'
 
-export const rensSituasjonenDin = (data: SituasjonenDinKladd): SituasjonenDinKladd => {
-    const { nySivilstand, samboer } = data
-    return {
-        ...(nySivilstand ? { nySivilstand } : {}),
-        ...(nySivilstand === 'NY_SAMBOER' && samboer
-            ? {
-                  samboer: {
-                      ...samboer,
-                      ...(samboer.fornavn !== undefined ? { fornavn: samboer.fornavn.trim() } : {}),
-                      ...(samboer.etternavn !== undefined ? { etternavn: samboer.etternavn.trim() } : {}),
-                      ...(samboer.foedselsnummer !== undefined
-                          ? { foedselsnummer: samboer.foedselsnummer.replace(/\s/g, '') }
-                          : {}),
-                  },
-              }
-            : {}),
-    }
+type Sivilstand = 'NY_SAMBOER' | 'GIFTET_PAA_NYTT' | 'INGEN_AV_DELENE' | undefined
+
+const hentAdvarsel = (nySivilstand: Sivilstand, fellesBarn: JaNei | undefined) => {
+    if (nySivilstand === 'GIFTET_PAA_NYTT') return 'situasjonenDin.advarsel.gift'
+    if (nySivilstand === 'NY_SAMBOER' && fellesBarn === 'JA') return 'situasjonenDin.advarsel.samboer'
+
+    return undefined
 }
 
-const SituasjonenDinFelt = () => {
+export const SituasjonenDin = () => {
     const { t } = useTranslation()
     const { state: bruker } = useBrukerContext()
     const {
@@ -38,12 +26,7 @@ const SituasjonenDinFelt = () => {
     } = useFormContext<SituasjonenDinKladd>()
     const nySivilstand = useWatch({ control, name: 'nySivilstand' })
     const fellesBarn = useWatch({ control, name: 'samboer.fellesBarnEllertidligereGift' })
-    const advarsel =
-        nySivilstand === 'GIFTET_PAA_NYTT'
-            ? 'situasjonenDin.advarsel.gift'
-            : nySivilstand === 'NY_SAMBOER' && fellesBarn === 'JA'
-              ? 'situasjonenDin.advarsel.samboer'
-              : undefined
+    const advarsel = hentAdvarsel(nySivilstand, fellesBarn)
 
     return (
         <>
@@ -148,25 +131,5 @@ const SituasjonenDinFelt = () => {
                 </InfoCard>
             )}
         </>
-    )
-}
-
-export const SituasjonenDinSteg = () => {
-    const { state } = useSoknadContext()
-    const { t } = useTranslation()
-    return (
-        <SoeknadSteg<SituasjonenDinKladd>
-            tittel={t('skjema.situasjonenDin')}
-            defaultValues={rensSituasjonenDin(state.skjema.situasjonenDinIDag ?? {})}
-            oppdaterSoeknad={(soeknad, data) => ({
-                ...soeknad,
-                aktivtSteg: 'situasjonen-din',
-                skjema: { ...soeknad.skjema, situasjonenDinIDag: rensSituasjonenDin(data) },
-            })}
-            neste="utdanning-og-tiltak"
-            forrige="personopplysninger"
-        >
-            <SituasjonenDinFelt />
-        </SoeknadSteg>
     )
 }
