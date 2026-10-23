@@ -7,6 +7,7 @@ import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
 import Personopplysninger from './Personopplysninger'
 import { SoeknadSteg } from './SoeknadSteg'
+import { SituasjonenDinSteg } from './situasjonenDin/SituasjonenDin'
 
 const SoknadDialog = () => {
     useLanguage()
