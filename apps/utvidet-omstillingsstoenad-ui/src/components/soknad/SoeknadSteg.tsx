@@ -119,8 +119,8 @@ export const SoeknadSteg = <T extends FieldValues>({
                         </ErrorSummary>
                     )}
                     <Heading
+                        align={sentrertTittel ? 'center' : undefined}
                         ref={headingRef}
-                        className={sentrertTittel ? 'center' : undefined}
                         size="medium"
                         level="2"
                         tabIndex={-1}
