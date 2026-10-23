@@ -49,7 +49,7 @@ const SoknadDialog = () => {
             >
                 <Routes>
                     <Route path="personopplysninger" element={<Personopplysninger />} />
-                    <Route path="situasjonen-din" element={underArbeid} />
+                    <Route path="situasjonen-din" element={<SituasjonenDinSteg />} />
                     <Route path="utdanning-og-tiltak" element={underArbeid} />
                     <Route path="inntekt" element={underArbeid} />
                     <Route path="dokumentasjon" element={underArbeid} />
