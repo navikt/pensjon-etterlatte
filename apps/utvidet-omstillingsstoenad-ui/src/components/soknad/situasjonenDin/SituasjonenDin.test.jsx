@@ -12,7 +12,10 @@ import i18n from '../../../i18n'
 import en from '../../../locales/en'
 import nb from '../../../locales/nb'
 import nn from '../../../locales/nn'
+import { steg } from '../../../typer/steg'
+import { SoeknadStegRute } from '../SoeknadSteg'
 import SoknadDialog from '../SoknadDialog'
+import { SituasjonenDinSteg } from './SituasjonenDin'
 
 vi.mock('../../../api/api', () => ({ lagreKladd: vi.fn(), slettSoeknad: vi.fn() }))
 vi.mock('../../../hooks/useLanguage', () => ({ useLanguage: vi.fn() }))
@@ -80,7 +83,28 @@ const setup = (situasjon, annetSkjema = {}) => {
                 <SoknadProvider>
                     <Initialiser state={state}>
                         <Routes>
-                            <Route path="/skjema/steg/*" element={<SoknadDialog />} />
+                            <Route path="/skjema/steg" element={<SoknadDialog />}>
+                                <Route
+                                    path="personopplysninger"
+                                    element={
+                                        <SoeknadStegRute>
+                                            <p>Personopplysninger</p>
+                                        </SoeknadStegRute>
+                                    }
+                                />
+                                <Route path="situasjonen-din" element={<SituasjonenDinSteg />} />
+                                {steg.slice(2).map((side) => (
+                                    <Route
+                                        key={side.path}
+                                        path={side.path}
+                                        element={
+                                            <SoeknadStegRute>
+                                                <p>Under arbeid</p>
+                                            </SoeknadStegRute>
+                                        }
+                                    />
+                                ))}
+                            </Route>
                         </Routes>
                         <Tilbake />
                         <Status />
@@ -224,6 +248,29 @@ describe('Situasjonen din i dag', () => {
         expect(screen.getByLabelText(nb['kontrakt.samboerFornavn']).value).toBe(samboer.fornavn)
         expect(screen.getByLabelText(nb['kontrakt.samboerFoedselsnummer']).value).toBe(samboer.foedselsnummer)
         expect(screen.getByLabelText(nb['kontrakt.NEI']).checked).toBe(true)
+    })
+
+    it.each([
+        ['JA', 'tilbake', 'personopplysninger'],
+        ['NEI', 'tilbake', 'personopplysninger'],
+        ['JA', 'neste', 'utdanning-og-tiltak'],
+        ['NEI', 'neste', 'utdanning-og-tiltak'],
+    ])('Beholder nytt svar %s på felles barn ved navigasjon %s', async (svar, knapp, side) => {
+        setup()
+        fireEvent.click(screen.getByLabelText(nb['kontrakt.NY_SAMBOER']))
+        fireEvent.change(screen.getByLabelText(nb['kontrakt.samboerFornavn']), { target: { value: samboer.fornavn } })
+        fireEvent.change(screen.getByLabelText(nb['kontrakt.samboerEtternavn']), {
+            target: { value: samboer.etternavn },
+        })
+        fireEvent.change(screen.getByLabelText(nb['kontrakt.samboerFoedselsnummer']), {
+            target: { value: samboer.foedselsnummer },
+        })
+        fireEvent.click(screen.getByLabelText(nb[`kontrakt.${svar}`]))
+        fireEvent.click(screen.getByRole('button', { name: nb[`knapp.${knapp}`] }))
+        await waitFor(() => expect(status().path).toBe(`/skjema/steg/${side}`))
+        expect(lagretSituasjon().samboer.fellesBarnEllertidligereGift).toBe(svar)
+        fireEvent.click(screen.getByText('Til situasjonen din'))
+        expect(screen.getByLabelText(nb[`kontrakt.${svar}`]).checked).toBe(true)
     })
 
     it('Forrige steg lagrer en ufullstendig kladd uten å validere', async () => {

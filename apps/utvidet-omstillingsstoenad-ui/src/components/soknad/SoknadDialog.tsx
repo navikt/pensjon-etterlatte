@@ -1,26 +1,31 @@
-import { BodyLong, FormProgress, VStack } from '@navikt/ds-react'
+import { FormProgress, VStack } from '@navikt/ds-react'
 import { useTranslation } from 'react-i18next'
-import { Navigate, Route, Routes, useParams } from 'react-router'
+import { Navigate, Outlet, useLocation } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { useLanguage } from '../../hooks/useLanguage'
 import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
-import Personopplysninger from './Personopplysninger'
-import { SoeknadSteg } from './SoeknadSteg'
-import { SituasjonenDin } from './situasjonenDin/SituasjonenDin'
+import type { SoeknadStegContext } from './SoeknadSteg'
 
 const SoknadDialog = () => {
     useLanguage()
     const { state } = useSoknadContext()
     const { t } = useTranslation()
-    const path = useParams()['*']
+    const pathname = useLocation().pathname
+    const path = pathname.match(/^\/skjema\/steg\/([^/]+)\/?$/)?.[1]
 
     if (!state.harSamtykket) return <Navigate replace to="/" />
     if (!path) return <Navigate replace to={stegUrl(state.aktivtSteg)} />
     if (!erStegPath(path)) return <SideIkkeFunnet />
 
     const index = steg.findIndex((side) => side.path === path)
-    const underArbeid = <BodyLong>{t('skjema.underArbeid')}</BodyLong>
+    const stegContext: SoeknadStegContext = {
+        path,
+        tittel: t(steg[index].label),
+        neste: steg[index + 1]?.path,
+        forrige: steg[index - 1]?.path ?? '/',
+        sentrertTittel: path === 'personopplysninger',
+    }
 
     return (
         <VStack gap="space-32">
@@ -38,24 +43,7 @@ const SoknadDialog = () => {
                     <FormProgress.Step key={side.path}>{t(side.label)}</FormProgress.Step>
                 ))}
             </FormProgress>
-            <SoeknadSteg
-                key={path}
-                tittel={t(steg[index].label)}
-                defaultValues={{}}
-                oppdaterSoeknad={(soeknad) => ({ ...soeknad, aktivtSteg: path })}
-                neste={steg[index + 1]?.path}
-                forrige={steg[index - 1]?.path ?? '/'}
-                sentrertTittel={path === 'personopplysninger'}
-            >
-                <Routes>
-                    <Route path="personopplysninger" element={<Personopplysninger />} />
-                    <Route path="situasjonen-din" element={<SituasjonenDin />} />
-                    <Route path="utdanning-og-tiltak" element={underArbeid} />
-                    <Route path="inntekt" element={underArbeid} />
-                    <Route path="dokumentasjon" element={underArbeid} />
-                    <Route path="oppsummering" element={underArbeid} />
-                </Routes>
-            </SoeknadSteg>
+            <Outlet context={stegContext} />
         </VStack>
     )
 }

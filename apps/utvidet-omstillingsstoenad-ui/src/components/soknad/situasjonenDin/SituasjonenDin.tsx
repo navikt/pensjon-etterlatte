@@ -2,8 +2,11 @@ import { InfoCard, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react
 import { fnr } from '@navikt/fnrvalidator'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { useOutletContext } from 'react-router'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
+import { useSoknadContext } from '~context/soknad/SoknadContext'
 import { JaNei, SituasjonenDinKladd } from '~typer/skjema'
+import { SoeknadSteg, SoeknadStegContext } from '../SoeknadSteg'
 
 type Sivilstand = 'NY_SAMBOER' | 'GIFTET_PAA_NYTT' | 'INGEN_AV_DELENE' | undefined
 
@@ -67,6 +70,7 @@ export const SituasjonenDin = () => {
                             htmlSize={25}
                             error={errors.samboer?.fornavn?.message}
                             {...register('samboer.fornavn', {
+                                setValueAs: (verdi: string) => verdi.trim(),
                                 validate: (verdi) => !!verdi?.trim() || t('situasjonenDin.feil.fornavn'),
                             })}
                         />
@@ -77,6 +81,7 @@ export const SituasjonenDin = () => {
                             htmlSize={25}
                             error={errors.samboer?.etternavn?.message}
                             {...register('samboer.etternavn', {
+                                setValueAs: (verdi: string) => verdi.trim(),
                                 validate: (verdi) => !!verdi?.trim() || t('situasjonenDin.feil.etternavn'),
                             })}
                         />
@@ -131,5 +136,28 @@ export const SituasjonenDin = () => {
                 </InfoCard>
             )}
         </>
+    )
+}
+
+export const SituasjonenDinSteg = () => {
+    const { state } = useSoknadContext()
+    const { path, tittel, neste, forrige, sentrertTittel } = useOutletContext<SoeknadStegContext>()
+
+    return (
+        <SoeknadSteg<SituasjonenDinKladd>
+            key={path}
+            tittel={tittel}
+            defaultValues={state.skjema.situasjonenDinIDag ?? {}}
+            oppdaterSoeknad={(soeknad, data) => ({
+                ...soeknad,
+                aktivtSteg: path,
+                skjema: { ...soeknad.skjema, situasjonenDinIDag: data },
+            })}
+            neste={neste}
+            forrige={forrige}
+            sentrertTittel={sentrertTittel}
+        >
+            <SituasjonenDin />
+        </SoeknadSteg>
     )
 }

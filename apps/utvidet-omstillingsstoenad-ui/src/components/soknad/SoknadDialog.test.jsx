@@ -4,6 +4,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { lagreKladd } from '../../api/api'
 import { tomSoeknad } from '../../context/soknad/soknad'
 import { steg } from '../../typer/steg'
+import { SoeknadStegRute } from './SoeknadSteg'
 import SoknadDialog from './SoknadDialog'
 
 let state = { ...tomSoeknad, harSamtykket: true }
@@ -30,8 +31,37 @@ const setup = (path) =>
     render(
         <MemoryRouter initialEntries={[path]}>
             <Routes>
-                <Route path="/skjema/steg/*" element={<SoknadDialog />} />
+                <Route path="/skjema/steg" element={<SoknadDialog />}>
+                    <Route
+                        path="personopplysninger"
+                        element={
+                            <SoeknadStegRute>
+                                <p>personopplysninger.opplysningerFeil.tittel</p>
+                            </SoeknadStegRute>
+                        }
+                    />
+                    <Route
+                        path="situasjonen-din"
+                        element={
+                            <SoeknadStegRute>
+                                <p>skjema.underArbeid</p>
+                            </SoeknadStegRute>
+                        }
+                    />
+                    {steg.slice(2).map((side) => (
+                        <Route
+                            key={side.path}
+                            path={side.path}
+                            element={
+                                <SoeknadStegRute>
+                                    <p>skjema.underArbeid</p>
+                                </SoeknadStegRute>
+                            }
+                        />
+                    ))}
+                </Route>
                 <Route path="/" element={<p>Forside</p>} />
+                <Route path="*" element={<p>sideIkkeFunnet.tittel</p>} />
             </Routes>
             <Location />
         </MemoryRouter>
