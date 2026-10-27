@@ -142,6 +142,16 @@ export default {
     'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
     'forside.omYtelsene.innhold.del2.lenke.tekst': 'søke om omstillingsstønad',
     'forside.omYtelsene.innhold.del2.del2': '.',
+    'forside.harIkkeOms.tittel': 'Du har ikke omstillingsstønad',
+    'forside.harIkkeOms.beskrivelse':
+        'Du må ha omstillingsstønad fra før av for å kunne søke om utvidet omstillingsstønad.',
+    'forside.harIkkeOms.omOmstillingsstoenad.tittel': 'Om omstillingsstønad',
+    'forside.harIkkeOms.omOmstillingsstoenad.beskrivelse':
+        'Omstillingsstønad sikrer deg inntekt hvis du mister ektefelle, partner eller samboer med felles barn. I noen tilfeller kan du få støtte hvis dere tidligere har vært gift.',
+    'forside.harIkkeOms.omOmstillingsstoenad.lesMer.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.harIkkeOms.omOmstillingsstoenad.lesMer.tekst': 'Les mer om omstillingsstønad',
+    'forside.harIkkeOms.omOmstillingsstoenad.soek.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
+    'forside.harIkkeOms.omOmstillingsstoenad.soek.tekst': 'Søk om omstillingsstønad',
     'forside.foerDuSoeker.tittel': 'Før du søker',
     'forside.foerDuSoeker.innhold.del1': 'Hvis du tar eller skal ta utdanning, må du dokumentere følgende i søknaden:',
     'forside.foerDuSoeker.innhold.li1': 'navn på studiested',

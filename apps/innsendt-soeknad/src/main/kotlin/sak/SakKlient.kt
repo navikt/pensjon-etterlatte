@@ -26,6 +26,17 @@ class SakKlient(
                 setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr.value))
             }.body<HarOMSSakIGjennyResponse>()
     }
+
+    suspend fun harOMSSakIGjenny(fnr: Foedselsnummer): HarOMSSakIGjennyResponse {
+        logger.info("Spør etterlatte-api om innbygger har OMS sak i gjenny")
+
+        return httpClient
+            .post("$apiUrl/api/sak/oms/har_sak") {
+                accept(ContentType.Application.Json)
+                contentType(ContentType.Application.Json)
+                setBody(HarOMSSakIGjennyRequestBody(foedselsnummer = fnr.value))
+            }.body<HarOMSSakIGjennyResponse>()
+    }
 }
 
 data class HarOMSSakIGjennyRequestBody(

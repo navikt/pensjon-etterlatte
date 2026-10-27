@@ -1,7 +1,6 @@
 import { ArrowRightIcon } from '@navikt/aksel-icons'
 import {
     Accordion,
-    Alert,
     BodyLong,
     BodyShort,
     Box,
@@ -9,13 +8,16 @@ import {
     Checkbox,
     GuidePanel,
     Heading,
+    HStack,
+    InfoCard,
     Link,
     List,
+    VStack,
 } from '@navikt/ds-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { hentHarSoektOms, lagreKladd } from '~api/api'
+import { hentHarOmsSak, lagreKladd } from '~api/api'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { useSoknadContext } from '~context/soknad/SoknadContext'
 import { ActionTypes } from '~context/soknad/soknad'
@@ -29,7 +31,8 @@ const SoknadForside = () => {
     const { t } = useTranslation()
     const { state: soknadState, dispatch: soknadDispatch } = useSoknadContext()
     const { state: brukerState } = useBrukerContext()
-    const [harSoektOms, setHarSoektOms] = useState<boolean>(false)
+    const [harOmsSak, setHarOmsSak] = useState<boolean>(true)
+    const [henterOmsSakstatus, setHenterOmsSakstatus] = useState<boolean>(false)
     const [lagrer, settLagrer] = useState(false)
     useLanguage()
 
@@ -55,21 +58,77 @@ const SoknadForside = () => {
 
     useEffect(() => {
         if (brukerState.foedselsnummer) {
-            hentHarSoektOms()
+            setHenterOmsSakstatus(true)
+            hentHarOmsSak()
                 .then((result: { harOMSSak: boolean }) => {
-                    // TODO: denne skal ikke sjekke om man har søkt oms, men om man alt har søkt utvidet-oms
-                    setHarSoektOms(result.harOMSSak)
-                    if (result.harOMSSak) {
-                        logEvent(LogEvents.ALERT_VIST, {
-                            variant: 'info',
-                            tekst: 'Bruker har allerede søkt om omstillingsstønad',
-                        })
-                    }
+                    setHarOmsSak(result.harOMSSak)
                 })
-                // Infoboksen er ikke kritisk, så vi lar bare være å vise den hvis kallet feiler
-                .catch(() => setHarSoektOms(false))
+                .catch(() => navigate('/system-utilgjengelig'))
+                .finally(() => setHenterOmsSakstatus(false))
         }
-    }, [brukerState])
+    }, [brukerState.foedselsnummer, navigate])
+
+    if (henterOmsSakstatus) return null
+
+    if (!harOmsSak) {
+        return (
+            <VStack align="center" gap="space-24">
+                <Spraakvalg />
+                <VStack gap="space-24" style={{ width: '100%', maxWidth: '36rem' }}>
+                    <InfoCard data-color="warning" as="section" aria-labelledby="har-ikke-oms-title">
+                        <InfoCard.Header>
+                            <InfoCard.Title as="h2" id="har-ikke-oms-title">
+                                {t('forside.harIkkeOms.tittel')}
+                            </InfoCard.Title>
+                        </InfoCard.Header>
+                        <InfoCard.Content>
+                            <BodyLong>{t('forside.harIkkeOms.beskrivelse')}</BodyLong>
+                        </InfoCard.Content>
+                    </InfoCard>
+                    <VStack gap="space-16">
+                        <Heading level="2" spacing size="medium">
+                            {t('forside.harIkkeOms.omOmstillingsstoenad.tittel')}
+                        </Heading>
+                        <BodyLong spacing>{t('forside.harIkkeOms.omOmstillingsstoenad.beskrivelse')}</BodyLong>
+                        <VStack gap="space-8">
+                            <Box
+                                as="a"
+                                href={t('forside.harIkkeOms.omOmstillingsstoenad.lesMer.href')}
+                                borderRadius="8"
+                                borderWidth="1"
+                                paddingBlock="space-16"
+                                paddingInline="space-16"
+                                style={{ color: 'var(--ax-text-neutral)', textDecoration: 'none' }}
+                            >
+                                <HStack justify="space-between" align="center">
+                                    <BodyLong style={{ textDecoration: 'underline' }}>
+                                        {t('forside.harIkkeOms.omOmstillingsstoenad.lesMer.tekst')}
+                                    </BodyLong>
+                                    <ArrowRightIcon aria-hidden />
+                                </HStack>
+                            </Box>
+                            <Box
+                                as="a"
+                                href={t('forside.harIkkeOms.omOmstillingsstoenad.soek.href')}
+                                borderRadius="8"
+                                borderWidth="1"
+                                paddingBlock="space-16"
+                                paddingInline="space-16"
+                                style={{ color: 'var(--ax-text-neutral)', textDecoration: 'none' }}
+                            >
+                                <HStack justify="space-between" align="center">
+                                    <BodyLong style={{ textDecoration: 'underline' }}>
+                                        {t('forside.harIkkeOms.omOmstillingsstoenad.soek.tekst')}
+                                    </BodyLong>
+                                    <ArrowRightIcon aria-hidden />
+                                </HStack>
+                            </Box>
+                        </VStack>
+                    </VStack>
+                </VStack>
+            </VStack>
+        )
+    }
 
     return (
         <>
@@ -94,35 +153,6 @@ const SoknadForside = () => {
                 </GuidePanel>
             </Box>
             <Spraakvalg />
-            {harSoektOms && (
-                <Box marginBlock="space-16">
-                    <Alert variant={'info'}>
-                        <Heading size={'small'} spacing>
-                            {t('forside.harSoektOms.tittel')}
-                        </Heading>
-                        <BodyLong spacing>{t('forside.harSoektOms.avsnitt')}</BodyLong>
-                        <Box marginInline="space-16 space-0">
-                            <List>
-                                <List.Item>
-                                    <Link href={t('forside.harSoektOms.innhold.li1.lenke.href')} inlineText>
-                                        {t('forside.harSoektOms.innhold.li1.lenke.tekst')}
-                                    </Link>{' '}
-                                </List.Item>
-                                <List.Item>
-                                    <Link href={t('forside.harSoektOms.innhold.li2.lenke.href')} inlineText>
-                                        {t('forside.harSoektOms.innhold.li2.lenke.tekst')}
-                                    </Link>
-                                </List.Item>
-                                <List.Item>
-                                    <Link href={t('forside.harSoektOms.innhold.li3.lenke.href')} inlineText>
-                                        {t('forside.harSoektOms.innhold.li3.lenke.tekst')}
-                                    </Link>
-                                </List.Item>
-                            </List>
-                        </Box>
-                    </Alert>
-                </Box>
-            )}
             <Box marginBlock="space-0 space-48">
                 <Heading level="2" spacing size={'medium'}>
                     {t('forside.tittel')}
