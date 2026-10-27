@@ -1,8 +1,6 @@
 package no.nav.etterlatte.soeknad
 
-import tools.jackson.databind.JsonNode
 import io.ktor.http.HttpStatusCode
-import io.ktor.server.application.call
 import io.ktor.server.plugins.BadRequestException
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
@@ -15,9 +13,10 @@ import no.nav.etterlatte.fnrFromToken
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.sikkerLogg
 import soeknad.Status
+import tools.jackson.databind.JsonNode
 
 fun Route.soknadApi(service: SoeknadService) {
-    route("/api/soeknad") {
+    route("/api/soeknad") { // Lagrer og ferdigstiller søknad
         post {
             try {
                 call.application.environment.log
