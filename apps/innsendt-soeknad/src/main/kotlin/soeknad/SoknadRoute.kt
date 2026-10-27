@@ -42,7 +42,7 @@ fun Route.soknadApi(service: SoeknadService) {
             } catch (e: Exception) {
                 call.application.environment.log
                     .error("Klarte ikke å lagre søknaden(e). Se i team-logs for detaljer")
-                sikkerLogg.error("Klarte ikke å ferdigstille søknaden(e)", e)
+                sikkerLogg.error("Klarte ikke å lagre søknaden(e)", e)
                 call.respond(HttpStatusCode.InternalServerError)
             }
         }
