@@ -3,12 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, useLocation } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { useLanguage } from '../../hooks/useLanguage'
-import { erStegPath, StegPath, steg, stegUrl } from '../../typer/steg'
+import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
-import styles from './Inntekt.module.css'
 import type { SoeknadStegContext } from './SoeknadSteg'
-
-const sideklasser: Partial<Record<StegPath, string>> = { inntekt: styles.side }
 
 const SoknadDialog = () => {
     useLanguage()
@@ -31,7 +28,7 @@ const SoknadDialog = () => {
     }
 
     return (
-        <VStack gap="space-32" className={sideklasser[path]}>
+        <VStack gap="space-32">
             <FormProgress
                 totalSteps={steg.length}
                 activeStep={index + 1}

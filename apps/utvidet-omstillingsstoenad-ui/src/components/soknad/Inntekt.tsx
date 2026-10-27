@@ -4,9 +4,9 @@ import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
+import Bredde from '../../typer/bredde'
 import { Inntekt as InntektSkjema, Inntektsendring } from '../../typer/skjema'
 import { erGyldigBeloep, klargjoerInntekt } from '../../utils/inntekt'
-import styles from './Inntekt.module.css'
 import {
     ArbeidsinntekterDuSkalFylleUtReadMore,
     InntekterFraUtlandDuSkalFylleUt,
@@ -29,12 +29,10 @@ const RHFInntektInput = ({
     name,
     label,
     description,
-    className = styles.beloep,
 }: {
     name: 'arbeidsinntekt' | 'naeringsinntekt' | 'inntektFraUtland' | 'andreInntekter.inntekt'
     label: string
     description?: string
-    className?: string
 }) => {
     const { t, i18n } = useTranslation()
     const { control } = useFormContext<InntektSkjema>()
@@ -49,13 +47,13 @@ const RHFInntektInput = ({
             render={({ field, fieldState }) => (
                 <TextField
                     {...field}
-                    className={className}
                     id={name}
                     value={field.value ?? ''}
                     label={label}
                     description={description}
                     error={fieldState.error?.message}
                     inputMode="numeric"
+                    htmlSize={Bredde.S}
                 />
             )}
         />
@@ -113,7 +111,6 @@ const RHFBeskrivelse = ({
             render={({ field, fieldState }) => (
                 <Textarea
                     {...field}
-                    className={styles.beskrivelse}
                     id={name}
                     value={field.value ?? ''}
                     label={label}
@@ -171,7 +168,6 @@ const Inntekt = () => {
                     <VStack gap="space-8">
                         <RHFInntektInput
                             name="inntektFraUtland"
-                            className={styles.beloepUtland}
                             label={t('kontrakt.inntektFraUtland')}
                             description={t('inntekt.utlandBeskrivelse')}
                         />
@@ -210,7 +206,6 @@ const Inntekt = () => {
                                 render={({ field, fieldState }) => (
                                     <Select
                                         {...field}
-                                        className={styles.endringsgrunn}
                                         id={field.name}
                                         value={field.value ?? ''}
                                         label={t('kontrakt.grunnTilPaavirkelseAvInntekt')}
