@@ -1,6 +1,7 @@
 import { ISoeknad } from '../context/soknad/soknad'
 import { Language } from '../i18n'
 import { Inntekt, Person, SituasjonenDin, UtdanningOgTiltak } from '../typer/skjema'
+import { erGyldigBeloep, normaliserBeloep } from './inntekt'
 
 const paakrevd = <T>(verdi: T | undefined, felt: string): T => {
     if (verdi === undefined || verdi === '') throw new Error(`Mangler påkrevd felt: ${felt}`)
@@ -8,9 +9,8 @@ const paakrevd = <T>(verdi: T | undefined, felt: string): T => {
 }
 
 const beloep = (verdi: string) => {
-    const normalisert = verdi.replace(/\s/g, '')
-    if (!/^\d+$/.test(normalisert)) throw new Error('Beløp må være et heltall større enn eller lik null')
-    return normalisert
+    if (!erGyldigBeloep(verdi)) throw new Error('Beløp må være et heltall større enn eller lik null')
+    return normaliserBeloep(verdi)
 }
 
 export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, tekst: (key: string) => string) => {
@@ -105,7 +105,7 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
             afpInntekt: null,
             inntektFraUtland: fritekst('inntektFraUtland', beloep(inntekt.inntektFraUtland)),
             andreInntekter: {
-                valg: valg('andreInntekter', andre.valg),
+                valg: valg('andreInntekter', paakrevd(andre.valg, 'andreInntekter.valg')),
                 ...(andre.valg === 'JA'
                     ? {
                           inntekt: fritekst(
@@ -120,7 +120,7 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
                     : {}),
             },
             noeSomKanPaavirkeInntekten: {
-                valg: valg('paavirkeInntekt', endring.valg),
+                valg: valg('paavirkeInntekt', paakrevd(endring.valg, 'noeSomKanPaavirkeInntekten.valg')),
                 ...(endring.valg === 'JA'
                     ? {
                           grunnTilPaavirkelseAvInntekt: valg(
