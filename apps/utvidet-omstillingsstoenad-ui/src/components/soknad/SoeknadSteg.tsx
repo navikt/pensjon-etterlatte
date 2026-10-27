@@ -32,6 +32,8 @@ interface Props<T extends FieldValues> {
     neste?: StegPath
     forrige?: StegPath | '/'
     sentrertTittel?: boolean
+    tittelStorrelse?: 'medium' | 'large'
+    shouldUnregister?: boolean
     children: ReactNode
 }
 
@@ -42,12 +44,14 @@ export const SoeknadSteg = <T extends FieldValues>({
     neste,
     forrige,
     sentrertTittel = false,
+    tittelStorrelse = 'medium',
+    shouldUnregister = true,
     children,
 }: Props<T>) => {
     const { state, dispatch } = useSoknadContext()
     const { t } = useTranslation()
     const navigate = useNavigate()
-    const methods = useForm<T>({ defaultValues, shouldUnregister: true, shouldFocusError: false })
+    const methods = useForm<T>({ defaultValues, shouldUnregister, shouldFocusError: false })
     const [lagrer, settLagrer] = useState(false)
     const [lagringsfeil, settLagringsfeil] = useState(false)
     const [feilforsok, settFeilforsok] = useState(0)
@@ -121,7 +125,7 @@ export const SoeknadSteg = <T extends FieldValues>({
                     <Heading
                         align={sentrertTittel ? 'center' : undefined}
                         ref={headingRef}
-                        size="medium"
+                        size={tittelStorrelse}
                         level="2"
                         tabIndex={-1}
                     >

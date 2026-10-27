@@ -26,6 +26,7 @@ vi.mock('react-i18next', () => ({
 }))
 
 const Location = () => <output data-testid="path">{useLocation().pathname}</output>
+const opprinneligeSteg = [...steg]
 const setup = (path) =>
     render(
         <MemoryRouter initialEntries={[path]}>
@@ -40,6 +41,7 @@ const setup = (path) =>
 afterEach(() => {
     cleanup()
     vi.clearAllMocks()
+    steg.splice(0, steg.length, ...opprinneligeSteg)
     state = { ...tomSoeknad, harSamtykket: true }
 })
 
@@ -76,6 +78,33 @@ describe('Stegruter', () => {
         setup('/skjema/steg')
         await screen.findByRole('heading', { name: 'skjema.utdanningOgTiltak' })
         expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/utdanning-og-tiltak')
+    })
+
+    it.each([
+        ['knapp.neste', 'situasjonen-din'],
+        ['knapp.tilbake', 'personopplysninger'],
+    ])('følger steglisten fra inntekt med %s etter at rekkefølgen endres', async (knapp, maal) => {
+        const [inntekt] = steg.splice(
+            steg.findIndex((side) => side.path === 'inntekt'),
+            1
+        )
+        steg.splice(1, 0, inntekt)
+        state = {
+            ...state,
+            skjema: {
+                inntekt: {
+                    arbeidsinntekt: '100',
+                    naeringsinntekt: '0',
+                    inntektFraUtland: '0',
+                    andreInntekter: { valg: 'NEI' },
+                    noeSomKanPaavirkeInntekten: { valg: 'NEI' },
+                },
+            },
+        }
+        setup('/skjema/steg/inntekt')
+        fireEvent.click(screen.getByText(knapp))
+        await waitFor(() => expect(screen.getByTestId('path').textContent).toBe(`/skjema/steg/${maal}`))
+        expect(lagreKladd).toHaveBeenLastCalledWith(expect.objectContaining({ aktivtSteg: maal }))
     })
 
     it('Direktelenke uten samtykke sender brukeren til forsiden', () => {
