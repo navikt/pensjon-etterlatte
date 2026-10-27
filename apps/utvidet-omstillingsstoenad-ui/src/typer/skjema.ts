@@ -32,6 +32,13 @@ export interface UtdanningOgTiltak {
     aktivitetsplan?: JaNei
 }
 
+export interface UtdanningOgTiltakKladd {
+    aktivitet?: UtdanningOgTiltak['aktivitet']
+    utdanning?: Partial<NonNullable<UtdanningOgTiltak['utdanning']>>
+    arbeidsrettetTiltak?: Partial<NonNullable<UtdanningOgTiltak['arbeidsrettetTiltak']>>
+    aktivitetsplan?: JaNei
+}
+
 export type Inntektsendring =
     | 'OEKT_STILLINGSPROSENT'
     | 'REDUSERT_STILLINGSPROSENT'
@@ -60,6 +67,6 @@ export interface Inntekt {
 
 export interface Skjema {
     situasjonenDinIDag?: SituasjonenDinKladd
-    utdanningOgTiltak?: UtdanningOgTiltak
+    utdanningOgTiltak?: UtdanningOgTiltakKladd
     inntekt?: Inntekt
 }

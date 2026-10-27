@@ -1,6 +1,6 @@
 import { ISoeknad } from '../context/soknad/soknad'
 import { Language } from '../i18n'
-import { Inntekt, Person, SituasjonenDinKladd, UtdanningOgTiltak } from '../typer/skjema'
+import { Inntekt, Person, SituasjonenDinKladd } from '../typer/skjema'
 
 const paakrevd = <T>(verdi: T | undefined, felt: string): T => {
     if (verdi === undefined || verdi === '') throw new Error(`Mangler påkrevd felt: ${felt}`)
@@ -17,7 +17,8 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
     if (!soeknad.harSamtykket) throw new Error('Søknaden mangler samtykke')
     const situasjon: SituasjonenDinKladd = paakrevd(soeknad.skjema.situasjonenDinIDag, 'situasjonenDinIDag')
     const nySivilstand = paakrevd(situasjon.nySivilstand, 'nySivilstand')
-    const aktivitet: UtdanningOgTiltak = paakrevd(soeknad.skjema.utdanningOgTiltak, 'utdanningOgTiltak')
+    const aktivitet = paakrevd(soeknad.skjema.utdanningOgTiltak, 'utdanningOgTiltak')
+    const aktivitetsvalg = paakrevd(aktivitet.aktivitet, 'aktivitet')
     const inntekt: Inntekt = paakrevd(soeknad.skjema.inntekt, 'inntekt')
 
     const opplysning = <T>(key: string, svar: T) => ({ spoersmaal: tekst(`kontrakt.${key}`), svar })
@@ -65,15 +66,15 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
             },
         },
         utdanningOgTiltak: {
-            aktivitet: valg('aktivitet', aktivitet.aktivitet),
+            aktivitet: valg('aktivitet', aktivitetsvalg),
             ...(utdanning
                 ? {
                       utdanning: {
-                          studiested: fritekst('studiested', utdanning.studiested),
-                          studie: fritekst('studie', utdanning.studie),
-                          startDato: fritekst('startDato', utdanning.startDato),
-                          sluttDato: fritekst('sluttDato', utdanning.sluttDato),
-                          studieform: valg('studieform', utdanning.studieform),
+                          studiested: fritekst('studiested', paakrevd(utdanning.studiested, 'studiested')),
+                          studie: fritekst('studie', paakrevd(utdanning.studie, 'studie')),
+                          startDato: fritekst('startDato', paakrevd(utdanning.startDato, 'startDato')),
+                          sluttDato: fritekst('sluttDato', paakrevd(utdanning.sluttDato, 'sluttDato')),
+                          studieform: valg('studieform', paakrevd(utdanning.studieform, 'studieform')),
                           ...(utdanning.studieform === 'DELTID'
                               ? {
                                     studieprosent: fritekst(
@@ -88,8 +89,8 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
             ...(tiltak
                 ? {
                       arbeidsrettetTiltak: {
-                          tiltak: fritekst('tiltak', tiltak.tiltak),
-                          omfang: valg('omfang', tiltak.omfang),
+                          tiltak: fritekst('tiltak', paakrevd(tiltak.tiltak, 'tiltak')),
+                          omfang: valg('omfang', paakrevd(tiltak.omfang, 'omfang')),
                       },
                   }
                 : {}),

@@ -1,12 +1,13 @@
 import { ErrorSummary, Heading, VStack } from '@navikt/ds-react'
 import { ReactNode, useEffect, useRef, useState } from 'react'
-import { DefaultValues, FieldErrors, FieldValues, FormProvider, useForm } from 'react-hook-form'
+import { DefaultValues, FieldErrors, FieldPath, FieldValues, FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useOutletContext } from 'react-router'
 import { lagreKladd } from '../../api/api'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes, ISoeknad } from '../../context/soknad/soknad'
 import { StegPath, stegUrl } from '../../typer/steg'
+import { getTransKey } from '../../utils/translation'
 import Navigasjon from '../felles/Navigasjon'
 
 export interface SoeknadStegContext {
@@ -21,8 +22,12 @@ export const finnFeil = (errors: FieldErrors): { id: string; melding: string }[]
     const feil: { id: string; melding: string }[] = []
     const les = (verdi: unknown, path: string) => {
         if (!verdi || typeof verdi !== 'object') return
-        if ('message' in verdi && typeof verdi.message === 'string') {
+        if ('message' in verdi && typeof verdi.message === 'string' && verdi.message) {
             feil.push({ id: path, melding: verdi.message })
+            return
+        }
+        if ('type' in verdi && typeof verdi.type === 'string') {
+            feil.push({ id: path, melding: getTransKey({ type: verdi.type, ref: { name: path } }) })
             return
         }
         for (const [key, value] of Object.entries(verdi)) {
@@ -37,6 +42,7 @@ interface Props<T extends FieldValues> {
     tittel: string
     defaultValues: DefaultValues<T>
     oppdaterSoeknad: (state: ISoeknad, data: T) => ISoeknad
+    valider?: (data: T) => { name: FieldPath<T>; message: string }[]
     neste?: StegPath
     forrige?: StegPath | '/'
     sentrertTittel?: boolean
@@ -47,6 +53,7 @@ export const SoeknadSteg = <T extends FieldValues>({
     tittel,
     defaultValues,
     oppdaterSoeknad,
+    valider,
     neste,
     forrige,
     sentrertTittel = false,
@@ -98,7 +105,17 @@ export const SoeknadSteg = <T extends FieldValues>({
     }
 
     const nesteSteg = methods.handleSubmit(
-        (data) => lagre(data, neste),
+        (data) => {
+            const valideringsfeil = valider?.(data) ?? []
+            if (valideringsfeil.length > 0) {
+                for (const { name, message } of valideringsfeil) {
+                    methods.setError(name, { type: 'manual', message })
+                }
+                settFeilforsok((antall) => antall + 1)
+                return
+            }
+            return lagre(data, neste)
+        },
         () => settFeilforsok((antall) => antall + 1)
     )
 
@@ -116,7 +133,7 @@ export const SoeknadSteg = <T extends FieldValues>({
                         <ErrorSummary ref={errorRef} heading={t('skjema.feil')}>
                             {feil.map(({ id, melding }) => (
                                 <ErrorSummary.Item key={id} href={`#${id}`}>
-                                    {melding}
+                                    {t(melding)}
                                 </ErrorSummary.Item>
                             ))}
                             {lagringsfeil && (
