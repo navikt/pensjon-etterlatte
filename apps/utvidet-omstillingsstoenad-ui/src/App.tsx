@@ -13,6 +13,7 @@ import SoknadDialog from './components/soknad/SoknadDialog'
 import SoknadForside from './components/soknad/SoknadForside'
 import SoknadKvittering from './components/soknad/SoknadKvittering'
 import { SituasjonenDinSteg } from './components/soknad/situasjonenDin/SituasjonenDin'
+import { UtdanningOgTiltakSteg } from './components/soknad/utdanningOgTiltak/UtdanningOgTiltak'
 import UgyldigSoeker from './components/UgyldigSoeker'
 import { useSoknadContext } from './context/soknad/SoknadContext'
 import { useAnalytics } from './hooks/useAnalytics'
@@ -57,7 +58,8 @@ const App = () => {
                                             }
                                         />
                                         <Route path={'situasjonen-din'} element={<SituasjonenDinSteg />} />
-                                        {steg.slice(2).map((side) => (
+                                        <Route path={'utdanning-og-tiltak'} element={<UtdanningOgTiltakSteg />} />
+                                        {steg.slice(3).map((side) => (
                                             <Route
                                                 key={side.path}
                                                 path={side.path}

@@ -80,7 +80,7 @@ Vi spør fordi ny samboer eller nytt ekteskap kan påvirke retten til stønad.
 
 ---
 
-## Steg 4 – Utdanning og tiltak
+## Steg 4 – Utdannelse og tiltak
 
 For å få utvidet stønad må bruker studere eller delta i arbeidsrettet tiltak.
 
@@ -133,7 +133,7 @@ Tom side med tittel og navigasjon inntil Å4 er avklart. Ingen felt og ingen kon
 ## Steg 7 – Oppsummering
 
 - **Veilederboble:** «Nå kan du se over at alt er riktig før du sender inn søknaden. Du kan endre opplysningene hvis de er feil. Når du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien videre.»
-- **Seksjoner** (Aksel `FormSummary`): Personopplysninger (lenke til Folkeregisteret, ikke «Endre svar») · Situasjonen din i dag · Utdanning og tiltak · Inntekt · Dokumenter. Hver seksjon unntatt Personopplysninger har «Endre svar», som fører til steget.
+- **Seksjoner** (Aksel `FormSummary`): Personopplysninger (lenke til Folkeregisteret, ikke «Endre svar») · Situasjonen din i dag · Utdannelse og tiltak · Inntekt · Dokumenter. Hver seksjon unntatt Personopplysninger har «Endre svar», som fører til steget.
 - **Visning:** Bare felt som er besvart vises. Spørsmålstekstene er de samme som i steget (Å6). Datoer vises som «Fra dd.mm.åååå / Til dd.mm.åååå», og beløp med tusenskille.
 - **Under seksjonene:** «Sist lagret: {dato} kl. {tid}»
 - **Knapper:** `Forrige steg`, `Send søknad`, `Fortsett senere` og `Slett søknaden`
