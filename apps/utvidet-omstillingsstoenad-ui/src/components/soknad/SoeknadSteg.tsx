@@ -14,7 +14,6 @@ export interface SoeknadStegContext {
     tittel: string
     neste?: StegPath
     forrige?: StegPath | '/'
-    sentrertTittel: boolean
 }
 
 export const finnFeil = (errors: FieldErrors): { id: string; melding: string }[] => {
@@ -39,8 +38,6 @@ interface Props<T extends FieldValues> {
     oppdaterSoeknad: (state: ISoeknad, data: T) => ISoeknad
     neste?: StegPath
     forrige?: StegPath | '/'
-    sentrertTittel?: boolean
-    tittelStorrelse?: 'medium' | 'large'
     shouldUnregister?: boolean
     children: ReactNode
 }
@@ -51,8 +48,6 @@ export const SoeknadSteg = <T extends FieldValues>({
     oppdaterSoeknad,
     neste,
     forrige,
-    sentrertTittel = false,
-    tittelStorrelse = 'medium',
     shouldUnregister = true,
     children,
 }: Props<T>) => {
@@ -130,13 +125,7 @@ export const SoeknadSteg = <T extends FieldValues>({
                             )}
                         </ErrorSummary>
                     )}
-                    <Heading
-                        align={sentrertTittel ? 'center' : undefined}
-                        ref={headingRef}
-                        size={tittelStorrelse}
-                        level="2"
-                        tabIndex={-1}
-                    >
+                    <Heading ref={headingRef} size="large" align="center" level="2" tabIndex={-1}>
                         {tittel}
                     </Heading>
                     {children}
@@ -153,7 +142,7 @@ export const SoeknadSteg = <T extends FieldValues>({
 }
 
 export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
-    const { path, tittel, neste, forrige, sentrertTittel } = useOutletContext<SoeknadStegContext>()
+    const { path, tittel, neste, forrige } = useOutletContext<SoeknadStegContext>()
 
     return (
         <SoeknadSteg
@@ -163,7 +152,6 @@ export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
             oppdaterSoeknad={(soeknad) => ({ ...soeknad, aktivtSteg: path })}
             neste={neste}
             forrige={forrige}
-            sentrertTittel={sentrertTittel}
         >
             {children}
         </SoeknadSteg>

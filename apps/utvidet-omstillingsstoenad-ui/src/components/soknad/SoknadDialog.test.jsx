@@ -4,9 +4,18 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { lagreKladd } from '../../api/api'
 import { tomSoeknad } from '../../context/soknad/soknad'
 import { steg } from '../../typer/steg'
-import { InntektSteg } from './Inntekt'
-import { SoeknadStegRute } from './SoeknadSteg'
-import SoknadDialog from './SoknadDialog'
+import { soeknadStegRuter } from './SoeknadStegRuter'
+
+const stegMock = vi.hoisted(() => ({ steg: undefined }))
+vi.mock('../../typer/steg', async (importOriginal) => {
+    const original = await importOriginal()
+    return {
+        ...original,
+        get steg() {
+            return stegMock.steg ?? original.steg
+        },
+    }
+})
 
 let state = { ...tomSoeknad, harSamtykket: true }
 vi.mock('../../api/api', () => ({
@@ -22,49 +31,17 @@ vi.mock('../../hooks/useAnalytics', () => ({
 }))
 vi.mock('react-i18next', () => ({
     useTranslation: () => ({
-        t: (key, data) => (data ? `Steg ${data.aktivt} av ${data.antall}` : key),
+        t: (key, data) => (key === 'skjema.steg' ? `Steg ${data.aktivt} av ${data.antall}` : key),
         i18n: { language: 'nb' },
     }),
 }))
 
 const Location = () => <output data-testid="path">{useLocation().pathname}</output>
-const opprinneligeSteg = [...steg]
 const setup = (path) =>
     render(
         <MemoryRouter initialEntries={[path]}>
             <Routes>
-                <Route path="/skjema/steg" element={<SoknadDialog />}>
-                    <Route
-                        path="personopplysninger"
-                        element={
-                            <SoeknadStegRute>
-                                <p>personopplysninger.opplysningerFeil.tittel</p>
-                            </SoeknadStegRute>
-                        }
-                    />
-                    <Route
-                        path="situasjonen-din"
-                        element={
-                            <SoeknadStegRute>
-                                <p>skjema.underArbeid</p>
-                            </SoeknadStegRute>
-                        }
-                    />
-                    <Route path="inntekt" element={<InntektSteg />} />
-                    {steg
-                        .filter((side) => !['personopplysninger', 'situasjonen-din', 'inntekt'].includes(side.path))
-                        .map((side) => (
-                            <Route
-                                key={side.path}
-                                path={side.path}
-                                element={
-                                    <SoeknadStegRute>
-                                        <p>skjema.underArbeid</p>
-                                    </SoeknadStegRute>
-                                }
-                            />
-                        ))}
-                </Route>
+                {soeknadStegRuter()}
                 <Route path="/" element={<p>Forside</p>} />
                 <Route path="*" element={<p>sideIkkeFunnet.tittel</p>} />
             </Routes>
@@ -75,7 +52,7 @@ const setup = (path) =>
 afterEach(() => {
     cleanup()
     vi.clearAllMocks()
-    steg.splice(0, steg.length, ...opprinneligeSteg)
+    stegMock.steg = undefined
     state = { ...tomSoeknad, harSamtykket: true }
 })
 
@@ -93,7 +70,7 @@ describe('Stegruter', () => {
 
         await screen.findByRole('heading', { name: 'skjema.situasjonenDin' })
         expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/situasjonen-din')
-        expect(screen.getByText('skjema.underArbeid')).toBeDefined()
+        expect(screen.getByRole('radiogroup', { name: 'kontrakt.nySivilstand' })).toBeDefined()
         expect(screen.queryByText('personopplysninger.opplysningerFeil.tittel')).toBeNull()
         expect(lagreKladd).toHaveBeenLastCalledWith(expect.objectContaining({ aktivtSteg: 'situasjonen-din' }))
 
@@ -102,7 +79,7 @@ describe('Stegruter', () => {
         const heading = await screen.findByRole('heading', { name: 'skjema.personopplysninger' })
         expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/personopplysninger')
         expect(screen.getByText('personopplysninger.opplysningerFeil.tittel')).toBeDefined()
-        expect(screen.queryByText('skjema.underArbeid')).toBeNull()
+        expect(screen.queryByRole('radiogroup', { name: 'kontrakt.nySivilstand' })).toBeNull()
         expect(lagreKladd).toHaveBeenLastCalledWith(expect.objectContaining({ aktivtSteg: 'personopplysninger' }))
         await waitFor(() => expect(document.activeElement).toBe(heading))
     })
@@ -118,11 +95,8 @@ describe('Stegruter', () => {
         ['knapp.neste', 'situasjonen-din'],
         ['knapp.tilbake', 'personopplysninger'],
     ])('følger steglisten fra inntekt med %s etter at rekkefølgen endres', async (knapp, maal) => {
-        const [inntekt] = steg.splice(
-            steg.findIndex((side) => side.path === 'inntekt'),
-            1
-        )
-        steg.splice(1, 0, inntekt)
+        const inntekt = steg.find((side) => side.path === 'inntekt')
+        stegMock.steg = [steg[0], inntekt, ...steg.slice(1).filter((side) => side.path !== 'inntekt')]
         state = {
             ...state,
             skjema: {
@@ -145,6 +119,16 @@ describe('Stegruter', () => {
         state = { ...state, harSamtykket: false }
         setup('/skjema/steg/inntekt')
         expect(screen.getByText('Forside')).toBeDefined()
+    })
+
+    it('viser inntektsskjemaet fra den delte rutedefinisjonen', () => {
+        setup('/skjema/steg/inntekt')
+        expect(screen.getByRole('textbox', { name: 'kontrakt.arbeidsinntekt' })).toBeDefined()
+    })
+
+    it('viser plassholderen for steg uten skjema', () => {
+        setup('/skjema/steg/dokumentasjon')
+        expect(screen.getByText('skjema.underArbeid')).toBeDefined()
     })
 
     it('Ukjent steg viser feilsiden, ikke et tomt skjema', () => {

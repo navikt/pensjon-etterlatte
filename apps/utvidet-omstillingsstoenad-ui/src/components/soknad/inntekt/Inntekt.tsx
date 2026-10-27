@@ -3,15 +3,15 @@ import { useEffect } from 'react'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router'
-import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { Inntekt as InntektSkjema, Inntektsendring } from '../../typer/skjema'
-import { erGyldigBeloep, klargjoerInntekt } from '../../utils/inntekt'
+import { useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { Inntekt as InntektSkjema, Inntektsendring } from '../../../typer/skjema'
+import { erGyldigBeloep, klargjoerInntekt } from '../../../utils/inntekt'
+import { SoeknadSteg, SoeknadStegContext } from '../SoeknadSteg'
 import {
     ArbeidsinntekterDuSkalFylleUtReadMore,
     InntekterFraUtlandDuSkalFylleUt,
     NaeringsinntekterDuSkalFylleUtReadMore,
 } from './InntektReadMore'
-import { SoeknadSteg, SoeknadStegContext } from './SoeknadSteg'
 
 const grunner: Inntektsendring[] = [
     'OEKT_STILLINGSPROSENT',
@@ -242,8 +242,6 @@ export const InntektSteg = () => {
         <SoeknadSteg<InntektSkjema>
             key={path}
             tittel={tittel}
-            sentrertTittel
-            tittelStorrelse="large"
             shouldUnregister={false}
             defaultValues={{
                 arbeidsinntekt: '',
@@ -263,5 +261,3 @@ export const InntektSteg = () => {
         </SoeknadSteg>
     )
 }
-
-export default Inntekt

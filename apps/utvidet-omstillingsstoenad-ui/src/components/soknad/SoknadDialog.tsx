@@ -24,7 +24,6 @@ const SoknadDialog = () => {
         tittel: t(steg[index].label),
         neste: steg[index + 1]?.path,
         forrige: steg[index - 1]?.path ?? '/',
-        sentrertTittel: path === 'personopplysninger',
     }
 
     return (

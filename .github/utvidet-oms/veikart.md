@@ -99,7 +99,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | 3.3 | Steg 2 Personopplysninger | | 🚧 implementert lokalt på `utvidet-oms-personopplysninger`; PR mangler. |
 | 3.4 | Steg 3 Situasjonen din i dag | | ⏳ |
 | 3.5 | Steg 4 Utdanning og tiltak | | ⏳ |
-| 3.6 | Steg 5 Inntekt | NAV-31515 | [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558), med validering, nb/nn/en, enhetstester og responsive Cypress-tester med axe. |
+| 3.6 | Steg 5 Inntekt | NAV-31515 | [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558), med validering, nb/nn/en, enhetstester og responsive Cypress-tester med axe. Ny ingress, feilmeldinger og tegntellertekster på nynorsk og engelsk er foreløpig KI-generert og ikke språkvasket. ReadMore-tekstene er hentet fra OMS. |
 | 3.7 | Steg 6 Dokumentasjon (tom side inntil videre) | | ⏳ Å4 |
 | 3.8 | Steg 7 Oppsummering og innsending | | ⏳ |
 | 3.9 | Steg 8 Kvittering etter Figma | | ⏳ |
@@ -129,7 +129,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 
 Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til PR der det finnes.
 
-- **2026-10-27**: NAV-31515, gjennomgang av [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558): tegntellere på nb/nn/en og navigasjon fra steglisten. Inntektssteget bruker Aksel-komponenter og feltbredder som i eksisterende skjemaer, uten egen CSS. Felles sidestørrelse, topptekst og navigasjonsavstander er uendret. Cypress sjekker responsiv oppførsel uten faste pikselmål eller automatiske skjermbilder.
+- **2026-10-27**: NAV-31515, gjennomgang av [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558): tegntellere på nb/nn/en, navigasjon fra steglisten og én felles rutedefinisjon for appen og rutetestene. Alle skjemasteg bruker stor, sentrert overskrift som i Figma. Inntektssteget bruker Aksel-komponenter og feltbredder som i eksisterende skjemaer, uten egen CSS. Felles sidestørrelse, topptekst og navigasjonsavstander er uendret. Cypress sjekker responsiv oppførsel uten faste pikselmål eller automatiske skjermbilder.
 - **2026-10-26**: NAV-31515, steg 5 Inntekt (3.6), med nb/nn/en, beløpsvalidering, ReadMore og fjerning av skjulte svar. [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558).
 - **2026-10-22**: Steg 2 Personopplysninger (3.3) implementert lokalt på `utvidet-oms-personopplysninger`, med responsiv visning av brukeropplysninger og lenke til Folkeregisteret. PR mangler.
 - **2026-10-22**: Førstesiden (3.2) er på plass på branch og oppdatert mot Figma (ingress, informasjonsseksjoner, samtykke og startknapp). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket.

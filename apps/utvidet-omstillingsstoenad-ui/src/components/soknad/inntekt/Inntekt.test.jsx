@@ -4,18 +4,18 @@ import { useEffect, useState } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { lagreKladd } from '../../api/api'
-import { SoknadProvider, useSoknadContext } from '../../context/soknad/SoknadContext'
-import { ActionTypes, tomSoeknad } from '../../context/soknad/soknad'
-import i18n from '../../i18n'
-import { mapSoeknad } from '../../utils/mapSoeknad'
+import { lagreKladd } from '../../../api/api'
+import { SoknadProvider, useSoknadContext } from '../../../context/soknad/SoknadContext'
+import { ActionTypes, tomSoeknad } from '../../../context/soknad/soknad'
+import i18n from '../../../i18n'
+import { mapSoeknad } from '../../../utils/mapSoeknad'
+import { SoeknadStegRute } from '../SoeknadSteg'
+import SoknadDialog from '../SoknadDialog'
 import { InntektSteg } from './Inntekt'
-import { SoeknadStegRute } from './SoeknadSteg'
-import SoknadDialog from './SoknadDialog'
 
-vi.mock('../../api/api', () => ({ lagreKladd: vi.fn(), slettSoeknad: vi.fn() }))
-vi.mock('../../hooks/useLanguage', () => ({ useLanguage: vi.fn() }))
-vi.mock('../../hooks/useAnalytics', () => ({
+vi.mock('../../../api/api', () => ({ lagreKladd: vi.fn(), slettSoeknad: vi.fn() }))
+vi.mock('../../../hooks/useLanguage', () => ({ useLanguage: vi.fn() }))
+vi.mock('../../../hooks/useAnalytics', () => ({
     LogEvents: {},
     useAnalytics: () => ({ logEvent: vi.fn() }),
 }))
