@@ -2,12 +2,20 @@ import { ErrorSummary, Heading, VStack } from '@navikt/ds-react'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { DefaultValues, FieldErrors, FieldValues, FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router'
+import { useNavigate, useOutletContext } from 'react-router'
 import { lagreKladd } from '../../api/api'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes, ISoeknad } from '../../context/soknad/soknad'
 import { StegPath, stegUrl } from '../../typer/steg'
 import Navigasjon from '../felles/Navigasjon'
+
+export interface SoeknadStegContext {
+    path: StegPath
+    tittel: string
+    neste?: StegPath
+    forrige?: StegPath | '/'
+    sentrertTittel: boolean
+}
 
 export const finnFeil = (errors: FieldErrors): { id: string; melding: string }[] => {
     const feil: { id: string; melding: string }[] = []
@@ -73,7 +81,7 @@ export const SoeknadSteg = <T extends FieldValues>({
         opptatt.current = true
         settLagrer(true)
         settLagringsfeil(false)
-        const soeknad = oppdaterSoeknad(state, data)
+        const soeknad = oppdaterSoeknad(state, structuredClone(data))
         dispatch({ type: ActionTypes.OPPDATER_KLADD, payload: soeknad })
         try {
             const kladd = await lagreKladd({
@@ -141,5 +149,23 @@ export const SoeknadSteg = <T extends FieldValues>({
                 </VStack>
             </form>
         </FormProvider>
+    )
+}
+
+export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
+    const { path, tittel, neste, forrige, sentrertTittel } = useOutletContext<SoeknadStegContext>()
+
+    return (
+        <SoeknadSteg
+            key={path}
+            tittel={tittel}
+            defaultValues={{}}
+            oppdaterSoeknad={(soeknad) => ({ ...soeknad, aktivtSteg: path })}
+            neste={neste}
+            forrige={forrige}
+            sentrertTittel={sentrertTittel}
+        >
+            {children}
+        </SoeknadSteg>
     )
 }

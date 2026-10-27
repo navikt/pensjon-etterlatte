@@ -63,6 +63,19 @@ export default {
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'unemployment',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'children and care',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'illness and disability',
+    'situasjonenDin.feil.nySivilstand': 'You must state whether you have a new cohabitant or have remarried.',
+    'situasjonenDin.feil.fornavn': "You must enter your cohabitant's first name.",
+    'situasjonenDin.feil.etternavn': "You must enter your cohabitant's last name.",
+    'situasjonenDin.feil.foedselsnummerPaakrevd': "You must enter your cohabitant's national identity number.",
+    'situasjonenDin.feil.foedselsnummerUgyldig':
+        'You must enter a valid national identity number or D number for your cohabitant.',
+    'situasjonenDin.feil.foedselsnummerEget': "Your cohabitant's national identity number cannot be your own.",
+    'situasjonenDin.feil.fellesBarn':
+        'You must state whether you have or have had children together, or have previously been married to each other.',
+    'situasjonenDin.advarsel.tittel': 'Not entitled to adjustment allowance',
+    'situasjonenDin.advarsel.gift': 'You are not entitled to adjustment allowance if you have remarried.',
+    'situasjonenDin.advarsel.samboer':
+        'You are not entitled to adjustment allowance if you cohabit with someone you have or have had children with, or someone you have previously been married to.',
     'kontrakt.samtykke': 'I will answer the questions in the application as accurately as I can.',
     'kontrakt.fornavn': 'First name',
     'kontrakt.etternavn': 'Last name',

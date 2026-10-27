@@ -2,14 +2,17 @@ import { BodyLong, Radio, RadioGroup, Select, Textarea, TextField, VStack } from
 import { useEffect } from 'react'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import { useOutletContext } from 'react-router'
+import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { Inntekt as InntektSkjema, Inntektsendring } from '../../typer/skjema'
-import { erGyldigBeloep } from '../../utils/inntekt'
+import { erGyldigBeloep, klargjoerInntekt } from '../../utils/inntekt'
 import styles from './Inntekt.module.css'
 import {
     ArbeidsinntekterDuSkalFylleUtReadMore,
     InntekterFraUtlandDuSkalFylleUt,
     NaeringsinntekterDuSkalFylleUtReadMore,
 } from './InntektReadMore'
+import { SoeknadSteg, SoeknadStegContext } from './SoeknadSteg'
 
 const grunner: Inntektsendring[] = [
     'OEKT_STILLINGSPROSENT',
@@ -234,6 +237,36 @@ const Inntekt = () => {
                 </VStack>
             </VStack>
         </VStack>
+    )
+}
+
+export const InntektSteg = () => {
+    const { state } = useSoknadContext()
+    const { path, tittel, neste, forrige } = useOutletContext<SoeknadStegContext>()
+
+    return (
+        <SoeknadSteg<InntektSkjema>
+            key={path}
+            tittel={tittel}
+            sentrertTittel
+            tittelStorrelse="large"
+            shouldUnregister={false}
+            defaultValues={{
+                arbeidsinntekt: '',
+                naeringsinntekt: '0',
+                inntektFraUtland: '0',
+                ...state.skjema.inntekt,
+            }}
+            oppdaterSoeknad={(soeknad, data) => ({
+                ...soeknad,
+                aktivtSteg: path,
+                skjema: { ...soeknad.skjema, inntekt: klargjoerInntekt(data) },
+            })}
+            neste={neste}
+            forrige={forrige}
+        >
+            <Inntekt />
+        </SoeknadSteg>
     )
 }
 

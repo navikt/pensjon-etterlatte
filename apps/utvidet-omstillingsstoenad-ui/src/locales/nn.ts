@@ -65,6 +65,19 @@ export default {
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsløyse',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sjukdom og uførleik',
+    'situasjonenDin.feil.nySivilstand': 'Du må svare på om du har ny sambuar eller har gifta deg på nytt.',
+    'situasjonenDin.feil.fornavn': 'Du må fylle ut fornamnet til sambuaren.',
+    'situasjonenDin.feil.etternavn': 'Du må fylle ut etternamnet til sambuaren.',
+    'situasjonenDin.feil.foedselsnummerPaakrevd': 'Du må fylle ut fødselsnummeret til sambuaren.',
+    'situasjonenDin.feil.foedselsnummerUgyldig':
+        'Du må fylle ut eit gyldig fødselsnummer eller d-nummer for sambuaren din.',
+    'situasjonenDin.feil.foedselsnummerEget': 'Fødselsnummeret til sambuaren kan ikkje vere ditt eige fødselsnummer.',
+    'situasjonenDin.feil.fellesBarn':
+        'Du må svare på om de har eller har hatt felles barn, eller tidlegare har vore gifte.',
+    'situasjonenDin.advarsel.tittel': 'Ikkje rett til omstillingsstønad',
+    'situasjonenDin.advarsel.gift': 'Du har ikkje rett til omstillingsstønad når du har gifta deg på nytt.',
+    'situasjonenDin.advarsel.samboer':
+        'Du har ikkje rett til omstillingsstønad viss du er sambuar med ein person du har eller har hatt felles barn med, eller med ein person du tidlegare har vore gift med.',
     'kontrakt.samtykke': 'Eg vil svare så godt eg kan på spørsmåla i søknaden.',
     'kontrakt.fornavn': 'Fornamn',
     'kontrakt.etternavn': 'Etternamn',

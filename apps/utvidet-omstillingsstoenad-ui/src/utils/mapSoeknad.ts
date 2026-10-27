@@ -1,6 +1,6 @@
 import { ISoeknad } from '../context/soknad/soknad'
 import { Language } from '../i18n'
-import { Inntekt, Person, SituasjonenDin, UtdanningOgTiltak } from '../typer/skjema'
+import { Inntekt, Person, SituasjonenDinKladd, UtdanningOgTiltak } from '../typer/skjema'
 import { erGyldigBeloep, normaliserBeloep } from './inntekt'
 
 const paakrevd = <T>(verdi: T | undefined, felt: string): T => {
@@ -15,7 +15,8 @@ const beloep = (verdi: string) => {
 
 export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, tekst: (key: string) => string) => {
     if (!soeknad.harSamtykket) throw new Error('Søknaden mangler samtykke')
-    const situasjon: SituasjonenDin = paakrevd(soeknad.skjema.situasjonenDinIDag, 'situasjonenDinIDag')
+    const situasjon: SituasjonenDinKladd = paakrevd(soeknad.skjema.situasjonenDinIDag, 'situasjonenDinIDag')
+    const nySivilstand = paakrevd(situasjon.nySivilstand, 'nySivilstand')
     const aktivitet: UtdanningOgTiltak = paakrevd(soeknad.skjema.utdanningOgTiltak, 'utdanningOgTiltak')
     const inntekt: Inntekt = paakrevd(soeknad.skjema.inntekt, 'inntekt')
 
@@ -23,7 +24,7 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
     const fritekst = (key: string, innhold: string) => opplysning(key, { innhold: paakrevd(innhold, key) })
     const valg = <T extends string>(key: string, verdi: T) =>
         opplysning(key, { verdi, innhold: tekst(`kontrakt.${verdi}`) })
-    const person = (data: Person, samboer = false) => ({
+    const person = (data: Partial<Person>, samboer = false) => ({
         fornavn: opplysning(samboer ? 'samboerFornavn' : 'fornavn', paakrevd(data.fornavn, 'fornavn')),
         etternavn: opplysning(samboer ? 'samboerEtternavn' : 'etternavn', paakrevd(data.etternavn, 'etternavn')),
         foedselsnummer: opplysning(
@@ -49,14 +50,14 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
         soeker: { type: 'GJENLEVENDE_UTVIDET_OMS' as const, ...person(soeker) },
         situasjonenDinIDag: {
             nySivilstand: {
-                ...valg('nySivilstand', situasjon.nySivilstand),
+                ...valg('nySivilstand', nySivilstand),
                 opplysning: samboer
                     ? {
                           type: 'SAMBOER' as const,
                           ...person(samboer, true),
                           fellesBarnEllertidligereGift: valg(
                               'fellesBarnEllertidligereGift',
-                              samboer.fellesBarnEllertidligereGift
+                              paakrevd(samboer.fellesBarnEllertidligereGift, 'fellesBarnEllertidligereGift')
                           ),
                           inntekt: null,
                       }

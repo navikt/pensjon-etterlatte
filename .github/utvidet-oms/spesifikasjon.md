@@ -74,7 +74,7 @@ Vi spør fordi ny samboer eller nytt ekteskap kan påvirke retten til stønad.
 
 `Samboer.inntekt` sendes som `null` (Å2).
 
-**Advarsler** (blokkerer ikke):
+**InfoCard** (`data-color="warning"`, blokkerer ikke):
 - Felles barn eller tidligere gift = Ja: «Ikke rett til omstillingsstønad» – «Du har ikke rett til omstillingsstønad hvis du er samboer med en person du har eller har hatt felles barn med, eller med en person du tidligere har vært gift med.»
 - Giftet på nytt: «Ikke rett til omstillingsstønad» – «Du har ikke rett til omstillingsstønad når du har giftet deg på nytt.»
 

@@ -9,6 +9,8 @@ import { SoknadProvider, useSoknadContext } from '../../context/soknad/SoknadCon
 import { ActionTypes, tomSoeknad } from '../../context/soknad/soknad'
 import i18n from '../../i18n'
 import { mapSoeknad } from '../../utils/mapSoeknad'
+import { InntektSteg } from './Inntekt'
+import { SoeknadStegRute } from './SoeknadSteg'
 import SoknadDialog from './SoknadDialog'
 
 vi.mock('../../api/api', () => ({ lagreKladd: vi.fn(), slettSoeknad: vi.fn() }))
@@ -43,7 +45,20 @@ const Start = ({ inntekt }) => {
         <>
             {klar && (
                 <Routes>
-                    <Route path="/skjema/steg/*" element={<SoknadDialog />} />
+                    <Route path="/skjema/steg" element={<SoknadDialog />}>
+                        <Route path="inntekt" element={<InntektSteg />} />
+                        {['utdanning-og-tiltak', 'dokumentasjon'].map((path) => (
+                            <Route
+                                key={path}
+                                path={path}
+                                element={
+                                    <SoeknadStegRute>
+                                        <p>skjema.underArbeid</p>
+                                    </SoeknadStegRute>
+                                }
+                            />
+                        ))}
+                    </Route>
                 </Routes>
             )}
             <output data-testid="status">{JSON.stringify({ path: location.pathname, state })}</output>

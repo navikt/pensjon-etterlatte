@@ -65,6 +65,19 @@ export default {
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsledighet',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
     'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sykdom og uførhet',
+    'situasjonenDin.feil.nySivilstand': 'Du må svare på om du har ny samboer eller har giftet deg på nytt.',
+    'situasjonenDin.feil.fornavn': 'Du må fylle ut samboers fornavn.',
+    'situasjonenDin.feil.etternavn': 'Du må fylle ut samboers etternavn.',
+    'situasjonenDin.feil.foedselsnummerPaakrevd': 'Du må fylle ut samboers fødselsnummer.',
+    'situasjonenDin.feil.foedselsnummerUgyldig':
+        'Du må fylle ut et gyldig fødselsnummer eller d-nummer for samboeren din.',
+    'situasjonenDin.feil.foedselsnummerEget': 'Samboers fødselsnummer kan ikke være ditt eget fødselsnummer.',
+    'situasjonenDin.feil.fellesBarn':
+        'Du må svare på om dere har eller har hatt felles barn, eller tidligere har vært gift.',
+    'situasjonenDin.advarsel.tittel': 'Ikke rett til omstillingsstønad',
+    'situasjonenDin.advarsel.gift': 'Du har ikke rett til omstillingsstønad når du har giftet deg på nytt.',
+    'situasjonenDin.advarsel.samboer':
+        'Du har ikke rett til omstillingsstønad hvis du er samboer med en person du har eller har hatt felles barn med, eller med en person du tidligere har vært gift med.',
     'kontrakt.samtykke': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'kontrakt.fornavn': 'Fornavn',
     'kontrakt.etternavn': 'Etternavn',
