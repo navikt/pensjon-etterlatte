@@ -4,7 +4,6 @@ import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import Bredde from '../../typer/bredde'
 import { Inntekt as InntektSkjema, Inntektsendring } from '../../typer/skjema'
 import { erGyldigBeloep, klargjoerInntekt } from '../../utils/inntekt'
 import {
@@ -53,7 +52,7 @@ const RHFInntektInput = ({
                     description={description}
                     error={fieldState.error?.message}
                     inputMode="numeric"
-                    htmlSize={Bredde.S}
+                    htmlSize={25}
                 />
             )}
         />

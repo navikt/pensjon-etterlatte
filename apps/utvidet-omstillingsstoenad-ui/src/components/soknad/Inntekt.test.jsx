@@ -8,7 +8,6 @@ import { lagreKladd } from '../../api/api'
 import { SoknadProvider, useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes, tomSoeknad } from '../../context/soknad/soknad'
 import i18n from '../../i18n'
-import Bredde from '../../typer/bredde'
 import { mapSoeknad } from '../../utils/mapSoeknad'
 import { InntektSteg } from './Inntekt'
 import { SoeknadStegRute } from './SoeknadSteg'
@@ -120,7 +119,7 @@ describe('Inntektssteget', () => {
         expect(felt('naeringsinntekt').value).toBe('0')
         expect(felt('inntektFraUtland').value).toBe('0')
         for (const name of ['arbeidsinntekt', 'naeringsinntekt', 'inntektFraUtland']) {
-            expect(felt(name).getAttribute('size')).toBe(String(Bredde.S))
+            expect(felt(name).getAttribute('size')).toBe('25')
         }
         expect(screen.getByText(i18n.t('inntekt.utlandBeskrivelse'))).toBeDefined()
         expect(screen.queryByText(/AFP/)).toBeNull()
