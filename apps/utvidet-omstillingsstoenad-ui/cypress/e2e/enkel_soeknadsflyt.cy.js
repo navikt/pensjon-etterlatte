@@ -8,7 +8,9 @@ describe('Utvidet omstillingsstønad', () => {
         }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, {}).as('hentSoeknad')
         cy.intercept('POST', `${basePath}/api/api/kladd`, {}).as('lagreSoeknad')
-        cy.intercept('GET', `${basePath}/api/api/sak/oms/har-loepende-sak`, { harOMSSak: false }).as('hentLoependeSak')
+        cy.intercept('GET', `${basePath}/api/api/sak/oms/har_sak`, { harOMSSak: true }).as(
+            'hentOmsSakStatus'
+        )
 
         cy.visit('localhost:5173/utvidet-omstillingsstonad/soknad', {
             onBeforeLoad: (obj) => {
@@ -16,7 +18,7 @@ describe('Utvidet omstillingsstønad', () => {
             },
         })
 
-        cy.wait(['@hentFeatureToggles', '@hentInnloggetPerson', '@hentSoeknad', '@hentLoependeSak'])
+        cy.wait(['@hentFeatureToggles', '@hentInnloggetPerson', '@hentSoeknad', '@hentOmsSakStatus'])
         cy.get('[type="checkbox"]').check({ force: true })
         getById('start-soeknad').click()
         cy.wait('@lagreSoeknad').its('request.body.harSamtykket').should('eq', true)

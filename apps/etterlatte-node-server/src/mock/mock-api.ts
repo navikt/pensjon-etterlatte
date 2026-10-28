@@ -1,11 +1,11 @@
 import parser from 'body-parser'
-import express, { NextFunction, Request, Response } from 'express'
+import express, { type NextFunction, type Request, type Response } from 'express'
 import NodeCache from 'node-cache'
 import config from '../config'
-import mockLand from './landMock'
-import mockValutaer from './valutaMock'
-import { STOR_SNERK } from './mock-user'
 import { FeatureToggleStatus } from '../routers/unleashRouter'
+import mockLand from './landMock'
+import { STOR_SNERK } from './mock-user'
+import mockValutaer from './valutaMock'
 
 const cache = new NodeCache()
 
@@ -13,7 +13,7 @@ export const mockApi = (app: any) => {
     const innloggetBruker = STOR_SNERK
 
     app.use(parser.json())
-    app.use(function (req: Request, res: Response, next: NextFunction) {
+    app.use((req: Request, res: Response, next: NextFunction) => {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
         res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -34,10 +34,18 @@ export const mockApi = (app: any) => {
         res.send(harOMSSak)
     })
 
+    app.get(`${config.app.basePath}/api/api/sak/oms/har_sak`, (req: Request, res: Response) => {
+        const harOMSSak = {
+            harOMSSak: true,
+        }
+
+        res.send(harOMSSak)
+    })
+
     app.post(`${config.app.basePath}/api/api/soeknad`, (req: Request, res: Response) => {
         const id = cache.get('id')
 
-        if (!!id) return id
+        if (id) return id
 
         const newID = Math.floor(Math.random() * 100)
         cache.set('id', newID)

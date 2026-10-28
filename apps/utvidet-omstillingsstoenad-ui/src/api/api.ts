@@ -20,11 +20,11 @@ export const hentInnloggetPerson = async () => {
 }
 
 /**
- * Henter info om bruker har søkt om oms før fra APIet basert på innlogget bruker sitt fnr.
+ * Henter info om bruker har OMS-sak fra API-et basert på innlogget bruker sitt fnr.
  */
-export const hentHarSoektOms = async () => {
+export const hentHarOmsSak = async () => {
     try {
-        const response = await api.get('/api/api/sak/oms/har-loepende-sak')
+        const response = await api.get('/api/api/sak/oms/har_sak')
         return response.data
     } catch {
         throw new Error(GENERELL_FEIL)

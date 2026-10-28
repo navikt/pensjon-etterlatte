@@ -25,7 +25,7 @@ Når Figma endres, oppdateres denne filen først, deretter koden. Avvik og uavkl
 
 ## Steg 1 – Introside
 
-**Forutsetning:** Bruker må ha en sak på omstillingsstønad (Å3). Dette sjekkes med `GET /api/api/sak/oms/har-loepende-sak`.
+**Forutsetning:** Bruker må ha eller ha hatt en sak på omstillingsstønad (Å3). Dette sjekkes med `GET /api/api/sak/oms/har_sak`.
 
 ### Variant A – har sak
 - **Veilederboble:** «Hei, {fornavn}!» med teksten om at stønaden sikrer inntekt i inntil 3 år etter dødsfallet og kan forlenges med inntil 2 år ved utdanning eller tiltak. Periodene må henge sammen. Boblen lenker til «om omstillingsstønad» i ny fane.

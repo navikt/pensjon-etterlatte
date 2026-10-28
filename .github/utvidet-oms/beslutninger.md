@@ -71,7 +71,7 @@ Figma-notatet sier at vi bare spør om aktivitetsplan ved arbeidsrettet tiltak. 
 Figma viser Ja/Nei. Kontrakten gjenbruker `Samboer`, som har `fellesBarnEllertidligereGift: Opplysning<EnumSvar<JaNeiVetIkke>>` og et påkrevd, nullbart felt `inntekt`. **Forslag:** Gjenbruk `Samboer`, send bare `JA`/`NEI` og `inntekt = null`.
 
 ### Å3 – Hvilken sak kreves for å søke?
-Figma-notatet sier at det må finnes «en sak på omstillingsstønad». Appen kaller i dag `har-loepende-sak`. Hva med brukere med opphørt sak, for eksempel etter 3 år, som søker rett etter opphør? **Avklares med fag.**
+Figma-notatet sier at det må finnes «en sak på omstillingsstønad». Appen kaller nå `har_sak`, som i praksis dekker om bruker har eller har hatt OMS-sak. Endelig regel for hvilke opphørte saker som skal godtas, **avklares med fag**.
 
 ### Å4 – Dokumentasjon og vedlegg
 Steg 6 er ikke kartlagt. Det er ikke støtte for vedlegg i kontrakten eller i innsendt-soeknad. Oppsummeringen i Figma viser «Studieplan.pdf». **Foreløpig:** tom side.

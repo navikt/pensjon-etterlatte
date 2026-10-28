@@ -2,11 +2,17 @@ import { act, fireEvent, render, screen } from '@testing-library/react'
 import * as chai from 'chai'
 import { BrowserRouter } from 'react-router'
 import { describe, it, vi } from 'vitest'
+import { hentHarOmsSak } from '../../api/api'
 import { SoknadProvider } from '../../context/soknad/SoknadContext'
 import SoknadForside from './SoknadForside'
 
 chai.use(require('chai-dom'))
 const expect = chai.expect
+
+vi.mock('../../api/api', () => ({
+    hentHarOmsSak: vi.fn().mockResolvedValue({ harOMSSak: true }),
+    lagreKladd: vi.fn(),
+}))
 
 vi.mock('react-i18next', async () => ({
     ...(await vi.importActual('react-i18next')),
@@ -19,6 +25,7 @@ vi.mock('../../context/bruker/BrukerContext', () => ({
             state: {
                 fornavn: 'STERK',
                 etternavn: 'BUSK',
+                foedselsnummer: '12345678910',
             },
         }
     },
@@ -74,5 +81,25 @@ describe('Samtykke', () => {
 
         const startKnapp = await screen.findByText('forside.startSoeknad')
         expect(startKnapp).to.be.visible
+    })
+})
+
+describe('Forside uten omstillingsstønad', () => {
+    it('viser advarsel og skjuler start av søknad', async () => {
+        hentHarOmsSak.mockResolvedValueOnce({ harOMSSak: false })
+
+        act(() => {
+            render(
+                <SoknadProvider>
+                    <BrowserRouter>
+                        <SoknadForside />
+                    </BrowserRouter>
+                </SoknadProvider>,
+                container
+            )
+        })
+
+        expect(await screen.findByText('forside.harIkkeOms.tittel')).to.be.visible
+        expect(screen.queryByText('forside.startSoeknad')).toBeNull()
     })
 })

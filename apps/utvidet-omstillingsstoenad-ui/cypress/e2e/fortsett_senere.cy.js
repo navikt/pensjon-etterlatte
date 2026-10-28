@@ -26,6 +26,7 @@ describe('Fortsetter og sletter kladd', () => {
     })
 
     it('Start på nytt skal sende deg til startsiden og slette state', () => {
+        cy.intercept('POST', `${basePath}/api/feature`, { fixture: 'featureToggles' }).as('hentFeatureToggles')
         cy.intercept('GET', `${basePath}/api/person/innlogget?soeknadType=OMSTILLINGSSTOENAD`, {
             fixture: 'testbruker',
         }).as('hentInnloggetPerson')
@@ -33,6 +34,7 @@ describe('Fortsetter og sletter kladd', () => {
         cy.intercept('DELETE', `${basePath}/api/api/kladd`, {}).as('slettSoeknad')
 
         cy.reload()
+        cy.wait(['@hentFeatureToggles', '@hentInnloggetPerson', '@hentSoeknad'])
 
         getById('start_paa_nytt').click()
         cy.get(':checkbox').should('not.be.checked')

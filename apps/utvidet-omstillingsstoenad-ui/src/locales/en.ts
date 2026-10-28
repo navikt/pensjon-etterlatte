@@ -208,6 +208,16 @@ export default {
     'forside.omYtelsene.innhold.del2.lenke.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
     'forside.omYtelsene.innhold.del2.lenke.tekst': 'apply for adjustment allowance',
     'forside.omYtelsene.innhold.del2.del2': '.',
+    'forside.harIkkeOms.tittel': 'You do not have adjustment allowance',
+    'forside.harIkkeOms.beskrivelse':
+        'You must already have adjustment allowance to apply for extended adjustment allowance.',
+    'forside.harIkkeOms.omOmstillingsstoenad.tittel': 'About adjustment allowance',
+    'forside.harIkkeOms.omOmstillingsstoenad.beskrivelse':
+        'Adjustment allowance secures your income if you lose a spouse, partner, or cohabitant with shared children. In some cases, you may receive support if you were previously married.',
+    'forside.harIkkeOms.omOmstillingsstoenad.lesMer.href': 'https://www.nav.no/omstillingsstonad',
+    'forside.harIkkeOms.omOmstillingsstoenad.lesMer.tekst': 'Read more about adjustment allowance',
+    'forside.harIkkeOms.omOmstillingsstoenad.soek.href': 'https://www.nav.no/start/soknad-omstillingsstonad',
+    'forside.harIkkeOms.omOmstillingsstoenad.soek.tekst': 'Apply for adjustment allowance',
     'forside.foerDuSoeker.tittel': 'Before you apply',
     'forside.foerDuSoeker.innhold.del1':
         'If you are taking or planning education, you must document the following in the application:',
