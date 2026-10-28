@@ -126,6 +126,21 @@ describe('Stegruter', () => {
         expect(screen.getByRole('textbox', { name: 'kontrakt.arbeidsinntekt' })).toBeDefined()
     })
 
+    it('lagrer utdanning og tiltak og går videre til inntekt', async () => {
+        setup('/skjema/steg/utdanning-og-tiltak')
+        fireEvent.click(screen.getByRole('radio', { name: 'kontrakt.INGEN' }))
+        fireEvent.click(screen.getByText('knapp.neste'))
+
+        await screen.findByRole('heading', { name: 'skjema.inntekt' })
+        expect(screen.getByRole('textbox', { name: 'kontrakt.arbeidsinntekt' })).toBeDefined()
+        expect(lagreKladd).toHaveBeenLastCalledWith(
+            expect.objectContaining({
+                aktivtSteg: 'inntekt',
+                skjema: { utdanningOgTiltak: { aktivitet: 'INGEN' } },
+            })
+        )
+    })
+
     it('viser plassholderen for steg uten skjema', () => {
         setup('/skjema/steg/dokumentasjon')
         expect(screen.getByText('skjema.underArbeid')).toBeDefined()

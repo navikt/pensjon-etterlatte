@@ -51,7 +51,13 @@ internal class AdressebeskyttelseUtilsKtTest {
                 soekerFnr = Foedselsnummer.of("26430489347"),
             )
 
-        val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon)))
+        val utvidetOmstillingsstoenad =
+            InnsendtSoeknadFixtures.utvidetOmstillingsstoenad(
+                innsenderFnr = Foedselsnummer.of("24014021406"),
+                soekerFnr = Foedselsnummer.of("26430489347"),
+            )
+
+        val request = SoeknadRequest((listOf(omstillingsstoenad, barnepensjon,  utvidetOmstillingsstoenad)))
         val barnFnr = listOf(Foedselsnummer.of("26430489347"), Foedselsnummer.of("24014021406"))
 
         val updatedRequest = request.fjernStedslokaliserendeInfo(barnFnr)

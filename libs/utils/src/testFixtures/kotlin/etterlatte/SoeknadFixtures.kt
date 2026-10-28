@@ -4,6 +4,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.ArbeidOgUtdanningOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.BankkontoType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoedeOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.ForholdTilAvdoedeType
+import no.nav.etterlatte.libs.common.innsendtsoeknad.ForventetInntektIAar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.InntektOgPensjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.JobbStatusTypeOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Kontaktinfo
@@ -11,6 +12,7 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.OmsorgspersonType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.OppholdUtlandType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.SivilstatusType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Spraak
+import no.nav.etterlatte.libs.common.innsendtsoeknad.StudieformType
 import no.nav.etterlatte.libs.common.innsendtsoeknad.UtbetalingsInformasjon
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Utenlandsadresse
 import no.nav.etterlatte.libs.common.innsendtsoeknad.Utenlandsopphold
@@ -26,12 +28,19 @@ import no.nav.etterlatte.libs.common.innsendtsoeknad.common.EnumSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Forelder
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.FritekstSvar
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.GjenlevendeOMS
+import no.nav.etterlatte.libs.common.innsendtsoeknad.common.GjenlevendeUtvidetOMS
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Innsender
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke.JA
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.JaNeiVetIkke.NEI
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Opplysning
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.Verge
 import no.nav.etterlatte.libs.common.innsendtsoeknad.omstillingsstoenad.Omstillingsstoenad
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.NySivilstandValg
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.SituasjonenDinIDag
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.UtdanningOgTiltak
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.UtdanningOgTiltakValg
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.UtdanningUtvidetOMS
+import no.nav.etterlatte.libs.common.innsendtsoeknad.utvidetomstillingsstoenad.UtvidetOmstillingsstoenad
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import java.time.LocalDate
 import java.util.UUID
@@ -341,6 +350,73 @@ object InnsendtSoeknadFixtures {
                 ),
             barn = barn,
         )
+
+    fun utvidetOmstillingsstoenad(
+        innsenderFnr: Foedselsnummer = Foedselsnummer.of("01810112332"),
+        soekerFnr: Foedselsnummer = innsenderFnr,
+    ) = UtvidetOmstillingsstoenad(
+        imageTag = "b4a8a6e7773d4d1d8f7f1e920fbc4e10",
+        spraak = Spraak.NB,
+        innsender =
+            Innsender(
+                fornavn = Opplysning("Kirsten"),
+                etternavn = Opplysning("Jakobsen"),
+                foedselsnummer = Opplysning(innsenderFnr),
+            ),
+        harSamtykket = Opplysning(svar = true),
+        soeker =
+            GjenlevendeUtvidetOMS(
+                fornavn = Opplysning("Kirsten"),
+                etternavn = Opplysning("Jakobsen"),
+                foedselsnummer = Opplysning(soekerFnr),
+                foedselsdato = null,
+            ),
+        situasjonenDinIDag =
+            SituasjonenDinIDag(
+                nySivilstand =
+                    BetingetOpplysning(
+                        svar = EnumSvar(NySivilstandValg.INGEN_AV_DELENE, "Ingen av delene"),
+                        opplysning = null,
+                    ),
+            ),
+        utdanningOgTiltak =
+            UtdanningOgTiltak(
+                aktivitet = Opplysning(EnumSvar(UtdanningOgTiltakValg.UTDANNING, "Utdanning")),
+                utdanning =
+                    UtdanningUtvidetOMS(
+                        studiested = Opplysning(FritekstSvar("Universitetet i Oslo")),
+                        studie = Opplysning(FritekstSvar("Sosialt arbeid")),
+                        startDato = Opplysning(DatoSvar(LocalDate.parse("2026-08-15"))),
+                        sluttDato = Opplysning(DatoSvar(LocalDate.parse("2028-06-15"))),
+                        studieform = Opplysning(EnumSvar(StudieformType.DELTID, "Deltid")),
+                        studieprosent = Opplysning(FritekstSvar("50")),
+                    ),
+                arbeidsrettetTiltak = null,
+                aktivitetsplan = Opplysning(EnumSvar(JA, "Ja")),
+            ),
+        inntekt =
+            ForventetInntektIAar(
+                arbeidsinntekt = Opplysning(FritekstSvar("240000")),
+                naeringsinntekt = null,
+                afpInntekt = null,
+                inntektFraUtland = null,
+                andreInntekter = null,
+                noeSomKanPaavirkeInntekten = null,
+            ),
+        utbetalingsInformasjon =
+            BetingetOpplysning(
+                svar = EnumSvar(BankkontoType.NORSK, "Norsk"),
+                spoersmaal = "Ønsker du å motta utbetalingen på norsk eller utenlandsk bankkonto?",
+                opplysning =
+                    UtbetalingsInformasjon(
+                        kontonummer = Opplysning(FritekstSvar("6848.64.44444")),
+                        utenlandskBankNavn = null,
+                        utenlandskBankAdresse = null,
+                        iban = null,
+                        swift = null,
+                    ),
+            ),
+    )
 }
 
 fun eksempelBarn(

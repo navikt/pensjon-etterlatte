@@ -49,6 +49,7 @@ Kontrakt: UtvidetOmstillingsstoenad i pensjon-etterlatte-felles/common
 | pe | `utvidet-soknad-struktur-ny-app` | – | Skjelett og grunnmur (3.1) for `apps/utvidet-omstillingsstoenad-ui`. Grunnmuren ligger som lokale endringer, ikke committet. |
 | pe | `NAV-31515-utvidet-oms-inntekt` | [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558) | Steg 5 Inntekt (3.6), med validering, nb/nn/en og tester. |
 | pe | `utvidet-oms-personopplysninger` | – | Steg 2 Personopplysninger (3.3), implementert lokalt. |
+| pe | `utvidet-oms-utdannelse` | – | NAV-31514: Steg 4 Utdanning og tiltak (3.5), implementert lokalt. Branchen inneholder også grunnmuren, Personopplysninger og Situasjonen din i dag. PR-status for tidligere frontendarbeid er ikke kontrollert. |
 | pe | `NAV-31200-sende-inn-utvidet-oms-soeknad` | [#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531) | innsendt-soeknad tar imot den nye søknadstypen |
 | sb | `nav-31200-ta-imot-soknad-utvidet-oms` | [#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971) | Mottak i `NySoeknadRiver` og journalføring |
 
@@ -97,8 +98,8 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | 3.1 | Grunnmur: stegdefinisjon og ruter, fremdrift, Forrige/Neste/Avbryt, react-hook-form per steg, lagring ved stegbytte, frontendmodell og mapping til kontrakten (testet mot eksempel-JSON fra felles) | | 🚧 implementert lokalt på eksisterende frontendbranch, klart for review. Favro-kort og PR mangler. |
 | 3.2 | Steg 1 Introside: sjekk av sak, to varianter, samtykke | | ✅ på branch (oppdatert mot Figma). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket. |
 | 3.3 | Steg 2 Personopplysninger | | 🚧 implementert lokalt på `utvidet-oms-personopplysninger`; PR mangler. |
-| 3.4 | Steg 3 Situasjonen din i dag | | ⏳ |
-| 3.5 | Steg 4 Utdanning og tiltak | | ⏳ |
+| 3.4 | Steg 3 Situasjonen din i dag | | Implementasjonen og testene finnes på `utvidet-oms-utdannelse`. PR-status er ikke kontrollert. |
+| 3.5 | Steg 4 Utdanning og tiltak | NAV-31514 | ✅ implementert lokalt på `utvidet-oms-utdannelse`, med validering, kladd, nb/nn/en, kontraktmapping og axe-tester. Ikke committet, ingen PR opprettet. |
 | 3.6 | Steg 5 Inntekt | NAV-31515 | [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558), med validering, nb/nn/en, enhetstester og responsive Cypress-tester med axe. Ny ingress, feilmeldinger og tegntellertekster på nynorsk og engelsk er foreløpig KI-generert og ikke språkvasket. ReadMore-tekstene er hentet fra OMS. |
 | 3.7 | Steg 6 Dokumentasjon (tom side inntil videre) | | ⏳ Å4 |
 | 3.8 | Steg 7 Oppsummering og innsending | | ⏳ |
@@ -131,6 +132,7 @@ Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til
 
 - **2026-10-27**: NAV-31515, gjennomgang av [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558): tegntellere på nb/nn/en, navigasjon fra steglisten og én felles rutedefinisjon for appen og rutetestene. Alle skjemasteg bruker stor, sentrert overskrift som i Figma. Inntektssteget bruker Aksel-komponenter og feltbredder som i eksisterende skjemaer, uten egen CSS. Felles sidestørrelse, topptekst og navigasjonsavstander er uendret. Cypress sjekker responsiv oppførsel uten faste pikselmål eller automatiske skjermbilder.
 - **2026-10-26**: NAV-31515, steg 5 Inntekt (3.6), med nb/nn/en, beløpsvalidering, ReadMore og fjerning av skjulte svar. [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558).
+- **2026-10-26**: Steg 4 Utdanning og tiltak (3.5, NAV-31514) implementert lokalt på `utvidet-oms-utdannelse`. Betingede felt fjernes fra kladd og kontrakt, datoer valideres før ISO-mapping, og advarsler blokkerer ikke. Aktivitetsplan vises bare ved tiltak etter stegspesifikasjonen; Å1 er fortsatt åpent. Ingen commit eller PR.
 - **2026-10-22**: Steg 2 Personopplysninger (3.3) implementert lokalt på `utvidet-oms-personopplysninger`, med responsiv visning av brukeropplysninger og lenke til Folkeregisteret. PR mangler.
 - **2026-10-22**: Førstesiden (3.2) er på plass på branch og oppdatert mot Figma (ingress, informasjonsseksjoner, samtykke og startknapp). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket.
 - **2026-10-21**: Flytter agent, veikart, beslutninger, spesifikasjon og statusskript fra saksbehandling til `pensjon-etterlatte` mens vi bygger søknaden (B7). Oppdaterer lenker og legger igjen en peker i Gjenny. PR-er klargjøres.

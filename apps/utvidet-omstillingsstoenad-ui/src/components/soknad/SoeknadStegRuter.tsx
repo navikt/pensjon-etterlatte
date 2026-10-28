@@ -8,6 +8,7 @@ import Personopplysninger from './Personopplysninger'
 import { SoeknadStegRute } from './SoeknadSteg'
 import SoknadDialog from './SoknadDialog'
 import { SituasjonenDinSteg } from './situasjonenDin/SituasjonenDin'
+import { UtdanningOgTiltakSteg } from './utdanningOgTiltak/UtdanningOgTiltak'
 
 const UnderArbeid = () => {
     const { t } = useTranslation()
@@ -21,6 +22,7 @@ const stegKomponenter: Partial<Record<StegPath, ReactNode>> = {
         </SoeknadStegRute>
     ),
     'situasjonen-din': <SituasjonenDinSteg />,
+    'utdanning-og-tiltak': <UtdanningOgTiltakSteg />,
     inntekt: <InntektSteg />,
 }
 

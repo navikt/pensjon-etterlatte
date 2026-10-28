@@ -4,7 +4,7 @@ import { Language } from '../i18n'
 import en from '../locales/en'
 import nb from '../locales/nb'
 import nn from '../locales/nn'
-import { SituasjonenDinKladd, Skjema } from '../typer/skjema'
+import { SituasjonenDinKladd, Skjema, UtdanningOgTiltakKladd } from '../typer/skjema'
 import utdanning from './fixtures/utvidet_omstillingsstoenad.json'
 import samboer from './fixtures/utvidet_omstillingsstoenad_ny_samboer.json'
 import tiltak from './fixtures/utvidet_omstillingsstoenad_tiltak.json'
@@ -236,6 +236,75 @@ describe('Mapping til kontrakten i felles', () => {
         expect(() =>
             mapSoeknad(kladd({ ...grunnlag, situasjonenDinIDag: situasjon }), person, 'abc123', tekst)
         ).toThrow(felt)
+    })
+
+    it.each<[UtdanningOgTiltakKladd, string]>([
+        [{}, 'aktivitet'],
+        [{ aktivitet: 'UTDANNING', utdanning: {} }, 'studiested'],
+        [{ aktivitet: 'UTDANNING', utdanning: { studiested: 'Skole' } }, 'studie'],
+        [{ aktivitet: 'ARBEIDSRETTET_TILTAK' }, 'arbeidsrettetTiltak'],
+        [{ aktivitet: 'ARBEIDSRETTET_TILTAK', arbeidsrettetTiltak: {} }, 'tiltak'],
+        [{ aktivitet: 'ARBEIDSRETTET_TILTAK', arbeidsrettetTiltak: { tiltak: 'Tiltak' } }, 'omfang'],
+        [
+            {
+                aktivitet: 'ARBEIDSRETTET_TILTAK',
+                arbeidsrettetTiltak: { tiltak: 'Tiltak', omfang: 'HELTID' },
+            },
+            'aktivitetsplan',
+        ],
+    ])('Avviser ufullstendig utdannings- og tiltakskladd ved kontraktmapping', (aktivitet, felt) => {
+        expect(() => mapSoeknad(kladd({ ...grunnlag, utdanningOgTiltak: aktivitet }), person, 'abc123', tekst)).toThrow(
+            felt
+        )
+    })
+
+    it.each([
+        [Language.NORSK_BOKMAAL, nb],
+        [Language.NORSK_NYNORSK, nn],
+        [Language.ENGELSK, en],
+    ] as const)('Mapper utdanningssvar og datoer fra steget på %s, uten skjulte felt', (spraak, locale) => {
+        const oversett = (key: string) => locale[key as keyof typeof locale]
+        const data: UtdanningOgTiltakKladd = {
+            aktivitet: 'UTDANNING',
+            utdanning: {
+                studiested: 'OsloMet',
+                studie: 'Sykepleie',
+                startDato: '2026-08-15',
+                sluttDato: '2029-06-15',
+                studieform: 'HELTID',
+                studieprosent: '40',
+            },
+            arbeidsrettetTiltak: { tiltak: 'Gammelt tiltak', omfang: 'DELTID' },
+            aktivitetsplan: 'JA',
+        }
+        const soeknad = { ...kladd({ ...grunnlag, utdanningOgTiltak: data }), spraak }
+        const resultat = mapSoeknad(soeknad, person, 'abc123', oversett).utdanningOgTiltak
+        expect(resultat.aktivitet).toEqual({
+            spoersmaal: locale['kontrakt.aktivitet'],
+            svar: { verdi: 'UTDANNING', innhold: locale['kontrakt.UTDANNING'] },
+        })
+        expect(resultat.utdanning).toMatchObject({
+            studiested: { spoersmaal: locale['kontrakt.studiested'], svar: { innhold: 'OsloMet' } },
+            startDato: { spoersmaal: locale['kontrakt.startDato'], svar: { innhold: '2026-08-15' } },
+            sluttDato: { spoersmaal: locale['kontrakt.sluttDato'], svar: { innhold: '2029-06-15' } },
+            studieform: {
+                spoersmaal: locale['kontrakt.studieform'],
+                svar: { verdi: 'HELTID', innhold: locale['kontrakt.HELTID'] },
+            },
+        })
+        expect(resultat.utdanning).not.toHaveProperty('studieprosent')
+        expect(resultat).not.toHaveProperty('arbeidsrettetTiltak')
+        expect(resultat).not.toHaveProperty('aktivitetsplan')
+        for (const verdi of ['', undefined]) {
+            const ugyldig = {
+                ...soeknad,
+                skjema: {
+                    ...soeknad.skjema,
+                    utdanningOgTiltak: { ...data, utdanning: { ...data.utdanning, startDato: verdi } },
+                },
+            }
+            expect(() => mapSoeknad(ugyldig, person, 'abc123', oversett)).toThrow('startDato')
+        }
     })
 
     it.each([
