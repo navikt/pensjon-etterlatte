@@ -141,7 +141,7 @@ export const SituasjonenDin = () => {
 
 export const SituasjonenDinSteg = () => {
     const { state } = useSoknadContext()
-    const { path, tittel, neste, forrige, sentrertTittel } = useOutletContext<SoeknadStegContext>()
+    const { path, tittel, neste, forrige } = useOutletContext<SoeknadStegContext>()
 
     return (
         <SoeknadSteg<SituasjonenDinKladd>
@@ -155,7 +155,6 @@ export const SituasjonenDinSteg = () => {
             })}
             neste={neste}
             forrige={forrige}
-            sentrertTittel={sentrertTittel}
         >
             <SituasjonenDin />
         </SoeknadSteg>

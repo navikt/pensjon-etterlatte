@@ -213,7 +213,6 @@ export const UtdanningOgTiltakSteg = () => {
             })}
             neste={neste}
             forrige={forrige}
-            sentrertTittel
         >
             <UtdanningOgTiltak />
         </SoeknadSteg>

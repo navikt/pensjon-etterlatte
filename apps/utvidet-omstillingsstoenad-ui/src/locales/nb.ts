@@ -1,4 +1,70 @@
 export default {
+    'inntekt.ingress':
+        'Oppgi hvor mye du forventer å tjene i år, fra januar til desember. Beløpet skal være før skatt og oppgis i norske kroner.',
+    'inntekt.utlandBeskrivelse': 'Inntektene skal oppgis i norske kroner.',
+    'inntekt.velg': 'Velg grunn',
+    'inntekt.feil.beloep': 'Oppgi et heltall som er 0 eller høyere',
+    'inntekt.feil.paakrevdBeloep': 'Du må oppgi beløp for {{felt}}',
+    'inntekt.feil.andreInntekter': 'Svar på om du har andre inntekter',
+    'inntekt.feil.andreBeskrivelse': 'Beskriv hva slags inntekter du har',
+    'inntekt.feil.paavirkeInntekt': 'Svar på om noe kan påvirke inntekten din fremover',
+    'inntekt.feil.grunn': 'Velg grunnen til at inntekten din endrer seg',
+    'inntekt.feil.endringBeskrivelse': 'Beskriv endringen i inntekten din',
+    'inntekt.feil.maksLengde': 'Beskrivelsen kan ikke være lengre enn 1000 tegn',
+    'inntekt.counterLeft': 'tegn igjen',
+    'inntekt.counterTooMuch': 'tegn for mye',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekter og andre utbetalinger du skal melde inn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekter',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og overtid',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
+        'Pengestøtter fra Nav og andre pensjonsleverandører',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': 'Kan for eksempel være:',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': 'arbeidsavklaringspenger (AAP)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': 'dagpenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': 'foreldrepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': 'fosterhjemsgodtgjørelse',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': 'kvalifiseringsstønad',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6':
+        'omsorgslønn/omsorgsstønad (kommunal støtte)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': 'omsorgspenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': 'opplæringspenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': 'pleiepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': 'sykepenger',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2':
+        'Har du uføretrygd, skal du ikke oppgi den som inntekt her.',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalinger som regnes som inntekt',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringer',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Næringsinntekter du skal melde inn',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'næringsinntekt',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'salg av næringsvirksomhet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': 'Inntekter fra utland du skal melde inn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastlønn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimer og overtid',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepenger',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': 'Næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': 'næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': 'salg av næringsvirksomhet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalinger som regnes som inntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringer',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuser og andre pensjonsgivende tillegg og godtgjørelser. Dette inkluderer også vederlag i form av provisjon, honorarer, royalties eller godtgjørelse for deltakelser i styrer, utvalg, representantskap eller lignende.',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label':
+        'Ytelser og pengestøtter fra landet du bor i',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p':
+        'For eksempel pengestøtte i forbindelse med',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsledighet',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sykdom og uførhet',
     'felles.datoformat': 'dd.mm.åååå',
     'felles.oppgiDato': 'Skriv dato',
     'felles.valgfri': 'valgfri',

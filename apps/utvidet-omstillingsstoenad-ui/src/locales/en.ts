@@ -1,4 +1,68 @@
 export default {
+    'inntekt.ingress':
+        'State how much you expect to earn this year, from January to December. Enter the amount before tax in Norwegian kroner.',
+    'inntekt.utlandBeskrivelse': 'Enter the income in Norwegian kroner.',
+    'inntekt.velg': 'Select a reason',
+    'inntekt.feil.beloep': 'Enter a whole number that is 0 or higher',
+    'inntekt.feil.paakrevdBeloep': 'You must enter an amount for {{felt}}',
+    'inntekt.feil.andreInntekter': 'Answer whether you have other income',
+    'inntekt.feil.andreBeskrivelse': 'Describe what type of income you have',
+    'inntekt.feil.paavirkeInntekt': 'Answer whether anything may affect your future income',
+    'inntekt.feil.grunn': 'Select the reason why your income is changing',
+    'inntekt.feil.endringBeskrivelse': 'Describe the change in your income',
+    'inntekt.feil.maksLengde': 'The description cannot be longer than 1000 characters',
+    'inntekt.counterLeft': 'characters remaining',
+    'inntekt.counterTooMuch': 'characters too many',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Employment income and other payments received that you must report',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Income from work',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fixed salary',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'extra hours and overtime',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'holiday pay',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
+        'Financial support from Nav and other pension providers',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': 'These can be e.g.:',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': 'Work Assessment Allowance (AAP)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': 'unemployment benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': 'parental benefit',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': 'foster care grant',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': 'qualification benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6':
+        'care pay/care benefits (municipal support)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': 'care benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': 'training allowance',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': 'attendance allowance',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': 'sickness benefits',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2':
+        'If you receive disability benefits, you must not declare it as income here.',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Other payments that are considered income',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1': 'taxable part of insurance',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuses and other pensionable supplements and allowances. This also includes remuneration in the form of commissions, fees, royalties or remuneration for participation in boards, committees, supervisory boards or similar.',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Business income you must report',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'business income',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'sale of business activities',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': 'Income from foreign countries that you must report',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Income from work',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fixed salary',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'extra hours and overtime',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'holiday pay',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': 'Business income',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': 'business income',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': 'sale of business activities',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Other payments that are considered income',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1': 'taxable part of insurance',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonuses and other pensionable supplements and allowances. This also includes remuneration in the form of commissions, fees, royalties or remuneration for participation in boards, committees, supervisory boards or similar.',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label':
+        'Benefits and monetary support from the country you live in',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p':
+        'For example, monetary support from',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'unemployment',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'children and care',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'illness and disability',
     'felles.datoformat': 'dd.mm.yyyy',
     'felles.oppgiDato': 'Enter date',
     'felles.valgfri': 'optional',

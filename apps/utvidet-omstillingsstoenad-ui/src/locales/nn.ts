@@ -1,4 +1,70 @@
 export default {
+    'inntekt.ingress':
+        'Oppgi kor mykje du forventar å tene i år, frå januar til desember. Beløpet skal vere før skatt og oppgivast i norske kroner.',
+    'inntekt.utlandBeskrivelse': 'Inntektene skal oppgivast i norske kroner.',
+    'inntekt.velg': 'Vel grunn',
+    'inntekt.feil.beloep': 'Oppgi eit heiltal som er 0 eller høgare',
+    'inntekt.feil.paakrevdBeloep': 'Du må oppgi beløp for {{felt}}',
+    'inntekt.feil.andreInntekter': 'Svar på om du har andre inntekter',
+    'inntekt.feil.andreBeskrivelse': 'Beskriv kva slags inntekter du har',
+    'inntekt.feil.paavirkeInntekt': 'Svar på om noko kan påverke inntekta di framover',
+    'inntekt.feil.grunn': 'Vel grunnen til at inntekta di endrar seg',
+    'inntekt.feil.endringBeskrivelse': 'Beskriv endringa i inntekta di',
+    'inntekt.feil.maksLengde': 'Beskrivinga kan ikkje vere lengre enn 1000 teikn',
+    'inntekt.counterLeft': 'teikn igjen',
+    'inntekt.counterTooMuch': 'teikn for mykje',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.tittel':
+        'Arbeidsinntekter og andre utbetalingar du skal melde inn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekt',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastløn',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimar og overtid',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.label':
+        'Pengestøtter frå Nav og andre pensjonsleverandørar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p1': 'Dette kan vere til dømes',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l1': 'arbeidsavklaringspengar (AAP)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l2': 'dagpengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l3': 'foreldrepengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l4': 'fosterheimsgodtgjersle',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l5': 'kvalifiseringsstønad',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l6':
+        'omsorgsløn/omsorgsstønad (kommunal støtte)',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l7': 'omsorgspengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l8': 'opplæringspengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l9': 'pleiepengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.l10': 'sjukepengar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.pengestoetter.p2':
+        'Dersom du har uføretrygd, skal du ikkje oppgi denne som inntekt her.',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalingar som blir rekna som inntekt',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringar',
+    'inntektenDin.felles.arbeidsinntekterDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjersle for deltaking i styre, utval, representantskap eller liknande',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.label': 'Næringsinntekter du skal melde inn',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l1': 'næringsinntekt',
+    'inntektenDin.felles.naeringsinntekterDuSkalFylleUt.innhold.l2': 'sal av næringsverksemd',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.label': 'Inntekter frå utlandet du skal melde inn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.label': 'Arbeidsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l1': 'fastløn',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l2': 'ekstratimar og overtid',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.arbeidsinntekter.l3': 'feriepengar',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.label': 'Næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l1': 'næringsinntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.naeringsinntekter.l2': 'sal av næringsverksemd',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.label':
+        'Andre utbetalingar som blir rekna som inntekt',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l1':
+        'skattepliktig del av forsikringar',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.andreUtbetalinger.l2':
+        'bonusar og andre pensjonsgivande tillegg og godtgjersler. Dette inkluderer også vederlag i form av provisjon, honorar, royalties eller godtgjersle for deltaking i styre, utval, representantskap eller liknande',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.label':
+        'Ytingar og pengestøtter frå landet du bur i',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.p':
+        'Til dømes pengestøtte i samband med',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l1': 'arbeidsløyse',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l2': 'barn og omsorg',
+    'inntektenDin.felles.inntekterFraUtlandDuSkalFylleUt.innhold.ytelserOgPengestoetter.l3': 'sjukdom og uførleik',
     'felles.datoformat': 'dd.mm.åååå',
     'felles.oppgiDato': 'Oppgi dato',
     'felles.valgfri': 'valfri',

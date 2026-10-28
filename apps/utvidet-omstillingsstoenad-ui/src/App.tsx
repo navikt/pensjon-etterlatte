@@ -7,6 +7,7 @@ import { SkjemaTittel } from '~components/felles/SkjemaTittel'
 import SystemUtilgjengelig from './components/felles/systemUtilgjengelig/SystemUtilgjengelig'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
+import { InntektSteg } from './components/soknad/inntekt/Inntekt'
 import Personopplysninger from './components/soknad/Personopplysninger'
 import { SoeknadStegRute } from './components/soknad/SoeknadSteg'
 import SoknadDialog from './components/soknad/SoknadDialog'
@@ -59,7 +60,8 @@ const App = () => {
                                         />
                                         <Route path={'situasjonen-din'} element={<SituasjonenDinSteg />} />
                                         <Route path={'utdanning-og-tiltak'} element={<UtdanningOgTiltakSteg />} />
-                                        {steg.slice(3).map((side) => (
+                                        <Route path={'inntekt'} element={<InntektSteg />} />
+                                        {steg.slice(4).map((side) => (
                                             <Route
                                                 key={side.path}
                                                 path={side.path}

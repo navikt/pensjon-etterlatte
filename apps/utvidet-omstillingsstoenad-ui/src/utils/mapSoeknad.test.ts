@@ -172,7 +172,7 @@ describe('Mapping til kontrakten i felles', () => {
         expect(resultat.inntekt.noeSomKanPaavirkeInntekten).toEqual({ valg: expect.any(Object) })
     })
 
-    it.each(['', '-1', '1.5', 'abc'])('Avviser ugyldig beløp %s', (verdi) => {
+    it.each(['', ' ', '-1', '1.5', '1,5', '1e3', 'abc'])('Avviser ugyldig beløp %s', (verdi) => {
         expect(() =>
             mapSoeknad(
                 kladd({
@@ -184,6 +184,31 @@ describe('Mapping til kontrakten i felles', () => {
                 tekst
             )
         ).toThrow('Beløp må være et heltall')
+    })
+
+    it('Avviser ubesvarte påkrevde inntektsspørsmål', () => {
+        expect(() =>
+            mapSoeknad(
+                kladd({
+                    ...grunnlag,
+                    inntekt: { ...grunnlag.inntekt!, andreInntekter: {} },
+                }),
+                person,
+                'abc123',
+                tekst
+            )
+        ).toThrow('andreInntekter.valg')
+        expect(() =>
+            mapSoeknad(
+                kladd({
+                    ...grunnlag,
+                    inntekt: { ...grunnlag.inntekt!, noeSomKanPaavirkeInntekten: {} },
+                }),
+                person,
+                'abc123',
+                tekst
+            )
+        ).toThrow('noeSomKanPaavirkeInntekten.valg')
     })
 
     it('Avviser manglende samtykke og ufullstendig søknad', () => {

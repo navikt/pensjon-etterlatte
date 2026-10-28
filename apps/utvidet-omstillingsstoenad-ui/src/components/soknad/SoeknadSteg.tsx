@@ -15,7 +15,6 @@ export interface SoeknadStegContext {
     tittel: string
     neste?: StegPath
     forrige?: StegPath | '/'
-    sentrertTittel: boolean
 }
 
 export const finnFeil = (errors: FieldErrors): { id: string; melding: string }[] => {
@@ -45,7 +44,7 @@ interface Props<T extends FieldValues> {
     valider?: (data: T) => { name: FieldPath<T>; message: string }[]
     neste?: StegPath
     forrige?: StegPath | '/'
-    sentrertTittel?: boolean
+    shouldUnregister?: boolean
     children: ReactNode
 }
 
@@ -56,13 +55,13 @@ export const SoeknadSteg = <T extends FieldValues>({
     valider,
     neste,
     forrige,
-    sentrertTittel = false,
+    shouldUnregister = true,
     children,
 }: Props<T>) => {
     const { state, dispatch } = useSoknadContext()
     const { t } = useTranslation()
     const navigate = useNavigate()
-    const methods = useForm<T>({ defaultValues, shouldUnregister: true, shouldFocusError: false })
+    const methods = useForm<T>({ defaultValues, shouldUnregister, shouldFocusError: false })
     const [lagrer, settLagrer] = useState(false)
     const [lagringsfeil, settLagringsfeil] = useState(false)
     const [feilforsok, settFeilforsok] = useState(0)
@@ -143,13 +142,7 @@ export const SoeknadSteg = <T extends FieldValues>({
                             )}
                         </ErrorSummary>
                     )}
-                    <Heading
-                        align={sentrertTittel ? 'center' : undefined}
-                        ref={headingRef}
-                        size="medium"
-                        level="2"
-                        tabIndex={-1}
-                    >
+                    <Heading ref={headingRef} size="large" align="center" level="2" tabIndex={-1}>
                         {tittel}
                     </Heading>
                     {children}
@@ -166,7 +159,7 @@ export const SoeknadSteg = <T extends FieldValues>({
 }
 
 export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
-    const { path, tittel, neste, forrige, sentrertTittel } = useOutletContext<SoeknadStegContext>()
+    const { path, tittel, neste, forrige } = useOutletContext<SoeknadStegContext>()
 
     return (
         <SoeknadSteg
@@ -176,7 +169,6 @@ export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
             oppdaterSoeknad={(soeknad) => ({ ...soeknad, aktivtSteg: path })}
             neste={neste}
             forrige={forrige}
-            sentrertTittel={sentrertTittel}
         >
             {children}
         </SoeknadSteg>

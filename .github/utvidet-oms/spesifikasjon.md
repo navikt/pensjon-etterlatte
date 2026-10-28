@@ -115,12 +115,16 @@ Samme spørsmål som i OMS-søknaden (`ForventetInntektIAar`), men uten AFP. Gje
 | Inntekter fra utland («Inntektene skal oppgis i norske kroner.», med ReadMore) | Beløp, standard 0 | Alltid | Påkrevd | `inntekt.inntektFraUtland` |
 | Har du andre inntekter? | Radio: Ja / Nei / Vet ikke | Alltid | Påkrevd | `inntekt.andreInntekter.valg` |
 | Sum andre inntekter | Beløp | Andre inntekter = Ja | Påkrevd | `inntekt.andreInntekter.inntekt` |
-| Hva slags inntekter? | Textarea | Andre inntekter = Ja | Påkrevd | `inntekt.andreInntekter.beskrivelse` |
+| Hva slags inntekter? | Textarea | Andre inntekter = Ja | Påkrevd, ikke bare mellomrom, maks 1000 tegn | `inntekt.andreInntekter.beskrivelse` |
 | Er det noe du vet om i dag som kan påvirke inntekten din fremover? | Radio: Ja / Nei / Vet ikke | Alltid | Påkrevd | `inntekt.noeSomKanPaavirkeInntekten.valg` |
 | Hva er grunnen til at inntekten din endrer seg? | Select (`GrunnTilPaavirkelseAvInntekt`) | Påvirke = Ja | Påkrevd | `noeSomKanPaavirkeInntekten.grunnTilPaavirkelseAvInntekt` |
-| Beskrivelse | Textarea | Påvirke = Ja og grunn = annen | Som i OMS | `noeSomKanPaavirkeInntekten.beskrivelse` |
+| Beskriv endringen | Textarea | Påvirke = Ja og grunn = `ANNEN_GRUNN` | Påkrevd, ikke bare mellomrom, maks 1000 tegn (som i OMS) | `noeSomKanPaavirkeInntekten.beskrivelse` |
 
 `inntekt.afpInntekt` sendes som `null`.
+
+ReadMore-innholdet til de tre beløpsfeltene følger OMS-søknaden på nb/nn/en. Arbeidsinntekt og sum andre inntekter har ingen standardverdi. Mellomrom fjernes fra alle beløp ved lagring av steget og i kontraktmappingen, uten å konvertere til tall eller runde av.
+
+Oppfølgingsverdier fjernes også fra kladdens standardverdier når et felt skjules. Hvis feltet vises igjen i samme steg, skal det være tomt. Forrige steg og Fortsett senere kan lagre ubesvarte spørsmål uten å sette et svar.
 
 ---
 

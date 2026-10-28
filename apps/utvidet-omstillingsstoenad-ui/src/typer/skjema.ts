@@ -54,12 +54,12 @@ export interface Inntekt {
     naeringsinntekt: string
     inntektFraUtland: string
     andreInntekter: {
-        valg: JaNeiVetIkke
+        valg?: JaNeiVetIkke
         inntekt?: string
         beskrivelse?: string
     }
     noeSomKanPaavirkeInntekten: {
-        valg: JaNeiVetIkke
+        valg?: JaNeiVetIkke
         grunnTilPaavirkelseAvInntekt?: Inntektsendring
         beskrivelse?: string
     }
