@@ -1,10 +1,10 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { MemoryRouter, Route, Routes, useLocation } from 'react-router'
+import { MemoryRouter, useLocation } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import App from '../../App'
 import { lagreKladd } from '../../api/api'
 import { tomSoeknad } from '../../context/soknad/soknad'
 import { steg } from '../../typer/steg'
-import { soeknadStegRuter } from './SoeknadStegRuter'
 
 const stegMock = vi.hoisted(() => ({ steg: undefined }))
 vi.mock('../../typer/steg', async (importOriginal) => {
@@ -24,12 +24,15 @@ vi.mock('../../api/api', () => ({
 vi.mock('../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({ state, dispatch: vi.fn() }),
 }))
+vi.mock('../../hooks/useInnloggetBruker', () => ({ default: vi.fn() }))
+vi.mock('../../hooks/useSoeknad', () => ({ default: () => false }))
 vi.mock('../../hooks/useLanguage', () => ({ useLanguage: vi.fn() }))
 vi.mock('../../hooks/useAnalytics', () => ({
     LogEvents: {},
     useAnalytics: () => ({ logEvent: vi.fn() }),
 }))
-vi.mock('react-i18next', () => ({
+vi.mock('react-i18next', async () => ({
+    ...(await vi.importActual('react-i18next')),
     useTranslation: () => ({
         t: (key, data) => (key === 'skjema.steg' ? `Steg ${data.aktivt} av ${data.antall}` : key),
         i18n: { language: 'nb' },
@@ -40,11 +43,7 @@ const Location = () => <output data-testid="path">{useLocation().pathname}</outp
 const setup = (path) =>
     render(
         <MemoryRouter initialEntries={[path]}>
-            <Routes>
-                {soeknadStegRuter()}
-                <Route path="/" element={<p>Forside</p>} />
-                <Route path="*" element={<p>sideIkkeFunnet.tittel</p>} />
-            </Routes>
+            <App />
             <Location />
         </MemoryRouter>
     )
@@ -118,10 +117,10 @@ describe('Stegruter', () => {
     it('Direktelenke uten samtykke sender brukeren til forsiden', () => {
         state = { ...state, harSamtykket: false }
         setup('/skjema/steg/inntekt')
-        expect(screen.getByText('Forside')).toBeDefined()
+        expect(screen.getByRole('heading', { name: 'forside.tittel' })).toBeDefined()
     })
 
-    it('viser inntektsskjemaet fra den delte rutedefinisjonen', () => {
+    it('viser inntektsskjemaet', () => {
         setup('/skjema/steg/inntekt')
         expect(screen.getByRole('textbox', { name: 'kontrakt.arbeidsinntekt' })).toBeDefined()
     })
