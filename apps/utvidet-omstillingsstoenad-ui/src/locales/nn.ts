@@ -189,6 +189,12 @@ export default {
     'skjema.lagringFeilet': 'Vi kunne ikkje lagre søknaden. Prøv igjen.',
     'skjema.avslutningFeilet': 'Vi kunne ikkje avslutte søknaden. Prøv igjen.',
     'skjema.underArbeid': 'Dette steget er under arbeid. Du kan ikkje sende inn søknaden enno.',
+    'oppsummering.veileder':
+        'No kan du sjå over at alt er rett før du sender inn søknaden. Du kan endre opplysningane dersom dei er feil. Når du har sendt inn søknaden kjem du til ei kvitteringsside med informasjon om vegen vidare.',
+    'oppsummering.endreSvar': 'Endre svar',
+    'oppsummering.periode': 'Periode',
+    'oppsummering.dokumentasjon.status': 'Dokumentasjon',
+    'oppsummering.dokumentasjon.ingen': 'Ingen dokument er lagde ved enno.',
     'banner.tittel': 'Søknad om utvida omstillingsstønad',
     'knapp.tilbake': 'Førre steg',
     'knapp.neste': 'Neste steg',
