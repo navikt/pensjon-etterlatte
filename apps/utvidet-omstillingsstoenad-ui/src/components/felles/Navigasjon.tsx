@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowRightIcon } from '@navikt/aksel-icons'
+import { ArrowLeftIcon, ArrowRightIcon, PaperplaneIcon } from '@navikt/aksel-icons'
 import { BodyShort, Box, Button, Heading, HStack, Modal, VStack } from '@navikt/ds-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -115,6 +115,8 @@ const Navigasjon = ({
                             type={'button'}
                             onClick={send}
                             loading={disabled}
+                            iconPosition="right"
+                            icon={<PaperplaneIcon aria-hidden fontSize="1.5rem" />}
                         >
                             {t('knapp.sendSoeknad')}
                         </Button>
