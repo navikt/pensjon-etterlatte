@@ -173,9 +173,9 @@ export const SoeknadSteg = <T extends FieldValues>({
                     </Heading>
                     {children}
                     <Navigasjon
-                        neste={neste ? { onClick: () => void nesteSteg() } : undefined}
-                        send={send ? { onClick: () => void sendSoeknad() } : undefined}
-                        forrige={forrige ? { onClick: () => void lagre(methods.getValues(), forrige) } : undefined}
+                        neste={neste ? () => void nesteSteg() : undefined}
+                        send={send ? () => void sendSoeknad() : undefined}
+                        forrige={forrige ? () => void lagre(methods.getValues(), forrige) : undefined}
                         disabled={lagrer}
                         fortsettSenere={() => lagre(methods.getValues())}
                     />

@@ -10,11 +10,6 @@ import { ActionTypes as SoknadAction } from '../../context/soknad/soknad'
 import { LogEvents, useAnalytics } from '../../hooks/useAnalytics'
 import { erDato } from '../../utils/dato'
 
-interface KnappProps {
-    label?: string
-    onClick?: () => void
-}
-
 const Navigasjon = ({
     neste,
     forrige,
@@ -22,9 +17,9 @@ const Navigasjon = ({
     disabled,
     fortsettSenere,
 }: {
-    neste?: KnappProps
-    forrige?: KnappProps
-    send?: KnappProps
+    neste?: () => void
+    forrige?: () => void
+    send?: () => void
     disabled?: boolean
     fortsettSenere: () => Promise<boolean>
 }) => {
@@ -91,11 +86,11 @@ const Navigasjon = ({
                         <Button
                             variant={'secondary'}
                             type={'button'}
-                            onClick={forrige.onClick}
+                            onClick={forrige}
                             disabled={disabled}
                             icon={<ArrowLeftIcon aria-hidden fontSize="1.5rem" />}
                         >
-                            {forrige.label || t('knapp.tilbake')}
+                            {t('knapp.tilbake')}
                         </Button>
                     )}
 
@@ -103,13 +98,13 @@ const Navigasjon = ({
                         <Button
                             variant={'primary'}
                             type={'button'}
-                            onClick={neste.onClick}
+                            onClick={neste}
                             id="navigasjon-neste"
                             loading={disabled}
                             iconPosition="right"
                             icon={<ArrowRightIcon aria-hidden fontSize="1.5rem" />}
                         >
-                            {neste.label || t('knapp.neste')}
+                            {t('knapp.neste')}
                         </Button>
                     )}
 
@@ -118,10 +113,10 @@ const Navigasjon = ({
                             id="navigasjon-send"
                             variant={'primary'}
                             type={'button'}
-                            onClick={send.onClick}
+                            onClick={send}
                             loading={disabled}
                         >
-                            {send.label || t('knapp.sendSoeknad')}
+                            {t('knapp.sendSoeknad')}
                         </Button>
                     )}
                 </HStack>
