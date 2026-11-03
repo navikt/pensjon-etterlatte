@@ -196,11 +196,12 @@ export default {
     'oppsummering.periode.til': 'To',
     'oppsummering.dokumentasjon.status': 'Documentation',
     'oppsummering.dokumentasjon.ingen': 'No documents have been attached yet.',
+    'oppsummering.feilVedSending': 'We could not submit your application. Please try again.',
     'banner.tittel': 'Application for extended adjustment allowance',
     'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next step',
     'knapp.avbryt': 'Cancel',
-    'knapp.sendSoeknad': 'Submit',
+    'knapp.sendSoeknad': 'Submit application',
     'forside.tittel': 'Here you can apply for',
     'forside.ingress.tittel': 'Hi, {{navn}}!',
     'forside.ingress.del1':
