@@ -191,7 +191,9 @@ export default {
     'oppsummering.veileder':
         'Nå kan du se over at alt er riktig før du sender inn søknaden. Du kan endre opplysningene hvis de er feil. Når du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien videre.',
     'oppsummering.endreSvar': 'Endre svar',
-    'oppsummering.periode': 'Periode',
+    'oppsummering.periode': 'Dato',
+    'oppsummering.periode.fra': 'Fra',
+    'oppsummering.periode.til': 'Til',
     'oppsummering.dokumentasjon.status': 'Dokumentasjon',
     'oppsummering.dokumentasjon.ingen': 'Ingen dokumenter er lagt ved ennå.',
     'banner.tittel': 'Søknad om utvidet omstillingsstønad',
