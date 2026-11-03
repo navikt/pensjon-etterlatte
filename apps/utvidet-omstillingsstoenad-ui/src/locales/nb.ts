@@ -188,6 +188,12 @@ export default {
     'skjema.lagringFeilet': 'Vi kunne ikke lagre søknaden. Prøv igjen.',
     'skjema.avslutningFeilet': 'Vi kunne ikke avslutte søknaden. Prøv igjen.',
     'skjema.underArbeid': 'Dette steget er under arbeid. Du kan ikke sende inn søknaden ennå.',
+    'oppsummering.veileder':
+        'Nå kan du se over at alt er riktig før du sender inn søknaden. Du kan endre opplysningene hvis de er feil. Når du har sendt inn søknaden kommer du til en kvitteringsside med informasjon om veien videre.',
+    'oppsummering.endreSvar': 'Endre svar',
+    'oppsummering.periode': 'Periode',
+    'oppsummering.dokumentasjon.status': 'Dokumentasjon',
+    'oppsummering.dokumentasjon.ingen': 'Ingen dokumenter er lagt ved ennå.',
     'banner.tittel': 'Søknad om utvidet omstillingsstønad',
     'knapp.tilbake': 'Forrige steg',
     'knapp.neste': 'Neste steg',

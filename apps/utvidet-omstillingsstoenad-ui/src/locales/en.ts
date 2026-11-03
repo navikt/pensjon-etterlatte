@@ -188,6 +188,12 @@ export default {
     'skjema.lagringFeilet': 'We could not save your application. Please try again.',
     'skjema.avslutningFeilet': 'We could not close your application. Please try again.',
     'skjema.underArbeid': 'This step is under development. You cannot submit your application yet.',
+    'oppsummering.veileder':
+        'You can now review your answers before submitting the application. You can change the details if anything is incorrect. After you submit, you will be taken to a receipt page with information about what happens next.',
+    'oppsummering.endreSvar': 'Edit answer',
+    'oppsummering.periode': 'Period',
+    'oppsummering.dokumentasjon.status': 'Documentation',
+    'oppsummering.dokumentasjon.ingen': 'No documents have been attached yet.',
     'banner.tittel': 'Application for extended adjustment allowance',
     'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next step',

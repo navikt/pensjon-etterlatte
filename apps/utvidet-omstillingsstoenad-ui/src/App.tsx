@@ -8,6 +8,7 @@ import SystemUtilgjengelig from './components/felles/systemUtilgjengelig/SystemU
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
 import { InntektSteg } from './components/soknad/inntekt/Inntekt'
+import { Oppsummering } from './components/soknad/oppsummering/Oppsummering'
 import Personopplysninger from './components/soknad/Personopplysninger'
 import { SoeknadStegRute } from './components/soknad/SoeknadSteg'
 import SoknadDialog from './components/soknad/SoknadDialog'
@@ -20,7 +21,6 @@ import { useSoknadContext } from './context/soknad/SoknadContext'
 import { useAnalytics } from './hooks/useAnalytics'
 import useInnloggetBruker from './hooks/useInnloggetBruker'
 import useSoeknad from './hooks/useSoeknad'
-import { steg } from './typer/steg'
 
 const UnderArbeid = () => {
     const { t } = useTranslation()
@@ -61,17 +61,22 @@ const App = () => {
                                         <Route path={'situasjonen-din'} element={<SituasjonenDinSteg />} />
                                         <Route path={'utdanning-og-tiltak'} element={<UtdanningOgTiltakSteg />} />
                                         <Route path={'inntekt'} element={<InntektSteg />} />
-                                        {steg.slice(4).map((side) => (
-                                            <Route
-                                                key={side.path}
-                                                path={side.path}
-                                                element={
-                                                    <SoeknadStegRute>
-                                                        <UnderArbeid />
-                                                    </SoeknadStegRute>
-                                                }
-                                            />
-                                        ))}
+                                        <Route
+                                            path={'dokumentasjon'}
+                                            element={
+                                                <SoeknadStegRute>
+                                                    <UnderArbeid />
+                                                </SoeknadStegRute>
+                                            }
+                                        />
+                                        <Route
+                                            path={'oppsummering'}
+                                            element={
+                                                <SoeknadStegRute>
+                                                    <Oppsummering />
+                                                </SoeknadStegRute>
+                                            }
+                                        />
                                     </Route>
                                 </Route>
 

@@ -145,6 +145,12 @@ describe('Stegruter', () => {
         expect(screen.getByText('skjema.underArbeid')).toBeDefined()
     })
 
+    it('viser oppsummering for siste steg uten send inn-knapp', () => {
+        setup('/skjema/steg/oppsummering')
+        expect(screen.getByText('oppsummering.veileder')).toBeDefined()
+        expect(screen.queryByRole('button', { name: 'knapp.sendSoeknad' })).toBeNull()
+    })
+
     it('Ukjent steg viser feilsiden, ikke et tomt skjema', () => {
         setup('/skjema/steg/ukjent')
         expect(screen.getByText('sideIkkeFunnet.tittel')).toBeDefined()
