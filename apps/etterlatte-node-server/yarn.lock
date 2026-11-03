@@ -1183,10 +1183,10 @@ inline-style-parser@0.2.9:
   resolved "https://registry.yarnpkg.com/inline-style-parser/-/inline-style-parser-0.2.9.tgz#148d759a4b8677a560a1d3e185e6db7f6be57652"
   integrity sha512-IttN8BqKLxzUrnTqHI+/hwAJQItBAUjdoHERCDv+oOuX48VP6bzW8+QjOXSfoevzq3YrYAwX1uLHp8TqO9yIeg==
 
-ip-address@^10.0.0:
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-10.5.0.tgz#fcd6d7dfe9e68416b7cb71afe9bc960b3e38c13b"
-  integrity sha512-R5SnVLJmgYYvf2F2ZgwSBnelz5G4q5AxIC277GDfUaNbrZKNANcBC7RHqYYePlszf4kBolVkJauG0ZjHHFh55g==
+ip-address@^10.7.2:
+  version "10.7.5"
+  resolved "https://registry.yarnpkg.com/ip-address/-/ip-address-10.7.5.tgz#4c4c423f6477d0b0b5c2ea59ac77e93eff49003e"
+  integrity sha512-t2v0rkILYv9WXmSL7TpAaU3HXgaFYOPUcH3QHgwQ++gpJuH3bqyMy4Fvt/DJCTKwzH3Cf+bAp5W/mFL39KPLzA==
 
 ip-address@^9.0.5:
   version "9.0.5"
@@ -2160,14 +2160,14 @@ unique-slug@^6.0.0:
   dependencies:
     imurmurhash "^0.1.4"
 
-unleash-client@^6.12.1:
-  version "6.12.1"
-  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.12.1.tgz#53b712e05eb9c8bf4894d9496622698fde25eb25"
-  integrity sha512-xeojMfPZynteI2fqGW70po23Nd588MKSv9cv5dH3BOfQmsVE0jcvypLl7a4/NfrAgmMKOpZ48N4TtnGd7klJDQ==
+unleash-client@^6.12.2:
+  version "6.12.2"
+  resolved "https://registry.yarnpkg.com/unleash-client/-/unleash-client-6.12.2.tgz#e3c4e26049e303ae268088f1ed88480294d4a9aa"
+  integrity sha512-aId4dG9E8zEOlOYLVy7YTMHG/gMKQYKDldWvWGt+x1z32a9g+IjlYBsFbqwOpD6T6CvMpCHzX1aONTW5MLVcHA==
   dependencies:
     http-proxy-agent "^7.0.2"
     https-proxy-agent "^7.0.5"
-    ip-address "^10.0.0"
+    ip-address "^10.7.2"
     launchdarkly-eventsource "2.2.0"
     lru-cache "^11.2.5"
     make-fetch-happen "^15.0.3"
