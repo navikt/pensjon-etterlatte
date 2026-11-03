@@ -192,7 +192,9 @@ export default {
     'oppsummering.veileder':
         'No kan du sjå over at alt er rett før du sender inn søknaden. Du kan endre opplysningane dersom dei er feil. Når du har sendt inn søknaden kjem du til ei kvitteringsside med informasjon om vegen vidare.',
     'oppsummering.endreSvar': 'Endre svar',
-    'oppsummering.periode': 'Periode',
+    'oppsummering.periode': 'Dato',
+    'oppsummering.periode.fra': 'Frå',
+    'oppsummering.periode.til': 'Til',
     'oppsummering.dokumentasjon.status': 'Dokumentasjon',
     'oppsummering.dokumentasjon.ingen': 'Ingen dokument er lagde ved enno.',
     'banner.tittel': 'Søknad om utvida omstillingsstønad',

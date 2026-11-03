@@ -191,7 +191,9 @@ export default {
     'oppsummering.veileder':
         'You can now review your answers before submitting the application. You can change the details if anything is incorrect. After you submit, you will be taken to a receipt page with information about what happens next.',
     'oppsummering.endreSvar': 'Edit answer',
-    'oppsummering.periode': 'Period',
+    'oppsummering.periode': 'Date',
+    'oppsummering.periode.fra': 'From',
+    'oppsummering.periode.til': 'To',
     'oppsummering.dokumentasjon.status': 'Documentation',
     'oppsummering.dokumentasjon.ingen': 'No documents have been attached yet.',
     'banner.tittel': 'Application for extended adjustment allowance',
