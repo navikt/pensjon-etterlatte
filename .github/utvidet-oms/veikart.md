@@ -102,7 +102,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | 3.5 | Steg 4 Utdanning og tiltak | NAV-31514 | ✅ implementert lokalt på `utvidet-oms-utdannelse`, med validering, kladd, nb/nn/en, kontraktmapping og axe-tester. Ikke committet, ingen PR opprettet. |
 | 3.6 | Steg 5 Inntekt | NAV-31515 | [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558), med validering, nb/nn/en, enhetstester og responsive Cypress-tester med axe. Ny ingress, feilmeldinger og tegntellertekster på nynorsk og engelsk er foreløpig KI-generert og ikke språkvasket. ReadMore-tekstene er hentet fra OMS. |
 | 3.7 | Steg 6 Dokumentasjon (tom side inntil videre) | | ⏳ Å4 |
-| 3.8 | Steg 7 Oppsummering og innsending | | ⏳ |
+| 3.8 | Steg 7 Oppsummering og innsending | | «Send søknad» er koblet til kontraktmapping og API lokalt, med lasting, feilhåndtering og navigasjon til kvittering. Aktiv branch og PR er ikke bekreftet. |
 | 3.9 | Steg 8 Kvittering etter Figma | | ⏳ |
 | 3.10 | Cypress-flyt og axe gjennom hele søknaden | | ⏳ |
 
@@ -130,6 +130,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 
 Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til PR der det finnes.
 
+- **2026-11-03**: Steg 7 (3.8): «Send søknad» koblet til eksisterende kontraktmapping og API. Hindrer doble klikk under innsending, beholder svar ved feil og åpner kvitteringen før søknadsstate nullstilles. Knappetekst og feilmelding på nb/nn/en, med tester for innsending, feil, navigasjon og axe. Ingen PR opprettet; aktiv branch er ikke bekreftet.
 - **2026-10-27**: NAV-31515, gjennomgang av [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558): tegntellere på nb/nn/en, navigasjon fra steglisten og én felles rutedefinisjon for appen og rutetestene. Alle skjemasteg bruker stor, sentrert overskrift som i Figma. Inntektssteget bruker Aksel-komponenter og feltbredder som i eksisterende skjemaer, uten egen CSS. Felles sidestørrelse, topptekst og navigasjonsavstander er uendret. Cypress sjekker responsiv oppførsel uten faste pikselmål eller automatiske skjermbilder.
 - **2026-10-26**: NAV-31515, steg 5 Inntekt (3.6), med nb/nn/en, beløpsvalidering, ReadMore og fjerning av skjulte svar. [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558).
 - **2026-10-26**: Steg 4 Utdanning og tiltak (3.5, NAV-31514) implementert lokalt på `utvidet-oms-utdannelse`. Betingede felt fjernes fra kladd og kontrakt, datoer valideres før ISO-mapping, og advarsler blokkerer ikke. Aktivitetsplan vises bare ved tiltak etter stegspesifikasjonen; Å1 er fortsatt åpent. Ingen commit eller PR.

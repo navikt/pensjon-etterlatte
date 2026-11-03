@@ -114,7 +114,13 @@ const Navigasjon = ({
                     )}
 
                     {!!send && (
-                        <Button variant={'primary'} type={'button'} onClick={send.onClick} loading={disabled}>
+                        <Button
+                            id="navigasjon-send"
+                            variant={'primary'}
+                            type={'button'}
+                            onClick={send.onClick}
+                            loading={disabled}
+                        >
                             {send.label || t('knapp.sendSoeknad')}
                         </Button>
                     )}

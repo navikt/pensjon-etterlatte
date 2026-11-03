@@ -196,11 +196,12 @@ export default {
     'oppsummering.periode.til': 'Til',
     'oppsummering.dokumentasjon.status': 'Dokumentasjon',
     'oppsummering.dokumentasjon.ingen': 'Ingen dokumenter er lagt ved ennå.',
+    'oppsummering.feilVedSending': 'Vi kunne ikke sende søknaden. Prøv igjen.',
     'banner.tittel': 'Søknad om utvidet omstillingsstønad',
     'knapp.tilbake': 'Forrige steg',
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',
-    'knapp.sendSoeknad': 'Send inn',
+    'knapp.sendSoeknad': 'Send søknad',
     'forside.tittel': 'Her kan du søke om',
     'forside.ingress.tittel': 'Hei, {{navn}}!',
     'forside.ingress.del1':
