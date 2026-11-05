@@ -5,7 +5,7 @@ const app = {
     fetchingApplicationDetails: 'Retrieving application information...',
     maintenanceWarningTitle: 'You cannot submit your application',
     maintenanceWarningContent:
-        'This is due to planned maintenance on 5 November from 15:30 to 21:00. We save your application for 48 hours. Try again after 21:00.',
+        'This is due to planned maintenance on 5 November from 15:30 to 21:00. Try again after 21:00.',
 }
 
 const common = {

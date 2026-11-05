@@ -49,6 +49,6 @@ describe('Vedlikeholdsvarsel', () => {
         expect(html).toMatch(/5(?:\. november| November)/)
         expect(html).toMatch(/15[.:]30/)
         expect(html).toMatch(/21[.:]00/)
-        expect(html).toContain('48')
+        expect(html).not.toMatch(/48 (?:timer|timar|hours)/)
     })
 })

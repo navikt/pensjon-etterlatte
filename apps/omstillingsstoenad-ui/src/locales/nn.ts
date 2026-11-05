@@ -13,7 +13,7 @@ export default {
     'banner.tittel': 'Søknad om omstillingsstønad',
     'vedlikeholdsvarsel.tittel': 'Søknaden kan ikkje sendast inn',
     'vedlikeholdsvarsel.innhold':
-        'Dette kjem av planlagt vedlikehald 5. november frå kl. 15.30 til kl. 21.00. Vi lagrar søknaden din i 48 timar. Prøv igjen etter kl. 21.00.',
+        'Dette kjem av planlagt vedlikehald 5. november frå kl. 15.30 til kl. 21.00. Prøv igjen etter kl. 21.00.',
     'radiobuttons.ja': 'Ja',
     'radiobuttons.nei': 'Nei',
     'radiobuttons.vetIkke': 'Veit ikkje',

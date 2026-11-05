@@ -32,10 +32,10 @@ describe('Vedlikeholdsvarsel', () => {
     )
 
     it.each([
-        [Spraak.BOKMAAL, 'Søknaden kan ikke sendes inn', '48 timer', 'Prøv igjen etter kl. 21.00.'],
-        [Spraak.NYNORSK, 'Søknaden kan ikkje sendast inn', '48 timar', 'Prøv igjen etter kl. 21.00.'],
-        [Spraak.ENGELSK, 'You cannot submit your application', '48 hours', 'Try again after 21:00.'],
-    ] as const)('shows the localized maintenance warning in %s', (spraak, tittel, lagringstid, proevIgjen) => {
+        [Spraak.BOKMAAL, 'Søknaden kan ikke sendes inn', 'Prøv igjen etter kl. 21.00.'],
+        [Spraak.NYNORSK, 'Søknaden kan ikkje sendast inn', 'Prøv igjen etter kl. 21.00.'],
+        [Spraak.ENGELSK, 'You cannot submit your application', 'Try again after 21:00.'],
+    ] as const)('shows the localized maintenance warning in %s', (spraak, tittel, proevIgjen) => {
         vi.mocked(useSpraak).mockReturnValue(spraak)
 
         const html = renderToStaticMarkup(<Vedlikeholdsvarsel />)
@@ -46,7 +46,7 @@ describe('Vedlikeholdsvarsel', () => {
         expect(html).toMatch(/5(?:\. november| November)/)
         expect(html).toMatch(/15[.:]30/)
         expect(html).toMatch(/21[.:]00/)
-        expect(html).toContain(lagringstid)
+        expect(html).not.toMatch(/48 (?:timer|timar|hours)/)
         expect(html).toContain(proevIgjen)
     })
 })
