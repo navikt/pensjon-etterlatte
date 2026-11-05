@@ -59,7 +59,7 @@ Dette er ikke en ideel løsning og burde på sikt forbedres.
 
 ## Vedlikeholdsvarsel
 
-Unleash-bryteren `etterlatte.varsling-nedetid` styrer vedlikeholdsvarselet i
+Unleash-bryteren `varsling-nedetid` styrer vedlikeholdsvarselet i
 `barnepensjon-ui`, `omstillingsstoenad-ui` og `selvbetjening-ui`.
 Varselet vises bare når bryteren er på. Bryteren styrer ikke selve innsendingen.
 Slå den av etter vedlikeholdet.

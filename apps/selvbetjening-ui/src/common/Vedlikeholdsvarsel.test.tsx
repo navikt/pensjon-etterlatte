@@ -40,7 +40,7 @@ describe('Vedlikeholdsvarsel', () => {
 
         const html = renderToStaticMarkup(<Vedlikeholdsvarsel />)
 
-        expect(useFeatureToggle).toHaveBeenCalledWith('etterlatte.varsling-nedetid')
+        expect(useFeatureToggle).toHaveBeenCalledWith('varsling-nedetid')
         expect(html).toContain('role="alert"')
         expect(html).toContain(tittel)
         expect(html).toMatch(/5(?:\. november| November)/)

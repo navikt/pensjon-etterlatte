@@ -34,7 +34,7 @@ describe('FeatureToggleProvider', () => {
 
         await waitFor(() => {
             expect(screen.getByText(status)).toBeDefined()
-            expect(post).toHaveBeenCalledWith('/api/feature', ['etterlatte.varsling-nedetid'])
+            expect(post).toHaveBeenCalledWith('/api/feature', ['varsling-nedetid'])
         })
     })
 

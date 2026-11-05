@@ -10,7 +10,7 @@ export enum FeatureToggleStatus {
 }
 
 export enum FeatureToggleName {
-    MAINTENANCE_WARNING = 'etterlatte.varsling-nedetid',
+    MAINTENANCE_WARNING = 'varsling-nedetid',
 }
 
 export interface FeatureToggle {

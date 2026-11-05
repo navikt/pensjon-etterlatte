@@ -43,7 +43,7 @@ describe('MaintenanceAlert', () => {
 
         const html = renderToStaticMarkup(<MaintenanceAlert />)
 
-        expect(useFeatureToggle).toHaveBeenCalledWith('etterlatte.varsling-nedetid')
+        expect(useFeatureToggle).toHaveBeenCalledWith('varsling-nedetid')
         expect(useTranslation).toHaveBeenCalledWith('app')
         expect(html).toContain('role="alert"')
         expect(html).toContain(locale.app.maintenanceWarningTitle)

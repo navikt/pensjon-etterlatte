@@ -42,7 +42,7 @@ describe('Vedlikeholdsvarsel', () => {
 
         const html = renderToStaticMarkup(<Vedlikeholdsvarsel />)
 
-        expect(useFeatureToggle).toHaveBeenCalledWith('etterlatte.varsling-nedetid')
+        expect(useFeatureToggle).toHaveBeenCalledWith('varsling-nedetid')
         expect(html).toContain('role="alert"')
         expect(html).toContain(locale['vedlikeholdsvarsel.tittel'])
         expect(html).toContain(locale['vedlikeholdsvarsel.innhold'])
