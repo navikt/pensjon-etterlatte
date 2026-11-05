@@ -57,6 +57,13 @@ Grunnet manglende støtte for Token/IDporten lokalt er det ikke mulig å kjøre 
 Appen må gå mot lokalt mock api (se [etterlatte-node-server](../etterlatte-node-server))
 Dette er ikke en ideel løsning og burde på sikt forbedres.
 
+## Vedlikeholdsvarsel
+
+Unleash-bryteren `varsling-nedetid` styrer vedlikeholdsvarselet i
+`barnepensjon-ui`, `omstillingsstoenad-ui` og `selvbetjening-ui`.
+Varselet vises bare når bryteren er på. Bryteren styrer ikke selve innsendingen.
+Slå den av etter vedlikeholdet.
+
 ## Testmiljøet
 
 Applikasjonen kjører på `dev-gcp` og kan testes på følgende url:

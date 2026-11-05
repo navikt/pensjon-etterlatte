@@ -3,6 +3,9 @@ import { TKey, TNamespace, Translation } from '../context/language/translations'
 const app = {
     applicationTitle: 'Søknad om barnepensjon',
     fetchingApplicationDetails: 'Hentar søknadsinformasjon ...',
+    maintenanceWarningTitle: 'Søknaden kan ikkje sendast inn',
+    maintenanceWarningContent:
+        'Dette kjem av planlagt vedlikehald 5. november frå kl. 15.30 til kl. 21.00. Prøv igjen etter kl. 21.00.',
 }
 
 const common = {

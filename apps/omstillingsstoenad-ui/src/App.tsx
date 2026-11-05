@@ -3,6 +3,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router'
 import { GlobalErrorAlert } from '~components/felles/globalErrorAlert/GlobalErrorAlert'
 import { SideLaster } from '~components/felles/SideLaster'
 import { SkjemaTittel } from '~components/felles/SkjemaTittel'
+import { Vedlikeholdsvarsel } from '~components/felles/Vedlikeholdsvarsel'
 import SystemUtilgjengelig from './components/felles/systemUtilgjengelig/SystemUtilgjengelig'
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
@@ -24,6 +25,7 @@ const App = () => {
 
     return (
         <>
+            <Vedlikeholdsvarsel />
             <SkjemaTittel />
 
             {lasterSoeknad ? (

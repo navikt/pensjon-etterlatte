@@ -3,6 +3,9 @@ import { TKey, TNamespace, Translation } from '~context/language/translations'
 const app = {
     applicationTitle: 'Application for children’s pension',
     fetchingApplicationDetails: 'Retrieving application information...',
+    maintenanceWarningTitle: 'You cannot submit your application',
+    maintenanceWarningContent:
+        'This is due to planned maintenance on 5 November from 15:30 to 21:00. Try again after 21:00.',
 }
 
 const common = {
