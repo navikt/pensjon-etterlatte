@@ -11,6 +11,7 @@ export enum FeatureToggleStatus {
 export enum FeatureToggleNavn {
     ETTEROPPGJOER = 'etteroppgjoer',
     MIGRER_INNTEKT_SKJEMA_TIL_MELD_INN_ENDRING_SKJEMA = 'migrer-inntekt-skjema-til-meld-inn-endring-skjema',
+    VEDLIKEHOLDSVARSEL = 'etterlatte.varsling-nedetid',
 }
 
 export interface FeatureToggle {
