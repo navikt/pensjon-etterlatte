@@ -11,9 +11,6 @@ export default {
     'steg.OmBarn': 'Information about children',
     'steg.Oppsummering': 'Summary',
     'banner.tittel': 'Application for adjustment allowance',
-    'vedlikeholdsvarsel.tittel': 'You cannot submit your application',
-    'vedlikeholdsvarsel.innhold':
-        'This is due to planned maintenance on 5 November from 15:30 to 21:00. Try again after 21:00.',
     'radiobuttons.ja': 'Yes',
     'radiobuttons.nei': 'No',
     'radiobuttons.vetIkke': 'Don’t know',

@@ -15,7 +15,6 @@ import useScrollToTop from './hooks/useScrollToTop'
 import { ChildApplicantSteps, GuardianApplicantSteps, ParentApplicantSteps, StepPrefix } from './utils/steps'
 import './app.css'
 import { ApplicationTitle } from '~components/common/ApplicationTitle'
-import { MaintenanceAlert } from '~components/common/MaintenanceAlert'
 import { PageLoading } from '~components/common/PageLoading'
 
 export default function App() {
@@ -27,7 +26,6 @@ export default function App() {
     return (
         <ErrorBoundary>
             <>
-                <MaintenanceAlert />
                 <ApplicationTitle />
 
                 {isLoading ? (

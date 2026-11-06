@@ -1,10 +1,6 @@
 import { IApplication } from '../context/application/application'
-import { FeatureToggle, FeatureToggleName } from '../context/featureToggle/FeatureToggleContext'
 import { axiosInstance as api } from './axios'
 import { SoeknadRequest, SoeknadType } from './dto/InnsendtSoeknad'
-
-export const getFeatureToggles = async (): Promise<FeatureToggle[]> =>
-    api.post<FeatureToggle[]>('/api/feature', Object.values(FeatureToggleName)).then((res) => res.data)
 
 export const getLoggedInUser = async (type: SoeknadType) =>
     api.get(`/api/person/innlogget?soeknadType=${type}`).then((res) => res.data)

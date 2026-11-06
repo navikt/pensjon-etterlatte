@@ -10,7 +10,6 @@ export enum FeatureToggleStatus {
 
 export enum FeatureToggleNavn {
     OMS_SOEKNAD_NYTT_INNTEKT_STEG = 'oms-soeknad-nytt-inntekt-steg',
-    VEDLIKEHOLDSVARSEL = 'varsling-nedetid',
 }
 
 export interface FeatureToggle {

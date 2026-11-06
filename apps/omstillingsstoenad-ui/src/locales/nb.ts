@@ -11,9 +11,6 @@ export default {
     'steg.OmBarn': 'Opplysninger om barn',
     'steg.Oppsummering': 'Oppsummering',
     'banner.tittel': 'Søknad om omstillingsstønad',
-    'vedlikeholdsvarsel.tittel': 'Søknaden kan ikke sendes inn',
-    'vedlikeholdsvarsel.innhold':
-        'Dette skyldes planlagt vedlikehold 5. november fra kl. 15.30 til kl. 21.00. Prøv igjen etter kl. 21.00.',
     'radiobuttons.ja': 'Ja',
     'radiobuttons.nei': 'Nei',
     'radiobuttons.vetIkke': 'Vet ikke',
