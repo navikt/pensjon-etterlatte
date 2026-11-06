@@ -8,7 +8,7 @@ import SystemUtilgjengelig from './components/felles/systemUtilgjengelig/SystemU
 import SideIkkeFunnet from './components/SideIkkeFunnet'
 import { FortsettSoeknadModal } from './components/soknad/FortsettSoeknadModal'
 import { InntektSteg } from './components/soknad/inntekt/Inntekt'
-import { Oppsummering } from './components/soknad/oppsummering/Oppsummering'
+import { OppsummeringSteg } from './components/soknad/oppsummering/OppsummeringSteg'
 import Personopplysninger from './components/soknad/Personopplysninger'
 import { SoeknadStegRute } from './components/soknad/SoeknadSteg'
 import SoknadDialog from './components/soknad/SoknadDialog'
@@ -69,14 +69,7 @@ const App = () => {
                                                 </SoeknadStegRute>
                                             }
                                         />
-                                        <Route
-                                            path={'oppsummering'}
-                                            element={
-                                                <SoeknadStegRute>
-                                                    <Oppsummering />
-                                                </SoeknadStegRute>
-                                            }
-                                        />
+                                        <Route path={'oppsummering'} element={<OppsummeringSteg />} />
                                     </Route>
                                 </Route>
 

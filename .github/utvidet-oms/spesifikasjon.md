@@ -142,6 +142,7 @@ Tom side med tittel og navigasjon inntil Å4 er avklart. Ingen felt og ingen kon
 - **Under seksjonene:** «Sist lagret: {dato} kl. {tid}»
 - **Knapper:** `Forrige steg`, `Send søknad`, `Fortsett senere` og `Slett søknaden`
 - **Send søknad:** Frontend-state mappes til `UtvidetOmstillingsstoenad` og sendes med `POST /api/api/soeknad`. Ved suksess navigeres bruker til kvitteringen. Feil håndteres som i `omstillingsstoenad-ui`: bruker blir værende på siden og får en feilmelding.
+- Innsendingen bruker `{ soeknader: [søknaden] }`, som i de andre søknadene. Node-serveren setter `imageTag`. Knappen viser lasting mens kallet pågår, og nye klikk, Forrige steg og Avbryt blokkeres. Ved feil beholdes svarene, feilmeldingen får fokus, og bruker kan prøve igjen. Søknadsstate nullstilles først når kvitteringssiden er åpnet, slik at samtykkesjekken ikke sender bruker til forsiden.
 
 ---
 

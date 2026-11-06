@@ -20,6 +20,7 @@ vi.mock('../../typer/steg', async (importOriginal) => {
 let state = { ...tomSoeknad, harSamtykket: true }
 vi.mock('../../api/api', () => ({
     lagreKladd: vi.fn(async (soeknad) => soeknad),
+    sendSoeknad: vi.fn(),
 }))
 vi.mock('../../context/soknad/SoknadContext', () => ({
     useSoknadContext: () => ({ state, dispatch: vi.fn() }),
@@ -60,7 +61,7 @@ describe('Stegruter', () => {
         setup(`/skjema/steg/${side.path}`)
         expect(screen.getByRole('heading', { name: side.label })).toBeDefined()
         expect(screen.getByText(`Steg ${steg.indexOf(side) + 1} av 6`)).toBeDefined()
-        expect(screen.queryByText('knapp.sendSoeknad')).toBeNull()
+        expect(!!screen.queryByText('knapp.sendSoeknad')).toBe(side.path === 'oppsummering')
     })
 
     it('lagrer og bytter ruteinnhold ved navigasjon frem og tilbake', async () => {
@@ -145,10 +146,11 @@ describe('Stegruter', () => {
         expect(screen.getByText('skjema.underArbeid')).toBeDefined()
     })
 
-    it('viser oppsummering for siste steg uten send inn-knapp', () => {
+    it('viser oppsummering med send-knapp og uten neste-knapp', () => {
         setup('/skjema/steg/oppsummering')
         expect(screen.getByText('oppsummering.veileder')).toBeDefined()
-        expect(screen.queryByRole('button', { name: 'knapp.sendSoeknad' })).toBeNull()
+        expect(screen.getByRole('button', { name: 'knapp.sendSoeknad' })).toBeDefined()
+        expect(screen.queryByRole('button', { name: 'knapp.neste' })).toBeNull()
     })
 
     it('Ukjent steg viser feilsiden, ikke et tomt skjema', () => {
