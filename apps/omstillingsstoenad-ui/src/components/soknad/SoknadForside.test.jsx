@@ -1,4 +1,3 @@
-import { setParams } from '@navikt/nav-dekoratoren-moduler'
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import * as chai from 'chai'
 import { BrowserRouter } from 'react-router'
@@ -8,13 +7,6 @@ import SoknadForside from './SoknadForside'
 
 chai.use(require('chai-dom'))
 const expect = chai.expect
-
-vi.mock('@navikt/nav-dekoratoren-moduler', () => ({
-    setParams: vi.fn().mockResolvedValue(undefined),
-    getAnalyticsInstance: vi.fn(() => ({
-        custom: vi.fn().mockResolvedValue(undefined),
-    })),
-}))
 
 vi.mock('react-i18next', async () => ({
     ...(await vi.importActual('react-i18next')),
@@ -63,10 +55,6 @@ afterEach(() => {
 })
 
 describe('Samtykke', () => {
-    it('Oppdaterer språket i dekoratøren', () => {
-        expect(setParams).toHaveBeenCalledWith({ language: 'nb' })
-    })
-
     it('Knapp vises ikke hvis samtykke mangler', async () => {
         const bekreftSjekkboks = await screen.findByText('forside.samtykke.bekreftelse')
         expect(bekreftSjekkboks).to.be.visible

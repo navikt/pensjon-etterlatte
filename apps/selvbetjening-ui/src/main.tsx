@@ -9,7 +9,6 @@ import { ProvideFeatureTogglesContext } from './common/featureToggles/FeatureTog
 import { ProvideInnloggetInnbyggerContext } from './common/innloggetInnbygger/InnloggetInnbyggerContext.tsx'
 import { SystemUtilgjengelig } from './common/SystemUtilgjengelig.tsx'
 import { ProvideSpraakContext } from './common/spraak/SpraakContext.tsx'
-import { Vedlikeholdsvarsel } from './common/Vedlikeholdsvarsel.tsx'
 import { MeldInnEndringInnledning } from './meldInnEndring/1-innledning/MeldInnEndringInnledning.tsx'
 import { MeldInnEndringMeldFra } from './meldInnEndring/2-meld-fra-om-endring/MeldInnEndringMeldFra.tsx'
 import { MeldInnEndringOppsummering } from './meldInnEndring/3-oppsummering/MeldInnEndringOppsummering.tsx'
@@ -54,7 +53,6 @@ createRoot(document.getElementById('root')!).render(
         >
             <ProvideFeatureTogglesContext>
                 <ProvideSpraakContext>
-                    <Vedlikeholdsvarsel />
                     <ProvideInnloggetInnbyggerContext>
                         <RouterProvider router={router} />
                     </ProvideInnloggetInnbyggerContext>

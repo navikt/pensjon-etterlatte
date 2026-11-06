@@ -54,8 +54,6 @@ spec:
       autoLogin: true
       autoLoginIgnorePaths:
         - /barnepensjon/soknad/internal/**
-  envFrom:
-    - secret: my-application-unleash-api-token
   env:
     - name: BASE_PATH
       value: /barnepensjon/soknad
@@ -68,7 +66,6 @@ spec:
       external:
         - host: dekoratoren.ekstern.dev.nav.no
         - host: tokendings.dev-gcp.nais.io
-        - host: etterlatte-unleash-api.nav.cloud.nais.io
       rules:
         - application: innsendt-soeknad
         - application: nav-dekoratoren
