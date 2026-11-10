@@ -60,6 +60,30 @@ Plasseringen er erstattet av B7 fra 2026-10-21. Favro er fortsatt fasit for stat
 - **Konsekvens:** Dokumentasjonsendringer går til main i `pensjon-etterlatte` via PR. Gjennys domenekontekst og agenten `gjenny-ekspert` blir i saksbehandling. Ved tilbakeflytting oppdateres hjemrepo, stier, lenker og statusskript. Status vedlikeholdes fortsatt i Favro.
 - **Avklart:** 2026-10-21, etter ønske fra utvikleren
 
+### B8 – Mottaket går gjennom prosessering i `etterlatte-behandling`
+- **Beslutning:** Mottaket av utvidet OMS flyttes fra den synkrone `NySoeknadRiver` til en kjede av tasks i `etterlatte-behandling`: knytt til sak, journalfør, opprett oppgave og kvitter til innsendt-soeknad. Riveren sender bare søknaden videre når togglen `prosessering-utvidet-oms-mottak` er på. Med togglen av går B4-løpet som før.
+- **Hvorfor:** Hvert steg blir idempotent, kan rekjøres og vises i `efterlatte-verktoy`, i stedet for å feile skjult i en Kafka-retry. Motoren trenger en database for outbox, og den har bare behandling. `etterlatte-behandling-kafka` har ingen.
+- **Konsekvens:** Journalføringen (pdfgen og dokarkiv) må kunne kjøre fra behandling. Fase 5 i veikartet og [`prosessering.md`](prosessering.md). Gjelder dev til prod-fasen er planlagt.
+- **Avklart:** 2026-11-10, utvikleren
+
+### B9 – Steg i Gjenny skriver på stegets egen transaksjon
+- **Beslutning:** `efterlatte-prosessering` gjør stegets JDBC-connection tilgjengelig for vertskode. Gjenny pakker den i en `DatabaseKontekst` og setter `Kontekst` mens steget kjører, slik at eksisterende tjenester med `inTransaction { … }` skriver på stegets transaksjon.
+- **Hvorfor:** Forretningsskriv og `FULLFØRT` committer da sammen, og et retry gir ikke doble rader. Vi slipper å skrive om tjenestene.
+- **Konsekvens:** Biblioteksendring først (5.1). `Kontekst` må fjernes i `finally`, ellers lekker den mellom tasks.
+- **Avklart:** 2026-11-10, utvikleren
+
+### B10 – Generisk mottak, avgjørelse per søknadstype
+- **Beslutning:** Tabellen `mottatt_soeknad`, endepunktet `/api/soeknad/mottak` og task-typene `Soeknad*` er felles for alle søknadstyper. Bare steget som oppretter oppgave eller behandling (T3) skiller mellom typene. Foreløpig godtar endepunktet bare `UTVIDET_OMSTILLINGSSTOENAD`.
+- **Hvorfor:** BP- og OMS-søknader kan flyttes over senere uten en ny kjede.
+- **Konsekvens:** Andre søknadstyper gir `400` til de tas inn med vilje.
+- **Avklart:** 2026-11-10, utvikleren
+
+### B11 – Task-payload er bare `{ soeknadId }`
+- **Beslutning:** Payload inneholder bare søknads-id. fnr og søknadsinnhold ligger i `mottatt_soeknad`. Metadata får `soeknadId`, `soeknadType`, `sakId` og `journalpostId` etter hvert som de blir kjent.
+- **Hvorfor:** `UNIQUE(type, payload)` blir idempotensnøkkel per steg og søknad, og verktøyet viser ingen personopplysninger i payload.
+- **Konsekvens:** Gjennys `prosessering_task` må få `UNIQUE(type, payload)` (5.6). Unntaksmeldinger i stegene skal ikke inneholde fnr, fordi de lagres som `siste_feilmelding`.
+- **Avklart:** 2026-11-10, utvikleren
+
 ---
 
 ## Åpne spørsmål
@@ -86,7 +110,16 @@ Oppsummeringen bruker «Hva stemmer med din situasjon i dag?», mens steg 3 bruk
 `hentInnloggetPerson` sender `soeknadType=OMSTILLINGSSTOENAD`. Sjekk om innsendt-soeknad trenger `UTVIDET_OMSTILLINGSSTOENAD` her, for eksempel for adressebeskyttelse eller aldersregler.
 
 ### Å8 – Behandlingsløp i Gjenny
-Teamet heller mot at søknaden skal opprette en revurdering basert på forrige behandling, men det er ikke avklart. Det er også uavklart om dette skal skje automatisk eller via oppgaven (B4), og hvilken revurderingsårsak som skal brukes.
+Teamet heller mot at søknaden skal opprette en revurdering basert på forrige behandling, men det er ikke avklart. Det er også uavklart om dette skal skje automatisk eller via oppgaven (B4), og hvilken revurderingsårsak som skal brukes. I fase 5 er det steg T3 (`SoeknadOpprettOppgave`) som byttes ut når dette er avklart.
 
 ### Å9 – Lansering
 Det mangler avklaring av feature toggle, prod-nais, inngang fra nav.no eller Min side, og varsling (etterlatte-notifikasjoner).
+
+### Å10 – Lagring og sletting av `mottatt_soeknad`
+Tabellen har fnr og søknadsinnhold. Hvor lenge skal dataene ligge etter at kvitteringen (T4) er sendt? **Forslag:** Fjern `fnr` og `soeknad` når T4 er fullført, eller slett etter et fast antall dager med en jobb. Avklares med personvern.
+
+### Å11 – Tilgang fra `etterlatte-behandling` til dokarkiv og ey-pdfgen
+I dag er det `etterlatte-behandling-kafka` som journalfører. Har behandling tilgang til dokarkiv, eller må den bestilles hos teamdokumenthandtering? ey-pdfgen i felles må uansett få behandling i `inbound.rules`.
+
+### Å12 – Søknad uten eksisterende OMS-sak
+Henger sammen med Å3. Skal T1 opprette en ny OMS-sak som `NySoeknadRiver` gjør i dag, eller stoppe for manuell oppfølging (`MANUELL`, arbeidspakke 5.4)?
