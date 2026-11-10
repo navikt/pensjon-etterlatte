@@ -124,7 +124,7 @@ Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av task
 | # | Arbeidspakke | Repo | Favro | Status |
 |---|--------------|------|-------|--------|
 | 5.0 | Plan, veikart, beslutninger og pekere i alle fire repoer | pe, sb, lib, vt | | 🚧 Merget i pe ([#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596)). Lokal tilgang til sb, lib og vt er bekreftet. Planbranchene finnes, men merge-status er ikke kontrollert. |
-| 5.1 | L1: Stegets JDBC-connection tilgjengelig for vertskode | lib | | 🚧 Implementert lokalt på `utvidet-oms-stegtransaksjon`, klart for review. Ingen commit eller PR. |
+| 5.1 | L1: Stegets JDBC-connection tilgjengelig for vertskode | lib | | 🚧 Pushet på `utvidet-oms-stegtransaksjon`, `mvn verify` grønn i alle moduler. Mangler PR. |
 | 5.2 | L2: `siste_feilmelding` og `sist_endret_tid` i biblioteket | lib | | ⏳ |
 | 5.3 | L3: Retry per task-type | lib | | ⏳ |
 | 5.4 | L4: Steg kan stoppe med `MANUELL` (valgfri) | lib | | ⏳ Å12 |
