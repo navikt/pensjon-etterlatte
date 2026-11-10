@@ -33,8 +33,8 @@ Ekspertagenter: `../efterlatte-prosessering/.github/agents/efterlatte-prosesseri
 | Bibliotekversjon i Gjenny | `1.20260915130553_bb84d63` | `gradle/libs.versions.toml` |
 | Ekte outbox i Gjenny | Ikke i main. Bare `opprettIEgenTransaksjon` brukes. WIP-hjelperen `opprettPaaAktivBehandlingstransaksjon` ligger på `origin/kristian/prosessering-poc` (commit `9365a06f4`). | |
 | Gjennys `prosessering_task` | V352, V355 (metadata) og V358 (hendelse). Mangler `UNIQUE(type, payload)`, som biblioteket regner som en invariant. Mangler `siste_feilmelding` og `sist_endret_tid`. | `db/migration/V352`, `V355` |
-| Feilmelding i biblioteket | Finnes ikke: verken i `schema.sql`, `Task` eller `markFeilet`. | `prosessering-postgres/src/main/resources/schema.sql` |
-| Kjente gap i biblioteket | `JdbcTransaksjon.connection` er `internal`. Retry gjelder hele motoren (3 forsøk med `forsøk × 100 ms`, altså `STOPPET` etter under ett sekund). Et steg kan ikke sette `MANUELL`. | `README.md`, «Kjente gap» |
+| Feilmelding i biblioteket | 5.2 er implementert lokalt på `utvidet-oms-feilmelding-endringstid` (Nav-31931): `sisteFeilmelding`, `sistEndretTid`, avkorting til 2 000 tegn og oppdatert skjema. Ikke committet eller publisert. | `prosessering-postgres/src/main/resources/schema.sql`, `Task`, `markFeilet` |
+| Kjente gap i biblioteket | 5.1 er merget via lib #53, bekreftet i lokal `main`: stegets connection er tilgjengelig for vertskode. Retry gjelder fortsatt hele motoren (3 forsøk med `forsøk × 100 ms`, altså `STOPPET` etter under ett sekund). Et steg kan ikke sette `MANUELL`. | `README.md`, «Kjente gap» |
 | `etterlatte-behandling-kafka` | Har ingen database og kan ikke kjøre motoren. `NySoeknadRiver` gjør mottaket synkront: sak, PDF (ey-pdfgen), dokarkiv, oppgave via REST, og publiserer `@dokarkivRetur` og `soeknadFordelt=false`. | `brukerdialog/soeknad/NySoeknadRiver.kt` |
 | Kvittering til innsendt-soeknad | `JournalpostSkrevet` krever `@dokarkivRetur` og `@lagret_soeknad_id`, leser `soeknadFordelt` og avviser bare `@event_name=trenger_behandling`. Søknader i status `SENDT` publiseres på nytt hvert 10. minutt i 45 minutter. | pe `apps/innsendt-soeknad/.../JournalpostSkrevet.kt`, `PubliserTilstandJobb.kt` |
 | Rapid-produsent i behandling | Finnes (`ApplicationContext.rapid`). | `config/ApplicationContext.kt` |
@@ -84,14 +84,18 @@ Lukker gap 3 i bibliotekets «Kjente gap».
 
 ### 5.2 L2: Siste feilmelding og siste endring (`lib`)
 
+Favro: [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931).
+Implementert lokalt på `utvidet-oms-feilmelding-endringstid`, uten commit eller PR.
+
 Gjør at en `STOPPET` task forklarer seg selv i verktøyet.
 
 - `schema.sql`: `siste_feilmelding TEXT` og `sist_endret_tid TIMESTAMPTZ NOT NULL DEFAULT now()`.
 - `Task`: `sisteFeilmelding: String?` og `sistEndretTid: Instant`.
-- `TaskRepository.markFeilet(..., feilmelding: String?)`. Motoren sender `"${e::class.simpleName}: ${e.message}"`, avkortet til for eksempel 2000 tegn. Stack trace hører hjemme i loggen.
+- `TaskRepository.markFeilet(..., feilmelding: String?)`. Motoren sender `"${e::class.simpleName}: ${e.message}"`, avkortet til 2 000 tegn. Stack trace hører hjemme i loggen. Manglende registrert steg gir også en forklarende feilmelding.
 - `PostgresTaskRepository`: Alle UPDATE-er setter `sist_endret_tid = now()`. `markerFullført` og rekjøring nullstiller ikke feilmeldingen, fordi den beskriver siste feil og statusen viser at tasken er ferdig.
 - Unntaksmeldinger kan inneholde fnr. Dokumenter at vertene ikke skal legge personopplysninger i unntaksmeldinger. Verktøyet maskerer ikke dette feltet.
 - Test i `FeilOgRetryTest`. Vertene trenger en migrering, så skriv det i release-notatet.
+- Ved oppgradering må verten legge til begge kolonnene før ny bibliotekversjon tas i bruk. Eksisterende rader får migreringstidspunktet som `sist_endret_tid`. Egne admin-oppdateringer må sette endringstiden og beholde siste feilmelding. Migreringen og API-endringene er beskrevet i bibliotekets README.
 
 ### 5.3 L3: Retry per task-type (`lib`)
 
