@@ -46,6 +46,12 @@ for oppfoering in "${BRANCHER[@]}"; do
     continue
   fi
 
+  if ! repo_status="$(git -C "$sti" rev-parse --is-inside-work-tree 2>&1)"; then
+    printf "%-36s %-42s %s\n" "$repo" "$branch" "(repostatus ukjent: Git-tilgang feilet)"
+    printf "%s: %s\n" "$repo" "$repo_status" >&2
+    continue
+  fi
+
   ref="origin/$branch"
   if ! git -C "$sti" rev-parse --verify --quiet "$ref" >/dev/null; then
     ref="$branch"
