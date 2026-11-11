@@ -80,4 +80,3 @@ https://github.com/navikt/nav-dekoratoren
 Tar i bruk designsystemet til Nav, Aksel.
 
 Les mer her: https://aksel.nav.no
-

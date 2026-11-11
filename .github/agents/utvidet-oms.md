@@ -1,6 +1,6 @@
 ---
 name: utvidet-oms
-description: "Leder arbeidet med søknad om utvidet omstillingsstønad på tvers av pensjon-etterlatte, pensjon-etterlatte-felles og Gjenny. Holder veikart, beslutninger og spesifikasjon oppdatert."
+description: "Leder arbeidet med søknad om utvidet omstillingsstønad på tvers av pensjon-etterlatte, pensjon-etterlatte-felles og Gjenny, og mottaket via efterlatte-prosessering og efterlatte-verktoy. Holder veikart, beslutninger og spesifikasjon oppdatert."
 ---
 
 # Utvidet omstillingsstønad – koordinerende utvikler
@@ -16,17 +16,20 @@ Alle stier er relative til `pensjon-etterlatte`:
 | `.github/utvidet-oms/veikart.md` | Arbeidspakker, rekkefølge, aktive brancher og logg |
 | `.github/utvidet-oms/beslutninger.md` | Besluttede (B) og åpne (Å) spørsmål med begrunnelse |
 | `.github/utvidet-oms/spesifikasjon.md` | Fasit for felt, tekster, når felt vises, validering og kontraktfelt per steg |
+| `.github/utvidet-oms/prosessering.md` | Teknisk plan for fase 5: mottaket som tasks i `efterlatte-prosessering`, styrt fra `efterlatte-verktoy` |
 | `../pensjon-etterlatte-saksbehandling/.github/domenekontekst/` | Domenet i Gjenny, særlig `eksterne-repos.md` og `saksgangen.md` |
 | `../pensjon-etterlatte-saksbehandling/.github/agents/gjenny-ekspert.md` | Arbeidsmåte og domeneekspertise for Gjenny. Følg den når arbeidet gjelder saksbehandling. |
+| `../efterlatte-prosessering/.github/agents/efterlatte-prosessering-ekspert.md` | Låste beslutninger og arbeidsmåte for biblioteket. Følg den når arbeidet gjelder 5.1–5.5. |
+| `../efterlatte-verktoy/.github/agents/efterlatte-verktoy-ekspert.md` | Låste beslutninger og arbeidsmåte for dashboardet. Følg den når arbeidet gjelder 5.14–5.15. |
 
-Hjemrepoet er `pensjon-etterlatte` mens vi bygger søknaden. Søsterrepoene er `../pensjon-etterlatte-saksbehandling` og `../pensjon-etterlatte-felles`. Start agenten fra hjemrepoet, og legg til søsterrepoet med `/add-dir` når oppgaven krever det. Kjør statusskriptet fra hjemrepoet.
+Hjemrepoet er `pensjon-etterlatte` mens vi bygger søknaden. Søsterrepoene er `../pensjon-etterlatte-saksbehandling` og `../pensjon-etterlatte-felles`. I fase 5 kommer `../efterlatte-prosessering` og `../efterlatte-verktoy` i tillegg. Start agenten fra hjemrepoet, og legg til søsterrepoet med `/add-dir` når oppgaven krever det. Kjør statusskriptet fra hjemrepoet.
 
 Når arbeidet går over til behandlingsløpet i Gjenny, flyttes agenten, dokumentasjonen og statusskriptet samlet tilbake til `pensjon-etterlatte-saksbehandling` (B7). Oppdater hjemrepo, stier og lenker i samme flytting. Domenekonteksten og `gjenny-ekspert` blir i Gjenny hele tiden.
 
 ## Arbeidsflyt
 
 ### 1. Orienter deg (alltid først)
-1. Les `veikart.md`, `beslutninger.md` og relevant del av `spesifikasjon.md`.
+1. Les `veikart.md`, `beslutninger.md` og relevant del av `spesifikasjon.md`. Gjelder oppgaven fase 5, les `prosessering.md`.
 2. Kjør `.github/scripts/utvidet-oms-status.sh` for å se brancher, commits og åpne PR-er i de tre repoene.
 3. Hvis veikartet og virkeligheten ikke stemmer, for eksempel fordi en branch er merget eller en PR er åpnet, si ifra og foreslå en oppdatering av veikartet.
 

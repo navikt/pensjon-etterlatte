@@ -10,8 +10,10 @@ ROT="$(dirname "$HJEMREPO")"
 
 BRANCHER=(
   "pensjon-etterlatte:utvidet-soknad-struktur-ny-app"
-  "pensjon-etterlatte:NAV-31200-sende-inn-utvidet-oms-soeknad"
-  "pensjon-etterlatte-saksbehandling:nav-31200-ta-imot-soknad-utvidet-oms"
+  "pensjon-etterlatte:utvidet-oms-prosessering-plan"
+  "pensjon-etterlatte-saksbehandling:utvidet-oms-prosessering-plan"
+  "efterlatte-prosessering:utvidet-oms-prosessering-plan"
+  "efterlatte-verktoy:utvidet-oms-prosessering-plan"
 )
 
 finn_repo() {
@@ -24,7 +26,7 @@ finn_repo() {
 }
 
 if [[ "${1:-}" == "--fetch" ]]; then
-  for repo in pensjon-etterlatte-felles pensjon-etterlatte pensjon-etterlatte-saksbehandling; do
+  for repo in pensjon-etterlatte-felles pensjon-etterlatte pensjon-etterlatte-saksbehandling efterlatte-prosessering efterlatte-verktoy; do
     sti="$(finn_repo "$repo")"
     [[ -n "$sti" ]] && git -C "$sti" fetch --quiet origin 2>/dev/null
   done
@@ -41,6 +43,12 @@ for oppfoering in "${BRANCHER[@]}"; do
 
   if [[ -z "$sti" ]]; then
     printf "%-36s %-42s %s\n" "$repo" "$branch" "(repo ikke funnet i $ROT)"
+    continue
+  fi
+
+  if ! repo_status="$(git -C "$sti" rev-parse --is-inside-work-tree 2>&1)"; then
+    printf "%-36s %-42s %s\n" "$repo" "$branch" "(repostatus ukjent: Git-tilgang feilet)"
+    printf "%s: %s\n" "$repo" "$repo_status" >&2
     continue
   fi
 
