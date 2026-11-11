@@ -37,7 +37,7 @@ export const Oppsummering = () => {
     const inntekt = soeknad.skjema.inntekt
     const periode =
         utdanningOgTiltak?.utdanning?.startDato && utdanningOgTiltak?.utdanning?.sluttDato
-            ? `${t('kontrakt.startDato')}: ${visningsdato(utdanningOgTiltak.utdanning.startDato, locale)} / ${t('kontrakt.sluttDato')}: ${visningsdato(utdanningOgTiltak.utdanning.sluttDato, locale)}`
+            ? `${t('oppsummering.periode.fra')} ${visningsdato(utdanningOgTiltak.utdanning.startDato, locale)} \n ${t('oppsummering.periode.til')} ${visningsdato(utdanningOgTiltak.utdanning.sluttDato, locale)}`
             : undefined
 
     const opplysninger = [

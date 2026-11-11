@@ -45,6 +45,7 @@ interface Props<T extends FieldValues> {
     neste?: StegPath
     forrige?: StegPath | '/'
     shouldUnregister?: boolean
+    send?: (soeknad: ISoeknad) => Promise<void>
     children: ReactNode
 }
 
@@ -56,6 +57,7 @@ export const SoeknadSteg = <T extends FieldValues>({
     neste,
     forrige,
     shouldUnregister = true,
+    send,
     children,
 }: Props<T>) => {
     const { state, dispatch } = useSoknadContext()
@@ -64,6 +66,7 @@ export const SoeknadSteg = <T extends FieldValues>({
     const methods = useForm<T>({ defaultValues, shouldUnregister, shouldFocusError: false })
     const [lagrer, settLagrer] = useState(false)
     const [lagringsfeil, settLagringsfeil] = useState(false)
+    const [sendingsfeil, settSendingsfeil] = useState(false)
     const [feilforsok, settFeilforsok] = useState(0)
     const errorRef = useRef<HTMLDivElement>(null)
     const headingRef = useRef<HTMLHeadingElement>(null)
@@ -75,8 +78,25 @@ export const SoeknadSteg = <T extends FieldValues>({
     }, [])
 
     useEffect(() => {
-        if (feilforsok > 0 || lagringsfeil) errorRef.current?.focus()
-    }, [feilforsok, lagringsfeil])
+        if (feilforsok > 0 || lagringsfeil || sendingsfeil) errorRef.current?.focus()
+    }, [feilforsok, lagringsfeil, sendingsfeil])
+
+    const sendSoeknad = async () => {
+        if (!send || opptatt.current) return
+        opptatt.current = true
+        settLagrer(true)
+        settLagringsfeil(false)
+        settSendingsfeil(false)
+        try {
+            await send(state)
+        } catch {
+            settSendingsfeil(true)
+            settFeilforsok((antall) => antall + 1)
+        } finally {
+            opptatt.current = false
+            settLagrer(false)
+        }
+    }
 
     const lagre = async (data: T, maal?: StegPath | '/') => {
         if (opptatt.current) return false
@@ -123,12 +143,13 @@ export const SoeknadSteg = <T extends FieldValues>({
             <form
                 onSubmit={(event) => {
                     event.preventDefault()
-                    if (neste) void nesteSteg()
+                    if (send) void sendSoeknad()
+                    else if (neste) void nesteSteg()
                 }}
                 noValidate
             >
                 <VStack gap="space-32">
-                    {(feil.length > 0 || lagringsfeil) && (
+                    {(feil.length > 0 || lagringsfeil || sendingsfeil) && (
                         <ErrorSummary ref={errorRef} heading={t('skjema.feil')}>
                             {feil.map(({ id, melding }) => (
                                 <ErrorSummary.Item key={id} href={`#${id}`}>
@@ -140,6 +161,11 @@ export const SoeknadSteg = <T extends FieldValues>({
                                     {t('skjema.lagringFeilet')}
                                 </ErrorSummary.Item>
                             )}
+                            {sendingsfeil && (
+                                <ErrorSummary.Item href="#navigasjon-send">
+                                    {t('oppsummering.feilVedSending')}
+                                </ErrorSummary.Item>
+                            )}
                         </ErrorSummary>
                     )}
                     <Heading ref={headingRef} size="large" align="center" level="2" tabIndex={-1}>
@@ -147,8 +173,9 @@ export const SoeknadSteg = <T extends FieldValues>({
                     </Heading>
                     {children}
                     <Navigasjon
-                        neste={neste ? { onClick: () => void nesteSteg() } : undefined}
-                        forrige={forrige ? { onClick: () => void lagre(methods.getValues(), forrige) } : undefined}
+                        neste={neste ? () => void nesteSteg() : undefined}
+                        send={send ? () => void sendSoeknad() : undefined}
+                        forrige={forrige ? () => void lagre(methods.getValues(), forrige) : undefined}
                         disabled={lagrer}
                         fortsettSenere={() => lagre(methods.getValues())}
                     />
@@ -158,7 +185,13 @@ export const SoeknadSteg = <T extends FieldValues>({
     )
 }
 
-export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
+export const SoeknadStegRute = ({
+    children,
+    send,
+}: {
+    children: ReactNode
+    send?: (soeknad: ISoeknad) => Promise<void>
+}) => {
     const { path, tittel, neste, forrige } = useOutletContext<SoeknadStegContext>()
 
     return (
@@ -169,6 +202,7 @@ export const SoeknadStegRute = ({ children }: { children: ReactNode }) => {
             oppdaterSoeknad={(soeknad) => ({ ...soeknad, aktivtSteg: path })}
             neste={neste}
             forrige={forrige}
+            send={send}
         >
             {children}
         </SoeknadSteg>

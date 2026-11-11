@@ -1,19 +1,23 @@
 import { Alert, BodyLong, BodyShort, Box, Button, Heading, HStack, Link } from '@navikt/ds-react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSoknadContext } from '../../context/soknad/SoknadContext'
+import { ActionTypes } from '../../context/soknad/soknad'
 import { useLanguage } from '../../hooks/useLanguage'
 
 const SoknadKvittering = () => {
     const { t } = useTranslation()
+    const { dispatch } = useSoknadContext()
     useLanguage()
 
     useEffect(() => {
+        dispatch({ type: ActionTypes.TILBAKESTILL })
         const blokkerTilbakeknapp = () => window.history.pushState(null, document.title, window.location.href)
 
         blokkerTilbakeknapp()
         window.addEventListener('popstate', blokkerTilbakeknapp)
         return () => window.removeEventListener('popstate', blokkerTilbakeknapp)
-    }, [])
+    }, [dispatch])
 
     return (
         <>
