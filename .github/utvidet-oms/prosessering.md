@@ -22,19 +22,20 @@ Ekspertagenter: `../efterlatte-prosessering/.github/agents/efterlatte-prosesseri
 - Planen gjelder dev. Prod er en egen fase (se «Utenfor omfang»).
 - Mønsteret er generelt, slik at BP- og OMS-søknader kan flyttes over senere uten ny arkitektur.
 
-## Nåsituasjon (2026-11-10)
+## Nåsituasjon (oppdatert 2026-11-13)
 
 | Hva | Status | Kilde |
 |---|---|---|
 | Mottak av utvidet OMS i Gjenny (B4) | Merget 2026-10-27 | sb [#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971) |
 | innsendt-soeknad tar imot typen | Merget 2026-10-27 | pe [#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531) |
-| PDF-mal `utvidet_omstillingsstoenad_v1` (1.4) | Finnes ikke i felles. Journalføringen av utvidet OMS feiler derfor i dev. | `pensjon-etterlatte-felles` main |
+| PDF-mal `utvidet_omstillingsstoenad_v1` (1.4) | Merget i felles #640. Prod-manifest for ey-pdfgenrs er merget i #641. Gjenny velger pdfgenrs for utvidet OMS uten toggle, merget i sb #9045. PDF-klienten har allerede samme innhold i main som i det nye biblioteket. | felles `apps/ey-pdfgenrs/templates/eypdfgen/`, sb `PdfgenrsFeatureToggle` |
+| Delt journalføring (5.11) | Nav-32022: sb `4fc07d911` og felles `ee186e90` er pushet og deployet til dev. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Behandlingsklientene er lazy og ennå ikke brukt av task-kjeden; dokarkiv-tilgang fra behandling er fortsatt uavklart (Å11). | `libs/etterlatte-soeknad-journalfoering`, `config/modules/{KlientModule,ServiceModule}.kt` |
 | Prosessering i `etterlatte-behandling` | `installProsessering` med `SoeknadMottakSkygge` og `FeilbarDemo` (dev). Admin-API: list, finn, rekjor, avbryt, logg, kommentar og avvik. | `apps/etterlatte-behandling/src/main/kotlin/prosessering/ProsesseringModule.kt` |
 | Bibliotekversjon i Gjenny | `1.20260915130553_bb84d63` | `gradle/libs.versions.toml` |
 | Ekte outbox i Gjenny | Ikke i main. Bare `opprettIEgenTransaksjon` brukes. WIP-hjelperen `opprettPaaAktivBehandlingstransaksjon` ligger på `origin/kristian/prosessering-poc` (commit `9365a06f4`). | |
 | Gjennys `prosessering_task` | V352, V355 (metadata) og V358 (hendelse). Mangler `UNIQUE(type, payload)`, som biblioteket regner som en invariant. Mangler `siste_feilmelding` og `sist_endret_tid`. | `db/migration/V352`, `V355` |
-| Feilmelding i biblioteket | 5.2 er implementert lokalt på `utvidet-oms-feilmelding-endringstid` (Nav-31931): `sisteFeilmelding`, `sistEndretTid`, avkorting til 2 000 tegn og oppdatert skjema. Ikke committet eller publisert. | `prosessering-postgres/src/main/resources/schema.sql`, `Task`, `markFeilet` |
-| Kjente gap i biblioteket | 5.1 er merget via lib #53, bekreftet i lokal `main`: stegets connection er tilgjengelig for vertskode. Retry gjelder fortsatt hele motoren (3 forsøk med `forsøk × 100 ms`, altså `STOPPET` etter under ett sekund). Et steg kan ikke sette `MANUELL`. | `README.md`, «Kjente gap» |
+| Feilmelding i biblioteket | 5.2 er committet og pushet på `utvidet-oms-feilmelding-endringstid` (Nav-31931): `sisteFeilmelding`, `sistEndretTid`, avkorting til 2 000 tegn og oppdatert skjema. Merge til `main` er ikke bekreftet (2026-11-12). Ikke publisert. | `prosessering-postgres/src/main/resources/schema.sql`, `Task`, `markFeilet` |
+| Kjente gap i biblioteket | 5.1 er merget via lib #53: stegets connection er tilgjengelig for vertskode. 5.3 (retry per task-type) er committet og pushet på `utvidet-oms-retry-per-type` (`a7dd092`), men merge og release er ikke kontrollert. Motorstandarden er fortsatt 3 feil med `antallFeil × 100 ms`, altså `STOPPET` etter under ett sekund for steg uten egen policy. Et steg kan ikke sette `MANUELL`. | `README.md`, «Kjente gap» |
 | `etterlatte-behandling-kafka` | Har ingen database og kan ikke kjøre motoren. `NySoeknadRiver` gjør mottaket synkront: sak, PDF (ey-pdfgen), dokarkiv, oppgave via REST, og publiserer `@dokarkivRetur` og `soeknadFordelt=false`. | `brukerdialog/soeknad/NySoeknadRiver.kt` |
 | Kvittering til innsendt-soeknad | `JournalpostSkrevet` krever `@dokarkivRetur` og `@lagret_soeknad_id`, leser `soeknadFordelt` og avviser bare `@event_name=trenger_behandling`. Søknader i status `SENDT` publiseres på nytt hvert 10. minutt i 45 minutter. | pe `apps/innsendt-soeknad/.../JournalpostSkrevet.kt`, `PubliserTilstandJobb.kt` |
 | Rapid-produsent i behandling | Finnes (`ApplicationContext.rapid`). | `config/ApplicationContext.kt` |
@@ -85,7 +86,7 @@ Lukker gap 3 i bibliotekets «Kjente gap».
 ### 5.2 L2: Siste feilmelding og siste endring (`lib`)
 
 Favro: [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931).
-Implementert lokalt på `utvidet-oms-feilmelding-endringstid`, uten commit eller PR.
+Committet og pushet på `utvidet-oms-feilmelding-endringstid` 2026-11-10, inkludert merge med `main`. Merge til `main` i lib er ikke bekreftet per 2026-11-12.
 
 Gjør at en `STOPPET` task forklarer seg selv i verktøyet.
 
@@ -101,10 +102,15 @@ Gjør at en `STOPPET` task forklarer seg selv i verktøyet.
 
 Lukker gap 1. Bør være på plass før kjeden kjører mot ekte dokarkiv i dev.
 
-- `TaskStep` får `val retry: RetryPolicy? get() = null`, der `null` betyr motorstandard. `data class RetryPolicy(val maxAntallFeil: Int, val backoff: (Int) -> Duration)`.
-- `ProcessingEngine.haandterFeil` slår opp policy per steg.
-- Gjenny bruker for eksempel 6 forsøk med eksponentiell backoff (30 s, 1 m, 2 m, 4 m, 8 m) for T2 og T4. T1 og T3 bruker standard.
-- Test: To typer med ulik policy i samme motor.
+Implementert 2026-11-12 og bekreftet committet og pushet til `origin/utvidet-oms-retry-per-type` (`a7dd092`) 2026-11-13. Branchen bygger på 5.2 og må merges etter den. Favro-kort mangler. PR-, merge- og release-status kan ikke kontrolleres fordi øktens GitHub-tilgang er blokkert.
+
+- `class RetryPolicy(val maxAntallFeil: Int, val backoff: (antallFeil: Int) -> Duration)` i `core`. `maxAntallFeil` må være minst 1. Vanlig klasse, ikke `data class`, fordi likhet mellom lambdaer ikke gir mening.
+- `TaskStep` får `val retry: RetryPolicy? get() = null`, der `null` betyr motorstandard. `taskSteg(type, retry = …)` tar valgfri policy.
+- `ProcessingEngine` bruker `steg.retry ?: standard` for steget som feilet. `maxAntallFeil` og `backoff` i konstruktøren er uendret og blir standarden, så eksisterende steg, Ktor-pluginen og `efterlatte-prosessering.max-antall-feil` i Spring oppfører seg som før.
+- Policyen leses når feilen skjer. En endret policy gjelder derfor også tasks som allerede står i kø. Motoren nullstiller ikke `antallFeil`; vertens rekjøring avgjør det.
+- Transaksjonsreglene er uendret: feilen registreres fortsatt i en egen transaksjon etter rollback, og `siste_feilmelding` fra 5.2 lagres som før.
+- Ingen Gjenny-regler i biblioteket. Gjenny setter policy på egne steg i 5.12, for eksempel 6 feil med eksponentiell backoff (30 s, 1 m, 2 m, 4 m, 8 m) for T2 og T4: `RetryPolicy(maxAntallFeil = 6) { 30.seconds * (1 shl (it - 1)) }`. T1 og T3 bruker standard.
+- Test i `FeilOgRetryTest`: tre steg i samme motor. Ett med 2 feil som maks, ett med 30 s backoff og ett uten policy (motorstandard 4). Testen sjekker antall forsøk, at siste feil gir `STOPPET` uten nytt backoff, og at neste `triggerTid` er 30 s etter første feil.
 
 ### 5.4 L4: `MANUELL` fra et steg (`lib`, valgfri)
 
@@ -205,10 +211,17 @@ CREATE TABLE mottatt_soeknad (
 
 ### 5.11 G6: Journalføring i behandling (`sb`, `felles`)
 
-- Flytt `JournalfoerSoeknadService`, `DokarkivKlient` og `PdfGeneratorKlient` fra `behandling-kafka/brukerdialog/soeknad/{journalfoering,pdf}` til et nytt lib, `libs/etterlatte-soeknad-journalfoering`, som begge appene bruker.
-- `etterlatte-behandling/.nais/dev.yaml`: `PDFGEN_URL`, `DOKARKIV_URL`, `DOKARKIV_SCOPE`, `outbound.rules: ey-pdfgen` og `outbound.external: dokarkiv-q2.dev-fss-pub.nais.io`.
-- `ey-pdfgen` i felles må få `etterlatte-behandling` i `inbound.rules`. dokarkiv må godta behandlingens Azure-klient (Å11). Dette kan ta lengst tid, så start tidlig.
-- `DokarkivKlient` håndterer allerede `409 Conflict` på `eksternReferanseId`. Det er dette som gjør T2 idempotent.
+Favro: [Nav-32022](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-32022).
+
+Committet, pushet og deployet til dev 2026-11-13. Sb-branchen er `utvidet-oms-felles-journalfoering` (`4fc07d911`), felles-branchen er `utvidet-oms-journalfoering-tilgang` (`ee186e90`). Ingen PR-er er opprettet. PDF-støtten er allerede merget i sb #9045 og felles #640; den er ikke ny funksjonalitet i 5.11.
+
+- `JournalfoerSoeknadService`, `DokarkivKlient` og `PdfGeneratorKlient` ligger nå i `libs/etterlatte-soeknad-journalfoering`. Begge appene bruker biblioteket. Pakkenavnene er beholdt, så riverne og tjenesten for meldt inn endring slipper nye importer. `DokarkivKlient.opprettJournalpost` er offentlig, siden meldt inn endring fortsatt ligger i Kafka-appen.
+- `KlientModule`, `ServiceModule` og `ApplicationContext` i behandling gjør journalføringen tilgjengelig for den kommende T2-tasken. Klienter og service opprettes først når de brukes. Manglende journalføringskonfigurasjon påvirker derfor ikke dagens oppstart eller prod, og ingen ny mottaksflyt er aktivert.
+- `etterlatte-behandling/.nais/dev.yaml` har `PDFGEN_URL`, `PDFGENRS_URL`, `DOKARKIV_URL`, `DOKARKIV_SCOPE` og nettverkstilgang til begge PDF-generatorene og `dokarkiv-q2.dev-fss-pub.nais.io`. Begge PDF-generatorene i felles har behandling i `inbound.rules` for dev.
+- Utvidet OMS bruker `ey-pdfgenrs` uten toggle, som i utviklerens PDF-endring. Andre maler beholder eksisterende toggles. Det er ingen automatisk fallback mellom generatorene ved feil.
+- Dokarkiv-klienten bruker client credentials og `forventSuksess = false`, slik at `409 Conflict` på `eksternReferanseId` fortsatt kan gi den eksisterende journalposten. Nye tester dekker `201`, `409`, feil fra dokarkiv og journalføring uten ferdigstilling. Eksisterende PDF- og river-tester kjøres fra Kafka-appen.
+- Dev-deployment av begge Gjenny-appene og begge PDF-generatorene er bekreftet i Actions. Prøvesøknaden tester dagens Kafka-mottak, ikke journalføring fra behandling. Det gjenstår å bekrefte at dokarkiv godtar behandlingens Azure-klient (Å11).
+- Merge til main trigger prod-deploy av begge Gjenny-appene. Biblioteket blir da en del av dagens journalføringsløp, men task-kjeden aktiveres ikke. Felles-PR-en endrer bare dev-tilganger; workflowene bygger og deployer likevel begge PDF-generatorene til prod. Prod-manifestene er uendret i begge PR-ene.
 
 ### 5.12 G7: Task-stegene (`sb`)
 
@@ -249,8 +262,8 @@ Beskriv kjeden T1–T4 i verktøyets dokumentasjon: hva `STOPPET` betyr per steg
 1. Deploy biblioteket, Gjenny (G1–G8) og verktøyet (V1).
 2. Slå på `prosessering-utvidet-oms-mottak` i Unleash for dev.
 3. Send inn en utvidet OMS-søknad fra `utvidet-omstillingsstoenad-ui` eller testdata.
-4. Uten PDF-malen (1.4) skal T2 ende i `STOPPET` med en tydelig feilmelding i verktøyet. Ingen oppgave og ingen kvittering.
-5. Lever 1.4 i felles og trykk «Rekjør» på T2. T2, T3 og T4 skal gå til `FULLFØRT`. Oppgaven skal finnes i Gjenny, og søknaden skal ha status `ARKIVERT` i innsendt-soeknad.
+4. Fremprovoser en kontrollert feil i PDF-kallet i dev. T2 skal ende i `STOPPET` med en tydelig feilmelding i verktøyet. Ingen oppgave og ingen kvittering.
+5. Fjern feilårsaken og bekreft at PDF-malen (1.4) er deployet i ey-pdfgenrs. Trykk «Rekjør» på T2. T2, T3 og T4 skal gå til `FULLFØRT`. Oppgaven skal finnes i Gjenny, og søknaden skal ha status `ARKIVERT` i innsendt-soeknad.
 6. Send samme event på nytt, eller vent på republiseringen etter 10 minutter. Det skal fortsatt være én `mottatt_soeknad`, én kjede, én journalpost og én oppgave.
 
 **Utgangskriterium:** En søknad som feiler i dev, rettes og fullføres fra verktøyet uten SQL.
@@ -278,7 +291,7 @@ Beskriv kjeden T1–T4 i verktøyets dokumentasjon: hva `STOPPET` betyr per steg
 | En tjeneste åpner egen `DatabaseContext` eller connection i steget, og skrivet blir ikke atomisk | Gå gjennom kallveiene i T1 og T3 (5.7) |
 | Steget holder en connection under trege kall til pdfgen og dokarkiv | `maxSamtidighet` er 8. Sjekk Hikari-poolen i behandling. Gjør eksterne kall før DB-skrivet. |
 | UNIQUE-migreringen feiler på duplikater | Kjør SQL-sjekken i dev og prod før merge (5.6) |
-| Global retry gir `STOPPET` etter under ett sekund når dokarkiv er nede en kort stund | L3. Uten L3 rekjører operatøren manuelt, som er greit i dev. |
+| Standard retry gir `STOPPET` etter under ett sekund når dokarkiv er nede en kort stund | L3 (5.3): T2 og T4 får egen `RetryPolicy` i 5.12. Uten det rekjører operatøren manuelt, som er greit i dev. |
 | fnr i `siste_feilmelding` | Unntaksmeldinger i stegene skal bare inneholde `soeknadId`, `sakId` og `journalpostId` |
 | Dobbel journalføring eller kvittering | `eksternReferanseId` og 409 i dokarkiv. `JournalpostSkrevet` oppdaterer bare status. |
 | Republiseringen stopper etter 45 minutter mens T2 står `STOPPET` | Ufarlig. Søknaden ligger i `mottatt_soeknad`, og status `SENDT` i innsendt-soeknad er riktig signal til T4 er kjørt. |
