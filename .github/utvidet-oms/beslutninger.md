@@ -119,7 +119,7 @@ Det mangler avklaring av feature toggle, prod-nais, inngang fra nav.no eller Min
 Tabellen har fnr og søknadsinnhold. Hvor lenge skal dataene ligge etter at kvitteringen (T4) er sendt? **Forslag:** Fjern `fnr` og `soeknad` når T4 er fullført, eller slett etter et fast antall dager med en jobb. Avklares med personvern.
 
 ### Å11 – Tilgang fra `etterlatte-behandling` til dokarkiv og ey-pdfgen
-I dag er det `etterlatte-behandling-kafka` som journalfører. Har behandling tilgang til dokarkiv, eller må den bestilles hos teamdokumenthandtering? ey-pdfgen i felles må uansett få behandling i `inbound.rules`.
+I dag er det `etterlatte-behandling-kafka` som journalfører. Har behandling tilgang til dokarkiv, eller må den bestilles hos teamdokumenthandtering? Nettverkstilgangen i dev er deployet i 5.11 (2026-11-13, Nav-32022), inkludert behandling i `inbound.rules` hos både ey-pdfgen og ey-pdfgenrs. Utvidet OMS bruker ey-pdfgenrs uten toggle. Prøvesøknaden går fortsatt gjennom Kafka-appen, så den bekrefter ikke at dokarkiv godtar behandlingens Azure-klient. Spørsmålet er fortsatt åpent.
 
 ### Å12 – Søknad uten eksisterende OMS-sak
 Henger sammen med Å3. Skal T1 opprette en ny OMS-sak som `NySoeknadRiver` gjør i dag, eller stoppe for manuell oppfølging (`MANUELL`, arbeidspakke 5.4)?

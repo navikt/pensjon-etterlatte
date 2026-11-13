@@ -50,16 +50,17 @@ Målbildet i fase 5 er at `NySoeknadRiver` bare sender søknaden videre til `ett
 
 | Repo | Branch | PR | Innhold |
 |------|--------|----|---------|
-| pe | `send-inn-soeknad` | [#2584](https://github.com/navikt/pensjon-etterlatte/pull/2584) | NAV-31904: Innsending fra oppsummeringen (3.8), med lasting, feilhåndtering og navigasjon til kvittering. |
+| pe | `oppdater-veikt-og-eksponer-ansatt` | – | Legger til ansatt-ingress i dev for utvidet OMS. Lokale endringer, uten commit eller PR. Favro-kort er ikke oppgitt. |
 | pe | `utvidet-soknad-struktur-ny-app` | – | Skjelett og grunnmur (3.1) for `apps/utvidet-omstillingsstoenad-ui`. Grunnmuren ligger som lokale endringer, ikke committet. |
 | pe | `utvidet-oms-personopplysninger` | – | Steg 2 Personopplysninger (3.3), implementert lokalt. |
 | pe | `utvidet-oms-utdannelse` | – | NAV-31514: Steg 4 Utdanning og tiltak (3.5), implementert lokalt. Branchen inneholder også grunnmuren, Personopplysninger og Situasjonen din i dag. PR-status for tidligere frontendarbeid er ikke kontrollert. |
-| sb, lib, vt | `utvidet-oms-prosessering-plan` | – | Plan for fase 5 og oppdaterte veikart (5.0). Planbranchene finnes lokalt i alle tre repoene. Merge-status er ikke kontrollert. |
-| lib | `utvidet-oms-feilmelding-endringstid` | – | Nav-31931, 5.2: siste feilmelding og endringstid på tasks. Implementert lokalt, uten commit eller PR. |
-| pe | `utvidet-oms-feilmelding-endringstid` | – | Oppdaterer veikart og prosesseringsplan for 5.1 og 5.2. Lokale dokumentasjonsendringer, uten commit eller PR. |
-| pe | `utvidet-oms-status-repotilgang` | – | Skiller Git-tilgangsfeil fra manglende branch i statusskriptet. Lokale endringer, uten commit. |
+| lib | `utvidet-oms-feilmelding-endringstid` | ikke kontrollert | Nav-31931, 5.2: siste feilmelding og endringstid på tasks. Committet og pushet 2026-11-10, inkludert merge med `main` (`14d4e3f`). Om PR-en er opprettet eller merget, er ikke bekreftet. Se 5.2. |
+| lib | `utvidet-oms-retry-per-type` | ikke kontrollert | 5.3: retry per task-type. Committet og pushet til `origin/utvidet-oms-retry-per-type` (`a7dd092`). Release og merge er ikke kontrollert. |
+| pe | `utvidet-oms-retry-per-type` | – | Oppdaterer veikart og prosesseringsplan for 5.0, 5.2, 5.3 og 5.11, samt status for PDF-malen. Lokale endringer, uten commit eller PR. |
+| sb | `utvidet-oms-felles-journalfoering` | – | Nav-32022, 5.11: delt journalføringsbibliotek, klienter i behandling og dev-konfigurasjon. Committet og pushet (`4fc07d911`), begge appene er deployet til dev. Ingen PR opprettet. PDF-endringene er allerede merget i #9045. |
+| felles | `utvidet-oms-journalfoering-tilgang` | – | Nav-32022, 5.11: gir behandling tilgang til begge PDF-generatorene i dev. Committet og pushet (`ee186e90`), begge generatorene er deployet til dev. Ingen PR opprettet. Diffen mot main inneholder bare dev-tilgangene. |
 
-Merget: felles `utvidet-omstillingsstoenad-kontrakt` ([#620](https://github.com/navikt/pensjon-etterlatte-felles/pull/620)) gir `common` `2026.10.09-12.12.efc9bddf6546`. Mottaket er merget i pe ([#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531)) og sb ([#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971)), og steg 5 Inntekt i [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558). Planen for fase 5 er merget i pe ([#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596)).
+Merget: felles `utvidet-omstillingsstoenad-kontrakt` ([#620](https://github.com/navikt/pensjon-etterlatte-felles/pull/620)) gir `common` `2026.10.09-12.12.efc9bddf6546`. Mottaket er merget i pe ([#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531)) og sb ([#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971)), og steg 5 Inntekt i [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558). Planen for fase 5 er merget i pe ([#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596)), lib ([#52](https://github.com/navikt/efterlatte-prosessering/pull/52)), vt ([#20](https://github.com/navikt/efterlatte-verktoy/pull/20)) og sb ([#9039](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9039), bare en peker). Innsendingen er merget i pe ([#2584](https://github.com/navikt/pensjon-etterlatte/pull/2584)). Planoppdateringen for 5.2 er merget i pe ([#2598](https://github.com/navikt/pensjon-etterlatte/pull/2598)), og repotilgangen i statusskriptet i [#2597](https://github.com/navikt/pensjon-etterlatte/pull/2597).
 
 Oppdater tabellen når en branch merges eller en ny startes.
 
@@ -83,7 +84,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | 1.1 | Kontrakt v1 (`UtvidetOmstillingsstoenad`, `GjenlevendeUtvidetOMS`, `SoeknadType`) | felles | NAV-31301 | ✅ [#620](https://github.com/navikt/pensjon-etterlatte-felles/pull/620) |
 | 1.2 | Avklare avvik mellom Figma og kontrakt (Å1, Å2, Å5). Justere kontrakt og eksempler ved behov, og publisere en ny versjon. | felles | | ⏳ |
 | 1.3 | Bumpe `common` til `2026.10.09-12.12.efc9bddf6546` i pe og sb | pe, sb | NAV-31200 | ✅ merget med 2.1 og 2.3 |
-| 1.4 | PDF-mal `utvidet_omstillingsstoenad_v1` i ey-pdfgen (mal og testdata) | felles | | ⏳ Malen finnes ikke i felles per 2026-11-10, så journalføringen feiler i dev. |
+| 1.4 | PDF-mal `utvidet_omstillingsstoenad_v1` (mal og testdata) | felles | | ✅ [#640](https://github.com/navikt/pensjon-etterlatte-felles/pull/640). Prod-manifest for ey-pdfgenrs er merget i [#641](https://github.com/navikt/pensjon-etterlatte-felles/pull/641). Gjenny bruker pdfgenrs for utvidet OMS uten toggle, merget i sb [#9045](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9045). |
 
 ### Fase 2 – Backend
 
@@ -101,6 +102,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | # | Arbeidspakke | Favro | Status |
 |---|--------------|-------|--------|
 | 3.0 | Skjelett for appen: forside, kvittering, kladd, i18n, nais dev og workflow | NAV-31459 | ✅ [#2540](https://github.com/navikt/pensjon-etterlatte/pull/2540) |
+| 3.0a | Ansatt-ingress i dev | | ✅ lagt til lokalt på `oppdater-veikt-og-eksponer-ansatt`. Deploy gjenstår. |
 | 3.1 | Grunnmur: stegdefinisjon og ruter, fremdrift, Forrige/Neste/Avbryt, react-hook-form per steg, lagring ved stegbytte, frontendmodell og mapping til kontrakten (testet mot eksempel-JSON fra felles) | | 🚧 implementert lokalt på eksisterende frontendbranch, klart for review. Favro-kort og PR mangler. |
 | 3.2 | Steg 1 Introside: sjekk av sak, to varianter, samtykke | NAV-31199 | ✅ [#2550](https://github.com/navikt/pensjon-etterlatte/pull/2550) (oppdatert mot Figma). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket. |
 | 3.3 | Steg 2 Personopplysninger | | 🚧 implementert lokalt på `utvidet-oms-personopplysninger`; PR mangler. |
@@ -108,7 +110,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | 3.5 | Steg 4 Utdanning og tiltak | NAV-31514 | ✅ implementert lokalt på `utvidet-oms-utdannelse`, med validering, kladd, nb/nn/en, kontraktmapping og axe-tester. Ikke committet, ingen PR opprettet. |
 | 3.6 | Steg 5 Inntekt | NAV-31515 | ✅ [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558), med validering, nb/nn/en, enhetstester og responsive Cypress-tester med axe. Ny ingress, feilmeldinger og tegntellertekster på nynorsk og engelsk er foreløpig KI-generert og ikke språkvasket. ReadMore-tekstene er hentet fra OMS. |
 | 3.7 | Steg 6 Dokumentasjon (tom side inntil videre) | | ⏳ Å4 |
-| 3.8 | Steg 7 Oppsummering og innsending | NAV-31517, NAV-31904 | 🚧 Oppsummeringen er merget i [#2573](https://github.com/navikt/pensjon-etterlatte/pull/2573). Innsendingen i [#2583](https://github.com/navikt/pensjon-etterlatte/pull/2583) ble lukket uten merge og videreføres i [#2584](https://github.com/navikt/pensjon-etterlatte/pull/2584), med lasting, feilhåndtering og navigasjon til kvittering. |
+| 3.8 | Steg 7 Oppsummering og innsending | NAV-31517, NAV-31904 | ✅ Oppsummeringen er merget i [#2573](https://github.com/navikt/pensjon-etterlatte/pull/2573), og innsendingen i [#2584](https://github.com/navikt/pensjon-etterlatte/pull/2584), med lasting, feilhåndtering og navigasjon til kvittering. |
 | 3.9 | Steg 8 Kvittering etter Figma | | ⏳ |
 | 3.10 | Cypress-flyt og axe gjennom hele søknaden | | ⏳ |
 
@@ -125,18 +127,18 @@ Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av task
 
 | # | Arbeidspakke | Repo | Favro | Status |
 |---|--------------|------|-------|--------|
-| 5.0 | Plan, veikart, beslutninger og pekere i alle fire repoer | pe, sb, lib, vt | | 🚧 Merget i pe ([#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596)). Lokal tilgang til sb, lib og vt er bekreftet. Planbranchene finnes, men merge-status er ikke kontrollert. |
+| 5.0 | Plan, veikart, beslutninger og pekere i alle fire repoer | pe, sb, lib, vt | | ✅ pe [#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596), lib [#52](https://github.com/navikt/efterlatte-prosessering/pull/52), vt [#20](https://github.com/navikt/efterlatte-verktoy/pull/20), sb [#9039](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9039) |
 | 5.1 | L1: Stegets JDBC-connection tilgjengelig for vertskode | lib | | ✅ [#53](https://github.com/navikt/efterlatte-prosessering/pull/53), bekreftet i lokal `main`. |
-| 5.2 | L2: `siste_feilmelding` og `sist_endret_tid` i biblioteket | lib | [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931) | 🚧 Implementert lokalt på `utvidet-oms-feilmelding-endringstid`. Ingen commit eller PR. |
-| 5.3 | L3: Retry per task-type | lib | | ⏳ |
+| 5.2 | L2: `siste_feilmelding` og `sist_endret_tid` i biblioteket | lib | [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931) | 🚧 Committet og pushet på `utvidet-oms-feilmelding-endringstid` 2026-11-10, inkludert merge med `main`. Merge til `main` er ikke bekreftet: lib-remote gir 403 fra lokale økter, og sist hentede `origin/main` (2026-11-10) inneholder ikke 5.2. |
+| 5.3 | L3: Retry per task-type | lib | mangler | 🚧 Committet og pushet på `utvidet-oms-retry-per-type` (`a7dd092`), som bygger på 5.2. Merge, PR og release er ikke kontrollert. |
 | 5.4 | L4: Steg kan stoppe med `MANUELL` (valgfri) | lib | | ⏳ Å12 |
-| 5.5 | Release av biblioteket | lib | | ⏳ |
+| 5.5 | Release av biblioteket | lib | | ⏳ Release-status er ikke kontrollert på nytt etter tilgangsfeilen. Ingen versjon er gjettet eller bumpet. |
 | 5.6 | G1: Bump og migrering (nye kolonner og `UNIQUE(type, payload)`) | sb | | ⏳ |
 | 5.7 | G2: `StegKontekst`: steg skriver via eksisterende tjenester på stegets transaksjon | sb | | ⏳ |
 | 5.8 | G3: Admin-API-et gir feilmelding, metadata og `status-oversikt` | sb | | ⏳ |
 | 5.9 | G4: Tabellen `mottatt_soeknad` og DAO | sb | | ⏳ Å10 |
 | 5.10 | G5: `POST /api/soeknad/mottak` med outbox | sb | | ⏳ |
-| 5.11 | G6: Journalføring i et felles lib, nais og tilgang til pdfgen og dokarkiv | sb, felles | | ⏳ Å11 |
+| 5.11 | G6: Journalføring i et felles lib, nais og tilgang til pdfgen og dokarkiv | sb, felles | [Nav-32022](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-32022) | 🚧 Committet, pushet og deployet til dev i begge repoene. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Gjenstår: PR/merge og bekreftet dokarkiv-tilgang fra behandling (Å11). Task-kjeden er ikke aktivert. |
 | 5.12 | G7: Task-kjeden T1–T4 | sb | | ⏳ |
 | 5.13 | G8: Toggle og ruting i `NySoeknadRiver` | sb | | ⏳ |
 | 5.14 | V1: Verktøyet viser nye felt og ekte tellinger | vt | | ⏳ |
@@ -164,6 +166,10 @@ Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av task
 
 Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til PR der det finnes.
 
+- **2026-11-13**: Legger til `https://etterlatte.ansatt.dev.nav.no/utvidet-omstillingsstonad/soknad` i dev-manifestet. Intern ingress og ID-porten er uendret, og ekstern ingress er fortsatt deaktivert. Ingen commit eller PR.
+- **2026-11-13**: Nav-32022, 5.11: sb `4fc07d911` og felles `ee186e90` er pushet og deployet til dev. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Dette bekrefter ikke dokarkiv-tilgangen fra behandling (Å11). PDF-støtten er allerede merget i sb #9045 og felles #640; prod-manifestet i felles #641. PR-tekster for 5.11 er klargjort, men PR-ene er ikke opprettet. Merge vil trigge prod-deploy av Gjenny-appene og PDF-generatorene, uten å aktivere task-kjeden.
+- **2026-11-13**: 5.11 implementert lokalt i sb og felles: `etterlatte-soeknad-journalfoering` deles av behandling og Kafka-appen, med lazy klienter og service i behandling. Dev-konfigurasjonen gir nettverkstilgang til dokarkiv, ey-pdfgen og ey-pdfgenrs. Eksisterende mottak og ny PDF-støtte er beholdt. Bibliotekbygg, kompilering av behandling og 16 regresjonstester i Kafka-appen samt 4 dokarkiv-tester er bestått. 5.3 er bekreftet committet og pushet, og PDF-malene finnes på lokal branch. Release-/PR-status kan ikke kontrolleres fordi GitHub-tilgangen er blokkert. Ingen commit, push eller PR for 5.11; dokarkiv-tilgang og deployment gjenstår (Å11).
+- **2026-11-12**: 5.3 implementert lokalt i lib på `utvidet-oms-retry-per-type`, som bygger på 5.2: `RetryPolicy(maxAntallFeil, backoff)`, `TaskStep.retry` med motorens standard som fallback, og en test med to task-typer og ett steg uten policy i samme motor. En tidsavhengig 5.2-test (JVM-klokke mot Postgres-klokke) er rettet. `mvn verify` er grønn tre ganger på rad med JDK 25 og Testcontainers (59 tester). Statusen er kontrollert: 5.0 er merget i alle fire repoene, og #2584, #2597 og #2598 er merget i pe. Merge-status for 5.2 i lib er ikke bekreftet, fordi lib-remote gir 403. Ingen commit, push eller PR. Favro-kort for 5.3 mangler.
 - **2026-11-11**: Merger main inn i `send-inn-soeknad` ([#2584](https://github.com/navikt/pensjon-etterlatte/pull/2584), NAV-31904). Beholder innsendingen og de nyere planavklaringene fra main. Oppdaterer 3.8 og aktiv branch med riktig kort og PR.
 - **2026-11-10**: Nav-31931, 5.2 implementert lokalt i lib: siste feilmelding (maks 2 000 tegn fra motoren), endringstid ved alle task-oppdateringer og migreringsveiledning for vertsappene. `mvn verify` bestått i alle fire moduler med JDK 25 og Postgres i Testcontainers (52 tester). Lokal Maven 3.10 krevde eksplisitt minimal settings-fil for å unngå en oppstartsfeil. 5.1 er bekreftet merget via lib [#53](https://github.com/navikt/efterlatte-prosessering/pull/53) i lokal `main`; GitHub-oppslaget feilet på repotilgang. Ingen ny commit, push eller PR.
 - **2026-11-10**: 5.1 implementert lokalt i lib på `utvidet-oms-stegtransaksjon`: offentlig `JdbcTransaksjon.connection`, `Transaksjon.jdbcConnection()` og oppdaterte docs. Tester fra en annen pakke viser commit og rollback av forretningsdata og kjeding gjennom motoren. Fem målrettede tester bestått med JDK 25 og Postgres i Testcontainers. Tilgang til alle fire repoene fungerer fra økten i `IdeaProjects`. Ingen commit, push eller PR.
