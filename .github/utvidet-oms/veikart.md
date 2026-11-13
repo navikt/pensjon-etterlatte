@@ -50,6 +50,7 @@ Målbildet i fase 5 er at `NySoeknadRiver` bare sender søknaden videre til `ett
 
 | Repo | Branch | PR | Innhold |
 |------|--------|----|---------|
+| pe | `oppdater-veikt-og-eksponer-ansatt` | – | Legger til ansatt-ingress i dev for utvidet OMS. Lokale endringer, uten commit eller PR. Favro-kort er ikke oppgitt. |
 | pe | `utvidet-soknad-struktur-ny-app` | – | Skjelett og grunnmur (3.1) for `apps/utvidet-omstillingsstoenad-ui`. Grunnmuren ligger som lokale endringer, ikke committet. |
 | pe | `utvidet-oms-personopplysninger` | – | Steg 2 Personopplysninger (3.3), implementert lokalt. |
 | pe | `utvidet-oms-utdannelse` | – | NAV-31514: Steg 4 Utdanning og tiltak (3.5), implementert lokalt. Branchen inneholder også grunnmuren, Personopplysninger og Situasjonen din i dag. PR-status for tidligere frontendarbeid er ikke kontrollert. |
@@ -101,6 +102,7 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 | # | Arbeidspakke | Favro | Status |
 |---|--------------|-------|--------|
 | 3.0 | Skjelett for appen: forside, kvittering, kladd, i18n, nais dev og workflow | NAV-31459 | ✅ [#2540](https://github.com/navikt/pensjon-etterlatte/pull/2540) |
+| 3.0a | Ansatt-ingress i dev | | ✅ lagt til lokalt på `oppdater-veikt-og-eksponer-ansatt`. Deploy gjenstår. |
 | 3.1 | Grunnmur: stegdefinisjon og ruter, fremdrift, Forrige/Neste/Avbryt, react-hook-form per steg, lagring ved stegbytte, frontendmodell og mapping til kontrakten (testet mot eksempel-JSON fra felles) | | 🚧 implementert lokalt på eksisterende frontendbranch, klart for review. Favro-kort og PR mangler. |
 | 3.2 | Steg 1 Introside: sjekk av sak, to varianter, samtykke | NAV-31199 | ✅ [#2550](https://github.com/navikt/pensjon-etterlatte/pull/2550) (oppdatert mot Figma). Nynorsk og engelsk tekst er foreløpig KI-generert og ikke språkvasket. |
 | 3.3 | Steg 2 Personopplysninger | | 🚧 implementert lokalt på `utvidet-oms-personopplysninger`; PR mangler. |
@@ -164,6 +166,7 @@ Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av task
 
 Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til PR der det finnes.
 
+- **2026-11-13**: Legger til `https://etterlatte.ansatt.dev.nav.no/utvidet-omstillingsstonad/soknad` i dev-manifestet. Intern ingress og ID-porten er uendret, og ekstern ingress er fortsatt deaktivert. Ingen commit eller PR.
 - **2026-11-13**: Nav-32022, 5.11: sb `4fc07d911` og felles `ee186e90` er pushet og deployet til dev. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Dette bekrefter ikke dokarkiv-tilgangen fra behandling (Å11). PDF-støtten er allerede merget i sb #9045 og felles #640; prod-manifestet i felles #641. PR-tekster for 5.11 er klargjort, men PR-ene er ikke opprettet. Merge vil trigge prod-deploy av Gjenny-appene og PDF-generatorene, uten å aktivere task-kjeden.
 - **2026-11-13**: 5.11 implementert lokalt i sb og felles: `etterlatte-soeknad-journalfoering` deles av behandling og Kafka-appen, med lazy klienter og service i behandling. Dev-konfigurasjonen gir nettverkstilgang til dokarkiv, ey-pdfgen og ey-pdfgenrs. Eksisterende mottak og ny PDF-støtte er beholdt. Bibliotekbygg, kompilering av behandling og 16 regresjonstester i Kafka-appen samt 4 dokarkiv-tester er bestått. 5.3 er bekreftet committet og pushet, og PDF-malene finnes på lokal branch. Release-/PR-status kan ikke kontrolleres fordi GitHub-tilgangen er blokkert. Ingen commit, push eller PR for 5.11; dokarkiv-tilgang og deployment gjenstår (Å11).
 - **2026-11-12**: 5.3 implementert lokalt i lib på `utvidet-oms-retry-per-type`, som bygger på 5.2: `RetryPolicy(maxAntallFeil, backoff)`, `TaskStep.retry` med motorens standard som fallback, og en test med to task-typer og ett steg uten policy i samme motor. En tidsavhengig 5.2-test (JVM-klokke mot Postgres-klokke) er rettet. `mvn verify` er grønn tre ganger på rad med JDK 25 og Testcontainers (59 tester). Statusen er kontrollert: 5.0 er merget i alle fire repoene, og #2584, #2597 og #2598 er merget i pe. Merge-status for 5.2 i lib er ikke bekreftet, fordi lib-remote gir 403. Ingen commit, push eller PR. Favro-kort for 5.3 mangler.
