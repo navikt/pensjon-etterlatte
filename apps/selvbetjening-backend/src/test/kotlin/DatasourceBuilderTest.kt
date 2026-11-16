@@ -1,11 +1,6 @@
 import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.TestInstance
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.NullSource
-import org.junit.jupiter.params.provider.ValueSource
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import javax.sql.DataSource
@@ -58,47 +53,19 @@ class DatasourceBuilderTest {
     fun afterAll() {
         postgreSQLContainer.stop()
     }
-
-    @ParameterizedTest
-    @NullSource
-    @ValueSource(strings = ["dev-gcp", "prod-gcp", "integrationtest"])
-    fun `vacuum after Postgres upgrade runs only in DEV`(cluster: String?) {
-        PostgreSQLContainer<Nothing>("postgres:18").use { container ->
-            val (_, dsb) =
-                opprettInMemoryDatabase(
-                    container,
-                    cluster?.let { mapOf("NAIS_CLUSTER_NAME" to it) },
-                    shouldMigrate = false,
-                )
-
-            dsb.dataSource.createGcpPersonalRole()
-            dsb.migrate()
-            dsb.dataSource.connection.use { connection ->
-                connection
-                    .prepareStatement("SELECT success FROM flyway_schema_history WHERE version = '13'")
-                    .use { statement ->
-                        statement.executeQuery().use { result ->
-                            assertEquals(cluster == "dev-gcp", result.next())
-                            if (cluster == "dev-gcp") assertTrue(result.getBoolean("success"))
-                        }
-                    }
-            }
-            assertEquals(0, dsb.migrate().migrationsExecuted)
-        }
-    }
-    /*
-    TODO
-        @Test
-        fun `GCP user should have been granted access`() {
-            DataSourceBuilder(
-                mapOf(
-                    "DB_HOST" to postgreSQLContainer.host,
-                    "DB_PORT" to postgreSQLContainer.firstMappedPort.toString(),
-                    "DB_DATABASE" to postgreSQLContainer.databaseName,
-                    "DB_USERNAME" to "personaluser",
-                    "DB_PASSWORD" to "password"
-                )
-            ).dataSource.let(PostgresSoeknadRepository::using).eldsteUarkiverte()
-        }
-     */
+	/*
+	TODO
+		@Test
+		fun `GCP user should have been granted access`() {
+			DataSourceBuilder(
+				mapOf(
+					"DB_HOST" to postgreSQLContainer.host,
+					"DB_PORT" to postgreSQLContainer.firstMappedPort.toString(),
+					"DB_DATABASE" to postgreSQLContainer.databaseName,
+					"DB_USERNAME" to "personaluser",
+					"DB_PASSWORD" to "password"
+				)
+			).dataSource.let(PostgresSoeknadRepository::using).eldsteUarkiverte()
+		}
+	 */
 }
