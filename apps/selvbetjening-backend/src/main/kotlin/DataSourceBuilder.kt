@@ -39,7 +39,11 @@ class DataSourceBuilder(
             .configure()
             .dataSource(dataSource)
             .apply {
-                if (env.containsKey("NAIS_CLUSTER_NAME")) locations("db/migration", "db/gcp")
+                if (env["NAIS_CLUSTER_NAME"] == GcpEnv.DEV.env) {
+                    locations("db/migration", "db/gcp", "db/dev")
+                } else if (env.containsKey("NAIS_CLUSTER_NAME")) {
+                    locations("db/migration", "db/gcp")
+                }
             }.load()
             .migrate()
 }
