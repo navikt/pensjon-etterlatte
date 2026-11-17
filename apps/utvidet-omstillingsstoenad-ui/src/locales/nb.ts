@@ -160,7 +160,7 @@ export default {
     'kontrakt.ANNEN_GRUNN': 'Annen grunn',
     'skjema.personopplysninger': 'Personopplysninger',
     'personopplysninger.navn': 'Navn',
-    'personopplysninger.foedselsnummer': 'Fødselsnummer',
+    'personopplysninger.foedselsnummer': 'Fødselsnummer / d-nummer',
     'personopplysninger.bostedsadresse': 'Bostedsadresse',
     'personopplysninger.sivilstatus': 'Sivilstatus',
     'personopplysninger.statsborgerskap': 'Statsborgerskap',

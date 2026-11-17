@@ -159,7 +159,7 @@ export default {
     'kontrakt.ANNEN_GRUNN': 'Other reason',
     'skjema.personopplysninger': 'Personal details',
     'personopplysninger.navn': 'Name',
-    'personopplysninger.foedselsnummer': 'National identity number',
+    'personopplysninger.foedselsnummer': 'National identity number / D number',
     'personopplysninger.bostedsadresse': 'Residential address',
     'personopplysninger.sivilstatus': 'Marital status',
     'personopplysninger.statsborgerskap': 'Citizenship',
