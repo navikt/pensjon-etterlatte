@@ -104,7 +104,7 @@ export const UtdanningOgTiltak = () => {
                                 key={felt}
                                 id={`utdanning.${felt}`}
                                 label={t(`kontrakt.${felt}`)}
-                                htmlSize={30}
+                                htmlSize={39}
                                 error={errors.utdanning?.[felt]?.message}
                                 {...register(`utdanning.${felt}`, {
                                     setValueAs: (verdi: string) => verdi.trim(),
@@ -145,7 +145,7 @@ export const UtdanningOgTiltak = () => {
                         <TextField
                             id="arbeidsrettetTiltak.tiltak"
                             label={t('kontrakt.tiltak')}
-                            htmlSize={30}
+                            htmlSize={39}
                             error={errors.arbeidsrettetTiltak?.tiltak?.message}
                             {...register('arbeidsrettetTiltak.tiltak', {
                                 setValueAs: (verdi: string) => verdi.trim(),
