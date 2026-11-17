@@ -201,7 +201,7 @@ export default {
     'oppsummering.dokumentasjon.status': 'Dokumentasjon',
     'oppsummering.dokumentasjon.ingen': 'Ingen dokumenter er lagt ved ennå.',
     'oppsummering.feilVedSending': 'Vi kunne ikke sende søknaden. Prøv igjen.',
-    'banner.tittel': 'Søknad om utvidet omstillingsstønad',
+    'banner.tittel': 'Søknad om forlengelse av omstillingsstønad',
     'knapp.tilbake': 'Forrige steg',
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',

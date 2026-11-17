@@ -201,7 +201,7 @@ export default {
     'oppsummering.dokumentasjon.status': 'Documentation',
     'oppsummering.dokumentasjon.ingen': 'No documents have been attached yet.',
     'oppsummering.feilVedSending': 'We could not submit your application. Please try again.',
-    'banner.tittel': 'Application for extended adjustment allowance',
+    'banner.tittel': 'Application for extension of adjustment allowance',
     'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next step',
     'knapp.avbryt': 'Cancel',

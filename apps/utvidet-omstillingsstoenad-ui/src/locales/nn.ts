@@ -202,7 +202,7 @@ export default {
     'oppsummering.dokumentasjon.status': 'Dokumentasjon',
     'oppsummering.dokumentasjon.ingen': 'Ingen dokument er lagde ved enno.',
     'oppsummering.feilVedSending': 'Vi kunne ikkje sende søknaden. Prøv igjen.',
-    'banner.tittel': 'Søknad om utvida omstillingsstønad',
+    'banner.tittel': 'Søknad om forlenging av omstillingsstønad',
     'knapp.tilbake': 'Førre steg',
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',

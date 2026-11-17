@@ -49,7 +49,7 @@ const SoknadForside = () => {
         }
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
-            skjemanavn: 'Søknad om utvidet omstillingsstønad - Innlogget',
+            skjemanavn: `${t('banner.tittel')} - Innlogget`,
             skjemaId: 'NAV 17-01.06', // TODO: bytt skjemaId
         })
 
