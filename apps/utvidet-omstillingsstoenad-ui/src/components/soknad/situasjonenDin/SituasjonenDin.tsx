@@ -1,4 +1,4 @@
-import { InfoCard, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
+import { Checkbox, InfoCard, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -6,6 +6,7 @@ import { useOutletContext } from 'react-router'
 import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { useSoknadContext } from '~context/soknad/SoknadContext'
 import { JaNei, SituasjonenDinKladd } from '~typer/skjema'
+import Datovelger from '../../felles/Datovelger'
 import { SoeknadSteg, SoeknadStegContext } from '../SoeknadSteg'
 
 type Sivilstand = 'NY_SAMBOER' | 'GIFTET_PAA_NYTT' | 'INGEN_AV_DELENE' | undefined
@@ -28,6 +29,7 @@ export const SituasjonenDin = () => {
         formState: { errors },
     } = useFormContext<SituasjonenDinKladd>()
     const nySivilstand = useWatch({ control, name: 'nySivilstand' })
+    const ukjentFoedselsnummer = useWatch({ control, name: 'samboer.ukjentFoedselsnummer' })
     const fellesBarn = useWatch({ control, name: 'samboer.fellesBarnEllertidligereGift' })
     const advarsel = hentAdvarsel(nySivilstand, fellesBarn)
 
@@ -85,25 +87,64 @@ export const SituasjonenDin = () => {
                                 validate: (verdi) => !!verdi?.trim() || t('situasjonenDin.feil.etternavn'),
                             })}
                         />
-                        <TextField
-                            id="samboer.foedselsnummer"
-                            label={t('kontrakt.samboerFoedselsnummer')}
-                            autoComplete="off"
-                            inputMode="numeric"
-                            htmlSize={25}
-                            error={errors.samboer?.foedselsnummer?.message}
-                            {...register('samboer.foedselsnummer', {
-                                setValueAs: (verdi: string) => verdi.replace(/\s/g, ''),
-                                required: t('situasjonenDin.feil.foedselsnummerPaakrevd'),
-                                validate: {
-                                    gyldig: (verdi) =>
-                                        (!!verdi && fnr(verdi).status === 'valid') ||
-                                        t('situasjonenDin.feil.foedselsnummerUgyldig'),
-                                    ikkeEget: (verdi) =>
-                                        verdi !== bruker.foedselsnummer || t('situasjonenDin.feil.foedselsnummerEget'),
-                                },
-                            })}
+                        {!ukjentFoedselsnummer && (
+                            <TextField
+                                id="samboer.foedselsnummer"
+                                label={t('kontrakt.samboerFoedselsnummer')}
+                                autoComplete="off"
+                                inputMode="numeric"
+                                htmlSize={25}
+                                error={errors.samboer?.foedselsnummer?.message}
+                                {...register('samboer.foedselsnummer', {
+                                    setValueAs: (verdi: string) => verdi.replace(/\s/g, ''),
+                                    required: t('situasjonenDin.feil.foedselsnummerPaakrevd'),
+                                    validate: {
+                                        gyldig: (verdi) =>
+                                            (!!verdi && fnr(verdi).status === 'valid') ||
+                                            t('situasjonenDin.feil.foedselsnummerUgyldig'),
+                                        ikkeEget: (verdi) =>
+                                            verdi !== bruker.foedselsnummer ||
+                                            t('situasjonenDin.feil.foedselsnummerEget'),
+                                    },
+                                })}
+                            />
+                        )}
+                        <Controller
+                            name="samboer.ukjentFoedselsnummer"
+                            control={control}
+                            render={({ field }) => (
+                                <Checkbox
+                                    name={field.name}
+                                    checked={!!field.value}
+                                    onBlur={field.onBlur}
+                                    onChange={(event) => {
+                                        const valgt = event.target.checked
+                                        field.onChange(valgt)
+                                        if (valgt)
+                                            reset({
+                                                ...getValues(),
+                                                samboer: { ...getValues().samboer, foedselsnummer: '' },
+                                            })
+                                        else
+                                            reset({
+                                                ...getValues(),
+                                                samboer: { ...getValues().samboer, foedselsdato: undefined },
+                                            })
+                                    }}
+                                >
+                                    {t('situasjonenDin.ukjentFoedselsnummer')}
+                                </Checkbox>
+                            )}
                         />
+                        {ukjentFoedselsnummer && (
+                            <VStack gap="space-16">
+                                <Datovelger
+                                    name="samboer.foedselsdato"
+                                    label={t('kontrakt.samboerFoedselsdato')}
+                                    maxDate={new Date()}
+                                />
+                            </VStack>
+                        )}
                     </VStack>
                     <Controller
                         name="samboer.fellesBarnEllertidligereGift"

@@ -8,9 +8,18 @@ export interface Person {
     foedselsnummer: string
 }
 
+export interface Samboer {
+    fornavn: string
+    etternavn: string
+    foedselsnummer?: string
+    foedselsdato?: string
+    ukjentFoedselsnummer?: boolean
+    fellesBarnEllertidligereGift: JaNei
+}
+
 export interface SituasjonenDin {
     nySivilstand: 'NY_SAMBOER' | 'GIFTET_PAA_NYTT' | 'INGEN_AV_DELENE'
-    samboer?: Person & { fellesBarnEllertidligereGift: JaNei }
+    samboer?: Samboer
 }
 
 export interface SituasjonenDinKladd {
