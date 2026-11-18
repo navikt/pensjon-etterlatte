@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { Inntekt } from '../typer/skjema'
-import { erGyldigBeloep, klargjoerInntekt, normaliserBeloep } from './inntekt'
+import { erGyldigBeloep, formaterBeloep, klargjoerInntekt, normaliserBeloep } from './inntekt'
 
 describe('Beløp', () => {
     it.each(['0', '1', '250 000', '1\u00a0000', '99999999999999999999'])('godtar %s', (verdi) => {
@@ -14,6 +14,12 @@ describe('Beløp', () => {
     it('fjerner mellomrom uten avrunding eller endring av ugyldige tegn', () => {
         expect(normaliserBeloep('999 999 999 999 999 999')).toBe('999999999999999999')
         expect(normaliserBeloep('-1.5')).toBe('-1.5')
+    })
+
+    it('formaterer gyldige beløp med tusenskille', () => {
+        expect(formaterBeloep('100000')).toBe('100 000')
+        expect(formaterBeloep('1 000')).toBe('1 000')
+        expect(formaterBeloep('abc')).toBe('abc')
     })
 })
 

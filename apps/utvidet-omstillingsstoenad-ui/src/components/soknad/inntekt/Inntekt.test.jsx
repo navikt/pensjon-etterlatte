@@ -163,6 +163,12 @@ describe('Inntektssteget', () => {
         }
     )
 
+    it('formaterer beløp med tusenskille mens brukeren skriver', () => {
+        setup(gyldig)
+        fyll('arbeidsinntekt', '100000')
+        expect(felt('arbeidsinntekt').value).toBe('100 000')
+    })
+
     it('godtar null og mellomrom, lagrer svar og mapper uten AFP eller mellomrom', async () => {
         setup()
         fyll('arbeidsinntekt', '0')

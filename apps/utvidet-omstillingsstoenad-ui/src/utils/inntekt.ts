@@ -4,6 +4,12 @@ export const normaliserBeloep = (verdi: string) => verdi.replace(/\s/g, '')
 
 export const erGyldigBeloep = (verdi: string) => /^\d+$/.test(normaliserBeloep(verdi))
 
+export const formaterBeloep = (verdi: string) => {
+    const normalisert = normaliserBeloep(verdi)
+    if (!/^\d+$/.test(normalisert)) return verdi
+    return normalisert.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+}
+
 export const klargjoerInntekt = (data: Inntekt): Inntekt => {
     const andre = data.andreInntekter
     const endring = data.noeSomKanPaavirkeInntekten
