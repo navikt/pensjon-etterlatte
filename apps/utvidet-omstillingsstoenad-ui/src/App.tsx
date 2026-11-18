@@ -20,6 +20,7 @@ import UgyldigSoeker from './components/UgyldigSoeker'
 import { useSoknadContext } from './context/soknad/SoknadContext'
 import { useAnalytics } from './hooks/useAnalytics'
 import useInnloggetBruker from './hooks/useInnloggetBruker'
+import { useLanguage } from './hooks/useLanguage'
 import useSoeknad from './hooks/useSoeknad'
 
 const UnderArbeid = () => {
@@ -30,6 +31,7 @@ const UnderArbeid = () => {
 const App = () => {
     useInnloggetBruker()
     useAnalytics()
+    useLanguage()
     const { state } = useSoknadContext()
     const lasterSoeknad = useSoeknad()
 

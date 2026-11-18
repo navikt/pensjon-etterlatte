@@ -3,12 +3,10 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { ActionTypes } from '../../context/soknad/soknad'
-import { useLanguage } from '../../hooks/useLanguage'
 
 const SoknadKvittering = () => {
     const { t } = useTranslation()
     const { dispatch } = useSoknadContext()
-    useLanguage()
 
     useEffect(() => {
         dispatch({ type: ActionTypes.TILBAKESTILL })

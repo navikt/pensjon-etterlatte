@@ -3,13 +3,11 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, useLocation } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { useLanguage } from '../../hooks/useLanguage'
 import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
 import type { SoeknadStegContext } from './SoeknadSteg'
 
 const SoknadDialog = () => {
-    useLanguage()
     const { state } = useSoknadContext()
     const { t } = useTranslation()
     const pathname = useLocation().pathname

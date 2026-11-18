@@ -22,7 +22,6 @@ import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { useSoknadContext } from '~context/soknad/SoknadContext'
 import { ActionTypes } from '~context/soknad/soknad'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
-import { useLanguage } from '~hooks/useLanguage'
 import { Spraakvalg } from '../felles/Spraakvalg'
 
 const SoknadForside = () => {
@@ -34,7 +33,6 @@ const SoknadForside = () => {
     const [harOmsSak, setHarOmsSak] = useState<boolean>(true)
     const [henterOmsSakstatus, setHenterOmsSakstatus] = useState<boolean>(false)
     const [lagrer, settLagrer] = useState(false)
-    useLanguage()
 
     const startSoeknad = async () => {
         if (lagrer) return
