@@ -169,6 +169,12 @@ describe('Inntektssteget', () => {
         expect(felt('arbeidsinntekt').value).toBe('100 000')
     })
 
+    it('fjerner ledende nuller mens brukeren skriver', () => {
+        setup(gyldig)
+        fyll('inntektFraUtland', '050')
+        expect(felt('inntektFraUtland').value).toBe('50')
+    })
+
     it('godtar null og mellomrom, lagrer svar og mapper uten AFP eller mellomrom', async () => {
         setup()
         fyll('arbeidsinntekt', '0')

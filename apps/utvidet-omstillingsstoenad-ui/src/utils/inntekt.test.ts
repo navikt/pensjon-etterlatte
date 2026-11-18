@@ -19,6 +19,8 @@ describe('Beløp', () => {
     it('formaterer gyldige beløp med tusenskille', () => {
         expect(formaterBeloep('100000')).toBe('100 000')
         expect(formaterBeloep('1 000')).toBe('1 000')
+        expect(formaterBeloep('050')).toBe('50')
+        expect(formaterBeloep('000')).toBe('0')
         expect(formaterBeloep('abc')).toBe('abc')
     })
 })
