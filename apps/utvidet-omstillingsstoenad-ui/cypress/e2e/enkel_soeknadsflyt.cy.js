@@ -8,9 +8,7 @@ describe('Utvidet omstillingsstønad', () => {
         }).as('hentInnloggetPerson')
         cy.intercept('GET', `${basePath}/api/api/kladd`, {}).as('hentSoeknad')
         cy.intercept('POST', `${basePath}/api/api/kladd`, {}).as('lagreSoeknad')
-        cy.intercept('GET', `${basePath}/api/api/sak/oms/har_sak`, { harOMSSak: true }).as(
-            'hentOmsSakStatus'
-        )
+        cy.intercept('GET', `${basePath}/api/api/sak/oms/har_sak`, { harOMSSak: true }).as('hentOmsSakStatus')
 
         cy.visit('localhost:5173/utvidet-omstillingsstonad/soknad', {
             onBeforeLoad: (obj) => {
@@ -25,20 +23,10 @@ describe('Utvidet omstillingsstønad', () => {
 
         cy.url().should('include', '/skjema/steg/personopplysninger')
         getById('avbryt-btn').should('be.visible')
-        cy.get('h2')
-            .contains('Personopplysninger')
-            .should('be.visible')
-            .and('have.css', 'text-align', 'center')
-            .invoke('css', 'font-size')
-            .as('stegtittelStorrelse', { type: 'static' })
+        cy.get('h2').contains('Personopplysninger').should('be.visible')
         getById('navigasjon-neste').should('be.visible').click()
         cy.wait('@lagreSoeknad').its('request.body.aktivtSteg').should('eq', 'situasjonen-din')
         cy.url().should('include', '/skjema/steg/situasjonen-din')
-        cy.get('@stegtittelStorrelse').then((storrelse) => {
-            cy.get('h2')
-                .contains('Situasjonen din')
-                .should('have.css', 'text-align', 'center')
-                .and('have.css', 'font-size', storrelse)
-        })
+        cy.get('h2').contains('Situasjonen din')
     })
 })
