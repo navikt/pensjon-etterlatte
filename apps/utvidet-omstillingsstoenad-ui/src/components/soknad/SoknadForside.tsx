@@ -22,7 +22,6 @@ import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { useSoknadContext } from '~context/soknad/SoknadContext'
 import { ActionTypes } from '~context/soknad/soknad'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
-import { Spraakvalg } from '../felles/Spraakvalg'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -71,7 +70,6 @@ const SoknadForside = () => {
     if (!harOmsSak) {
         return (
             <VStack align="center" gap="space-24">
-                <Spraakvalg />
                 <VStack gap="space-24" style={{ width: '100%', maxWidth: '36rem' }}>
                     <InfoCard data-color="warning" as="section" aria-labelledby="har-ikke-oms-title">
                         <InfoCard.Header>
@@ -150,7 +148,6 @@ const SoknadForside = () => {
                     </BodyShort>
                 </GuidePanel>
             </Box>
-            <Spraakvalg />
             <Box marginBlock="space-0 space-48">
                 <Heading level="2" spacing size={'medium'}>
                     {t('forside.tittel')}
