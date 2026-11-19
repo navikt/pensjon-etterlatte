@@ -97,6 +97,14 @@ export const Oppsummering = () => {
                     svar={situasjonenDin?.samboer?.foedselsnummer}
                 />
                 <OppsummeringSvar
+                    spoersmaal={t('kontrakt.samboerFoedselsdato')}
+                    svar={
+                        situasjonenDin?.samboer?.foedselsdato
+                            ? visningsdato(situasjonenDin.samboer.foedselsdato, locale)
+                            : undefined
+                    }
+                />
+                <OppsummeringSvar
                     spoersmaal={t('kontrakt.fellesBarnEllertidligereGift')}
                     svar={
                         situasjonenDin?.samboer?.fellesBarnEllertidligereGift

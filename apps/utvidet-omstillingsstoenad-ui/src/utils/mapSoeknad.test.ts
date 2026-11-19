@@ -96,6 +96,33 @@ describe('Mapping til kontrakten i felles', () => {
         })
     })
 
+    it('Mapper ny samboer med fødselsdato når fødselsnummer er ukjent', () => {
+        const state = kladd({
+            ...grunnlag,
+            situasjonenDinIDag: {
+                nySivilstand: 'NY_SAMBOER',
+                samboer: {
+                    fornavn: 'TRADISJONSBUNDEN',
+                    etternavn: 'KØYESENG',
+                    foedselsdato: '1985-04-14',
+                    ukjentFoedselsnummer: true,
+                    fellesBarnEllertidligereGift: 'NEI',
+                },
+            },
+        })
+
+        const resultat = mapSoeknad(state, person, 'abc123', tekst)
+        expect(resultat.situasjonenDinIDag.nySivilstand.opplysning).toMatchObject({
+            type: 'SAMBOER',
+            fornavn: { svar: 'TRADISJONSBUNDEN' },
+            etternavn: { svar: 'KØYESENG' },
+            foedselsdato: { svar: '1985-04-14' },
+            fellesBarnEllertidligereGift: { svar: { verdi: 'NEI', innhold: tekst('kontrakt.NEI') } },
+            inntekt: null,
+        })
+        expect(resultat.situasjonenDinIDag.nySivilstand.opplysning).not.toHaveProperty('foedselsnummer')
+    })
+
     it('Mapper tiltak, andre inntekter og inntektsendring til eksempel-JSON', () => {
         const state = kladd({
             ...grunnlag,

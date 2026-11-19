@@ -72,6 +72,8 @@ export default {
     'feil.utdanning.startDato.validate': 'Du må skrive ein gyldig dato i formatet dd.mm.åååå.',
     'feil.utdanning.sluttDato.required': 'Du må fylle ut til dato.',
     'feil.utdanning.sluttDato.validate': 'Du må skrive ein gyldig dato i formatet dd.mm.åååå.',
+    'feil.samboer.foedselsdato.required': 'Du må fylle ut fødselsdatoen til sambuaren.',
+    'feil.samboer.foedselsdato.validate': 'Du må skrive ein gyldig dato i formatet dd.mm.åååå.',
     'feil.utdanning.sluttDato.manual': 'Til dato må vere same dag som eller etter frå dato.',
     'utdanningOgTiltak.tiltakBeskrivelse':
         'Arbeidsretta tiltak er eit tiltak gjennom Nav som skal hjelpe deg med å kome i arbeid',
@@ -101,6 +103,7 @@ export default {
     'situasjonenDin.feil.foedselsnummerUgyldig':
         'Du må fylle ut eit gyldig fødselsnummer eller d-nummer for sambuaren din.',
     'situasjonenDin.feil.foedselsnummerEget': 'Fødselsnummeret til sambuaren kan ikkje vere ditt eige fødselsnummer.',
+    'situasjonenDin.ukjentFoedselsnummer': 'Eg veit ikkje fødselsnummeret til sambuaren (valfritt)',
     'situasjonenDin.feil.fellesBarn':
         'Du må svare på om de har eller har hatt felles barn, eller tidlegare har vore gifte.',
     'situasjonenDin.advarsel.tittel': 'Ikkje rett til omstillingsstønad',
@@ -114,6 +117,7 @@ export default {
     'kontrakt.samboerFornavn': 'Fornamnet til sambuaren',
     'kontrakt.samboerEtternavn': 'Etternamnet til sambuaren',
     'kontrakt.samboerFoedselsnummer': 'Fødselsnummeret til sambuaren',
+    'kontrakt.samboerFoedselsdato': 'Fødselsdatoen til sambuaren',
     'kontrakt.nySivilstand': 'Har du ny sambuar eller gifta deg på nytt?',
     'kontrakt.fellesBarnEllertidligereGift': 'Har eller har de hatt felles barn, eller har de tidlegare vore gifte?',
     'kontrakt.NY_SAMBOER': 'Eg har ny sambuar',
@@ -156,7 +160,7 @@ export default {
     'kontrakt.ANNEN_GRUNN': 'Anna årsak',
     'skjema.personopplysninger': 'Personopplysningar',
     'personopplysninger.navn': 'Namn',
-    'personopplysninger.foedselsnummer': 'Fødselsnummer',
+    'personopplysninger.foedselsnummer': 'Fødselsnummer / d-nummer',
     'personopplysninger.bostedsadresse': 'Bustadadresse',
     'personopplysninger.sivilstatus': 'Sivilstatus',
     'personopplysninger.statsborgerskap': 'Statsborgarskap',
@@ -198,7 +202,7 @@ export default {
     'oppsummering.dokumentasjon.status': 'Dokumentasjon',
     'oppsummering.dokumentasjon.ingen': 'Ingen dokument er lagde ved enno.',
     'oppsummering.feilVedSending': 'Vi kunne ikkje sende søknaden. Prøv igjen.',
-    'banner.tittel': 'Søknad om utvida omstillingsstønad',
+    'banner.tittel': 'Søknad om forlenging av omstillingsstønad',
     'knapp.tilbake': 'Førre steg',
     'knapp.neste': 'Neste steg',
     'knapp.avbryt': 'Avbryt',

@@ -22,8 +22,6 @@ import { useBrukerContext } from '~context/bruker/BrukerContext'
 import { useSoknadContext } from '~context/soknad/SoknadContext'
 import { ActionTypes } from '~context/soknad/soknad'
 import { LogEvents, useAnalytics } from '~hooks/useAnalytics'
-import { useLanguage } from '~hooks/useLanguage'
-import { Spraakvalg } from '../felles/Spraakvalg'
 
 const SoknadForside = () => {
     const navigate = useNavigate()
@@ -34,7 +32,6 @@ const SoknadForside = () => {
     const [harOmsSak, setHarOmsSak] = useState<boolean>(true)
     const [henterOmsSakstatus, setHenterOmsSakstatus] = useState<boolean>(false)
     const [lagrer, settLagrer] = useState(false)
-    useLanguage()
 
     const startSoeknad = async () => {
         if (lagrer) return
@@ -49,7 +46,7 @@ const SoknadForside = () => {
         }
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
-            skjemanavn: 'Søknad om utvidet omstillingsstønad - Innlogget',
+            skjemanavn: `${t('banner.tittel')} - Innlogget`,
             skjemaId: 'NAV 17-01.06', // TODO: bytt skjemaId
         })
 
@@ -73,7 +70,6 @@ const SoknadForside = () => {
     if (!harOmsSak) {
         return (
             <VStack align="center" gap="space-24">
-                <Spraakvalg />
                 <VStack gap="space-24" style={{ width: '100%', maxWidth: '36rem' }}>
                     <InfoCard data-color="warning" as="section" aria-labelledby="har-ikke-oms-title">
                         <InfoCard.Header>
@@ -152,7 +148,6 @@ const SoknadForside = () => {
                     </BodyShort>
                 </GuidePanel>
             </Box>
-            <Spraakvalg />
             <Box marginBlock="space-0 space-48">
                 <Heading level="2" spacing size={'medium'}>
                     {t('forside.tittel')}

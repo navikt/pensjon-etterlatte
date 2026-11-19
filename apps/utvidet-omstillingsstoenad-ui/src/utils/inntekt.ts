@@ -4,6 +4,15 @@ export const normaliserBeloep = (verdi: string) => verdi.replace(/\s/g, '')
 
 export const erGyldigBeloep = (verdi: string) => /^\d+$/.test(normaliserBeloep(verdi))
 
+export const formaterBeloep = (verdi: string) => {
+    const normalisert = normaliserBeloep(verdi)
+    if (!/^\d+$/.test(normalisert)) return verdi
+    // ^0+(?=\d): fjerner ledende nuller, men beholder én null hvis hele tallet er 0.
+    const utenLedendeNuller = normalisert.replace(/^0+(?=\d)/, '')
+    // \B(?=(\d{3})+(?!\d)): setter inn mellomrom som tusenskille.
+    return utenLedendeNuller.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+}
+
 export const klargjoerInntekt = (data: Inntekt): Inntekt => {
     const andre = data.andreInntekter
     const endring = data.noeSomKanPaavirkeInntekten

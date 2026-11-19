@@ -7,7 +7,7 @@ export const SkjemaTittel = () => {
 
     return (
         <VStack as="header" role="banner" align="center" padding="space-16" marginBlock="space-32 space-16">
-            <HStack gap="space-16" align="center">
+            <HStack gap="space-24" align="center">
                 <Hide below="md">
                     <img src={ikon} alt="" aria-hidden />
                 </Hide>

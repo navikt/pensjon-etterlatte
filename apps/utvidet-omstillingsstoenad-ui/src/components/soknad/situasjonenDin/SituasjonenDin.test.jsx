@@ -193,6 +193,43 @@ describe('Situasjonen din i dag', () => {
         expect(lagreKladd.mock.calls[0][0].aktivtSteg).toBe('utdanning-og-tiltak')
     })
 
+    it('Lar bruker oppgi samboers fødselsdato når fødselsnummer er ukjent', async () => {
+        setup()
+        fireEvent.click(screen.getByLabelText(nb['kontrakt.NY_SAMBOER']))
+        fireEvent.click(screen.getByLabelText(nb['situasjonenDin.ukjentFoedselsnummer']))
+        expect(screen.queryByLabelText(nb['kontrakt.samboerFoedselsnummer'])).toBeNull()
+        expect(screen.getByLabelText(nb['kontrakt.samboerFoedselsdato'])).toBeDefined()
+
+        neste()
+        expect(await screen.findByRole('link', { name: nb['feil.samboer.foedselsdato.required'] })).toBeDefined()
+        expect(lagreKladd).not.toHaveBeenCalled()
+    })
+
+    it('Lagrer samboer med fødselsdato når fødselsnummer er ukjent', async () => {
+        setup({
+            nySivilstand: 'NY_SAMBOER',
+            samboer: {
+                fornavn: samboer.fornavn,
+                etternavn: samboer.etternavn,
+                foedselsdato: '2001-01-01',
+                ukjentFoedselsnummer: true,
+                fellesBarnEllertidligereGift: 'NEI',
+            },
+        })
+        neste()
+        await ventPaaNeste()
+        expect(lagretSituasjon()).toEqual({
+            nySivilstand: 'NY_SAMBOER',
+            samboer: {
+                fornavn: samboer.fornavn,
+                etternavn: samboer.etternavn,
+                foedselsdato: '2001-01-01',
+                ukjentFoedselsnummer: true,
+                fellesBarnEllertidligereGift: 'NEI',
+            },
+        })
+    })
+
     it.each(['GIFTET_PAA_NYTT', 'INGEN_AV_DELENE'])('Fjerner gamle samboersvar når valget er %s', async (valg) => {
         setup({ nySivilstand: 'NY_SAMBOER', samboer })
         fireEvent.click(screen.getByLabelText(nb[`kontrakt.${valg}`]))
@@ -210,6 +247,7 @@ describe('Situasjonen din i dag', () => {
         expect(screen.getByLabelText(nb['kontrakt.samboerFornavn']).value).toBe('')
         expect(screen.getByLabelText(nb['kontrakt.samboerEtternavn']).value).toBe('')
         expect(screen.getByLabelText(nb['kontrakt.samboerFoedselsnummer']).value).toBe('')
+        expect(screen.getByLabelText(nb['situasjonenDin.ukjentFoedselsnummer']).checked).toBe(false)
         expect(screen.getByLabelText(nb['kontrakt.NEI']).checked).toBe(false)
         neste()
         await screen.findByRole('link', { name: nb['situasjonenDin.feil.fornavn'] })

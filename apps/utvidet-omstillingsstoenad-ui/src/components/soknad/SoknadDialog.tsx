@@ -1,18 +1,22 @@
-import { FormProgress, VStack } from '@navikt/ds-react'
+import { FormProgress, Heading, VStack } from '@navikt/ds-react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Navigate, Outlet, useLocation } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { useLanguage } from '../../hooks/useLanguage'
 import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
 import type { SoeknadStegContext } from './SoeknadSteg'
 
 const SoknadDialog = () => {
-    useLanguage()
     const { state } = useSoknadContext()
     const { t } = useTranslation()
     const pathname = useLocation().pathname
     const path = pathname.match(/^\/skjema\/steg\/([^/]+)\/?$/)?.[1]
+    const headingRef = useRef<HTMLHeadingElement>(null)
+
+    useEffect(() => {
+        headingRef.current?.focus()
+    }, [path])
 
     if (!state.harSamtykket) return <Navigate replace to="/" />
     if (!path) return <Navigate replace to={stegUrl(state.aktivtSteg)} />
@@ -28,6 +32,9 @@ const SoknadDialog = () => {
 
     return (
         <VStack gap="space-32">
+            <Heading ref={headingRef} size="large" align="start" level="2" tabIndex={-1}>
+                {stegContext.tittel}
+            </Heading>
             <FormProgress
                 totalSteps={steg.length}
                 activeStep={index + 1}

@@ -1,5 +1,6 @@
 import { HStack, InfoCard, Provider, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
 import { en, nb, nn } from '@navikt/ds-react/locales'
+import { useEffect, useState } from 'react'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useOutletContext } from 'react-router'
@@ -40,15 +41,44 @@ const OmfangRadio = ({ utdanning }: { utdanning: boolean }) => {
     )
 }
 
+const StudieprosentFelt = ({ onBlur }: { onBlur: () => void }) => {
+    const { t } = useTranslation()
+    const {
+        register,
+        formState: { errors },
+    } = useFormContext<UtdanningOgTiltakKladd>()
+    const studieprosentField = register('utdanning.studieprosent', {
+        required: t('utdanningOgTiltak.feil.studieprosentPaakrevd'),
+        validate: (verdi) => gyldigStudieprosent(verdi) || t('utdanningOgTiltak.feil.studieprosent'),
+    })
+
+    return (
+        <TextField
+            id="utdanning.studieprosent"
+            label={t('kontrakt.studieprosent')}
+            inputMode="numeric"
+            htmlSize={4}
+            error={errors.utdanning?.studieprosent?.message}
+            {...studieprosentField}
+            onBlur={(event) => {
+                studieprosentField.onBlur(event)
+                onBlur()
+            }}
+        />
+    )
+}
+
 const hentAdvarsel = (
     aktivitet: UtdanningOgTiltakKladd['aktivitet'],
     studieform: Omfang | undefined,
-    studieprosent: string | undefined
+    studieprosent: string | undefined,
+    harBlurretStudieprosent: boolean
 ) => {
     if (aktivitet === 'INGEN') return 'utdanningOgTiltak.advarsel.ingen'
     if (
         aktivitet === 'UTDANNING' &&
         studieform === 'DELTID' &&
+        harBlurretStudieprosent &&
         gyldigStudieprosent(studieprosent) &&
         Number(studieprosent) < 50
     )
@@ -66,10 +96,15 @@ export const UtdanningOgTiltak = () => {
         reset,
         formState: { errors },
     } = useFormContext<UtdanningOgTiltakKladd>()
+    const [harBlurretStudieprosent, setHarBlurretStudieprosent] = useState(false)
     const aktivitet = useWatch({ control, name: 'aktivitet' })
     const studieform = useWatch({ control, name: 'utdanning.studieform' })
     const studieprosent = useWatch({ control, name: 'utdanning.studieprosent' })
-    const advarsel = hentAdvarsel(aktivitet, studieform, studieprosent)
+    const advarsel = hentAdvarsel(aktivitet, studieform, studieprosent, harBlurretStudieprosent)
+
+    useEffect(() => {
+        if (aktivitet !== 'UTDANNING' || studieform !== 'DELTID') setHarBlurretStudieprosent(false)
+    }, [aktivitet, studieform])
 
     return (
         <>
@@ -104,7 +139,7 @@ export const UtdanningOgTiltak = () => {
                                 key={felt}
                                 id={`utdanning.${felt}`}
                                 label={t(`kontrakt.${felt}`)}
-                                htmlSize={30}
+                                htmlSize={39}
                                 error={errors.utdanning?.[felt]?.message}
                                 {...register(`utdanning.${felt}`, {
                                     setValueAs: (verdi: string) => verdi.trim(),
@@ -123,18 +158,7 @@ export const UtdanningOgTiltak = () => {
                     <OmfangRadio utdanning />
                     {studieform === 'DELTID' && (
                         <VStack align="start">
-                            <TextField
-                                id="utdanning.studieprosent"
-                                label={t('kontrakt.studieprosent')}
-                                inputMode="numeric"
-                                htmlSize={4}
-                                error={errors.utdanning?.studieprosent?.message}
-                                {...register('utdanning.studieprosent', {
-                                    required: t('utdanningOgTiltak.feil.studieprosentPaakrevd'),
-                                    validate: (verdi) =>
-                                        gyldigStudieprosent(verdi) || t('utdanningOgTiltak.feil.studieprosent'),
-                                })}
-                            />
+                            <StudieprosentFelt onBlur={() => setHarBlurretStudieprosent(true)} />
                         </VStack>
                     )}
                 </>
@@ -145,7 +169,7 @@ export const UtdanningOgTiltak = () => {
                         <TextField
                             id="arbeidsrettetTiltak.tiltak"
                             label={t('kontrakt.tiltak')}
-                            htmlSize={30}
+                            htmlSize={39}
                             error={errors.arbeidsrettetTiltak?.tiltak?.message}
                             {...register('arbeidsrettetTiltak.tiltak', {
                                 setValueAs: (verdi: string) => verdi.trim(),

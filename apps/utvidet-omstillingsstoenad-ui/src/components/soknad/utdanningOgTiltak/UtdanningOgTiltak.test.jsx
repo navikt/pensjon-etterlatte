@@ -170,6 +170,8 @@ describe('Utdanning og tiltak', () => {
     it.each(['49', '50'])('Tillater studieprosent %s, også under 50', async (verdi) => {
         setup(utdanning)
         fyll('studieprosent', verdi)
+        expect(screen.queryByText(nb['utdanningOgTiltak.advarsel.studieprosent'])).toBeNull()
+        fireEvent.blur(screen.getByLabelText(nb['kontrakt.studieprosent']))
         expect(!!screen.queryByText(nb['utdanningOgTiltak.advarsel.studieprosent'])).toBe(Number(verdi) < 50)
         neste()
         await ventPaaNeste()
@@ -315,6 +317,8 @@ describe('Utdanning og tiltak', () => {
         await i18n.changeLanguage(spraak)
         setup({ ...utdanning, utdanning: { ...utdanning.utdanning, studieprosent: '40' } })
         expect(screen.getByRole('radiogroup', { name: tekster['kontrakt.aktivitet'] })).not.toBeNull()
+        expect(screen.queryByText(tekster['utdanningOgTiltak.advarsel.studieprosent'])).toBeNull()
+        fireEvent.blur(screen.getByLabelText(tekster['kontrakt.studieprosent']))
         expect(screen.getByText(tekster['utdanningOgTiltak.advarsel.studieprosent'])).not.toBeNull()
         expect(screen.getByText(tekster['utdanningOgTiltak.tiltakBeskrivelse'])).not.toBeNull()
         fireEvent.change(screen.getByLabelText(tekster['kontrakt.startDato']), { target: { value: '' } })

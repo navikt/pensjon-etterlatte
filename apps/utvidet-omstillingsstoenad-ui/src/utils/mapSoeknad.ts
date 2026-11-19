@@ -1,6 +1,6 @@
 import { ISoeknad } from '../context/soknad/soknad'
 import { Language } from '../i18n'
-import { Inntekt, Person, SituasjonenDinKladd } from '../typer/skjema'
+import { Inntekt, Person, Samboer, SituasjonenDinKladd } from '../typer/skjema'
 import { erGyldigBeloep, normaliserBeloep } from './inntekt'
 
 const paakrevd = <T>(verdi: T | undefined, felt: string): T => {
@@ -33,6 +33,22 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
             paakrevd(data.foedselsnummer, 'foedselsnummer')
         ),
     })
+    const samboerPerson = (data: Partial<Samboer>) => {
+        const fornavn = opplysning('samboerFornavn', paakrevd(data.fornavn, 'fornavn'))
+        const etternavn = opplysning('samboerEtternavn', paakrevd(data.etternavn, 'etternavn'))
+        if (data.foedselsnummer) {
+            return {
+                fornavn,
+                etternavn,
+                foedselsnummer: opplysning('samboerFoedselsnummer', data.foedselsnummer),
+            }
+        }
+        return {
+            fornavn,
+            etternavn,
+            foedselsdato: opplysning('samboerFoedselsdato', paakrevd(data.foedselsdato, 'foedselsdato')),
+        }
+    }
     const samboer = situasjon.nySivilstand === 'NY_SAMBOER' ? paakrevd(situasjon.samboer, 'samboer') : undefined
     const utdanning = aktivitet.aktivitet === 'UTDANNING' ? paakrevd(aktivitet.utdanning, 'utdanning') : undefined
     const tiltak =
@@ -55,7 +71,7 @@ export const mapSoeknad = (soeknad: ISoeknad, soeker: Person, imageTag: string, 
                 opplysning: samboer
                     ? {
                           type: 'SAMBOER' as const,
-                          ...person(samboer, true),
+                          ...samboerPerson(samboer),
                           fellesBarnEllertidligereGift: valg(
                               'fellesBarnEllertidligereGift',
                               paakrevd(samboer.fellesBarnEllertidligereGift, 'fellesBarnEllertidligereGift')

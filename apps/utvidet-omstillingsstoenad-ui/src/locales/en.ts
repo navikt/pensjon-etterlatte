@@ -70,6 +70,8 @@ export default {
     'feil.utdanning.startDato.validate': 'You must enter a valid date in the format dd.mm.yyyy.',
     'feil.utdanning.sluttDato.required': 'You must enter the end date.',
     'feil.utdanning.sluttDato.validate': 'You must enter a valid date in the format dd.mm.yyyy.',
+    'feil.samboer.foedselsdato.required': "You must enter your cohabitant's date of birth.",
+    'feil.samboer.foedselsdato.validate': 'You must enter a valid date in the format dd.mm.yyyy.',
     'feil.utdanning.sluttDato.manual': 'The end date must be on or after the start date.',
     'utdanningOgTiltak.tiltakBeskrivelse': 'An employment measure is a programme through Nav to help you find work',
     'utdanningOgTiltak.datoformat': 'dd.mm.yyyy',
@@ -99,6 +101,7 @@ export default {
     'situasjonenDin.feil.foedselsnummerUgyldig':
         'You must enter a valid national identity number or D number for your cohabitant.',
     'situasjonenDin.feil.foedselsnummerEget': "Your cohabitant's national identity number cannot be your own.",
+    'situasjonenDin.ukjentFoedselsnummer': "I do not know my cohabitant's national identity number (optional)",
     'situasjonenDin.feil.fellesBarn':
         'You must state whether you have or have had children together, or have previously been married to each other.',
     'situasjonenDin.advarsel.tittel': 'Not entitled to adjustment allowance',
@@ -112,6 +115,7 @@ export default {
     'kontrakt.samboerFornavn': "Your cohabitant's first name",
     'kontrakt.samboerEtternavn': "Your cohabitant's last name",
     'kontrakt.samboerFoedselsnummer': "Your cohabitant's national identity number",
+    'kontrakt.samboerFoedselsdato': "Your cohabitant's date of birth",
     'kontrakt.nySivilstand': 'Do you have a new cohabitant or have you remarried?',
     'kontrakt.fellesBarnEllertidligereGift':
         'Do you have or have you had children together, or have you previously been married?',
@@ -155,7 +159,7 @@ export default {
     'kontrakt.ANNEN_GRUNN': 'Other reason',
     'skjema.personopplysninger': 'Personal details',
     'personopplysninger.navn': 'Name',
-    'personopplysninger.foedselsnummer': 'National identity number',
+    'personopplysninger.foedselsnummer': 'National identity number / D number',
     'personopplysninger.bostedsadresse': 'Residential address',
     'personopplysninger.sivilstatus': 'Marital status',
     'personopplysninger.statsborgerskap': 'Citizenship',
@@ -197,7 +201,7 @@ export default {
     'oppsummering.dokumentasjon.status': 'Documentation',
     'oppsummering.dokumentasjon.ingen': 'No documents have been attached yet.',
     'oppsummering.feilVedSending': 'We could not submit your application. Please try again.',
-    'banner.tittel': 'Application for extended adjustment allowance',
+    'banner.tittel': 'Application for extension of adjustment allowance',
     'knapp.tilbake': 'Previous step',
     'knapp.neste': 'Next step',
     'knapp.avbryt': 'Cancel',

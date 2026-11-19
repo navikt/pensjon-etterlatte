@@ -1,13 +1,13 @@
-import { ErrorSummary, Heading, VStack } from '@navikt/ds-react'
+import { ErrorSummary, VStack } from '@navikt/ds-react'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { DefaultValues, FieldErrors, FieldPath, FieldValues, FormProvider, useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useOutletContext } from 'react-router'
-import { lagreKladd } from '../../api/api'
-import { useSoknadContext } from '../../context/soknad/SoknadContext'
-import { ActionTypes, ISoeknad } from '../../context/soknad/soknad'
-import { StegPath, stegUrl } from '../../typer/steg'
-import { getTransKey } from '../../utils/translation'
+import { lagreKladd } from '~api/api'
+import { useSoknadContext } from '~context/soknad/SoknadContext'
+import { ActionTypes, ISoeknad } from '~context/soknad/soknad'
+import { StegPath, stegUrl } from '~typer/steg'
+import { getTransKey } from '~utils/translation'
 import Navigasjon from '../felles/Navigasjon'
 
 export interface SoeknadStegContext {
@@ -50,7 +50,6 @@ interface Props<T extends FieldValues> {
 }
 
 export const SoeknadSteg = <T extends FieldValues>({
-    tittel,
     defaultValues,
     oppdaterSoeknad,
     valider,
@@ -69,13 +68,8 @@ export const SoeknadSteg = <T extends FieldValues>({
     const [sendingsfeil, settSendingsfeil] = useState(false)
     const [feilforsok, settFeilforsok] = useState(0)
     const errorRef = useRef<HTMLDivElement>(null)
-    const headingRef = useRef<HTMLHeadingElement>(null)
     const opptatt = useRef(false)
     const feil = finnFeil(methods.formState.errors)
-
-    useEffect(() => {
-        headingRef.current?.focus()
-    }, [])
 
     useEffect(() => {
         if (feilforsok > 0 || lagringsfeil || sendingsfeil) errorRef.current?.focus()
@@ -168,9 +162,6 @@ export const SoeknadSteg = <T extends FieldValues>({
                             )}
                         </ErrorSummary>
                     )}
-                    <Heading ref={headingRef} size="large" align="center" level="2" tabIndex={-1}>
-                        {tittel}
-                    </Heading>
                     {children}
                     <Navigasjon
                         neste={neste ? () => void nesteSteg() : undefined}
