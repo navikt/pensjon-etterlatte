@@ -47,7 +47,7 @@ const SoknadForside = () => {
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
             skjemanavn: `${t('banner.tittel')} - Innlogget`,
-            skjemaId: 'NAV 17-01.06', // TODO: bytt skjemaId
+            skjemaId: 'NAV 17-10.11',
         })
 
         navigate('/skjema/steg')
