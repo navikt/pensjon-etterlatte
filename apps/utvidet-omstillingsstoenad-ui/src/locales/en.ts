@@ -4,7 +4,8 @@ export default {
     'inntekt.utlandBeskrivelse': 'Enter the income in Norwegian kroner.',
     'inntekt.velg': 'Select a reason',
     'inntekt.feil.beloep': 'Enter a whole number that is 0 or higher',
-    'inntekt.feil.paakrevdBeloep': 'You must enter an amount for {{felt}}',
+    'inntekt.feil.paakrevdBeloep':
+        'You must enter an amount for {{felt}}. If you do not have {{felt}}, enter 0.',
     'inntekt.feil.andreInntekter': 'Answer whether you have other income',
     'inntekt.feil.andreBeskrivelse': 'Describe what type of income you have',
     'inntekt.feil.paavirkeInntekt': 'Answer whether anything may affect your future income',

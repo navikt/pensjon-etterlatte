@@ -4,7 +4,7 @@ export default {
     'inntekt.utlandBeskrivelse': 'Inntektene skal oppgivast i norske kroner.',
     'inntekt.velg': 'Vel grunn',
     'inntekt.feil.beloep': 'Oppgi eit heiltal som er 0 eller høgare',
-    'inntekt.feil.paakrevdBeloep': 'Du må oppgi beløp for {{felt}}',
+    'inntekt.feil.paakrevdBeloep': 'Du må oppgi beløp for {{felt}}. Dersom du ikkje har {{felt}}, skriv du 0.',
     'inntekt.feil.andreInntekter': 'Svar på om du har andre inntekter',
     'inntekt.feil.andreBeskrivelse': 'Beskriv kva slags inntekter du har',
     'inntekt.feil.paavirkeInntekt': 'Svar på om noko kan påverke inntekta di framover',
