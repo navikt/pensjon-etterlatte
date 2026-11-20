@@ -40,7 +40,7 @@ Object.defineProperty(window, 'navigator', {
 
 let container
 
-beforeEach(() => {
+const renderSoknadForside = () => {
     container = document.createElement('root')
     document.body.appendChild(container)
 
@@ -54,7 +54,7 @@ beforeEach(() => {
             container
         )
     })
-})
+}
 
 afterEach(() => {
     document.body.removeChild(container)
@@ -62,15 +62,32 @@ afterEach(() => {
 })
 
 describe('Samtykke', () => {
-    it('Knapp vises ikke hvis samtykke mangler', async () => {
+    it('Knapp vises selv om samtykke mangler', async () => {
+        renderSoknadForside()
+
         const bekreftSjekkboks = await screen.findByText('forside.samtykke.bekreftelse')
         expect(bekreftSjekkboks).to.be.visible
 
-        const startKnapp = screen.queryByText('forside.startSoeknad')
-        expect(startKnapp).toBeNull()
+        const startKnapp = await screen.findByText('forside.startSoeknad')
+        expect(startKnapp).to.be.visible
+    })
+
+    it('Viser valideringsfeil hvis man prøver å starte uten samtykke', async () => {
+        renderSoknadForside()
+
+        const startKnapp = await screen.findByText('forside.startSoeknad')
+        expect(startKnapp).to.be.visible
+
+        await act(async () => {
+            fireEvent.click(startKnapp)
+        })
+
+        expect(await screen.findByText('forside.samtykke.feil')).to.be.visible
     })
 
     it('Knapp vises hvis samtykke er huket av', async () => {
+        renderSoknadForside()
+
         const bekreftSjekkboks = await screen.findByLabelText('forside.samtykke.bekreftelse')
         expect(bekreftSjekkboks).to.be.visible
 
@@ -87,17 +104,7 @@ describe('Samtykke', () => {
 describe('Forside uten omstillingsstønad', () => {
     it('viser advarsel og skjuler start av søknad', async () => {
         hentHarOmsSak.mockResolvedValueOnce({ harOMSSak: false })
-
-        act(() => {
-            render(
-                <SoknadProvider>
-                    <BrowserRouter>
-                        <SoknadForside />
-                    </BrowserRouter>
-                </SoknadProvider>,
-                container
-            )
-        })
+        renderSoknadForside()
 
         expect(await screen.findByText('forside.harIkkeOms.tittel')).to.be.visible
         expect(screen.queryByText('forside.startSoeknad')).toBeNull()
