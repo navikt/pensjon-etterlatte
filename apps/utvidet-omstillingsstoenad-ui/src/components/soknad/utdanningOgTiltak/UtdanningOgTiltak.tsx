@@ -1,4 +1,4 @@
-import { HStack, InfoCard, Provider, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
+import { GuidePanel, HStack, InfoCard, Provider, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
 import { en, nb, nn } from '@navikt/ds-react/locales'
 import { useEffect, useState } from 'react'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
@@ -108,6 +108,7 @@ export const UtdanningOgTiltak = () => {
 
     return (
         <>
+            <GuidePanel poster>{t('utdanningOgTiltak.guidepanel')}</GuidePanel>
             <Controller
                 name="aktivitet"
                 control={control}

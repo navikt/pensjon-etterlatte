@@ -6,6 +6,7 @@ import {
     Box,
     Button,
     Checkbox,
+    ErrorSummary,
     GuidePanel,
     Heading,
     HStack,
@@ -14,7 +15,7 @@ import {
     List,
     VStack,
 } from '@navikt/ds-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import { hentHarOmsSak, lagreKladd } from '~api/api'
@@ -32,8 +33,16 @@ const SoknadForside = () => {
     const [harOmsSak, setHarOmsSak] = useState<boolean>(true)
     const [henterOmsSakstatus, setHenterOmsSakstatus] = useState<boolean>(false)
     const [lagrer, settLagrer] = useState(false)
+    const [samtykkeFeil, setSamtykkeFeil] = useState<string | undefined>()
+    const errorRef = useRef<HTMLDivElement>(null)
 
     const startSoeknad = async () => {
+        if (!soknadState.harSamtykket) {
+            setSamtykkeFeil(t('forside.samtykke.feil'))
+            return
+        }
+
+        setSamtykkeFeil(undefined)
         if (lagrer) return
         settLagrer(true)
         try {
@@ -47,7 +56,7 @@ const SoknadForside = () => {
         // Legger til - Innlogget for å skille fra fyll ut
         logEvent(LogEvents.AAPNE_SOKNAD, {
             skjemanavn: `${t('banner.tittel')} - Innlogget`,
-            skjemaId: 'NAV 17-01.06', // TODO: bytt skjemaId
+            skjemaId: 'NAV 17-10.11',
         })
 
         navigate('/skjema/steg')
@@ -64,6 +73,10 @@ const SoknadForside = () => {
                 .finally(() => setHenterOmsSakstatus(false))
         }
     }, [brukerState.foedselsnummer, navigate])
+
+    useEffect(() => {
+        if (samtykkeFeil) errorRef.current?.focus()
+    }, [samtykkeFeil])
 
     if (henterOmsSakstatus) return null
 
@@ -285,30 +298,38 @@ const SoknadForside = () => {
                 </BodyShort>
 
                 <Checkbox
+                    id="samtykke"
                     checked={soknadState.harSamtykket}
-                    onChange={(e) =>
+                    onChange={(e) => {
+                        const harSamtykket = (e.target as HTMLInputElement).checked
                         soknadDispatch({
                             type: ActionTypes.OPPDATER_SAMTYKKE,
-                            payload: (e.target as HTMLInputElement).checked,
+                            payload: harSamtykket,
                         })
-                    }
+                        if (harSamtykket) setSamtykkeFeil(undefined)
+                    }}
                 >
                     {t('forside.samtykke.bekreftelse')}
                 </Checkbox>
             </Box>
-            {soknadState.harSamtykket && (
-                <Button
-                    variant={'primary'}
-                    type={'button'}
-                    id={'start-soeknad'}
-                    onClick={startSoeknad}
-                    loading={lagrer}
-                    iconPosition="right"
-                    icon={<ArrowRightIcon aria-hidden fontSize="1.5rem" />}
-                >
-                    {t('forside.startSoeknad')}
-                </Button>
+            {samtykkeFeil && (
+                <Box marginBlock="space-0 space-16">
+                    <ErrorSummary ref={errorRef} heading={t('skjema.feil')}>
+                        <ErrorSummary.Item href="#samtykke">{samtykkeFeil}</ErrorSummary.Item>
+                    </ErrorSummary>
+                </Box>
             )}
+            <Button
+                variant={'primary'}
+                type={'button'}
+                id={'start-soeknad'}
+                onClick={startSoeknad}
+                loading={lagrer}
+                iconPosition="right"
+                icon={<ArrowRightIcon aria-hidden fontSize="1.5rem" />}
+            >
+                {t('forside.startSoeknad')}
+            </Button>
         </>
     )
 }

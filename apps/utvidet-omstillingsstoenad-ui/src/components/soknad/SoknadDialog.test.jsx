@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { MemoryRouter, useLocation } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import App from '../../App'
@@ -139,6 +139,34 @@ describe('Stegruter', () => {
                 skjema: { utdanningOgTiltak: { aktivitet: 'INGEN' } },
             })
         )
+    })
+
+    it('lar deg klikke bakover i stegindikatoren', async () => {
+        setup('/skjema/steg/inntekt')
+        const visAlleSteg = screen.queryByRole('button', { name: 'skjema.visAlleSteg' })
+        if (visAlleSteg) fireEvent.click(visAlleSteg)
+
+        fireEvent.click(within(screen.getByTestId('stegindikator')).getByText('skjema.situasjonenDin'))
+        await waitFor(() => expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/situasjonen-din'))
+    })
+
+    it('blokkerer klikk fremover i stegindikatoren før steget er nådd', () => {
+        setup('/skjema/steg/situasjonen-din')
+        const visAlleSteg = screen.queryByRole('button', { name: 'skjema.visAlleSteg' })
+        if (visAlleSteg) fireEvent.click(visAlleSteg)
+
+        fireEvent.click(within(screen.getByTestId('stegindikator')).getByText('skjema.inntekt'))
+        expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/situasjonen-din')
+    })
+
+    it('lar deg klikke fritt i stegindikatoren når oppsummering er nådd', () => {
+        state = { ...state, aktivtSteg: 'oppsummering' }
+        setup('/skjema/steg/oppsummering')
+        const visAlleSteg = screen.queryByRole('button', { name: 'skjema.visAlleSteg' })
+        if (visAlleSteg) fireEvent.click(visAlleSteg)
+
+        fireEvent.click(within(screen.getByTestId('stegindikator')).getByText('skjema.situasjonenDin'))
+        expect(screen.getByTestId('path').textContent).toBe('/skjema/steg/situasjonen-din')
     })
 
     it('viser plassholderen for steg uten skjema', () => {

@@ -4,7 +4,7 @@ export default {
     'inntekt.utlandBeskrivelse': 'Inntektene skal oppgis i norske kroner.',
     'inntekt.velg': 'Velg grunn',
     'inntekt.feil.beloep': 'Oppgi et heltall som er 0 eller høyere',
-    'inntekt.feil.paakrevdBeloep': 'Du må oppgi beløp for {{felt}}',
+    'inntekt.feil.paakrevdBeloep': 'Du må oppgi beløp for {{felt}}. Hvis du ikke har {{felt}} skriver du 0.',
     'inntekt.feil.andreInntekter': 'Svar på om du har andre inntekter',
     'inntekt.feil.andreBeskrivelse': 'Beskriv hva slags inntekter du har',
     'inntekt.feil.paavirkeInntekt': 'Svar på om noe kan påvirke inntekten din fremover',
@@ -96,6 +96,8 @@ export default {
     'utdanningOgTiltak.advarsel.studieprosent': 'Du må studere minst 50 prosent for å ha rett til omstillingsstønad.',
     'utdanningOgTiltak.advarsel.ingen':
         'Du må ta utdanning eller delta i arbeidsrettet tiltak for å få utvidet omstillingsstønad. Du kan fortsatt søke, men det kan hende søknaden blir avslått.',
+    'utdanningOgTiltak.guidepanel':
+        'Vi spør om dette fordi man må delta i arbeidsrettet tiltak eller studere minst 50% for å få forlenget omstillingsstønad.',
     'situasjonenDin.feil.nySivilstand': 'Du må svare på om du har ny samboer eller har giftet deg på nytt.',
     'situasjonenDin.feil.fornavn': 'Du må fylle ut samboers fornavn.',
     'situasjonenDin.feil.etternavn': 'Du må fylle ut samboers etternavn.',
@@ -110,6 +112,8 @@ export default {
     'situasjonenDin.advarsel.gift': 'Du har ikke rett til omstillingsstønad når du har giftet deg på nytt.',
     'situasjonenDin.advarsel.samboer':
         'Du har ikke rett til omstillingsstønad hvis du er samboer med en person du har eller har hatt felles barn med, eller med en person du tidligere har vært gift med.',
+    'situasjonenDin.guidepanel':
+        'Vi spør om dette fordi du ikke har rett til omstillingsstønad hvis du er samboer med en person du har eller har hatt felles barn med, eller hvis dere har vært gift tidligere.',
     'kontrakt.samtykke': 'Jeg vil svare så godt jeg kan på spørsmålene i søknaden.',
     'kontrakt.fornavn': 'Fornavn',
     'kontrakt.etternavn': 'Etternavn',
@@ -215,6 +219,7 @@ export default {
     'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
     'forside.ingress.del2.del2': ' (åpnes i ny fane).',
     'forside.startSoeknad': 'Start søknad',
+    'forside.samtykke.feil': 'Du må bekrefte/huke av for at du skal svare så godt du kan på spørsmålene.',
     'forside.omYtelsene.innhold.del1':
         'Søknaden gjelder forlengelse av omstillingsstønad for deg som tar eller skal ta utdanning, eller deltar i eller skal delta i arbeidsrettet tiltak. Du må allerede ha omstillingsstønad for å kunne søke.',
     'forside.omYtelsene.innhold.del2.del1': 'Hvis du ikke har omstillingsstønad fra før, kan du ',

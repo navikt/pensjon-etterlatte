@@ -4,7 +4,7 @@ export default {
     'inntekt.utlandBeskrivelse': 'Enter the income in Norwegian kroner.',
     'inntekt.velg': 'Select a reason',
     'inntekt.feil.beloep': 'Enter a whole number that is 0 or higher',
-    'inntekt.feil.paakrevdBeloep': 'You must enter an amount for {{felt}}',
+    'inntekt.feil.paakrevdBeloep': 'You must enter an amount for {{felt}}. If you do not have {{felt}}, enter 0.',
     'inntekt.feil.andreInntekter': 'Answer whether you have other income',
     'inntekt.feil.andreBeskrivelse': 'Describe what type of income you have',
     'inntekt.feil.paavirkeInntekt': 'Answer whether anything may affect your future income',
@@ -94,6 +94,8 @@ export default {
         'You must study at least 50 percent to be entitled to adjustment allowance.',
     'utdanningOgTiltak.advarsel.ingen':
         'You must be studying or participating in an employment measure to receive extended adjustment allowance. You can still apply, but your application may be rejected.',
+    'utdanningOgTiltak.guidepanel':
+        'We ask this because you must participate in an employment measure or study at least 50% to receive extended adjustment allowance.',
     'situasjonenDin.feil.nySivilstand': 'You must state whether you have a new cohabitant or have remarried.',
     'situasjonenDin.feil.fornavn': "You must enter your cohabitant's first name.",
     'situasjonenDin.feil.etternavn': "You must enter your cohabitant's last name.",
@@ -108,6 +110,8 @@ export default {
     'situasjonenDin.advarsel.gift': 'You are not entitled to adjustment allowance if you have remarried.',
     'situasjonenDin.advarsel.samboer':
         'You are not entitled to adjustment allowance if you cohabit with someone you have or have had children with, or someone you have previously been married to.',
+    'situasjonenDin.guidepanel':
+        'We ask this because you are not entitled to adjustment allowance if you cohabit with someone you have or have had children with, or if you have previously been married to each other.',
     'kontrakt.samtykke': 'I will answer the questions in the application as accurately as I can.',
     'kontrakt.fornavn': 'First name',
     'kontrakt.etternavn': 'Last name',
@@ -215,6 +219,7 @@ export default {
     'forside.ingress.del2.lenke.href': 'https://www.nav.no/omstillingsstonad',
     'forside.ingress.del2.del2': ' (opens in a new tab).',
     'forside.startSoeknad': 'Start application',
+    'forside.samtykke.feil': 'You must confirm/check the box that you will answer the questions as best you can.',
     'forside.omYtelsene.innhold.del1':
         'This application is for an extension of adjustment allowance for you if you are taking or planning education, or taking part in or planning labour market measures. You must already receive adjustment allowance to apply.',
     'forside.omYtelsene.innhold.del2.del1': 'If you do not already receive adjustment allowance, you can ',
