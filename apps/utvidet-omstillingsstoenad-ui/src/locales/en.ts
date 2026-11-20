@@ -94,6 +94,8 @@ export default {
         'You must study at least 50 percent to be entitled to adjustment allowance.',
     'utdanningOgTiltak.advarsel.ingen':
         'You must be studying or participating in an employment measure to receive extended adjustment allowance. You can still apply, but your application may be rejected.',
+    'utdanningOgTiltak.guidepanel':
+        'We ask this because you must participate in an employment measure or study at least 50% to receive extended adjustment allowance.',
     'situasjonenDin.feil.nySivilstand': 'You must state whether you have a new cohabitant or have remarried.',
     'situasjonenDin.feil.fornavn': "You must enter your cohabitant's first name.",
     'situasjonenDin.feil.etternavn': "You must enter your cohabitant's last name.",

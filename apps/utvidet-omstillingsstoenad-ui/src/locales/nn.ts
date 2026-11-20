@@ -96,6 +96,8 @@ export default {
     'utdanningOgTiltak.advarsel.studieprosent': 'Du må studere minst 50 prosent for å ha rett til omstillingsstønad.',
     'utdanningOgTiltak.advarsel.ingen':
         'Du må ta utdanning eller delta i arbeidsretta tiltak for å få utvida omstillingsstønad. Du kan framleis søkje, men det kan hende søknaden blir avslått.',
+    'utdanningOgTiltak.guidepanel':
+        'Vi spør om dette fordi ein må delta i arbeidsretta tiltak eller studere minst 50 % for å få forlenga omstillingsstønad.',
     'situasjonenDin.feil.nySivilstand': 'Du må svare på om du har ny sambuar eller har gifta deg på nytt.',
     'situasjonenDin.feil.fornavn': 'Du må fylle ut fornamnet til sambuaren.',
     'situasjonenDin.feil.etternavn': 'Du må fylle ut etternamnet til sambuaren.',

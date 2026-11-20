@@ -96,6 +96,8 @@ export default {
     'utdanningOgTiltak.advarsel.studieprosent': 'Du må studere minst 50 prosent for å ha rett til omstillingsstønad.',
     'utdanningOgTiltak.advarsel.ingen':
         'Du må ta utdanning eller delta i arbeidsrettet tiltak for å få utvidet omstillingsstønad. Du kan fortsatt søke, men det kan hende søknaden blir avslått.',
+    'utdanningOgTiltak.guidepanel':
+        'Vi spør om dette fordi man må delta i arbeidsrettet tiltak eller studere minst 50% for å få forlenget omstillingsstønad.',
     'situasjonenDin.feil.nySivilstand': 'Du må svare på om du har ny samboer eller har giftet deg på nytt.',
     'situasjonenDin.feil.fornavn': 'Du må fylle ut samboers fornavn.',
     'situasjonenDin.feil.etternavn': 'Du må fylle ut samboers etternavn.',
