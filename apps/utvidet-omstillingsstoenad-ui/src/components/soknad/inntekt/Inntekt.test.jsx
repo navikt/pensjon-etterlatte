@@ -127,7 +127,9 @@ describe('Inntektssteget', () => {
         expect(screen.queryByRole('combobox')).toBeNull()
         neste()
         const feilmelding = paakrevdBeloep('arbeidsinntekt')
-        expect(feilmelding).toBe('Du må oppgi beløp for arbeidsinntekt og andre utbetalinger')
+        expect(feilmelding).toBe(
+            'Du må oppgi beløp for arbeidsinntekt og andre utbetalinger. Hvis du ikke har arbeidsinntekt og andre utbetalinger skriver du 0.'
+        )
         expect(await screen.findByRole('link', { name: feilmelding })).toBeDefined()
         expect(await screen.findByRole('link', { name: i18n.t('inntekt.feil.andreInntekter') })).toBeDefined()
         expect(await screen.findByRole('link', { name: i18n.t('inntekt.feil.paavirkeInntekt') })).toBeDefined()
