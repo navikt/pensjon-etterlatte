@@ -1,7 +1,7 @@
 import { FormProgress, Heading, VStack } from '@navikt/ds-react'
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Navigate, Outlet, useLocation } from 'react-router'
+import { Navigate, Outlet, useLocation, useNavigate } from 'react-router'
 import { useSoknadContext } from '../../context/soknad/SoknadContext'
 import { erStegPath, steg, stegUrl } from '../../typer/steg'
 import SideIkkeFunnet from '../SideIkkeFunnet'
@@ -11,8 +11,13 @@ const SoknadDialog = () => {
     const { state } = useSoknadContext()
     const { t } = useTranslation()
     const pathname = useLocation().pathname
+    const navigate = useNavigate()
     const path = pathname.match(/^\/skjema\/steg\/([^/]+)\/?$/)?.[1]
     const headingRef = useRef<HTMLHeadingElement>(null)
+    const index = erStegPath(path) ? steg.findIndex((side) => side.path === path) : -1
+    const lagretStegIndex = steg.findIndex((side) => side.path === state.aktivtSteg)
+    const sisteStegIndex = steg.length - 1
+    const lengstKommetSteg = Math.max(0, lagretStegIndex, index)
 
     useEffect(() => {
         headingRef.current?.focus()
@@ -22,7 +27,9 @@ const SoknadDialog = () => {
     if (!path) return <Navigate replace to={stegUrl(state.aktivtSteg)} />
     if (!erStegPath(path)) return <SideIkkeFunnet />
 
-    const index = steg.findIndex((side) => side.path === path)
+    const alleStegKlikkbare = lengstKommetSteg >= sisteStegIndex
+    const kanGaaTilSteg = (tilStegIndex: number) => alleStegKlikkbare || tilStegIndex <= lengstKommetSteg
+
     const stegContext: SoeknadStegContext = {
         path,
         tittel: t(steg[index].label),
@@ -36,17 +43,26 @@ const SoknadDialog = () => {
                 {stegContext.tittel}
             </Heading>
             <FormProgress
+                data-testid="stegindikator"
                 totalSteps={steg.length}
                 activeStep={index + 1}
-                interactiveSteps={false}
+                interactiveSteps
+                onStepChange={(stepNummer) => {
+                    const tilStegIndex = stepNummer - 1
+                    const tilSteg = steg[tilStegIndex]
+                    if (!tilSteg || !kanGaaTilSteg(tilStegIndex)) return
+                    navigate(stegUrl(tilSteg.path))
+                }}
                 translations={{
                     step: t('skjema.steg', { aktivt: index + 1, antall: steg.length }),
                     showAllSteps: t('skjema.visAlleSteg'),
                     hideAllSteps: t('skjema.skjulAlleSteg'),
                 }}
             >
-                {steg.map((side) => (
-                    <FormProgress.Step key={side.path}>{t(side.label)}</FormProgress.Step>
+                {steg.map((side, sideIndex) => (
+                    <FormProgress.Step key={side.path} interactive={kanGaaTilSteg(sideIndex)}>
+                        {t(side.label)}
+                    </FormProgress.Step>
                 ))}
             </FormProgress>
             <Outlet context={stegContext} />
