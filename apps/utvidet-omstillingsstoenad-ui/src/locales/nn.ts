@@ -110,6 +110,8 @@ export default {
     'situasjonenDin.advarsel.gift': 'Du har ikkje rett til omstillingsstønad når du har gifta deg på nytt.',
     'situasjonenDin.advarsel.samboer':
         'Du har ikkje rett til omstillingsstønad viss du er sambuar med ein person du har eller har hatt felles barn med, eller med ein person du tidlegare har vore gift med.',
+    'situasjonenDin.guidepanel':
+        'Vi spør om dette fordi du ikkje har rett til omstillingsstønad viss du er sambuar med ein person du har eller har hatt felles barn med, eller viss de har vore gifte tidlegare.',
     'kontrakt.samtykke': 'Eg vil svare så godt eg kan på spørsmåla i søknaden.',
     'kontrakt.fornavn': 'Fornamn',
     'kontrakt.etternavn': 'Etternamn',

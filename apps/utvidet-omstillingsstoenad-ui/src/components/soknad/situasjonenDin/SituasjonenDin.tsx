@@ -1,4 +1,4 @@
-import { Checkbox, InfoCard, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
+import { Checkbox, GuidePanel, InfoCard, Radio, RadioGroup, TextField, VStack } from '@navikt/ds-react'
 import { fnr } from '@navikt/fnrvalidator'
 import { Controller, useFormContext, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -35,6 +35,7 @@ export const SituasjonenDin = () => {
 
     return (
         <>
+            <GuidePanel poster>{t('situasjonenDin.guidepanel')}</GuidePanel>
             <Controller
                 name="nySivilstand"
                 control={control}

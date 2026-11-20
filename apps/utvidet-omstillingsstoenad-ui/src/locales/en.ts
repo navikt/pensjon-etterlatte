@@ -4,8 +4,7 @@ export default {
     'inntekt.utlandBeskrivelse': 'Enter the income in Norwegian kroner.',
     'inntekt.velg': 'Select a reason',
     'inntekt.feil.beloep': 'Enter a whole number that is 0 or higher',
-    'inntekt.feil.paakrevdBeloep':
-        'You must enter an amount for {{felt}}. If you do not have {{felt}}, enter 0.',
+    'inntekt.feil.paakrevdBeloep': 'You must enter an amount for {{felt}}. If you do not have {{felt}}, enter 0.',
     'inntekt.feil.andreInntekter': 'Answer whether you have other income',
     'inntekt.feil.andreBeskrivelse': 'Describe what type of income you have',
     'inntekt.feil.paavirkeInntekt': 'Answer whether anything may affect your future income',
@@ -109,6 +108,8 @@ export default {
     'situasjonenDin.advarsel.gift': 'You are not entitled to adjustment allowance if you have remarried.',
     'situasjonenDin.advarsel.samboer':
         'You are not entitled to adjustment allowance if you cohabit with someone you have or have had children with, or someone you have previously been married to.',
+    'situasjonenDin.guidepanel':
+        'We ask this because you are not entitled to adjustment allowance if you cohabit with someone you have or have had children with, or if you have previously been married to each other.',
     'kontrakt.samtykke': 'I will answer the questions in the application as accurately as I can.',
     'kontrakt.fornavn': 'First name',
     'kontrakt.etternavn': 'Last name',
