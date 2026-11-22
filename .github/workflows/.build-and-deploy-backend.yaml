@@ -21,7 +21,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
       - name: Setup Java
-        uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # ratchet:actions/setup-java@v6.2.0
+        uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # ratchet:actions/setup-java@v6.3.0
         with:
           distribution: temurin
           java-version: 25
@@ -64,7 +64,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
       - name: Setup Java
-        uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # ratchet:actions/setup-java@v6.2.0
+        uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # ratchet:actions/setup-java@v6.3.0
         with:
           distribution: temurin
           java-version: 25
@@ -85,7 +85,7 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # ratchet:actions/checkout@v6
-      - uses: nais/deploy/actions/deploy@7b60caaded00332e9aa117a8342daa0876851dfe # ratchet:nais/deploy/actions/deploy@v2
+      - uses: nais/deploy/actions/deploy@6fe576e10c7a325643bad96566bd6cb180a2f782 # ratchet:nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: apps/${{ github.workflow }}/.nais/dev.yaml
@@ -102,7 +102,7 @@ jobs:
         id: check_files
         with:
           files: apps/${{ github.workflow }}/.nais/prod.yaml
-      - uses: nais/deploy/actions/deploy@7b60caaded00332e9aa117a8342daa0876851dfe # ratchet:nais/deploy/actions/deploy@v2
+      - uses: nais/deploy/actions/deploy@6fe576e10c7a325643bad96566bd6cb180a2f782 # ratchet:nais/deploy/actions/deploy@v2
         if: steps.check_files.outputs.files_exists == 'true'
         env:
           CLUSTER: prod-gcp
