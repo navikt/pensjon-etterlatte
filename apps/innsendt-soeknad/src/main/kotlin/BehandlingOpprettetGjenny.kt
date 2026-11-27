@@ -8,6 +8,7 @@ import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageMetadata
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.RapidsConnection
 import io.micrometer.core.instrument.MeterRegistry
 import org.slf4j.LoggerFactory
+import soeknad.Mottaksflyt
 import soeknad.SoeknadRepository
 import java.time.OffsetDateTime
 import java.util.UUID
@@ -44,6 +45,12 @@ internal class BehandlingOpprettetGjenny(
         val soeknadId = packet["@lagret_soeknad_id"]
         if (soeknadId.asString().startsWith("TEST-") || soeknadId.asLong() == 0L) {
             logger.info("Verifiseringssøknad med id $soeknadId lest")
+            return
+        }
+        if (soeknader.mottaksflyt(soeknadId.asLong()) == Mottaksflyt.PROSESSERING) {
+            logger.warn(
+                "Søknad ${soeknadId.asLong()} tilhører prosesseringsløpet. Ignorerer behandlingskvittering fra Kafka.",
+            )
             return
         }
         soeknader.soeknadHarBehandling(soeknadId.asLong(), sakId, behandlingId)

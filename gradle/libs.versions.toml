@@ -9,12 +9,16 @@ testcontainers-version = "1.21.4"
 flyway-version = "13.10.3"
 rapidsandrivers-version = "2026071513121784113927" # OBS! tbdlibs brukes av denne. De bør stemme overens
 tbdlibs-version = "20260823.1727" # OBS! rapidsandrivers bruker denne. De bør stemme overens
+prosessering-version = "1.20261127092401_73059d1" # efterlatte-prosessering, publisert fra main
 # kan verifiseres ved å sjekke dependencies med: ./gradlew --no-daemon --console=plain :apps:innsendt-soeknad:dependencyInsight --configuration testRuntimeClasspath --dependency rapids-and-rivers
 
 [libraries]
 navfelles-rapids-and-rivers = { module = "com.github.navikt:rapids-and-rivers", version.ref = "rapidsandrivers-version" }
 navfelles-token-client-core = { module = "no.nav.security:token-client-core", version.ref = "token-version" }
 navfelles-token-validation-ktor = { module = "no.nav.security:token-validation-ktor-v3", version.ref = "token-version" }
+
+prosessering-core = { module = "no.nav.efterlatte:prosessering-core", version.ref = "prosessering-version" }
+prosessering-postgres = { module = "no.nav.efterlatte:prosessering-postgres", version.ref = "prosessering-version" }
 
 etterlatte-common = { module = "pensjon-etterlatte-felles:common", version = "2026.10.09-12.12.efc9bddf6546" }
 

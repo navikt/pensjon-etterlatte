@@ -17,6 +17,14 @@
       "moduleLicense": ""
     },
     {
+      "moduleName": "no.nav.efterlatte:prosessering-core",
+      "moduleLicense": ""
+    },
+    {
+      "moduleName": "no.nav.efterlatte:prosessering-postgres",
+      "moduleLicense": ""
+    },
+    {
       "moduleLicense": "Apache-2.0"
     },
     {

@@ -1,6 +1,5 @@
 package no.nav.etterlatte.soeknad
 
-import tools.jackson.databind.JsonNode
 import io.micrometer.core.instrument.Counter
 import no.nav.etterlatte.UtkastPubliserer
 import no.nav.etterlatte.adressebeskyttelse.AdressebeskyttelseService
@@ -9,6 +8,8 @@ import no.nav.etterlatte.adressebeskyttelse.fjernStedslokaliserendeInfo
 import no.nav.etterlatte.internal.Metrikker.registry
 import no.nav.etterlatte.libs.common.innsendtsoeknad.common.SoeknadRequest
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
+import no.nav.etterlatte.mottak.KunKafkaMottak
+import no.nav.etterlatte.mottak.MottakStarter
 import no.nav.etterlatte.pdl.Gradering
 import no.nav.etterlatte.sikkerLogg
 import no.nav.etterlatte.toJson
@@ -18,12 +19,14 @@ import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.Status
 import soeknad.UlagretSoeknad
+import tools.jackson.databind.JsonNode
 import java.util.UUID
 
 class SoeknadService(
     private val db: SoeknadRepository,
     private val publiserUtkast: UtkastPubliserer,
     private val adressebeskyttelseService: AdressebeskyttelseService,
+    private val mottak: MottakStarter = KunKafkaMottak,
 ) {
     private val logger = LoggerFactory.getLogger(SoeknadService::class.java)
 
@@ -136,8 +139,14 @@ class SoeknadService(
         }
 
         return soeknader.map {
-            db.ferdigstillSoeknad(it).also { ferdigstiltID ->
-                logger.info("Ferdigstilt søknad $ferdigstiltID (type=${it.type})")
+            val ferdigstiltID =
+                if (mottak.skalBrukeProsessering(it.type)) {
+                    db.ferdigstillSoeknadForProsessering(it) { c, id -> mottak.start(c, id, it.type!!) }
+                } else {
+                    db.ferdigstillSoeknad(it)
+                }
+            ferdigstiltID.also { id ->
+                logger.info("Ferdigstilt søknad $id (type=${it.type})")
             }
         }
     }

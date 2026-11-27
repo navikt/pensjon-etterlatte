@@ -5,6 +5,10 @@ plugins {
 dependencies {
     implementation(libs.etterlatte.common)
     implementation(project(":libs:utils"))
+    implementation(project(":libs:etterlatte-funksjonsbrytere"))
+
+    implementation(libs.prosessering.core)
+    implementation(libs.prosessering.postgres)
 
     implementation(libs.database.hikari.cp)
     implementation(libs.database.flyway.core)

@@ -34,6 +34,9 @@ spec:
   azure:
     application:
       enabled: true
+      claims:
+        groups:
+          - id: 928636f4-fd0d-4149-978e-a6fb68bb19de # prosessering.rolle, operatører i efterlatte-verktoy
   leaderElection: true
   gcp:
     sqlInstances:
@@ -80,10 +83,24 @@ spec:
       value: http://etterlatte-api
     - name: ETTERLATTE_API_AZURE_SCOPE
       value: api://dev-gcp.etterlatte.etterlatte-api/.default
+    # Søknadsmottak med prosessering (fase 5). Nye søknader tildeles bare løpet når Unleash-togglen er på.
+    - name: SOEKNAD_MOTTAK_PROSESSERING
+      value: aktivert
+    - name: DOKARKIV_URL
+      value: https://dokarkiv-q2.dev-fss-pub.nais.io/rest/journalpostapi/v1/journalpost
+    - name: DOKARKIV_SCOPE
+      value: api://dev-fss.teamdokumenthandtering.dokarkiv/.default
+    - name: PDFGENRS_URL
+      value: http://ey-pdfgenrs/api/v1/genpdf
+    - name: PROSESSERING_ROLLE_GROUPID
+      value: 928636f4-fd0d-4149-978e-a6fb68bb19de
+  envFrom:
+    - secret: my-application-unleash-api-token
   accessPolicy:
     outbound:
       rules:
         - application: etterlatte-api
+        - application: ey-pdfgenrs
         - application: digdir-krr-proxy
           namespace: team-rocket
         - application: kodeverk-api
@@ -93,8 +110,11 @@ spec:
       external:
         - host: pdl-api.dev-fss-pub.nais.io
         - host: kodeverk-api.nav.no # må gå mot prod i dev se https://nav-it.slack.com/archives/C06FK6V74JE/p1723795352459339?thread_ts=1723788766.141209&cid=C06FK6V74JE
+        - host: dokarkiv-q2.dev-fss-pub.nais.io
+        - host: etterlatte-unleash-api.nav.cloud.nais.io
     inbound:
       rules:
         - application: barnepensjon-ui
         - application: omstillingsstoenad-ui
         - application: utvidet-omstillingsstoenad-ui
+        - application: efterlatte-verktoy

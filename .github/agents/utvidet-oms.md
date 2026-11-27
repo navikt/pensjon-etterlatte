@@ -16,7 +16,7 @@ Alle stier er relative til `pensjon-etterlatte`:
 | `.github/utvidet-oms/veikart.md` | Arbeidspakker, rekkefølge, aktive brancher og logg |
 | `.github/utvidet-oms/beslutninger.md` | Besluttede (B) og åpne (Å) spørsmål med begrunnelse |
 | `.github/utvidet-oms/spesifikasjon.md` | Fasit for felt, tekster, når felt vises, validering og kontraktfelt per steg |
-| `.github/utvidet-oms/prosessering.md` | Teknisk plan for fase 5: mottaket som tasks i `efterlatte-prosessering`, styrt fra `efterlatte-verktoy` |
+| `.github/utvidet-oms/prosessering.md` | Teknisk plan for fase 5: tasks i innsendt-soeknad, Gjenny-grenseflate og drift fra efterlatte-verktoy (B12) |
 | `../pensjon-etterlatte-saksbehandling/.github/domenekontekst/` | Domenet i Gjenny, særlig `eksterne-repos.md` og `saksgangen.md` |
 | `../pensjon-etterlatte-saksbehandling/.github/agents/gjenny-ekspert.md` | Arbeidsmåte og domeneekspertise for Gjenny. Følg den når arbeidet gjelder saksbehandling. |
 | `../efterlatte-prosessering/.github/agents/efterlatte-prosessering-ekspert.md` | Låste beslutninger og arbeidsmåte for biblioteket. Følg den når arbeidet gjelder 5.1–5.5. |
@@ -24,7 +24,15 @@ Alle stier er relative til `pensjon-etterlatte`:
 
 Hjemrepoet er `pensjon-etterlatte` mens vi bygger søknaden. Søsterrepoene er `../pensjon-etterlatte-saksbehandling` og `../pensjon-etterlatte-felles`. I fase 5 kommer `../efterlatte-prosessering` og `../efterlatte-verktoy` i tillegg. Start agenten fra hjemrepoet, og legg til søsterrepoet med `/add-dir` når oppgaven krever det. Kjør statusskriptet fra hjemrepoet.
 
-Når arbeidet går over til behandlingsløpet i Gjenny, flyttes agenten, dokumentasjonen og statusskriptet samlet tilbake til `pensjon-etterlatte-saksbehandling` (B7). Oppdater hjemrepo, stier og lenker i samme flytting. Domenekonteksten og `gjenny-ekspert` blir i Gjenny hele tiden.
+Fase 5 blir i hjemrepoet etter B12, fordi innsendt-soeknad eier mottakskjeden. En eventuell senere flytting ved arbeid på selve behandlingsløpet (B7) vurderes separat. Domenekonteksten og `gjenny-ekspert` blir i Gjenny hele tiden.
+
+## Mottakskjeden etter B12
+
+- Innsendt-soeknad embedder prosessering i egen Postgres og eier journalføring, mottaksstatus og sletting. Gjenny avgjør sak, oppgave og behandling gjennom API.
+- Behold B4-oppførsel til fag avklarer Å3, Å8 og Å12. Ikke legg regler om revurdering i innsendt-soeknad.
+- Søknad, varig flytvalg og første task lagres atomisk. Gjenny dedupliserer overlevering atomisk. Task-feil og endret toggle skal ikke bytte flyt.
+- Sb #9049 og felles #642 bygger på erstattet plan. De skal ikke brukes som forutsetninger eller merges automatisk.
+- Ikke opprett `mottatt_soeknad`, `StegKontekst` eller nye journalføringsklienter i behandling for dette mottaket.
 
 ## Arbeidsflyt
 

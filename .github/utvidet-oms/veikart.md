@@ -2,14 +2,14 @@
 
 Felles oversikt over hva som skal gjøres for søknaden om utvidet (forlenget) omstillingsstønad, og hva som er gjort. Arbeidet går på tvers av tre repoer. Fase 5 (mottak via prosessering) berører i tillegg `efterlatte-prosessering` og `efterlatte-verktoy`.
 
-Agenten, dokumentasjonen og statusskriptet ligger i `pensjon-etterlatte` mens vi bygger søknaden. Når vi går over til behandlingsløpet i Gjenny, flyttes de samlet tilbake til `pensjon-etterlatte-saksbehandling` (B7). Gjennys domenekontekst og agenten `gjenny-ekspert` blir i saksbehandling.
+Agenten, dokumentasjonen og statusskriptet ligger i `pensjon-etterlatte`. Etter B12 eier innsendt-soeknad mottakskjeden, så fase 5 blir også dokumentert her. En eventuell senere flytting ved arbeid på behandlingsløpet (B7) vurderes separat. Gjennys domenekontekst og agenten `gjenny-ekspert` blir i saksbehandling.
 
 | Fil | Brukes til |
 |-----|-----------|
 | `veikart.md` (denne) | Hva skal gjøres, i hvilken rekkefølge, og hvor står vi |
 | [`beslutninger.md`](beslutninger.md) | Hvorfor ting er løst som de er, og hva som ikke er avklart ennå |
 | [`spesifikasjon.md`](spesifikasjon.md) | Hvordan søknaden skal oppføre seg: felt, tekster, validering og kontrakt |
-| [`prosessering.md`](prosessering.md) | Teknisk plan for fase 5: mottaket i Gjenny som tasks i `efterlatte-prosessering`, styrt fra `efterlatte-verktoy` |
+| [`prosessering.md`](prosessering.md) | Teknisk plan for fase 5: mottaket i innsendt-soeknad som tasks, Gjenny-grenseflate og drift fra efterlatte-verktoy |
 | [`../agents/utvidet-oms.md`](../agents/utvidet-oms.md) | Agent som jobber ut fra disse filene og holder dem oppdatert |
 
 **Status ligger i Favro.** Veikartet lenker til kortene og viser milepæler. Status per kort skal ikke vedlikeholdes to steder.
@@ -42,7 +42,7 @@ utvidet-omstillingsstoenad-ui (pe)
 Kontrakt: UtvidetOmstillingsstoenad i pensjon-etterlatte-felles/common
 ```
 
-Målbildet i fase 5 er at `NySoeknadRiver` bare sender søknaden videre til `etterlatte-behandling`. Der lagres den og går gjennom fire tasks: knytt til sak, journalfør, opprett oppgave og kvitter til innsendt-soeknad. Se [`prosessering.md`](prosessering.md).
+Diagrammet over viser dagens mottak. Etter B12 skal innsendt-soeknad eie den nye task-kjeden: hent journalføringskontekst fra Gjenny, journalfør, og overlever den journalførte søknaden til Gjenny. Gjenny avgjør sak og videre behandling, foreløpig en manuell oppgave som i B4. Innsendt-soeknad fullfører mottaket lokalt uten Kafka-kvittering tilbake til seg selv. BP og vanlig OMS følger fortsatt dagens løp. Se [`prosessering.md`](prosessering.md).
 
 `pe` = pensjon-etterlatte, `sb` = pensjon-etterlatte-saksbehandling, `felles` = pensjon-etterlatte-felles, `lib` = efterlatte-prosessering, `vt` = efterlatte-verktoy
 
@@ -57,8 +57,12 @@ Målbildet i fase 5 er at `NySoeknadRiver` bare sender søknaden videre til `ett
 | lib | `utvidet-oms-feilmelding-endringstid` | ikke kontrollert | Nav-31931, 5.2: siste feilmelding og endringstid på tasks. Committet og pushet 2026-11-10, inkludert merge med `main` (`14d4e3f`). Om PR-en er opprettet eller merget, er ikke bekreftet. Se 5.2. |
 | lib | `utvidet-oms-retry-per-type` | ikke kontrollert | 5.3: retry per task-type. Committet og pushet til `origin/utvidet-oms-retry-per-type` (`a7dd092`). Release og merge er ikke kontrollert. |
 | pe | `utvidet-oms-retry-per-type` | – | Oppdaterer veikart og prosesseringsplan for 5.0, 5.2, 5.3 og 5.11, samt status for PDF-malen. Lokale endringer, uten commit eller PR. |
-| sb | `utvidet-oms-felles-journalfoering` | – | Nav-32022, 5.11: delt journalføringsbibliotek, klienter i behandling og dev-konfigurasjon. Committet og pushet (`4fc07d911`), begge appene er deployet til dev. Ingen PR opprettet. PDF-endringene er allerede merget i #9045. |
-| felles | `utvidet-oms-journalfoering-tilgang` | – | Nav-32022, 5.11: gir behandling tilgang til begge PDF-generatorene i dev. Committet og pushet (`ee186e90`), begge generatorene er deployet til dev. Ingen PR opprettet. Diffen mot main inneholder bare dev-tilgangene. |
+| sb | `utvidet-oms-felles-journalfoering` | [#9049](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9049) | Erstattes av B12. Utvikleren vil lukke PR-en; den var fortsatt åpen ved ny kontroll 2026-11-27. Delt bibliotek og klienter i behandling er ikke grunnlaget for ny plan. Tidligere dev-deployment må vurderes separat. PDF-endringene i #9045 beholdes. |
+| felles | `utvidet-oms-journalfoering-tilgang` | [#642](https://github.com/navikt/pensjon-etterlatte-felles/pull/642) | Erstattes av B12. Utvikleren vil lukke PR-en; den var fortsatt åpen ved ny kontroll 2026-11-27. Ny PR skal gi innsendt-soeknad nødvendig dev-tilgang, ikke behandling. |
+| pe | `utvidet-oms-mottak-prosessering` | – | Fase 5 i innsendt-soeknad (5.6–5.9, 5.11–5.13, dev-manifest) og denne dokumentasjonen. Lokale endringer, uten commit. |
+| sb | `utvidet-oms-mottak-innsendt-soeknad` | – | 5.10: kontrakt i saksbehandling-common, ruter i etterlatte-api og behandling, V364. Lokale endringer, uten commit. |
+| felles | `utvidet-oms-pdfgenrs-innsendt-soeknad` | – | 5.11: innsendt-soeknad i dev-inbound for ey-pdfgenrs. Lokal endring, uten commit. |
+| vt | `innsendt-soeknad-prosessering` | – | 5.14: innsendt-soeknad i `apper.ts`, dev-nettverk og dokumentasjon. Lokale endringer, uten commit. |
 
 Merget: felles `utvidet-omstillingsstoenad-kontrakt` ([#620](https://github.com/navikt/pensjon-etterlatte-felles/pull/620)) gir `common` `2026.10.09-12.12.efc9bddf6546`. Mottaket er merget i pe ([#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531)) og sb ([#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971)), og steg 5 Inntekt i [#2558](https://github.com/navikt/pensjon-etterlatte/pull/2558). Planen for fase 5 er merget i pe ([#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596)), lib ([#52](https://github.com/navikt/efterlatte-prosessering/pull/52)), vt ([#20](https://github.com/navikt/efterlatte-verktoy/pull/20)) og sb ([#9039](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9039), bare en peker). Innsendingen er merget i pe ([#2584](https://github.com/navikt/pensjon-etterlatte/pull/2584)). Planoppdateringen for 5.2 er merget i pe ([#2598](https://github.com/navikt/pensjon-etterlatte/pull/2598)), og repotilgangen i statusskriptet i [#2597](https://github.com/navikt/pensjon-etterlatte/pull/2597).
 
@@ -123,27 +127,29 @@ Status: ✅ ferdig · 🚧 pågår · ⏳ ikke startet · ⛔ blokkert (se beslu
 
 ### Fase 5 – Mottak via prosessering
 
-Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av tasks i `etterlatte-behandling` (B8–B11). Kjeden styres fra `efterlatte-verktoy`. Gjelder dev. Detaljer, kodeskisser og risiko står i [`prosessering.md`](prosessering.md).
+Innsendt-soeknad kjører mottakskjeden med prosessering i sin egen database (B12). Gjenny eier avgjørelsene om sak, oppgave og behandling. Kjeden styres fra `efterlatte-verktoy`. Gjelder først utvidet OMS i dev.
+
+B12 erstatter plasseringen fra B8–B11 og planen bak sb #9049/felles #642. Numrene 5.0–5.16 beholdes, men 5.6–5.16 er revidert. Tidligere gjennomført arbeid i behandling betyr ikke at den nye flyten er implementert. Detaljer, avhengigheter, testkrav og rollback står i [`prosessering.md`](prosessering.md).
 
 | # | Arbeidspakke | Repo | Favro | Status |
 |---|--------------|------|-------|--------|
-| 5.0 | Plan, veikart, beslutninger og pekere i alle fire repoer | pe, sb, lib, vt | | ✅ pe [#2596](https://github.com/navikt/pensjon-etterlatte/pull/2596), lib [#52](https://github.com/navikt/efterlatte-prosessering/pull/52), vt [#20](https://github.com/navikt/efterlatte-verktoy/pull/20), sb [#9039](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9039) |
+| 5.0 | Plan, veikart, beslutninger og pekere i alle fire repoer | pe, sb, lib, vt | | 🚧 B12 og ny plan er oppdatert lokalt 2026-11-27, ikke committet. Opprinnelig plan er merget via pe #2596, lib #52, vt #20 og sb #9039. |
 | 5.1 | L1: Stegets JDBC-connection tilgjengelig for vertskode | lib | | ✅ [#53](https://github.com/navikt/efterlatte-prosessering/pull/53), bekreftet i lokal `main`. |
-| 5.2 | L2: `siste_feilmelding` og `sist_endret_tid` i biblioteket | lib | [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931) | 🚧 Committet og pushet på `utvidet-oms-feilmelding-endringstid` 2026-11-10, inkludert merge med `main`. Merge til `main` er ikke bekreftet: lib-remote gir 403 fra lokale økter, og sist hentede `origin/main` (2026-11-10) inneholder ikke 5.2. |
-| 5.3 | L3: Retry per task-type | lib | mangler | 🚧 Committet og pushet på `utvidet-oms-retry-per-type` (`a7dd092`), som bygger på 5.2. Merge, PR og release er ikke kontrollert. |
+| 5.2 | L2: `siste_feilmelding` og `sist_endret_tid` i biblioteket | lib | [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931) | ✅ Med i publisert `1.20261127092401_73059d1` fra lib-`main`, kontrollert mot artefaktene 2026-11-27. PR-nummer er ikke kontrollert (lib-remote gir 403). |
+| 5.3 | L3: Retry per task-type | lib | mangler | ✅ `RetryPolicy`/`TaskStep.retry` er med i `1.20261127092401_73059d1`. PR-nummer er ikke kontrollert. |
 | 5.4 | L4: Steg kan stoppe med `MANUELL` (valgfri) | lib | | ⏳ Å12 |
-| 5.5 | Release av biblioteket | lib | | ⏳ Release-status er ikke kontrollert på nytt etter tilgangsfeilen. Ingen versjon er gjettet eller bumpet. |
-| 5.6 | G1: Bump og migrering (nye kolonner og `UNIQUE(type, payload)`) | sb | | ⏳ |
-| 5.7 | G2: `StegKontekst`: steg skriver via eksisterende tjenester på stegets transaksjon | sb | | ⏳ |
-| 5.8 | G3: Admin-API-et gir feilmelding, metadata og `status-oversikt` | sb | | ⏳ |
-| 5.9 | G4: Tabellen `mottatt_soeknad` og DAO | sb | | ⏳ Å10 |
-| 5.10 | G5: `POST /api/soeknad/mottak` med outbox | sb | | ⏳ |
-| 5.11 | G6: Journalføring i et felles lib, nais og tilgang til pdfgen og dokarkiv | sb, felles | [Nav-32022](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-32022) | 🚧 Committet, pushet og deployet til dev i begge repoene. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Gjenstår: PR/merge og bekreftet dokarkiv-tilgang fra behandling (Å11). Task-kjeden er ikke aktivert. |
-| 5.12 | G7: Task-kjeden T1–T4 | sb | | ⏳ |
-| 5.13 | G8: Toggle og ruting i `NySoeknadRiver` | sb | | ⏳ |
-| 5.14 | V1: Verktøyet viser nye felt og ekte tellinger | vt | | ⏳ |
-| 5.15 | V2: Driftsrutine for søknadsmottaket | vt | | ⏳ |
-| 5.16 | Ende-til-ende i dev: feil på T2, rekjør fra verktøyet, fullført kjede | alle | | ⏳ krever 1.4 |
+| 5.5 | Release av biblioteket | lib | | ✅ `1.20261127092401_73059d1` (publisert 2026-11-27 fra `main`). Ingen ny release trengs. |
+| 5.6 | P1: Bibliotek, task-skjema og motor i innsendt-soeknad | pe | | 🚧 Implementert lokalt (V10–V12, motor med samtidighet 2). Ikke deployet. CI-tilgang til lib-pakkene er ikke kontrollert. |
+| 5.7 | P2: Atomisk ferdigstilling, første task og varig valg av mottaksflyt | pe | | 🚧 Implementert lokalt med tester for rollback, samtidig start og uforanderlig flytvalg. |
+| 5.8 | P3: Admin-API med OBO, rolle, tellinger, feil og operatørlogg | pe | | 🚧 Implementert lokalt med tester for rolle, maskintoken, tellinger, paginering og versjonskonflikt. Ekte OBO er ikke prøvd. |
+| 5.9 | P4: Lokal fremdrift, journalpostreferanser og sikker sletting | pe | | 🚧 `soeknad_mottak` og sletteskjerming implementert lokalt. Opprydding etter fullføring venter på Å10. |
+| 5.10 | G1: Journalføringskontekst og idempotent overlevering via Gjennys API | sb, ev. felles | | 🚧 Implementert lokalt i etterlatte-api og behandling (V364), med tester for retry, parallelle kall, motstridende innhold og rollback. Ikke deployet. |
+| 5.11 | P5: Journalføring i innsendt-soeknad og dev-tilganger | pe, felles | [Nav-32022](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-32022) | 🚧 Klienter og dev-manifest lokalt i pe; ey-pdfgenrs-inbound lokalt i felles. ⛔ Dokarkiv må pre-autorisere innsendt-soeknad (Å11). |
+| 5.12 | P6: T1 hent kontekst, T2 journalfør, T3 overlever og fullfør lokalt | pe | | 🚧 Implementert lokalt som fire tasks (T4 publiserer kompatibilitetsevent og arkiverer). Testet mot mocket Gjenny, dokarkiv og ey-pdfgenrs. |
+| 5.13 | P7: Ruting per søknad, gammel Kafka-flyt og eventkompatibilitet | pe, ev. felles | | 🚧 Implementert lokalt. Kompatibilitetseventet bevarer dagens varsel. ⛔ Å9 må bekrefte at varslingen skal videreføres før aktivering. |
+| 5.14 | V1: Innsendt-soeknad som egen app i dashboardet | vt, pe | | 🚧 Registrert lokalt (`kontrakt`, mock, dev-nettverk). Ikke deployet eller prøvd mot ekte app. |
+| 5.15 | V2: Driftsrutine, feiloppfølging og observerbarhet | vt, pe, sb | | ⏳ Feilmeldinger skiller system, men metrikker og driftsrutine mangler. |
+| 5.16 | Ende-til-ende i dev, inkludert retry, tapt svar og toggle av under kjøring | alle | | ⏳ Krever deployment, dokarkiv-tilgang og Å9. |
 
 ### Avhengigheter
 
@@ -154,9 +160,11 @@ Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av task
 2.2 → 3.2
 1.2 → 3.8 (mapping må treffe endelig kontrakt)
 2.1 + 2.3 + 3.8 → 4.1
-5.1 + 5.2 + 5.3 → 5.5 → 5.6 → 5.7 → 5.10 → 5.12 → 5.13 → 5.16
-5.6 → 5.8 → 5.14 → 5.15 → 5.16
-5.9 → 5.10, 5.11 → 5.12
+5.1 + 5.2 + 5.3 → 5.5 → 5.6
+5.6 → 5.7 → 5.9
+5.9 + 5.10 + 5.11 → 5.12 → 5.13
+5.6 → 5.8 → 5.14
+5.12 + 5.13 + 5.14 → 5.15 → 5.16
 1.4 → 5.16 (T2 feiler uten PDF-mal)
 ```
 
@@ -166,6 +174,8 @@ Mottaket i Gjenny flyttes fra den synkrone `NySoeknadRiver` til en kjede av task
 
 Kort logg over milepæler. Nyeste øverst. Én linje per hendelse, med lenke til PR der det finnes.
 
+- **2026-11-27**: Fase 5 implementert lokalt etter B12, uten commit, push eller deployment. Lib `1.20261127092401_73059d1` er bekreftet publisert fra `main` med 5.1–5.3 (5.5). pe: task-skjema, motor, atomisk ferdigstilling med varig `mottaksflyt`, `soeknad_mottak`, T1–T4, journalføring mot dokarkiv og ey-pdfgenrs, kompatibilitetsevent for varsling, skjerming av gamle rivers og slettejobber, admin-API og dev-manifest. sb: kontekst- og overleveringsendepunkt i etterlatte-api (rolle `soeknadsmottak`) og behandling (V364). felles: ey-pdfgenrs-inbound. vt: app-registrering. Tester: innsendt-soeknad 138 (19 nye), behandling 9 nye, etterlatte-api grønn, vt typecheck/bygg/23 tester. Lokal `checkLicense` i pe feiler på moduler som også finnes i uendrede prosjekter. Sb #9049 og felles #642 er fortsatt åpne og ikke endret.
+- **2026-11-27**: B12 legger mottakskjeden i innsendt-soeknad, med journalføring der og idempotent faglig håndtering i Gjenny. Fase 5 og pekere er revidert lokalt. Utvikleren vil lukke sb #9049 og felles #642, som fortsatt var åpne ved kontroll. Ingen applikasjonskode, PR-status eller deployment er endret i denne oppdateringen. Eldre logglinjer beskriver den erstattede planen.
 - **2026-11-13**: Legger til `https://etterlatte.ansatt.dev.nav.no/utvidet-omstillingsstonad/soknad` i dev-manifestet. Intern ingress og ID-porten er uendret, og ekstern ingress er fortsatt deaktivert. Ingen commit eller PR.
 - **2026-11-13**: Nav-32022, 5.11: sb `4fc07d911` og felles `ee186e90` er pushet og deployet til dev. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Dette bekrefter ikke dokarkiv-tilgangen fra behandling (Å11). PDF-støtten er allerede merget i sb #9045 og felles #640; prod-manifestet i felles #641. PR-tekster for 5.11 er klargjort, men PR-ene er ikke opprettet. Merge vil trigge prod-deploy av Gjenny-appene og PDF-generatorene, uten å aktivere task-kjeden.
 - **2026-11-13**: 5.11 implementert lokalt i sb og felles: `etterlatte-soeknad-journalfoering` deles av behandling og Kafka-appen, med lazy klienter og service i behandling. Dev-konfigurasjonen gir nettverkstilgang til dokarkiv, ey-pdfgen og ey-pdfgenrs. Eksisterende mottak og ny PDF-støtte er beholdt. Bibliotekbygg, kompilering av behandling og 16 regresjonstester i Kafka-appen samt 4 dokarkiv-tester er bestått. 5.3 er bekreftet committet og pushet, og PDF-malene finnes på lokal branch. Release-/PR-status kan ikke kontrolleres fordi GitHub-tilgangen er blokkert. Ingen commit, push eller PR for 5.11; dokarkiv-tilgang og deployment gjenstår (Å11).

@@ -38,6 +38,15 @@ data class SlettetSoeknad(
     val fnr: String,
 )
 
+/**
+ * Hvilket løp en ferdigstilt søknad tilhører. Lagres én gang ved ferdigstilling og endres aldri.
+ * Søknader ferdigstilt før valget fantes har ingen lagret verdi og hører til [KAFKA].
+ */
+enum class Mottaksflyt {
+    KAFKA,
+    PROSESSERING,
+}
+
 enum class Status {
     LAGRETKLADD,
     FERDIGSTILT,

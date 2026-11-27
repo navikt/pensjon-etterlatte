@@ -1,8 +1,5 @@
 package no.nav.etterlatte
 
-import tools.jackson.databind.DeserializationFeature
-import tools.jackson.databind.cfg.DateTimeFeature
-import tools.jackson.databind.cfg.EnumFeature
 import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
@@ -25,6 +22,9 @@ import no.nav.etterlatte.kodeverk.kodeverkApi
 import no.nav.etterlatte.libs.common.person.Foedselsnummer
 import no.nav.etterlatte.libs.utils.logging.CORRELATION_ID
 import no.nav.etterlatte.libs.utils.logging.X_CORRELATION_ID
+import no.nav.etterlatte.mottak.admin.ADMIN_AUTH
+import no.nav.etterlatte.mottak.admin.azureAdminTokenConfig
+import no.nav.etterlatte.mottak.admin.prosesseringAdminApi
 import no.nav.etterlatte.person.personApi
 import no.nav.etterlatte.sak.sak
 import no.nav.etterlatte.soeknad.soknadApi
@@ -34,6 +34,9 @@ import no.nav.security.token.support.v3.tokenValidationSupport
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
+import tools.jackson.databind.DeserializationFeature
+import tools.jackson.databind.cfg.DateTimeFeature
+import tools.jackson.databind.cfg.EnumFeature
 import java.util.Timer
 import java.util.UUID
 import java.util.concurrent.atomic.AtomicBoolean
@@ -53,6 +56,7 @@ fun main() {
                 env = env,
                 builder = {
                     withKtorModule {
+                        soeknadMottak?.prosessering?.installer(this)
                         apiModule(context) {
                             metricsApi()
                             selftestApi()
@@ -63,10 +67,14 @@ fun main() {
                                 soknadApi(soeknadService)
                                 sak(sakService)
                             }
+                            soeknadMottak?.let {
+                                prosesseringAdminApi(it.adminDao, it.konfig.prosesseringRolleGruppe, it.konfig.node)
+                            }
                         }
                     }.build {
                         datasourceBuilder.migrate()
                     }.also { rapidConnection ->
+                        rapid = rapidConnection
                         JournalpostSkrevet(rapidConnection, db)
                         BehandlingOpprettetGjenny(rapidConnection, db)
 
@@ -99,6 +107,12 @@ fun Application.apiModule(
 ) {
     install(Authentication) {
         tokenValidationSupport(config = context.hoconApplicationConfig)
+        context.soeknadMottak?.konfig?.let {
+            tokenValidationSupport(
+                name = ADMIN_AUTH,
+                config = azureAdminTokenConfig(it.azureWellKnownUrl, it.azureClientId),
+            )
+        }
     }
 
     install(ContentNegotiation) {

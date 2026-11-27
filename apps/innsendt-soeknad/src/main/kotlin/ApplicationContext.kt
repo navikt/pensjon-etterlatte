@@ -1,11 +1,12 @@
 package no.nav.etterlatte
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import tools.jackson.databind.DeserializationFeature
+import com.github.navikt.tbd_libs.rapids_and_rivers_api.RapidsConnection
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -22,6 +23,9 @@ import no.nav.etterlatte.kodeverk.KodeverkService
 import no.nav.etterlatte.ktorclientauth.ClientCredentialAuthProvider
 import no.nav.etterlatte.ktortokenexchange.BearerTokenAuthProvider
 import no.nav.etterlatte.ktortokenexchange.TokenSupportSecurityContextMediator
+import no.nav.etterlatte.mottak.KunKafkaMottak
+import no.nav.etterlatte.mottak.MottakKonfig
+import no.nav.etterlatte.mottak.SoeknadMottakKontekst
 import no.nav.etterlatte.pdl.AdressebeskyttelseKlient
 import no.nav.etterlatte.person.PersonKlient
 import no.nav.etterlatte.person.PersonService
@@ -30,6 +34,7 @@ import no.nav.etterlatte.sak.SakKlient
 import no.nav.etterlatte.sak.SakService
 import no.nav.etterlatte.soeknad.SoeknadService
 import soeknad.PostgresSoeknadRepository
+import tools.jackson.databind.DeserializationFeature
 
 class ApplicationContext(
     env: Map<String, String>,
@@ -42,6 +47,15 @@ class ApplicationContext(
 
     val datasourceBuilder: DataSourceBuilder = DataSourceBuilder(System.getenv())
     val db: PostgresSoeknadRepository = PostgresSoeknadRepository.using(datasourceBuilder.dataSource)
+
+    /** Settes når rapiden er bygget, før Ktor og motoren starter. */
+    lateinit var rapid: RapidsConnection
+
+    /** Null når søknadsmottak med prosessering ikke er konfigurert, som i prod. */
+    val soeknadMottak: SoeknadMottakKontekst? =
+        MottakKonfig.fraEnv(env)?.let { konfig ->
+            SoeknadMottakKontekst(konfig, datasourceBuilder.dataSource, db, rapid = { rapid })
+        }
 
     val utkastPubliserer: UtkastPubliserer
 
@@ -78,7 +92,8 @@ class ApplicationContext(
                     )
                 }
 
-        soeknadService = SoeknadService(db, utkastPubliserer, adressebeskyttelseService)
+        soeknadService =
+            SoeknadService(db, utkastPubliserer, adressebeskyttelseService, soeknadMottak?.starter ?: KunKafkaMottak)
 
         kodeverkService =
             kodeverkHttpClient(config)
@@ -138,32 +153,40 @@ class ApplicationContext(
         httpClientClientCredentials(azureAppScope = System.getenv()["PDL_AZURE_SCOPE"]!!)
 }
 
-fun httpClientClientCredentials(azureAppScope: String) =
-    HttpClient(OkHttp) {
-        install(ContentNegotiation) {
-            jackson {
-                disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-                changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
-            }
-        }
-        val env = System.getenv()
-
-        install(Auth) {
-            providers.add(
-                ClientCredentialAuthProvider(
-                    mapOf(
-                        AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to
-                            env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
-                        AzureDefaultEnvVariables.AZURE_APP_JWK.name to
-                            env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
-                        AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to
-                            env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
-                        AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
-                    ),
-                ),
-            )
+fun httpClientClientCredentials(
+    azureAppScope: String,
+    timeoutMillis: Long? = null,
+) = HttpClient(OkHttp) {
+    timeoutMillis?.let {
+        install(HttpTimeout) {
+            requestTimeoutMillis = it
+            socketTimeoutMillis = it
         }
     }
+    install(ContentNegotiation) {
+        jackson {
+            disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            changeDefaultPropertyInclusion { it.withValueInclusion(JsonInclude.Include.NON_NULL) }
+        }
+    }
+    val env = System.getenv()
+
+    install(Auth) {
+        providers.add(
+            ClientCredentialAuthProvider(
+                mapOf(
+                    AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name to
+                        env[AzureDefaultEnvVariables.AZURE_APP_CLIENT_ID.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_JWK.name to
+                        env[AzureDefaultEnvVariables.AZURE_APP_JWK.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name to
+                        env[AzureDefaultEnvVariables.AZURE_APP_WELL_KNOWN_URL.name]!!,
+                    AzureDefaultEnvVariables.AZURE_APP_OUTBOUND_SCOPE.name to azureAppScope,
+                ),
+            ),
+        )
+    }
+}
 
 enum class AzureDefaultEnvVariables {
     AZURE_APP_CLIENT_ID,

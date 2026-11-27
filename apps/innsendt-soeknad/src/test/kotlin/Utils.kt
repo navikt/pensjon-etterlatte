@@ -2,6 +2,7 @@ import com.github.navikt.tbd_libs.rapids_and_rivers.JsonMessage
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageProblems
 import no.nav.etterlatte.mapper
 import soeknad.LagretSoeknad
+import soeknad.Mottaksflyt
 import soeknad.SlettetSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
@@ -35,6 +36,16 @@ class TestRepo : SoeknadRepository {
     val arkiveringFeilet = mutableListOf<SoeknadID>()
     val venterPaaBehandlingDoffen = mutableListOf<SoeknadID>()
     val harBehandlingDoffen = mutableListOf<SoeknadID>()
+
+    val prosesseringsSoeknader = mutableSetOf<SoeknadID>()
+
+    override fun ferdigstillSoeknadForProsessering(
+        soeknad: UlagretSoeknad,
+        iSammeTransaksjon: (java.sql.Connection, SoeknadID) -> Unit,
+    ): SoeknadID = TODO("Not yet implemented")
+
+    override fun mottaksflyt(id: SoeknadID): Mottaksflyt =
+        if (id in prosesseringsSoeknader) Mottaksflyt.PROSESSERING else Mottaksflyt.KAFKA
 
     override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
         TODO("Not yet implemented")

@@ -1,4 +1,3 @@
-import tools.jackson.module.kotlin.jacksonMapperBuilder
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.FailedMessage
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageContext
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.OutgoingMessage
@@ -13,6 +12,7 @@ import soeknad.SlettetSoeknad
 import soeknad.SoeknadID
 import soeknad.SoeknadRepository
 import soeknad.UlagretSoeknad
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 import java.time.Clock
 import java.time.LocalDateTime
 import java.time.Month
@@ -104,6 +104,13 @@ class SoeknadRepositoryNoOp(
     override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID {
         TODO("Not yet implemented")
     }
+
+    override fun ferdigstillSoeknadForProsessering(
+        soeknad: UlagretSoeknad,
+        iSammeTransaksjon: (java.sql.Connection, SoeknadID) -> Unit,
+    ): SoeknadID = TODO("Not yet implemented")
+
+    override fun mottaksflyt(id: SoeknadID) = soeknad.Mottaksflyt.KAFKA
 
     override fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad {
         TODO("Not yet implemented")

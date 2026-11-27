@@ -7,7 +7,9 @@ import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageContext
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.MessageMetadata
 import com.github.navikt.tbd_libs.rapids_and_rivers_api.RapidsConnection
 import io.micrometer.core.instrument.MeterRegistry
+import no.nav.etterlatte.mottak.steg.MOTTAKSFLYT_NOEKKEL
 import org.slf4j.LoggerFactory
+import soeknad.Mottaksflyt
 import soeknad.SoeknadRepository
 import tools.jackson.databind.JsonNode
 import java.time.OffsetDateTime
@@ -21,6 +23,8 @@ internal class JournalpostSkrevet(
     init {
         River(rapidsConnection)
             .apply {
+                // Kompatibilitetseventet fra prosesseringsløpet skal ikke kvitteres her (se FullfoerMottakSteg).
+                precondition { it.forbid(MOTTAKSFLYT_NOEKKEL) }
                 validate { it.rejectValue("@event_name", EventName.TRENGER_BEHANDLING) }
                 validate { it.requireKey("@dokarkivRetur") }
                 validate { it.requireKey("@lagret_soeknad_id") }
@@ -45,6 +49,11 @@ internal class JournalpostSkrevet(
 
         if (erTestSoeknad(packet)) {
             logger.info("Verifiseringssøknad med id ${soeknadId(packet)} lest med dokumentInfoId $dokumentInfoId")
+        } else if (soeknader.mottaksflyt(soeknadIdAsLong(packet)) == Mottaksflyt.PROSESSERING) {
+            logger.warn(
+                "Søknad ${soeknadIdAsLong(packet)} tilhører prosesseringsløpet. Ignorerer kvittering fra Kafka.",
+            )
+            return
         }
 
         val soeknadSkalTilDoffen = packet["soeknadFordelt"].asBoolean()

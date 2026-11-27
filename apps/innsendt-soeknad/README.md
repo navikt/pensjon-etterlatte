@@ -16,6 +16,17 @@ Ved innsending av søknad blir den konvertert til vanlig søknad og videresendt
 | innhold  | Søknadens innhold. **OBS:** Innhold slettes så fort søknad får status `ARKIVERT` |
 | soeknad  | Holder på søknad ID, type og kilde                                               |
 | status   | Tabell som inneholder alle gyldige statuser. Brukes som FK av `hendelse`         |
+| soeknad_mottak | Fremdrift for søknader i prosesseringsløpet: sak, journalpost og oppgave. Ingen fnr |
+| prosessering_task, prosessering_task_hendelse | Tasks og historikk for [efterlatte-prosessering](https://github.com/navikt/efterlatte-prosessering) |
+
+### Mottaksflyt
+
+Ved ferdigstilling lagres `soeknad.mottaksflyt` én gang, og den kan ikke endres:
+
+- `KAFKA`: dagens løp. Søknaden publiseres som `soeknad_innsendt` og kvitteres av Gjenny. Søknader uten verdi er ferdigstilt før feltet fantes og hører hit.
+- `PROSESSERING`: bare utvidet omstillingsstønad, og bare når `SOEKNAD_MOTTAK_PROSESSERING=aktivert` (dev) og Unleash-togglen `pensjon-etterlatte.innsendt-soeknad.utvidet-oms-mottak-prosessering` er på. Søknaden, mottaksdata og første task lagres i samme transaksjon. Tasks henter journalføringskontekst fra Gjenny, journalfører, overleverer til Gjenny og setter til slutt `ARKIVERT`. Feil gir retry og `STOPPET`, aldri Kafka-løpet.
+
+Tasks styres fra [efterlatte-verktoy](https://github.com/navikt/efterlatte-verktoy) via `/api/prosessering/task`, som krever personlig Entra ID-token med operatørgruppen. Se [prosessering.md](../../.github/utvidet-oms/prosessering.md).
 
 ### Status på søknad
 

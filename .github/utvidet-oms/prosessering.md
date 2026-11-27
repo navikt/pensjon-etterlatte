@@ -1,313 +1,276 @@
-# Mottak av utvidet omstillingsstønad via efterlatte-prosessering
+# Mottak av utvidet omstillingsstønad i innsendt-soeknad
 
-Teknisk plan for fase 5 i [veikartet](veikart.md). Søknaden om utvidet omstillingsstønad skal tas imot som en kjede av små tasks i `etterlatte-behandling`. Hver task er idempotent og kan rekjøres, og vi følger og styrer dem fra utviklerdashboardet `efterlatte-verktoy`. Det synkrone mottaket i `NySoeknadRiver` (B4) blir fallback til kjeden er verifisert i dev.
+Teknisk plan for fase 5 i [veikartet](veikart.md). Etter [B12](beslutninger.md#b12--innsendt-soeknad-eier-mottakskjeden) skal `innsendt-soeknad` kjøre mottaket med `efterlatte-prosessering` i sin egen Postgres. Gjenny avgjør sakstilknytning og videre saksbehandling. `efterlatte-verktoy` viser og styrer tasks via appens API.
 
-Beslutningene står i [beslutninger.md](beslutninger.md) som B8–B11. Åpne spørsmål står som Å10–Å12.
+Planen erstatter fra 2026-11-27 kjeden i `etterlatte-behandling` fra B8–B11. Arbeidspakkenumrene beholdes, men 5.6–5.16 har revidert innhold. Tidligere arbeid og beslutninger er historikk, ikke bevis på at den nye flyten er implementert.
 
-| Kortnavn | Repo |
+| Kortnavn | Repo og ansvar |
 |---|---|
-| `lib` | [efterlatte-prosessering](https://github.com/navikt/efterlatte-prosessering): biblioteket (motor, outbox, Postgres) |
-| `sb` | pensjon-etterlatte-saksbehandling (Gjenny) |
-| `pe` | pensjon-etterlatte |
-| `felles` | pensjon-etterlatte-felles |
-| `vt` | [efterlatte-verktoy](https://github.com/navikt/efterlatte-verktoy): dashboardet som viser og styrer tasks |
-
-Ekspertagenter: `../efterlatte-prosessering/.github/agents/efterlatte-prosessering-ekspert.md`, `../efterlatte-verktoy/.github/agents/efterlatte-verktoy-ekspert.md` og `../pensjon-etterlatte-saksbehandling/.github/agents/gjenny-ekspert.md`.
+| `pe` | pensjon-etterlatte: innsendt-soeknad, mottaksdata, tasks og journalføring |
+| `sb` | pensjon-etterlatte-saksbehandling: Gjennys API og faglige håndtering |
+| `felles` | pensjon-etterlatte-felles: søknadskontrakt, PDF-generator og berørte eventkonsumenter |
+| `lib` | efterlatte-prosessering: generell motor, JDBC-transaksjon og retry |
+| `vt` | efterlatte-verktoy: driftsflate over appenes API-er |
 
 ## Valgt omfang
 
-- Hele mottakskjeden flyttes til `etterlatte-behandling`: lagre søknaden (outbox), knytt til sak, journalfør, opprett oppgave og kvitter til innsendt-soeknad.
-- Biblioteket endres først, slik at steg i Gjenny skriver forretningsdata på stegets egen transaksjon. Da committer skrivet atomisk med `FULLFØRT`.
-- Siste steg oppretter en `TILLEGGSINFORMASJON`-oppgave som i B4. Steget byttes til revurdering når Å8 er avklart.
-- Planen gjelder dev. Prod er en egen fase (se «Utenfor omfang»).
-- Mønsteret er generelt, slik at BP- og OMS-søknader kan flyttes over senere uten ny arkitektur.
+- Først utvidet OMS i dev. BP og vanlig OMS følger dagens Kafka-løp.
+- Innsendt-soeknad beholder søknadsinnholdet og mottaksstatusen. Ingen ny kopi av hele søknaden i behandling.
+- Gjenny finner eller oppretter sak og oppretter en `TILLEGGSINFORMASJON`-oppgave som i B4. Å3, Å8 og Å12 er ikke avgjort av arkitekturvalget.
+- Valget mellom gammel og ny flyt lagres per søknad. En task-feil eller endret toggle flytter aldri en påbegynt søknad til en annen flyt.
+- Task-payload er bare `{ soeknadId }`. Metadata kan ha søknadstype og interne referanser, ikke fnr eller søknadsinnhold.
+- Dagens håndtering av ugyldig eller manglende fnr må bevares, inkludert journalføring på ukjent uten automatisk oppgave på en sak.
+- Varsling og andre eventkonsumenter må kartlegges før ny flyt aktiveres. Ingen integrasjon skal falle bort bare fordi Kafka-kvitteringen fjernes.
 
-## Nåsituasjon (oppdatert 2026-11-13)
+## Bekreftet utgangspunkt
 
-| Hva | Status | Kilde |
-|---|---|---|
-| Mottak av utvidet OMS i Gjenny (B4) | Merget 2026-10-27 | sb [#8971](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/8971) |
-| innsendt-soeknad tar imot typen | Merget 2026-10-27 | pe [#2531](https://github.com/navikt/pensjon-etterlatte/pull/2531) |
-| PDF-mal `utvidet_omstillingsstoenad_v1` (1.4) | Merget i felles #640. Prod-manifest for ey-pdfgenrs er merget i #641. Gjenny velger pdfgenrs for utvidet OMS uten toggle, merget i sb #9045. PDF-klienten har allerede samme innhold i main som i det nye biblioteket. | felles `apps/ey-pdfgenrs/templates/eypdfgen/`, sb `PdfgenrsFeatureToggle` |
-| Delt journalføring (5.11) | Nav-32022: sb `4fc07d911` og felles `ee186e90` er pushet og deployet til dev. Utvikleren melder at prøvesøknaden kl. 10.38 ser ut til å ha gått bra gjennom dagens mottak. Behandlingsklientene er lazy og ennå ikke brukt av task-kjeden; dokarkiv-tilgang fra behandling er fortsatt uavklart (Å11). | `libs/etterlatte-soeknad-journalfoering`, `config/modules/{KlientModule,ServiceModule}.kt` |
-| Prosessering i `etterlatte-behandling` | `installProsessering` med `SoeknadMottakSkygge` og `FeilbarDemo` (dev). Admin-API: list, finn, rekjor, avbryt, logg, kommentar og avvik. | `apps/etterlatte-behandling/src/main/kotlin/prosessering/ProsesseringModule.kt` |
-| Bibliotekversjon i Gjenny | `1.20260915130553_bb84d63` | `gradle/libs.versions.toml` |
-| Ekte outbox i Gjenny | Ikke i main. Bare `opprettIEgenTransaksjon` brukes. WIP-hjelperen `opprettPaaAktivBehandlingstransaksjon` ligger på `origin/kristian/prosessering-poc` (commit `9365a06f4`). | |
-| Gjennys `prosessering_task` | V352, V355 (metadata) og V358 (hendelse). Mangler `UNIQUE(type, payload)`, som biblioteket regner som en invariant. Mangler `siste_feilmelding` og `sist_endret_tid`. | `db/migration/V352`, `V355` |
-| Feilmelding i biblioteket | 5.2 er committet og pushet på `utvidet-oms-feilmelding-endringstid` (Nav-31931): `sisteFeilmelding`, `sistEndretTid`, avkorting til 2 000 tegn og oppdatert skjema. Merge til `main` er ikke bekreftet (2026-11-12). Ikke publisert. | `prosessering-postgres/src/main/resources/schema.sql`, `Task`, `markFeilet` |
-| Kjente gap i biblioteket | 5.1 er merget via lib #53: stegets connection er tilgjengelig for vertskode. 5.3 (retry per task-type) er committet og pushet på `utvidet-oms-retry-per-type` (`a7dd092`), men merge og release er ikke kontrollert. Motorstandarden er fortsatt 3 feil med `antallFeil × 100 ms`, altså `STOPPET` etter under ett sekund for steg uten egen policy. Et steg kan ikke sette `MANUELL`. | `README.md`, «Kjente gap» |
-| `etterlatte-behandling-kafka` | Har ingen database og kan ikke kjøre motoren. `NySoeknadRiver` gjør mottaket synkront: sak, PDF (ey-pdfgen), dokarkiv, oppgave via REST, og publiserer `@dokarkivRetur` og `soeknadFordelt=false`. | `brukerdialog/soeknad/NySoeknadRiver.kt` |
-| Kvittering til innsendt-soeknad | `JournalpostSkrevet` krever `@dokarkivRetur` og `@lagret_soeknad_id`, leser `soeknadFordelt` og avviser bare `@event_name=trenger_behandling`. Søknader i status `SENDT` publiseres på nytt hvert 10. minutt i 45 minutter. | pe `apps/innsendt-soeknad/.../JournalpostSkrevet.kt`, `PubliserTilstandJobb.kt` |
-| Rapid-produsent i behandling | Finnes (`ApplicationContext.rapid`). | `config/ApplicationContext.kt` |
-| Transaksjoner i behandling | Trådlokal `Kontekst` med `DatabaseContext(ds)`. `inTransaction` åpner sin egen connection og tillater ikke nøsting. Jobber setter `Kontekst.set(Context(Self(..), DatabaseContext(ds), sakTilgangDao, null))`. | `Contekst.kt`, `common/DatabaseContext.kt` |
-| efterlatte-verktoy | Kjører i dev i `proxy`-modus mot behandling med `apiVariant: "gjenny-logg"`. Tellingene er opptalt fra et vindu på 500 rader. | `bff/src/prosessering/apper.ts` |
+Kode og PR-er er gjennomgått 2026-11-27. Kontroller versjoner, brancher og deployment på nytt før implementering.
 
-## Målbilde
+| Hva | Status og kilde |
+|---|---|
+| Dagens mottak | `NySoeknadRiver` i behandling-kafka finner/oppretter sak, journalfører og oppretter oppgave for utvidet OMS. B4 gjelder fortsatt. |
+| Innsendt-soeknad | Har Postgres, leader election, rapid og Azure client credentials. `Application.kt`, `ApplicationContext.kt`, `DataSourceBuilder.kt` og `.nais/dev.yaml`. Prosessering er ikke koblet inn i den gjennomgåtte kildekoden. |
+| Transaksjoner | `PostgresSoeknadRepository` i `SoeknadDao.kt` bruker separate connections. Ferdigstilling og første task er ikke atomiske uten en endring. |
+| Sletting | `PubliserTilstandJobb` sletter `innhold` når `ARKIVERT` eller `BEHANDLINGLAGRET` finnes. Ny flyt må vente med slike statuser til den kan fullføres uten innholdet. |
+| Gammel republisering | `SELECT_OLD` i `SoeknadDao.kt` undertrykker ny sending når en `SENDT`-hendelse er yngre enn 45 minutter. Jobben sjekker hvert tiende minutt. Dette er ikke en absolutt grense på 45 minutter for alle nye forsøk. |
+| PDF for utvidet OMS | PDF-støtte er merget i sb #9045 og felles #640/#641. Utvidet OMS bruker ey-pdfgenrs uten toggle. |
+| Åpne PR-er | Felles [#642](https://github.com/navikt/pensjon-etterlatte-felles/pull/642) og sb [#9049](https://github.com/navikt/pensjon-etterlatte-saksbehandling/pull/9049) var åpne ved kontroll. Utvikleren vil lukke dem. De er ikke forutsetninger for ny plan. |
+| Eksisterende Gjenny-prosessering | Skygge/demo og admin-API i behandling beholdes. Ingen av disse flyttes eller fjernes som del av nytt søknadsmottak. |
+| Gjenny-grenseflate | Innsendt-soeknad bruker allerede etterlatte-api for sakssjekk. Dagens `har_sak` returnerer bare en boolsk verdi. Journalføringskontekst og idempotent overlevering krever nye kontrakter. |
+| Oppgaver | Dagens separate lesing av referanse og opprettelse er ikke en atomisk idempotensgaranti ved samtidige kall. |
+| Notifikasjoner | `felles/apps/etterlatte-notifikasjoner/.../Notifikasjon.kt` krever `@event_name=soeknad_innsendt` og `@dokarkivRetur`. Et nytt event-navn alene er ikke kompatibelt. |
+| Bibliotek | `1.20261127092401_73059d1` er publisert fra lib-`main` og inneholder 5.1–5.3 (kontrollert mot artefaktene 2026-11-27). |
 
+## Målbilde og ansvarsgrense
+
+```text
+UI → node-server → innsendt-soeknad
+  én lokal transaksjon:
+    søknadsinnhold + FERDIGSTILT + varig flytvalg + første task
+
+innsendt-soeknad, alle task-payloads = { soeknadId }:
+  T1 SoeknadHentJournalfoeringskontekst
+     → etterlatte-api → behandling: finn/opprett sak etter dagens regler
+     ← liten kontrakt med sakId, saktype/tema og journalføringsenhet
+  T2 SoeknadJournalfoer
+     → ey-pdfgenrs + dokarkiv
+     → lagre journalpostreferanser lokalt
+  T3 SoeknadOverleverTilGjenny
+     → etterlatte-api → behandling: håndter journalført søknad
+       én Gjenny-transaksjon: deduplisering + oppgave + lagret resultat
+     ← samme resultat ved retry
+     én lokal transaksjon: overleveringsresultat + FULLFØRT + ARKIVERT
+       nødvendige integrasjonshendelser må være varig sikret før sletting
+
+efterlatte-verktoy → OBO → innsendt-soeknads admin-API → egne task-tabeller
 ```
-utvidet-omstillingsstoenad-ui → node-server → innsendt-soeknad
-   └─ rapid: soeknad_innsendt (type UTVIDET_OMSTILLINGSSTOENAD)
-        └─ NySoeknadRiver (behandling-kafka)
-             ├─ ugyldig fnr → som i dag (journalfør på ukjent)
-             ├─ toggle «prosessering-utvidet-oms-mottak» av → som i dag (B4, fallback)
-             └─ toggle på → POST /api/soeknad/mottak (behandling, kunSystembruker)
-                                └─ inTransaction {                         ← outbox
-                                     mottatt_soeknad INSERT (soeknad_id PK)
-                                     taskProdusent.opprett(activeTx, SoeknadKnyttTilSak)
-                                   }
-behandling (prosessering-motor), payload = { soeknadId } i alle steg:
-  T1 SoeknadKnyttTilSak      finnEllerOpprettSakMedGrunnlag → mottatt_soeknad.sak_id
-  T2 SoeknadJournalfoer      ey-pdfgen + dokarkiv (eksternReferanseId, 409 = finnes) → journalpost
-  T3 SoeknadOpprettOppgave   TILLEGGSINFORMASJON (idempotent på referanse=journalpostId)  [→ revurdering ved Å8]
-  T4 SoeknadKvitter          rapid: @lagret_soeknad_id + @dokarkivRetur + soeknadFordelt=false + sakId
-                                └─ JournalpostSkrevet (innsendt-soeknad) → status ARKIVERT
-efterlatte-verktoy: viser, filtrerer, rekjører og avbryter T1–T4 med sisteFeilmelding og metadata
-```
 
-Hvert steg skriver DB-endringene sine på stegets egen transaksjon, så de committer sammen med `FULLFØRT` og `opprettNesteTask`. Eksterne kall (PDL, pdfgen, dokarkiv og Kafka) kan skje mer enn én gang og må derfor være idempotente.
+Task-navnene er foreslått. Endelige API-stier og DTO-navn avtales i 5.10. Ingen `SoeknadKvitter` tilbake til innsendt-soeknad, ingen `StegKontekst` i behandling og ingen direkte skriving i en annen apps database.
+
+Eksterne kall kan skje flere ganger. Taskens transaksjon gjør bare lokale skriv atomiske. Den gir ingen distribuert transaksjon over HTTP, dokarkiv eller Kafka.
+
+## Implementasjonsstatus 2026-11-27
+
+Implementert lokalt på brancher, uten commit, push eller deployment: pe `utvidet-oms-mottak-prosessering`, sb `utvidet-oms-mottak-innsendt-soeknad`, felles `utvidet-oms-pdfgenrs-innsendt-soeknad` og vt `innsendt-soeknad-prosessering`. Ingenting er verifisert i dev.
+
+**Bibliotek (5.5):** `1.20261127092401_73059d1` er publisert fra lib-`main` (versjonsprefiks `1.`) og inneholder 5.1–5.3. Kildekoden er kontrollert mot artefaktene i GitHub Packages. Versjonen lagrer i tillegg full stacktrace i `prosessering_task_hendelse` ved feil, så unntaksmeldinger må fortsatt holdes fri for fnr. Lokal lib-branch og lib-remote er ikke oppdatert fordi `git fetch` gir 403.
+
+**Gjenny-kontrakt (5.10), via etterlatte-api med rollen `soeknadsmottak`:**
+
+| Sti i etterlatte-api | Inn | Ut | Behandling |
+|---|---|---|---|
+| `POST /api/soeknad/mottak/journalfoeringskontekst` | `soeknadType`, `foedselsnummer?` | `ukjentBruker`, `sakId?`, `sakType`, `tema`, `journalfoerendeEnhet` | `POST /api/soeknadsmottak/journalfoeringskontekst`: ugyldig/manglende fnr gir ukjent bruker på 4808, ellers `finnEllerOpprettSakMedGrunnlag` som i dag |
+| `POST /api/soeknad/mottak/overlevering` | `mottaksnoekkel`, `soeknadType`, `sakId`, `journalpostId`, `dokumentInfoIder` | `mottaksnoekkel`, `sakId`, `journalpostId`, `oppgaveId` | `POST /api/soeknadsmottak/overlevering`: `soeknad_overlevering` (V364) med PK på nøkkelen, skrevet i samme transaksjon som `TILLEGGSINFORMASJON`-oppgaven (kilde `BRUKERDIALOG`, B4-merknad, referanse journalpostId) |
+
+Behandling godtar bare systembruker med `azp_name` lik `etterlatte-api`. `soeknadType` godtar bare `UTVIDET_OMSTILLINGSSTOENAD`; andre verdier gir 400. Samme nøkkel med annet innhold gir 409. Parallelle like kall gir én oppgave: behandling bruker SERIALIZABLE, og taperen kjøres på nytt med eksisterende `withSerializableRetry`. etterlatte-api videreformidler statuskoden, så innsendt-soeknad ser `GjennyAvvisteForespoersel` (4xx) og `GjennyUtilgjengelig` (5xx) som ulike feil.
+
+**Innsendt-soeknad (5.6–5.9, 5.11–5.13):**
+
+- V10 task-skjema, V11 `soeknad.mottaksflyt` (`KAFKA`/`PROSESSERING`, NULL = gammelt løp) med trigger som hindrer endring, og `soeknad_mottak` med fremdrift uten fnr. gcp-V12 gir `cloudsqliamuser` bare lesetilgang.
+- `prosessering-core`/`-postgres` brukes direkte, ikke Ktor-pluginen, fordi pluginen ikke lar oss sette samtidighet. Motor: samtidighet 2, batch 5, poll 2 s. Hikari er uendret (standard 10).
+- Ferdigstilling skjer i én transaksjon med `FOR UPDATE` på kladden. Prosesseringsløpet legger `soeknad_mottak` og T1 på samme connection. Toggle: Unleash `pensjon-etterlatte.innsendt-soeknad.utvidet-oms-mottak-prosessering`, standard av.
+- Hele mottaket er av når `SOEKNAD_MOTTAK_PROSESSERING` ikke er `aktivert` (prod). Da startes verken motor eller admin-API, og alle søknader går til Kafka.
+- Kjeden har fire tasks. T4 `SoeknadFullfoerMottak` er lagt til for å skille Gjenny fra Kafka: den publiserer kompatibilitetseventet og setter `ARKIVERT` sammen med `FULLFØRT`.
+- Kompatibilitetseventet er `soeknad_innsendt` med `@dokarkivRetur`, `@lagret_soeknad_id`, `@fnr_soeker`, `soeknadFordelt=false`, `sakId` og markøren `@mottaksflyt=PROSESSERING`. `@skjema_info` har bare `type` og innsenders fnr, som er det etterlatte-notifikasjoner leser. Det bevarer dagens SMS-beskjed (varselId er deterministisk per søknad). `NySoeknadRiver` ignorerer eventet fordi `@dokarkivRetur` finnes. `SoeknadSkyggeRiver` reagerer som på dagens returmelding, men klarer ikke å lese det minimale skjemaet og logger en feil når skyggetogglen er på.
+- `JournalpostSkrevet` og `BehandlingOpprettetGjenny` ignorerer søknader i prosesseringsløpet, både på markøren og med databaseoppslag. `SELECT_OLD`, `SELECT_OLD_NO_BEHANDLING` og `SLETT_UTGAATTE_KLADDER` utelater dem.
+- Ukjent bruker: T2 journalfører uten bruker og sak og uten `forsoekFerdigstill`, og T3 kaller ikke Gjenny (B4).
+- Admin-API: hele vt-kontrakten under `/api/prosessering/task` bak egen Azure-provider. Krever `NAVident` og gruppa i `PROSESSERING_ROLLE_GROUPID`.
+
+**Tester:** pe 138 (14 for mottaket, 5 for admin-API), behandling 9, etterlatte-api 1 ny rutetest, vt typecheck, bygg og 23 tester. Se loggen i veikartet.
+
+**Kjente gap:** `checkLicense` feiler lokalt på 78 ktor-/kotlin-moduler som også finnes i det uendrede selvbetjening-backend. Bibliotekets to moduler er lagt i unntakslista på samme måte som rapids-and-rivers. Om CI passerer er ikke kontrollert. Opprydding av `soeknad_mottak`, tasks og operatørlogg etter fullføring (Å10) er ikke implementert. Metrikker (5.15) er ikke laget.
 
 ## Arbeidspakker
 
-Nummerert som fase 5 i veikartet.
-
 ### 5.0 Dokumentasjon (`pe`, `sb`, `lib`, `vt`)
 
-Denne fila, fase 5 i veikartet, B8–B11 og Å10–Å12, kilder i agenten og pekere i de andre repoene. Ferdig når PR-ene er merget.
+Oppdater B12, fase 5, denne planen og direkte pekere i de andre repoene. Behold historikk om B8–B11 og de to PR-ene. Dokumentasjonen for mottaket blir i pe. Implementering og deployment i ny app gjenstår.
 
-### 5.1 L1: Stegets connection tilgjengelig for vertskode (`lib`)
+### 5.1 L1: Stegets connection tilgjengelig for appkode (`lib`)
 
-Lukker gap 3 i bibliotekets «Kjente gap».
-
-- `prosessering-postgres/.../JdbcTransaksjon.kt`: `internal val connection` blir `val connection`. Behold KDoc-regelen om at verten aldri committer, ruller tilbake eller lukker connectionen.
-- Legg til en hjelper i `postgres`: `fun Transaksjon.jdbcConnection(): Connection = (this as? JdbcTransaksjon)?.connection ?: error(...)`.
-- Test i `KjedeOgStegTransaksjonTest`: Et steg utenfor pakken skriver en forretningsrad på `kontekst.transaksjon.jdbcConnection()`. Kaster steget, ruller både raden og `FULLFØRT` tilbake. Lykkes det, committer begge.
-- Oppdater README («Kjente gap», «Transaksjoner og kjeder») og `03-outbox-api.md`.
+Behold den generelle støtten med `JdbcTransaksjon.connection` og `jdbcConnection()`. Tidligere bekreftet merget i lib #53. Innsendt-soeknads DAO-er må kunne bruke denne connectionen uten å åpne, lukke, committe eller rulle tilbake motorens transaksjon. Ikke innfør Gjennys trådlokale `Kontekst` her.
 
 ### 5.2 L2: Siste feilmelding og siste endring (`lib`)
 
-Favro: [Nav-31931](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-31931).
-Committet og pushet på `utvidet-oms-feilmelding-endringstid` 2026-11-10, inkludert merge med `main`. Merge til `main` i lib er ikke bekreftet per 2026-11-12.
-
-Gjør at en `STOPPET` task forklarer seg selv i verktøyet.
-
-- `schema.sql`: `siste_feilmelding TEXT` og `sist_endret_tid TIMESTAMPTZ NOT NULL DEFAULT now()`.
-- `Task`: `sisteFeilmelding: String?` og `sistEndretTid: Instant`.
-- `TaskRepository.markFeilet(..., feilmelding: String?)`. Motoren sender `"${e::class.simpleName}: ${e.message}"`, avkortet til 2 000 tegn. Stack trace hører hjemme i loggen. Manglende registrert steg gir også en forklarende feilmelding.
-- `PostgresTaskRepository`: Alle UPDATE-er setter `sist_endret_tid = now()`. `markerFullført` og rekjøring nullstiller ikke feilmeldingen, fordi den beskriver siste feil og statusen viser at tasken er ferdig.
-- Unntaksmeldinger kan inneholde fnr. Dokumenter at vertene ikke skal legge personopplysninger i unntaksmeldinger. Verktøyet maskerer ikke dette feltet.
-- Test i `FeilOgRetryTest`. Vertene trenger en migrering, så skriv det i release-notatet.
-- Ved oppgradering må verten legge til begge kolonnene før ny bibliotekversjon tas i bruk. Eksisterende rader får migreringstidspunktet som `sist_endret_tid`. Egne admin-oppdateringer må sette endringstiden og beholde siste feilmelding. Migreringen og API-endringene er beskrevet i bibliotekets README.
+Nav-31931. Verifiser merge og release av `sisteFeilmelding`, `sistEndretTid` og oppdatert skjema. Motoren skal lagre siste feil og avkorte meldingen som beskrevet i bibliotekets README. Appen holder fnr og søknadsinnhold utenfor feilmeldinger.
 
 ### 5.3 L3: Retry per task-type (`lib`)
 
-Lukker gap 1. Bør være på plass før kjeden kjører mot ekte dokarkiv i dev.
-
-Implementert 2026-11-12 og bekreftet committet og pushet til `origin/utvidet-oms-retry-per-type` (`a7dd092`) 2026-11-13. Branchen bygger på 5.2 og må merges etter den. Favro-kort mangler. PR-, merge- og release-status kan ikke kontrolleres fordi øktens GitHub-tilgang er blokkert.
-
-- `class RetryPolicy(val maxAntallFeil: Int, val backoff: (antallFeil: Int) -> Duration)` i `core`. `maxAntallFeil` må være minst 1. Vanlig klasse, ikke `data class`, fordi likhet mellom lambdaer ikke gir mening.
-- `TaskStep` får `val retry: RetryPolicy? get() = null`, der `null` betyr motorstandard. `taskSteg(type, retry = …)` tar valgfri policy.
-- `ProcessingEngine` bruker `steg.retry ?: standard` for steget som feilet. `maxAntallFeil` og `backoff` i konstruktøren er uendret og blir standarden, så eksisterende steg, Ktor-pluginen og `efterlatte-prosessering.max-antall-feil` i Spring oppfører seg som før.
-- Policyen leses når feilen skjer. En endret policy gjelder derfor også tasks som allerede står i kø. Motoren nullstiller ikke `antallFeil`; vertens rekjøring avgjør det.
-- Transaksjonsreglene er uendret: feilen registreres fortsatt i en egen transaksjon etter rollback, og `siste_feilmelding` fra 5.2 lagres som før.
-- Ingen Gjenny-regler i biblioteket. Gjenny setter policy på egne steg i 5.12, for eksempel 6 feil med eksponentiell backoff (30 s, 1 m, 2 m, 4 m, 8 m) for T2 og T4: `RetryPolicy(maxAntallFeil = 6) { 30.seconds * (1 shl (it - 1)) }`. T1 og T3 bruker standard.
-- Test i `FeilOgRetryTest`: tre steg i samme motor. Ett med 2 feil som maks, ett med 30 s backoff og ett uten policy (motorstandard 4). Testen sjekker antall forsøk, at siste feil gir `STOPPET` uten nytt backoff, og at neste `triggerTid` er 30 s etter første feil.
+Verifiser merge og release av `TaskStep.retry`/`RetryPolicy`. Sett eksplisitt policy for alle nye mottakssteg som gjør HTTP-kall. Utgangspunkt i dev: seks forsøk med 30 s, 1 m, 2 m, 4 m og 8 m mellom feil. Skille mellom ugyldig kontrakt og midlertidig utilgjengelighet skal være synlig, ikke skjules som tomme svar.
 
 ### 5.4 L4: `MANUELL` fra et steg (`lib`, valgfri)
 
-Lukker gap 2. Tas bare hvis Å12 lander på at T1 skal stoppe for manuell oppfølging.
-
-- `class StoppForManuellOppfoelging(melding: String) : RuntimeException`. Motoren går rett til `STOPPET/MANUELL` uten nye forsøk og lagrer meldingen som `siste_feilmelding`.
+Bare nødvendig hvis en senere faglig avklaring krever egen manuell stoppårsak. Ikke gjør mottaksflyttingen avhengig av dette. Dagens oppførsel ved manglende sak beholdes inntil Å12 endres.
 
 ### 5.5 Release av biblioteket (`lib`)
 
-Publiser til GitHub Packages og bump i `sb`.
+Finn en publisert versjon med 5.1–5.3 og verifiser artefaktene i GitHub Packages. Publiser bare hvis nødvendige endringer ikke allerede er releaset. Ingen Gjenny-domeneavhengigheter i biblioteket.
 
-### 5.6 G1: Bump og migrering (`sb`)
+### 5.6 P1: Prosessering og skjema i innsendt-soeknad (`pe`)
 
-- Ny `prosessering-version` i `gradle/libs.versions.toml`.
-- Ny migrering med neste ledige nummer (siste er V358):
+Erstatter den tidligere Gjenny-bumpen.
 
-  ```sql
-  ALTER TABLE public.prosessering_task
-      ADD COLUMN IF NOT EXISTS siste_feilmelding TEXT,
-      ADD COLUMN IF NOT EXISTS sist_endret_tid TIMESTAMPTZ NOT NULL DEFAULT now();
-  ALTER TABLE public.prosessering_task
-      ADD CONSTRAINT uq_prosessering_task_type_payload UNIQUE (type, payload);
-  ```
+- Legg til `prosessering-ktor` og `prosessering-postgres` med verifisert versjon i repoets versjonskatalog.
+- Lag nye Flyway-migreringer fra bibliotekets skjema, inkludert `UNIQUE(type, payload)`, feilmelding, endringstid, metadata og operatørlogg. Ikke endre kjørte migreringer.
+- Bruk appens eksisterende database og DataSource. Eget skjema er mulig, med eksplisitte grants. Ikke kopier Gjennys migreringsnumre.
+- Sett eksplisitt Hikari-pool og lav `maxSamtidighet` med plass til API og jobbene. Utgangspunkt i dev er pool 5 og motor-samtidighet 2, som må vurderes mot lasten.
+- Koble motor/reaper til appens Ktor-livssyklus etter migrering, med kontrollert shutdown.
+- Toggle av og manglende dev-spesifikk journalføringskonfigurasjon må ikke hindre dagens prod-oppstart.
 
-- Kjør `SELECT type, payload, count(*) FROM prosessering_task GROUP BY 1, 2 HAVING count(*) > 1` i dev og prod før merge. `SoeknadSkyggeDao` dedupliserer skyggetaskene, og `FeilbarDemo` har tilfeldig `demoId`, så vi forventer ingen treff. Finnes det duplikater, rydd dem i en egen migrering først.
+### 5.7 P2: Atomisk ferdigstilling og varig flytvalg (`pe`)
 
-### 5.7 G2: Kontekst for steg (`sb`)
+Erstatter Gjennys `StegKontekst`.
 
-Ny fil `prosessering/StegKontekst.kt` i behandling:
+- Gjør repositoryet connection-bevisst. Søknadsinnhold, ferdigstillingsstatus, type/kilde, flytvalg og T1 skal committe eller rulle tilbake sammen for søknaden.
+- Lagre mottaksflyt én gang per søknad, for eksempel `KAFKA` eller `PROSESSERING`. Bare utvidet OMS er aktuell for ny flyt.
+- Nye søknader velger ny flyt bare når dev-aktivering er på. Eksisterende innsendte søknader tilhører gammelt løp, med mindre de migreres kontrollert i en separat oppgave.
+- Hindre duplikatstart med atomisk kontroll og DB-constraint. Ikke fang en UNIQUE-feil og fortsett å skrive i en allerede feilet Postgres-transaksjon.
+- Alle task-skriv bruker stegets connection. Bevar kladd, adressebeskyttelse, Min side-utkast og øvrige søknadstyper.
 
-```kotlin
-/** DatabaseKontekst bundet til stegets transaksjon. Motoren eier commit og rollback. */
-class StegDatabaseKontekst(private val connection: Connection) : DatabaseKontekst {
-    override fun activeTx(): Connection = connection
-    override fun harIntransaction(): Boolean = true
-    override fun <T> inTransaction(block: () -> T): T = block()
-}
+### 5.8 P3: Admin-API i innsendt-soeknad (`pe`)
 
-fun <P : Any, R> TaskKontekst<P>.medBehandlingKontekst(sakTilgangDao: SakTilgangDao, block: () -> R): R {
-    Kontekst.set(Context(Self("prosessering:${task.type}"), StegDatabaseKontekst(transaksjon.jdbcConnection()), sakTilgangDao, null))
-    try { return block() } finally { Kontekst.remove() }
-}
-```
+Erstatter utvidelsen av Gjennys admin-API som krav for dette mottaket.
 
-- `Kontekst.remove()` må ligge i `finally`. Motoren kjører på `Dispatchers.IO`, og en `Kontekst` som blir liggende igjen lekker til neste task.
-- Sjekk at tjenestene stegene bruker (`SakService`, `OppgaveService`) ikke åpner sin egen `DatabaseContext`. Søk etter `DatabaseContext(` utenfor `config/` og jobbene.
-- Ta med outbox-hjelperen fra PoC-branchen i samme fil: `taskProdusent.opprett(JdbcTransaksjon(databaseContext().activeTx()), ...)`.
-- Test: Et steg skriver via en eksisterende DAO med `inTransaction` og kaster. Både raden og `FULLFØRT` ruller tilbake.
+- Lever eksisterende `vt`-kontrakt for liste, detalj, typer, eksakte tellinger, logg, rekjør, avbryt, kommentar og avvik.
+- Bruk Entra ID/OBO og riktig operatørgruppe. Appen må selv validere tilgang. Innbyggertokens og maskintokens skal ikke gi operatørtilgang.
+- Bruk optimistisk versjon, bibliotekets statusmaskin og operatørlogg. Eksponer feilmelding, endringstid og metadata uten fødselsnummer.
+- Ingen ny felles `prosessering-api`-modul er en forutsetning. Gjenbruk eksisterende mønstre der de passer.
 
-### 5.8 G3: Admin-API-et gir feltene verktøyet mangler (`sb`)
+### 5.9 P4: Lokal fremdrift og sletting (`pe`)
 
-- `ProsesseringAdminDao.tilTask()` mapper `sisteFeilmelding`, `sistEndretTid` og `metadata`. `metadata` finnes allerede som kolonne, men mappes ikke.
-- `GET /api/prosessering/task/status-oversikt` med alle fem statuser, også de med `0`. En `STOPPET` søknad skal ikke forsvinne utenfor vinduet på 500 rader.
+Erstatter `mottatt_soeknad` i behandling.
 
-### 5.9 G4: Tabellen `mottatt_soeknad` (`sb`)
+- Bruk eksisterende `innhold` for søknaden. Legg bare til nødvendig fremdrift: flytvalg, journalføringskontekst, journalpost-/dokumentreferanser og overleveringsresultat.
+- Bestem konkret lagringsform ut fra repoets mønstre. Unngå en ny kopi av hele søknaden og unngå at personopplysninger kopieres til task-payload.
+- Ikke sett `ARKIVERT` eller `BEHANDLINGLAGRET` for ny flyt før Gjenny har bekreftet mottaket og nødvendige integrasjonshendelser er varig sikret. Journalpost kan finnes mens mottaket fortsatt er uferdig.
+- La gammel kvitteringsriver ignorere søknader eid av ny flyt, slik at et kompatibilitetsevent ikke utløser tidlig sletting eller `trenger_behandling`.
+- Avklar opprydding av den nye konteksten og referansene i Å10. Ferdige tasks må ikke kunne rekjøres med slettet nødvendig innhold. Avbrudd etter journalføring må gi et tydelig avvik og manuell oppfølging, ikke falsk fullføring.
 
-```sql
-CREATE TABLE mottatt_soeknad (
-    soeknad_id          BIGINT PRIMARY KEY,      -- @lagret_soeknad_id fra innsendt-soeknad
-    soeknad_type        TEXT NOT NULL,           -- SoeknadType
-    fnr                 TEXT NOT NULL,
-    soeknad             JSONB NOT NULL,          -- InnsendtSoeknad (skjema_info)
-    template            TEXT NOT NULL,           -- PDF-mal fra eventet
-    hendelse_gyldig_til TIMESTAMPTZ,
-    sak_id              BIGINT,                  -- settes av T1
-    journalpost         JSONB,                   -- OpprettJournalpostResponse, settes av T2
-    mottatt_tid         TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-```
+### 5.10 G1: Gjenny-kontrakter og atomisk overlevering (`sb`, eventuelt `felles`)
 
-- `MottattSoeknadDao` med `lagreHvisNy(): Boolean` (`ON CONFLICT DO NOTHING`), `hent(soeknadId)`, `settSak` og `settJournalpost`.
-- Ingen `GRANT ... TO PUBLIC`. Tabellen har fnr og søknadsinnhold.
-- Sletteregel: se Å10.
+Erstatter det planlagte mottaket av hele søknaden i behandling.
 
-### 5.10 G5: Mottaksendepunktet (`sb`)
+- Bruk etterlatte-api som grenseflate fra innsendt-soeknad og behandling som eier av faglogikken. API-et skal ikke eie dedupliseringsdata eller gjøre faglige valg.
+- Avtal en liten journalføringskontekstkontrakt. Gjenny avgjør riktig sak og enhet. Innsendt-soeknad skal ikke importere `Sak`, `Enheter` eller saksbehandling-common.
+- Avtal overlevering med stabil nøkkel, søknadstype, sakId, journalpostId og nødvendige dokumentreferanser. Ikke ta inn hele søknaden uten et dokumentert behov.
+- Behandling lagrer nøkkel og resultat i samme transaksjon som oppgaven. Retry, parallelle kall og tapt HTTP-svar skal gi samme oppgave/resultat. Samme nøkkel med annet innhold avvises tydelig.
+- Gjenny oppretter oppgavetype, kilde og merknad som i B4. Det nåværende `opprett-jfr-oppgave` er ikke riktig kontrakt: det lager `JOURNALFOERING` med kilde `EESSI`.
+- Bruk Azure client credentials, egne smale rettigheter og eksplisitte nettverksregler mellom appene. Ingen brukerkontekst finnes i bakgrunnssteget.
+- Bevar B4 ved ugyldig fnr/journalføring på ukjent. Endringer i reglene for manglende OMS-sak krever avklaring av Å12, ikke et valg i innsendt-soeknad.
 
-`POST /api/soeknad/mottak` i behandling, `kunSystembruker`. Kroppen er `{ soeknadId, fnrSoeker, soeknadType, template, hendelseGyldigTil, soeknad }`.
+<a id="511-g6-journalføring-i-behandling-sb-felles"></a>
 
-- Svar `400` hvis `soeknadType` ikke er `UTVIDET_OMSTILLINGSSTOENAD` (B10).
-- Lagre søknaden og opprett T1 i samme transaksjon:
+### 5.11 P5: Journalføring i innsendt-soeknad (`pe`, `felles`)
 
-  ```kotlin
-  inTransaction {
-      if (mottattSoeknadDao.lagreHvisNy(...)) {
-          taskProdusent.opprettPaaAktivBehandlingstransaksjon(
-              type = SoeknadKnyttTilSak,
-              payload = SoeknadPayload(soeknadId),
-              metadata = mapOf("soeknadId" to "$soeknadId", "soeknadType" to type.name),
-          )
-          // 201 Created
-      } else {
-          // 200 OK: innsendt-soeknad publiserer på nytt hvert 10. minutt, så duplikater er normalt
-      }
-  }
-  ```
+Erstatter arbeidet i sb #9049 og felles #642 (Nav-32022). Lenkeankeret til gammel 5.11 beholdes for PR-historikken.
 
-- Tester: Rollback gir verken søknad eller task. To like kall gir én søknad og én task.
+- Bruk eksisterende journalføringskode som referanse for PDF, original JSON, titler, tema, enhet, ukjent bruker og dokumentvarianter. Behold dagens eksterne idempotensnøkkel `etterlatte:<saktype>:<soeknadId>`.
+- Legg nødvendig implementasjon i innsendt-soeknad med en liten journalføringskontekst, uten avhengighet til Gjennys `Sak`/`Enheter`. Ikke publiser et generelt journalføringsbibliotek eller kopier hele Gjenny-moduler for å løse flyttingen.
+- Utvidet OMS bruker `utvidet_omstillingsstoenad_v1` i ey-pdfgenrs uten toggle. Ikke legg inn automatisk fallback eller tilgang til ey-pdfgen uten behov.
+- Gi innsendt-soeknad dev-tilgang til PDF-generatoren og dokarkiv, inkludert godkjent Azure-klient hos dokarkiv. Åpne regler hos begge parter.
+- Bevar håndtering av `409 Conflict` og eksisterende journalpost. Eksponer feil til motoren, med sikker feilmelding og bevart årsak. Ikke viderefør en `null`-retur som skjuler årsaken til retry.
+- Dagens journalføring i behandling-kafka blir stående for gammelt løp og andre søknadstyper. Ingen journalføringsklienter legges til i behandling.
 
-### 5.11 G6: Journalføring i behandling (`sb`, `felles`)
+### 5.12 P6: Task-kjeden (`pe`)
 
-Favro: [Nav-32022](https://favro.com/organization/98c34fb974ce445eac854de0/a64c6aad9b0d61ef6c0290bd?card=Nav-32022).
+- **T1 `SoeknadHentJournalfoeringskontekst`:** Hent kontekst fra Gjenny etter dagens regler, lagre den lokalt og opprett T2 på samme transaksjon. Behandle ukjent søker som egen eksplisitt gren.
+- **T2 `SoeknadJournalfoer`:** Bruk eksisterende lagret journalpost hvis den finnes. Ellers generer PDF/original JSON og kall dokarkiv. Lagre referansene og opprett T3 atomisk.
+- **T3 `SoeknadOverleverTilGjenny`:** Overlever til Gjennys idempotente mottak. Lagre resultat og sett `ARKIVERT` atomisk med `FULLFØRT` når alle fullføringskrav er møtt. For ukjent søker følges B4 uten oppgave på en sak.
+- Hvert steg sjekker at søknaden tilhører ny flyt. Eksterne kall skjer før lokale skriv der det er mulig, men motoren holder fortsatt en connection gjennom steget.
+- Tapt svar etter journalføring eller oppgaveopprettelse skal være trygt å prøve igjen. Ingen Kafka-kvittering til innsendt-soeknad.
 
-Committet, pushet og deployet til dev 2026-11-13. Sb-branchen er `utvidet-oms-felles-journalfoering` (`4fc07d911`), felles-branchen er `utvidet-oms-journalfoering-tilgang` (`ee186e90`). Ingen PR-er er opprettet. PDF-støtten er allerede merget i sb #9045 og felles #640; den er ikke ny funksjonalitet i 5.11.
+### 5.13 P7: Ruting og integrasjonskompatibilitet (`pe`, eventuelt `felles`)
 
-- `JournalfoerSoeknadService`, `DokarkivKlient` og `PdfGeneratorKlient` ligger nå i `libs/etterlatte-soeknad-journalfoering`. Begge appene bruker biblioteket. Pakkenavnene er beholdt, så riverne og tjenesten for meldt inn endring slipper nye importer. `DokarkivKlient.opprettJournalpost` er offentlig, siden meldt inn endring fortsatt ligger i Kafka-appen.
-- `KlientModule`, `ServiceModule` og `ApplicationContext` i behandling gjør journalføringen tilgjengelig for den kommende T2-tasken. Klienter og service opprettes først når de brukes. Manglende journalføringskonfigurasjon påvirker derfor ikke dagens oppstart eller prod, og ingen ny mottaksflyt er aktivert.
-- `etterlatte-behandling/.nais/dev.yaml` har `PDFGEN_URL`, `PDFGENRS_URL`, `DOKARKIV_URL`, `DOKARKIV_SCOPE` og nettverkstilgang til begge PDF-generatorene og `dokarkiv-q2.dev-fss-pub.nais.io`. Begge PDF-generatorene i felles har behandling i `inbound.rules` for dev.
-- Utvidet OMS bruker `ey-pdfgenrs` uten toggle, som i utviklerens PDF-endring. Andre maler beholder eksisterende toggles. Det er ingen automatisk fallback mellom generatorene ved feil.
-- Dokarkiv-klienten bruker client credentials og `forventSuksess = false`, slik at `409 Conflict` på `eksternReferanseId` fortsatt kan gi den eksisterende journalposten. Nye tester dekker `201`, `409`, feil fra dokarkiv og journalføring uten ferdigstilling. Eksisterende PDF- og river-tester kjøres fra Kafka-appen.
-- Dev-deployment av begge Gjenny-appene og begge PDF-generatorene er bekreftet i Actions. Prøvesøknaden tester dagens Kafka-mottak, ikke journalføring fra behandling. Det gjenstår å bekrefte at dokarkiv godtar behandlingens Azure-klient (Å11).
-- Merge til main trigger prod-deploy av begge Gjenny-appene. Biblioteket blir da en del av dagens journalføringsløp, men task-kjeden aktiveres ikke. Felles-PR-en endrer bare dev-tilganger; workflowene bygger og deployer likevel begge PDF-generatorene til prod. Prod-manifestene er uendret i begge PR-ene.
+Erstatter togglen og videresendingen i `NySoeknadRiver`.
 
-### 5.12 G7: Task-stegene (`sb`)
+- `PubliserTilstandJobb`, `SoeknadPubliserer` og eventuelle reparasjonsjobber sender bare Kafka-eide søknader til gammelt løp. Nye tasks drives av motoren, ikke av republiseringsjobben.
+- En feil i T1–T3 gir retry/`STOPPET`, aldri ny innsending til `NySoeknadRiver`. Toggle av stanser ny tildeling, men skifter ikke eier for eksisterende mottak.
+- Kartlegg alle konsumenter av dagens innsendt-/journalføringsmeldinger, særlig notifikasjoner. Bevar nødvendig oppførsel med en eksplisitt eventkontrakt og varig publisering før innhold slettes. Unngå å starte gammel saksbehandling eller kvitteringshåndtering via kompatibilitetsevents.
+- Varslingsbehovet for utvidet OMS er fortsatt Å9. Bekreft dagens oppførsel og dokumenter hva som faktisk skal videreføres før aktivering. Nytt varslingsprodukt og prod-lansering er utenfor fasen.
 
-Ny pakke `prosessering/soeknad/` i behandling. `data class SoeknadPayload(val soeknadId: Long)` og fire `TaskType` som serialiseres med `objectMapper`, som `SoeknadMottakSkygge`. Alle steg kjører i `medBehandlingKontekst { … }` og gjør det trege eksterne kallet før DB-skrivet.
+### 5.14 V1: Innsendt-soeknad i dashboardet (`vt`, `pe`)
 
-- **T1 `SoeknadKnyttTilSak`:** Hvis `sak_id` mangler, kall `sakService.finnEllerOpprettSakMedGrunnlag(fnr, OMSTILLINGSSTOENAD)` og `settSak`. Opprett T2 med metadata og `sakId`. Sjekk sideeffektene i `finnEllerOpprettSakMedGrunnlag` (PDL, skjerming, enhet, Kafka) og om de tåler å kjøre mer enn én gang.
-- **T2 `SoeknadJournalfoer`:** Hvis `journalpost` mangler, kall `journalfoerSoeknadService.opprettJournalpost(soeknadId, sak, soeknad)` og `settJournalpost`. Kast med en tydelig melding hvis svaret er `null`, så tasken prøves på nytt. Opprett T3 med `journalpostId`.
-- **T3 `SoeknadOpprettOppgave`:** `when (soeknadType)`. For `UTVIDET_OMSTILLINGSSTOENAD`: Hvis `oppgaveService.hentOppgaverForReferanse(journalpostId)` er tom, kall `opprettOppgave(referanse = journalpostId, sakId, kilde = BRUKERDIALOG, type = TILLEGGSINFORMASJON, merknad = "Søknad om utvidet omstillingsstønad mottatt. Søknaden må behandles manuelt.")`. Opprett T4. Når Å8 er avklart, kommer revurderingen som en ny task-type, så gamle tasks fortsatt kan kjøres.
-- **T4 `SoeknadKvitter`:** Publiser på rapid med `key = "$soeknadId"`, `@event_name = "soeknad_journalfoert"`, `@lagret_soeknad_id`, `@dokarkivRetur`, `soeknadFordelt = false`, `sakId`, `@hendelse_gyldig_til` og `@correlation_id`. Et eget event-navn gjør at ingen søknadsriver plukker meldingen. `JournalpostSkrevet` tåler duplikater. Sjekk med grep i `sb` og `pe` at ingen andre rivers krever `@dokarkivRetur` uten event-filter.
-- Registrer stegene i `installProsessering` sammen med skygge og demo.
-- Tester: Én enhetstest per steg som viser at to kjøringer gir én effekt. Én DB-test for hele kjeden med stub for dokarkiv og pdfgen og en fake `KafkaProdusent`.
+- Registrer innsendt-soeknad som egen app i `bff/src/prosessering/apper.ts`, med riktig API-variant, URL, namespace og OBO-scope.
+- Legg til dev-nettverkstilgang, mock-profil og de nye task-typene. Behold Gjenny som egen app.
+- Vis eksakte tellinger, siste feil, endringstid, metadata og operatørlogg fra det nye API-et.
+- Verifiser avslag uten riktig rolle, vellykket OBO-kall og rekjøring mot ekte app i dev.
 
-### 5.13 G8: Ruting i `NySoeknadRiver` (`sb`)
+### 5.15 V2: Drift og observerbarhet (`vt`, `pe`, `sb`)
 
-- Ny toggle `prosessering-utvidet-oms-mottak` i samme stil som `ProsesseringSkyggeToggle`. Standard er av.
-- Etter fnr-sjekken: Er typen `UTVIDET_OMSTILLINGSSTOENAD` og togglen på, kall `behandlingKlient.mottaSoeknad(request)` og returner uten å publisere. T4 sender kvitteringen. Ved feil logger vi og returnerer, så innsendt-soeknad prøver igjen om 10 minutter.
-- Med togglen av går B4-løpet som i dag.
-- `BehandlingClient.mottaSoeknad` kaller `/api/soeknad/mottak` med client credentials, som `opprettSoeknadSkyggeTask`.
-- `NySoeknadRiverTest`: Med togglen på kalles mottaket, og riveren verken journalfører, oppretter oppgave eller publiserer.
-
-### 5.14 V1: Feltene vises i verktøyet (`vt`)
-
-- `bff/src/prosessering/gjennyKilde.ts` sender `sisteFeilmelding`, `sistEndretTid` og `metadata` videre når de finnes. I dag fyller den inn `null` og tom map.
-- Når G3 leverer `status-oversikt`: ny `apiVariant` (for eksempel `gjenny-tellinger`) med `noyaktigeTall: true`, og `etterlatte-behandling` flyttes dit i `apper.ts`.
-- Mock: `typer` for `etterlatte-behandling` får `SoeknadKnyttTilSak`, `SoeknadJournalfoer`, `SoeknadOpprettOppgave` og `SoeknadKvitter`, og én `STOPPET` task med en realistisk feilmelding.
-- Sjekk med `npm run typecheck` og `npm run build`.
-
-### 5.15 V2: Driftsrutine for søknadsmottaket (`vt`)
-
-Beskriv kjeden T1–T4 i verktøyets dokumentasjon: hva `STOPPET` betyr per steg, og hva operatøren gjør.
-
-- Rekjør er alltid trygt, fordi stegene er idempotente.
-- Bruk avbryt og avvik når søknaden håndteres manuelt.
-- Avbryt aldri T4 uten å kvittere manuelt. Ellers blir søknaden stående som `SENDT` i innsendt-soeknad.
+- Beskriv feil i T1, T2 og T3, tapt HTTP-svar, pod-død og avbrudd etter journalføring. Operatøren skal se hvilket system som har ansvar for neste handling.
+- Rekjøring skal være idempotent. Avbryt er ikke det samme som at en søknad er ferdig mottatt. Beskriv manuell overlevering og avvik uten å slette spor.
+- Mål antall og alder for uferdige mottak, `STOPPET` per type og venting på Gjenny/dokarkiv. Bruk lavkardinalitetsetiketter uten søknads-id/fnr.
+- Avtal terskler og ansvar før prod. Kontroller også connection-pool, kjøringstid og siste fullførte mottak i dev.
 
 ### 5.16 Ende-til-ende i dev (alle)
 
-1. Deploy biblioteket, Gjenny (G1–G8) og verktøyet (V1).
-2. Slå på `prosessering-utvidet-oms-mottak` i Unleash for dev.
-3. Send inn en utvidet OMS-søknad fra `utvidet-omstillingsstoenad-ui` eller testdata.
-4. Fremprovoser en kontrollert feil i PDF-kallet i dev. T2 skal ende i `STOPPET` med en tydelig feilmelding i verktøyet. Ingen oppgave og ingen kvittering.
-5. Fjern feilårsaken og bekreft at PDF-malen (1.4) er deployet i ey-pdfgenrs. Trykk «Rekjør» på T2. T2, T3 og T4 skal gå til `FULLFØRT`. Oppgaven skal finnes i Gjenny, og søknaden skal ha status `ARKIVERT` i innsendt-soeknad.
-6. Send samme event på nytt, eller vent på republiseringen etter 10 minutter. Det skal fortsatt være én `mottatt_soeknad`, én kjede, én journalpost og én oppgave.
+1. Verifiser artefaktversjon, migreringer, dev-tilganger og Gjenny-kontrakter. Deploy med ny ruting av.
+2. Bekreft at BP, vanlig OMS og eksisterende utvidet OMS følger gammelt løp.
+3. Aktiver nye utvidet OMS-søknader. Bekreft én kjede, én journalpost og én oppgave, og deretter lokal `ARKIVERT` og forventet sletting.
+4. Fremprovoser PDF-/dokarkiv-feil. Bekreft retry og `STOPPET` med lesbar feil, uten oppgave eller tidlig sletting. Rett årsaken og rekjør fra dashboardet uten SQL.
+5. Simuler tapt svar etter ekstern effekt, parallelle overleveringer og restart. Bekreft samme journalpost og oppgave, ikke nye effekter.
+6. Slå av ny ruting mens et mottak venter. Bekreft at det forblir i ny flyt, mens senere søknader bruker gammelt løp.
+7. Bekreft avvist operatør uten rolle, korrekt OBO, ukjent søker-grenen og avtalt event-/varslingsoppførsel.
 
-**Utgangskriterium:** En søknad som feiler i dev, rettes og fullføres fra verktøyet uten SQL.
+**Utgangskriterium:** En ny søknad kan feile, forklares, rekjøres og fullføres fra dashboardet uten SQL, doble effekter, tapt overlevering eller tidlig sletting.
 
-## Avhengigheter
+## Avhengigheter og anbefalt rekkefølge
 
+```text
+5.1–5.3 → 5.5 → 5.6
+5.6 → 5.7 og 5.8
+5.7 → 5.9
+5.10 + 5.11 + 5.9 → 5.12 → 5.13
+5.8 → 5.14
+5.12 + 5.13 + 5.14 → 5.15 → 5.16
 ```
-5.1 L1 ┐
-5.2 L2 ┼→ 5.5 release → 5.6 G1 → 5.7 G2 ─┬→ 5.10 G5 → 5.12 G7 → 5.13 G8 → 5.16
-5.3 L3 ┘                  │               └────────────→ 5.12 G7
-                          └→ 5.8 G3 → 5.14 V1 → 5.15 V2 → 5.16
-5.9 G4 → 5.10 G5
-5.11 G6 (lib, nais og tilgang, start tidlig) → 5.12 G7
-1.4 PDF-mal (felles) → 5.16
-5.4 L4 (valgfri, Å12)
-```
 
-5.9 og 5.11 kan gjøres parallelt med biblioteksarbeidet.
+Start med å verifisere bibliotekets release og avtale/teste Gjenny-kontraktene (5.10). Bibliotekoppsett, journalføring/tilganger og API-arbeid kan deretter gjøres hver for seg. Endelig aktivering venter på hele kjeden, kompatibilitet og operatørtilgang.
 
-## Risiko
+## Teststrategi
 
-| Risiko | Tiltak |
+| Nivå | Krav |
 |---|---|
-| `Kontekst` lekker mellom tasks på IO-poolen | `try/finally { Kontekst.remove() }` og en test |
-| En tjeneste åpner egen `DatabaseContext` eller connection i steget, og skrivet blir ikke atomisk | Gå gjennom kallveiene i T1 og T3 (5.7) |
-| Steget holder en connection under trege kall til pdfgen og dokarkiv | `maxSamtidighet` er 8. Sjekk Hikari-poolen i behandling. Gjør eksterne kall før DB-skrivet. |
-| UNIQUE-migreringen feiler på duplikater | Kjør SQL-sjekken i dev og prod før merge (5.6) |
-| Standard retry gir `STOPPET` etter under ett sekund når dokarkiv er nede en kort stund | L3 (5.3): T2 og T4 får egen `RetryPolicy` i 5.12. Uten det rekjører operatøren manuelt, som er greit i dev. |
-| fnr i `siste_feilmelding` | Unntaksmeldinger i stegene skal bare inneholde `soeknadId`, `sakId` og `journalpostId` |
-| Dobbel journalføring eller kvittering | `eksternReferanseId` og 409 i dokarkiv. `JournalpostSkrevet` oppdaterer bare status. |
-| Republiseringen stopper etter 45 minutter mens T2 står `STOPPET` | Ufarlig. Søknaden ligger i `mottatt_soeknad`, og status `SENDT` i innsendt-soeknad er riktig signal til T4 er kjørt. |
-| Skyggekjøringen kjører samtidig | `SoeknadSkyggeRiver` er uavhengig. Vurder å fjerne skyggen for utvidet OMS når G8 er på. |
+| Repository/DB | Commit og rollback av ferdigstilling + flytvalg + T1. Samtidig start gir én kjede. Stegdata, neste task og `FULLFØRT` følger samme transaksjon. |
+| Gjenny/DB | Parallelle like overleveringer og tapt svar gir én oppgave og samme resultat. Motstridende innhold avvises. |
+| Klienter/steg | PDF-/dokarkiv-feil, 409, retry-policy, ugyldig fnr, manglende sak etter dagens regler og restart mellom ekstern effekt og lokalt skriv. |
+| Regresjon | BP/OMS, kladd, adressebeskyttelse, gammel Kafka-flyt, kvitteringsrivers og integrasjonshendelser. |
+| Auth/API | Feil token/rolle avvises, OBO-operatør kan rekjøre, maskin-API har avgrensede rettigheter. |
+| Dashboard | Eksisterende typecheck/bygg og målrettede adapter-/kontrakttester, deretter ekte dev-kall. |
+
+Bruk repoenes eksisterende testoppsett og dokumenterte kommandoer. Nye migreringer må være kompatible med gammel applikasjonskode. Ikke installér eller oppgrader annen infrastruktur som del av dette arbeidet.
+
+## Utrulling og rollback
+
+Deploy først bakoverkompatible skjema- og API-endringer, deretter ny appkode med ruting av. Merge kan likevel utløse prod-deploy via eksisterende workflows. Konfigurasjon og oppstart skal derfor virke i prod uten at mottaksflyten aktiveres.
+
+Ved feil slås ny tildeling av. Nye søknader kan følge gammelt løp, mens allerede prosessering-eide søknader beholdes og håndteres i sin egen kjede. Ikke rull tilbake til en binær som publiserer slike søknader til Kafka eller sletter dem før overlevering. En sikker rollback-versjon må forstå det lagrede flytvalget. Ellers beholdes kompatibel appkode og den berørte kjeden pauses kontrollert mens feilen rettes.
+
+Dev-tilganger som eventuelt ble deployet fra de gamle PR-branchene må kartlegges og fjernes kontrollert når de er overflødige. Å lukke en PR ruller ikke tilbake en deployment.
 
 ## Utenfor omfang
 
-- Verktøyets fase 4: tilgangslogging av payload-visning, secure-log-splitt, bekreftelse på skrivehandlinger i prod, ROS og prod-manifest med `nav.no`-tenant.
-- Prod-nais for behandling (pdfgen og dokarkiv i prod) og toggle i prod.
-- Revurdering i T3 (Å8).
-- BP og OMS gjennom samme kjede, og å fjerne det gamle løpet i `NySoeknadRiver`.
-- Vedlikeholdsjobber i biblioteket (ledervalg, opprydding av `FULLFØRT`, daglig retry av `STOPPET`) og metrikker.
-
-## Slik bruker du planen i en ny økt
-
-1. Start `copilot` fra `pensjon-etterlatte` og velg agenten `utvidet-oms` med `/agent`.
-2. Legg til repoene med `/add-dir ../efterlatte-prosessering`, `/add-dir ../pensjon-etterlatte-saksbehandling` og `/add-dir ../efterlatte-verktoy`.
-3. Be for eksempel om «Les .github/utvidet-oms/prosessering.md og ta 5.1». Ta én arbeidspakke per økt og per PR.
-4. Når en pakke er ferdig, oppdaterer agenten status i fase 5 i veikartet og legger til en linje i loggen.
+- Automatisk revurdering og nye fagregler (Å3, Å8 og Å12).
+- Flytting av BP/vanlig OMS, meldt inn endring eller eksisterende tasks i behandling.
+- Prod-aktivering, prod-tilganger, ROS og dashboardets resterende prod-krav.
+- Et generelt delt journalføringsbibliotek, en sentral task-database eller et nytt felles admin-rammeverk.

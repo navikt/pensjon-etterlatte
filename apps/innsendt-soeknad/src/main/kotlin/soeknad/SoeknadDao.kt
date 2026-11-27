@@ -8,7 +8,10 @@ import org.slf4j.LoggerFactory
 import soeknad.Queries.CREATE_HENDELSE
 import soeknad.Queries.CREATE_SOEKNAD
 import soeknad.Queries.FINN_KLADD
+import soeknad.Queries.FINN_KLADD_FOR_OPPDATERING
 import soeknad.Queries.FINN_SISTE_STATUS
+import soeknad.Queries.HENT_INNSENDT_SOEKNAD
+import soeknad.Queries.HENT_MOTTAKSFLYT
 import soeknad.Queries.OPPDATER_SOEKNAD
 import soeknad.Queries.OPPDATER_SOEKNAD_META
 import soeknad.Queries.SELECT_KILDE
@@ -17,6 +20,7 @@ import soeknad.Queries.SELECT_OLDEST_UNARCHIVED
 import soeknad.Queries.SELECT_OLDEST_UNSENT
 import soeknad.Queries.SELECT_OLD_NO_BEHANDLING
 import soeknad.Queries.SELECT_RAPPORT
+import soeknad.Queries.SETT_MOTTAKSFLYT
 import soeknad.Queries.SLETT_ARKIVERTE_SOEKNADER
 import soeknad.Queries.SLETT_KLADD
 import soeknad.Queries.SLETT_UTGAATTE_KLADDER
@@ -30,6 +34,7 @@ import soeknad.Status.SENDT
 import soeknad.Status.SLETTET
 import soeknad.Status.UTGAATT
 import soeknad.Status.VENTERBEHANDLING
+import java.sql.Connection
 import java.sql.Timestamp
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -37,7 +42,20 @@ import java.util.UUID
 import javax.sql.DataSource
 
 interface SoeknadRepository {
+    /** Ferdigstiller søknaden i Kafka-løpet. Innhold, status, metadata og mottaksflyt lagres i én transaksjon. */
     fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID
+
+    /**
+     * Ferdigstiller søknaden i prosesseringsløpet. [iSammeTransaksjon] får samme connection, slik at
+     * mottaksdata og første task committer eller rulles tilbake sammen med søknaden.
+     */
+    fun ferdigstillSoeknadForProsessering(
+        soeknad: UlagretSoeknad,
+        iSammeTransaksjon: (Connection, SoeknadID) -> Unit,
+    ): SoeknadID
+
+    /** Mottaksflyten til søknaden. Ukjent søknad gir [Mottaksflyt.KAFKA], som før valget fantes. */
+    fun mottaksflyt(id: SoeknadID): Mottaksflyt
 
     fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad
 
@@ -118,77 +136,150 @@ class PostgresSoeknadRepository private constructor(
     private val postgresTimeZone = ZoneId.of("UTC")
 
     override fun ferdigstillSoeknad(soeknad: UlagretSoeknad): SoeknadID =
-        lagreSoeknad(soeknad)
+        iTransaksjon { c -> ferdigstill(c, soeknad, Mottaksflyt.KAFKA) }
+
+    override fun ferdigstillSoeknadForProsessering(
+        soeknad: UlagretSoeknad,
+        iSammeTransaksjon: (Connection, SoeknadID) -> Unit,
+    ): SoeknadID =
+        iTransaksjon { c ->
+            ferdigstill(c, soeknad, Mottaksflyt.PROSESSERING).also { id -> iSammeTransaksjon(c, id) }
+        }
+
+    private fun ferdigstill(
+        c: Connection,
+        soeknad: UlagretSoeknad,
+        mottaksflyt: Mottaksflyt,
+    ): SoeknadID =
+        lagreSoeknad(c, soeknad, laasKladd = true)
             .id
             .also { id ->
-                logger.info("Ferdigstiller søknad med id $id")
-                nyStatus(id, FERDIGSTILT)
-                oppdaterSoeknadMeta(id, soeknad.type, soeknad.kilde)
+                logger.info("Ferdigstiller søknad med id $id (mottaksflyt=$mottaksflyt)")
+                nyStatus(c, id, FERDIGSTILT)
+                oppdaterSoeknadMeta(c, id, soeknad.type, soeknad.kilde)
+                settMottaksflyt(c, id, mottaksflyt)
             }
 
+    /** Åpner en transaksjon som committer når [block] returnerer, og rulles tilbake hvis den kaster. */
+    fun <T> iTransaksjon(block: (Connection) -> T): T =
+        ds.connection.use { c ->
+            c.autoCommit = false
+            try {
+                block(c).also { c.commit() }
+            } catch (e: Throwable) {
+                c.rollback()
+                throw e
+            }
+        }
+
+    override fun mottaksflyt(id: SoeknadID): Mottaksflyt =
+        connection.use { finnMottaksflyt(it, id) } ?: Mottaksflyt.KAFKA
+
+    fun mottaksflyt(
+        c: Connection,
+        id: SoeknadID,
+    ): Mottaksflyt = finnMottaksflyt(c, id) ?: throw IllegalArgumentException("Fant ikke søknad $id")
+
+    private fun finnMottaksflyt(
+        c: Connection,
+        id: SoeknadID,
+    ): Mottaksflyt? =
+        c
+            .prepareStatement(HENT_MOTTAKSFLYT)
+            .apply { setLong(1, id) }
+            .executeQuery()
+            .singleOrNull { getString("mottaksflyt")?.let { Mottaksflyt.valueOf(it) } ?: Mottaksflyt.KAFKA }
+
+    /** Henter innholdet til en innsendt søknad, eller null hvis innholdet er slettet. */
+    fun hentInnsendtSoeknad(
+        c: Connection,
+        id: SoeknadID,
+    ): LagretSoeknad? =
+        c
+            .prepareStatement(HENT_INNSENDT_SOEKNAD)
+            .apply { setLong(1, id) }
+            .executeQuery()
+            .singleOrNull { LagretSoeknad(getLong("soeknad_id"), getString("fnr"), getString("payload")) }
+
+    private fun settMottaksflyt(
+        c: Connection,
+        id: SoeknadID,
+        mottaksflyt: Mottaksflyt,
+    ) = c
+        .prepareStatement(SETT_MOTTAKSFLYT)
+        .apply {
+            setString(1, mottaksflyt.name)
+            setLong(2, id)
+        }.executeUpdate()
+
     private fun oppdaterSoeknadMeta(
+        c: Connection,
         id: SoeknadID,
         type: SoeknadType?,
         kilde: String?,
-    ) = connection.use {
-        it
-            .prepareStatement(OPPDATER_SOEKNAD_META)
-            .apply {
-                setString(1, type?.name)
-                setString(2, kilde)
-                setLong(3, id)
-            }.executeUpdate()
-    }
+    ) = c
+        .prepareStatement(OPPDATER_SOEKNAD_META)
+        .apply {
+            setString(1, type?.name)
+            setString(2, kilde)
+            setLong(3, id)
+        }.executeUpdate()
 
-    private fun lagreSoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
-        val lagretSoeknad = finnKladd(soeknad.fnr, soeknad.kilde)
+    private fun lagreSoeknad(
+        c: Connection,
+        soeknad: UlagretSoeknad,
+        laasKladd: Boolean = false,
+    ): LagretSoeknad {
+        val lagretSoeknad = finnKladd(c, soeknad.fnr, soeknad.kilde, forOppdatering = laasKladd)
 
         return if (lagretSoeknad == null) {
             logger.info("Søknad finnes ikke i databasen. Oppretter ny søknad.")
-            opprettNySoeknad(soeknad)
+            opprettNySoeknad(c, soeknad)
         } else if (lagretSoeknad.status != null && lagretSoeknad.status != LAGRETKLADD) {
             throw Exception("Bruker har allerede en ferdigstilt søknad (id=${lagretSoeknad.id}) under behandling")
         } else {
             logger.info("Søknad finnes allerede (id=${lagretSoeknad.id}). Oppdaterer søknad med nytt innhold.")
-            oppdaterSoeknad(lagretSoeknad, soeknad.payload)
+            oppdaterSoeknad(c, lagretSoeknad, soeknad.payload)
         }
     }
 
-    private fun opprettNySoeknad(soeknad: UlagretSoeknad): LagretSoeknad {
+    private fun opprettNySoeknad(
+        c: Connection,
+        soeknad: UlagretSoeknad,
+    ): LagretSoeknad {
         val id =
-            connection.use {
-                it
-                    .prepareStatement(CREATE_SOEKNAD)
-                    .apply {
-                        setString(1, soeknad.kilde)
-                        setString(2, soeknad.fnr)
-                        setString(3, soeknad.payload)
-                    }.executeQuery()
-                    .singleOrNull { getLong(1) }!!
-            }
+            c
+                .prepareStatement(CREATE_SOEKNAD)
+                .apply {
+                    setString(1, soeknad.kilde)
+                    setString(2, soeknad.fnr)
+                    setString(3, soeknad.payload)
+                }.executeQuery()
+                .singleOrNull { getLong(1) }!!
 
         return LagretSoeknad(id, soeknad.fnr, soeknad.payload)
     }
 
     private fun oppdaterSoeknad(
+        c: Connection,
         kladd: LagretSoeknad,
         nyDataJson: String,
     ): LagretSoeknad {
-        connection.use {
-            it
-                .prepareStatement(OPPDATER_SOEKNAD)
-                .apply {
-                    setString(1, nyDataJson)
-                    setLong(2, kladd.id)
-                }.executeUpdate()
-        }
+        c
+            .prepareStatement(OPPDATER_SOEKNAD)
+            .apply {
+                setString(1, nyDataJson)
+                setLong(2, kladd.id)
+            }.executeUpdate()
 
         return LagretSoeknad(kladd.id, kladd.fnr, nyDataJson)
     }
 
     override fun lagreKladd(soeknad: UlagretSoeknad): LagretSoeknad =
-        lagreSoeknad(soeknad).also {
-            nyStatus(it.id, LAGRETKLADD)
+        connection.use { c ->
+            lagreSoeknad(c, soeknad).also {
+                nyStatus(c, it.id, LAGRETKLADD)
+            }
         }
 
     override fun soeknadSendt(id: SoeknadID) {
@@ -222,15 +313,22 @@ class PostgresSoeknadRepository private constructor(
         status: Status,
         payload: String = """{}""",
     ) {
-        connection.use {
-            it
-                .prepareStatement(CREATE_HENDELSE)
-                .apply {
-                    setLong(1, soeknadId)
-                    setString(2, status.name)
-                    setString(3, payload)
-                }.execute()
-        }
+        connection.use { nyStatus(it, soeknadId, status, payload) }
+    }
+
+    fun nyStatus(
+        c: Connection,
+        soeknadId: SoeknadID,
+        status: Status,
+        payload: String = """{}""",
+    ) {
+        c
+            .prepareStatement(CREATE_HENDELSE)
+            .apply {
+                setLong(1, soeknadId)
+                setString(2, status.name)
+                setString(3, payload)
+            }.execute()
     }
 
     override fun slettArkiverteSoeknader(): Int =
@@ -262,31 +360,34 @@ class PostgresSoeknadRepository private constructor(
     override fun finnKladd(
         fnr: String,
         kilde: String,
+    ): LagretSoeknad? = connection.use { finnKladd(it, fnr, kilde, forOppdatering = false) }
+
+    private fun finnKladd(
+        c: Connection,
+        fnr: String,
+        kilde: String,
+        forOppdatering: Boolean,
     ): LagretSoeknad? {
         val soeknad =
-            connection.use {
-                it
-                    .prepareStatement(FINN_KLADD)
-                    .apply {
-                        setString(1, fnr)
-                        setString(2, kilde)
-                    }.executeQuery()
-                    .singleOrNull {
-                        LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
-                    }
-            }
+            c
+                .prepareStatement(if (forOppdatering) FINN_KLADD_FOR_OPPDATERING else FINN_KLADD)
+                .apply {
+                    setString(1, fnr)
+                    setString(2, kilde)
+                }.executeQuery()
+                .singleOrNull {
+                    LagretSoeknad(getLong("soeknad_id"), fnr, getString("payload"))
+                }
 
         return if (soeknad != null) {
             val sisteStatus =
-                connection.use {
-                    it
-                        .prepareStatement(FINN_SISTE_STATUS)
-                        .apply { setLong(1, soeknad.id) }
-                        .executeQuery()
-                        .singleOrNull {
-                            getString("status_id")?.let { id -> Status.valueOf(id) }
-                        }
-                }
+                c
+                    .prepareStatement(FINN_SISTE_STATUS)
+                    .apply { setLong(1, soeknad.id) }
+                    .executeQuery()
+                    .singleOrNull {
+                        getString("status_id")?.let { id -> Status.valueOf(id) }
+                    }
 
             soeknad.apply { status = sisteStatus }
         } else {
@@ -380,31 +481,27 @@ class PostgresSoeknadRepository private constructor(
                 .toMap()
         }
 
-    override fun soeknaderMedHendelseStatus(status: Status): Long? {
-        return connection.use {
-            it.prepareStatement(
-                Queries.SELECT_COUNT_PER_HENDELSE_STATUS_LIST
-            )
-                .apply {
+    override fun soeknaderMedHendelseStatus(status: Status): Long? =
+        connection.use {
+            it
+                .prepareStatement(
+                    Queries.SELECT_COUNT_PER_HENDELSE_STATUS_LIST,
+                ).apply {
                     setString(1, status.name)
-                }
-                .executeQuery()
+                }.executeQuery()
                 .singleOrNull { getLong(1) }
         }
-    }
 
-    override fun ferdigstillelsesgradSiste30dagerProsent(): Double {
-        return requireNotNull(
+    override fun ferdigstillelsesgradSiste30dagerProsent(): Double =
+        requireNotNull(
             connection.use {
                 it
                     .prepareStatement(
-                        Queries.FERDIGSTILLELSESGRAD_SISTE_30_DAGER
-                    )
-                    .executeQuery()
+                        Queries.FERDIGSTILLELSESGRAD_SISTE_30_DAGER,
+                    ).executeQuery()
                     .singleOrNull { getDouble(1) }
-            }
+            },
         )
-    }
 
     private fun asLocalDateTime(timestamp: Timestamp): LocalDateTime =
         timestamp
@@ -429,6 +526,15 @@ private object Queries {
 
     const val OPPDATER_SOEKNAD_META = "UPDATE soeknad SET type = ?, kilde = ? where id = ?"
 
+    const val SETT_MOTTAKSFLYT = "UPDATE soeknad SET mottaksflyt = ? WHERE id = ?"
+
+    const val HENT_MOTTAKSFLYT = "SELECT mottaksflyt FROM soeknad WHERE id = ?"
+
+    const val HENT_INNSENDT_SOEKNAD = "SELECT soeknad_id, fnr, payload FROM innhold WHERE soeknad_id = ?"
+
+    // Søknader uten lagret mottaksflyt er ferdigstilt før valget fantes og hører til Kafka-løpet.
+    private const val KUN_KAFKA_FLYT = "coalesce(s.mottaksflyt, 'KAFKA') = 'KAFKA'"
+
     val SELECT_OLD =
         """
         SELECT s.id, i.fnr, i.payload
@@ -438,6 +544,7 @@ private object Queries {
         and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
         OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$VENTERBEHANDLING', '$BEHANDLINGLAGRET'))))
         and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '$FERDIGSTILT')
+        and $KUN_KAFKA_FLYT
         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
         fetch first 10 rows only
         """.trimIndent()
@@ -451,6 +558,7 @@ private object Queries {
         and ((h.status_id = '$SENDT' and h.opprettet > (now() at time zone 'utc' - interval '45 minutes')) 
         OR (h.status_id in ('$ARKIVERT', '$ARKIVERINGSFEIL', '$BEHANDLINGLAGRET'))))
         and exists(select 1 from hendelse h where h.soeknad_id = s.id and h.status_id = '$VENTERBEHANDLING')
+        and $KUN_KAFKA_FLYT
         and s.opprettet < (now() at time zone 'utc' - interval '1 minutes')
         fetch first 10 rows only
         """.trimIndent()
@@ -510,6 +618,15 @@ private object Queries {
         WHERE i.fnr = ? AND s.kilde = ?
         """.trimIndent()
 
+    val FINN_KLADD_FOR_OPPDATERING =
+        """
+        SELECT i.soeknad_id, i.fnr, i.payload, s.kilde
+        FROM innhold i
+        INNER JOIN soeknad s on s.id = i.soeknad_id
+        WHERE i.fnr = ? AND s.kilde = ?
+        FOR UPDATE OF s
+        """.trimIndent()
+
     val FINN_SISTE_STATUS =
         """
         SELECT h.status_id FROM hendelse h
@@ -530,6 +647,7 @@ private object Queries {
         RETURNING i.soeknad_id
         """.trimIndent()
 
+    // Søknader i prosesseringsløpet får ikke nye hendelser mens en task venter, og skal ikke slettes som kladd.
     val SLETT_UTGAATTE_KLADDER =
         """
         DELETE FROM innhold i
@@ -537,6 +655,8 @@ private object Queries {
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.status_id NOT IN (${Status.innsendt.toSqlString()}))
         AND NOT EXISTS (
           SELECT 1 FROM hendelse h WHERE h.soeknad_id = i.soeknad_id AND h.opprettet >= (now() - interval '72 hours'))
+        AND NOT EXISTS (
+          SELECT 1 FROM soeknad s WHERE s.id = i.soeknad_id AND s.mottaksflyt = 'PROSESSERING')
         RETURNING i.soeknad_id, i.fnr
         """.trimIndent()
 
